@@ -122,6 +122,12 @@
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_overview_hide_unmatched_label">Тохирохгүй төхөөрөмжүүдийг нуух</string>
     <string name="settings_overview_hide_unmatched_description">Таны профайлтай тохирохгүй ойрхон байгаа төхөөрөмжүүдийг, тухайлбал бусад хүмүүсийн AirPods-ийг тоймд харуулахгүй.</string>
+    <string name="device_battery_estimate_toggle_label">Батерейны үнэлгээ</string>
+    <string name="device_battery_estimate_card_desc">Энэ төхөөрөмжийн цэнэглэлт, цэнэг ашиглалтын байдлыг сураад үлдсэн цаг, цэнэглэгдэх хүртэлх цаг, батерейны байдлыг үнэлнэ.</string>
+    <string name="device_battery_estimate_reset_action">Сурсан өгөгдлийг сэргээх</string>
+    <string name="device_battery_estimate_reset_desc">Үнэлгээтэй батерейны хугацаанаас эхлүүлэх</string>
+    <string name="device_battery_estimate_reset_confirm_title">Сурсан өгөгдлийг сэргээх үү?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod энэ төхөөрөмжийн хэмжсэн цэнэг ашигалт, цэнэглэх хурд болон батерейны байдлыг мартаж, үнэлгээтэй батерейны хугацаанаас эхлүүлэх болно.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
     <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Фоны тунгалаг байдал</string>
     <string name="widget_config_show_device_label">Төхөөрөмжийн нэрийг харуулах</string>
     <string name="widget_config_reset_label">Анхны утга руу сэргээх</string>
-    <string name="widget_config_preview_resize_hint">Та виджетийг нүүр дэлгэцэндээ байрлуулсны дараа хэмжээг нь өөрчилж болно.</string>
+    <string name="widget_config_preview_resize_hint">Нүүр дэлгэцэд байрлуулсаны дараа виджетийн хэмжээг өөрчилж болно.</string>
     <string name="widget_config_custom_label">Нэмэлт</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Сүүдэр</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Сүүлд харагдсан: %s</string>
     <string name="first_seen_x">Анх харагдсан: %s</string>
     <string name="battery_cached_label">Сүүлд мэдэгдсэн · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dц %2$dм</string>
+    <string name="battery_time_remaining_format_h">%1$dц</string>
+    <string name="battery_time_remaining_format_m">%1$dм</string>
     <string name="permission_post_notifications_label">Мэдэгдэл харуулах</string>
     <string name="permission_post_notifications_description">"CAPod-д таны AirPods-ийн талаарх мэдэгдлүүдийг, жишээ нь холбогдсон үеийн одоогийн төлөвийг харуулах зөвшөөрөл олгоно уу."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Баруун чихэвчийн серийн дугаар</string>
     <string name="device_settings_info_left_bonded_label">Зүүн холбосон</string>
     <string name="device_settings_info_right_bonded_label">Баруун холбосон</string>
+    <string name="device_settings_info_battery_health_label">Батерейны байдал (тооцоолсон)</string>
+    <string name="device_settings_info_battery_health_left_label">Зүүн батерейны байдал (т.)</string>
+    <string name="device_settings_info_battery_health_right_label">Баруун батерейны байдал (т.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Одоо тооцоолж байна, дараа дахин үзээрэй</string>
     <string name="device_settings_info_details_label">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл</string>
     <string name="device_settings_info_details_action">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл үзэх</string>
     <string name="device_settings_info_status_label">Төлөв</string>

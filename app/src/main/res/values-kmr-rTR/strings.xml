@@ -122,6 +122,12 @@
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
     <string name="settings_overview_hide_unmatched_label">Amûrên neçêkirî veşêre</string>
     <string name="settings_overview_hide_unmatched_description">Amûrên nêzîk ên ku bi ti profilên te re li hev nakin di nêrîna giştî de nîşan nede, mînak AirPods-ên kesên din.</string>
+    <string name="device_battery_estimate_toggle_label">Texmînên Pîlandinê</string>
+    <string name="device_battery_estimate_card_desc">Fêr bike ka ev amûr çawa bar bibe û xurin bike da ku hûn karibe dem ê mayînê, dem ê barkirînê û tenduristiya pîlandinê texmîn bikin.</string>
+    <string name="device_battery_estimate_reset_action">Daneyên Fêrkirî Sifir Bike</string>
+    <string name="device_battery_estimate_reset_desc">Ji jiyana pîlandinê ya rêz dîsa destpê bike.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Daneyên Fêrkirî Sifir Bike?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod wê xurina pîvandî ya vî amûrê, leza barkirînê û tenduristiya pîlandinê ji bîr bike, û ji jiyana pîlandinê ya rêz dîsa destpê bike.</string>
     <string name="settings_acknowledgements_label">Spasdarî</string>
     <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
     <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Zelabûna paşxistê</string>
     <string name="widget_config_show_device_label">Navê cihazê nîşan bide</string>
     <string name="widget_config_reset_label">Vegere bergûzariyên niyşê</string>
-    <string name="widget_config_preview_resize_hint">Tu dikarî pêvekê piştî danîna wê li ser ekrana xwe ya malê guhêrbikî.</string>
+    <string name="widget_config_preview_resize_hint">Tu dikarî pîvaza widgetê piştî danîna wê li ser ekrana malê ya te biguherîne.</string>
     <string name="widget_config_custom_label">Xweser</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tarî</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Cara dawîn hat dîtin: %s</string>
     <string name="first_seen_x">Cara yekem hat dîtin: %s</string>
     <string name="battery_cached_label">Dawî zanëbû · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Agahdariyan nîşan bide</string>
     <string name="permission_post_notifications_description">"Destûrê bide CAPod ku li ser AirPods-ên we agahdariyan nîşan bide, mînak rewşa wan a niha dema girêdayî ne."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Serî ya Pod Rast</string>
     <string name="device_settings_info_left_bonded_label">Çepê Girêdayî</string>
     <string name="device_settings_info_right_bonded_label">Rastê Girêdayî</string>
+    <string name="device_settings_info_battery_health_label">Xwendiya Batarayê (texmînî)</string>
+    <string name="device_settings_info_battery_health_left_label">Xwendiya Batarayê ya Çepê (tex.)</string>
+    <string name="device_settings_info_battery_health_right_label">Xwendiya Batarayê ya Rastê (tex.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Hîn tê diyarkirin, dûre kontrol bike</string>
     <string name="device_settings_info_details_label">Hûrguliyîn Amûrê</string>
     <string name="device_settings_info_details_action">Hûrguliyîn amûrê nîşan bide</string>
     <string name="device_settings_info_status_label">Rewş</string>

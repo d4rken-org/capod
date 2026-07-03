@@ -122,6 +122,12 @@
     <string name="settings_general_description">Opće prilagodbe koje utječu na cijelu aplikaciju.</string>
     <string name="settings_overview_hide_unmatched_label">Sakrij neprepoznate uređaje</string>
     <string name="settings_overview_hide_unmatched_description">Ne prikazuj obližnje uređaje koji ne odgovaraju nijednom od tvojih profila u pregledu, npr. AirPods-e drugih osoba.</string>
+    <string name="device_battery_estimate_toggle_label">Procjene baterije</string>
+    <string name="device_battery_estimate_card_desc">Saznajte kako se ovaj uređaj puni i prazni kako bi se procijenilo preostalo vrijeme, vrijeme do punjenja i zdravlje baterije.</string>
+    <string name="device_battery_estimate_reset_action">Obriši naučene podatke</string>
+    <string name="device_battery_estimate_reset_desc">Započnite ponovno od ocijenjene životnosti baterije.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Obriši naučene podatke?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod će zaboraviti izmjereno pražnjenje ovog uređaja, brzinu punjenja i zdravlje baterije, te početi ponovno od ocijenjene životnosti baterije.</string>
     <string name="settings_acknowledgements_label">Zahvale</string>
     <string name="settings_debug_autoreports_label">Automatska izvješća o pogreškama</string>
     <string name="settings_debug_autoreports_description">Automatski prijavljuje probleme, npr. detalje o rušenju aplikacije kako bih mogao shvatiti kako to popraviti.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Prozirnost pozadine</string>
     <string name="widget_config_show_device_label">Prikaži naziv uređaja</string>
     <string name="widget_config_reset_label">Vrati na zadane vrijednosti</string>
-    <string name="widget_config_preview_resize_hint">Možete promijeniti veličinu widgeta nakon što ga postavite na početni zaslon.</string>
+    <string name="widget_config_preview_resize_hint">Možete promijeniti veličinu widgeta nakon postavljanja na početni zaslon.</string>
     <string name="widget_config_custom_label">Prilagođeno</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tamno</string>
@@ -280,6 +286,9 @@
     <string name="last_seen_x">Zadnji put viđeno: %s</string>
     <string name="first_seen_x">Prvi put viđeno: %s</string>
     <string name="battery_cached_label">Zadnje poznato · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Prikaži obavijesti</string>
     <string name="permission_post_notifications_description">"Dopustite CAPod-u prikazivanje obavijesti o vašim AirPods, npr. njihov trenutni status dok su povezane."</string>
     <!-- Device profiles -->
@@ -428,6 +437,11 @@
     <string name="device_settings_info_right_serial_label">Serijski broj desnog poda</string>
     <string name="device_settings_info_left_bonded_label">Lijevo vezano</string>
     <string name="device_settings_info_right_bonded_label">Desno vezano</string>
+    <string name="device_settings_info_battery_health_label">Zdravlje baterije (procijenjena)</string>
+    <string name="device_settings_info_battery_health_left_label">Zdravlje lijeve baterije (proc.)</string>
+    <string name="device_settings_info_battery_health_right_label">Zdravlje desne baterije (proc.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Još se određuje, provjeri ponovno kasnije</string>
     <string name="device_settings_info_details_label">Detalji uređaja</string>
     <string name="device_settings_info_details_action">Prikaži detalje uređaja</string>
     <string name="device_settings_info_status_label">Stanje</string>

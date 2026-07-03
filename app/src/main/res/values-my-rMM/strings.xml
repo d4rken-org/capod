@@ -122,6 +122,12 @@
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
     <string name="settings_overview_hide_unmatched_label">မကိုက်ညီသော ကိရိယာများ ဝှက်ရန်</string>
     <string name="settings_overview_hide_unmatched_description">သင့်ပရိုဖိုင်များနှင့် မကိုက်ညီသော အနီးနားရှိ ကိရိယာများကို မည်သည့်အကြောင်းကြောင့်မဆို ခြုံငုံသုံးသပ်ချက်တွင် မပြပါနှင့်၊ ဥပမာ အခြားသူများ၏ AirPods။</string>
+    <string name="device_battery_estimate_toggle_label">ဘက်ထရီ ခန့်မှန်းချက်များ</string>
+    <string name="device_battery_estimate_card_desc">ဤကိရိယာ မည်သို့ အားသွင်းကြောင်းနှင့် စွမ်းအားကုန်ကြောင်းကို လေ့လာခြင်းဖြင့် ကျန်ချိန်၊ အားပြည့်ချိန်နှင့် ဘက်ထရီကျန်းမာရေးကို ခန့်မှန်းပါ။</string>
+    <string name="device_battery_estimate_reset_action">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်ရန်</string>
+    <string name="device_battery_estimate_reset_desc">သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါ။</string>
+    <string name="device_battery_estimate_reset_confirm_title">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်မည်လား</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod သည် ဤကိရိယာ၏ တိုင်းတာထားသော စွမ်းအားကုန်ဆုံးမှု၊ အားသွင်းနှုန်းနှင့် ဘက်ထရီကျန်းမာရေးကို မေ့ပျောက်စေပြီး၊ သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါမည်။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
     <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">နောက်ခံ ခွဲခြားမှု</string>
     <string name="widget_config_show_device_label">စက်ပစ္စည်း အမည် ပြသရန်</string>
     <string name="widget_config_reset_label">ပုံမှန်သို့ ပြန်လည်ချိန်ညှိသည်</string>
-    <string name="widget_config_preview_resize_hint">သင့် ပင်မစခရင်တွင် widget ချထားပြီးနောက် ၎င်းကို အရွယ်အစား ပြောင်းလဲနိုင်သည်။</string>
+    <string name="widget_config_preview_resize_hint">widget ကို သင့်ပင်မစာမျက်နှာတွင် ထားရှိပြီးနောက် အရွယ်အစား ပြန်လည်ချိန်ညှိနိုင်ပါသည်။</string>
     <string name="widget_config_custom_label">အလိုအလျောက်</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">အမှောင်</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">နောက်ဆုံးတွေ့ရှိချိန်: %s</string>
     <string name="first_seen_x">ပထမဆုံးတွေ့ရှိချိန်: %s</string>
     <string name="battery_cached_label">နောက်ဆုံးသိသည် · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dနာရီ %2$dမိနစ်</string>
+    <string name="battery_time_remaining_format_h">%1$dနာရီ</string>
+    <string name="battery_time_remaining_format_m">%1$dမိနစ်</string>
     <string name="permission_post_notifications_label">အသိပေးချက်များပြသရန်</string>
     <string name="permission_post_notifications_description">"သင့် AirPods အကြောင်း အသိပေးချက်များပြသရန် CAPod ကိုခွင့်ပြုပါ၊ ဥပမာ ချိတ်ဆက်ထားစဉ် ၎င်းတို့၏ လက်ရှိအခြေအနေ။"</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">ညာဘက် Pod စီရီရယ်နံပါတ်</string>
     <string name="device_settings_info_left_bonded_label">ဘယ်ဘက် ချိတ်ဆက်ထားသည်</string>
     <string name="device_settings_info_right_bonded_label">ညာဘက် ချိတ်ဆက်ထားသည်</string>
+    <string name="device_settings_info_battery_health_label">ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
+    <string name="device_settings_info_battery_health_left_label">ဘယ်ဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
+    <string name="device_settings_info_battery_health_right_label">ညာဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">ယခုသတ်မှတ်နေဆဲဖြစ်ပါသည်၊ နောက်မှ ပြန်စစ်ပါ</string>
     <string name="device_settings_info_details_label">ကိရိယာ အသေးစိတ်</string>
     <string name="device_settings_info_details_action">ကိရိယာ အသေးစိတ်ကို ပြသပါ</string>
     <string name="device_settings_info_status_label">အခြေအနေ</string>

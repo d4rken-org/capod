@@ -122,6 +122,12 @@
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
     <string name="settings_overview_hide_unmatched_label">Slēpt neatbilstošās ierīces</string>
     <string name="settings_overview_hide_unmatched_description">Nerādīt tuvumā esošās ierīces, kas neatbilst nevienam no jūsu profiliem pārskatā, piemēram, citu cilvēku AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">Baterijas novērtējumi</string>
+    <string name="device_battery_estimate_card_desc">Uzziniet, kā šī ierīce tiek uzlādēta un iztukšojas, lai novērtētu atlikušo laiku, laiku līdz pilnai uzlādei un baterijas stāvokli.</string>
+    <string name="device_battery_estimate_reset_action">Atiestatīt apgūtos datus</string>
+    <string name="device_battery_estimate_reset_desc">Sāciet no jauna ar norādīto baterijas darbības ilgumu.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Atiestatīt apgūtos datus?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod aizmirsīs šīs ierīces izmērīto baterijas noplūdi, uzlādes ātrumu un baterijas stāvokli, un sāks no jauna ar norādīto baterijas darbības ilgumu.</string>
     <string name="settings_acknowledgements_label">Pateicības</string>
     <string name="settings_debug_autoreports_label">Automātiski kļūdu ziņojumi</string>
     <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Fona caursspīdīgums</string>
     <string name="widget_config_show_device_label">Rādīt ierīces nosaukumu</string>
     <string name="widget_config_reset_label">Atiestatīt noklusējumos</string>
-    <string name="widget_config_preview_resize_hint">Varat mainīt logrīka izmēru pēc tā novietošanas sākumekrānā.</string>
+    <string name="widget_config_preview_resize_hint">Pēc logrīka novietošanas uz sākuma ekrāna varat mainīt tā lielumu.</string>
     <string name="widget_config_custom_label">Pielāgots</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tumšs</string>
@@ -280,6 +286,9 @@
     <string name="last_seen_x">Pēdējoreiz redzēta: %s</string>
     <string name="first_seen_x">Pirmo reizi redzēta: %s</string>
     <string name="battery_cached_label">Pēdējoreiz zināms · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Rādīt paziņojumus</string>
     <string name="permission_post_notifications_description">"Atļaujiet CAPod rādīt paziņojumus par jūsu AirPods, piem., to pašreizējo statusu, kamēr tie ir savienoti."</string>
     <!-- Device profiles -->
@@ -428,6 +437,11 @@
     <string name="device_settings_info_right_serial_label">Labās austiņas sērijas numurs</string>
     <string name="device_settings_info_left_bonded_label">Kreisais savienots</string>
     <string name="device_settings_info_right_bonded_label">Labais savienots</string>
+    <string name="device_settings_info_battery_health_label">Baterijas stāvoklis (novērtēts)</string>
+    <string name="device_settings_info_battery_health_left_label">Kreisās baterijas stāvoklis (novērt.)</string>
+    <string name="device_settings_info_battery_health_right_label">Labās baterijas stāvoklis (novērt.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Joprojām tiek aprēķināts, vēlāk pārbaudiet</string>
     <string name="device_settings_info_details_label">Ierīces informācija</string>
     <string name="device_settings_info_details_action">Rādīt ierīces informāciju</string>
     <string name="device_settings_info_status_label">Stāvoklis</string>

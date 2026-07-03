@@ -122,6 +122,12 @@
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
     <string name="settings_overview_hide_unmatched_label">Скрывать несопряжённые устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показывать ближайшие устройства, не соответствующие ни одному из твоих профилей, в обзоре, например AirPods других людей.</string>
+    <string name="device_battery_estimate_toggle_label">Расчётное время батареи</string>
+    <string name="device_battery_estimate_card_desc">Узнайте, как это устройство заряжается и разряжается, чтобы оценить оставшееся время, время до полной зарядки и состояние батареи.</string>
+    <string name="device_battery_estimate_reset_action">Сбросить собранные данные</string>
+    <string name="device_battery_estimate_reset_desc">Начать заново с номинальной емкости батареи.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Сбросить собранные данные?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod забудет измеренный расход, скорость зарядки и состояние батареи этого устройства и начнет заново с номинальной емкости батареи.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
     <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
@@ -157,7 +163,7 @@ AL_Cool_T</string>
     <string name="widget_config_transparency_label">Прозрачность фона</string>
     <string name="widget_config_show_device_label">Показывать имя устройства</string>
     <string name="widget_config_reset_label">Сброс к умолчаниям</string>
-    <string name="widget_config_preview_resize_hint">Вы можете изменить размер виджета после его размещения на Вашем экране.</string>
+    <string name="widget_config_preview_resize_hint">Вы можете изменить размер виджета после его размещения на домашнем экране.</string>
     <string name="widget_config_custom_label">Пользовательский</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Тёмный</string>
@@ -283,6 +289,9 @@ AL_Cool_T</string>
     <string name="last_seen_x">Последние: %s</string>
     <string name="first_seen_x">Первые: %s</string>
     <string name="battery_cached_label">Последнее известное · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d ч %2$d мин</string>
+    <string name="battery_time_remaining_format_h">%1$d ч</string>
+    <string name="battery_time_remaining_format_m">%1$d мин</string>
     <string name="permission_post_notifications_label">Показывать уведомления</string>
     <string name="permission_post_notifications_description">"Разрешить CAPod показывать уведомления о Ваших AirPods, например текущий статус при подключении."</string>
     <!-- Device profiles -->
@@ -434,6 +443,11 @@ AL_Cool_T</string>
     <string name="device_settings_info_right_serial_label">Серийный номер правого наушника</string>
     <string name="device_settings_info_left_bonded_label">Левый сопряжён</string>
     <string name="device_settings_info_right_bonded_label">Правый сопряжён</string>
+    <string name="device_settings_info_battery_health_label">Состояние батареи (расчётное)</string>
+    <string name="device_settings_info_battery_health_left_label">Состояние батареи слева (расч.)</string>
+    <string name="device_settings_info_battery_health_right_label">Состояние батареи справа (расч.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Еще определяется, проверьте позже</string>
     <string name="device_settings_info_details_label">Подробности устройства</string>
     <string name="device_settings_info_details_action">Показать подробности устройства</string>
     <string name="device_settings_info_status_label">Состояние</string>

@@ -122,6 +122,12 @@
     <string name="settings_general_description">Ajustes gerais que afetam toda a aplicação.</string>
     <string name="settings_overview_hide_unmatched_label">Ocultar dispositivos sem correspondência</string>
     <string name="settings_overview_hide_unmatched_description">Não mostrar na vista geral os dispositivos próximos que não correspondem a nenhum dos teus perfis, por ex. os AirPods de outras pessoas.</string>
+    <string name="device_battery_estimate_toggle_label">Estimativas de bateria</string>
+    <string name="device_battery_estimate_card_desc">Saiba como este dispositivo carrega e descarrega para estimar o tempo restante, tempo até estar totalmente carregado e saúde da bateria.</string>
+    <string name="device_battery_estimate_reset_action">Repor dados aprendidos</string>
+    <string name="device_battery_estimate_reset_desc">Recomeçar a partir da duração da bateria nominal.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Repor dados aprendidos?</string>
+    <string name="device_battery_estimate_reset_confirm_message">O CAPod esquecerá o consumo medido, velocidade de carregamento e saúde da bateria deste dispositivo, e recomeçará a partir da duração da bateria nominal.</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
     <string name="settings_debug_autoreports_label">Relatórios de erros automáticos</string>
     <string name="settings_debug_autoreports_description">Relata problemas automaticamente, p. ex., detalhes sobre uma falha da aplicação para que eu possa descobrir como corrigi-la.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Transparência do fundo</string>
     <string name="widget_config_show_device_label">Mostrar nome do dispositivo</string>
     <string name="widget_config_reset_label">Restaurar padrões</string>
-    <string name="widget_config_preview_resize_hint">Pode redimensionar o widget depois de o colocar no seu ecrã inicial.</string>
+    <string name="widget_config_preview_resize_hint">Pode redimensionar o widget após colocar no seu ecrã inicial.</string>
     <string name="widget_config_custom_label">Personalizado</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Escuro</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Visto pela última vez: %s</string>
     <string name="first_seen_x">Visto pela primeira vez: %s</string>
     <string name="battery_cached_label">Último conhecido · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mostrar notificações</string>
     <string name="permission_post_notifications_description">"Permitir que o CAPod mostre notificações sobre os seus AirPods, p. ex., o estado atual enquanto ligado."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Número de Série do Auricular Direito</string>
     <string name="device_settings_info_left_bonded_label">Esquerdo Vinculado</string>
     <string name="device_settings_info_right_bonded_label">Direito Vinculado</string>
+    <string name="device_settings_info_battery_health_label">Saúde da Bateria (estimada)</string>
+    <string name="device_settings_info_battery_health_left_label">Saúde da Bateria Esquerda (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Saúde da Bateria Direita (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Ainda a determinar, volte mais tarde</string>
     <string name="device_settings_info_details_label">Detalhes do Dispositivo</string>
     <string name="device_settings_info_details_action">Mostrar detalhes do dispositivo</string>
     <string name="device_settings_info_status_label">Estado</string>

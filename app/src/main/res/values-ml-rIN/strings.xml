@@ -122,6 +122,12 @@
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
     <string name="settings_overview_hide_unmatched_label">പൊരുത്തപ്പെടാത്ത ഉപകരണങ്ങൾ മറയ്ക്കുക</string>
     <string name="settings_overview_hide_unmatched_description">നിങ്ങളുടെ ഒരു പ്രൊഫൈലുമായും പൊരുത്തപ്പെടാത്ത അടുത്തുള്ള ഉപകരണങ്ങൾ അവലോകനത്തിൽ കാണിക്കരുത്, ഉദാ. മറ്റുള്ളവരുടെ AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">ബാറ്ററി കണക്കുമാനം</string>
+    <string name="device_battery_estimate_card_desc">ഈ ഉപകരണം എങ്ങനെ ചാർജ് ചെയ്യുകയും വെറ്റുകയും ചെയ്യുന്നുവെന്ന് പഠിച്ച് ശേഷിക്കുന്ന സമയം, ചാർജാകാനുള്ള സമയം, ബാറ്ററി ആരോഗ്യം എന്നിവ കണക്കാക്കുക</string>
+    <string name="device_battery_estimate_reset_action">പഠിപ്പിച്ച ഡാറ്റ പുനരാരംഭിക്കുക</string>
+    <string name="device_battery_estimate_reset_desc">നിർദ്ദിഷ്ട ബാറ്ററി കാലാവധിയിൽ നിന്ന് വീണ്ടും ആരംഭിക്കുക</string>
+    <string name="device_battery_estimate_reset_confirm_title">പഠിപ്പിച്ച ഡാറ്റ പുനരാരംഭിക്കണോ?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ഈ ഉപകരണത്തിന്റെ അളന്ന നഷ്ടം, ചാർജിംഗ് വേഗത, ബാറ്ററി ആരോഗ്യം എന്നിവ മറന്ന് നിർദ്ദിഷ്ട ബാറ്ററി കാലാവധിയിൽ നിന്ന് വീണ്ടും ആരംഭിക്കും</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
     <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">പശ്ചാത്തല സ്വച്ഛത</string>
     <string name="widget_config_show_device_label">ഉപകരണത്തിന്റെ പേര് കാണിക്കുക</string>
     <string name="widget_config_reset_label">ഡിഫോള്‍ട്ടിലേക്ക് പുനഃസജ്ജമാക്കുക</string>
-    <string name="widget_config_preview_resize_hint">ഹോം സ്ക്രീനിൽ വിജറ്റ് വെച്ചതിനുശേഷം നിങ്ങൾക്ക് അതിന്റെ വലുപ്പം മാറ്റാൻ കഴിയും.</string>
+    <string name="widget_config_preview_resize_hint">നിങ്ങൾ വിജെറ്റ് നിങ്ങളുടെ ഹോം സ്ക്രീനിൽ സ്ഥാപിച്ച ശേഷം അതിന്റെ വലിപ്പം മാറ്റാം</string>
     <string name="widget_config_custom_label">കസ്റ്റം</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ഗാഢം</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">അവസാനം കണ്ടത്: %s</string>
     <string name="first_seen_x">ആദ്യം കണ്ടത്: %s</string>
     <string name="battery_cached_label">അവസാനമായി അറിയപ്പെടുന്നത് · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dമ %2$dമി</string>
+    <string name="battery_time_remaining_format_h">%1$dമ</string>
+    <string name="battery_time_remaining_format_m">%1$dമി</string>
     <string name="permission_post_notifications_label">അറിയിപ്പുകൾ കാണിക്കുക</string>
     <string name="permission_post_notifications_description">"നിങ്ങളുടെ AirPods-നെ കുറിച്ചുള്ള അറിയിപ്പുകൾ കാണിക്കാൻ CAPod-നെ അനുവദിക്കുക, ഉദാ. കണക്റ്റുചെയ്തിരിക്കുമ്പോൾ അവയുടെ നിലവിലെ നില."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">വലതു പോഡ് സീരിയൽ</string>
     <string name="device_settings_info_left_bonded_label">ഇടത് ബോണ്ട് ചെയ്തത്</string>
     <string name="device_settings_info_right_bonded_label">വലത് ബോണ്ട് ചെയ്തത്</string>
+    <string name="device_settings_info_battery_health_label">ബാറ്ററി ആരോഗ്യം (കണക്കാക്കപ്പെട്ടത്)</string>
+    <string name="device_settings_info_battery_health_left_label">ഇടത് ബാറ്ററി ആരോഗ്യം (കണ.)</string>
+    <string name="device_settings_info_battery_health_right_label">വലത് ബാറ്ററി ആരോഗ്യം (കണ.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">ഇപ്പോഴും നിർണയിക്കുന്നു, പിന്നീട് നോക്കുക</string>
     <string name="device_settings_info_details_label">ഡിവൈസ് വിവരങ്ങൾ</string>
     <string name="device_settings_info_details_action">ഡിവൈസ് വിവരങ്ങൾ കാണിക്കുക</string>
     <string name="device_settings_info_status_label">നില</string>

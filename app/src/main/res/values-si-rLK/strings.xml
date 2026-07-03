@@ -122,6 +122,12 @@
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
     <string name="settings_overview_hide_unmatched_label">නොගැලපෙන උපාංග සඟවන්න</string>
     <string name="settings_overview_hide_unmatched_description">ඔබේ profile වල නොගැලපෙන ආසන්නයේ ඇති උපාංග දළ ළිස්ලේෂණයේ නොපෙන්වන්න, උදා. අනේකුත් පුද්ගලයන්ගේ AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">බැටරි ඇස්තමේන්තු</string>
+    <string name="device_battery_estimate_card_desc">මෙම උපකරණයේ ආරෝපණය සහ පිටවීම ඉගෙන ගෙන ඉතිරි කාලය, ආරෝපිත වන කාලය සහ බැටරි සෞඛ්‍යය ඇස්තමේන්තු කරන්න.</string>
+    <string name="device_battery_estimate_reset_action">ඉගෙනගත් දත්ත ප්‍රතිසකසන්න</string>
+    <string name="device_battery_estimate_reset_desc">ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගන්න</string>
+    <string name="device_battery_estimate_reset_confirm_title">ඉගෙනගත් දත්ත ප්‍රතිසකසන්නද?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod මෙම උපකරණයේ මනින ලද පිටවීම, ආරෝපණ වේගය සහ බැටරි සෞඛ්‍යය අමතක කරයි, සහ ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගනී.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
     <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
     <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">පසුබිම් පාරදෘශ්‍යතාවය</string>
     <string name="widget_config_show_device_label">උපාංග නම පෙන්වන්න</string>
     <string name="widget_config_reset_label">පෙරනිමි බිම් කරන්න</string>
-    <string name="widget_config_preview_resize_hint">ඔබේ මුල් තිරය මත එය තැබීමෙන් පසු ඔබට විජටය ප්‍රතිප්‍රමාණ කළ හැක.</string>
+    <string name="widget_config_preview_resize_hint">ඔබට විජට්ව ඔබේ මුල් තිරෙහි තැබීමෙන් පසු ප්‍රමාණයට පත් කළ හැකිය.</string>
     <string name="widget_config_custom_label">රුචිකර</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">අඳුරු</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">අවසන් වරට දුටු: %s</string>
     <string name="first_seen_x">පළමු වරට දුටු: %s</string>
     <string name="battery_cached_label">අවසන් දන්නා · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dපෙ %2$dමි</string>
+    <string name="battery_time_remaining_format_h">%1$dපෙ</string>
+    <string name="battery_time_remaining_format_m">%1$dමි</string>
     <string name="permission_post_notifications_label">දැනුම්දීම් පෙන්වන්න</string>
     <string name="permission_post_notifications_description">"ඔබගේ AirPods ගැන දැනුම්දීම් පෙන්වීමට CAPod හට ඉඩ දෙන්න, උදා: සම්බන්ධ වූ විට ඔවුන්ගේ වර්තමාන තත්ත්වය."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">දකුණු Pod අනුක්‍රමික අංකය</string>
     <string name="device_settings_info_left_bonded_label">වම් බැඳුණා</string>
     <string name="device_settings_info_right_bonded_label">දකුණු බැඳුණා</string>
+    <string name="device_settings_info_battery_health_label">බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
+    <string name="device_settings_info_battery_health_left_label">වම බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
+    <string name="device_settings_info_battery_health_right_label">දකුණු බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">තවමත් තීරණය කරනවා, පසුව නැවත බලන්න</string>
     <string name="device_settings_info_details_label">උපකරණ විස්තර</string>
     <string name="device_settings_info_details_action">උපකරණ විස්තර පේන්වන්න</string>
     <string name="device_settings_info_status_label">තත්වය</string>

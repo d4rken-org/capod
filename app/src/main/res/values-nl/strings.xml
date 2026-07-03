@@ -122,6 +122,12 @@
     <string name="settings_general_description">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_overview_hide_unmatched_label">Niet-overeenkomende apparaten verbergen</string>
     <string name="settings_overview_hide_unmatched_description">Verberg apparaten in het overzicht die niet overeenkomen met je profielen, bijv. AirPods van anderen.</string>
+    <string name="device_battery_estimate_toggle_label">Batterijschattingen</string>
+    <string name="device_battery_estimate_card_desc">Leer hoe dit apparaat oplaadt en ontlaadt om de resterende tijd, oplaadtijd en batterijgezondheid in te schatten.</string>
+    <string name="device_battery_estimate_reset_action">Leergegevens wissen</string>
+    <string name="device_battery_estimate_reset_desc">Opnieuw beginnen met de nominale batterijduur.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Leergegevens wissen?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod zal het verbruik, de oplaadsnelheid en batterijgezondheid van dit apparaat vergeten en opnieuw met de nominale batterijduur beginnen.</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
     <string name="settings_debug_autoreports_label">Automatische bugrapporten</string>
     <string name="settings_debug_autoreports_description">Rapporteert automatisch problemen, b.v. details over een app-crash, zodat ik kan uitzoeken hoe ik dit kan oplossen.</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Laatst gezien: %s</string>
     <string name="first_seen_x">Voor het eerst gezien: %s</string>
     <string name="battery_cached_label">Laatst bekend \u00B7 %s</string>
+    <string name="battery_time_remaining_format_hm">%1$du %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$du</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Toon notificaties</string>
     <string name="permission_post_notifications_description">"Sta CAPod toe om meldingen over je AirPods weer te geven, bijv. over hun huidige status wanneer ze verbonden zijn."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Rechter Pod Serienummer</string>
     <string name="device_settings_info_left_bonded_label">Links Gekoppeld</string>
     <string name="device_settings_info_right_bonded_label">Rechts Gekoppeld</string>
+    <string name="device_settings_info_battery_health_label">Batterijgezondheid (geschat)</string>
+    <string name="device_settings_info_battery_health_left_label">Linker batterijgezondheid (gesch.)</string>
+    <string name="device_settings_info_battery_health_right_label">Rechter batterijgezondheid (gesch.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Nog aan het bepalen, kom later terug</string>
     <string name="device_settings_info_details_label">Apparaatdetails</string>
     <string name="device_settings_info_details_action">Apparaatdetails weergeven</string>
     <string name="device_settings_info_status_label">Status</string>

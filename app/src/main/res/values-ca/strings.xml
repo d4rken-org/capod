@@ -122,6 +122,12 @@
     <string name="settings_general_description">Configuracions generals que afecten a tota l\'aplicació.</string>
     <string name="settings_overview_hide_unmatched_label">Amaga els dispositius no coincidents</string>
     <string name="settings_overview_hide_unmatched_description">No mostris els dispositius propers que no coincideixen amb cap dels perfils a la vista general. P. ex. els AirPods d’altres persones.</string>
+    <string name="device_battery_estimate_toggle_label">Estimació de la bateria</string>
+    <string name="device_battery_estimate_card_desc">Obteniu informació sobre com es carrega i s\'esgota aquest dispositiu per estimar el temps restant, el temps fins que es carrega completament i l\'estat de la bateria.</string>
+    <string name="device_battery_estimate_reset_action">Restableix les dades apreses</string>
+    <string name="device_battery_estimate_reset_desc">Comença de nou des de la durada nominal de la bateria.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Voleu restablir les dades apreses?</string>
+    <string name="device_battery_estimate_reset_confirm_message">El CAPod oblidarà el consum mesurat d\'aquest dispositiu, la velocitat de càrrega i la salut de la bateria, i tornarà a començar des de la durada nominal de la bateria.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
     <string name="settings_debug_autoreports_label">Informes automàtics d\'errors</string>
     <string name="settings_debug_autoreports_description">Informa automàticament de problemes. Per exemple: detalls sobre un bloqueig de l\'aplicació perquè pugui esbrinar com solucionar-ho.</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Últim cop vist: %s</string>
     <string name="first_seen_x">Primera vegada vist: %s</string>
     <string name="battery_cached_label">Última vegada vist · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mostra notificacions</string>
     <string name="permission_post_notifications_description">"Permet que el CAPod mostri notificacions sobre els vostres AirPods, p. ex. el seu estat actual mentre estan connectats."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Número de sèrie de l\'auricular dret</string>
     <string name="device_settings_info_left_bonded_label">Esquerre vinculat</string>
     <string name="device_settings_info_right_bonded_label">Dret vinculat</string>
+    <string name="device_settings_info_battery_health_label">Salut de la bateria (estimat)</string>
+    <string name="device_settings_info_battery_health_left_label">Salut de la bateria esquerra (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Salut de la bateria dreta (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Encara s\'està determinant, torneu més tard</string>
     <string name="device_settings_info_details_label">Detalls del dispositiu</string>
     <string name="device_settings_info_details_action">Mostra els detalls del dispositiu</string>
     <string name="device_settings_info_status_label">Estat</string>

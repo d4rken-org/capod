@@ -122,6 +122,12 @@
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
     <string name="settings_overview_hide_unmatched_label">సరిపోలని పరికరాలను దాచు</string>
     <string name="settings_overview_hide_unmatched_description">మీ ప్రొఫైల్‌లలో ఏదీ సరిపోలని దగ్గరి పరికరాలను అవలోకనంలో చూపించవద్దు, ఉదా. ఇతరుల AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">బ్యాటరీ అంచనాలు</string>
+    <string name="device_battery_estimate_card_desc">ఈ పరికరం ఎలా చార్జ్ చేయబడుతుందో మరియు ఎలా డ్రెయిన్ అవుతుందో తెలుసుకోండి మరియు మిగిలిన సమయం, చార్జ్ కాబడటానికి పట్టే సమయం మరియు బ్యాటరీ ఆరోగ్యం అంచనా వేయండి</string>
+    <string name="device_battery_estimate_reset_action">నేర్చిన డేటాను రీసెట్ చేయండి</string>
+    <string name="device_battery_estimate_reset_desc">రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించండి</string>
+    <string name="device_battery_estimate_reset_confirm_title">నేర్చిన డేటాను రీసెట్ చేయాలా?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ఈ పరికరం యొక్క కొలిచిన డ్రెయిన్, చార్జింగ్ వేగం మరియు బ్యాటరీ ఆరోగ్యం మరచిపోతుంది మరియు రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించుకుంటుంది</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
     <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">నేపథ్య నిజ్జీవనత</string>
     <string name="widget_config_show_device_label">పరికర పేరు చూపించు</string>
     <string name="widget_config_reset_label">డిఫాల్ట్‌లకు రీసెట్ చేయండి</string>
-    <string name="widget_config_preview_resize_hint">మీరు హోమ్ స్క్రీన్‌పై విడ్జెట్‌ను ఉంచిన తర్వాత దాన్ని పరిమాణం మార్చవచ్చు.</string>
+    <string name="widget_config_preview_resize_hint">మీరు దానిని మీ హోమ్ స్క్రీన్‌పై ఉంచిన తర్వాత విడ్జెట్‌ను రీసైజ్ చేయవచ్చు</string>
     <string name="widget_config_custom_label">కస్టమ్</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">చీకటి</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">చివరిగా చూడబడింది: %s</string>
     <string name="first_seen_x">మొదటిసారి చూడబడింది: %s</string>
     <string name="battery_cached_label">చివరిగా తెలిసినది · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">నోటిఫికేషన్‌లు చూపించు</string>
     <string name="permission_post_notifications_description">"మీ AirPods గురించి నోటిఫికేషన్‌లు చూపించడానికి CAPodను అనుమతించండి, ఉదా. కనెక్ట్ అయినప్పుడు వాటి ప్రస్తుత స్థితి."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">కుడి పాడ్ సీరియల్</string>
     <string name="device_settings_info_left_bonded_label">ఎడమ బంధించబడింది</string>
     <string name="device_settings_info_right_bonded_label">కుడి బంధించబడింది</string>
+    <string name="device_settings_info_battery_health_label">బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
+    <string name="device_settings_info_battery_health_left_label">ఎడమ బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
+    <string name="device_settings_info_battery_health_right_label">కుడి బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">ఇంకా నిర్ణయం జరుగుతున్నది, తరువాత మరోసారి చూడండి</string>
     <string name="device_settings_info_details_label">పరికరం వివరాలు</string>
     <string name="device_settings_info_details_action">పరికరం వివరాలు చూపించు</string>
     <string name="device_settings_info_status_label">స్థితి</string>

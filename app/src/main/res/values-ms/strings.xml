@@ -122,6 +122,12 @@
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
     <string name="settings_overview_hide_unmatched_label">Sembunyikan peranti yang tidak sepadan</string>
     <string name="settings_overview_hide_unmatched_description">Jangan tunjukkan peranti berdekatan yang tidak sepadan dengan mana-mana profil anda dalam gambaran keseluruhan, cth. AirPods orang lain.</string>
+    <string name="device_battery_estimate_toggle_label">Anggaran Bateri</string>
+    <string name="device_battery_estimate_card_desc">Pelajari bagaimana peranti ini mengisi daya dan berkurang untuk menganggar masa baki, masa sehingga diisi daya sepenuhnya, dan kesihatan bateri.</string>
+    <string name="device_battery_estimate_reset_action">Tetapkan semula data yang dipelajari</string>
+    <string name="device_battery_estimate_reset_desc">Mulai semula daripada hayat bateri yang dinilai.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Tetapkan semula data yang dipelajari?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod akan melupakan penyusutan terukur peranti ini, kecepatan pengisian daya, dan kesihatan bateri, serta memulai semula daripada hayat bateri yang dinilai.</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
     <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Ketelusan latar belakang</string>
     <string name="widget_config_show_device_label">Tampilkan nama peranti</string>
     <string name="widget_config_reset_label">Tetapkan semula ke nilai lalai</string>
-    <string name="widget_config_preview_resize_hint">Anda boleh mengubah saiz widget selepas meletakkannya pada skrin utama anda.</string>
+    <string name="widget_config_preview_resize_hint">Anda boleh mengubah saiz widget selepas meletakkannya di skrin utama anda.</string>
     <string name="widget_config_custom_label">Tersuai</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Gelap</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">Terakhir dilihat: %s</string>
     <string name="first_seen_x">Pertama kali dilihat: %s</string>
     <string name="battery_cached_label">Terakhir diketahui · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dj %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dj</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Tunjukkan pemberitahuan</string>
     <string name="permission_post_notifications_description">"Benarkan CAPod menunjukkan pemberitahuan tentang AirPods anda, cth. status semasa mereka semasa disambungkan."</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">Nombor Siri Pod Kanan</string>
     <string name="device_settings_info_left_bonded_label">Kiri Terikat</string>
     <string name="device_settings_info_right_bonded_label">Kanan Terikat</string>
+    <string name="device_settings_info_battery_health_label">Kesihatan Bateri (anggaran)</string>
+    <string name="device_settings_info_battery_health_left_label">Kesihatan Bateri Kiri (ang.)</string>
+    <string name="device_settings_info_battery_health_right_label">Kesihatan Bateri Kanan (ang.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Sedang menentukan, periksa kembali kemudian</string>
     <string name="device_settings_info_details_label">Butiran Peranti</string>
     <string name="device_settings_info_details_action">Tunjuk butiran peranti</string>
     <string name="device_settings_info_status_label">Status</string>

@@ -122,6 +122,12 @@
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
     <string name="settings_overview_hide_unmatched_label">Itago ang mga hindi tugmang device</string>
     <string name="settings_overview_hide_unmatched_description">Huwag ipakita ang mga kalapit na device na hindi tugma sa alinman sa iyong mga profile sa pangkalahatang-tanaw, hal. ang mga AirPods ng ibang tao.</string>
+    <string name="device_battery_estimate_toggle_label">Mga Pagtataya ng Baterya</string>
+    <string name="device_battery_estimate_card_desc">Alamin kung paano nag-charge at gumagamit ng kuryente ang device na ito upang matantya ang natitirang oras, oras hanggang sa puno, at kalusugan ng baterya.</string>
+    <string name="device_battery_estimate_reset_action">Burahin ang natutunan na datos</string>
+    <string name="device_battery_estimate_reset_desc">Magsimula muli mula sa rated na buhay ng baterya.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Burahin ang natutunan na datos?</string>
+    <string name="device_battery_estimate_reset_confirm_message">Makakalimutan ng CAPod ang sinusukat na paggamit ng kuryente, bilis ng pag-charge, at kalusugan ng baterya ng device na ito, at magsisimula muli mula sa rated na buhay ng baterya.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
     <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Transparency ng background</string>
     <string name="widget_config_show_device_label">Ipakita ang pangalan ng device</string>
     <string name="widget_config_reset_label">I-reset sa mga default</string>
-    <string name="widget_config_preview_resize_hint">Maaari mong baguhin ang laki ng widget pagkatapos ilagay ito sa iyong home screen.</string>
+    <string name="widget_config_preview_resize_hint">Maaari mong baguhin ang laki ng widget pagkatapos itong ilagay sa iyong home screen.</string>
     <string name="widget_config_custom_label">Pasadyang</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Madilim</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Huling nakita: %s</string>
     <string name="first_seen_x">Unang nakita: %s</string>
     <string name="battery_cached_label">Huling kilala · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$d h</string>
+    <string name="battery_time_remaining_format_m">%1$d m</string>
     <string name="permission_post_notifications_label">Ipakita ang mga notipikasyon</string>
     <string name="permission_post_notifications_description">"Payagan ang CAPod na magpakita ng mga notipikasyon tungkol sa iyong AirPods, hal. ang kanilang kasalukuyang status habang konektado."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Serial ng Kanang Pod</string>
     <string name="device_settings_info_left_bonded_label">Kaliwang Naka-bond</string>
     <string name="device_settings_info_right_bonded_label">Kanang Naka-bond</string>
+    <string name="device_settings_info_battery_health_label">Kalusugan ng Baterya (tinantya)</string>
+    <string name="device_settings_info_battery_health_left_label">Kalusugan ng Kaliwang Baterya (tinantya.)</string>
+    <string name="device_settings_info_battery_health_right_label">Kalusugan ng Kananang Baterya (tinantya.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Patuloy na tinutukoy, bumalik mamaya</string>
     <string name="device_settings_info_details_label">Mga Detalye ng Device</string>
     <string name="device_settings_info_details_action">Ipakita ang mga detalye ng device</string>
     <string name="device_settings_info_status_label">Katayuan</string>

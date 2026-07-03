@@ -49,7 +49,7 @@
     <string name="settings_autopplay_label">Automatisches abspielen</string>
     <string name="settings_autoplay_description">Musik fortsetzen, wenn du deine Pods wieder trägst – aber nur, wenn Auto-Pause sie gestoppt hat. Pausen, die du selbst ausgelöst hast (Telefon, AirPods-Stiel, Schlaf), bleiben aktiv.</string>
     <string name="settings_start_music_on_wear_label">Musik beim Anlegen starten</string>
-    <string name="settings_start_music_on_wear_description">Versucht immer, Musik abzuspielen, wenn du deine Pods aufsetzt – auch nach einer manuellen Pause.</string>
+    <string name="settings_start_music_on_wear_description">Versucht immer, Musik abzuspielen, wenn du deine Pods aufsetzt.</string>
     <string name="settings_eardetection_info_label">Hinweis zur Ohr-Erkennung</string>
     <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_signal_minimum_label">Minimale Signalqualität</string>
@@ -122,6 +122,12 @@
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_overview_hide_unmatched_label">Nicht zugeordnete Geräte ausblenden</string>
     <string name="settings_overview_hide_unmatched_description">Geräte in der Nähe, die keinem deiner Profile entsprechen, werden in der Übersicht nicht angezeigt, z. B. AirPods anderer Personen.</string>
+    <string name="device_battery_estimate_toggle_label">Batterieschätzungen</string>
+    <string name="device_battery_estimate_card_desc">Erfahre, wie dieses Gerät geladen und entladen wird, um die verbleibende Zeit, die Zeit bis zur Aufladung und die Batteriegesundheit zu schätzen.</string>
+    <string name="device_battery_estimate_reset_action">Gelernte Daten zurücksetzen</string>
+    <string name="device_battery_estimate_reset_desc">Nochmal von vorne mit der nominalen Batterielaufzeit beginnen.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Gelernte Daten zurücksetzen?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod wird die gemessene Entladung, die Ladegeschwindigkeit und die Batteriegesundheit dieses Geräts vergessen und nochmal von vorne mit der nominalen Batterielaufzeit beginnen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
     <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Zuletzt gesehen: %s</string>
     <string name="first_seen_x">Zum ersten Mal gesehen: %s</string>
     <string name="battery_cached_label">Zuletzt bekannt · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d h %2$d Min</string>
+    <string name="battery_time_remaining_format_h">%1$d h</string>
+    <string name="battery_time_remaining_format_m">%1$d Min</string>
     <string name="permission_post_notifications_label">Zeige Benachrichtigungen</string>
     <string name="permission_post_notifications_description">"Erlaube CAPod, Benachrichtigungen über deine AirPods anzuzeigen, z. B. deren aktuellen Status, während die Verbindung besteht."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Seriennummer rechter Pod</string>
     <string name="device_settings_info_left_bonded_label">Links gekoppelt</string>
     <string name="device_settings_info_right_bonded_label">Rechts gekoppelt</string>
+    <string name="device_settings_info_battery_health_label">Batteriezustand (geschätzt)</string>
+    <string name="device_settings_info_battery_health_left_label">Linker Batteriezustand (gesch.)</string>
+    <string name="device_settings_info_battery_health_right_label">Rechter Batteriezustand (gesch.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Wird noch ermittelt, schau später nochmal</string>
     <string name="device_settings_info_details_label">Gerätedetails</string>
     <string name="device_settings_info_details_action">Gerätedetails anzeigen</string>
     <string name="device_settings_info_status_label">Status</string>

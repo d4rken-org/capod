@@ -122,6 +122,12 @@
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
     <string name="settings_overview_hide_unmatched_label">Թաքցնել անհամապատասխան սարքերը</string>
     <string name="settings_overview_hide_unmatched_description">Չցուցադրել մոտակա սարքերը, որոնք չեն համընկնում ձեր պրոֆիլներից որևէ մեկի հետ, օրինակ՝ ուրիշի AirPods-ները:</string>
+    <string name="device_battery_estimate_toggle_label">Մարտկոցի գնահատականներ</string>
+    <string name="device_battery_estimate_card_desc">Իմացեք, թե ինչպես է այս սարքը լիցքավորվում և լիցքազրկվում՝ մնացած ժամանակը, լիցքավորման ժամանակը և մարտկոցի առողջությունը գնահատելու համար:</string>
+    <string name="device_battery_estimate_reset_action">Վերականգնել սովորած տվյալները</string>
+    <string name="device_battery_estimate_reset_desc">Նորից սկսել գնահատված մարտկոցի կյանքից:</string>
+    <string name="device_battery_estimate_reset_confirm_title">Վերականգնել սովորած տվյալները?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod-ը կմոռանա այս սարքի չափված լիցքազրկումը, լիցքավորման արագությունը և մարտկոցի առողջությունը, և կսկսի նորից գնահատված մարտկոցի կյանքից:</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
     <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
     <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Ֆոնի թափանցիկություն</string>
     <string name="widget_config_show_device_label">Ցուցադրել սարքի անունը</string>
     <string name="widget_config_reset_label">Վերականգնել լռելյալը</string>
-    <string name="widget_config_preview_resize_hint">Դուք կարող եք փոխել վիջեթի չափը այն ձեր գլխավոր էկրանին տեղադրելուց հետո:</string>
+    <string name="widget_config_preview_resize_hint">Կարող եք վիջեթի չափը փոխել այն տեղադրելուց հետո:</string>
     <string name="widget_config_custom_label">Հատուկ</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Մութ</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Վերջին անգամ տեսնված՝ %s</string>
     <string name="first_seen_x">Առաջին անգամ տեսնված՝ %s</string>
     <string name="battery_cached_label">Վերջին հայտնի · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dժ %2$dր</string>
+    <string name="battery_time_remaining_format_h">%1$dժ</string>
+    <string name="battery_time_remaining_format_m">%1$dր</string>
     <string name="permission_post_notifications_label">Ցուցադրել ծանուցումներ</string>
     <string name="permission_post_notifications_description">"Թույլ տվեք CAPod-ին ցուցադրել ծանուցումներ ձեր AirPods-ների մասին, օրինակ՝ դրանց ընթացիկ կարգավիճակը՝ երբ միացված են։"</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Աջ ականջակալի սերիա</string>
     <string name="device_settings_info_left_bonded_label">Ձախ կապակցված</string>
     <string name="device_settings_info_right_bonded_label">Աջ կապակցված</string>
+    <string name="device_settings_info_battery_health_label">Մարտկոցի առողջություն (գնահատված)</string>
+    <string name="device_settings_info_battery_health_left_label">Ձախ մարտկոցի առողջություն (գն.)</string>
+    <string name="device_settings_info_battery_health_right_label">Աջ մարտկոցի առողջություն (գն.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Դեռ որոշվում է, ավելի ուշ կրկին ստուգեք</string>
     <string name="device_settings_info_details_label">Սարքի մանրամասները</string>
     <string name="device_settings_info_details_action">Ցուցադրել սարքի մանրամասները</string>
     <string name="device_settings_info_status_label">Կարգավիճակ</string>

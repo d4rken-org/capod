@@ -122,6 +122,12 @@
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_overview_hide_unmatched_label">Απόκρυψη μη αντιστοιχισμένων συσκευών</string>
     <string name="settings_overview_hide_unmatched_description">Να μην εμφανίζονται κοντινές συσκευές που δεν αντιστοιχούν σε κανένα από τα προφίλ σου στην επισκόπηση, π.χ. τα AirPods άλλων ανθρώπων.</string>
+    <string name="device_battery_estimate_toggle_label">Εκτιμήσεις μπαταρίας</string>
+    <string name="device_battery_estimate_card_desc">Μάθετε πώς φορτίζεται και εκφορτίζεται αυτή η συσκευή για να εκτιμήσετε τον υπόλοιπο χρόνο, τον χρόνο έως τη φόρτιση και την υγεία της μπαταρίας.</string>
+    <string name="device_battery_estimate_reset_action">Επαναφορά μαθημένων δεδομένων</string>
+    <string name="device_battery_estimate_reset_desc">Ξεκινήστε ξανά από τη χρήση μπαταρίας που αναφέρεται.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Επαναφορά μαθημένων δεδομένων;</string>
+    <string name="device_battery_estimate_reset_confirm_message">Το CAPod θα ξεχάσει την μετρημένη κατανάλωση, την ταχύτητα φόρτισης και την υγεία της μπαταρίας αυτής της συσκευής, και θα ξεκινήσει ξανά από τη χρήση μπαταρίας που αναφέρεται.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Διαφάνεια φόντου</string>
     <string name="widget_config_show_device_label">Εμφάνιση ονόματος συσκευής</string>
     <string name="widget_config_reset_label">Επαναφορά στις προεπιλογές</string>
-    <string name="widget_config_preview_resize_hint">Μπορείτε να αλλάξετε το μέγεθος του widget αφού το τοποθετήσετε στην αρχική οθόνη σας.</string>
+    <string name="widget_config_preview_resize_hint">Μπορείτε να αλλάξετε το μέγεθος του widget μετά την τοποθέτησή του στην αρχική οθόνη σας.</string>
     <string name="widget_config_custom_label">Προσαρμοσμένη</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Σκοτεινό</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Τελευταία εμφάνιση: %s</string>
     <string name="first_seen_x">Πρώτη εμφάνιση: %s</string>
     <string name="battery_cached_label">Τελευταία γνωστή · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dώ %2$dλ</string>
+    <string name="battery_time_remaining_format_h">%1$dώ</string>
+    <string name="battery_time_remaining_format_m">%1$dλ</string>
     <string name="permission_post_notifications_label">Εμφάνιση ειδοποιήσεων</string>
     <string name="permission_post_notifications_description">"Επιτρέψτε στο CAPod να εμφανίζει ειδοποιήσεις σχετικά με τα AirPods σας, π.χ. την τρέχουσα κατάστασή τους ενώ είναι συνδεδεμένα."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Σειριακός Αριθμός Δεξιού Pod</string>
     <string name="device_settings_info_left_bonded_label">Αριστερό Συζευγμένο</string>
     <string name="device_settings_info_right_bonded_label">Δεξί Συζευγμένο</string>
+    <string name="device_settings_info_battery_health_label">Υγεία Μπαταρίας (εκτιμώμενη)</string>
+    <string name="device_settings_info_battery_health_left_label">Υγεία Αριστερής Μπαταρίας (εκτ.)</string>
+    <string name="device_settings_info_battery_health_right_label">Υγεία Δεξιάς Μπαταρίας (εκτ.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Εξακολουθεί να προσδιορίζεται, ελέγξτε αργότερα</string>
     <string name="device_settings_info_details_label">Λεπτομέρειες Συσκευής</string>
     <string name="device_settings_info_details_action">Εμφάνιση λεπτομερειών συσκευής</string>
     <string name="device_settings_info_status_label">Κατάσταση</string>

@@ -122,6 +122,12 @@
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_overview_hide_unmatched_label">Párosítatlan eszközök elrejtése</string>
     <string name="settings_overview_hide_unmatched_description">Ne jelenjenek meg az áttekintőben azok a közeli eszközök, amelyek nem egyeznek egy profilodhoz sem, pl. mások AirPodjai.</string>
+    <string name="device_battery_estimate_toggle_label">Akkumulátor becslések</string>
+    <string name="device_battery_estimate_card_desc">Ismerje meg, hogyan töltődik és merül az eszköz, hogy megbecsülhesse a hátralévő időt, a töltésig tartó időt és az akkumulátor állapotát.</string>
+    <string name="device_battery_estimate_reset_action">Megtanult adatok alaphelyzetbe állítása</string>
+    <string name="device_battery_estimate_reset_desc">Kezdje újra a névleges akkumulátor-élettartamtól.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Megtanult adatok alaphelyzetbe állítása?</string>
+    <string name="device_battery_estimate_reset_confirm_message">A CAPod elfelejti az eszköz mért fogyasztását, töltési sebességét és akkumulátor állapotát, és a névleges akkumulátor-élettartamtól kezdi újra.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
     <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
     <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Háttér átlátszósága</string>
     <string name="widget_config_show_device_label">Eszköznév megjelenítése</string>
     <string name="widget_config_reset_label">Alapértékek visszaállítása</string>
-    <string name="widget_config_preview_resize_hint">A widgetet átméretezheted, miután elhelyezted a kezdőképernyőn.</string>
+    <string name="widget_config_preview_resize_hint">A widgetet az otthoni képernyőre helyezés után átméretezhet.</string>
     <string name="widget_config_custom_label">Egyéni</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Sötét</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Utoljára látva: %s</string>
     <string name="first_seen_x">Először látva: %s</string>
     <string name="battery_cached_label">Utoljára ismert · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dó %2$dp</string>
+    <string name="battery_time_remaining_format_h">%1$dó</string>
+    <string name="battery_time_remaining_format_m">%1$dp</string>
     <string name="permission_post_notifications_label">Értesítések megjelenítése</string>
     <string name="permission_post_notifications_description">"Engedélyezze a CAPod-nak, hogy értesítéseket jelenítsen meg az AirPods-ról, pl. aktuális állapotuk csatlakozás közben."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Jobb fülhallgató sorozatszáma</string>
     <string name="device_settings_info_left_bonded_label">Bal fülhallgató párosítva</string>
     <string name="device_settings_info_right_bonded_label">Jobb fülhallgató párosítva</string>
+    <string name="device_settings_info_battery_health_label">Akkumulátor egészsége (becsült)</string>
+    <string name="device_settings_info_battery_health_left_label">Bal akkumulátor egészsége (becsült)</string>
+    <string name="device_settings_info_battery_health_right_label">Jobb akkumulátor egészsége (becsült)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Még megállapítás alatt, később nézzen vissza</string>
     <string name="device_settings_info_details_label">Eszköz részletei</string>
     <string name="device_settings_info_details_action">Eszköz részleteinek megjelenítése</string>
     <string name="device_settings_info_status_label">Állapot</string>

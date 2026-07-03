@@ -122,6 +122,12 @@
     <string name="settings_general_description">影響整個應用程式的一般調校。</string>
     <string name="settings_overview_hide_unmatched_label">隱藏不符合的裝置</string>
     <string name="settings_overview_hide_unmatched_description">在總覽中不顯示附近與您的設定檔不符的裝置，例如他人的 AirPods。</string>
+    <string name="device_battery_estimate_toggle_label">電池壽命估計</string>
+    <string name="device_battery_estimate_card_desc">了解此設備的充電和消耗方式，以估計剩餘時間、充電時間和電池健康狀況。</string>
+    <string name="device_battery_estimate_reset_action">重設已學習的數據</string>
+    <string name="device_battery_estimate_reset_desc">從額定電池壽命重新開始。</string>
+    <string name="device_battery_estimate_reset_confirm_title">重設已學習的數據？</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod 將忘記此設備的測量消耗、充電速度和電池健康狀況，並從額定電池壽命重新開始。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
     <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">最後出現：%s</string>
     <string name="first_seen_x">首次出現：%s</string>
     <string name="battery_cached_label">上次已知 · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d小時 %2$d分</string>
+    <string name="battery_time_remaining_format_h">%1$d小時</string>
+    <string name="battery_time_remaining_format_m">%1$d分</string>
     <string name="permission_post_notifications_label">顯示通知</string>
     <string name="permission_post_notifications_description">"允許 CAPod 顯示關於您 AirPods 的通知，例如在連線時顯示它們的目前狀態。"</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">右耳機序列號</string>
     <string name="device_settings_info_left_bonded_label">左耳已配對</string>
     <string name="device_settings_info_right_bonded_label">右耳已配對</string>
+    <string name="device_settings_info_battery_health_label">電池健康狀況（預估）</string>
+    <string name="device_settings_info_battery_health_left_label">左邊電池健康狀況（預估）</string>
+    <string name="device_settings_info_battery_health_right_label">右邊電池健康狀況（預估）</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">仍在確認中，請稍後再查看</string>
     <string name="device_settings_info_details_label">裝置詳情</string>
     <string name="device_settings_info_details_action">顯示裝置詳情</string>
     <string name="device_settings_info_status_label">狀態</string>

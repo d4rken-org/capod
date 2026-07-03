@@ -122,6 +122,12 @@
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
     <string name="settings_overview_hide_unmatched_label">Ukryj niedopasowane urządzenia</string>
     <string name="settings_overview_hide_unmatched_description">Nie pokazuj w przeglądzie pobliskich urządzeń, które nie pasują do żadnego z twoich profili, np. AirPods innych osób.</string>
+    <string name="device_battery_estimate_toggle_label">Szacunkowy czas pracy baterii</string>
+    <string name="device_battery_estimate_card_desc">Dowiedz się, jak urządzenie się ładuje i rozładowuje, aby oszacować pozostały czas, czas do pełnego naładowania i stan baterii.</string>
+    <string name="device_battery_estimate_reset_action">Zresetuj zapamiętane dane</string>
+    <string name="device_battery_estimate_reset_desc">Zacznij od nowa od podanego czasu pracy baterii.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Zresetować zapamiętane dane?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod zapomni o zmierzonej szybkości rozładowania, szybkości ładowania i stanie baterii tego urządzenia i zacznie od nowa od podanego czasu pracy baterii.</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="settings_debug_autoreports_label">Automatyczne raportowanie błędów</string>
     <string name="settings_debug_autoreports_description">Automatyczne raportowanie problemów, na przykład w przypadku awarii aplikacji, tak aby można było łatwo ją naprawić.</string>
@@ -284,6 +290,9 @@ K4r0lSz;</string>
     <string name="last_seen_x">Ostatnio widziane: %s</string>
     <string name="first_seen_x">Widziane pierwszy raz: %s</string>
     <string name="battery_cached_label">Ostatnio znane · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dg %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dg</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Wyświetl powiadomienia</string>
     <string name="permission_post_notifications_description">"Zezwól CAPod na wyświetlanie powiadomień o słuchawkach AirPods, np. ich aktualnym statusie podczas połączenia."</string>
     <!-- Device profiles -->
@@ -435,6 +444,11 @@ K4r0lSz;</string>
     <string name="device_settings_info_right_serial_label">Numer seryjny prawej słuchawki</string>
     <string name="device_settings_info_left_bonded_label">Lewy sparowany</string>
     <string name="device_settings_info_right_bonded_label">Prawy sparowany</string>
+    <string name="device_settings_info_battery_health_label">Kondycja baterii (szacunkowa)</string>
+    <string name="device_settings_info_battery_health_left_label">Szacowany stan lewej baterii</string>
+    <string name="device_settings_info_battery_health_right_label">Szacowany stan prawej baterii</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Nadal się ustala, sprawdź później</string>
     <string name="device_settings_info_details_label">Szczegóły urządzenia</string>
     <string name="device_settings_info_details_action">Pokaż szczegóły urządzenia</string>
     <string name="device_settings_info_status_label">Stan</string>

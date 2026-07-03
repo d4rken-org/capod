@@ -122,6 +122,12 @@
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
     <string name="settings_overview_hide_unmatched_label">הסתר מכשירים שאינם תואמים</string>
     <string name="settings_overview_hide_unmatched_description">אל תציג מכשירים קרובים שאינם תואמים אף אחד מהפרופילים שלך בתצוגה הכללית, למשל AirPods של אנשים אחרים.</string>
+    <string name="device_battery_estimate_toggle_label">הערכות סוללה</string>
+    <string name="device_battery_estimate_card_desc">למד כיצד הציוד הזה טוען ומתרוקן כדי להעריך את הזמן הנותר, הזמן עד לטעינה מלאה ובריאות הסוללה.</string>
+    <string name="device_battery_estimate_reset_action">איפוס נתונים שנלמדו</string>
+    <string name="device_battery_estimate_reset_desc">התחל מחדש מחיי הסוללה המדורגים.</string>
+    <string name="device_battery_estimate_reset_confirm_title">לאפס את הנתונים שנלמדו?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod תשכח את ניקוז הציוד שנמדד, מהירות הטעינה ובריאות הסוללה, והתחלה מחדש מחיי הסוללה המדורגים.</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
     <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">שקיפות רקע</string>
     <string name="widget_config_show_device_label">הצג שם התקן</string>
     <string name="widget_config_reset_label">אפס לברירות המחדל</string>
-    <string name="widget_config_preview_resize_hint">ניתן לשנות את גודל הווידג\'ט לאחר הצבתו על מסך הבית שלך.</string>
+    <string name="widget_config_preview_resize_hint">אתה יכול לשנות את גודל הווידג\'ט לאחר הצבתו במסך הבית שלך.</string>
     <string name="widget_config_custom_label">מותאם אישית</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">כהה</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">נראה לאחרונה: %s</string>
     <string name="first_seen_x">נראה לראשונה: %s</string>
     <string name="battery_cached_label">אחרון ידוע · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dש %2$dד</string>
+    <string name="battery_time_remaining_format_h">%1$dש</string>
+    <string name="battery_time_remaining_format_m">%1$dד</string>
     <string name="permission_post_notifications_label">הצגת התראות</string>
     <string name="permission_post_notifications_description">"אפשר ל-CAPod להציג התראות על ה-AirPods שלך, למשל המצב הנוכחי שלהם בזמן חיבור."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">מספר סידורי ימין</string>
     <string name="device_settings_info_left_bonded_label">שמאל מחובר</string>
     <string name="device_settings_info_right_bonded_label">ימין מחובר</string>
+    <string name="device_settings_info_battery_health_label">בריאות הסוללה (משוערת)</string>
+    <string name="device_settings_info_battery_health_left_label">בריאות סוללה שמאלה (משוערת)</string>
+    <string name="device_settings_info_battery_health_right_label">בריאות סוללה ימינה (משוערת)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">עדיין בקביעה, בדוק שוב מאוחר יותר</string>
     <string name="device_settings_info_details_label">פרטי התקן</string>
     <string name="device_settings_info_details_action">הצג פרטי התקן</string>
     <string name="device_settings_info_status_label">מצב</string>

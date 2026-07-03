@@ -122,6 +122,12 @@
     <string name="settings_general_description">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
     <string name="settings_overview_hide_unmatched_label">Skrýt nepřiřazená zařízení</string>
     <string name="settings_overview_hide_unmatched_description">V přehledu nezobrazovat blízká zařízení, která neodpovídají žádnému z vašich profilů, např. AirPods jiných lidí.</string>
+    <string name="device_battery_estimate_toggle_label">Odhady baterie</string>
+    <string name="device_battery_estimate_card_desc">Zjistěte, jak se toto zařízení nabíjí a vybíjí, abyste mohli odhadnout zbývající čas, čas do nabití a stav baterie.</string>
+    <string name="device_battery_estimate_reset_action">Obnovit naučená data</string>
+    <string name="device_battery_estimate_reset_desc">Začněte znovu od deklarované výdrže baterie.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Obnovit naučená data?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod zapomene naměřený úbytek, rychlost nabíjení a stav baterie tohoto zařízení a začne znovu od deklarované výdrže baterie.</string>
     <string name="settings_acknowledgements_label">Poděkování</string>
     <string name="settings_debug_autoreports_label">Automatické hlášení chyb</string>
     <string name="settings_debug_autoreports_description">Automatické hlášení chyb např. podrobnosti o pádech aplikace.</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">Naposledy spatřeno: %s</string>
     <string name="first_seen_x">Poprvé spatřeno: %s</string>
     <string name="battery_cached_label">Poslední známé \u00B7 %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Zobrazit oznámení</string>
     <string name="permission_post_notifications_description">"Povolte aplikaci CAPod zobrazovat oznámení o sluchátkách AirPods, např. o jejich aktuálním stavu během připojení."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">Sériové číslo pravého sluchátka</string>
     <string name="device_settings_info_left_bonded_label">Levé spárováno</string>
     <string name="device_settings_info_right_bonded_label">Pravé spárováno</string>
+    <string name="device_settings_info_battery_health_label">Stav baterie (odhadovaný)</string>
+    <string name="device_settings_info_battery_health_left_label">Stav levé baterie (odh.)</string>
+    <string name="device_settings_info_battery_health_right_label">Stav pravé baterie (odh.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Stále se určuje, zkontrolujte později</string>
     <string name="device_settings_info_details_label">Detaily zařízení</string>
     <string name="device_settings_info_details_action">Zobrazit detaily zařízení</string>
     <string name="device_settings_info_status_label">Stav</string>

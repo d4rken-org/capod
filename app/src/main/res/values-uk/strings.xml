@@ -122,6 +122,12 @@
     <string name="settings_general_description">Загальні функції, що впливають на всю програму.</string>
     <string name="settings_overview_hide_unmatched_label">Приховати нерозпізнані пристрої</string>
     <string name="settings_overview_hide_unmatched_description">Не показувати в огляді пристрої поблизу, які не відповідають жодному з ваших профілів, наприклад AirPods інших людей.</string>
+    <string name="device_battery_estimate_toggle_label">Оцінки батареї</string>
+    <string name="device_battery_estimate_card_desc">Дізнайтеся, як цей пристрій заряджається та розряджається, щоб оцінити залишковий час роботи, час до повного заряду та здоров\'я батареї.</string>
+    <string name="device_battery_estimate_reset_action">Скинути вивчені дані</string>
+    <string name="device_battery_estimate_reset_desc">Почніть з номінальної тривалості батареї.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Скинути вивчені дані?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod забуде виміряний розряд цього пристрою, швидкість зарядки та здоров\'я батареї, і почне з номінальної тривалості батареї.</string>
     <string name="settings_acknowledgements_label">Подяки</string>
     <string name="settings_debug_autoreports_label">Автоматичні звіти про помилки</string>
     <string name="settings_debug_autoreports_description">Автоматично повідомляти про проблеми, наприклад, деталі про збій програми, щоб я міг зрозуміти, як це виправити.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Прозорість фону</string>
     <string name="widget_config_show_device_label">Показувати назву пристрою</string>
     <string name="widget_config_reset_label">Скинути на стандартні значення</string>
-    <string name="widget_config_preview_resize_hint">Ви можете змінити розмір віджета після розміщення його на головному екрані.</string>
+    <string name="widget_config_preview_resize_hint">Ви можете змінити розмір віджета після його розміщення на домашньому екрані.</string>
     <string name="widget_config_custom_label">Користувацьке</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Темна</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">Востаннє бачили: %s</string>
     <string name="first_seen_x">Вперше бачили: %s</string>
     <string name="battery_cached_label">Востаннє відомо · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d год %2$d хв</string>
+    <string name="battery_time_remaining_format_h">%1$d год</string>
+    <string name="battery_time_remaining_format_m">%1$d хв</string>
     <string name="permission_post_notifications_label">Показувати сповіщення</string>
     <string name="permission_post_notifications_description">"Дозволити CAPod показувати сповіщення про ваші AirPods, наприклад, їхній поточний статус під час підключення."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">Серійний номер правого навушника</string>
     <string name="device_settings_info_left_bonded_label">Ліве з\'єднано</string>
     <string name="device_settings_info_right_bonded_label">Праве з\'єднано</string>
+    <string name="device_settings_info_battery_health_label">Здоров\'я батареї (орієнтовно)</string>
+    <string name="device_settings_info_battery_health_left_label">Здоров\'я лівої батареї (орієнт.)</string>
+    <string name="device_settings_info_battery_health_right_label">Здоров\'я правої батареї (орієнт.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Ще визначається, перевірте пізніше</string>
     <string name="device_settings_info_details_label">Деталі пристрою</string>
     <string name="device_settings_info_details_action">Показати деталі пристрою</string>
     <string name="device_settings_info_status_label">Стан</string>

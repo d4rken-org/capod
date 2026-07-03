@@ -122,6 +122,12 @@
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_overview_hide_unmatched_label">Ascunde dispozitivele nepotrivite</string>
     <string name="settings_overview_hide_unmatched_description">Nu afișa dispozitivele din apropiere care nu corespund niciunui profil al tău în prezentare generală, de ex. AirPods-urile altor persoane.</string>
+    <string name="device_battery_estimate_toggle_label">Estimări ale bateriei</string>
+    <string name="device_battery_estimate_card_desc">Aflați cum se încarcă și se descarcă dispozitivul pentru a estima timpul rămas, timpul până la încărcare și starea bateriei.</string>
+    <string name="device_battery_estimate_reset_action">Resetează datele învățate</string>
+    <string name="device_battery_estimate_reset_desc">Porniți din nou de la durata de viață a bateriei nominale.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Resetezi datele învățate?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod va uita consumul măsurat al acestui dispozitiv, viteza de încărcare și starea bateriei, și va porni din nou de la durata de viață a bateriei nominale.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
     <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Transparența fundalului</string>
     <string name="widget_config_show_device_label">Afișează numele dispozitivului</string>
     <string name="widget_config_reset_label">Resetează la setări implicite</string>
-    <string name="widget_config_preview_resize_hint">Puteți redimensiona widgetul după ce îl plasați pe ecranul de pornire.</string>
+    <string name="widget_config_preview_resize_hint">Puteți redimensiona widgetul după plasarea lui pe ecranul de pornire.</string>
     <string name="widget_config_custom_label">Personalizat</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Întunecat</string>
@@ -280,6 +286,9 @@
     <string name="last_seen_x">Ultima detectare: %s</string>
     <string name="first_seen_x">Prima detectare: %s</string>
     <string name="battery_cached_label">Ultimul cunoscut · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Afișare notificări</string>
     <string name="permission_post_notifications_description">"Permiteți CAPod să afișeze notificări despre AirPods-urile dvs., de ex. starea curentă în timp ce sunt conectate."</string>
     <!-- Device profiles -->
@@ -428,6 +437,11 @@
     <string name="device_settings_info_right_serial_label">Serial pod drept</string>
     <string name="device_settings_info_left_bonded_label">Stânga asociată</string>
     <string name="device_settings_info_right_bonded_label">Dreapta asociată</string>
+    <string name="device_settings_info_battery_health_label">Sănătatea bateriei (estimată)</string>
+    <string name="device_settings_info_battery_health_left_label">Sănătatea bateriei din stânga (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Sănătatea bateriei din dreapta (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Se mai determină, revino mai târziu</string>
     <string name="device_settings_info_details_label">Detalii dispozitiv</string>
     <string name="device_settings_info_details_action">Arată detalii dispozitiv</string>
     <string name="device_settings_info_status_label">Stare</string>

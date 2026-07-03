@@ -122,6 +122,12 @@
     <string name="settings_general_description">Generelle justeringer, der påvirker hele appen.</string>
     <string name="settings_overview_hide_unmatched_label">Skjul ikke-matchende enheder</string>
     <string name="settings_overview_hide_unmatched_description">Vis ikke nærliggende enheder, der ikke matcher nogen af dine profiler i overblikkket, f.eks. andres AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">Batteriestimater</string>
+    <string name="device_battery_estimate_card_desc">Lær, hvordan denne enhed oplades og aflades, for at estimere resterende tid, tid til opladning, og batteritilstand.</string>
+    <string name="device_battery_estimate_reset_action">Nulstil indlærte data</string>
+    <string name="device_battery_estimate_reset_desc">Start forfra fra den nominelle batterilevetid.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Nulstil indlærte data?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod vil glemme denne enheds målte forbrug, opladningshastighed og batteritilstand, og starte forfra fra den nominelle batterilevetid.</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
     <string name="settings_debug_autoreports_label">Automatiske fejlrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterer automatisk problemer, f.eks. detaljer om et app-nedbrud, så jeg kan finde ud af, hvordan jeg løser det.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Baggrundsgennemsigtighed</string>
     <string name="widget_config_show_device_label">Vis enhedsnavn</string>
     <string name="widget_config_reset_label">Nulstil til standard</string>
-    <string name="widget_config_preview_resize_hint">Du kan ændre størrelsen på widgetten, efter du har placeret den på din startskærm.</string>
+    <string name="widget_config_preview_resize_hint">Du kan ændre størrelse på widgetten efter at have placeret den på din hjemmeskærm.</string>
     <string name="widget_config_custom_label">Brugerdefineret</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Mørk</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Sidst set: %s</string>
     <string name="first_seen_x">Først set: %s</string>
     <string name="battery_cached_label">Sidst kendte · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dt %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dt</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Vis notifikationer</string>
     <string name="permission_post_notifications_description">"Tillad CAPod at vise notifikationer om dine AirPods, f.eks. deres aktuelle status mens de er tilsluttet."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Højre pod-serienummer</string>
     <string name="device_settings_info_left_bonded_label">Venstre parret</string>
     <string name="device_settings_info_right_bonded_label">Højre parret</string>
+    <string name="device_settings_info_battery_health_label">Batteritilstand (estimeret)</string>
+    <string name="device_settings_info_battery_health_left_label">Venstre batteritilstand (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Højre batteritilstand (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Bestemmes stadig, kom tilbage senere</string>
     <string name="device_settings_info_details_label">Enhedsdetaljer</string>
     <string name="device_settings_info_details_action">Vis enhedsdetaljer</string>
     <string name="device_settings_info_status_label">Status</string>
