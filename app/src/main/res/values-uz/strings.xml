@@ -122,6 +122,12 @@
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
     <string name="settings_overview_hide_unmatched_label">Mos kelmaydigan qurilmalarni yashirish</string>
     <string name="settings_overview_hide_unmatched_description">Umumiy ko\'rinishda profillaringizdan biriga mos kelmaydigan yaqin qurilmalarni ko\'rsatmaslik, masalan, boshqa odamlarning AirPods qurilmalari.</string>
+    <string name="device_battery_estimate_toggle_label">Batareya taxminlari</string>
+    <string name="device_battery_estimate_card_desc">Bu qurilmaning zaryadlanishi va batareya sarfashini o\'rganib, qolgan vaqtni, to\'liq zaryadlanish vaqtini va batareya sog\'lig\'ini taxmin qiling.</string>
+    <string name="device_battery_estimate_reset_action">O\'rganilgan ma\'lumotlarni qayta o\'rnatish</string>
+    <string name="device_battery_estimate_reset_desc">Reyting qilingan batareya hayotidan qayta boshlang.</string>
+    <string name="device_battery_estimate_reset_confirm_title">O\'rganilgan ma\'lumotlarni qayta o\'rnatish?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bu qurilmaning o\'lchangan zaryad sarfi, zaryadlanish tezligi va batareya sog\'lig\'ini unutib, reyting qilingan batareya hayotidan qayta boshlaydi.</string>
     <string name="settings_acknowledgements_label">Minnatdorchiliklar</string>
     <string name="settings_debug_autoreports_label">Avtomatik xato hisobotlari</string>
     <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Fon shaffoflik</string>
     <string name="widget_config_show_device_label">Qurilma nomini ko‘rsatish</string>
     <string name="widget_config_reset_label">Standartga qaytarish</string>
-    <string name="widget_config_preview_resize_hint">Vidjetni bosh ekraningizga joylashtirganingizdan so\'ng uning o\'lchamini o\'zgartirishingiz mumkin.</string>
+    <string name="widget_config_preview_resize_hint">Vidjetni asosiy ekranga joylashtirganingizdan keyin o\'lchami o\'zgartirishingiz mumkin.</string>
     <string name="widget_config_custom_label">Boshqacha</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Qora</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Oxirgi ko\'rilgan: %s</string>
     <string name="first_seen_x">Birinchi ko\'rilgan: %s</string>
     <string name="battery_cached_label">Oxirgi ma\'lum · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dsoat %2$dminut</string>
+    <string name="battery_time_remaining_format_h">%1$dsoat</string>
+    <string name="battery_time_remaining_format_m">%1$dminut</string>
     <string name="permission_post_notifications_label">Bildirishnomalarni ko\'rsatish</string>
     <string name="permission_post_notifications_description">"CAPod'ga AirPods haqida bildirishnomalarni ko'rsatish ruxsatini bering, masalan, ulangan paytdagi joriy holati."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">O\'ng naushnik seriya raqami</string>
     <string name="device_settings_info_left_bonded_label">Chap Bog\'langan</string>
     <string name="device_settings_info_right_bonded_label">O\'ng Bog\'langan</string>
+    <string name="device_settings_info_battery_health_label">Batareya sog\'lig\'i (taxmin)</string>
+    <string name="device_settings_info_battery_health_left_label">Chap batareya sog\'lig\'i (tax.)</string>
+    <string name="device_settings_info_battery_health_right_label">O\'ng batareya sog\'lig\'i (tax.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Hali aniqlanmoqda, keyinroq tekshiring</string>
     <string name="device_settings_info_details_label">Qurilma tafsilotlari</string>
     <string name="device_settings_info_details_action">Qurilma tafsilotlarini ko\'rsatish</string>
     <string name="device_settings_info_status_label">Holat</string>

@@ -122,6 +122,12 @@
     <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
     <string name="settings_overview_hide_unmatched_label">Zuppentar apparats betg concordants</string>
     <string name="settings_overview_hide_unmatched_description">Na mussa betg ils apparats visadaifer che na correspundan a nagin da tis profils en la survista, p.ex. ils AirPods d\'autras persunas.</string>
+    <string name="device_battery_estimate_toggle_label">Estimaziuns da bateria</string>
+    <string name="device_battery_estimate_card_desc">Sclapina co quest dispositiv sa chargia e deschargia per estimar il temp restant, il temp fin ch\'el vegn chargià e la salutica da bateria.</string>
+    <string name="device_battery_estimate_reset_action">Redatg da datas appresas</string>
+    <string name="device_battery_estimate_reset_desc">Recomenzar da la vita da bateria valitada.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Redatg da datas appresas?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod vegn a scerder ils datas dal consumo mesirà, la velocitad da chargia e la salutica da bateria, e vegn a recomenzar da la vita da bateria valitada.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
     <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
     <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Transparenza dal fonds</string>
     <string name="widget_config_show_device_label">Mussar nom dal dispositiv</string>
     <string name="widget_config_reset_label">Reinizialischar als standardis</string>
-    <string name="widget_config_preview_resize_hint">Ti pos midiar la dimensiun dal widget suenter haver collocat il sin tia pantschina da chasa.</string>
+    <string name="widget_config_preview_resize_hint">Tu pudas reglar il widget suenter che tu l\'has purtà silla pagina principala da tes dispositiv.</string>
     <string name="widget_config_custom_label">Persunalisà</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Stgir</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Vis l\'ultima giada: %s</string>
     <string name="first_seen_x">Vis l\'emprima giada: %s</string>
     <string name="battery_cached_label">Ultim enconuschent · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mussar notificaziuns</string>
     <string name="permission_post_notifications_description">"Permetter a CAPod da mussar notificaziuns davart Voss AirPods, p.ex. il stadi actual durant ch'els èn connectads."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Numer serial da l\'AirPod dretg</string>
     <string name="device_settings_info_left_bonded_label">Sanglà Seniester</string>
     <string name="device_settings_info_right_bonded_label">Sanglà Dretg</string>
+    <string name="device_settings_info_battery_health_label">Sanadad da la bataria (estimada)</string>
+    <string name="device_settings_info_battery_health_left_label">Sanadad sanestra da la bataria (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Sanadad dretta da la bataria (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Simpel a determinar, controllescha pli tard</string>
     <string name="device_settings_info_details_label">Detagls da l\'apparat</string>
     <string name="device_settings_info_details_action">Mussar detagls da l\'apparat</string>
     <string name="device_settings_info_status_label">Status</string>

@@ -122,6 +122,12 @@
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
     <string name="settings_overview_hide_unmatched_label">Peida mittevastavad seadmed</string>
     <string name="settings_overview_hide_unmatched_description">Ära näita ülevaates lähedalasuvaid seadmeid, mis ei vasta ühelegi sinu profiilile, nt teiste inimeste AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">Aku hinnangud</string>
+    <string name="device_battery_estimate_card_desc">Saate teada, kuidas see seade laadib ja tühjeneb, et hinnata ülejäänud aega, laadimiseni kuluva aega ja aku tervist.</string>
+    <string name="device_battery_estimate_reset_action">Lähtesta õpitud andmed</string>
+    <string name="device_battery_estimate_reset_desc">Alusta uuesti nimiväärtustest.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Lähtesta õpitud andmed?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod unustab selle seadme mõõdetud kulu, laadimiskiiruse ja aku tervise ning alustab uuesti nimiväärtustest.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
     <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
     <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Viimati kasutusel: %s</string>
     <string name="first_seen_x">Esimesena kasutusel: %s</string>
     <string name="battery_cached_label">Viimati teadaolev · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dt %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dt</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Näita teateid</string>
     <string name="permission_post_notifications_description">"Luba CAPodil näidata AirPodsi teateid, nt praegust olekut ühendatud olles."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Parema kõrvaklapiosa seerianumber</string>
     <string name="device_settings_info_left_bonded_label">Vasak seotud</string>
     <string name="device_settings_info_right_bonded_label">Parem seotud</string>
+    <string name="device_settings_info_battery_health_label">Aku tervis (hinnanguline)</string>
+    <string name="device_settings_info_battery_health_left_label">Vasaku aku tervis (hinnanguline)</string>
+    <string name="device_settings_info_battery_health_right_label">Parema aku tervis (hinnanguline)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Määratakse, vaata hiljem uuesti</string>
     <string name="device_settings_info_details_label">Seadme andmed</string>
     <string name="device_settings_info_details_action">Kuva seadme andmed</string>
     <string name="device_settings_info_status_label">Olek</string>

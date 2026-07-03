@@ -122,6 +122,12 @@
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
     <string name="settings_overview_hide_unmatched_label">Дал келбеген түзмөктөрдү жашыруу</string>
     <string name="settings_overview_hide_unmatched_description">Профилдериңиздин эч бирине дал келбеген жакын жердеги түзмөктөрдү, мисалы башка адамдардын AirPods\'ун, чолпондо көрсөтпөө.</string>
+    <string name="device_battery_estimate_toggle_label">Батарея болжолдоосу</string>
+    <string name="device_battery_estimate_card_desc">Бул түзүлүштүн кеминтүүсүнүн жана зарядтоо ылдамдыгын үйрөнүп, калган убакытты, зарядталуу убакыты жана батарейанын ден соолугун баалоо үчүн.</string>
+    <string name="device_battery_estimate_reset_action">Үйрөнүлгөн маалыматты тазалоо</string>
+    <string name="device_battery_estimate_reset_desc">Номиналдык батарея жашоо убакытынан кайра баштоо</string>
+    <string name="device_battery_estimate_reset_confirm_title">Үйрөнүлгөн маалыматты тазалообу?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod бул түзүлүштүн өлчөнгөн кеминтүүсү, зарядтоо ылдамдыгы жана батарейанын ден соолугу туралуу маалыматын унутуп, номиналдык батарея жашоо убакытынан баштажы керек.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
     <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Фондун тунуктугу</string>
     <string name="widget_config_show_device_label">Түзүлмөнүн атын көрсөтүү</string>
     <string name="widget_config_reset_label">Демейки параметрлерге өндөрүү</string>
-    <string name="widget_config_preview_resize_hint">Виджетти башкы экранга жайгаштыргандан кийин, анын өлчөмүн өзгөртө аласыз.</string>
+    <string name="widget_config_preview_resize_hint">Виджетти үй экранына орноттон кийин анын өлчөмүн өзгөртө аласыз.</string>
     <string name="widget_config_custom_label">Ыңгайлаштырылган</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Караңгы</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Акыркы көрүлгөн: %s</string>
     <string name="first_seen_x">Биринчи көрүлгөн: %s</string>
     <string name="battery_cached_label">Акыркы белгилүү · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dч %2$dмүн</string>
+    <string name="battery_time_remaining_format_h">%1$dч</string>
+    <string name="battery_time_remaining_format_m">%1$dмүн</string>
     <string name="permission_post_notifications_label">Билдирүүлөрдү көрсөтүү</string>
     <string name="permission_post_notifications_description">"CAPod'го AirPods жөнүндө билдирүүлөрдү көрсөтүүгө уруксат бериңиз, мис., учурдагы абалы туташып турганда."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Оң гарнитуранын сериал номери</string>
     <string name="device_settings_info_left_bonded_label">Сол жакка байланган</string>
     <string name="device_settings_info_right_bonded_label">Оң жакка байланган</string>
+    <string name="device_settings_info_battery_health_label">Батарея абалы (болжолдуу)</string>
+    <string name="device_settings_info_battery_health_left_label">Сол батарея абалы (б.)</string>
+    <string name="device_settings_info_battery_health_right_label">Оң батарея абалы (б.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Дагы аныкталуп жатат, кийинчерээк текшеп көрүңүз</string>
     <string name="device_settings_info_details_label">Түзмөк деталдары</string>
     <string name="device_settings_info_details_action">Түзмөк деталдарын көрсөтүү</string>
     <string name="device_settings_info_status_label">Абалы</string>

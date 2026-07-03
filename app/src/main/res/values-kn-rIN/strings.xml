@@ -122,6 +122,12 @@
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
     <string name="settings_overview_hide_unmatched_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳನ್ನು ಮರೆಮಾಡಿ</string>
     <string name="settings_overview_hide_unmatched_description">ನಿಮ್ಮ ಯಾವುದೇ ಪ್ರೊಫೈಲ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗದ ಹತ್ತಿರದ ಸಾಧನಗಳನ್ನು ಅವಲೋಕನದಲ್ಲಿ ತೋರಿಸಬೇಡಿ, ಉದಾ. ಇತರ ಜನರ AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">ಬ್ಯಾಟರಿ ಅಂದಾಜುಗಳು</string>
+    <string name="device_battery_estimate_card_desc">ಈ ಸಾಧನದ ಚಾರ್ಜಿಂಗ ಮತ್ತು ಡ್ರೈನ್ ವೇಗವನ್ನು ಕಲಿತುಕೊಂಡು ಉಳಿದ ಸಮಯ, ಚಾರ್ಜ ಆಗುವವರೆಗೆ ಸಮಯ ಮತ್ತು ಬ್ಯಾಟರಿ ಆರೋಗ್ಯವನ್ನು ಅಂದಾಜು ಮಾಡಿ.</string>
+    <string name="device_battery_estimate_reset_action">ಕಲಿತ ಮಾಹಿತಿ ಮರುಸೆಟ್ ಮಾಡಿ</string>
+    <string name="device_battery_estimate_reset_desc">ರೇಟ್ ಮಾಡಿದ ಬ್ಯಾಟರಿ ಆಯುಷ್ಯದಿಂದ ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ.</string>
+    <string name="device_battery_estimate_reset_confirm_title">ಕಲಿತ ಮಾಹಿತಿ ಮರುಸೆಟ್ ಮಾಡಬೇಕೇ?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ಈ ಸಾಧನದ ಅಳೆದ ಡ್ರೈನ್, ಚಾರ್ಜಿಂಗ ವೇಗ ಮತ್ತು ಬ್ಯಾಟರಿ ಆರೋಗ್ಯವನ್ನು ಮರೆಯುತ್ತದೆ ಮತ್ತು ರೇಟ್ ಮಾಡಿದ ಬ್ಯಾಟರಿ ಆಯುಷ್ಯದಿಂದ ಮತ್ತೆ ಪ್ರಾರಂಭಿಸುತ್ತದೆ.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
     <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
     <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">ಹಿನ್ನೆಲೆ ಪಾರದರ್ಶಕತೆ</string>
     <string name="widget_config_show_device_label">ಸಾಧನ ಹೆಸರು ತೋರಿಸಿ</string>
     <string name="widget_config_reset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಕ್ಕೆ ಮರುಹೊಂದಿಸಿ</string>
-    <string name="widget_config_preview_resize_hint">ನಿಮ್ಮ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ವಿಜೆಟ್ ಇಟ್ಟ ನಂತರ ನೀವು ಅದನ್ನು ಮರುಗಾತ್ರಗೊಳಿಸಬಹುದು.</string>
+    <string name="widget_config_preview_resize_hint">ನಿಮ್ಮ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ವಿಜೆಟ್ ಇರಿಸಿದ ನಂತರ ನೀವು ಅದನ್ನು ಮರುಗಾತ್ರಿಸಬಹುದು.</string>
     <string name="widget_config_custom_label">ಕಸ್ಟಮ್</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ಗಾಢ</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">ಕೊನೆಯ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
     <string name="first_seen_x">ಮೊದಲ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
     <string name="battery_cached_label">ಕೊನೆಯಾಗಿ ತಿಳಿದಿದ್ದು · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dಘಂ %2$dನಿ</string>
+    <string name="battery_time_remaining_format_h">%1$dಘಂ</string>
+    <string name="battery_time_remaining_format_m">%1$dನಿ</string>
     <string name="permission_post_notifications_label">ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="permission_post_notifications_description">"ನಿಮ್ಮ AirPods ಬಗ್ಗೆ ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಲು CAPod ಅನ್ನು ಅನುಮತಿಸಿ, ಉದಾ. ಸಂಪರ್ಕಗೊಂಡಾಗ ಅವುಗಳ ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">ಬಲ ಪಾಡ್ ಸೀರಿಯಲ್</string>
     <string name="device_settings_info_left_bonded_label">ಎಡ ಬಂಧಿತ</string>
     <string name="device_settings_info_right_bonded_label">ಬಲ ಬಂಧಿತ</string>
+    <string name="device_settings_info_battery_health_label">ಬ್ಯಾಟರಿ ಆರೋಗ್ಯ (ಅಂದಾಜು)</string>
+    <string name="device_settings_info_battery_health_left_label">ಎಡ ಬ್ಯಾಟರಿ ಆರೋಗ್ಯ (ಅಂದಾಜು)</string>
+    <string name="device_settings_info_battery_health_right_label">ಬಲ ಬ್ಯಾಟರಿ ಆರೋಗ್ಯ (ಅಂದಾಜು)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">ಇನ್ನೂ ನಿರ್ಧರಿಸುತ್ತಿದೆ, ನಂತರ ಪರಿಶೀಲಿಸಿ</string>
     <string name="device_settings_info_details_label">ಸಾಧನ ವಿವರಗಳು</string>
     <string name="device_settings_info_details_action">ಸಾಧನ ವಿವರಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="device_settings_info_status_label">ಸ್ಥಿತಿ</string>

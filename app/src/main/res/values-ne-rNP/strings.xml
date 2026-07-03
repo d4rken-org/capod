@@ -122,6 +122,12 @@
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
     <string name="settings_overview_hide_unmatched_label">नमिलेका यन्त्रहरू लुकाउनुस्</string>
     <string name="settings_overview_hide_unmatched_description">अवलोकनमा तपाईंको कुनै पनि प्रोफाइलसँग नमिल्ने नजिकका यन्त्रहरू नदेखाउनुस्, जस्तै अरू मान्छेका AirPods।</string>
+    <string name="device_battery_estimate_toggle_label">ब्याटरी अनुमान</string>
+    <string name="device_battery_estimate_card_desc">यो उपकरण कसरी चार्ज र डिस्चार्ज हुन्छ भनेर सिख्नुहोस् र बाकी समय, चार्ज हुन लाग्ने समय, र ब्याटरी स्वास्थ्य अनुमान गर्नुहोस्।</string>
+    <string name="device_battery_estimate_reset_action">सिखेको डेटा रिसेट गर्नुहोस्</string>
+    <string name="device_battery_estimate_reset_desc">रेट गरिएको ब्याटरी जीवनबाट फेरि सुरु गर्नुहोस्।</string>
+    <string name="device_battery_estimate_reset_confirm_title">सिखेको डेटा रिसेट गर्नुहोस्?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod यो उपकरणको मापन गरिएको ड्रेन, चार्जिङ गति र ब्याटरी स्वास्थ्य भुल्नेछ, र रेट गरिएको ब्याटरी जीवनबाट फेरि सुरु गर्नेछ।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
     <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
     <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">अन्तिम देखिएको: %s</string>
     <string name="first_seen_x">पहिलो पटक देखिएको: %s</string>
     <string name="battery_cached_label">अन्तिम थाहा · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dघ %2$dमि</string>
+    <string name="battery_time_remaining_format_h">%1$dघ</string>
+    <string name="battery_time_remaining_format_m">%1$dमि</string>
     <string name="permission_post_notifications_label">सूचनाहरू देखाउनुहोस्</string>
     <string name="permission_post_notifications_description">"CAPod लाई तपाईंको AirPods बारे सूचनाहरू देखाउन अनुमति दिनुहोस्, जस्तै जडान भएको बेला तिनीहरूको हालको स्थिति।"</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">दायाँ पड सिरियल</string>
     <string name="device_settings_info_left_bonded_label">बायाँ बन्डेड</string>
     <string name="device_settings_info_right_bonded_label">दायाँ बन्डेड</string>
+    <string name="device_settings_info_battery_health_label">ब्याटरी स्वास्थ्य (अनुमानित)</string>
+    <string name="device_settings_info_battery_health_left_label">बायाँ ब्याटरी स्वास्थ्य (अनु।)</string>
+    <string name="device_settings_info_battery_health_right_label">दायाँ ब्याटरी स्वास्थ्य (अनु।)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">अझै निर्धारण गरिँदैछ, पछि जाँच गर्नुहोस्</string>
     <string name="device_settings_info_details_label">उपकरण विवरण</string>
     <string name="device_settings_info_details_action">उपकरण विवरण देखाउनुहोस्</string>
     <string name="device_settings_info_status_label">स्थिति</string>

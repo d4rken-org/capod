@@ -122,6 +122,12 @@
     <string name="settings_general_description">Общи настройки, които засягат цялото приложение.</string>
     <string name="settings_overview_hide_unmatched_label">Скриване на несъответстващи устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показвай намиращи се наблизо устройства, които не съответстват на нито един от профилите ти в прегледа, напр. AirPods на други хора.</string>
+    <string name="device_battery_estimate_toggle_label">Оценки на батерията</string>
+    <string name="device_battery_estimate_card_desc">Научете как това устройство се зарежда и разходва, за да оцените оставащото време, времето до зареждане и състоянието на батерията.</string>
+    <string name="device_battery_estimate_reset_action">Нулирай научените данни</string>
+    <string name="device_battery_estimate_reset_desc">Начало отново от номиналния живот на батерията.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Нулирай научените данни?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ще забрави измереното потребление, скоростта на зареждане и състоянието на батерията на това устройство и ще начне отново от номиналния живот на батерията.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматични доклади за грешки</string>
     <string name="settings_debug_autoreports_description">Автоматично докладва проблеми, напр. подробности за срив на приложението, за да мога да разбера как да го поправя.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Прозрачност на фона</string>
     <string name="widget_config_show_device_label">Показване на името на устройството</string>
     <string name="widget_config_reset_label">Възстановяване на стандартните настройки</string>
-    <string name="widget_config_preview_resize_hint">Можете да преоразмерите джаджата, след като я поставите на началния си екран.</string>
+    <string name="widget_config_preview_resize_hint">Можете да преоразмеряте виджета след поставянето му на начален екран.</string>
     <string name="widget_config_custom_label">Персонализирано</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Тъмно</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Последно видяно: %s</string>
     <string name="first_seen_x">Първо видяно: %s</string>
     <string name="battery_cached_label">Последно известно · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dч %2$dм</string>
+    <string name="battery_time_remaining_format_h">%1$dч</string>
+    <string name="battery_time_remaining_format_m">%1$dм</string>
     <string name="permission_post_notifications_label">Показване на известия</string>
     <string name="permission_post_notifications_description">"Позволете на CAPod да показва известия за вашите AirPods, напр. текущото им състояние, докато са свързани."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Сериен номер на десния под</string>
     <string name="device_settings_info_left_bonded_label">Ляво сдвоено</string>
     <string name="device_settings_info_right_bonded_label">Дясно сдвоено</string>
+    <string name="device_settings_info_battery_health_label">Здравословно състояние на батерията (прогноза)</string>
+    <string name="device_settings_info_battery_health_left_label">Здравословно състояние на лявата батерия (прогноза)</string>
+    <string name="device_settings_info_battery_health_right_label">Здравословно състояние на дясната батерия (прогноза)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Все още се определя, проверете отново по-късно</string>
     <string name="device_settings_info_details_label">Подробности за устройството</string>
     <string name="device_settings_info_details_action">Покажи подробности за устройството</string>
     <string name="device_settings_info_status_label">Статус</string>

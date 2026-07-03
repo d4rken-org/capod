@@ -122,6 +122,12 @@
     <string name="settings_general_description">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_overview_hide_unmatched_label">Хаваць непрызнаныя прылады</string>
     <string name="settings_overview_hide_unmatched_description">Не паказваць у агляднічку блізкія прылады, якія не адпавядаюць ніводнаму з вашых профіляў, напр. AirPods іншых людзей.</string>
+    <string name="device_battery_estimate_toggle_label">Ацэнкі стану батарэі</string>
+    <string name="device_battery_estimate_card_desc">Даведайцеся, як гэтая прылада зараджаецца і разраджаецца, каб ацаніць час, які застаўся, час да поўнай зарадкі і здароўе батарэі.</string>
+    <string name="device_battery_estimate_reset_action">Скінуць вывучаныя даныя</string>
+    <string name="device_battery_estimate_reset_desc">Пачаць спачатку з намінальнага рэсурсу батарэі.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Скінуць вывучаныя даныя?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod забудзе вымераныя для гэтай прылады хуткасць разраджэння, хуткасць зарадкі і здароўе батарэі, і пачне нанова з намінальнага рэсурсу батарэі.</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
     <string name="settings_debug_autoreports_label">Аўтаматычныя справаздачы пра памылкі</string>
     <string name="settings_debug_autoreports_description">Аўтаматычна паведамляе пра праблемы, напрыклад, звесткі пра збой праграмы, каб я мог зразумець, як гэта выправіць.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Прозрачнасць фона</string>
     <string name="widget_config_show_device_label">Паказаць назву прылады</string>
     <string name="widget_config_reset_label">Скінуць да змаўчання</string>
-    <string name="widget_config_preview_resize_hint">Вы можаце змяніць памер віджэта пасля размяшчэння яго на галоўным экране.</string>
+    <string name="widget_config_preview_resize_hint">Пасля размяшчэння віджэта на галоўным экране вы можаце змяніць яго памер.</string>
     <string name="widget_config_custom_label">Адвольны</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Цёмны</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">Апошні раз бачана: %s</string>
     <string name="first_seen_x">Упершыню бачана: %s</string>
     <string name="battery_cached_label">Апошняе вядомае · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dг %2$dхв</string>
+    <string name="battery_time_remaining_format_h">%1$dг</string>
+    <string name="battery_time_remaining_format_m">%1$dхв</string>
     <string name="permission_post_notifications_label">Паказваць апавяшчэнні</string>
     <string name="permission_post_notifications_description">"Дазвольце CAPod паказваць апавяшчэнні пра вашы AirPods, напрыклад іх бягучы стан пры падключэнні."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">Сэрыйны нумар правага навушніка</string>
     <string name="device_settings_info_left_bonded_label">Левы спалучаны</string>
     <string name="device_settings_info_right_bonded_label">Правы спалучаны</string>
+    <string name="device_settings_info_battery_health_label">Здароўе батарэі (ацэнка)</string>
+    <string name="device_settings_info_battery_health_left_label">Здароўе левай батарэі (ацэнка)</string>
+    <string name="device_settings_info_battery_health_right_label">Здароўе правай батарэі (ацэнка)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Яшчэ вызначаецца, зайдзіце пазней</string>
     <string name="device_settings_info_details_label">Дэталі прылады</string>
     <string name="device_settings_info_details_action">Паказаць дэталі прылады</string>
     <string name="device_settings_info_status_label">Стан</string>

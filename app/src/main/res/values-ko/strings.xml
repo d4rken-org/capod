@@ -122,6 +122,12 @@
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
     <string name="settings_overview_hide_unmatched_label">일치하지 않는 기기 숨기기</string>
     <string name="settings_overview_hide_unmatched_description">개요에서 프로필과 일치하지 않는 주변 기기(예: 다른 사람의 AirPods)를 표시하지 않습니다.</string>
+    <string name="device_battery_estimate_toggle_label">배터리 추정</string>
+    <string name="device_battery_estimate_card_desc">이 기기의 충전 및 방전 방식을 학습하여 남은 시간, 충전 시간 및 배터리 상태를 추정합니다.</string>
+    <string name="device_battery_estimate_reset_action">학습된 데이터 초기화</string>
+    <string name="device_battery_estimate_reset_desc">정격 배터리 수명부터 다시 시작됩니다.</string>
+    <string name="device_battery_estimate_reset_confirm_title">학습된 데이터를 초기화하시겠습니까?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod가 이 기기의 측정된 방전량, 충전 속도 및 배터리 상태를 잊고 정격 배터리 수명부터 다시 시작합니다.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
     <string name="settings_debug_autoreports_label">자동 버그 보고서</string>
     <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">배경 투명도</string>
     <string name="widget_config_show_device_label">기기 이름 표시</string>
     <string name="widget_config_reset_label">기본값으로 재설정</string>
-    <string name="widget_config_preview_resize_hint">홈 화면에 위젯을 배치한 후 크기를 조절할 수 있습니다.</string>
+    <string name="widget_config_preview_resize_hint">홈 화면에 위젯을 배치한 후 크기를 조정할 수 있습니다.</string>
     <string name="widget_config_custom_label">사용자 정의</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">어두움</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">마지막 업데이트: %s</string>
     <string name="first_seen_x">처음 업데이트: %s</string>
     <string name="battery_cached_label">마지막으로 확인 · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d시간 %2$d분</string>
+    <string name="battery_time_remaining_format_h">%1$d시간</string>
+    <string name="battery_time_remaining_format_m">%1$d분</string>
     <string name="permission_post_notifications_label">알림 표시</string>
     <string name="permission_post_notifications_description">"CAPod이 현재 연결 상태 등 AirPods에 대한 알림을 표시할 수 있도록 허용합니다."</string>
     <!-- Device profiles -->
@@ -420,6 +429,11 @@
     <string name="device_settings_info_right_serial_label">오른쪽 이어팟 일련번호</string>
     <string name="device_settings_info_left_bonded_label">왼쪽 연결됨</string>
     <string name="device_settings_info_right_bonded_label">오른쪽 연결됨</string>
+    <string name="device_settings_info_battery_health_label">배터리 건강도 (추정)</string>
+    <string name="device_settings_info_battery_health_left_label">좌측 배터리 건강도 (추정)</string>
+    <string name="device_settings_info_battery_health_right_label">우측 배터리 건강도 (추정)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">계산 중입니다. 나중에 다시 확인하세요</string>
     <string name="device_settings_info_details_label">기기 세부정보</string>
     <string name="device_settings_info_details_action">기기 세부정보 보기</string>
     <string name="device_settings_info_status_label">상태</string>

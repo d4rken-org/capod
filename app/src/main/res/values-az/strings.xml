@@ -122,6 +122,12 @@
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
     <string name="settings_overview_hide_unmatched_label">Uyğun olmayan cihazları gizlət</string>
     <string name="settings_overview_hide_unmatched_description">İcmalda profillərinizə uyğun gəlməyən yaxın cihazları göstərməyin, məs. başqalarının AirPods-ları.</string>
+    <string name="device_battery_estimate_toggle_label">Batareya qiymətləndirmələri</string>
+    <string name="device_battery_estimate_card_desc">Bu cihazın necə doldurulduğunu və enerji istifadə etdiyini öyrənərək, qalan vaxtı, dolğunlaşma vaxtını və batareya sağlamlığını qiymətləndirin.</string>
+    <string name="device_battery_estimate_reset_action">Öyrənilmiş məlumatları sıfırla</string>
+    <string name="device_battery_estimate_reset_desc">Qiymətləndirilmiş batareya ömrünə qayıdıb yenidən başlayın.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Öyrənilmiş məlumatları sıfırla?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülmüş enerji istifadəsini, dolğunlaşma sürətini və batareya sağlamlığını unudacaq, qiymətləndirilmiş batareya ömrünə qayıdıb yenidən başlayacaq.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
     <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Fon şəffaflığı</string>
     <string name="widget_config_show_device_label">Cihaz adını göstər</string>
     <string name="widget_config_reset_label">Varsayılan ayarlara sıfırla</string>
-    <string name="widget_config_preview_resize_hint">Vidceti ana ekranınıza yerləşdirdikdən sonra ölçüsünü dəyişə bilərsiniz.</string>
+    <string name="widget_config_preview_resize_hint">Vidcetin ana ekrana qoyduqdan sonra ölçüsünü dəyişə bilərsiniz.</string>
     <string name="widget_config_custom_label">Fərdi</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tünd</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Son görülmə: %s</string>
     <string name="first_seen_x">İlk görülmə: %s</string>
     <string name="battery_cached_label">Son məlum · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dsa %2$ddəq</string>
+    <string name="battery_time_remaining_format_h">%1$dsa</string>
+    <string name="battery_time_remaining_format_m">%1$ddəq</string>
     <string name="permission_post_notifications_label">Bildirişlər göstər</string>
     <string name="permission_post_notifications_description">"CAPod-a AirPods haqqında bildirişlər göstərməyə icazə verin, məsələn, qoşulduqda onların cari statusu."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Sağ Qulaqcıq Seriya Nömrəsi</string>
     <string name="device_settings_info_left_bonded_label">Sol cütləşdirilmiş</string>
     <string name="device_settings_info_right_bonded_label">Sağ cütləşdirilmiş</string>
+    <string name="device_settings_info_battery_health_label">Batareya Sağlığı (təxmini)</string>
+    <string name="device_settings_info_battery_health_left_label">Sol Batareya Sağlığı (təx.)</string>
+    <string name="device_settings_info_battery_health_right_label">Sağ Batareya Sağlığı (təx.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Hələ müəyyən edilir, sonra yoxlayın</string>
     <string name="device_settings_info_details_label">Cihaz Ǝtraflı Məlumatları</string>
     <string name="device_settings_info_details_action">Cihaz təfsilatlarını göstər</string>
     <string name="device_settings_info_status_label">Vəziyyət</string>

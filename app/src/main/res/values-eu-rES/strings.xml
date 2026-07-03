@@ -122,6 +122,12 @@
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
     <string name="settings_overview_hide_unmatched_label">Ezkutatu bat ez datozen gailuak</string>
     <string name="settings_overview_hide_unmatched_description">Ez erakutsi ikuspegiaren inguruan dauden eta zure profilekin bat ez datozen gailuak, esaterako, beste pertsonen AirPods-ak.</string>
+    <string name="device_battery_estimate_toggle_label">Bateriaren estimazioak</string>
+    <string name="device_battery_estimate_card_desc">Ikasi nola kargatzen eta deskargatzen den gailu hau, geratzen den denbora, kargatzeko denbora eta bateriaren osasuna estimatzeko.</string>
+    <string name="device_battery_estimate_reset_action">Ikasitako datuak berrezarri</string>
+    <string name="device_battery_estimate_reset_desc">Kalifikatutako bateriaren bizitzatik berriro hasi.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Ikasitako datuak berrezarri?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod-ek gailu honetako neurtutako kontsumoa, kargatzeko abiadura eta bateriaren osasuna ahaztuko ditu, eta kalifikatutako bateriaren bizitzatik berriro hasiko da.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
     <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
     <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Atzeko planoaren gardentasuna</string>
     <string name="widget_config_show_device_label">Gailuaren izena erakutsi</string>
     <string name="widget_config_reset_label">Berriro lehenespenera berrezarri</string>
-    <string name="widget_config_preview_resize_hint">Widgeta tamainaz alda dezakezu hasierako pantailan jarri ondoren.</string>
+    <string name="widget_config_preview_resize_hint">Widgeta tamaina aldatu dezakezu, hasierako pantailan jarri ondoren.</string>
     <string name="widget_config_custom_label">Pertsonalizatua</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Iluna</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Azkenekoz ikusia: %s</string>
     <string name="first_seen_x">Lehen aldiz ikusia: %s</string>
     <string name="battery_cached_label">Azken ezaguna · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Erakutsi jakinarazpenak</string>
     <string name="permission_post_notifications_description">"Baimendu CAPod-i zure AirPods-ei buruzko jakinarazpenak erakustea, adib. konektatuta dauden bitartean euren egungo egoera."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Eskuineko pod-aren seriea</string>
     <string name="device_settings_info_left_bonded_label">Ezkerra Lotuta</string>
     <string name="device_settings_info_right_bonded_label">Eskuina Lotuta</string>
+    <string name="device_settings_info_battery_health_label">Bateriaren osasuna (kalkulatua)</string>
+    <string name="device_settings_info_battery_health_left_label">Ezkerreko bateriaren osasuna (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Eskuineko bateriaren osasuna (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Oraindik kalkulatzen, beranduago itzuli</string>
     <string name="device_settings_info_details_label">Gailuaren xehetasunak</string>
     <string name="device_settings_info_details_action">Erakutsi gailuaren xehetasunak</string>
     <string name="device_settings_info_status_label">Egoera</string>

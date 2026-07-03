@@ -122,6 +122,12 @@
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
     <string name="settings_overview_hide_unmatched_label">Cuntzela dispositivos non corrispondentes</string>
     <string name="settings_overview_hide_unmatched_description">Non mòstres dispositivos in bidda chi non cumbenit cun nissunu de sos tuos perfìles in sa visuale generale, p.e. sos AirPods de àtera gente.</string>
+    <string name="device_battery_estimate_toggle_label">Estimatziones de bateria</string>
+    <string name="device_battery_estimate_card_desc">Imbara comente su dispositivu si carrigat e si perdiat pro estimare su tempus chi restat, su tempus pro sa carriga completa, e sa saludi de sa bateria.</string>
+    <string name="device_battery_estimate_reset_action">Reimitzializa is datos imparatos</string>
+    <string name="device_battery_estimate_reset_desc">Recomentzia dae sa vida de bateria valuada.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Reimitzializa is datos imparatos?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod at a scordinare su conisimentu misuadu de su dispositivu, sa velocidade de carriga e sa saludi de sa bateria, e at a recomentziare dae sa vida de bateria valuada.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
     <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
     <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Trasparentia de fundus</string>
     <string name="widget_config_show_device_label">Ammustra nòmene de su dispositivu</string>
     <string name="widget_config_reset_label">Reabilita a defaults</string>
-    <string name="widget_config_preview_resize_hint">Podes redimensionare su widget a pustis de lu ponner in sa pantalla printzipale.</string>
+    <string name="widget_config_preview_resize_hint">Puedis redimensionare su widget depois de l\'abere postu in sa schermada de domu.</string>
     <string name="widget_config_custom_label">Personalizau</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Preu</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Bidu s\'ùrtima borta: %s</string>
     <string name="first_seen_x">Bidu sa prima borta: %s</string>
     <string name="battery_cached_label">Úrtiùmu connotu · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dò %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dò</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mustra notìficas</string>
     <string name="permission_post_notifications_description">"Permiti a CAPod de mustrare notìficas subra is AirPods tuos, es. s'istadu issoro atuale cando sunt cullegados."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Númeru de serie de su pod drittu</string>
     <string name="device_settings_info_left_bonded_label">Manca Ligadu</string>
     <string name="device_settings_info_right_bonded_label">Dereta Ligada</string>
+    <string name="device_settings_info_battery_health_label">Saludi de sa Bateria (istimada)</string>
+    <string name="device_settings_info_battery_health_left_label">Saludi de sa Bateria Isca (ist.)</string>
+    <string name="device_settings_info_battery_health_right_label">Saludi de sa Bateria Dreta (ist.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Ancora in determinatione, torra a controllare a segida</string>
     <string name="device_settings_info_details_label">Detàllios de su Dispositivu</string>
     <string name="device_settings_info_details_action">Mustra sos detàllios de su dispositivu</string>
     <string name="device_settings_info_status_label">Istadu</string>

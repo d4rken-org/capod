@@ -122,6 +122,12 @@
     <string name="settings_general_description">ការកែតម្រូវទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
     <string name="settings_overview_hide_unmatched_label">លាក់ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
     <string name="settings_overview_hide_unmatched_description">មិនបង្ហាញឧបករណ៍នៅជិតដែលមិនត្រូវនឹងប្រវត្តិរូបណាមួយរបស់អ្នកនៅក្នុងទិដ្ឋភាពទូទៅ ឧ. AirPods របស់អ្នកដទៃ។</string>
+    <string name="device_battery_estimate_toggle_label">ការប៉ាន់ប្រមាណថាមពលថ្ម</string>
+    <string name="device_battery_estimate_card_desc">រៀនពីរបៀបដែលឧបករណ៍នេះសាក និងរលាយថាមពល ដើម្បីប៉ាន់ប្រមាណពេលដែលនៅសល់ រយៈពេលសាក និងសុខភាពថ្ម។</string>
+    <string name="device_battery_estimate_reset_action">កំដាប់ទិន្នន័យដែលរៀន</string>
+    <string name="device_battery_estimate_reset_desc">ចាប់ផ្តើមម្តងទៀតពីរយៈពេលថ្មដែលបានវាយតម្លៃ។</string>
+    <string name="device_battery_estimate_reset_confirm_title">លុបទិន្នន័យដែលរៀនឡើងវិញ?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod នឹងភ្លេចការរលាយដែលបានវាស់វែងរបស់ឧបករណ៍នេះ ល្បឿនសាក និងសុខភាពថ្ម ហើយចាប់ផ្តើមម្តងទៀតពីរយៈពេលថ្មដែលបានវាយតម្លៃ។</string>
     <string name="settings_acknowledgements_label">ការទទួលស្គាល់</string>
     <string name="settings_debug_autoreports_label">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_debug_autoreports_description">រាយការណ៍បញ្ហាដោយស្វ័យប្រវត្តិ ឧ. ព័ត៌មានលម្អិតអំពីការគាំងកម្មវិធី ដូច្នេះខ្ញុំអាចរកវិធីដោះស្រាយវាបាន។</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">ភាពថ្លាផ្ទៃខាងក្រោយ</string>
     <string name="widget_config_show_device_label">បង្ហាញឈ្មោះឧបករណ៍</string>
     <string name="widget_config_reset_label">កំណត់ឡើងវិញទៅលម្អិតដើម</string>
-    <string name="widget_config_preview_resize_hint">អ្នកអាចប្តូរទំហំ widget បន្ទាប់ពីដាក់វានៅលើអេក្រង់ដើមរបស់អ្នក។</string>
+    <string name="widget_config_preview_resize_hint">អ្នកអាចផ្លាស់ប្តូរទំហំវីដ្ជិតបន្ទាប់ពីដាក់វានៅលើអេក្រង់ដើមរបស់អ្នក។</string>
     <string name="widget_config_custom_label">ផ្ទាល់ខ្លួន</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ងងឹត</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">ឃើញចុងក្រោយ: %s</string>
     <string name="first_seen_x">ឃើញដំបូង: %s</string>
     <string name="battery_cached_label">ដឹងចុងក្រោយ · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dម %2$dន</string>
+    <string name="battery_time_remaining_format_h">%1$dម</string>
+    <string name="battery_time_remaining_format_m">%1$dន</string>
     <string name="permission_post_notifications_label">បង្ហាញការជូនដំណឹង</string>
     <string name="permission_post_notifications_description">"អនុញ្ញាតឱ្យ CAPod បង្ហាញការជូនដំណឹងអំពី AirPods របស់អ្នក ឧ. ស្ថានភាពបច្ចុប្បន្នរបស់ពួកគេខណៈពេលភ្ជាប់។"</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">លើខស៊ើរី Pod ខាងស្តាំ</string>
     <string name="device_settings_info_left_bonded_label">ខាងឆ្វេងបានភ្ជាប់</string>
     <string name="device_settings_info_right_bonded_label">ខាងស្តាំបានភ្ជាប់</string>
+    <string name="device_settings_info_battery_health_label">សុខភាពថ្ម (ប៉ាន់ស្មាន)</string>
+    <string name="device_settings_info_battery_health_left_label">សុខភាពថ្ម ឆ្វេង (ប៉ាន់ស្មាន)</string>
+    <string name="device_settings_info_battery_health_right_label">សុខភាពថ្ម ស្ដាំ (ប៉ាន់ស្មាន)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">នៅកំពុងកំណត់ សូមត្រលប់មកពេលក្រោយ</string>
     <string name="device_settings_info_details_label">ព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_details_action">បង់ហាញព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_status_label">ស្ថានភាព</string>

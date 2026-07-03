@@ -122,6 +122,12 @@
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
     <string name="settings_overview_hide_unmatched_label">Slėpti neatitinkančius įrenginius</string>
     <string name="settings_overview_hide_unmatched_description">Nerodykite netoliese esančių įrenginius, kurie neatitinka nė vieno jūsų profilio apžvalgoje, pvz. kitų žmonų AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">Baterijos įverčiai</string>
+    <string name="device_battery_estimate_card_desc">Sužinokite, kaip šis įrenginys kraunasi ir išsikrauna, kad galėtumėte įvertinti likusį laiką, laiką iki pilno įkrovimo ir baterijos būklę.</string>
+    <string name="device_battery_estimate_reset_action">Iš naujo nustatyti išmoktus duomenis</string>
+    <string name="device_battery_estimate_reset_desc">Pradėkite iš naujo nuo nurodytosios baterijos veikimo trukmės.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Iš naujo nustatyti išmoktus duomenis?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod pamiršs šio įrenginio išmatuotą energijos sąnaudą, įkrovimo greitį ir baterijos būklę, ir pradės iš naujo nuo nurodytosios baterijos veikimo trukmės.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
     <string name="settings_debug_autoreports_label">Automatinės klaidų ataskaitos</string>
     <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Fono permatomumas</string>
     <string name="widget_config_show_device_label">Rodyti įrenginio pavadinimą</string>
     <string name="widget_config_reset_label">Atstatyti į numatytuosius nustatymus</string>
-    <string name="widget_config_preview_resize_hint">Galite keisti valdiklio dydį po to, kai jį įdėsite į pagrindinį ekraną.</string>
+    <string name="widget_config_preview_resize_hint">Galite pakeisti priedo dydį, jį padėję savo pradžios ekrane.</string>
     <string name="widget_config_custom_label">Pasirinktinis</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tamsi</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">Paskutinį kartą matytas: %s</string>
     <string name="first_seen_x">Pirmą kartą matytas: %s</string>
     <string name="battery_cached_label">Paskutinis žinomas · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dv %2$dmin</string>
+    <string name="battery_time_remaining_format_h">%1$dv</string>
+    <string name="battery_time_remaining_format_m">%1$dmin</string>
     <string name="permission_post_notifications_label">Rodyti pranešimus</string>
     <string name="permission_post_notifications_description">"Leiskite CAPod rodyti pranešimus apie jūsų „AirPods\", pvz., jų dabartinę būseną prisijungus."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">Dešiniojo ausinuko serijos numeris</string>
     <string name="device_settings_info_left_bonded_label">Kairė susieta</string>
     <string name="device_settings_info_right_bonded_label">Dešinė susieta</string>
+    <string name="device_settings_info_battery_health_label">Baterijos sveikata (apskaičiuota)</string>
+    <string name="device_settings_info_battery_health_left_label">Kairės baterijos sveikata (apskaič.)</string>
+    <string name="device_settings_info_battery_health_right_label">Dešinės baterijos sveikata (apskaič.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Dar nustatoma, grįžkite vėliau</string>
     <string name="device_settings_info_details_label">Įrenginio informacija</string>
     <string name="device_settings_info_details_action">Rodyti įrenginio informaciją</string>
     <string name="device_settings_info_status_label">Būsena</string>

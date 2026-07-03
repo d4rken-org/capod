@@ -122,6 +122,12 @@
     <string name="settings_general_description">影响整个应用的一般性设置。</string>
     <string name="settings_overview_hide_unmatched_label">隐藏不匹配的设备</string>
     <string name="settings_overview_hide_unmatched_description">不在概览中显示附近与任何配置文件不匹配的设备，例如他人的 AirPods。</string>
+    <string name="device_battery_estimate_toggle_label">电池续航估计</string>
+    <string name="device_battery_estimate_card_desc">了解此设备的充放电方式，以估计剩余时间、充电时间和电池健康状况。</string>
+    <string name="device_battery_estimate_reset_action">重置已学习的数据</string>
+    <string name="device_battery_estimate_reset_desc">从额定电池寿命重新开始。</string>
+    <string name="device_battery_estimate_reset_confirm_title">重置已学习的数据？</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod 将忘记此设备测得的耗电量、充电速度和电池健康状况，并从额定电池寿命重新开始。</string>
     <string name="settings_acknowledgements_label">鸣谢</string>
     <string name="settings_debug_autoreports_label">自动反馈错误</string>
     <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">背景透明度</string>
     <string name="widget_config_show_device_label">显示设备名称</string>
     <string name="widget_config_reset_label">重置为默认值</string>
-    <string name="widget_config_preview_resize_hint">将小组件放置到主屏幕后，您可以调整其大小。</string>
+    <string name="widget_config_preview_resize_hint">在主屏幕上放置小组件后，您可以调整其大小。</string>
     <string name="widget_config_custom_label">自定义</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">深色</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">最后一次在线: %s</string>
     <string name="first_seen_x">首次在线：%s</string>
     <string name="battery_cached_label">上次已知 · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$d小时 %2$d分钟</string>
+    <string name="battery_time_remaining_format_h">%1$d小时</string>
+    <string name="battery_time_remaining_format_m">%1$d分钟</string>
     <string name="permission_post_notifications_label">显示通知</string>
     <string name="permission_post_notifications_description">"允许 CAPod 显示有关您 AirPods 的通知，例如其连接时的当前状态"</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">右耳机序列号</string>
     <string name="device_settings_info_left_bonded_label">左耳已配对</string>
     <string name="device_settings_info_right_bonded_label">右耳已配对</string>
+    <string name="device_settings_info_battery_health_label">电池健康度（估计）</string>
+    <string name="device_settings_info_battery_health_left_label">左电池健康度（估计）</string>
+    <string name="device_settings_info_battery_health_right_label">右电池健康度（估计）</string>
+    <string name="device_settings_info_battery_health_value">约%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">仍在确定中，请稍后查看</string>
     <string name="device_settings_info_details_label">设备详情</string>
     <string name="device_settings_info_details_action">显示设备详情</string>
     <string name="device_settings_info_status_label">状态</string>

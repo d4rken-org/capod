@@ -122,6 +122,12 @@
     <string name="settings_general_description">Algemene aanpassings wat die hele toepassing beïnvloed.</string>
     <string name="settings_overview_hide_unmatched_label">Versteek onooreenstemmende toestelle</string>
     <string name="settings_overview_hide_unmatched_description">Moenie naby toestelle wys wat nie ooreenstem met enige van jou profiele in die oorsig nie, bv. ander mense se AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">Batteryskattings</string>
+    <string name="device_battery_estimate_card_desc">Leer hoe hierdie toestel laai en ontlaai om oorblywende tyd, laadtyd en batterygesondheid in te skat.</string>
+    <string name="device_battery_estimate_reset_action">Geleerde gegevens herstel</string>
+    <string name="device_battery_estimate_reset_desc">Begin opnuut van die gegradeerde batterylewensduur.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Geleerde gegevens herstel?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod sal hierdie toestel se gemete afvoer, laadsnelheid en batterygesondheid vergeet en opnuut met die gegradeerde batterylewensduur begin.</string>
     <string name="settings_acknowledgements_label">Erkennings</string>
     <string name="settings_debug_autoreports_label">Outomatiese foutverslae</string>
     <string name="settings_debug_autoreports_description">Rapporteer probleme outomaties, bv. besonderhede oor \'n toepassingstorting sodat ek kan uitvind hoe om dit reg te stel.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Agtergrond-deursigtigheid</string>
     <string name="widget_config_show_device_label">Wys toestelnaam</string>
     <string name="widget_config_reset_label">Stel terug na standaarde</string>
-    <string name="widget_config_preview_resize_hint">U kan die widget vergroot of verklein nadat u dit op u tuisskerm geplaas het.</string>
+    <string name="widget_config_preview_resize_hint">Jy kan die widget se grootte aanpas nadat jy dit op jou tuisskerm geplaas het.</string>
     <string name="widget_config_custom_label">Aangepas</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Donker</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Laas gesien: %s</string>
     <string name="first_seen_x">Eerste keer gesien: %s</string>
     <string name="battery_cached_label">Laas bekend · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Wys kennisgewings</string>
     <string name="permission_post_notifications_description">"Laat CAPod toe om kennisgewings oor jou AirPods te wys, bv. hul huidige status terwyl hulle gekoppel is."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Regter Pod Serienommer</string>
     <string name="device_settings_info_left_bonded_label">Links Gekoppel</string>
     <string name="device_settings_info_right_bonded_label">Regs Gekoppel</string>
+    <string name="device_settings_info_battery_health_label">Batterygesondheid (beraamde)</string>
+    <string name="device_settings_info_battery_health_left_label">Linker Batterygesondheid (beraamde)</string>
+    <string name="device_settings_info_battery_health_right_label">Regter Batterygesondheid (beraamde)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Besig om te bepaal, kom later terug</string>
     <string name="device_settings_info_details_label">Toestelbesonderhede</string>
     <string name="device_settings_info_details_action">Wys toestelbesonderhede</string>
     <string name="device_settings_info_status_label">Status</string>

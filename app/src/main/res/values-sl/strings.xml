@@ -122,6 +122,12 @@
     <string name="settings_general_description">Splošne prilagoditve, ki vplivajo na celotno aplikacijo.</string>
     <string name="settings_overview_hide_unmatched_label">Skrij neusklajene naprave</string>
     <string name="settings_overview_hide_unmatched_description">V pregledu ne prikazuj bližnjih naprav, ki ne ustrezajo nobenim od tvojih profilov, npr. AirPods drugih oseb.</string>
+    <string name="device_battery_estimate_toggle_label">Ocene baterije</string>
+    <string name="device_battery_estimate_card_desc">Nauči se, kako se ta naprava polni in prazni, da oceniš preostali čas, čas do polnjenja in stanje baterije.</string>
+    <string name="device_battery_estimate_reset_action">Resetiraj učene podatke</string>
+    <string name="device_battery_estimate_reset_desc">Ponovno začni od nazivne življenjske dobe baterije.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Resetirati učene podatke?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bo pozabil izmerjeno praznjenje, hitrost polnjenja in stanje baterije te naprave in ponovno začel od nazivne življenjske dobe baterije.</string>
     <string name="settings_acknowledgements_label">Zahvale</string>
     <string name="settings_debug_autoreports_label">Samodejna poročila o napakah</string>
     <string name="settings_debug_autoreports_description">Samodejno poroča o težavah, npr. podrobnosti o zrušitvi aplikacije, da lahko ugotovim, kako jo popraviti.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Prosojnost ozadja</string>
     <string name="widget_config_show_device_label">Prikaži ime naprave</string>
     <string name="widget_config_reset_label">Ponastavi na privzete vrednosti</string>
-    <string name="widget_config_preview_resize_hint">Pripomoček lahko spremenite po namestitvi na začetni zaslon.</string>
+    <string name="widget_config_preview_resize_hint">Gradnik lahko spreminjaš po postavitvi na domačem zaslonu.</string>
     <string name="widget_config_custom_label">Prilagojeno</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Temno</string>
@@ -282,6 +288,9 @@
     <string name="last_seen_x">Nazadnje videno: %s</string>
     <string name="first_seen_x">Prvič videno: %s</string>
     <string name="battery_cached_label">Zadnje znano · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Prikaži obvestila</string>
     <string name="permission_post_notifications_description">"Dovolite CAPod prikazovanje obvestil o vaših AirPods, npr. njihovo trenutno stanje, ko so povezane."</string>
     <!-- Device profiles -->
@@ -433,6 +442,11 @@
     <string name="device_settings_info_right_serial_label">Serijska številka desnega slušalnika</string>
     <string name="device_settings_info_left_bonded_label">Levo sparjeno</string>
     <string name="device_settings_info_right_bonded_label">Desno sparjeno</string>
+    <string name="device_settings_info_battery_health_label">Stanje baterije (ocenjeno)</string>
+    <string name="device_settings_info_battery_health_left_label">Stanje leve baterije (oc.)</string>
+    <string name="device_settings_info_battery_health_right_label">Stanje desne baterije (oc.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Še vedno se določa, preveri pozneje</string>
     <string name="device_settings_info_details_label">Podrobnosti naprave</string>
     <string name="device_settings_info_details_action">Prikaži podrobnosti naprave</string>
     <string name="device_settings_info_status_label">Status</string>

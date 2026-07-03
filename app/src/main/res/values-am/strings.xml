@@ -122,6 +122,12 @@
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_overview_hide_unmatched_label">ያልተዛመዱ መሳሪያዎችን ደብቅ</string>
     <string name="settings_overview_hide_unmatched_description">ከፕሮፋይሎቻቸው ጋር የማይዛመዱ አቅራቢያ ያሉ መሳሪያዎችን በዝርዝሩ ውስጥ አታሳይ፣ ለምሳሌ የሌሎች ሰዎች AirPods።</string>
+    <string name="device_battery_estimate_toggle_label">ባትሪ ግምቶች</string>
+    <string name="device_battery_estimate_card_desc">ይህ መሳሪያ እንዴት ሲሞላ እና እንደሚወድ በመማር ተቀሩትን ጊዜ፣ ሞላ ሲሳ የሚቆይ ጊዜ እና ባትሪ ጤናን ግምት ማድረግ ይችላሉ።</string>
+    <string name="device_battery_estimate_reset_action">የተማረውን ዳታ ዳግም ያስጀምሩ</string>
+    <string name="device_battery_estimate_reset_desc">ተወሰነ ባትሪ ዕድሜ ሪጀምር።</string>
+    <string name="device_battery_estimate_reset_confirm_title">የተማረውን ዳታ ዳግም ያስጀምራሉ?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ይህ መሳሪያ የተለካው ወደዳ፣ ሙሎት ፍጥነት እና ባትሪ ጤናን ይረሳል እና ተወሰነ ባትሪ ዕድሜ ሪጀምራል።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
     <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">የዳራ ግልጽነት</string>
     <string name="widget_config_show_device_label">የመሳሪያ ስም አሳይ</string>
     <string name="widget_config_reset_label">ወደ ነባሪ መመለስ</string>
-    <string name="widget_config_preview_resize_hint">ዊጄቱን በዋናው ስክሪን ላይ ካስቀመጡት በኋላ መጠኑን መቀየር ይችላሉ።</string>
+    <string name="widget_config_preview_resize_hint">ዊጀትን በቤት ስክሪን ላይ ከአስቀመጡ በኋላ መጠንዋን መቀየር ይችላሉ።</string>
     <string name="widget_config_custom_label">ብጁ</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ጨለማ</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">ለመጨረሻ ጊዜ የታየው: %s</string>
     <string name="first_seen_x">ለመጀመሪያ ጊዜ የታየው: %s</string>
     <string name="battery_cached_label">የመጨረሻ ታወቀ · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dሰ %2$ደ</string>
+    <string name="battery_time_remaining_format_h">%1$dሰ</string>
+    <string name="battery_time_remaining_format_m">%1$dደ</string>
     <string name="permission_post_notifications_label">ማሳወቂያዎችን አሳይ</string>
     <string name="permission_post_notifications_description">"CAPod ስለ AirPodsዎ ማሳወቂያዎችን እንዲያሳይ ፍቀድ፣ ለምሳሌ ሲገናኙ የአሁኑ ሁኔታቸውን።"</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">የቀኝ ፖድ ተከታታይ ቅጥር</string>
     <string name="device_settings_info_left_bonded_label">ግራ ተያይዟል</string>
     <string name="device_settings_info_right_bonded_label">ቀኝ ተያይዟል</string>
+    <string name="device_settings_info_battery_health_label">ባትሪ ጤና (ግምታዊ)</string>
+    <string name="device_settings_info_battery_health_left_label">ግራ ባትሪ ጤና (ግምታዊ)</string>
+    <string name="device_settings_info_battery_health_right_label">ቀኝ ባትሪ ጤና (ግምታዊ)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">ገና ይወሰናል፣ በኋላ ይመልከቱ</string>
     <string name="device_settings_info_details_label">የመሳሪያ ዝርዝሮች</string>
     <string name="device_settings_info_details_action">የመሳሪያ ዝርዝሮችን አሳይ</string>
     <string name="device_settings_info_status_label">ሁኔታ</string>

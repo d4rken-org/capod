@@ -122,6 +122,12 @@
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
     <string name="settings_overview_hide_unmatched_label">Fshih pajisjet e papërputhura</string>
     <string name="settings_overview_hide_unmatched_description">Mos shfaq pajisjet afërsisht që nuk përputhen me asnjë nga profilet tuaja në pamje të përgjithshme, p.sh. AirPods-et e njerëzve të tjerë.</string>
+    <string name="device_battery_estimate_toggle_label">Vlerësimet e baterisë</string>
+    <string name="device_battery_estimate_card_desc">Mësoni se si kjo pajisje ngarkohet dhe zbrazet për të vlerësuar kohën e mbetur, kohën deri sa të ngarkohet dhe shëndetin e baterisë.</string>
+    <string name="device_battery_estimate_reset_action">Rivendosni të dhënat e mësuara</string>
+    <string name="device_battery_estimate_reset_desc">Filloni përsëri nga jeta nominale e baterisë.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Rivendosni të dhënat e mësuara?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod do të harrojë depletimin e matur të kësaj pajisjeje, shpejtësinë e ngarkimit dhe shëndetin e baterisë, dhe do të fillojë përsëri nga jeta nominale e baterisë.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
     <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
     <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Transparenca e sfondit</string>
     <string name="widget_config_show_device_label">Shfaq emrin e pajisjes</string>
     <string name="widget_config_reset_label">Rivendos në paracaktimet</string>
-    <string name="widget_config_preview_resize_hint">Mund ta ndryshoni madhësinë e miniaplikacionit pasi ta vendosni në ekranin tuaj kryesor.</string>
+    <string name="widget_config_preview_resize_hint">Mund ta ndryshoni madhësinë e widget-it pasi ta vendosni në ekranin tuaj të shtëpisë.</string>
     <string name="widget_config_custom_label">Vetjak</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">E errët</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Parë për herë të fundit: %s</string>
     <string name="first_seen_x">Parë për herë të parë: %s</string>
     <string name="battery_cached_label">E fundit e njohur · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$do %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$do</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Shfaq njoftimet</string>
     <string name="permission_post_notifications_description">"Lejoni CAPod të shfaqë njoftimet rreth AirPods tuaja, p.sh. statusin e tyre aktual ndërsa janë të lidhura."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Numri serial i kapsulit të djathtë</string>
     <string name="device_settings_info_left_bonded_label">E lidhur majtas</string>
     <string name="device_settings_info_right_bonded_label">E lidhur djathtas</string>
+    <string name="device_settings_info_battery_health_label">Shëndeti i Baterisë (i vlerësuar)</string>
+    <string name="device_settings_info_battery_health_left_label">Shëndeti i Baterisë të Majtë (i vlerësuar)</string>
+    <string name="device_settings_info_battery_health_right_label">Shëndeti i Baterisë të Djathtë (i vlerësuar)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Ende po përcaktohet, kontrollo më vonë</string>
     <string name="device_settings_info_details_label">Detajet e pajisjes</string>
     <string name="device_settings_info_details_action">Shfaq detajet e pajisjes</string>
     <string name="device_settings_info_status_label">Statusi</string>

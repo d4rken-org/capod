@@ -122,6 +122,12 @@
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
     <string name="settings_overview_hide_unmatched_label">Fihla amadivayisi angafanele</string>
     <string name="settings_overview_hide_unmatched_description">Ungabonisi amadivayisi aseduzane angafanele namaprofile akho embonweni jikelele, isib. ama-AirPods abantu abanye.</string>
+    <string name="device_battery_estimate_toggle_label">Izilinganiso zeBatari</string>
+    <string name="device_battery_estimate_card_desc">Funza indlela yesikwama sichaja nokucina ukuze ulinganise isikhathi esisele, isikhathi sokughajwa, nokuphila kweBatari.</string>
+    <string name="device_battery_estimate_reset_action">Ziphindezele imininingwane efundwe</string>
+    <string name="device_battery_estimate_reset_desc">Qala kabusha kusuka ekubhalweni kweBatari.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Ziphindezele imininingwane efundwe?</string>
+    <string name="device_battery_estimate_reset_confirm_message">I-CAPod izokhohlwa umkhulu omlinganisiwe, isivinini sokuchaja, nokuphila kweBatari, nokaqala kabusha kusuka ekubhalweni kweBatari.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
     <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
     <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">Ukucatshulwa kwemuva</string>
     <string name="widget_config_show_device_label">Bonisa igama ledivayisi</string>
     <string name="widget_config_reset_label">Zinzele kuzilungiselelo ezisetshenziswayo</string>
-    <string name="widget_config_preview_resize_hint">Ungashintsha usayizi we-widget ngemuva kokuyibeka esikrini sakho sasekhaya.</string>
+    <string name="widget_config_preview_resize_hint">Ungakwazi ukushintsha isayizi ye-widget ngemuva kokuyifaka ekusikeni lakho laphandle.</string>
     <string name="widget_config_custom_label">Okwenziwe ngezinga</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Mnyama</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">Ibonwe kokugcina: %s</string>
     <string name="first_seen_x">Ibonwe okokuqala: %s</string>
     <string name="battery_cached_label">Owayeziwa ekugcineni · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Bonisa izaziso</string>
     <string name="permission_post_notifications_description">"Vumela i-CAPod ukuthi ibonise izaziso mayelana nama-AirPods akho, isb. isimo sawo samanje ngenkathi exhunyiwe."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">Inombolo Yesitho Sesokudla</string>
     <string name="device_settings_info_left_bonded_label">Okuxhunyiwe Kwesokunxele</string>
     <string name="device_settings_info_right_bonded_label">Okuxhunyiwe Kwesokudla</string>
+    <string name="device_settings_info_battery_health_label">Ubuphilakha bweBatari (okungeniswe)</string>
+    <string name="device_settings_info_battery_health_left_label">Ubuphilakha bweBatari Okosele (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Ubuphilakha bweBatari Okunene (est.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Kusabonakala, buyela ngemuva</string>
     <string name="device_settings_info_details_label">Imininingwane Yedivayisi</string>
     <string name="device_settings_info_details_action">Bonisa imininingwane yedivayisi</string>
     <string name="device_settings_info_status_label">Isimo</string>

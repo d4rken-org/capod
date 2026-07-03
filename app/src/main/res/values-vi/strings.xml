@@ -122,6 +122,12 @@
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_overview_hide_unmatched_label">Ẩn thiết bị không khớp</string>
     <string name="settings_overview_hide_unmatched_description">Không hiển thị các thiết bị lân cận không khớp với bất kỳ hồ sơ nào của bạn trong tổng quan, ví dụ: AirPods của người khác.</string>
+    <string name="device_battery_estimate_toggle_label">Ước tính pin</string>
+    <string name="device_battery_estimate_card_desc">Tìm hiểu cách thiết bị này sạc và xả để ước tính thời gian còn lại, thời gian cho đến khi sạc đầy và sức khỏe pin.</string>
+    <string name="device_battery_estimate_reset_action">Đặt lại dữ liệu đã học</string>
+    <string name="device_battery_estimate_reset_desc">Bắt đầu lại từ thời lượng pin được xếp hạng.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Đặt lại dữ liệu đã học?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod sẽ quên mức xả đo được, tốc độ sạc và sức khỏe pin của thiết bị này, và bắt đầu lại từ thời lượng pin được xếp hạng.</string>
     <string name="settings_acknowledgements_label">Đóng góp và cảm ơn</string>
     <string name="settings_debug_autoreports_label">Báo cáo lỗi tự động</string>
     <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string>
@@ -276,6 +282,9 @@
     <string name="last_seen_x">Lần thấy gần nhất: %s</string>
     <string name="first_seen_x">Lần thấy đầu tiên: %s</string>
     <string name="battery_cached_label">Lần cuối biết · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Hiển thị thông báo</string>
     <string name="permission_post_notifications_description">"Cho phép CAPod hiển thị thông báo về AirPods của bạn, ví dụ trạng thái hiện tại của chúng khi đang kết nối."</string>
     <!-- Device profiles -->
@@ -418,6 +427,11 @@
     <string name="device_settings_info_right_serial_label">Số sên tai nghe phải</string>
     <string name="device_settings_info_left_bonded_label">Trái đã ghép</string>
     <string name="device_settings_info_right_bonded_label">Phải đã ghép</string>
+    <string name="device_settings_info_battery_health_label">Sức khoẻ pin (ước tính)</string>
+    <string name="device_settings_info_battery_health_left_label">Sức khoẻ pin trái (ước tính)</string>
+    <string name="device_settings_info_battery_health_right_label">Sức khoẻ pin phải (ước tính)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Đang xác định, vui lòng kiểm tra lại sau</string>
     <string name="device_settings_info_details_label">Chi tiết thiết bị</string>
     <string name="device_settings_info_details_action">Hiển thị chi tiết thiết bị</string>
     <string name="device_settings_info_status_label">Trạng thái</string>

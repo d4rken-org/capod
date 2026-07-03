@@ -122,6 +122,12 @@
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
     <string name="settings_overview_hide_unmatched_label">பொருந்தாத சாதனங்களை மறை</string>
     <string name="settings_overview_hide_unmatched_description">உங்கள் சுயவிவரங்களில் எதுவும் பொருந்தாத அருகில் உள்ள சாதனங்களை மேலோட்டத்தில் காட்டாதே, எ.கா. மற்றவர்களின் AirPods.</string>
+    <string name="device_battery_estimate_toggle_label">பேட்டரி மதிப்பீடுகள்</string>
+    <string name="device_battery_estimate_card_desc">இந்த சாதனம் எப்படி சார்ஜ் ஆகிறது மற்றும் வெளியேறுகிறது என்பதைக் கற்றுக்கொள்ளுங்கள்; மீதமுள்ள நேரம், சார்ஜ் ஆகும் நேரம் மற்றும் பேட்டரி ஆரோக்கியத்தை மதிப்பீடு செய்ய.</string>
+    <string name="device_battery_estimate_reset_action">கற்ற தரவைக் மீட்டமைக்கவும்</string>
+    <string name="device_battery_estimate_reset_desc">மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கவும்.</string>
+    <string name="device_battery_estimate_reset_confirm_title">கற்ற தரவைக் மீட்டமைக்கவுமா?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod இந்த சாதனத்தின் அளந்த வெளியேற்றம், சார்ஜ் வேகம் மற்றும் பேட்டரி ஆரோக்கியத்தை மறந்துவிடும், மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கும்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
     <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
     <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
@@ -156,7 +162,7 @@
     <string name="widget_config_transparency_label">பின்னணி வெளிப்படையாக்கம்</string>
     <string name="widget_config_show_device_label">சாதன பெயரைக் காட்டு</string>
     <string name="widget_config_reset_label">இயல்பிற்கு மீட்டமை</string>
-    <string name="widget_config_preview_resize_hint">உங்கள் முகப்புத் திரையில் வைத்த பிறகு விட்ஜெட்டை மறுஅளவிடலாம்.</string>
+    <string name="widget_config_preview_resize_hint">உங்கள் முகப்பு திரையில் விட்ஜெட்டை வைத்த பிறகு அதன் அளவை மாற்றலாம்.</string>
     <string name="widget_config_custom_label">தனிப்பயன்</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">இருண்ட</string>
@@ -278,6 +284,9 @@
     <string name="last_seen_x">கடைசியாகக் காணப்பட்டது: %s</string>
     <string name="first_seen_x">முதலில் காணப்பட்டது: %s</string>
     <string name="battery_cached_label">கடைசியாக அறியப்பட்டது · %s</string>
+    <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
+    <string name="battery_time_remaining_format_h">%1$dh</string>
+    <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">அறிவிப்புகளைக் காட்டு</string>
     <string name="permission_post_notifications_description">"உங்கள் AirPods பற்றிய அறிவிப்புகளைக் காட்ட CAPod-ஐ அனுமதிக்கவும், எ.கா. இணைக்கப்பட்டிருக்கும்போது அவற்றின் தற்போதைய நிலை."</string>
     <!-- Device profiles -->
@@ -423,6 +432,11 @@
     <string name="device_settings_info_right_serial_label">வலது பாட் தொடர் எண்</string>
     <string name="device_settings_info_left_bonded_label">இடது இணைக்கப்பட்டது</string>
     <string name="device_settings_info_right_bonded_label">வலது இணைக்கப்பட்டது</string>
+    <string name="device_settings_info_battery_health_label">பேட்டரி ஆரோக்கியம் (மதிப்பீடு)</string>
+    <string name="device_settings_info_battery_health_left_label">இடது பேட்டரி ஆரோக்கியம் (மதிப்.)</string>
+    <string name="device_settings_info_battery_health_right_label">வலது பேட்டரி ஆரோக்கியம் (மதிப்.)</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">இன்னும் கணக்கிடப்படுகிறது, பிறகு பாருங்கள்</string>
     <string name="device_settings_info_details_label">சாதன விவரங்கள்</string>
     <string name="device_settings_info_details_action">சாதன விவரங்களைக் காட்டு</string>
     <string name="device_settings_info_status_label">நிலை</string>
