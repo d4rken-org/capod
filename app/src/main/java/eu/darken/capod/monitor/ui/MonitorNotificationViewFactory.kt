@@ -71,12 +71,10 @@ class MonitorNotificationViewFactory @Inject constructor(
         if (device.hasEarDetection) {
             setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn == true) View.VISIBLE else View.GONE)
         }
-        if (device.isHeadsetBeingCharged != null) {
-            setViewVisibility(
-                R.id.headphones_charging,
-                if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
-            )
-        }
+        setViewVisibility(
+            R.id.headphones_charging,
+            if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
+        )
     }
 
     private fun createUnknownDevice(device: PodDevice): RemoteViews = RemoteViews(
@@ -151,12 +149,10 @@ class MonitorNotificationViewFactory @Inject constructor(
         if (device.hasEarDetection) {
             setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn == true) View.VISIBLE else View.GONE)
         }
-        if (device.isHeadsetBeingCharged != null) {
-            setViewVisibility(
-                R.id.headphones_charging,
-                if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
-            )
-        }
+        setViewVisibility(
+            R.id.headphones_charging,
+            if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
+        )
     }
 
     private fun createUnknownDeviceBig(device: PodDevice): RemoteViews = RemoteViews(
