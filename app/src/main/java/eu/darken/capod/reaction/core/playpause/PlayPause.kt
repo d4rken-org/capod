@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -223,6 +224,8 @@ class PlayPause @Inject constructor(
                     rawDecision = confirmation.decision,
                     currentState = currState,
                     autoPauseEnabled = reactions.autoPause,
+                    now = current.ble?.seenLastAt,
+                    generatedAtNanos = current.ble?.scanResult?.generatedAtNanos,
                 )
                 pendingPauseDebounce = debounceResult.pending
 
@@ -240,7 +243,7 @@ class PlayPause @Inject constructor(
                             "rawShouldPlay=${confirmation.decision.shouldPlay}"
                     }
                     PauseDebounceEvent.COMMITTED -> log(TAG, DEBUG) {
-                        "Pause debounce committed: source=$source confirmed pause"
+                        "Pause debounce committed: source=$source, ${debounceResult.decision.reason}"
                     }
                     PauseDebounceEvent.NONE -> {}
                 }
@@ -438,12 +441,21 @@ class PlayPause @Inject constructor(
     }
 
     /**
-     * Sample-count debounce for pause decisions when the ear-detection source is an
-     * unauthenticated BLE advertisement.
+     * Hybrid sample-count + time-cap debounce for pause decisions when the ear-detection source
+     * is an unauthenticated BLE advertisement.
      *
-     * RF interference can produce a single corrupt advert that decodes as not-worn,
-     * triggering a false pause. With [PAUSE_DEBOUNCE_SAMPLES] = 2, a pause requires
-     * 3 consecutive not-worn samples before firing.
+     * RF interference can produce a single corrupt advert that decodes as not-worn, triggering a
+     * false pause. With [PAUSE_DEBOUNCE_SAMPLES] = 2, a pause requires 3 consecutive not-worn
+     * samples before firing on the *count* path.
+     *
+     * On OEM stacks that deliver scan results in slow (~1.5-2s) batches, waiting for the full
+     * sample count would take ~4s. To cap that, the pause also commits early once the not-worn
+     * condition has persisted at least [PAUSE_DEBOUNCE_TIME_CAP] — but only when the samples are
+     * still strictly consecutive (no tolerated rebound) and the confirming sample is a *distinct*
+     * radio reception ([BleScanResult.generatedAtNanos] differs from the first). The time path
+     * therefore never commits on fewer than 2 consecutive, distinct not-worn receptions. Elapsed
+     * uses [now] (the sample's `ble.seenLastAt`, a callback-receive wall-clock) clamped to ≥ 0.
+     * When [now]/[generatedAtNanos] are null (no live BLE sample) the time path is inactive.
      *
      * The helper advances [pending] from [currentState], NOT from [rawDecision.shouldPause]
      * — subsequent samples after the initial detection are not-worn → not-worn, and
@@ -462,6 +474,8 @@ class PlayPause @Inject constructor(
         rawDecision: PlayPauseDecision,
         currentState: EarDetectionState,
         autoPauseEnabled: Boolean,
+        now: Instant? = null,
+        generatedAtNanos: Long? = null,
     ): PauseDebounceResult {
         val needsDebounce = source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
             source == EarDetectionSource.BLE_ANONYMOUS
@@ -525,6 +539,8 @@ class PlayPause @Inject constructor(
                     profileId = profileId,
                     initialPodCount = currentState.podCount,
                     confirmationsRemaining = PAUSE_DEBOUNCE_SAMPLES,
+                    startedAt = now,
+                    startedGeneratedAtNanos = generatedAtNanos,
                 ),
                 event = PauseDebounceEvent.STARTED,
             )
@@ -545,7 +561,10 @@ class PlayPause @Inject constructor(
                         shouldPause = false,
                         reason = "Debouncing pause (rebound tolerated)",
                     ),
-                    pending = activePending.copy(resetTolerance = activePending.resetTolerance - 1),
+                    pending = activePending.copy(
+                        resetTolerance = activePending.resetTolerance - 1,
+                        reboundTolerated = true,
+                    ),
                     event = PauseDebounceEvent.ADVANCED,
                 )
             }
@@ -554,12 +573,41 @@ class PlayPause @Inject constructor(
 
         // Confirmation: count <= initialPodCount, decrement remaining.
         val remaining = activePending.confirmationsRemaining - 1
-        if (remaining <= 0) {
+        val commitOnCount = remaining <= 0
+
+        // Time-cap early commit: once the not-worn condition has persisted at least
+        // PAUSE_DEBOUNCE_TIME_CAP, commit before the full sample count is reached — this caps the
+        // pause latency on OEM stacks that deliver scan results in slow batches. Three guards keep
+        // the "≥2 consecutive, distinct not-worn receptions" invariant:
+        //   - reboundTolerated: a count-up rebound broke the consecutive not-worn run → the time
+        //     path is disabled and we fall back to pure sample-count.
+        //   - distinct generatedAtNanos: the confirming sample must be a different radio reception
+        //     than the first, so a stack re-delivering one cached advert in a later batch (fresh
+        //     seenLastAt, same reception) cannot early-commit on a single physical advert. A
+        //     broken/constant OEM timebase just disables the time path (fail-safe to count).
+        //   - elapsed clamped to >= 0: a backward seenLastAt jump (wall-clock step, or the backing
+        //     snapshot switching to a different physical device under BLE_PROFILE_FALLBACK) can
+        //     only delay, never prematurely fire.
+        val startedAt = activePending.startedAt
+        val startedNanos = activePending.startedGeneratedAtNanos
+        val elapsed = if (startedAt != null && now != null) {
+            Duration.between(startedAt, now).coerceAtLeast(Duration.ZERO)
+        } else {
+            null
+        }
+        val commitOnTime = !activePending.reboundTolerated &&
+            elapsed != null && elapsed >= PAUSE_DEBOUNCE_TIME_CAP &&
+            startedNanos != null && generatedAtNanos != null &&
+            generatedAtNanos != startedNanos
+
+        if (commitOnCount || commitOnTime) {
+            val mode = if (commitOnCount) "count" else "time(${elapsed?.toMillis()}ms)"
             return PauseDebounceResult(
                 decision = PlayPauseDecision(
                     shouldPlay = false,
                     shouldPause = true,
-                    reason = "Debounced pause confirmed (initial count: ${activePending.initialPodCount}, current: ${currentState.podCount})",
+                    reason = "Debounced pause confirmed via $mode " +
+                        "(initial count: ${activePending.initialPodCount}, current: ${currentState.podCount})",
                 ),
                 pending = null,
                 event = PauseDebounceEvent.COMMITTED,
@@ -674,6 +722,18 @@ class PlayPause @Inject constructor(
         // shows a pod returning shouldn't kill the pending, since the next sample may
         // confirm the pods are still out.
         val resetTolerance: Int = 1,
+        // Observation time (ble.seenLastAt, a callback-receive wall-clock) of the first
+        // not-worn sample. null → the time-cap early commit is inactive for this pending.
+        val startedAt: Instant? = null,
+        // Hardware radio-reception timestamp (ScanResult.timestampNanos) of the first
+        // not-worn sample. The time-cap commit requires the confirming sample to be a
+        // DISTINCT reception (different generatedAtNanos), so a janky OEM re-delivering the
+        // same cached advert in a later batch cannot early-commit on one physical advert.
+        val startedGeneratedAtNanos: Long? = null,
+        // Set once a count-up rebound has been tolerated. Disables the time-cap early commit
+        // (the not-worn samples are no longer strictly consecutive), falling back to pure
+        // sample-count confirmation.
+        val reboundTolerated: Boolean = false,
     )
 
     /** Discrete event produced by [applyPauseDebounce] for diagnostic logging. */
@@ -801,5 +861,19 @@ class PlayPause @Inject constructor(
          * decision is dispatched. With 2, a pause needs 3 consecutive not-worn samples total.
          */
         internal const val PAUSE_DEBOUNCE_SAMPLES = 2
+
+        /**
+         * Upper bound on how long the sample-count debounce is allowed to stretch. Once the
+         * not-worn condition has persisted this long (measured from the first not-worn sample's
+         * observation time) with at least one further *distinct* not-worn reception and no
+         * tolerated rebound, the pause commits early — even if [PAUSE_DEBOUNCE_SAMPLES] hasn't
+         * been reached. This caps the delay on OEM BLE stacks (e.g. Samsung/OneUI) that deliver
+         * scan results in slow ~1.5-2s batches, where a pure sample count would take ~4s.
+         *
+         * Does not weaken corruption protection: an early commit still requires ≥2 consecutive,
+         * distinct not-worn receptions (see [applyPauseDebounce]). Cadences below ~2× this value
+         * see no change (count commits first). Tunable.
+         */
+        internal val PAUSE_DEBOUNCE_TIME_CAP: Duration = Duration.ofMillis(1500)
     }
 }

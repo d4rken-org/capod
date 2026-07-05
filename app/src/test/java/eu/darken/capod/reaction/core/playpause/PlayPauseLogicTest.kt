@@ -1,6 +1,7 @@
 package eu.darken.capod.reaction.core.playpause
 
 import eu.darken.capod.common.MediaControl
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
@@ -1507,6 +1508,203 @@ class PlayPauseLogicTest : BaseTest() {
             result.decision shouldBe noopDecision
             result.pending shouldBe null
         }
+
+        // --- Time-cap early commit (slow-scanner mitigation) ---
+
+        private val t0 = Instant.parse("2026-01-01T00:00:00Z")
+
+        @Test
+        fun `time-cap - slow cadence commits early on the first distinct confirmation past the cap`() {
+            // STARTED at t0 (reception nanos=100). The first confirmation arrives 2000ms later
+            // (> 1500ms cap) as a DISTINCT reception (nanos=200) → commit via time-cap on the
+            // first confirmation, before PAUSE_DEBOUNCE_SAMPLES would have fired.
+            val started = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+                now = t0,
+                generatedAtNanos = 100L,
+            )
+            started.event shouldBe PlayPause.PauseDebounceEvent.STARTED
+            started.pending!!.startedAt shouldBe t0
+            started.pending!!.startedGeneratedAtNanos shouldBe 100L
+
+            val result = playPause.applyPauseDebounce(
+                pending = started.pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+                now = t0.plusMillis(2000),
+                generatedAtNanos = 200L,
+            )
+
+            result.decision.shouldPause shouldBe true
+            result.pending shouldBe null
+            result.event shouldBe PlayPause.PauseDebounceEvent.COMMITTED
+            result.decision.reason.contains("via time") shouldBe true
+        }
+
+        @Test
+        fun `time-cap - fast cadence still commits on sample count, not time`() {
+            // Per-advert cadence (batching disabled): confirmations at +150ms and +300ms, both
+            // under the cap → the pause commits on the 2nd confirmation via count, exactly as
+            // without the time-cap. Guards the recommended "Disable hardware batching" fast path.
+            val started = playPause.applyPauseDebounce(
+                pending = null, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0, generatedAtNanos = 1L,
+            )
+
+            val confirm1 = playPause.applyPauseDebounce(
+                pending = started.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(150), generatedAtNanos = 2L,
+            )
+            confirm1.decision.shouldPause shouldBe false
+            confirm1.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+            // startedAt / startedGeneratedAtNanos are preserved across an ADVANCED.
+            confirm1.pending!!.startedAt shouldBe t0
+            confirm1.pending!!.startedGeneratedAtNanos shouldBe 1L
+
+            val confirm2 = playPause.applyPauseDebounce(
+                pending = confirm1.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(300), generatedAtNanos = 3L,
+            )
+            confirm2.decision.shouldPause shouldBe true
+            confirm2.event shouldBe PlayPause.PauseDebounceEvent.COMMITTED
+            confirm2.decision.reason.contains("via count") shouldBe true
+        }
+
+        @Test
+        fun `time-cap - identical reception (same generatedAtNanos) does not time-commit`() {
+            // A janky OEM re-delivers the SAME cached advert in a later batch callback: fresh
+            // seenLastAt but identical generatedAtNanos. The distinct-reception guard must block
+            // the time path — one physical advert cannot early-commit a pause.
+            val started = playPause.applyPauseDebounce(
+                pending = null, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0, generatedAtNanos = 100L,
+            )
+
+            val result = playPause.applyPauseDebounce(
+                pending = started.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(2000), generatedAtNanos = 100L,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+        }
+
+        @Test
+        fun `time-cap - boundary elapsed exactly equal to the cap commits`() {
+            // Pins the comparison to >= (not >).
+            val started = playPause.applyPauseDebounce(
+                pending = null, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0, generatedAtNanos = 1L,
+            )
+
+            val result = playPause.applyPauseDebounce(
+                pending = started.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+                now = t0.plus(PlayPause.PAUSE_DEBOUNCE_TIME_CAP),
+                generatedAtNanos = 2L,
+            )
+
+            result.decision.shouldPause shouldBe true
+            result.event shouldBe PlayPause.PauseDebounceEvent.COMMITTED
+        }
+
+        @Test
+        fun `time-cap - backward wall-clock does not time-commit (elapsed clamped to zero)`() {
+            // seenLastAt regresses (wall-clock jump, or the backing snapshot switching to a
+            // different physical device under BLE_PROFILE_FALLBACK). Clamp to >=0 → elapsed 0 →
+            // no time commit; must ADVANCE and wait for the count.
+            val started = playPause.applyPauseDebounce(
+                pending = null, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(5000), generatedAtNanos = 1L,
+            )
+
+            val result = playPause.applyPauseDebounce(
+                pending = started.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0, generatedAtNanos = 2L,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+        }
+
+        @Test
+        fun `time-cap - a tolerated rebound disables the time path but count still fires`() {
+            // STARTED t0; a count-up rebound at +1000 is tolerated (reboundTolerated=true). A
+            // not-worn at +2500 is past the cap but must NOT time-commit — the not-worn samples
+            // are no longer strictly consecutive. It ADVANCES; a further not-worn commits on count.
+            val started = playPause.applyPauseDebounce(
+                pending = null, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0, generatedAtNanos = 1L,
+            )
+
+            val rebound = playPause.applyPauseDebounce(
+                pending = started.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(true, false), // pod returned (count up)
+                autoPauseEnabled = true, now = t0.plusMillis(1000), generatedAtNanos = 2L,
+            )
+            rebound.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+            rebound.pending!!.reboundTolerated shouldBe true
+
+            val pastCap = playPause.applyPauseDebounce(
+                pending = rebound.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(2500), generatedAtNanos = 3L,
+            )
+            pastCap.decision.shouldPause shouldBe false
+            pastCap.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+
+            val committed = playPause.applyPauseDebounce(
+                pending = pastCap.pending, profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true, now = t0.plusMillis(2700), generatedAtNanos = 4L,
+            )
+            committed.decision.shouldPause shouldBe true
+            committed.event shouldBe PlayPause.PauseDebounceEvent.COMMITTED
+        }
     }
 
     @Nested
@@ -1708,13 +1906,21 @@ class PlayPauseLogicTest : BaseTest() {
     @Nested
     inner class MonitorFlowTests {
 
-        private fun buildBle(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
+        private fun buildBle(
+            seenAt: Instant,
+            leftWorn: Boolean,
+            rightWorn: Boolean,
+            genNanos: Long = 0L,
+        ) =
             mockk<DualApplePods>(relaxed = true) {
                 every { meta } returns ApplePods.AppleMeta(
                     isIRKMatch = false,
                     profile = mockk(relaxed = true),
                 )
                 every { seenLastAt } returns seenAt
+                every { scanResult } returns mockk<BleScanResult>(relaxed = true) {
+                    every { generatedAtNanos } returns genNanos
+                }
                 every { isLeftPodInEar } returns leftWorn
                 every { isRightPodInEar } returns rightWorn
                 every { isBeingWorn } returns (leftWorn && rightWorn)
@@ -1731,9 +1937,10 @@ class PlayPauseLogicTest : BaseTest() {
             leftWorn: Boolean,
             rightWorn: Boolean,
             startMusicOnWear: Boolean = true,
+            genNanos: Long = 0L,
         ) = PodDevice(
             profileId = "test-profile",
-            ble = buildBle(seenAt, leftWorn, rightWorn),
+            ble = buildBle(seenAt, leftWorn, rightWorn, genNanos),
             aap = null,
             profileModel = PodModel.AIRPODS_PRO3,
             reactions = ReactionConfig(
@@ -1784,6 +1991,9 @@ class PlayPauseLogicTest : BaseTest() {
 
         @Test
         fun `flow - stable worn rebound resets stale pause debounce before a new removal sequence`() = runTest {
+            // NOTE: buildDevice defaults genNanos = 0L, so every sample here shares one
+            // generatedAtNanos. The time-cap's distinct-reception guard is therefore inert and
+            // this test exercises the pure sample-count path — independent of PAUSE_DEBOUNCE_TIME_CAP.
             val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
             val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
                 every { devices } returns deviceFlow
@@ -1830,6 +2040,82 @@ class PlayPauseLogicTest : BaseTest() {
             advanceUntilIdle()
 
             coVerify(exactly = 1) { mediaControl.sendPause(rememberForResume = true) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - slow cadence commits pause via time-cap on the second distinct not-worn sample`() = runTest {
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns true
+                every { wasRecentlyPausedByCap } returns false
+                coEvery { sendPause(rememberForResume = true) } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: worn baseline.
+            deviceFlow.value = listOf(buildDevice(now, leftWorn = true, rightWorn = true, genNanos = 1L))
+            advanceUntilIdle()
+
+            // T1: first not-worn sample starts the debounce (seenLastAt = t0+1000).
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(1000), leftWorn = false, rightWorn = false, genNanos = 2L))
+            advanceUntilIdle()
+
+            // T2: a second, DISTINCT not-worn reception 2000ms after the first (> 1500ms cap).
+            // Only two not-worn samples so far — the pure sample count would need a third — but
+            // on a slow (~2s) batch cadence the time-cap commits the pause here.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(3000), leftWorn = false, rightWorn = false, genNanos = 3L))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPause(rememberForResume = true) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - two not-worn samples within the cap do not pause (elapsed anchored at first not-worn)`() = runTest {
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns true
+                every { wasRecentlyPausedByCap } returns false
+                coEvery { sendPause(rememberForResume = true) } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: worn baseline.
+            deviceFlow.value = listOf(buildDevice(now, leftWorn = true, rightWorn = true, genNanos = 1L))
+            advanceUntilIdle()
+
+            // T1: first not-worn at t0+1400 → debounce STARTED, elapsed anchored here.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(1400), leftWorn = false, rightWorn = false, genNanos = 2L))
+            advanceUntilIdle()
+
+            // T2: second not-worn at t0+2000. Elapsed from the FIRST not-worn is 600ms (< cap),
+            // and only two samples → no pause. A wrong anchor (baseline t0, or a device-level
+            // timestamp) would read 2000ms >= cap and wrongly pause here.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(2000), leftWorn = false, rightWorn = false, genNanos = 3L))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPause(rememberForResume = true) }
 
             job.cancel()
         }
