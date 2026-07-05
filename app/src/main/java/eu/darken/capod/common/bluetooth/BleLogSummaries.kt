@@ -14,7 +14,7 @@ fun BleScanResult.logSummary(): String {
         .sortedBy { it.key }
         .joinToString(separator = ",") { (manufacturerId, data) -> "$manufacturerId:${data.size}B" }
         .ifEmpty { "-" }
-    return "addr=${address.redactedForLogs()}, rssi=$rssi, payloads=[$payloadSummary]"
+    return "addr=${address.redactedForLogs()}, rssi=$rssi, gen=$generatedAtNanos, payloads=[$payloadSummary]"
 }
 
 @JvmName("logBleScanResultCollectionSummary")
@@ -34,7 +34,7 @@ fun ScanResult.logSummary(): String {
         .sorted()
         .joinToString(separator = ",")
         .ifEmpty { "-" }
-    return "addr=${device.address.redactedForLogs()}, rssi=$rssi, payloads=[$payloadSummary]"
+    return "addr=${device.address.redactedForLogs()}, rssi=$rssi, gen=$timestampNanos, payloads=[$payloadSummary]"
 }
 
 @JvmName("logFrameworkScanResultCollectionSummary")
