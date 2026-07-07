@@ -39,6 +39,8 @@ class BatteryEstimatorTest : BaseTest() {
         estimateEnabled: Boolean = true,
         worn: Boolean = false,
         systemConnected: Boolean = false,
+        ancMode: AapSetting.AncMode.Value? = null,
+        ancSupported: List<AapSetting.AncMode.Value> = AapSetting.AncMode.Value.entries,
     ): PodDevice {
         val state = when {
             optimized -> ChargingState.CHARGING_OPTIMIZED
@@ -49,14 +51,19 @@ class BatteryEstimatorTest : BaseTest() {
             if (left != null) put(BatteryType.LEFT, Battery(BatteryType.LEFT, left, state))
             if (right != null) put(BatteryType.RIGHT, Battery(BatteryType.RIGHT, right, state))
         }
-        val settings = if (worn) {
-            mapOf<kotlin.reflect.KClass<out AapSetting>, AapSetting>(
-                AapSetting.EarDetection::class to AapSetting.EarDetection(
+        val settings = buildMap<kotlin.reflect.KClass<out AapSetting>, AapSetting> {
+            if (worn) put(
+                AapSetting.EarDetection::class,
+                AapSetting.EarDetection(
                     primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
                     secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                )
+                ),
             )
-        } else emptyMap()
+            if (ancMode != null) put(
+                AapSetting.AncMode::class,
+                AapSetting.AncMode(current = ancMode, supported = ancSupported),
+            )
+        }
         return PodDevice(
             profileId = profileId,
             ble = null,
@@ -555,6 +562,251 @@ class BatteryEstimatorTest : BaseTest() {
     }
 
     @Test
+    fun `an empty ANC bucket borrows the sibling rate instead of jumping to spec`() = runTest(UnconfinedTestDispatcher()) {
+        // Pro 2: OFF learned (5h-equivalent), user toggles to ON whose bucket is empty. Both modes
+        // rate at 6h so the scale is 1 — ON reuses OFF's measured 0.20/hr (300 min) rather than the
+        // optimistic 6h spec (360). This is the +1h "ANC increases battery" paradox, removed.
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 300
+    }
+
+    @Test
+    fun `an empty bucket prefers the more conservative of UNKNOWN and the sibling`() = runTest(UnconfinedTestDispatcher()) {
+        // A mode-agnostic UNKNOWN reading (0.12/hr, optimistic) AND a real OFF sibling (0.20/hr) both
+        // exist while ON is empty. The estimate takes the less-optimistic of the two so a toggle can't
+        // inflate past the sibling: 0.20/hr -> 300, not the 360 the optimistic UNKNOWN would clamp to.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                rates = mapOf(
+                    "UNKNOWN/LEFT" to learned(0.12f), "UNKNOWN/RIGHT" to learned(0.12f),
+                    "OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f),
+                )
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 300
+    }
+
+    @Test
+    fun `a borrowed sibling rate is scaled by the modes' rated drain`() = runTest(UnconfinedTestDispatcher()) {
+        // AirPods Pro (gen1) rates ANC on at 4.5h, off at 5h. An empty ON bucket borrows the OFF
+        // learned 0.20/hr and scales it by (1/4.5)/(1/5) == 1.111 -> 0.222/hr -> 270 min (4.5h). ANC
+        // on shows LESS than OFF's 300 min, the physically correct direction.
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 270
+    }
+
+    @Test
+    fun `sibling scaling works in the inverse direction too`() = runTest(UnconfinedTestDispatcher()) {
+        // gen1 Pro: only ON learned (0.30/hr). An empty OFF bucket borrows it scaled by
+        // (1/5)/(1/4.5) == 0.9 -> 0.27/hr -> 222 min. OFF drains slower than the measured ON, correct.
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("ON/LEFT" to learned(0.30f), "ON/RIGHT" to learned(0.30f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO, ancMode = AapSetting.AncMode.Value.OFF))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 222
+    }
+
+    @Test
+    fun `an empty bucket with no sibling still falls back to spec`() = runTest(UnconfinedTestDispatcher()) {
+        // Nothing learned in any mode -> the fallback can't fire, the model rating seeds as before.
+        val result = collectEstimate(
+            estimator(listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))))
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.SPEC
+        left.minutesRemaining shouldBe 360
+    }
+
+    @Test
+    fun `a populated current bucket is never overridden by a sibling`() = runTest(UnconfinedTestDispatcher()) {
+        // Real ON data (0.30/hr) exists alongside OFF (0.20/hr). The current mode's own measurement
+        // wins outright -> 200 min; a genuine per-mode difference is preserved, not flattened.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                rates = mapOf(
+                    "ON/LEFT" to learned(0.30f), "ON/RIGHT" to learned(0.30f),
+                    "OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f),
+                )
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 200
+    }
+
+    @Test
+    fun `the best-evidenced sibling is chosen`() = runTest(UnconfinedTestDispatcher()) {
+        // ON empty; OFF (0.20/hr, 1 update) and TRANSPARENCY (0.40/hr, 5 updates) both available and
+        // same-rated (all non-off modes rate 6h on a Pro 2, so scale 1). The higher-evidence
+        // TRANSPARENCY rate wins -> 150 min, not the 300 the thinner OFF rate would give.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                rates = mapOf(
+                    "OFF/LEFT" to learned(0.20f, updateCount = 1), "OFF/RIGHT" to learned(0.20f, updateCount = 1),
+                    "TRANSPARENCY/LEFT" to learned(0.40f, updateCount = 5), "TRANSPARENCY/RIGHT" to learned(0.40f, updateCount = 5),
+                )
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesRemaining shouldBe 150
+    }
+
+    @Test
+    fun `equal-evidence siblings tie-break on closest rated drain`() = runTest(UnconfinedTestDispatcher()) {
+        // gen1 Pro rates ON and TRANSPARENCY at 4.5h but OFF at 5h. With equal evidence, the sibling
+        // whose rating is closest to ON (TRANSPARENCY, identical rating) is the better predictor and
+        // wins over OFF: 0.40/hr -> 150. Had OFF (0.20/hr) won, scaling would give 0.222/hr -> 270.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                rates = mapOf(
+                    "OFF/LEFT" to learned(0.20f, updateCount = 3), "OFF/RIGHT" to learned(0.20f, updateCount = 3),
+                    "TRANSPARENCY/LEFT" to learned(0.40f, updateCount = 3), "TRANSPARENCY/RIGHT" to learned(0.40f, updateCount = 3),
+                )
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesRemaining shouldBe 150
+    }
+
+    @Test
+    fun `equal-evidence equal-rated siblings tie-break on recency`() = runTest(UnconfinedTestDispatcher()) {
+        // TRANSPARENCY and ADAPTIVE both rate identically to ON (4.5h) with equal evidence — only
+        // recency separates them. The newer ADAPTIVE (0.50/hr) wins over the older TRANSPARENCY
+        // (0.40/hr): 0.50/hr -> 120, not 150.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                rates = mapOf(
+                    "TRANSPARENCY/LEFT" to learned(0.40f, updateCount = 2, updatedAt = now.minusSeconds(3600)),
+                    "TRANSPARENCY/RIGHT" to learned(0.40f, updateCount = 2, updatedAt = now.minusSeconds(3600)),
+                    "ADAPTIVE/LEFT" to learned(0.50f, updateCount = 2, updatedAt = now),
+                    "ADAPTIVE/RIGHT" to learned(0.50f, updateCount = 2, updatedAt = now),
+                )
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesRemaining shouldBe 120
+    }
+
+    @Test
+    fun `the UNKNOWN bucket does not borrow sibling rates`() = runTest(UnconfinedTestDispatcher()) {
+        // BLE-only (mode not known) keeps its conservative spec-min behaviour: a real OFF sibling is
+        // NOT borrowed, the estimate stays on the 6h rating (360), not OFF's 300.
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.SPEC
+        left.minutesRemaining shouldBe 360
+    }
+
+    @Test
+    fun `a model without ratings does not borrow a sibling rate`() = runTest(UnconfinedTestDispatcher()) {
+        // Beats Fit Pro has ANC but no published battery rating -> no spec ceiling to clamp a borrowed
+        // rate, so the fallback is skipped entirely and nothing over-promises (no estimate at all).
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f))))
+        collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.BEATS_FIT_PRO, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        ) shouldBe emptyMap()
+    }
+
+    @Test
+    fun `an unsupported sibling mode is not borrowed`() = runTest(UnconfinedTestDispatcher()) {
+        // A stale ADAPTIVE key exists, but the device only reports OFF/ON as supported -> the stale
+        // key is ignored, no other sibling has data, so the estimate stays on spec (360).
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("ADAPTIVE/LEFT" to learned(0.20f), "ADAPTIVE/RIGHT" to learned(0.20f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(
+                    listOf(
+                        device(
+                            "p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2,
+                            ancMode = AapSetting.AncMode.Value.ON,
+                            ancSupported = listOf(AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON),
+                        )
+                    )
+                ),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.SPEC
+        left.minutesRemaining shouldBe 360
+    }
+
+    @Test
+    fun `the in-case runtime projection also borrows a sibling rate`() = runTest(UnconfinedTestDispatcher()) {
+        // Charging (no live drain) in an empty ON bucket: the "if used now" projection borrows the OFF
+        // sibling (0.20/hr) instead of spec. At 50% that's 0.50 / 0.20 * 60 == 150.
+        val stored = mapOf("p1" to DrainProfile(rates = mapOf("OFF/LEFT" to learned(0.20f), "OFF/RIGHT" to learned(0.20f))))
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2, ancMode = AapSetting.AncMode.Value.ON))),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LEARNED
+        left.minutesRemaining shouldBe 150
+    }
+
+    @Test
     fun `reset deletes persisted data and drops the estimate`() = runTest(UnconfinedTestDispatcher()) {
         val drainStore = mockk<BatteryDrainStore> {
             every { profiles } returns MutableStateFlow(
@@ -577,9 +829,10 @@ class BatteryEstimatorTest : BaseTest() {
         estimator.estimates.value.containsKey("p1") shouldBe false
     }
 
-    private fun learned(rate: Float) = DrainProfile.LearnedRate(
+    private fun learned(rate: Float, updateCount: Int = 1, updatedAt: Instant = now) = DrainProfile.LearnedRate(
         fractionPerHour = rate,
         sampleCount = 5,
-        updatedAt = now,
+        updateCount = updateCount,
+        updatedAt = updatedAt,
     )
 }
