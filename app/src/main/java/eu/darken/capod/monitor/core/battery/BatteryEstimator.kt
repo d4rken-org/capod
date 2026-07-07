@@ -28,6 +28,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.abs
 
 /**
  * Learns each device's battery drain rate from observed levels over time and turns it into a
@@ -569,8 +570,57 @@ class BatteryEstimator @Inject constructor(
 
     private fun learnedRate(profileId: ProfileId, device: PodDevice, bucket: String, slot: Slot): Float? {
         val profile = storedProfileFor(profileId, device) ?: return null
-        return (profile.rates[rateKey(bucket, slot)] ?: profile.rates[rateKey(MODE_UNKNOWN, slot)])?.fractionPerHour
+        // Exact per-mode learning always wins — a real measurement for THIS mode.
+        profile.rates[rateKey(bucket, slot)]?.validFractionPerHour()?.let { return it }
+        // Empty bucket: fill it conservatively with the less-optimistic (faster-draining) of the
+        // mode-agnostic UNKNOWN reading and the spec-scaled sibling reading, so toggling ANC into an
+        // unlearned mode never inflates the estimate past a real sibling measurement.
+        val unknown = profile.rates[rateKey(MODE_UNKNOWN, slot)]?.validFractionPerHour()
+        val sibling = siblingScaledRate(profile, device, bucket, slot)
+        return listOfNotNull(unknown, sibling).maxOrNull()
     }
+
+    /**
+     * Fills an empty ANC bucket by borrowing another mode's learned rate, scaled to this mode by the
+     * ratio of the two modes' rated drain (`predicted = sibling × specRate(current)/specRate(sibling)`).
+     * Keeps the estimate continuous across an ANC toggle instead of jumping to the optimistic spec.
+     *
+     * Only fires when:
+     * - the current bucket is a real ANC mode (an UNKNOWN / mode-not-known reading keeps its
+     *   conservative spec-min behaviour), and
+     * - the model publishes ratings for both modes (without a rating there's no [effectiveRate] ceiling
+     *   or display clamp, so a borrowed rate could over-promise unbounded), and
+     * - the sibling mode is one the device reports as supported (ignore stale keys for modes this
+     *   hardware can't use), falling back to all modes only when the supported list is unavailable.
+     *
+     * Among the candidates the best-evidenced one wins, tie-broken by closest rated drain (best
+     * physical predictor) then recency. Returns null when nothing trustworthy is available; the caller
+     * merges the result conservatively with the UNKNOWN reading.
+     */
+    private fun siblingScaledRate(profile: DrainProfile, device: PodDevice, bucket: String, slot: Slot): Float? {
+        if (bucket == MODE_UNKNOWN) return null
+        val targetSpec = device.specRate(bucket) ?: return null
+        val supported = device.ancMode?.supported?.map { it.name }?.takeIf { it.isNotEmpty() }
+        val best = AapSetting.AncMode.Value.entries
+            .map { it.name }
+            .filter { it != bucket && (supported == null || it in supported) }
+            .mapNotNull { sib ->
+                val siblingSpec = device.specRate(sib) ?: return@mapNotNull null
+                val learned = profile.rates[rateKey(sib, slot)]
+                    ?.takeIf { it.fractionPerHour.isFinite() && it.fractionPerHour > 0f }
+                    ?: return@mapNotNull null
+                learned to siblingSpec
+            }
+            .maxWithOrNull(
+                compareBy<Pair<DrainProfile.LearnedRate, Float>> { it.first.updateCount }
+                    .thenBy { -abs(targetSpec - it.second) }
+                    .thenBy { it.first.updatedAt },
+            ) ?: return null
+        return (best.first.fractionPerHour * (targetSpec / best.second)).takeIf { it.isFinite() && it > 0f }
+    }
+
+    private fun DrainProfile.LearnedRate.validFractionPerHour(): Float? =
+        fractionPerHour.takeIf { it.isFinite() && it > 0f }
 
     private fun learnedChargeRate(profileId: ProfileId, device: PodDevice, slot: Slot): Float? =
         storedProfileFor(profileId, device)?.chargeRates[slot.name]?.fractionPerHour
