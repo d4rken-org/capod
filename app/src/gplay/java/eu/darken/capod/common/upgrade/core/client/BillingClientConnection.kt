@@ -17,30 +17,36 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.data.Sku
 import eu.darken.capod.common.upgrade.core.data.SkuDetails
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.update
 
 data class BillingClientConnection(
     private val client: BillingClient,
     private val purchasesGlobal: Flow<Collection<Purchase>>,
 ) {
-    private val queryCacheIaps = MutableStateFlow<Collection<Purchase>?>(null)
-    private val queryCacheSubs = MutableStateFlow<Collection<Purchase>?>(null)
+    private data class QueryCaches(
+        val iaps: Collection<Purchase>? = null,
+        val subs: Collection<Purchase>? = null,
+    )
+
+    private val queryCache = MutableStateFlow(QueryCaches())
 
     val purchases: Flow<Collection<Purchase>> = combine(
         purchasesGlobal,
-        queryCacheIaps,
-        queryCacheSubs,
-    ) { global, iaps, subs ->
+        queryCache,
+    ) { global, cached ->
         val combined = mutableSetOf<Purchase>()
 
-        iaps?.let { combined.addAll(it) }
-        subs?.let { combined.addAll(it) }
+        cached.iaps?.let { combined.addAll(it) }
+        cached.subs?.let { combined.addAll(it) }
 
         global
             .filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
@@ -50,17 +56,48 @@ data class BillingClientConnection(
     }
         .setupCommonEventHandlers(TAG) { "purchases" }
 
+    // Returns the freshly queried PURCHASED purchases so callers get a guaranteed happens-before
+    // relation instead of racing the shared purchases/billingData replay caches after a refresh.
+    // Tolerant of a single product-type failure: a known Pro purchase found by either type is
+    // authoritative, and an error only surfaces otherwise — so callers can tell "not owned" apart
+    // from "couldn't verify".
     suspend fun refreshPurchases(): Collection<Purchase> = coroutineScope {
-        val iapsDeferred = async { queryPurchasesByType(BillingClient.ProductType.INAPP) }
-        val subsDeferred = async { queryPurchasesByType(BillingClient.ProductType.SUBS) }
+        val iapsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.INAPP) }
+        val subsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.SUBS) }
 
         val iaps = iapsDeferred.await()
         val subs = subsDeferred.await()
+        log(TAG) { "refreshPurchases(): iaps=${iaps.getOrNull()}, subs=${subs.getOrNull()}" }
 
-        queryCacheIaps.value = iaps
-        queryCacheSubs.value = subs
+        // Evaluate before publishing: an inconclusive refresh (query failed and nothing
+        // authoritative found) must not touch the caches at all, or a partially updated state
+        // could surface synthetic ownership to the hot purchases flow and wrongly refresh the
+        // grace anchor from stale data.
+        val combined = combinePurchaseResults(iaps, subs)
 
-        (iaps + subs).sortedByDescending { it.purchaseTime }
+        // Single atomic snapshot update; a failed type retains its previous value.
+        queryCache.update { previous ->
+            QueryCaches(
+                iaps = iaps.getOrNull() ?: previous.iaps,
+                subs = subs.getOrNull() ?: previous.subs,
+            )
+        }
+
+        combined
+    }
+
+    // Never throws except on cancellation, so a single failing product-type query doesn't cancel
+    // the sibling query (or the coroutineScope).
+    private suspend fun queryPurchasedProducts(
+        productType: String,
+    ): Result<Collection<Purchase>> = try {
+        val purchased = queryPurchasesByType(productType)
+            .filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
+        Result.success(purchased)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 
     private suspend fun queryPurchasesByType(productType: String): Collection<Purchase> {
@@ -162,5 +199,24 @@ data class BillingClientConnection(
 
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "ClientConnection")
+
+        // Combines the two product-type query results: with a partial failure, only a known Pro
+        // purchase found by the successful type may suppress the error — an unknown/legacy purchase
+        // must not mask that the other type couldn't be verified. Without failures, everything
+        // found is returned as-is. Pure and unit-tested.
+        internal fun combinePurchaseResults(
+            iaps: Result<Collection<Purchase>>,
+            subs: Result<Collection<Purchase>>,
+            isAuthoritative: (Purchase) -> Boolean = { purchase ->
+                purchase.products.any { productId -> CapodSku.PRO_SKUS.any { it.id == productId } }
+            },
+        ): Collection<Purchase> {
+            val found = iaps.getOrNull().orEmpty() + subs.getOrNull().orEmpty()
+            val error = iaps.exceptionOrNull() ?: subs.exceptionOrNull()
+            return when {
+                error == null || found.any(isAuthoritative) -> found.sortedByDescending { it.purchaseTime }
+                else -> throw error
+            }
+        }
     }
 }

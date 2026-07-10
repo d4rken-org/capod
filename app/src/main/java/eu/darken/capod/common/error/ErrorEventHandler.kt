@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 
 @Composable
@@ -31,17 +32,15 @@ private fun ComposeErrorDialog(
     throwable: Throwable,
     onDismiss: () -> Unit,
 ) {
+    val context = LocalContext.current
+    // Prefer the curated HasLocalizedError strings (e.g. billing errors) over raw exception
+    // messages like Play Billing's internal debugMessage.
+    val localizedError = remember(throwable, context) { throwable.localized(context) }
+
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(text = stringResource(android.R.string.dialog_alert_title)) },
-        text = {
-            Text(
-                text = throwable.localizedMessage
-                    ?: throwable.message
-                    ?: throwable::class.simpleName
-                    ?: "Unknown error"
-            )
-        },
+        title = { Text(text = localizedError.label) },
+        text = { Text(text = localizedError.description) },
         confirmButton = {
             TextButton(onClick = onDismiss) {
                 Text(text = stringResource(android.R.string.ok))

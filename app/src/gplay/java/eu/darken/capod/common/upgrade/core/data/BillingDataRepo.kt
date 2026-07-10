@@ -1,6 +1,7 @@
 package eu.darken.capod.common.upgrade.core.data
 
 import android.app.Activity
+import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
@@ -46,10 +47,12 @@ class BillingDataRepo @Inject constructor(
             .onEach { (client, purchases) ->
                 purchases
                     .filter {
-                        val needsAck = !it.isAcknowledged
+                        // Only settled purchases can be acknowledged — acking a PENDING purchase
+                        // fails and would spin the retry loop below.
+                        val needsAck = !it.isAcknowledged && it.purchaseState == Purchase.PurchaseState.PURCHASED
 
                         if (needsAck) log(TAG, INFO) { "Needs ACK: $it" }
-                        else log(TAG) { "Already ACK'ed: $it" }
+                        else log(TAG) { "No ACK necessary: $it" }
 
                         needsAck
                     }

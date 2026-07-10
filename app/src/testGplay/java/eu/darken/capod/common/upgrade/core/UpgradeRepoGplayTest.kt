@@ -6,9 +6,12 @@ import eu.darken.capod.common.datastore.createValue
 import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.cancel
@@ -206,5 +209,70 @@ class UpgradeRepoGplayTest : BaseTest() {
     fun `Info type is GPLAY`() {
         val info = UpgradeRepoGplay.Info(billingData = null)
         info.type shouldBe eu.darken.capod.common.upgrade.UpgradeRepo.Type.GPLAY
+    }
+
+    @Test
+    fun `restore returns pro when a purchase is found`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+        // A confirmed pro purchase must refresh the grace timestamp.
+        billingCache.lastProStateAt.valueBlocking shouldBeGreaterThan 0L
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `restore keeps pro within grace when the query comes back empty`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        billingCache.lastProStateAt.valueBlocking = System.currentTimeMillis() - 1_000L
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `restore is not pro when the query is empty and grace has expired`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        billingCache.lastProStateAt.valueBlocking =
+            System.currentTimeMillis() - UpgradeRepoGplay.GRACE_PERIOD_MS - 1_000L
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe false
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `restore keeps pro within grace when the query errors`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } throws RuntimeException("Play unavailable")
+        billingCache.lastProStateAt.valueBlocking = System.currentTimeMillis() - 1_000L
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `restore rethrows the error when it happens outside grace`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } throws RuntimeException("Play unavailable")
+        val repo = createRepo(testScope)
+
+        shouldThrow<RuntimeException> {
+            repo.restorePurchaseNow()
+        }
+
+        testScope.cancel()
     }
 }

@@ -13,6 +13,7 @@ import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.capod.common.upgrade.core.data.SkuDetails
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
@@ -177,23 +178,38 @@ class UpgradeViewModel @Inject constructor(
 
     fun restorePurchase() = launch {
         log(TAG, INFO) { "restorePurchase()" }
-        try {
-            val data = upgradeRepo.refresh()
-            log(TAG, INFO) { "Restore check: $data" }
-            val info = upgradeRepo.upgradeInfo.first()
-            if (info.isPro) {
-                log(TAG) { "Pro purchase found" }
-            } else {
-                log(TAG) { "No pro purchase found" }
+
+        val restored = try {
+            withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Play/billing error (e.g. service unavailable): surface the proper error dialog
+            // instead of the generic "restore failed" toast, so the user can tell the cases apart.
+            log(TAG, WARN) { "Restore purchase errored: ${e.asLog()}" }
+            errorEvents.emitBlocking(e)
+            return@launch
+        }
+
+        when {
+            restored == null -> {
+                // Play never answered in time; the restore-failed message already suggests the
+                // purchase may take a while to sync, which fits a timeout too.
+                log(TAG, WARN) { "Restore purchase timed out" }
                 events.tryEmit(UpgradeEvent.RestoreFailed)
             }
-        } catch (e: Exception) {
-            log(TAG) { "Restore failed: $e" }
-            errorEvents.emitBlocking(e)
+
+            restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
+
+            else -> {
+                log(TAG, WARN) { "No pro purchase found" }
+                events.tryEmit(UpgradeEvent.RestoreFailed)
+            }
         }
     }
 
     companion object {
+        internal const val RESTORE_TIMEOUT_MS = 15_000L
         private val TAG = logTag("Upgrade", "VM")
     }
 }
