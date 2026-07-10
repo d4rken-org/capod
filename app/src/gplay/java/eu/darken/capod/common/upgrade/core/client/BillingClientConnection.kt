@@ -21,8 +21,10 @@ import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.data.Sku
 import eu.darken.capod.common.upgrade.core.data.SkuDetails
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -194,7 +196,20 @@ data class BillingClientConnection(
             setProductDetailsParamsList(listOf(productParams))
         }.build()
 
-        return client.launchBillingFlow(activity, billingFlowParams)
+        // launchBillingFlow must run on the main thread (documented BillingClient contract), and
+        // its RETURNED result reports whether the flow could be launched at all (ITEM_ALREADY_OWNED,
+        // BILLING_UNAVAILABLE, DEVELOPER_ERROR, ...) — launch failures arrive here, not as
+        // exceptions. Throw like the sibling methods do, so callers can surface them instead of
+        // failing silently.
+        val result = withContext(Dispatchers.Main) {
+            client.launchBillingFlow(activity, billingFlowParams)
+        }
+
+        log(TAG) { "launchBillingFlow(sku=${sku.id}): code=${result.responseCode}, message=${result.debugMessage}" }
+
+        if (!result.isSuccess) throw BillingResultException(result)
+
+        return result
     }
 
     companion object {

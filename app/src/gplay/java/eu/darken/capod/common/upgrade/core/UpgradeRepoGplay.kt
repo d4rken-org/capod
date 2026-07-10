@@ -2,12 +2,14 @@ package eu.darken.capod.common.upgrade.core
 
 import android.app.Activity
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
 import eu.darken.capod.common.upgrade.core.data.PurchasedSku
@@ -21,6 +23,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -128,7 +131,29 @@ class UpgradeRepoGplay @Inject constructor(
         activity: Activity,
         sku: Sku,
         offer: Sku.Subscription.Offer? = null,
-    ) = billingDataRepo.startBillingFlow(activity, sku, offer)
+    ) {
+        try {
+            billingDataRepo.startBillingFlow(activity, sku, offer)
+        } catch (e: ItemAlreadyOwnedBillingException) {
+            // Stale local state: Play says they already own it, so tapping "buy" really means
+            // "unlock what I own" — restore instead of showing an error. Success is silent, the
+            // reactive upgradeInfo emission closes the upgrade screen.
+            log(TAG, INFO) { "Launch says already owned -> restoring purchase" }
+            val restored = try {
+                withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+            } catch (re: CancellationException) {
+                throw re
+            } catch (re: Exception) {
+                log(TAG, WARN) { "Restore after already-owned failed: ${re.asLog()}" }
+                null
+            }
+            if (restored?.isPro != true) {
+                // Couldn't reconcile the entitlement (pending purchase, account mismatch, Play
+                // quirk) — fall back to the already-owned dialog with restore tips.
+                throw e
+            }
+        }
+    }
 
     companion object {
         private fun BillingData.getProSku(): PurchasedSku? = purchasedSkus
@@ -139,6 +164,8 @@ class UpgradeRepoGplay @Inject constructor(
 
         // Keep paying users Pro through transient empty/failed Play Billing responses.
         val GRACE_PERIOD_MS = Duration.ofDays(7).toMillis()
+
+        private const val RESTORE_ON_OWNED_TIMEOUT_MS = 15_000L
 
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }

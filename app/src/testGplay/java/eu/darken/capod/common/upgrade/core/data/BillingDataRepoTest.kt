@@ -5,6 +5,8 @@ import com.android.billingclient.api.BillingResult
 import eu.darken.capod.common.upgrade.core.client.BillingException
 import eu.darken.capod.common.upgrade.core.client.BillingResultException
 import eu.darken.capod.common.upgrade.core.client.GplayServiceUnavailableException
+import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
+import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo.Companion.tryMapUserFriendly
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -49,8 +51,22 @@ class BillingDataRepoTest : BaseTest() {
     }
 
     @Test
-    fun `other billing result passes through unchanged`() {
+    fun `user canceled maps to UserCanceledBillingException`() {
+        val result = mockBillingResult(BillingClient.BillingResponseCode.USER_CANCELED)
+        val mapped = BillingResultException(result).tryMapUserFriendly()
+        mapped.shouldBeInstanceOf<UserCanceledBillingException>()
+    }
+
+    @Test
+    fun `item already owned maps to ItemAlreadyOwnedBillingException`() {
         val result = mockBillingResult(BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED)
+        val mapped = BillingResultException(result).tryMapUserFriendly()
+        mapped.shouldBeInstanceOf<ItemAlreadyOwnedBillingException>()
+    }
+
+    @Test
+    fun `other billing result passes through unchanged`() {
+        val result = mockBillingResult(BillingClient.BillingResponseCode.DEVELOPER_ERROR)
         val original = BillingResultException(result)
         val mapped = original.tryMapUserFriendly()
         mapped shouldBe original

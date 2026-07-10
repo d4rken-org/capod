@@ -12,6 +12,8 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
+import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
+import eu.darken.capod.common.upgrade.core.data.Sku
 import eu.darken.capod.common.upgrade.core.data.SkuDetails
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.SharingStarted
@@ -21,13 +23,12 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
 @HiltViewModel
 class UpgradeViewModel @Inject constructor(
-    private val dispatcherProvider: DispatcherProvider,
+    dispatcherProvider: DispatcherProvider,
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -132,46 +133,31 @@ class UpgradeViewModel @Inject constructor(
         billingEvents.tryEmit(BillingEvent.LaunchSubscriptionTrial)
     }
 
-    fun launchBillingIap(activity: Activity) = launch {
+    fun launchBillingIap(activity: Activity) {
         log(TAG, INFO) { "launchBillingIap()" }
-        try {
-            withContext(dispatcherProvider.Main) {
-                upgradeRepo.launchBillingFlow(activity, CapodSku.Iap.PRO_UPGRADE)
-            }
-        } catch (e: Exception) {
-            log(TAG) { "launchBillingIap failed: $e" }
-            errorEvents.emitBlocking(e)
-        }
+        launchBillingFlow(activity, CapodSku.Iap.PRO_UPGRADE, null)
     }
 
-    fun launchBillingSubscription(activity: Activity) = launch {
+    fun launchBillingSubscription(activity: Activity) {
         log(TAG, INFO) { "launchBillingSubscription()" }
-        try {
-            withContext(dispatcherProvider.Main) {
-                upgradeRepo.launchBillingFlow(
-                    activity,
-                    CapodSku.Sub.PRO_UPGRADE,
-                    CapodSku.Sub.PRO_UPGRADE.BASE_OFFER,
-                )
-            }
-        } catch (e: Exception) {
-            log(TAG) { "launchBillingSubscription failed: $e" }
-            errorEvents.emitBlocking(e)
-        }
+        launchBillingFlow(activity, CapodSku.Sub.PRO_UPGRADE, CapodSku.Sub.PRO_UPGRADE.BASE_OFFER)
     }
 
-    fun launchBillingSubscriptionTrial(activity: Activity) = launch {
+    fun launchBillingSubscriptionTrial(activity: Activity) {
         log(TAG, INFO) { "launchBillingSubscriptionTrial()" }
+        launchBillingFlow(activity, CapodSku.Sub.PRO_UPGRADE, CapodSku.Sub.PRO_UPGRADE.TRIAL_OFFER)
+    }
+
+    private fun launchBillingFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) = launch {
         try {
-            withContext(dispatcherProvider.Main) {
-                upgradeRepo.launchBillingFlow(
-                    activity,
-                    CapodSku.Sub.PRO_UPGRADE,
-                    CapodSku.Sub.PRO_UPGRADE.TRIAL_OFFER,
-                )
-            }
+            upgradeRepo.launchBillingFlow(activity, sku, offer)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: UserCanceledBillingException) {
+            // Backing out of the payment sheet is a normal user action, not an error.
+            log(TAG) { "User canceled the billing flow" }
         } catch (e: Exception) {
-            log(TAG) { "launchBillingSubscriptionTrial failed: $e" }
+            log(TAG, WARN) { "launchBillingFlow(${sku.id}) failed: ${e.asLog()}" }
             errorEvents.emitBlocking(e)
         }
     }
