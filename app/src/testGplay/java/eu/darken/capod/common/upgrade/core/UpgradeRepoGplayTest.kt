@@ -8,6 +8,7 @@ import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
+import eu.darken.capod.common.upgrade.core.data.PurchasedSku
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldBeNull
@@ -29,6 +30,7 @@ import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
 import java.io.File
+import java.time.Duration
 
 class UpgradeRepoGplayTest : BaseTest() {
 
@@ -52,6 +54,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         )
         billingCache = mockk {
             every { lastProStateAt } returns dataStore.createValue("gplay.cache.lastProAt", 0L)
+            every { lastProStateSku } returns dataStore.createValue("gplay.cache.lastProSku", "")
         }
     }
 
@@ -276,6 +279,109 @@ class UpgradeRepoGplayTest : BaseTest() {
         }
 
         testScope.cancel()
+    }
+
+    @Test
+    fun `permanent IAP keeps grace well beyond the subscription window`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        // 20 days ago: past the 7-day subscription window, but within the 30-day IAP window.
+        billingCache.lastProStateAt.valueBlocking = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
+        billingCache.lastProStateSku.valueBlocking = CapodSku.Iap.PRO_UPGRADE.id
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `subscription grace expires after the short window`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        billingCache.lastProStateAt.valueBlocking = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
+        billingCache.lastProStateSku.valueBlocking = CapodSku.Sub.PRO_UPGRADE.id
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe false
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `legacy install without a recorded SKU gets the short window`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        billingCache.lastProStateAt.valueBlocking = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe false
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `confirmed pro purchase records the SKU for the grace window`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+        billingCache.lastProStateSku.valueBlocking shouldBe CapodSku.Iap.PRO_UPGRADE.id
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `an IAP anchor is not downgraded by data that only shows a subscription`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // Fresh connections start with empty query caches — a failed IAP query plus an owned
+        // subscription must not shrink the 30d window of an owner whose IAP was never disproven.
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Sub.PRO_UPGRADE.id))
+        )
+        billingCache.lastProStateSku.valueBlocking = CapodSku.Iap.PRO_UPGRADE.id
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+        billingCache.lastProStateSku.valueBlocking shouldBe CapodSku.Iap.PRO_UPGRADE.id
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `a subscription anchor is upgraded when an IAP purchase is confirmed`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        billingCache.lastProStateSku.valueBlocking = CapodSku.Sub.PRO_UPGRADE.id
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+        billingCache.lastProStateSku.valueBlocking shouldBe CapodSku.Iap.PRO_UPGRADE.id
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `IAP grace window is longer than the subscription window`() {
+        (UpgradeRepoGplay.GRACE_PERIOD_IAP_MS > UpgradeRepoGplay.GRACE_PERIOD_MS) shouldBe true
+        UpgradeRepoGplay.GRACE_PERIOD_IAP_MS shouldBe Duration.ofDays(30).toMillis()
+        UpgradeRepoGplay.GRACE_PERIOD_MS shouldBe Duration.ofDays(7).toMillis()
+    }
+
+    @Test
+    fun `preferredProSku prefers the permanent IAP when both are owned`() {
+        val iap = PurchasedSku(CapodSku.Iap.PRO_UPGRADE, mockk<Purchase>())
+        val sub = PurchasedSku(CapodSku.Sub.PRO_UPGRADE, mockk<Purchase>())
+
+        UpgradeRepoGplay.preferredProSku(listOf(sub, iap))?.id shouldBe CapodSku.Iap.PRO_UPGRADE.id
+        UpgradeRepoGplay.preferredProSku(listOf(iap))?.id shouldBe CapodSku.Iap.PRO_UPGRADE.id
+        UpgradeRepoGplay.preferredProSku(listOf(sub))?.id shouldBe CapodSku.Sub.PRO_UPGRADE.id
+        UpgradeRepoGplay.preferredProSku(emptyList()) shouldBe null
     }
 
     @Test
