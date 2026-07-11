@@ -29,6 +29,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 data class BillingClientConnection(
     private val client: BillingClient,
@@ -40,6 +42,11 @@ data class BillingClientConnection(
     )
 
     private val queryCache = MutableStateFlow(QueryCaches())
+
+    // Serializes refreshes on this connection: the connect-time initial query, foreground
+    // refreshes, manual restores and already-owned recoveries may overlap, and an older query
+    // completing late must not overwrite the cache with stale purchases.
+    private val refreshLock = Mutex()
 
     val purchases: Flow<Collection<Purchase>> = combine(
         purchasesGlobal,
@@ -63,7 +70,11 @@ data class BillingClientConnection(
     // Tolerant of a single product-type failure: a known Pro purchase found by either type is
     // authoritative, and an error only surfaces otherwise — so callers can tell "not owned" apart
     // from "couldn't verify".
-    suspend fun refreshPurchases(): Collection<Purchase> = coroutineScope {
+    suspend fun refreshPurchases(): Collection<Purchase> = refreshLock.withLock {
+        refreshPurchasesLocked()
+    }
+
+    private suspend fun refreshPurchasesLocked(): Collection<Purchase> = coroutineScope {
         val iapsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.INAPP) }
         val subsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.SUBS) }
 
