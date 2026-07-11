@@ -418,7 +418,12 @@ private fun PricingContent(
     Spacer(modifier = Modifier.height(8.dp))
 
     Text(
-        text = stringResource(R.string.upgrade_screen_options_description),
+        // Don't promise a free trial when Play didn't return the trial offer (e.g. returning
+        // subscribers) — the subscribe button already falls back accordingly.
+        text = stringResource(
+            if (state.hasTrialOffer) R.string.upgrade_screen_options_description
+            else R.string.upgrade_screen_options_description_no_trial
+        ),
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         textAlign = TextAlign.Center,
@@ -453,6 +458,23 @@ private fun UpgradeScreenPreview() = PreviewWrapper {
             subPrice = "€3.49",
             iapPrice = "€6.49",
             hasTrialOffer = true,
+        ),
+        onNavigateUp = {},
+        onSubscription = {},
+        onSubscriptionTrial = {},
+        onIap = {},
+        onRestore = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun UpgradeScreenNoTrialPreview() = PreviewWrapper {
+    UpgradeScreen(
+        state = UpgradeViewModel.Pricing(
+            subPrice = "€3.49",
+            iapPrice = "€6.49",
+            hasTrialOffer = false,
         ),
         onNavigateUp = {},
         onSubscription = {},
