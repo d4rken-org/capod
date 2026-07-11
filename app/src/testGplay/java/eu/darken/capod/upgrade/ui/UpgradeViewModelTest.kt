@@ -1,6 +1,8 @@
 package eu.darken.capod.upgrade.ui
 
+import android.app.Activity
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
+import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -93,6 +95,39 @@ class UpgradeViewModelTest : BaseTest() {
 
         val forwardedError = async { vm.errorEvents.first() }
         vm.restorePurchase()
+        advanceUntilIdle()
+
+        forwardedError.await() shouldBe boom
+    }
+
+    @Test
+    fun `user canceling the billing flow stays silent`() = runTest2 {
+        val repo = mockRepo()
+        coEvery { repo.launchBillingFlow(any(), any(), any()) } throws
+            UserCanceledBillingException(RuntimeException("launch result"))
+        val vm = createVm(repo)
+
+        val errors = mutableListOf<Throwable>()
+        val errorJob = launch(UnconfinedTestDispatcher(testScheduler)) { vm.errorEvents.collect { errors.add(it) } }
+
+        vm.launchBillingIap(mockk<Activity>())
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.launchBillingFlow(any(), any(), any()) }
+        errors shouldBe emptyList()
+
+        errorJob.cancel()
+    }
+
+    @Test
+    fun `billing flow launch errors are forwarded to the error dialog`() = runTest2 {
+        val repo = mockRepo()
+        val boom = IllegalStateException("launch failed")
+        coEvery { repo.launchBillingFlow(any(), any(), any()) } throws boom
+        val vm = createVm(repo)
+
+        val forwardedError = async { vm.errorEvents.first() }
+        vm.launchBillingIap(mockk<Activity>())
         advanceUntilIdle()
 
         forwardedError.await() shouldBe boom

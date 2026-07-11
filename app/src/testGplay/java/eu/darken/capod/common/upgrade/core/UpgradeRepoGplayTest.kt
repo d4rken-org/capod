@@ -1,9 +1,11 @@
 package eu.darken.capod.common.upgrade.core
 
+import android.app.Activity
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.datastore.createValue
 import eu.darken.capod.common.datastore.valueBlocking
+import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
 import io.kotest.assertions.throwables.shouldThrow
@@ -271,6 +273,53 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         shouldThrow<RuntimeException> {
             repo.restorePurchaseNow()
+        }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `already-owned buy attempt silently restores the purchase instead of erroring`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.startBillingFlow(any(), any(), any()) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        val repo = createRepo(testScope)
+
+        // Restore succeeds -> no exception surfaces.
+        repo.launchBillingFlow(mockk<Activity>(), CapodSku.Iap.PRO_UPGRADE)
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `already-owned buy attempt falls back to the error when restore finds nothing`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.startBillingFlow(any(), any(), any()) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        coEvery { billingDataRepo.refresh() } returns BillingData(purchases = emptyList())
+        val repo = createRepo(testScope)
+
+        // Grace expired -> the restore can't rescue the entitlement either.
+        shouldThrow<ItemAlreadyOwnedBillingException> {
+            repo.launchBillingFlow(mockk<Activity>(), CapodSku.Iap.PRO_UPGRADE)
+        }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `already-owned buy attempt falls back to the error when restore itself errors`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.startBillingFlow(any(), any(), any()) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        coEvery { billingDataRepo.refresh() } throws RuntimeException("Play unavailable")
+        val repo = createRepo(testScope)
+
+        shouldThrow<ItemAlreadyOwnedBillingException> {
+            repo.launchBillingFlow(mockk<Activity>(), CapodSku.Iap.PRO_UPGRADE)
         }
 
         testScope.cancel()

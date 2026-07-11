@@ -6,6 +6,8 @@
     <string name="upgrades_gplay_billing_error_description">There was an error in Google Play. Please try again later or reboot your phone.\n\nError: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Google Play Billing Error</string>
     <string name="upgrades_gplay_billing_result_error_description">There was an error when asking Google Play for your purchase details. Clear Google Play cache and reboot your phone.\n\nError %s</string>
+    <string name="upgrades_gplay_already_owned_label">Already purchased?</string>
+    <string name="upgrades_gplay_already_owned_description">Google Play reports that you already own this upgrade, but it couldn\'t be restored. Make sure you are using the Google account you purchased with. Play Store synchronization may take time — try rebooting, clearing the Google Play cache or simply waiting.</string>
     <string name="upgrade_restore_action">Restore purchase</string>
     <string name="upgrade_badge_label">Pro</string>
 </resources>

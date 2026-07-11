@@ -1,6 +1,7 @@
 package eu.darken.capod.common.upgrade.core.data
 
 import android.app.Activity
+import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.Bugs
@@ -116,10 +117,11 @@ class BillingDataRepo @Inject constructor(
         try {
             val clientConnection = connectionProvider.first()
             clientConnection.launchBillingFlow(activity, sku, offer)
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to start billing flow:\n${e.asLog()}" }
-            val ignoredCodes = listOf(3, 6)
-            if (e !is BillingResultException || !e.result.responseCode.let { ignoredCodes.contains(it) }) {
+            if (e !is BillingResultException || e.result.responseCode !in IGNORED_LAUNCH_CODES) {
                 Bugs.report(TAG, "Billing flow failed for $sku", e)
             }
 
@@ -130,12 +132,30 @@ class BillingDataRepo @Inject constructor(
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "DataRepo")
 
+        // Expected environmental/user situations — user-facing handling only, no bug report.
+        // USER_CANCELED stays silent in the UI, ITEM_ALREADY_OWNED is auto-handled by
+        // UpgradeRepoGplay (restore instead of error).
+        private val IGNORED_LAUNCH_CODES = setOf(
+            BillingClient.BillingResponseCode.USER_CANCELED,
+            BillingClient.BillingResponseCode.BILLING_UNAVAILABLE,
+            BillingClient.BillingResponseCode.ERROR,
+            BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED,
+        )
+
         internal fun Throwable.tryMapUserFriendly(): Throwable = when {
             this is BillingResultException && this.result.isGplayUnavailableTemporary -> {
                 GplayServiceUnavailableException(this)
             }
             this is BillingResultException && this.result.isGplayUnavailablePermanent -> {
                 GplayServiceUnavailableException(this)
+            }
+            this is BillingResultException &&
+                this.result.responseCode == BillingClient.BillingResponseCode.USER_CANCELED -> {
+                UserCanceledBillingException(this)
+            }
+            this is BillingResultException &&
+                this.result.responseCode == BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> {
+                ItemAlreadyOwnedBillingException(this)
             }
             else -> this
         }
