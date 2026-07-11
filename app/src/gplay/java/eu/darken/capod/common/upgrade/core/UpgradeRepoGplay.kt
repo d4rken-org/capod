@@ -70,6 +70,10 @@ class UpgradeRepoGplay @Inject constructor(
         }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
+    // True once we've ever confirmed a known Pro purchase on this install; drives the proactive
+    // restore banner. Local signal only — a fresh install or switched Google account starts false.
+    val wasEverPro: Flow<Boolean> = billingCache.lastProStateAt.flow.map { it > 0 }
+
     // Explicit "Restore purchase": query Play now and evaluate Pro from the returned data in the
     // same coroutine (real happens-before), so we never read a stale upgradeInfo replay. Billing
     // errors propagate so the caller can distinguish "not owned" from "Play unavailable".
