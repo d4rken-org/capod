@@ -1,6 +1,7 @@
 package eu.darken.capod.common.upgrade.core
 
 import android.app.Activity
+import com.android.billingclient.api.BillingClient
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -8,6 +9,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
 import eu.darken.capod.common.upgrade.core.data.BillingData
@@ -20,7 +22,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.withTimeoutOrNull
@@ -47,6 +53,44 @@ class UpgradeRepoGplay @Inject constructor(
 
     private val anchorLock = Any()
 
+    init {
+        // Fresh-provenance grace stamping: freshBillingData carries every successful query result
+        // and push payload as an event — unlike the equality-deduped billingData state, an
+        // unchanged steady-owner query still stamps, and stale listener data can't sneak in.
+        // The reactive upgradeInfo mapping deliberately writes nothing anymore.
+        billingDataRepo.freshBillingData
+            .onEach { data ->
+                try {
+                    recordProState(data)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // A failed DataStore write must not kill this process-lifetime collector.
+                    log(TAG, WARN) { "Failed to record pro state: ${e.asLog()}" }
+                }
+            }
+            .setupCommonEventHandlers(TAG) { "proStateRecorder" }
+            .launchIn(scope)
+
+        // Async variant of the launch-result ITEM_ALREADY_OWNED case: Play told us mid-flow that
+        // the user already owns it. Reconcile silently — Play shows its own UI for purchase-sheet
+        // failures, so no app-side dialog here.
+        billingDataRepo.purchaseFailures
+            .filter { it.responseCode == BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED }
+            .onEach {
+                log(TAG, INFO) { "Async already-owned event -> restoring purchase" }
+                try {
+                    withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Async already-owned restore failed: ${e.asLog()}" }
+                }
+            }
+            .setupCommonEventHandlers(TAG) { "asyncAlreadyOwned" }
+            .launchIn(scope)
+    }
+
     // Grace window depends on what was last owned: a permanent one-time purchase should almost
     // never be dropped on a Play hiccup, so it gets a long window; a subscription legitimately
     // lapses, so it keeps the short one (also used for unknown/legacy last SKUs).
@@ -72,7 +116,9 @@ class UpgradeRepoGplay @Inject constructor(
 
     // True once we've ever confirmed a known Pro purchase on this install; drives the proactive
     // restore banner. Local signal only — a fresh install or switched Google account starts false.
-    val wasEverPro: Flow<Boolean> = billingCache.lastProStateAt.flow.map { it > 0 }
+    val wasEverPro: Flow<Boolean> = billingCache.lastProStateAt.flow
+        .map { it > 0 }
+        .distinctUntilChanged()
 
     // Explicit "Restore purchase": query Play now and evaluate Pro from the returned data in the
     // same coroutine (real happens-before), so we never read a stale upgradeInfo replay. Billing
@@ -80,7 +126,11 @@ class UpgradeRepoGplay @Inject constructor(
     suspend fun restorePurchaseNow(): Info {
         log(TAG) { "restorePurchaseNow()" }
         return try {
-            billingDataRepo.refresh().toUpgradeInfo()
+            val data = billingDataRepo.refresh()
+            // Returned data is fresh by definition — stamp it even if the flows dedupe the
+            // unchanged result and the init collector never sees a new emission.
+            recordProState(data)
+            data.toUpgradeInfo()
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -97,30 +147,15 @@ class UpgradeRepoGplay @Inject constructor(
     }
 
     // Shared Pro/grace mapping used by both the reactive upgradeInfo flow and restorePurchaseNow().
-    // Only relinquishes Pro if we haven't had it for a while (grace period).
+    // Only relinquishes Pro if we haven't had it for a while (grace period). READ-ONLY: this also
+    // runs on replayed shared-flow data, so it must never stamp the grace cache — a refunded
+    // purchase could otherwise keep re-stamping its own grace window. See recordProState().
     private fun BillingData?.toUpgradeInfo(): Info {
         val now = System.currentTimeMillis()
         val proSku = this?.getProSku()
         log(TAG) { "toUpgradeInfo(): now=$now, lastProStateAt=$lastProStateAt, data=$this" }
         return when {
-            proSku != null -> {
-                val upgrades = this!!.getProSkus()
-                // Record which Pro SKU anchors the grace window; the permanent IAP wins when both
-                // are owned. An IAP anchor is sticky: purchase data may lack the IAP because that
-                // query failed on a fresh connection, and a subscription seen in the meantime must
-                // not shrink the 30d window of an owner whose IAP was never disproven. Trade-off:
-                // a refunded IAP keeps the long window — consistent with the fail-open cache.
-                // SKU first, timestamp last — the timestamp is the gate, so a crash between the
-                // two writes stays conservative. Locked: mappings run concurrently from the hot
-                // reactive flow and direct restores, and the sticky check-then-write must not race.
-                synchronized(anchorLock) {
-                    preferredProSku(upgrades)
-                        ?.takeIf { it.type == Sku.Type.IAP || !anchorIsIap() }
-                        ?.let { lastProStateSku = it.id }
-                    lastProStateAt = now
-                }
-                Info(billingData = this, upgrades = upgrades)
-            }
+            proSku != null -> Info(billingData = this, upgrades = this!!.getProSkus())
 
             (now - lastProStateAt) < graceWindowMs() -> {
                 log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
@@ -128,6 +163,26 @@ class UpgradeRepoGplay @Inject constructor(
             }
 
             else -> Info(billingData = this, upgrades = this?.getProSkus() ?: emptyList())
+        }
+    }
+
+    // Persists "we saw a known Pro purchase" for the grace machinery. Callers must only pass FRESH
+    // data (returned query results, or new emissions seen by the init collector) — never replayed
+    // flow data. The permanent IAP wins as anchor when both are owned, and an IAP anchor is sticky:
+    // purchase data may lack the IAP because that query failed on a fresh connection, and a
+    // subscription seen in the meantime must not shrink the 30d window of an owner whose IAP was
+    // never disproven (trade-off: a refunded IAP keeps the long window — consistent with the
+    // fail-open cache). SKU before timestamp — the timestamp is the gate, so a crash between the
+    // two writes stays conservative. Locked: runs concurrently from the init collector and direct
+    // restores, and the sticky check-then-write must not race.
+    private fun recordProState(data: BillingData) {
+        val upgrades = data.getProSkus()
+        val preferred = preferredProSku(upgrades) ?: return
+        synchronized(anchorLock) {
+            preferred
+                .takeIf { it.type == Sku.Type.IAP || !anchorIsIap() }
+                ?.let { lastProStateSku = it.id }
+            lastProStateAt = System.currentTimeMillis()
         }
     }
 

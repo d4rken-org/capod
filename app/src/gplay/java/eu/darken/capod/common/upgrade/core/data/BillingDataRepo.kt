@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.core.data
 
 import android.app.Activity
 import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.AppForegroundState
 import eu.darken.capod.common.TimeSource
@@ -48,6 +49,20 @@ class BillingDataRepo @Inject constructor(
         .map { BillingData(purchases = it) }
         .setupCommonEventHandlers(TAG) { "billingData" }
         .replayingShare(scope)
+
+    // Async purchase failures from onPurchasesUpdated; UpgradeRepoGplay reconciles
+    // ITEM_ALREADY_OWNED silently.
+    val purchaseFailures: Flow<BillingResult> = connectionProvider
+        .flatMapLatest { it.purchaseFailures }
+        .setupCommonEventHandlers(TAG) { "purchaseFailures" }
+
+    // Every fresh observation of PURCHASED purchases (successful queries and push payloads) —
+    // unlike billingData this is not equality-deduped state and never mixes in stale listener
+    // data, so it is the only valid source for grace stamping.
+    val freshBillingData: Flow<BillingData> = connectionProvider
+        .flatMapLatest { it.freshPurchases }
+        .map { BillingData(purchases = it) }
+        .setupCommonEventHandlers(TAG) { "freshBillingData" }
 
     init {
         connectionProvider
