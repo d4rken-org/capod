@@ -26,4 +26,11 @@ class BillingCache @Inject constructor(
         "gplay.cache.lastProAt",
         0L
     )
+
+    // SKU id of the last confirmed Pro purchase — determines which grace window applies.
+    // Empty for legacy installs that were Pro before this field existed.
+    val lastProStateSku = dataStore.createValue(
+        "gplay.cache.lastProSku",
+        ""
+    )
 }
