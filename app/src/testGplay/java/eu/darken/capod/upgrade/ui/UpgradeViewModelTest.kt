@@ -25,6 +25,7 @@ class UpgradeViewModelTest : BaseTest() {
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(billingData = null))
+        every { wasEverPro } returns MutableStateFlow(false)
     }
 
     private fun TestScope.createVm(repo: UpgradeRepoGplay) = UpgradeViewModel(
@@ -98,6 +99,108 @@ class UpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         forwardedError.await() shouldBe boom
+    }
+
+    @Test
+    fun `restore is single-flight, taps during a running restore are ignored`() = runTest2 {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(5_000)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        }
+        val vm = createVm(repo)
+
+        vm.restorePurchase()
+        vm.restorePurchase()
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.restorePurchaseNow() }
+    }
+
+    @Test
+    fun `restoreInProgress is set while a restore is running and cleared after`() = runTest2 {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(5_000)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        }
+        val vm = createVm(repo)
+
+        val states = mutableListOf<UpgradeViewModel.RestoreState>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.restoreState.collect { states.add(it) } }
+
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        states.any { it.restoreInProgress } shouldBe true
+        states.last().restoreInProgress shouldBe false
+
+        job.cancel()
+    }
+
+    @Test
+    fun `buy taps are ignored while a restore is running`() = runTest2 {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(5_000)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        }
+        val vm = createVm(repo)
+
+        vm.restorePurchase()
+        vm.launchBillingIap(mockk<Activity>())
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.launchBillingFlow(any(), any(), any()) }
+    }
+
+    @Test
+    fun `a finished restore allows a new attempt`() = runTest2 {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(billingData = null)
+        val vm = createVm(repo)
+
+        vm.restorePurchase()
+        advanceUntilIdle()
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        coVerify(exactly = 2) { repo.restorePurchaseNow() }
+    }
+
+    @Test
+    fun `banner shows for a previously-pro install that is no longer pro`() = runTest2 {
+        val repo = mockRepo()
+        every { repo.wasEverPro } returns MutableStateFlow(true)
+        val vm = createVm(repo)
+
+        val states = mutableListOf<UpgradeViewModel.RestoreState>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.restoreState.collect { states.add(it) } }
+        advanceUntilIdle()
+
+        states.last().showRestoreBanner shouldBe true
+
+        job.cancel()
+    }
+
+    @Test
+    fun `banner stays hidden while grace still keeps the user pro`() = runTest2 {
+        val repo = mockRepo()
+        every { repo.wasEverPro } returns MutableStateFlow(true)
+        // gracePeriod = true -> isPro is true even without a current raw purchase.
+        every { repo.upgradeInfo } returns MutableStateFlow(
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        )
+        val vm = createVm(repo)
+
+        val states = mutableListOf<UpgradeViewModel.RestoreState>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.restoreState.collect { states.add(it) } }
+        advanceUntilIdle()
+
+        states.last().showRestoreBanner shouldBe false
+
+        job.cancel()
     }
 
     @Test

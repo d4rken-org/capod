@@ -16,8 +16,10 @@ import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
 import eu.darken.capod.common.upgrade.core.data.Sku
 import eu.darken.capod.common.upgrade.core.data.SkuDetails
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
@@ -55,8 +57,29 @@ class UpgradeViewModel @Inject constructor(
         val iapAvailable: Boolean get() = iap != null || iapPrice != null
     }
 
+    // Restore affordances shown alongside the pricing state. Kept as a separate reactive state so
+    // the one-shot pricing query isn't re-run whenever upgradeInfo or the restore flag changes.
+    data class RestoreState(
+        val showRestoreBanner: Boolean = false,
+        val restoreInProgress: Boolean = false,
+    )
+
     val events = SingleEventFlow<UpgradeEvent>()
     val billingEvents = SingleEventFlow<BillingEvent>()
+
+    private val restoring = MutableStateFlow(false)
+
+    val restoreState: StateFlow<RestoreState> = combine(
+        upgradeRepo.wasEverPro,
+        upgradeRepo.upgradeInfo,
+        restoring,
+    ) { wasEverPro, info, isRestoring ->
+        RestoreState(
+            // Hidden while a grace period or an actual purchase keeps the user Pro.
+            showRestoreBanner = wasEverPro && !info.isPro,
+            restoreInProgress = isRestoring,
+        )
+    }.stateIn(vmScope, SharingStarted.WhileSubscribed(5_000), RestoreState())
 
     val state: StateFlow<Pricing?> = flow {
         val iapDetails = try {
@@ -149,6 +172,12 @@ class UpgradeViewModel @Inject constructor(
     }
 
     private fun launchBillingFlow(activity: Activity, sku: Sku, offer: Sku.Subscription.Offer?) = launch {
+        // The disabled buy buttons are best-effort (recomposition lags the flag) — this is the
+        // authoritative guard against starting a purchase while a restore is still running.
+        if (restoring.value) {
+            log(TAG) { "launchBillingFlow(${sku.id}) ignored, restore in progress" }
+            return@launch
+        }
         try {
             upgradeRepo.launchBillingFlow(activity, sku, offer)
         } catch (e: CancellationException) {
@@ -163,10 +192,31 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun restorePurchase() = launch {
+        // Single-flight: repeated taps while a restore is running (worst case bounded by
+        // RESTORE_TIMEOUT_MS) must not stack concurrent restores and duplicate result messages.
+        if (!restoring.compareAndSet(expect = false, update = true)) {
+            log(TAG) { "restorePurchase() ignored, already in progress" }
+            return@launch
+        }
         log(TAG, INFO) { "restorePurchase()" }
 
-        val restored = try {
-            withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+        try {
+            val restored = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+            when {
+                restored == null -> {
+                    // Play never answered in time; the restore-failed message already suggests the
+                    // purchase may take a while to sync, which fits a timeout too.
+                    log(TAG, WARN) { "Restore purchase timed out" }
+                    events.tryEmit(UpgradeEvent.RestoreFailed)
+                }
+
+                restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
+
+                else -> {
+                    log(TAG, WARN) { "No pro purchase found" }
+                    events.tryEmit(UpgradeEvent.RestoreFailed)
+                }
+            }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -174,23 +224,9 @@ class UpgradeViewModel @Inject constructor(
             // instead of the generic "restore failed" toast, so the user can tell the cases apart.
             log(TAG, WARN) { "Restore purchase errored: ${e.asLog()}" }
             errorEvents.emitBlocking(e)
-            return@launch
-        }
-
-        when {
-            restored == null -> {
-                // Play never answered in time; the restore-failed message already suggests the
-                // purchase may take a while to sync, which fits a timeout too.
-                log(TAG, WARN) { "Restore purchase timed out" }
-                events.tryEmit(UpgradeEvent.RestoreFailed)
-            }
-
-            restored.isPro -> log(TAG, INFO) { "Restored purchase :))" }
-
-            else -> {
-                log(TAG, WARN) { "No pro purchase found" }
-                events.tryEmit(UpgradeEvent.RestoreFailed)
-            }
+        } finally {
+            // Reset only after result handling, so the single-flight guard covers the whole action.
+            restoring.value = false
         }
     }
 
