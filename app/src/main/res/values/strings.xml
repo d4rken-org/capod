@@ -32,6 +32,7 @@
     <string name="upgrade_benefit_disclaimer">Feature availability depends on your headphones and device.</string>
 
     <string name="upgrade_screen_options_description">Same features, different pricing. The subscription includes a free trial and can be cancelled at any time.</string>
+    <string name="upgrade_screen_options_description_no_trial">Same features, different pricing. The subscription can be cancelled at any time.</string>
 
     <string name="upgrade_screen_subscription_trial_action">Start free trial</string>
     <string name="upgrade_screen_subscription_action">Subscribe yearly</string>

@@ -20,6 +20,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -62,6 +63,70 @@ class BillingDataRepoTest : BaseTest() {
         val result = mockBillingResult(BillingClient.BillingResponseCode.BILLING_UNAVAILABLE)
         val mapped = BillingResultException(result).tryMapUserFriendly()
         mapped.shouldBeInstanceOf<GplayServiceUnavailableException>()
+    }
+
+    @Test
+    fun `network error maps to GplayServiceUnavailableException`() {
+        val result = mockBillingResult(BillingClient.BillingResponseCode.NETWORK_ERROR)
+        val mapped = BillingResultException(result).tryMapUserFriendly()
+        mapped.shouldBeInstanceOf<GplayServiceUnavailableException>()
+    }
+
+    @Test
+    @Suppress("DEPRECATION")
+    fun `transient launch failures are not bug-reported, actionable ones are`() {
+        with(BillingDataRepo.IGNORED_LAUNCH_CODES) {
+            // Expected user/environmental situations — the user already sees proper UI for these.
+            contains(BillingClient.BillingResponseCode.USER_CANCELED) shouldBe true
+            contains(BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED) shouldBe true
+            contains(BillingClient.BillingResponseCode.BILLING_UNAVAILABLE) shouldBe true
+            contains(BillingClient.BillingResponseCode.ERROR) shouldBe true
+            contains(BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE) shouldBe true
+            contains(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED) shouldBe true
+            contains(BillingClient.BillingResponseCode.SERVICE_TIMEOUT) shouldBe true
+            contains(BillingClient.BillingResponseCode.NETWORK_ERROR) shouldBe true
+            contains(BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED) shouldBe true
+            // Actionable defects must keep reporting.
+            contains(BillingClient.BillingResponseCode.DEVELOPER_ERROR) shouldBe false
+            contains(BillingClient.BillingResponseCode.ITEM_UNAVAILABLE) shouldBe false
+        }
+    }
+
+    @Test
+    fun `connection retry uses capped backoff and retries early on foreground entry`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        var attempts = 0
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flow {
+                attempts++
+                throw BillingException("still broken")
+            }
+        }
+        val foreground = MutableStateFlow(false)
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns foreground
+        }
+
+        BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+        testScope.testScheduler.runCurrent()
+        attempts shouldBe 1
+
+        // First backoff is 60s — not a second sooner.
+        testScope.testScheduler.advanceTimeBy(59_000)
+        testScope.testScheduler.runCurrent()
+        attempts shouldBe 1
+        testScope.testScheduler.advanceTimeBy(2_000)
+        testScope.testScheduler.runCurrent()
+        attempts shouldBe 2
+
+        // Second backoff would be 120s — a foreground entry short-circuits it, so a user
+        // returning from e.g. Google sign-in doesn't wait out the full backoff.
+        testScope.testScheduler.advanceTimeBy(5_000)
+        foreground.value = true
+        testScope.testScheduler.runCurrent()
+        attempts shouldBe 3
+
+        testScope.cancel()
     }
 
     @Test

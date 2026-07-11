@@ -27,7 +27,7 @@ import javax.inject.Singleton
 class BillingDataRepo @Inject constructor(
     billingClientConnectionProvider: BillingClientConnectionProvider,
     @AppScope private val scope: CoroutineScope,
-    appForegroundState: AppForegroundState,
+    private val appForegroundState: AppForegroundState,
     private val timeSource: TimeSource,
 ) {
 
@@ -39,7 +39,17 @@ class BillingDataRepo @Inject constructor(
         .retryWhen { cause, attempt ->
             if (cause is CancellationException) return@retryWhen false
             log(TAG, ERROR) { "Unable to provide client connection (attempt=$attempt):\n${cause.asLog()}" }
-            delay(60_000) // 60s between retries (upstream already did 5 quick retries)
+            // Capped backoff: don't hammer a persistently broken Play from the always-hot process
+            // (upstream already did 5 quick retries). A foreground *entry* short-circuits the
+            // wait — e.g. the user just returned from signing into the missing Google account
+            // and shouldn't have to wait out the full backoff.
+            val backoffMs = (RETRY_BACKOFF_BASE_MS * (attempt + 1)).coerceAtMost(RETRY_BACKOFF_MAX_MS)
+            // StateFlow dedupes, so after dropping the current value the next `true` is a real
+            // foreground *entry*, not the pre-existing foreground state.
+            val kicked = withTimeoutOrNull(backoffMs) {
+                appForegroundState.isForeground.drop(1).first { it }
+            }
+            if (kicked != null) log(TAG) { "App came to foreground, retrying billing connection early" }
             true
         }
         .replayingShare(scope)
@@ -190,15 +200,25 @@ class BillingDataRepo @Inject constructor(
 
         private const val FOREGROUND_REFRESH_THROTTLE_MS = 60 * 60 * 1000L // 1h
         private const val FOREGROUND_REFRESH_TIMEOUT_MS = 30_000L
+        private const val RETRY_BACKOFF_BASE_MS = 60_000L
+        private const val RETRY_BACKOFF_MAX_MS = 5 * 60_000L
 
         // Expected environmental/user situations — user-facing handling only, no bug report.
         // USER_CANCELED stays silent in the UI, ITEM_ALREADY_OWNED is auto-handled by
-        // UpgradeRepoGplay (restore instead of error).
-        private val IGNORED_LAUNCH_CODES = setOf(
+        // UpgradeRepoGplay (restore instead of error), the service/network codes are transient
+        // connectivity states the user sees a proper error dialog for. Actionable codes
+        // (DEVELOPER_ERROR, ITEM_UNAVAILABLE, unknown future codes) keep reporting.
+        @Suppress("DEPRECATION")
+        internal val IGNORED_LAUNCH_CODES = setOf(
             BillingClient.BillingResponseCode.USER_CANCELED,
             BillingClient.BillingResponseCode.BILLING_UNAVAILABLE,
             BillingClient.BillingResponseCode.ERROR,
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED,
+            BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
+            BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
+            BillingClient.BillingResponseCode.SERVICE_TIMEOUT,
+            BillingClient.BillingResponseCode.NETWORK_ERROR,
+            BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED,
         )
 
         internal fun Throwable.tryMapUserFriendly(): Throwable = when {

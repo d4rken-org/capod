@@ -10,7 +10,8 @@ internal val BillingResult.isGplayUnavailableTemporary: Boolean
     get() = setOf(
         BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
         BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
-        BillingClient.BillingResponseCode.SERVICE_TIMEOUT
+        BillingClient.BillingResponseCode.SERVICE_TIMEOUT,
+        BillingClient.BillingResponseCode.NETWORK_ERROR,
     ).contains(responseCode)
 
 internal val BillingResult.isGplayUnavailablePermanent: Boolean
