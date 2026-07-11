@@ -14,12 +14,18 @@ import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.BillingResult
+import eu.darken.capod.common.datastore.DataStoreValue
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
@@ -38,6 +44,7 @@ class UpgradeRepoGplayTest : BaseTest() {
     lateinit var tempDir: File
 
     private lateinit var billingDataFlow: MutableSharedFlow<BillingData>
+    private lateinit var freshDataFlow: MutableSharedFlow<BillingData>
     private lateinit var billingDataRepo: BillingDataRepo
     private lateinit var billingCache: BillingCache
 
@@ -46,8 +53,11 @@ class UpgradeRepoGplayTest : BaseTest() {
     @BeforeEach
     fun setup() {
         billingDataFlow = MutableSharedFlow()
+        freshDataFlow = MutableSharedFlow()
         billingDataRepo = mockk {
             every { billingData } returns billingDataFlow
+            every { freshBillingData } returns freshDataFlow
+            every { purchaseFailures } returns emptyFlow()
         }
         val dataStore = PreferenceDataStoreFactory.create(
             produceFile = { File(tempDir, "test_billing_cache_${dsCounter++}.preferences_pb") }
@@ -427,6 +437,154 @@ class UpgradeRepoGplayTest : BaseTest() {
         shouldThrow<ItemAlreadyOwnedBillingException> {
             repo.launchBillingFlow(mockk<Activity>(), CapodSku.Iap.PRO_UPGRADE)
         }
+
+        testScope.cancel()
+    }
+
+    private fun mockBillingResult(code: Int): BillingResult = mockk {
+        every { responseCode } returns code
+        every { debugMessage } returns "mock"
+    }
+
+    @Test
+    fun `fresh observations stamp the grace cache via the persistent collector`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        createRepo(testScope)
+
+        // No upgradeInfo collection at all — the init collector alone must stamp.
+        freshDataFlow.emit(BillingData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))))
+
+        billingCache.lastProStateAt.valueBlocking shouldBeGreaterThan 0L
+        billingCache.lastProStateSku.valueBlocking shouldBe CapodSku.Iap.PRO_UPGRADE.id
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `the reactive mapping is read-only, only the collector stamps`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // Count writes via mocked DataStore values: the cold freshBillingData flow delivers one
+        // pro observation to the init collector (1 stamp), and collecting upgradeInfo runs the
+        // mapping on top (onStart-null + pro data) — if the mapping still stamped, the count
+        // would exceed 1.
+        val proData = BillingData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id)))
+        val lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true) {
+            every { flow } returns flowOf(0L)
+        }
+        val lastProSkuMock = mockk<DataStoreValue<String>>(relaxed = true) {
+            every { flow } returns flowOf("")
+        }
+        val cache = mockk<BillingCache> {
+            every { lastProStateAt } returns lastProAtMock
+            every { lastProStateSku } returns lastProSkuMock
+        }
+        val repo = UpgradeRepoGplay(
+            scope = testScope,
+            billingDataRepo = mockk {
+                every { billingData } returns flowOf(proData)
+                every { freshBillingData } returns flowOf(proData)
+                every { purchaseFailures } returns emptyFlow()
+            },
+            billingCache = cache,
+        )
+
+        repo.upgradeInfo.first { it.isPro }.isPro shouldBe true
+
+        coVerify(exactly = 1) { lastProAtMock.update(any()) }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `an observation emitted before the recorder subscribes still stamps via replay`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // The connect-time query can complete before UpgradeRepoGplay is constructed — the
+        // observation stream carries replay=1 so that first Pro observation isn't lost.
+        val replayingFresh = MutableSharedFlow<BillingData>(replay = 1)
+        replayingFresh.tryEmit(BillingData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))))
+        every { billingDataRepo.freshBillingData } returns replayingFresh
+
+        createRepo(testScope)
+
+        billingCache.lastProStateAt.valueBlocking shouldBeGreaterThan 0L
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `equal consecutive fresh observations both stamp`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // Purchase equality dedupes the state flows for a steady owner — the observation stream
+        // must not dedupe, or a long-lived process would stop refreshing the grace timestamp.
+        val proData = BillingData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id)))
+        val lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true) {
+            every { flow } returns flowOf(0L)
+        }
+        val lastProSkuMock = mockk<DataStoreValue<String>>(relaxed = true) {
+            every { flow } returns flowOf("")
+        }
+        val cache = mockk<BillingCache> {
+            every { lastProStateAt } returns lastProAtMock
+            every { lastProStateSku } returns lastProSkuMock
+        }
+        UpgradeRepoGplay(
+            scope = testScope,
+            billingDataRepo = mockk {
+                every { billingData } returns emptyFlow()
+                every { freshBillingData } returns flowOf(proData, proData)
+                every { purchaseFailures } returns emptyFlow()
+            },
+            billingCache = cache,
+        )
+
+        coVerify(exactly = 2) { lastProAtMock.update(any()) }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `the same failure instance delivered twice triggers two restores`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        // Play reuses static BillingResult instances — a repeat of the same object must still
+        // trigger (a conflating/deduping state flow would drop it).
+        val sameInstance = mockBillingResult(BillingResponseCode.ITEM_ALREADY_OWNED)
+        every { billingDataRepo.purchaseFailures } returns flowOf(sameInstance, sameInstance)
+
+        createRepo(testScope)
+
+        coVerify(exactly = 2) { billingDataRepo.refresh() }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `async already-owned purchase event triggers a silent restore`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns BillingData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        every { billingDataRepo.purchaseFailures } returns
+            flowOf(mockBillingResult(BillingResponseCode.ITEM_ALREADY_OWNED))
+
+        createRepo(testScope)
+
+        coVerify(exactly = 1) { billingDataRepo.refresh() }
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `other async purchase failures do not trigger a restore`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        every { billingDataRepo.purchaseFailures } returns
+            flowOf(mockBillingResult(BillingResponseCode.DEVELOPER_ERROR))
+
+        createRepo(testScope)
+
+        coVerify(exactly = 0) { billingDataRepo.refresh() }
 
         testScope.cancel()
     }

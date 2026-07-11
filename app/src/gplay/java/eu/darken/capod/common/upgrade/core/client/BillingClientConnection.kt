@@ -26,6 +26,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
@@ -35,7 +36,18 @@ import kotlinx.coroutines.sync.withLock
 data class BillingClientConnection(
     private val client: BillingClient,
     private val purchasesGlobal: Flow<Collection<Purchase>>,
+    private val freshObservations: MutableSharedFlow<Collection<Purchase>>,
+    private val purchaseFailuresGlobal: Flow<BillingResult>,
 ) {
+
+    // Non-OK results from onPurchasesUpdated (e.g. async ITEM_ALREADY_OWNED after the Play sheet
+    // opened). Consumed by a single persistent collector in UpgradeRepoGplay — not an event bus.
+    val purchaseFailures: Flow<BillingResult> = purchaseFailuresGlobal
+
+    // Every conclusive fresh look at PURCHASED purchases (successful queries and push payloads),
+    // regardless of whether it differs from the previous one — the combined `purchases` state is
+    // equality-deduped and can mix in stale listener data, so grace stamping must not use it.
+    val freshPurchases: Flow<Collection<Purchase>> = freshObservations
     private data class QueryCaches(
         val iaps: Collection<Purchase>? = null,
         val subs: Collection<Purchase>? = null,
@@ -95,6 +107,10 @@ data class BillingClientConnection(
                 subs = subs.getOrNull() ?: previous.subs,
             )
         }
+
+        // A conclusive refresh is a fresh observation for the grace stamping, even when the result
+        // equals the previous one and the state flows dedupe it away.
+        freshObservations.tryEmit(combined)
 
         combined
     }
