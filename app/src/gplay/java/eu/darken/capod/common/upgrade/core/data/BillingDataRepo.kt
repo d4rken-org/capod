@@ -3,6 +3,8 @@ package eu.darken.capod.common.upgrade.core.data
 import android.app.Activity
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.Purchase
+import eu.darken.capod.common.AppForegroundState
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
@@ -16,6 +18,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,7 +26,13 @@ import javax.inject.Singleton
 class BillingDataRepo @Inject constructor(
     billingClientConnectionProvider: BillingClientConnectionProvider,
     @AppScope private val scope: CoroutineScope,
+    appForegroundState: AppForegroundState,
+    private val timeSource: TimeSource,
 ) {
+
+    // Monotonic (elapsedRealtime) so wall-clock corrections can't extend the throttle window.
+    // Null until the first attempt, so devices with less than an hour of uptime still refresh.
+    private var lastForegroundRefreshAt: Long? = null
 
     private val connectionProvider = billingClientConnectionProvider.connection
         .retryWhen { cause, attempt ->
@@ -91,6 +100,38 @@ class BillingDataRepo @Inject constructor(
                 true
             }
             .launchIn(scope)
+
+        // Play only pushes onPurchasesUpdated for purchases made in this session, and the
+        // connection (kept hot by App's AppScope subscriber) can live for the entire process
+        // lifetime — without a re-query, refunds, cross-device purchases or lapsed subscriptions
+        // are only noticed on app restart or manual restore. Google recommends re-querying
+        // purchases when the app comes to the foreground.
+        appForegroundState.isForeground
+            .filter { it }
+            .onEach {
+                val now = timeSource.elapsedRealtime()
+                val lastAt = lastForegroundRefreshAt
+                if (lastAt != null && now - lastAt < FOREGROUND_REFRESH_THROTTLE_MS) {
+                    log(TAG, VERBOSE) { "Foreground purchase refresh throttled" }
+                    return@onEach
+                }
+                // Advanced per attempt, not per success — a broken Play should not be hammered
+                // on every foreground transition.
+                lastForegroundRefreshAt = now
+                try {
+                    // Bounded: an unavailable connection suspends refresh() indefinitely (60s
+                    // retry loop) and would otherwise block all future foreground refreshes.
+                    val result = withTimeoutOrNull(FOREGROUND_REFRESH_TIMEOUT_MS) { refresh() }
+                    if (result != null) log(TAG) { "Foreground purchase refresh done" }
+                    else log(TAG, WARN) { "Foreground purchase refresh timed out" }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Foreground purchase refresh failed: ${e.asLog()}" }
+                }
+            }
+            .setupCommonEventHandlers(TAG) { "foreground-refresh" }
+            .launchIn(scope)
     }
 
     suspend fun refresh(): BillingData = try {
@@ -131,6 +172,9 @@ class BillingDataRepo @Inject constructor(
 
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "DataRepo")
+
+        private const val FOREGROUND_REFRESH_THROTTLE_MS = 60 * 60 * 1000L // 1h
+        private const val FOREGROUND_REFRESH_TIMEOUT_MS = 30_000L
 
         // Expected environmental/user situations — user-facing handling only, no bug report.
         // USER_CANCELED stays silent in the UI, ITEM_ALREADY_OWNED is auto-handled by
