@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.core.data
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.AppForegroundState
 import eu.darken.capod.common.upgrade.core.client.BillingClientConnection
 import eu.darken.capod.common.upgrade.core.client.BillingClientConnectionProvider
@@ -210,6 +211,43 @@ class BillingDataRepoTest : BaseTest() {
         val original = BillingException("generic billing error")
         val mapped = original.tryMapUserFriendly()
         mapped shouldBe original
+    }
+
+    private fun mockPurchase(state: Int, acknowledged: Boolean): Purchase = mockk {
+        every { purchaseState } returns state
+        every { isAcknowledged } returns acknowledged
+    }
+
+    @Test
+    fun `ack pipeline acknowledges only unacknowledged PURCHASED purchases`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // A PENDING purchase must not be acknowledged (acking it fails and spins the retry loop);
+        // an already-acknowledged one must not be re-acked; only a settled, unacked one is acked.
+        val pending = mockPurchase(Purchase.PurchaseState.PENDING, acknowledged = false)
+        val purchasedUnacked = mockPurchase(Purchase.PurchaseState.PURCHASED, acknowledged = false)
+        val purchasedAcked = mockPurchase(Purchase.PurchaseState.PURCHASED, acknowledged = true)
+
+        val clientConnection = mockk<BillingClientConnection> {
+            every { purchases } returns flowOf(listOf(pending, purchasedUnacked, purchasedAcked))
+            coEvery { acknowledgePurchase(any()) } returns Unit
+        }
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flowOf(clientConnection)
+        }
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns MutableStateFlow(false)
+        }
+
+        try {
+            BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            testScope.testScheduler.runCurrent()
+
+            coVerify(exactly = 1) { clientConnection.acknowledgePurchase(purchasedUnacked) }
+            coVerify(exactly = 0) { clientConnection.acknowledgePurchase(pending) }
+            coVerify(exactly = 0) { clientConnection.acknowledgePurchase(purchasedAcked) }
+        } finally {
+            testScope.cancel()
+        }
     }
 
     private class ForegroundRefreshHarness(testScope: TestScope) {

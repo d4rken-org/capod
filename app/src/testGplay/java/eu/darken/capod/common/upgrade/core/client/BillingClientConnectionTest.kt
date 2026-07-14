@@ -6,17 +6,40 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.runTest2
 
 class BillingClientConnectionTest : BaseTest() {
 
     private fun mockPurchase(
         productId: String = CapodSku.Iap.PRO_UPGRADE.id,
         purchaseTime: Long = 1_000,
+        state: Int = Purchase.PurchaseState.PURCHASED,
     ): Purchase = mockk {
         every { products } returns listOf(productId)
         every { this@mockk.purchaseTime } returns purchaseTime
+        every { purchaseState } returns state
+    }
+
+    @Test
+    fun `pending purchases are filtered out of the push-based purchases flow`() = runTest2 {
+        // A PENDING purchase (e.g. a slow cash/deferred payment) must never reach the entitlement
+        // layer — only PURCHASED grants Pro. This guards the #628 fix at the connection boundary.
+        val pending = mockPurchase(purchaseTime = 2_000, state = Purchase.PurchaseState.PENDING)
+        val purchased = mockPurchase(purchaseTime = 1_000, state = Purchase.PurchaseState.PURCHASED)
+
+        val connection = BillingClientConnection(
+            client = mockk(relaxed = true),
+            purchasesGlobal = MutableStateFlow(listOf(pending, purchased)),
+            freshObservations = MutableSharedFlow(),
+            purchaseFailuresGlobal = MutableSharedFlow(),
+        )
+
+        connection.purchases.first() shouldBe listOf(purchased)
     }
 
     @Test
