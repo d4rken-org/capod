@@ -18,6 +18,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
@@ -107,26 +108,72 @@ class BillingDataRepoTest : BaseTest() {
             every { isForeground } returns foreground
         }
 
-        BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
-        testScope.testScheduler.runCurrent()
-        attempts shouldBe 1
+        try {
+            BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe 1
 
-        // First backoff is 60s — not a second sooner.
-        testScope.testScheduler.advanceTimeBy(59_000)
-        testScope.testScheduler.runCurrent()
-        attempts shouldBe 1
-        testScope.testScheduler.advanceTimeBy(2_000)
-        testScope.testScheduler.runCurrent()
-        attempts shouldBe 2
+            // First backoff is 60s — not a second sooner.
+            testScope.testScheduler.advanceTimeBy(59_000)
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe 1
+            testScope.testScheduler.advanceTimeBy(2_000)
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe 2
 
-        // Second backoff would be 120s — a foreground entry short-circuits it, so a user
-        // returning from e.g. Google sign-in doesn't wait out the full backoff.
-        testScope.testScheduler.advanceTimeBy(5_000)
-        foreground.value = true
-        testScope.testScheduler.runCurrent()
-        attempts shouldBe 3
+            // Second backoff would be 120s — a foreground entry short-circuits it, so a user
+            // returning from e.g. Google sign-in doesn't wait out the full backoff. A foreground
+            // entry drives two independent early-retry paths (the retry loop's own foreground
+            // branch, plus the init foreground-refresh calling refresh() which emits a kick), so
+            // the exact count is interleaving-dependent — either can produce attempt 3 or 4.
+            testScope.testScheduler.advanceTimeBy(5_000)
+            foreground.value = true
+            testScope.testScheduler.runCurrent()
+            (attempts in 3..4) shouldBe true
 
-        testScope.cancel()
+            // ...and then it settles: with no further action/lifecycle signal and time still well
+            // under the next backoff, the double-kick must not compound into a busy-loop.
+            val settled = attempts
+            testScope.testScheduler.advanceTimeBy(5_000)
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe settled
+        } finally {
+            // The repo pipelines and retry loop are infinite — a leaked scope after a failed
+            // assertion would keep them alive for the rest of the JVM.
+            testScope.cancel()
+        }
+    }
+
+    @Test
+    fun `explicit billing operations kick a waiting connection retry`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        var attempts = 0
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flow {
+                attempts++
+                throw BillingException("still broken")
+            }
+        }
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns MutableStateFlow(false)
+        }
+
+        try {
+            val repo = BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe 1
+
+            // A restore-style refresh() while the retry is waiting out its 60s backoff kicks it
+            // immediately — the user shouldn't wait out the timer after fixing Play themselves.
+            testScope.testScheduler.advanceTimeBy(5_000)
+            val refreshJob = testScope.launch { runCatching { repo.refresh() } }
+            testScope.testScheduler.runCurrent()
+            attempts shouldBe 2
+
+            refreshJob.cancel()
+        } finally {
+            testScope.cancel()
+        }
     }
 
     @Test
