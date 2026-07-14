@@ -35,21 +35,30 @@ class BillingDataRepo @Inject constructor(
     // Null until the first attempt, so devices with less than an hour of uptime still refresh.
     private var lastForegroundRefreshAt: Long? = null
 
+    // Explicit billing operations kick a waiting connection-retry backoff so a user action (restore
+    // tap, buy tap, opening the upgrade screen) reconnects immediately after Play was fixed instead
+    // of waiting out the timer. Zero replay: kicks only matter while a retry is actively waiting —
+    // a healthy connection must not accumulate stale wake-ups. (Ported from sdmaid-se#2562.)
+    private val connectionKicks = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+
     private val connectionProvider = billingClientConnectionProvider.connection
         .retryWhen { cause, attempt ->
             if (cause is CancellationException) return@retryWhen false
             log(TAG, ERROR) { "Unable to provide client connection (attempt=$attempt):\n${cause.asLog()}" }
             // Capped backoff: don't hammer a persistently broken Play from the always-hot process
-            // (upstream already did 5 quick retries). A foreground *entry* short-circuits the
-            // wait — e.g. the user just returned from signing into the missing Google account
-            // and shouldn't have to wait out the full backoff.
+            // (upstream already did 5 quick retries). An explicit billing operation or a foreground
+            // *entry* short-circuits the wait — e.g. the user just returned from signing into the
+            // missing Google account and shouldn't have to wait out the full backoff.
             val backoffMs = (RETRY_BACKOFF_BASE_MS * (attempt + 1)).coerceAtMost(RETRY_BACKOFF_MAX_MS)
-            // StateFlow dedupes, so after dropping the current value the next `true` is a real
-            // foreground *entry*, not the pre-existing foreground state.
             val kicked = withTimeoutOrNull(backoffMs) {
-                appForegroundState.isForeground.drop(1).first { it }
+                merge(
+                    connectionKicks,
+                    // StateFlow dedupes, so after dropping the current value the next `true` is a
+                    // real foreground *entry*, not the pre-existing foreground state.
+                    appForegroundState.isForeground.drop(1).filter { it }.map { },
+                ).first()
             }
-            if (kicked != null) log(TAG) { "App came to foreground, retrying billing connection early" }
+            if (kicked != null) log(TAG) { "User action or foreground entry, retrying billing connection early" }
             true
         }
         .replayingShare(scope)
@@ -160,6 +169,7 @@ class BillingDataRepo @Inject constructor(
     }
 
     suspend fun refresh(): BillingData = try {
+        connectionKicks.tryEmit(Unit)
         val clientConnection = connectionProvider.first()
         val purchases = clientConnection.refreshPurchases()
 
@@ -169,6 +179,7 @@ class BillingDataRepo @Inject constructor(
     }
 
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = try {
+        connectionKicks.tryEmit(Unit)
         val clientConnection = connectionProvider.first()
         clientConnection.querySkus(*skus)
     } catch (e: Exception) {
@@ -181,6 +192,7 @@ class BillingDataRepo @Inject constructor(
         offer: Sku.Subscription.Offer? = null,
     ) {
         try {
+            connectionKicks.tryEmit(Unit)
             val clientConnection = connectionProvider.first()
             clientConnection.launchBillingFlow(activity, sku, offer)
         } catch (e: CancellationException) {
