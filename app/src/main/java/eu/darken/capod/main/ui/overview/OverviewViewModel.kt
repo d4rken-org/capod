@@ -21,6 +21,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitorKillGuidance
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
@@ -64,6 +65,7 @@ class OverviewViewModel @Inject constructor(
     private val monitorModeResolver: MonitorModeResolver,
     private val batteryEstimator: BatteryEstimator,
     private val timeSource: TimeSource,
+    private val killGuidance: MonitorKillGuidance,
 ) : ViewModel4(dispatcherProvider) {
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
@@ -89,8 +91,20 @@ class OverviewViewModel @Inject constructor(
         val reactionsHintDismissed: Boolean,
         val hideUnmatchedDevices: Boolean,
         val showTroubleshootSuggestion: Boolean,
+        val showOsKillHint: Boolean,
         val batteryEstimates: Map<String, BatteryEstimate>,
     )
+
+    /**
+     * True when the OS killed the monitor (see MonitorKillDetector) and the user hasn't dismissed
+     * the hint since — dismissal only hides kills up to that point, a newer kill re-shows it.
+     */
+    private val osKillHint = combineFlows(
+        generalSettings.lastOsKillAt.flow,
+        generalSettings.osKillHintDismissedAt.flow,
+    ) { lastKillAt, dismissedAt ->
+        lastKillAt > 0 && lastKillAt > dismissedAt
+    }.distinctUntilChanged()
 
     /**
      * True when a profile is connected to the system (audio) but CAPod has *no* live data for any
@@ -125,12 +139,14 @@ class OverviewViewModel @Inject constructor(
         generalSettings.reactionsHintDismissed.flow,
         generalSettings.hideUnmatchedDevices.flow,
         troubleshootSuggestion,
+        osKillHint,
         batteryEstimator.estimates,
-    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates ->
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, showOsKillHint, batteryEstimates ->
         OverviewUiSettings(
             reactionsHintDismissed = reactionsHintDismissed,
             hideUnmatchedDevices = hideUnmatched,
             showTroubleshootSuggestion = showTroubleshootSuggestion,
+            showOsKillHint = showOsKillHint,
             batteryEstimates = batteryEstimates,
         )
     }
@@ -221,6 +237,8 @@ class OverviewViewModel @Inject constructor(
             showReactionsHint = hadLegacyReactionData && !uiSettings.reactionsHintDismissed,
             hideUnmatchedDevices = uiSettings.hideUnmatchedDevices,
             showTroubleshootSuggestion = uiSettings.showTroubleshootSuggestion,
+            showOsKillHint = uiSettings.showOsKillHint,
+            showOsKillAutostartAction = killGuidance.hasAutostartSettings,
             batteryEstimates = uiSettings.batteryEstimates,
         )
     }.asLiveState()
@@ -240,6 +258,8 @@ class OverviewViewModel @Inject constructor(
         val showReactionsHint: Boolean = false,
         val hideUnmatchedDevices: Boolean = false,
         val showTroubleshootSuggestion: Boolean = false,
+        val showOsKillHint: Boolean = false,
+        val showOsKillAutostartAction: Boolean = false,
         val batteryEstimates: Map<String, BatteryEstimate> = emptyMap(),
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
@@ -353,6 +373,25 @@ class OverviewViewModel @Inject constructor(
         log(TAG, INFO) { "dismissReactionsHint()" }
         launch {
             generalSettings.reactionsHintDismissed.value(true)
+        }
+    }
+
+    fun onOsKillShowInstructions() {
+        log(TAG, INFO) { "onOsKillShowInstructions()" }
+        killGuidance.openKillInstructions()
+    }
+
+    fun onOsKillAutostartSettings() {
+        log(TAG, INFO) { "onOsKillAutostartSettings()" }
+        killGuidance.openAutostartSettings()
+    }
+
+    fun dismissOsKillHint() {
+        log(TAG, INFO) { "dismissOsKillHint()" }
+        launch {
+            // Anchor the dismissal to the kill being dismissed, not wall-clock "now" — clock
+            // jumps must neither keep the card visible nor suppress future kills.
+            generalSettings.osKillHintDismissedAt.value(generalSettings.lastOsKillAt.value())
         }
     }
 

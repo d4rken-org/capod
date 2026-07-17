@@ -235,6 +235,11 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="overview_monitoring_active_label">Monitoring for devices</string>
     <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
+    <string name="overview_os_kill_hint_label">Your phone stopped CAPod</string>
+    <string name="overview_os_kill_hint_description">This device\'s battery management force-closed CAPod, removing the battery notification. To keep monitoring alive, allow CAPod to start automatically, set its battery usage to unrestricted, and lock CAPod in the recent apps screen.</string>
+    <string name="overview_os_kill_hint_instructions_action">Show instructions</string>
+    <string name="overview_os_kill_hint_autostart_action">Autostart settings</string>
+    <string name="overview_os_kill_hint_dismiss_action">Dismiss</string>
     <string name="overview_troubleshoot_suggestion_label">Connected, but no data</string>
     <string name="overview_troubleshoot_suggestion_description">Your device is connected, but CAPod isn\'t receiving any live data from it. Your phone may need a compatibility option — the troubleshooter can try to find one automatically.</string>
     <string name="overview_troubleshoot_suggestion_action">Run troubleshooter</string>

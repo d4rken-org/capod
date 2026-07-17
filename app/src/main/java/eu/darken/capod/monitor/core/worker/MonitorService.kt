@@ -29,6 +29,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.MonitorKillDetector
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.battery.displayKey
@@ -92,12 +93,14 @@ class MonitorService : Service() {
     @Inject lateinit var aapConnectionManager: AapConnectionManager
     @Inject lateinit var monitorModeResolver: MonitorModeResolver
     @Inject lateinit var batteryEstimator: BatteryEstimator
+    @Inject lateinit var killDetector: MonitorKillDetector
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
     @Volatile private var monitorGeneration = 0
     private var foregroundStartFailed = false
     private var injectionComplete = false
+    @Volatile private var monitorMarkedActive = false
 
     @Volatile
     private var latestNotificationSettings: NotificationSettings =
@@ -214,6 +217,9 @@ class MonitorService : Service() {
             log(TAG, WARN) { "Aborting, missing scan permissions: $permissionsMissingOnStart" }
             return
         }
+
+        monitorMarkedActive = true
+        killDetector.onMonitorStart()
 
         val deviceFlow = deviceMonitor.primaryDeviceByTier
             .setupCommonEventHandlers(TAG) { "BlePodMonitor" }
@@ -396,6 +402,16 @@ class MonitorService : Service() {
         monitorScope.cancel("Service destroyed")
 
         if (injectionComplete) {
+            // Clean shutdown — a force-stop skips onDestroy(), leaving the breadcrumb set. Only
+            // clear it if this instance claimed it: an aborted start (missing permissions) must
+            // not erase evidence left behind by an earlier killed session.
+            if (monitorMarkedActive) {
+                try {
+                    killDetector.onMonitorCleanStopBlocking()
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to clear monitor breadcrumb: ${e.message}" }
+                }
+            }
             try {
                 chargedReactionNotifications.cancelAll()
             } catch (e: Exception) {

@@ -16,6 +16,7 @@ import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
+import eu.darken.capod.monitor.core.MonitorSessionMark
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
@@ -81,7 +82,26 @@ class GeneralSettings @Inject constructor(
 
     val isOnboardingDone = dataStore.createValue("core.onboarding.done", false)
 
+    /**
+     * Identity of the currently running monitor session, null while it isn't running.
+     * Set atomically on monitor start, cleared on clean [android.app.Service.onDestroy] — an OS
+     * force-stop skips onDestroy, so a non-null value at the next monitor start is evidence of an
+     * unclean death (see MonitorKillDetector).
+     */
+    val monitorSessionMark = dataStore.createValue<MonitorSessionMark?>(
+        "core.monitor.health.session", null, json, onErrorFallbackToDefault = true,
+    )
+
+    /** Timestamp of the newest [android.app.ApplicationExitInfo] record already processed. */
+    val exitInfoWatermark = dataStore.createValue("core.monitor.health.exitinfo.watermark", 0L)
+
+    /** Timestamp of the most recent detected OS kill of the monitor (0 = none). */
+    val lastOsKillAt = dataStore.createValue("core.monitor.health.oskill.last", 0L)
+
     val reactionsHintDismissed = dataStore.createValue("ui.hint.reactions_per_device.dismissed", false)
+
+    /** When the "your phone stopped CAPod" hint was dismissed; re-shown only for newer kills. */
+    val osKillHintDismissedAt = dataStore.createValue("ui.hint.oskill.dismissed", 0L)
 
     val hideUnmatchedDevices = dataStore.createValue("ui.overview.unmatched.hidden", false)
 

@@ -71,6 +71,8 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
     private lateinit var fakeHideUnmatchedDevices: FakeDataStoreValue<Boolean>
+    private lateinit var fakeLastOsKillAt: FakeDataStoreValue<Long>
+    private lateinit var fakeOsKillHintDismissedAt: FakeDataStoreValue<Long>
 
     @BeforeEach
     fun setup() {
@@ -86,6 +88,8 @@ class OverviewViewModelTest : BaseTest() {
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
         fakeHideUnmatchedDevices = FakeDataStoreValue(false)
+        fakeLastOsKillAt = FakeDataStoreValue(0L)
+        fakeOsKillHintDismissedAt = FakeDataStoreValue(0L)
         Bugs.isDebug.value = false
 
         monitorControl = mockk(relaxed = true)
@@ -104,6 +108,8 @@ class OverviewViewModelTest : BaseTest() {
         generalSettings = mockk<GeneralSettings>().also {
             every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
             every { it.hideUnmatchedDevices } returns fakeHideUnmatchedDevices.mock
+            every { it.lastOsKillAt } returns fakeLastOsKillAt.mock
+            every { it.osKillHintDismissedAt } returns fakeOsKillHintDismissedAt.mock
         }
 
         batteryEstimator = mockk<BatteryEstimator>().also {
@@ -148,6 +154,7 @@ class OverviewViewModelTest : BaseTest() {
         monitorModeResolver = monitorModeResolver,
         batteryEstimator = batteryEstimator,
         timeSource = timeSource,
+        killGuidance = mockk(relaxed = true),
     )
 
     @Nested
@@ -163,6 +170,23 @@ class OverviewViewModelTest : BaseTest() {
             state.isDebug shouldBe false
             state.isBluetoothEnabled shouldBe true
             state.showUnmatchedDevices shouldBe false
+        }
+
+        @Test
+        fun `os kill hint shows for undismissed kills and re-shows only for newer kills`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+            vm.state.first().showOsKillHint shouldBe false
+
+            fakeLastOsKillAt.value = 5000L
+            vm.state.first().showOsKillHint shouldBe true
+
+            // Dismissal (dismissedAt = now) hides the kill that was just seen ...
+            fakeOsKillHintDismissedAt.value = 6000L
+            vm.state.first().showOsKillHint shouldBe false
+
+            // ... but a newer kill re-shows the hint.
+            fakeLastOsKillAt.value = 7000L
+            vm.state.first().showOsKillHint shouldBe true
         }
 
         @Test
@@ -535,6 +559,18 @@ class OverviewViewModelTest : BaseTest() {
 
             val updated = vm.state.first()
             updated.showUnmatchedDevices shouldBe true
+        }
+
+        @Test
+        fun `dismissOsKillHint anchors dismissal to the observed kill, not the clock`() = runTest(testDispatcher) {
+            fakeLastOsKillAt.value = 5000L
+            val vm = createViewModel()
+
+            vm.dismissOsKillHint()
+            advanceUntilIdle()
+
+            fakeOsKillHintDismissedAt.value shouldBe 5000L
+            vm.state.first().showOsKillHint shouldBe false
         }
 
         @Test
