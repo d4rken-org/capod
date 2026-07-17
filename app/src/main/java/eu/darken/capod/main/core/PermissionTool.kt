@@ -64,8 +64,10 @@ class PermissionTool @Inject constructor(
         /**
          * Whether [permission] is applicable for the user's current configuration.
          * Three permissions are conditional on monitor mode or popup usage:
-         *  - [Permission.IGNORE_BATTERY_OPTIMIZATION] only when always-on scanning is needed
-         *  - [Permission.ACCESS_BACKGROUND_LOCATION] same
+         *  - [Permission.IGNORE_BATTERY_OPTIMIZATION] whenever the monitor service is expected to
+         *    run unattended (AUTOMATIC and ALWAYS) — those users depend on a long-lived foreground
+         *    service that aggressive vendor battery management may otherwise kill
+         *  - [Permission.ACCESS_BACKGROUND_LOCATION] only when always-on scanning is needed
          *  - [Permission.SYSTEM_ALERT_WINDOW] only when at least one popup reaction is enabled
          * Everything else is unconditionally applicable.
          */
@@ -74,7 +76,7 @@ class PermissionTool @Inject constructor(
             monitorMode: MonitorMode,
             anyPopupEnabled: Boolean,
         ): Boolean = when (permission) {
-            Permission.IGNORE_BATTERY_OPTIMIZATION,
+            Permission.IGNORE_BATTERY_OPTIMIZATION -> monitorMode != MonitorMode.MANUAL
             Permission.ACCESS_BACKGROUND_LOCATION -> monitorMode == MonitorMode.ALWAYS
             Permission.SYSTEM_ALERT_WINDOW -> anyPopupEnabled
             else -> true
