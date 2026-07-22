@@ -9,6 +9,11 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.core.FossUpgrade
 import eu.darken.capod.common.upgrade.core.UpgradeControlFoss
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,8 +30,25 @@ class UpgradeViewModel @Inject constructor(
 
     val sponsorEvents = SingleEventFlow<SponsorEvent>()
 
+    data class State(
+        val isPro: Boolean = false,
+        val upgradedAt: Instant? = null,
+    )
+
+    // Null until DataStore answered: a defaulted isPro=false would flash the sales route (and its
+    // armable unlock heuristic) at an existing supporter opening their status.
+    val state: StateFlow<State?> = upgradeControlFoss.upgradeInfo
+        .map { info -> State(isPro = info.isPro, upgradedAt = info.upgradedAt) }
+        .stateIn(vmScope, SharingStarted.WhileSubscribed(5_000), null)
+
     fun sponsor() {
         savedStateHandle[KEY_SPONSOR_OPENED_AT] = SystemClock.elapsedRealtime()
+        webpageTool.open("https://github.com/sponsors/d4rken")
+    }
+
+    // Plain sponsor link for existing supporters: must NOT arm the unlock heuristic — re-running
+    // it would rewrite the "supporter since" date and navigate away from the status view.
+    fun openSponsorPage() {
         webpageTool.open("https://github.com/sponsors/d4rken")
     }
 

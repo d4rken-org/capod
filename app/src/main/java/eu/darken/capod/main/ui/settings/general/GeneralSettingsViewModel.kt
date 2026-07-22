@@ -107,7 +107,7 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeMode.valueBlocking = mode
         } else {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
         }
     }
 
@@ -116,7 +116,7 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeStyle.valueBlocking = style
         } else {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
         }
     }
 
@@ -125,13 +125,13 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeColor.valueBlocking = color
         } else {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
         }
     }
 
     fun launchUpgrade() {
         log(TAG, INFO) { "launchUpgrade()" }
-        navTo(Nav.Main.Upgrade)
+        navTo(Nav.Main.Upgrade())
     }
 
     companion object {
