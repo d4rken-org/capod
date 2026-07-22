@@ -95,6 +95,13 @@ class BillingDataRepo @Inject constructor(
         localRefreshFailures,
     )
 
+    // Tokens successfully acknowledged this process: the immutable Purchase snapshots in the
+    // combined view keep claiming isAcknowledged=false until a fresh query supersedes them, and
+    // every re-emission would otherwise re-ack the same purchase — harmless to Play (repeat acks
+    // return OK) but a pointless extra IPC each time. Only recorded on SUCCESS, so a failed ack
+    // stays retryable. Single sequential collector, no locking needed.
+    private val ackedTokens = mutableSetOf<String>()
+
     init {
         connectionProvider
             .flatMapLatest { client ->
@@ -105,7 +112,9 @@ class BillingDataRepo @Inject constructor(
                     .filter {
                         // Only settled purchases can be acknowledged — acking a PENDING purchase
                         // fails and would spin the retry loop below.
-                        val needsAck = !it.isAcknowledged && it.purchaseState == Purchase.PurchaseState.PURCHASED
+                        val needsAck = !it.isAcknowledged &&
+                            it.purchaseState == Purchase.PurchaseState.PURCHASED &&
+                            it.purchaseToken !in ackedTokens
 
                         if (needsAck) log(TAG, INFO) { "Needs ACK: $it" }
                         else log(TAG) { "No ACK necessary: $it" }
@@ -115,6 +124,7 @@ class BillingDataRepo @Inject constructor(
                     .forEach {
                         log(TAG, INFO) { "Acknowledging purchase: $it" }
                         client.acknowledgePurchase(it)
+                        ackedTokens.add(it.purchaseToken)
                     }
             }
             .setupCommonEventHandlers(TAG) { "connection-acks" }

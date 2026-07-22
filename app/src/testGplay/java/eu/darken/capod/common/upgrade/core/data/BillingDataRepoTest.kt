@@ -217,9 +217,14 @@ class BillingDataRepoTest : BaseTest() {
         mapped shouldBe original
     }
 
-    private fun mockPurchase(state: Int, acknowledged: Boolean): Purchase = mockk {
+    private fun mockPurchase(
+        state: Int,
+        acknowledged: Boolean,
+        token: String = "token-$state-$acknowledged",
+    ): Purchase = mockk {
         every { purchaseState } returns state
         every { isAcknowledged } returns acknowledged
+        every { purchaseToken } returns token
     }
 
     @Test
@@ -317,6 +322,65 @@ class BillingDataRepoTest : BaseTest() {
         coVerify(exactly = 0) { harness.clientConnection.refreshPurchases() }
 
         testScope.cancel()
+    }
+
+    @Test
+    fun `a successfully acked purchase is not re-acked when a stale snapshot re-emits`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // The immutable Purchase snapshot keeps claiming isAcknowledged=false until a fresh query
+        // supersedes it — re-emissions of that stale view must not re-ack the same purchase.
+        val stale = mockPurchase(Purchase.PurchaseState.PURCHASED, acknowledged = false)
+        val clientConnection = mockk<BillingClientConnection> {
+            every { purchases } returns flowOf(listOf(stale), listOf(stale), listOf(stale))
+            coEvery { acknowledgePurchase(any()) } returns Unit
+        }
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flowOf(clientConnection)
+        }
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns MutableStateFlow(false)
+        }
+
+        try {
+            BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            testScope.testScheduler.runCurrent()
+
+            coVerify(exactly = 1) { clientConnection.acknowledgePurchase(stale) }
+        } finally {
+            testScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a FAILED ack is not suppressed and still retries`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // Only a SUCCESSFUL ack may enter the suppression set — a failure must stay retryable.
+        val unacked = mockPurchase(Purchase.PurchaseState.PURCHASED, acknowledged = false)
+        var ackAttempts = 0
+        val clientConnection = mockk<BillingClientConnection> {
+            every { purchases } returns flowOf(listOf(unacked))
+            coEvery { acknowledgePurchase(any()) } coAnswers {
+                ackAttempts++
+                if (ackAttempts == 1) {
+                    throw BillingResultException(mockBillingResult(BillingClient.BillingResponseCode.ERROR))
+                }
+            }
+        }
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flowOf(clientConnection)
+        }
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns MutableStateFlow(false)
+        }
+
+        try {
+            BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            testScope.testScheduler.advanceUntilIdle()
+
+            coVerify(exactly = 2) { clientConnection.acknowledgePurchase(unacked) }
+        } finally {
+            testScope.cancel()
+        }
     }
 
     @Test
