@@ -123,6 +123,9 @@ fun SettingsScreen(
                 )
             }
             item {
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
+            }
+            item {
                 // Always visible: owners need a way to check their Pro/supporter status, and
                 // non-owners get another path to the upgrade screen.
                 val isFoss = state.upgradeType == UpgradeRepo.Type.FOSS
@@ -138,9 +141,6 @@ fun SettingsScreen(
                     icon = Icons.TwoTone.Stars,
                     onClick = onUpgradeStatus,
                 )
-            }
-            item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
             }
             item {
                 SettingsBaseItem(
