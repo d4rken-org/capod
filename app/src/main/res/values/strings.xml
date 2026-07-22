@@ -246,6 +246,10 @@
         <item quantity="one">%d device without matching profile</item>
         <item quantity="other">%d devices without matching profile</item>
     </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d nearby device was detected without a matching profile. Show it for available details. If it is yours, add a profile from Devices to recognize it.</item>
+        <item quantity="other">%d nearby devices were detected without matching profiles. Show them for available details. If one is yours, add a profile from Devices to recognize it.</item>
+    </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d more device</item>
         <item quantity="other">%d more devices</item>
