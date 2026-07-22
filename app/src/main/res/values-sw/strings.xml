@@ -20,7 +20,6 @@
     <string name="general_example_label">K.m.: %s</string>
     <string name="upgrade_capod_label">Boresha CAPod</string>
     <string name="upgrade_capod_description">Pata vipengele vya ziada na usaidie msanidi programu.</string>
-    <string name="upgrade_preamble">CAPod inaendelezwa na mtu mmoja. Kuboresha kunafungua vipengele vya ziada na husaidia kuweka programu iwe hai.</string>
     <string name="upgrade_benefit_themes">Ubinafsishaji wa mandhari</string>
     <string name="upgrade_benefit_autoplay">Cheza kiotomatiki &amp; simama kiotomatiki</string>
     <string name="upgrade_benefit_popups">Dirisha la kuibuka wakati wa kufungua kifuniko &amp; muunganiko</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Vidhibiti vya kifaa &#8212; kelele, mashina &amp; zaidi</string>
     <string name="upgrade_benefit_support">Msaada wa msanidi programu</string>
     <string name="upgrade_benefit_disclaimer">Upatikanaji wa kipengele unategemea vichwa vyako vya sauti na kifaa.</string>
-    <string name="upgrade_screen_options_description">Vipengele sawa, bei tofauti. Usajili unajumuisha majaribio ya bure na unaweza kufutwa wakati wowote.</string>
-    <string name="upgrade_screen_subscription_trial_action">Anza majaribio ya bure</string>
-    <string name="upgrade_screen_subscription_action">Jiandikishe kwa mwaka</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/mwaka</string>
-    <string name="upgrade_screen_iap_action">Nunua mara moja</string>
-    <string name="upgrade_screen_iap_action_hint">Ununuzi wa mara moja: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
-    <string name="upgrade_screen_restore_purchase_message">Hakuna manunuzi yaliyopatikana. Je, unatumia akaunti sahihi?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ikiwa umenunua hivi karibuni, inaweza kuchukua muda kwa Google Play kusawazisha.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Jaribu tena baada ya dakika chache ikiwa ununuzi wako hauonekani.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Hakikisha umeingia kwa akaunti sawa ya Google iliyotumiwa kwa ununuzi.</string>
     <string name="settings_monitor_connected_notification_label">Arifa ya ziada</string>
     <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya ziada wakati kifaa kimeunganishwa. Hii inakuwezesha kuficha arifa ya kudumu ya \"Hakuna vifaa\" kwa kuzima kituo cha \"Hali ya kifaa\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Utatuzi</string>
     <string name="settings_general_label">Mipangilio</string>
     <string name="settings_general_description">Marekebisho ya jumla yanayoathiri programu nzima.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Hali ya uboreshaji na ununuzi wako.</string>
+    <string name="settings_upgrade_status_foss_label">Dhamini CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Hali ya usaidizi wako.</string>
     <string name="settings_overview_hide_unmatched_label">Ficha vifaa visivyolingana</string>
     <string name="settings_overview_hide_unmatched_description">Usionyeshe vifaa vilivyo karibu ambavyo havilingani na mojawapo ya maelezo yako kwenye muhtasari, k.m. AirPods za watu wengine.</string>
     <string name="device_battery_estimate_toggle_label">Tathmini za Betri</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Kifaa %d bila wasifu unaolingana</item>
         <item quantity="other">Vifaa %d bila wasifu unaolingana</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Kifaa %d kilicho karibu kimegunduliwa bila wasifu unaolingana. Kionyeshe kwa maelezo yanayopatikana. Ikiwa ni chako, ongeza wasifu kutoka kwa Vifaa ili kukitambua.</item>
+        <item quantity="other">Vifaa %d vilivyo karibu vimegunduliwa bila wasifu unaolingana. Vionyeshe kwa maelezo yanayopatikana. Ikiwa kimoja ni chako, ongeza wasifu kutoka kwa Vifaa ili kukitambua.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">kifaa %d zaidi</item>

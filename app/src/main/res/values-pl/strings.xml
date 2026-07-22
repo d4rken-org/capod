@@ -20,7 +20,6 @@
     <string name="general_example_label">Np.: %s</string>
     <string name="upgrade_capod_label">Uaktualnij CAPod</string>
     <string name="upgrade_capod_description">Uzyskaj dodatkowe funkcjonalności i wesprzyj autora.</string>
-    <string name="upgrade_preamble">CAPod jest rozwijany przez jedną osobę. Uaktualnienie odblokowuje dodatkowe funkcje i pomaga utrzymać aplikację przy życiu.</string>
     <string name="upgrade_benefit_themes">Personalizacja motywu</string>
     <string name="upgrade_benefit_autoplay">Automatyczne odtwarzanie i automatyczna pauza</string>
     <string name="upgrade_benefit_popups">Wyskakujące okienko po otwarciu etui i połączeniu</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Urządzenie kontroluje – hałas, ścieżki dźwiękowe i wiele więcej</string>
     <string name="upgrade_benefit_support">Wesprzyj programistę</string>
     <string name="upgrade_benefit_disclaimer">Dostępność funkcji zależy od słuchawek i urządzenia.</string>
-    <string name="upgrade_screen_options_description">Te same funkcje, różne ceny. Subskrypcja obejmuje bezpłatny okres próbny i może zostać anulowana w dowolnym momencie.</string>
-    <string name="upgrade_screen_subscription_trial_action">Rozpocznij wersję próbną</string>
-    <string name="upgrade_screen_subscription_action">Subskrybuj rocznie</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/rok</string>
-    <string name="upgrade_screen_iap_action">Kup raz</string>
-    <string name="upgrade_screen_iap_action_hint">Jednorazowy zakup: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Przywróć zakup</string>
-    <string name="upgrade_screen_restore_purchase_message">Nie znaleziono zakupów. Czy używasz właściwego konta?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jeśli niedawno dokonałeś zakupu, synchronizacja z Google Play może chwilę potrwać.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Spróbuj ponownie za kilka minut, jeśli twój zakup się nie pojawi.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Upewnij się, że jesteś zalogowany na to samo konto Google, które zostało użyte do zakupu.</string>
     <string name="settings_monitor_connected_notification_label">Dodatkowe powiadomienie</string>
     <string name="settings_monitor_connected_notification_description">Wyświetl dodatkowe powiadomienie, gdy urządzenie jest podłączone. Pozwala to ukryć stałe powiadomienie \"Brak urządzeń\", wyłączając kanał \"Status urządzenia\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Zachowaj powiadomienie po rozłączeniu</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debuguj</string>
     <string name="settings_general_label">Ustawienia</string>
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Stan Twojego zakupu i uaktualnienia.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsoruj CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Status Twojego wsparcia.</string>
     <string name="settings_overview_hide_unmatched_label">Ukryj niedopasowane urządzenia</string>
     <string name="settings_overview_hide_unmatched_description">Nie pokazuj w przeglądzie pobliskich urządzeń, które nie pasują do żadnego z twoich profili, np. AirPods innych osób.</string>
     <string name="device_battery_estimate_toggle_label">Szacunkowy czas pracy baterii</string>
@@ -219,6 +211,12 @@ K4r0lSz;</string>
         <item quantity="few">%d urządzenia bez pasującego profilu</item>
         <item quantity="many">%d urządzeń bez pasującego profilu</item>
         <item quantity="other">%d urządzeń bez pasującego profilu</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Wykryto %d pobliskie urządzenie bez pasującego profilu. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="few">Wykryto %d pobliskie urządzenia bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="many">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="other">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dodatkowe urządzenie</item>

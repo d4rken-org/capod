@@ -20,7 +20,6 @@
     <string name="general_example_label">Ví dụ: %s</string>
     <string name="upgrade_capod_label">Nâng cấp CAPod</string>
     <string name="upgrade_capod_description">Nhận các tính năng bổ sung và hỗ trợ nhà phát triển.</string>
-    <string name="upgrade_preamble">CAPod được phát triển bởi một người duy nhất. Việc nâng cấp sẽ mở khóa các tính năng bổ sung và giúp duy trì ứng dụng.</string>
     <string name="upgrade_benefit_themes">Tùy chỉnh giao diện</string>
     <string name="upgrade_benefit_autoplay">Tự động phát &amp; tự động tạm dừng</string>
     <string name="upgrade_benefit_popups">Cửa sổ bật lên khi mở hộp &amp; kết nối</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Điều khiển thiết bị &#8212; tiếng ồn, thân tai nghe &amp; nhiều hơn</string>
     <string name="upgrade_benefit_support">Hỗ trợ nhà phát triển</string>
     <string name="upgrade_benefit_disclaimer">Tính năng khả dụng tùy thuộc vào tai nghe và thiết bị của bạn.</string>
-    <string name="upgrade_screen_options_description">Các tính năng giống nhau, giá khác nhau. Đăng ký bao gồm thời gian dùng thử miễn phí và có thể hủy bất cứ lúc nào.</string>
-    <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử miễn phí</string>
-    <string name="upgrade_screen_subscription_action">Đăng ký hàng năm</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/năm</string>
-    <string name="upgrade_screen_iap_action">Mua một lần</string>
-    <string name="upgrade_screen_iap_action_hint">Mua một lần: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Khôi phục thanh toán</string>
-    <string name="upgrade_screen_restore_purchase_message">Không tìm thấy giao dịch mua nào. Bạn có đang sử dụng đúng tài khoản không?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Nếu bạn đã mua gần đây, Google Play có thể mất một chút thời gian để đồng bộ.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Vui lòng thử lại sau vài phút nếu giao dịch mua của bạn chưa hiển thị.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Hãy đảm bảo bạn đã đăng nhập bằng cùng tài khoản Google đã dùng để mua.</string>
     <string name="settings_monitor_connected_notification_label">Thông báo bổ sung</string>
     <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \"Không có thiết bị\" bằng cách tắt kênh \"Trạng thái thiết bị\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Giữ thông báo sau khi ngắt kết nối</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Gỡ lỗi</string>
     <string name="settings_general_label">Cài đặt</string>
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Trạng thái nâng cấp và mua hàng của bạn.</string>
+    <string name="settings_upgrade_status_foss_label">Tài trợ CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Trạng thái người ủng hộ của bạn.</string>
     <string name="settings_overview_hide_unmatched_label">Ẩn thiết bị không khớp</string>
     <string name="settings_overview_hide_unmatched_description">Không hiển thị các thiết bị lân cận không khớp với bất kỳ hồ sơ nào của bạn trong tổng quan, ví dụ: AirPods của người khác.</string>
     <string name="device_battery_estimate_toggle_label">Ước tính pin</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">Thiết bị chưa khớp</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d thiết bị không có hồ sơ khớp</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">Đã phát hiện %d thiết bị gần đó không có hồ sơ khớp. Hiển thị chúng để xem chi tiết. Nếu một trong số đó là của bạn, hãy thêm hồ sơ từ mục Thiết bị để nhận diện nó.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d thiết bị khác</item>

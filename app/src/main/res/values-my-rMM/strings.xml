@@ -20,7 +20,6 @@
     <string name="general_example_label">ဥပမာ: %s</string>
     <string name="upgrade_capod_label">CAPod အဆင့်မြှင့်တင်ရန်</string>
     <string name="upgrade_capod_description">အပိုဝန်ဆောင်မှုများရယူပြီး developer ကိုထောက်ပံ့ပါ။</string>
-    <string name="upgrade_preamble">CAPod ကို တစ်ဦးတည်းသောသူက တည်ဆောက်ထားသည်။ အဆင့်မြှင့်ခြင်းဖြင့် အပိုဝန်ဆောင်မှုများကို ရယူနိုင်ပြီး အက်ပ်ကို ဆက်လက်ရှင်သန်စေရန် ကူညီပေးသည်။</string>
     <string name="upgrade_benefit_themes">အပြင်အဆင် စိတ်ကြိုက်ပြင်ဆင်မှု</string>
     <string name="upgrade_benefit_autoplay">အလိုအလျောက် ဖွင့်ခြင်း &amp; ခေတ္တရပ်ခြင်း</string>
     <string name="upgrade_benefit_popups">ဖွင့်သောအခါ &amp; ချိတ်ဆက်သောအခါ Popup ပေါ်လာခြင်း</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ကိရိယာ ထိန်းချုပ်များ — ဆူညည်သံ၊ stem နှင့် နောက်ဆုံးတွေချများ</string>
     <string name="upgrade_benefit_support">ဆော့ဖ်ဝဲရေးသားသူကို ထောက်ပံ့ပါ</string>
     <string name="upgrade_benefit_disclaimer">လုပ်ဆောင်ချက် ရရှိနိုင်မှုသည် သင့်် နားကြပ်နှင့် ကိရိယာပော် မဏောသည်။</string>
-    <string name="upgrade_screen_options_description">တူညီသောဝန်ဆောင်မှုများ၊ မတူညီသောစျေးနှုန်းများ။ စာရင်းသွင်းမှုတွင် အခမဲ့အစမ်းသုံးမှုပါဝင်ပြီး မည်သည့်အချိန်မဆို ပယ်ဖျက်နိုင်သည်။</string>
-    <string name="upgrade_screen_subscription_trial_action">အခမဲ့အစမ်းသုံးမှု စတင်ပါ</string>
-    <string name="upgrade_screen_subscription_action">နှစ်စဉ် စာရင်းသွင်းပါ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/နှစ်</string>
-    <string name="upgrade_screen_iap_action">တစ်ကြိမ်တည်း ဝယ်ပါ</string>
-    <string name="upgrade_screen_iap_action_hint">တစ်ကြိမ်တည်း ဝယ်ယူမှု: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
-    <string name="upgrade_screen_restore_purchase_message">ဝယ်ယူမှုများ မတွေ့ပါ။ သင်အသုံးပြုနေသော အကောင့်မှန်ကန်ပါသလား။</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">မကြာသေးမီက ဝယ်ယူခဲ့လျှင် Google Play တွင် ချိန်ကိုက်ရန် အချိန်အနည်းငယ် ကြာနိုင်သည်။</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">သင်၏ ဝယ်ယူမှု မပေါ်လာပါက မိနစ်အနည်းငယ်အကြာ တဖန်ကြိုးစားပါ။</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ဝယ်ယူမှုအတွက် အသုံးပြုခဲ့သော Google အကောင့်တူညီသည်ဖြင့် ဝင်ရောက်ထားကြောင်း သေချာပါစေ။</string>
     <string name="settings_monitor_connected_notification_label">အပိုအသိပေးချက်</string>
     <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \"စက်ပစ္စည်းအခြေအနေ\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \"စက်ပစ္စည်းမရှိပါ\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
     <string name="settings_keep_notification_after_disconnect_label">ချိတ်ဆက်မှုပြတ်ပြီးနောက် အသိပေးချက်ကိုထားရှိပါ</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">ဆက်တင်များ</string>
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">သင့်အဆင့်မြှင့်တင်မှုနှင့် ဝယ်ယူမှုအခြေအနေ။</string>
+    <string name="settings_upgrade_status_foss_label">CAPod ကို ပံ့ပိုးပါ</string>
+    <string name="settings_upgrade_status_foss_description">သင့်ပံ့ပိုးသူအခြေအနေ။</string>
     <string name="settings_overview_hide_unmatched_label">မကိုက်ညီသော ကိရိယာများ ဝှက်ရန်</string>
     <string name="settings_overview_hide_unmatched_description">သင့်ပရိုဖိုင်များနှင့် မကိုက်ညီသော အနီးနားရှိ ကိရိယာများကို မည်သည့်အကြောင်းကြောင့်မဆို ခြုံငုံသုံးသပ်ချက်တွင် မပြပါနှင့်၊ ဥပမာ အခြားသူများ၏ AirPods။</string>
     <string name="device_battery_estimate_toggle_label">ဘက်ထရီ ခန့်မှန်းချက်များ</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">တိုက်ဆိုင်မှုမရှိသော စက်ပစ္စည်းများ</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">ကိုက်ညီသောပရိုဖိုင်မရှိသော စက်ပစ္စည်း %d ခု</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">အနီးအနားရှိ စက်ပစ္စည်း %d ခုကို ကိုက်ညီသည့်ပရိုဖိုင်းမရှိဘဲ တွေ့ရှိခဲ့ပါသည်။ အသေးစိတ်အချက်အလက်များအတွက် ၎င်းတို့ကို ကြည့်ရှုပါ။ တစ်ခုသည် သင့်ပစ္စည်းဖြစ်ပါက ၎င်းကို မှတ်မိစေရန် စက်ပစ္စည်းများမှ ပရိုဖိုင်းတစ်ခု ထည့်သွင်းပါ။</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d ကိရိယာ ထပ်ရှိသည်</item>

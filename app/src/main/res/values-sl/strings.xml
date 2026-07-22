@@ -20,7 +20,6 @@
     <string name="general_example_label">Npr.: %s</string>
     <string name="upgrade_capod_label">Nadgradi CAPod</string>
     <string name="upgrade_capod_description">Pridobite dodatne funkcije in podprite razvijalca.</string>
-    <string name="upgrade_preamble">CAPod je razvila ena sama oseba. Z nadgradnjo odklenete dodatne funkcije in pomagate ohranjati aplikacijo.</string>
     <string name="upgrade_benefit_themes">Prilagajanje teme</string>
     <string name="upgrade_benefit_autoplay">Samodejno predvajanje in zaustavitev</string>
     <string name="upgrade_benefit_popups">Pojavno okno ob odprtju ohišja in povezavi</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Upravljanje naprave &#8212; hrup, stebla &amp; več</string>
     <string name="upgrade_benefit_support">Podpri razvijalca</string>
     <string name="upgrade_benefit_disclaimer">Razpoložljivost funkcij je odvisna od vaših slušalk in naprave.</string>
-    <string name="upgrade_screen_options_description">Iste funkcije, različne cene. Naročnina vključuje brezplačno preizkusno obdobje in jo lahko kadar koli prekličete.</string>
-    <string name="upgrade_screen_subscription_trial_action">Začni brezplačno preizkusno obdobje</string>
-    <string name="upgrade_screen_subscription_action">Naroči se letno</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/leto</string>
-    <string name="upgrade_screen_iap_action">Enkratni nakup</string>
-    <string name="upgrade_screen_iap_action_hint">Enkratni nakup: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Obnovi nakup</string>
-    <string name="upgrade_screen_restore_purchase_message">Ni najdenih nakupov. Ali uporabljate pravi račun?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Če ste pred kratkim opravili nakup, lahko traja nekaj trenutkov, da Google Play sinhronizira.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Če nakup ni viden, poskusite znova čez nekaj minut.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Prepričajte se, da ste prijavljeni z istim računom Google, ki ste ga uporabili za nakup.</string>
     <string name="settings_monitor_connected_notification_label">Dodatno obvestilo</string>
     <string name="settings_monitor_connected_notification_description">Prikaže dodatno obvestilo, ko je naprava povezana. To vam omogoča, da skrijete trajno obvestilo \"Ni naprav\" tako, da onemogočite kanal \"Stanje naprave\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Ohrani obvestilo po prekinitvi povezave</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Razhroščevanje</string>
     <string name="settings_general_label">Nastavitve</string>
     <string name="settings_general_description">Splošne prilagoditve, ki vplivajo na celotno aplikacijo.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Vaš status nadgradnje in nakupa.</string>
+    <string name="settings_upgrade_status_foss_label">Podpri CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Vaš status podpornika.</string>
     <string name="settings_overview_hide_unmatched_label">Skrij neusklajene naprave</string>
     <string name="settings_overview_hide_unmatched_description">V pregledu ne prikazuj bližnjih naprav, ki ne ustrezajo nobenim od tvojih profilov, npr. AirPods drugih oseb.</string>
     <string name="device_battery_estimate_toggle_label">Ocene baterije</string>
@@ -217,6 +209,12 @@
         <item quantity="two">%d napravi brez ujemajočega profila</item>
         <item quantity="few">%d naprave brez ujemajočega profila</item>
         <item quantity="other">%d naprav brez ujemajočega profila</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">V bližini je bila zaznana %d naprava brez ujemajočega profila. Prikaži jo za razpoložljive podrobnosti. Če je tvoja, dodaj profil v Napravah, da jo prepozna.</item>
+        <item quantity="two">V bližini sta bili zaznani %d napravi brez ujemajočega profila. Prikaži ju za razpoložljive podrobnosti. Če je ena tvoja, dodaj profil v Napravah, da jo prepozna.</item>
+        <item quantity="few">V bližini so bile zaznane %d naprave brez ujemajočega profila. Prikaži jih za razpoložljive podrobnosti. Če je ena tvoja, dodaj profil v Napravah, da jo prepozna.</item>
+        <item quantity="other">V bližini je bilo zaznanih %d naprav brez ujemajočih profilov. Prikaži jih za razpoložljive podrobnosti. Če je ena tvoja, dodaj profil v Napravah, da jo prepozna.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dodatna naprava</item>

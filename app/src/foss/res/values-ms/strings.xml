@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Tiada iklan. Tiada penjejakan. Tiada ikatan Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Sudah kembali? Sokongan anda mengekalkan CAPod.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Penyokong sejak %s</string>
+    <string name="upgrade_foss_supporter_thanks">Terima kasih kerana menyokong pembangunan CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Buka halaman penaja</string>
 </resources>

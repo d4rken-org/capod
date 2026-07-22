@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Žiadne reklamy. Žiadne sledovanie. Žiadna závislosť od Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Už späť? Vaša podpora udržiava CAPod pri živote.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Podporovateľ od %s</string>
+    <string name="upgrade_foss_supporter_thanks">Ďakujeme, že podporujete vývoj CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Otvoriť stránku sponzorstva</string>
 </resources>

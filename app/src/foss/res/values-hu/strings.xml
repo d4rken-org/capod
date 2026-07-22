@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Nincs hirdetés. Nincs nyomkövetés. Nincs Google Play-függőség.</string>
     <string name="upgrade_foss_sponsor_returned_early">Már visszamész? A támogatásodnak köszönhetően él tovább a CAPod.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Támogató %s óta</string>
+    <string name="upgrade_foss_supporter_thanks">Köszönjük, hogy támogatod a CAPod fejlesztését!</string>
+    <string name="upgrade_foss_sponsor_again_action">Támogatói oldal megnyitása</string>
 </resources>

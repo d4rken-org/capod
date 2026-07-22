@@ -20,7 +20,6 @@
     <string name="general_example_label">Ex.: %s</string>
     <string name="upgrade_capod_label">Atualizar CAPod</string>
     <string name="upgrade_capod_description">Obtenha funcionalidades adicionais e apoie o programador.</string>
-    <string name="upgrade_preamble">O CAPod é desenvolvido por uma única pessoa. Atualizar desbloqueia funcionalidades extra e ajuda a manter a aplicação ativa.</string>
     <string name="upgrade_benefit_themes">Personalização de tema</string>
     <string name="upgrade_benefit_autoplay">Reprodução automática &amp; pausa automática</string>
     <string name="upgrade_benefit_popups">Pop-up ao abrir a caixa &amp; ao ligar</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Controlos do dispositivo — ruído, cabos &amp; mais</string>
     <string name="upgrade_benefit_support">Apoiar o programador</string>
     <string name="upgrade_benefit_disclaimer">A disponibilidade de funcionalidades depende dos seus auscultadores e dispositivo.</string>
-    <string name="upgrade_screen_options_description">Mesmas funcionalidades, preços diferentes. A subscrição inclui um período de avaliação gratuita e pode ser cancelada a qualquer momento.</string>
-    <string name="upgrade_screen_subscription_trial_action">Iniciar avaliação gratuita</string>
-    <string name="upgrade_screen_subscription_action">Subscrever anualmente</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ano</string>
-    <string name="upgrade_screen_iap_action">Comprar uma vez</string>
-    <string name="upgrade_screen_iap_action_hint">Compra única: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Restaurar compra</string>
-    <string name="upgrade_screen_restore_purchase_message">Nenhuma compra encontrada. Está a usar a conta correta?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Se comprou recentemente, pode demorar um momento até o Google Play sincronizar.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Tente novamente em alguns minutos se a sua compra não aparecer.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Certifique-se de que está com sessão iniciada na mesma conta Google usada para a compra.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
     <string name="settings_monitor_connected_notification_description">Mostra uma notificação extra quando um dispositivo está ligado. Isto permite-lhe ocultar a notificação permanente \"Sem dispositivos\" desativando o canal \"Estado do dispositivo\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Manter notificação após desligar</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Depuração</string>
     <string name="settings_general_label">Definições</string>
     <string name="settings_general_description">Ajustes gerais que afetam toda a aplicação.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">O estado da tua atualização e compra.</string>
+    <string name="settings_upgrade_status_foss_label">Patrocinar o CAPod</string>
+    <string name="settings_upgrade_status_foss_description">O teu estado de apoiante.</string>
     <string name="settings_overview_hide_unmatched_label">Ocultar dispositivos sem correspondência</string>
     <string name="settings_overview_hide_unmatched_description">Não mostrar na vista geral os dispositivos próximos que não correspondem a nenhum dos teus perfis, por ex. os AirPods de outras pessoas.</string>
     <string name="device_battery_estimate_toggle_label">Estimativas de bateria</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d dispositivo sem perfil correspondente</item>
         <item quantity="other">%d dispositivos sem perfil correspondente</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Foi detetado %d dispositivo próximo sem um perfil correspondente. Mostra-o para ver os detalhes disponíveis. Se for teu, adiciona um perfil em Dispositivos para o reconhecer.</item>
+        <item quantity="other">Foram detetados %d dispositivos próximos sem perfis correspondentes. Mostra-os para ver os detalhes disponíveis. Se algum for teu, adiciona um perfil em Dispositivos para o reconhecer.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dispositivo adicional</item>

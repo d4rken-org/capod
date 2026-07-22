@@ -20,7 +20,6 @@
     <string name="general_example_label">На пр.: %s</string>
     <string name="upgrade_capod_label">Надгради го CAPod</string>
     <string name="upgrade_capod_description">Добијте дополнителни функции и поддржете го развивачот.</string>
-    <string name="upgrade_preamble">CAPod е развиен од една личност. Надградувањето отклучува дополнителни функции и помага да се одржи апликацијата жива.</string>
     <string name="upgrade_benefit_themes">Прилагодување на теми</string>
     <string name="upgrade_benefit_autoplay">Автоматско пуштање &amp; автоматска пауза</string>
     <string name="upgrade_benefit_popups">Исскочувачки прозорец при отворање на куќиштето &amp; поврзување</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Контроли на уредот — бучава, дршки и повеќе</string>
     <string name="upgrade_benefit_support">Поддржете го развивачот</string>
     <string name="upgrade_benefit_disclaimer">Достапноста на функциите зависи од вашите слушалки и уредот.</string>
-    <string name="upgrade_screen_options_description">Исти функции, различни цени. Претплатата вклучува бесплатен пробен период и може да се откаже во секое време.</string>
-    <string name="upgrade_screen_subscription_trial_action">Започни бесплатен пробен период</string>
-    <string name="upgrade_screen_subscription_action">Претплатете се годишно</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/годишно</string>
-    <string name="upgrade_screen_iap_action">Купи еднаш</string>
-    <string name="upgrade_screen_iap_action_hint">Еднократна купувачка: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Обнови купувачка</string>
-    <string name="upgrade_screen_restore_purchase_message">Не се пронајдени купувања. Дали ја користите вистинската сметка?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ако неодамна сте купиле, можно е да поминат неколку моменти додека Google Play не се синхронизира.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Обидете се повторно за неколку минути ако купувачката не се прикажува.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Проверете дали сте најавени со истата сметка на Google која е употребена за купувачката.</string>
     <string name="settings_monitor_connected_notification_label">Дополнително известување</string>
     <string name="settings_monitor_connected_notification_description">Прикажува дополнително известување кога уредот е поврзан. Ова ви овозможува да го скриете трајното известување \"Нема уреди\" со оневозможување на каналот \"Статус на уредот\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Задржи го известувањето по прекинување</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Дијагностика</string>
     <string name="settings_general_label">Поставки</string>
     <string name="settings_general_description">Општи прилагодувања што влијаат на целата апликација.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Статус на твојата надградба и купување.</string>
+    <string name="settings_upgrade_status_foss_label">Спонзорирај CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Статус на поддржувач.</string>
     <string name="settings_overview_hide_unmatched_label">Скриј неподударни уреди</string>
     <string name="settings_overview_hide_unmatched_description">Не прикажувај блиски уреди кои не се поклопуваат со ниеден профил во прегледот, на пр. AirPods на други луѓе.</string>
     <string name="device_battery_estimate_toggle_label">Процени на батеријата</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d уред без совпаѓачки профил</item>
         <item quantity="other">%d уреди без совпаѓачки профил</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Откриен е %d уред во близина без соодветен профил. Прикажи го за достапни детали. Ако е твој, додади профил од Уреди за да го препознаеш.</item>
+        <item quantity="other">Откриени се %d уреди во близина без соодветни профили. Прикажи ги за достапни детали. Ако некој е твој, додади профил од Уреди за да го препознаеш.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d уред повеќе</item>

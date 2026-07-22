@@ -20,7 +20,6 @@
     <string name="general_example_label">Mînak: %s</string>
     <string name="upgrade_capod_label">CAPod nûjen bike</string>
     <string name="upgrade_capod_description">Taybetmendiyên zêdetir bistînin û piştgiriyê bidin pêşvebir.</string>
-    <string name="upgrade_preamble">CAPod ji aliyê kesekî yekane ve tê pêşxistin. Nûvekirina sepanê taybetmendiyên zêde vedike û dibe alîkar ku sepan sax bimîne.</string>
     <string name="upgrade_benefit_themes">Xweşandina temayê</string>
     <string name="upgrade_benefit_autoplay">Otomatîk lêdan &amp; otomatîk rawestin</string>
     <string name="upgrade_benefit_popups">Popup dema vekirina qutiyê &amp; girêdanê</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Kontrolên cîhazê — deng, stûn &amp; zêdetir</string>
     <string name="upgrade_benefit_support">Pêşdebir piştgirî bike</string>
     <string name="upgrade_benefit_disclaimer">Hebûna taybet mendêyê bi kulaklîkên we û amûrê ve girêdayî ye.</string>
-    <string name="upgrade_screen_options_description">Heman taybetmendî, bihayên cûda. Abonê ceribandineke belaş vedihewîne û her dem dikare were betal kirin.</string>
-    <string name="upgrade_screen_subscription_trial_action">Ceribandinê belaş dest pê bike</string>
-    <string name="upgrade_screen_subscription_action">Salane abone be</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/sal</string>
-    <string name="upgrade_screen_iap_action">Carekê bikire</string>
-    <string name="upgrade_screen_iap_action_hint">Kirîna carekî: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Kirînê vegerîne</string>
-    <string name="upgrade_screen_restore_purchase_message">Kirîn nehatin dîtin. Hûn hesabê rast bikar tînin?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Heke hûn vê dawiyê kirînek kirin, dibe ku hinek dem bigire ku Google Play hevdem bibe.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Heke kirîna we xuya nebe, çend xulekan şûnda dîsa biceribîne.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Pê ewle be ku hûn bi heman hesabê Google yê ku ji bo kirînê hatiye bikaranîn ketine hundur.</string>
     <string name="settings_monitor_connected_notification_label">Agahdariya zêde</string>
     <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \"Amûr tune\" bi neçalakkirina kanala \"Rewşa amûrê\" veşêrin.</string>
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mîheng</string>
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Rewşa nûvekirin û kirîna te.</string>
+    <string name="settings_upgrade_status_foss_label">Alîkariya CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Rewşa piştgiriya te.</string>
     <string name="settings_overview_hide_unmatched_label">Amûrên neçêkirî veşêre</string>
     <string name="settings_overview_hide_unmatched_description">Amûrên nêzîk ên ku bi ti profilên te re li hev nakin di nêrîna giştî de nîşan nede, mînak AirPods-ên kesên din.</string>
     <string name="device_battery_estimate_toggle_label">Texmînên Pîlandinê</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d amûr bê profîla hevgirtî</item>
         <item quantity="other">%d amûr bê profîla hevgirtî</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d cîhazek nêzîk hate dîtin ku profîleke lihevhatî tune bû. Ji bo hûrgiliyên berdest nîşanî bide wê. Heke ew a te ye, ji rûpela Cîhazan profîlek zêde bike da ku were nasîn.</item>
+        <item quantity="other">%d cîhazên nêzîk hatin dîtin ku profîlên wan ên lihevhatî tune bûn. Ji bo hûrgiliyên berdest nîşanî bide wan. Heke yek ji wan a te ye, ji rûpela Cîhazan profîlek zêde bike da ku were nasîn.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d cîhazek din</item>

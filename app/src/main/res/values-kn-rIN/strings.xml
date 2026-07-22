@@ -20,7 +20,6 @@
     <string name="general_example_label">ಉದಾ.: %s</string>
     <string name="upgrade_capod_label">CAPod ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
     <string name="upgrade_capod_description">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಿರಿ ಮತ್ತು ಡೆವಲಪರ್‌ರನ್ನು ಬೆಂಬಲಿಸಿ.</string>
-    <string name="upgrade_preamble">CAPod ಅನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ್ದಾರೆ. ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದರಿಂದ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ಅ್ಯಾಪ್ ಅನ್ನು ಜೀವಂತವಾಗಿಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
     <string name="upgrade_benefit_themes">ಥೀಮ್ ಕಸ್ಟಮೈಸೇಶನ್</string>
     <string name="upgrade_benefit_autoplay">ಆಟೋ-ಪ್ಲೇ ಮತ್ತು ಆಟೋ-ಪಾಸ್</string>
     <string name="upgrade_benefit_popups">ಕೇಸ್ ತೆರೆದಾಗ ಮತ್ತು ಸಂಪರ್ಕದ ಸಮಯದಲ್ಲಿ ಪಾಪಪ್</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ಸಾಧನ ನಿಯಂತ್ರಣಗಳು — ಶಬ್ದ, ಸ್ಟೆಮ್ ಮತ್ತಿತರ ವಿಷಯಗಳು</string>
     <string name="upgrade_benefit_support">ಡೆವಲಪರ್‌ಗೆ ಬೆಂಬಲ ನೀಡಿ</string>
     <string name="upgrade_benefit_disclaimer">ವೈಶಿಷ್ಟ್ಯ ಲಭ್ಯತೆ ನಿಮ್ಮ ಹೆಡಫೋನ್ ಮತ್ತು ಸಾಧನದ ಮೇಲೆ ಅವಲಂಬಿಸುತ್ತದೆ.</string>
-    <string name="upgrade_screen_options_description">ಒಂದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯು ಉಚಿತ ಪ್ರಯೋಗ ಒಳಗೊಂಡಿರುತ್ತದೆ ಮತ್ತು ಯಾವಾಗಲಾದರೂ ರದ್ದು ಮಾಡಬಹುದು.</string>
-    <string name="upgrade_screen_subscription_trial_action">ಉಚಿತ ಪ್ರಯೋಗ ಪ್ರಾರಂಭಿಸಿ</string>
-    <string name="upgrade_screen_subscription_action">ವಾರ್ಷಿಕ ಚಂದಾದಾರಿಕೆ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ವರ್ಷ</string>
-    <string name="upgrade_screen_iap_action">ಒಮ್ಮೆ ಖರೀದಿಸಿ</string>
-    <string name="upgrade_screen_iap_action_hint">ಏಕಕಾಲಿಕ ಖರೀದಿ: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
-    <string name="upgrade_screen_restore_purchase_message">ಯಾವುದೇ ಖರೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ. ನೀವು ಸರಿಯಾದ ಖಾತೆಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಾ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ನೀವು ಇತ್ತೀಚೆಗೆ ಖರೀದಿಸಿದ್ದರೆ, Google Play ಸಿಂಕ್ ಆಗಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ನಿಮ್ಮ ಖರೀದಿ ಕಾಣಿಸದಿದ್ದರೆ ಕೆಲವು ನಿಮಿಷಗಳ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ಖರೀದಿಗೆ ಬಳಸಿದ ಅದೇ Google ಖಾತೆಯಿಂದ ಸೈನ್ ಇನ್ ಮಾಡಿರುವಿರಿ ಎಂದು ಖಚಿತಪಡಿಸಿ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
     <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \"ಸಾಧನ ಸ್ಥಿತಿ\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
     <string name="settings_keep_notification_after_disconnect_label">ಸಂಪರ್ಕ ಕಡಿತದ ನಂತರ ಅಧಿಸೂಚನೆ ಇರಿಸಿ</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ಡೀಬಗ್</string>
     <string name="settings_general_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">ನಿಮ್ಮ ಅಪ್‌ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod ಅನ್ನು ಪ್ರಾಯೋಜಿಸಿ</string>
+    <string name="settings_upgrade_status_foss_description">ನಿಮ್ಮ ಬೆಂಬಲಿಗ ಸ್ಥಿತಿ.</string>
     <string name="settings_overview_hide_unmatched_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳನ್ನು ಮರೆಮಾಡಿ</string>
     <string name="settings_overview_hide_unmatched_description">ನಿಮ್ಮ ಯಾವುದೇ ಪ್ರೊಫೈಲ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗದ ಹತ್ತಿರದ ಸಾಧನಗಳನ್ನು ಅವಲೋಕನದಲ್ಲಿ ತೋರಿಸಬೇಡಿ, ಉದಾ. ಇತರ ಜನರ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ಬ್ಯಾಟರಿ ಅಂದಾಜುಗಳು</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನ</item>
         <item quantity="other">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನಗಳು</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d ಸಮೀಪದ ಸಾಧನವು ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದೆ ಪತ್ತೆಯಾಗಿದೆ. ಲಭ್ಯವಿರುವ ವಿವರಗಳಿಗಾಗಿ ಅದನ್ನು ತೋರಿಸಿ. ಇದು ನಿಮ್ಮದಾಗಿದ್ದರೆ, ಅದನ್ನು ಗುರುತಿಸಲು ಸಾಧನಗಳಿಂದ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಿ.</item>
+        <item quantity="other">%d ಸಮೀಪದ ಸಾಧನಗಳು ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್‌ಗಳಿಲ್ಲದೆ ಪತ್ತೆಯಾಗಿವೆ. ಲಭ್ಯವಿರುವ ವಿವರಗಳಿಗಾಗಿ ಅವುಗಳನ್ನು ತೋರಿಸಿ. ಒಂದು ನಿಮ್ಮದಾಗಿದ್ದರೆ, ಅದನ್ನು ಗುರುತಿಸಲು ಸಾಧನಗಳಿಂದ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಿ.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d ಹೆಚ್ಚುವರಿ ಸಾಧನ</item>
@@ -497,7 +493,7 @@
     <string name="device_settings_microphone_mode_description">ಮೈಕ್ರೊಫೋನ್ ಆಗಿ ಯಾವ ಇಯರ್‌ಬಡ್ ಬಳಸಲಾಗುತ್ತದೆ</string>
     <string name="device_settings_microphone_mode_auto">ಆಟೋ</string>
     <string name="device_settings_microphone_mode_right">ಬಲಗಡೆ</string>
-    <string name="device_settings_microphone_mode_left">ೆಡಗಡೆ</string>
+    <string name="device_settings_microphone_mode_left">ಎಡಗಡೆ</string>
     <string name="device_settings_noise_control_current_mode_label">ಪ್ರಸ್ತುತ ಮೋಡ್</string>
     <string name="device_settings_listening_mode_cycle_label">ದೀರ್ಘ-ಒತ್ತಡ ಚಕ್ರ</string>
     <string name="device_settings_listening_mode_cycle_description">ಸ್ಟೆಮ್ ಹಿಡಿದಿರುವಾಗ ಮತ್ತು ಕ್ವಿಕ್ ಸ್ವಿಚರ್‌ನಲ್ಲಿ ಯಾವ ಮೋಡ್‌ಗಳು ಲಭ್ಯವಿರಬೇಕೆಂದು ಆಯ್ಕೆ ಮಾಡಿ.</string>

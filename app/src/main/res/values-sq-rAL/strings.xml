@@ -20,7 +20,6 @@
     <string name="general_example_label">P.sh.: %s</string>
     <string name="upgrade_capod_label">Përmirëso CAPod</string>
     <string name="upgrade_capod_description">Merr veçori shtesë dhe mbështet zhvilluesin.</string>
-    <string name="upgrade_preamble">CAPod është zhvilluar nga një person i vetëm. Përmirësimi zhbllokon veçori shtesë dhe ndihmon të mbajë aplikacionin gjallë.</string>
     <string name="upgrade_benefit_themes">Personalizimi i temës</string>
     <string name="upgrade_benefit_autoplay">Auto-luaj &amp; auto-pauzë</string>
     <string name="upgrade_benefit_popups">Dritare kërcyese kur hapet kuti &amp; lidhja</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Kontrollet e pajisjes &#8212; zhurma, bishtat &amp; më shumë</string>
     <string name="upgrade_benefit_support">Mbështet zhvilluesin</string>
     <string name="upgrade_benefit_disclaimer">Disponueshmeria e funksionit varet nga kufjet dhe pajisja juaj.</string>
-    <string name="upgrade_screen_options_description">Të njëjtat veçori, çmime të ndryshme. Abonimi përfshin një provë falas dhe mund të anulohet në çdo kohë.</string>
-    <string name="upgrade_screen_subscription_trial_action">Fillo provën falas</string>
-    <string name="upgrade_screen_subscription_action">Abonohu vjetor</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/vit</string>
-    <string name="upgrade_screen_iap_action">Bli një herë</string>
-    <string name="upgrade_screen_iap_action_hint">Blerje një herë: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Rivendos blerjen</string>
-    <string name="upgrade_screen_restore_purchase_message">Nuk u gjetën blerje. Po përdorni llogarinë e duhur?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Nëse keni blerë së fundmi, mund të duhet pak kohë që Google Play të sinkronizohet.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Provo sërish pas disa minutash nëse blerja juaj nuk shfaqet.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Sigurohuni që jeni identifikuar me të njëjtin llogari Google të përdorur për blerjen.</string>
     <string name="settings_monitor_connected_notification_label">Njoftim shtesë</string>
     <string name="settings_monitor_connected_notification_description">Shfaq një njoftim shtesë kur një pajisje lidhet. Kjo ju lejon të fshihni njoftimin e përhershëm \"Asnjë pajisje\" duke çaktivizuar kanalin \"Statusi i pajisjes\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cilësimet</string>
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Statusi juaj i përmirësimit dhe blerjes.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsorizo CAPod-in</string>
+    <string name="settings_upgrade_status_foss_description">Statusi juaj i mbështetësit.</string>
     <string name="settings_overview_hide_unmatched_label">Fshih pajisjet e papërputhura</string>
     <string name="settings_overview_hide_unmatched_description">Mos shfaq pajisjet afërsisht që nuk përputhen me asnjë nga profilet tuaja në pamje të përgjithshme, p.sh. AirPods-et e njerëzve të tjerë.</string>
     <string name="device_battery_estimate_toggle_label">Vlerësimet e baterisë</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d pajisje pa profil përputhës</item>
         <item quantity="other">%d pajisje pa profil përputhës</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d pajisje e afërt u zbulua pa profil përkatës. Shfaqeni për detaje të disponueshme. Nëse është e juaja, shtoni një profil nga Pajisjet për ta njohur.</item>
+        <item quantity="other">%d pajisje të afërta u zbuluan pa profile përkatëse. Shfaqini për detaje të disponueshme. Nëse ndonjëra është e juaja, shtoni një profil nga Pajisjet për ta njohur.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d pajisje të tjera</item>

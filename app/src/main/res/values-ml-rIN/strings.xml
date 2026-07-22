@@ -20,7 +20,6 @@
     <string name="general_example_label">ഉദാ: %s</string>
     <string name="upgrade_capod_label">CAPod അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
     <string name="upgrade_capod_description">കൂടുതൽ സവിശേഷതകൾ നേടുകയും ഡെവലപ്പറെ പിന്തുണയ്ക്കുകയും ചെയ്യുക.</string>
-    <string name="upgrade_preamble">CAPod ഒരൊറ്റ വ്യക്തി വികസിപ്പിച്ചതാണ്. അപ്‌ഗ്രേഡ് ചെയ്യുന്നത് അധിക സവിശേഷതകൾ അൺലോക്ക് ചെയ്യുകയും ആപ്പ് നിലനിർത്താൻ സഹായിക്കുകയും ചെയ്യുന്നു.</string>
     <string name="upgrade_benefit_themes">തീം ഇഷ്ടാനുസൃതമാക്കൽ</string>
     <string name="upgrade_benefit_autoplay">ഓട്ടോ-പ്ലേ &amp; ഓട്ടോ-പോസ്</string>
     <string name="upgrade_benefit_popups">കേസ് തുറക്കുമ്പോഴും കണക്ഷൻ സമയത്തും പോപ്പ്അപ്പ്</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ഉപകരണ നിയന്ത്രണങ്ങൾ — നോയ്‌സ്, സ്റ്റെംസ്, കൂടുതലും</string>
     <string name="upgrade_benefit_support">ഡെവലപ്പറെ പിന്തുണയ്ക്കുക</string>
     <string name="upgrade_benefit_disclaimer">ഫീചർ ലഭ്യത നിങ്ങളുടെ ഹെഡ്‌ഫോണിലും ഉപകരണത്തിലും ആശ്രയിക്കുന്നു.</string>
-    <string name="upgrade_screen_options_description">ഒരേ സവിശേഷതകൾ, വ്യത്യസ്ത വില. സബ്‌സ്ക്രിപ്ഷനിൽ സൗജന്യ ട്രയൽ ഉൾപ്പെടുന്നു, ഏത് സമയത്തും റദ്ദാക്കാം.</string>
-    <string name="upgrade_screen_subscription_trial_action">സൗജന്യ ട്രയൽ ആരംഭിക്കുക</string>
-    <string name="upgrade_screen_subscription_action">വാർഷിക സബ്‌സ്ക്രൈബ് ചെയ്യുക</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/വർഷം</string>
-    <string name="upgrade_screen_iap_action">ഒരിക്കൽ വാങ്ങുക</string>
-    <string name="upgrade_screen_iap_action_hint">ഒറ്റത്തവണ വാങ്ങൽ: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
-    <string name="upgrade_screen_restore_purchase_message">വാങ്ങലുകളൊന്നും കണ്ടെത്തിയില്ല. നിങ്ങൾ ശരിയായ അക്കൗണ്ട് ആണോ ഉപയോഗിക്കുന്നത്?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">നിങ്ങൾ അടുത്തിടെ വാങ്ങിയിട്ടുണ്ടെങ്കിൽ, Google Play സമന്വയിക്കാൻ കുറച്ച് സമയമെടുക്കാം.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">നിങ്ങളുടെ വാങ്ങൽ ദൃശ്യമാകുന്നില്ലെങ്കിൽ കുറച്ച് മിനിറ്റുകൾക്ക് ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">വാങ്ങലിനായി ഉപയോഗിച്ച അതേ Google അക്കൗണ്ടിൽ സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
     <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \"ഉപകരണ നില\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
     <string name="settings_keep_notification_after_disconnect_label">വിച്ഛേദിച്ച ശേഷം അറിയിപ്പ് നിലനിർത്തുക</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ഡീബഗ്</string>
     <string name="settings_general_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും നില.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod-നെ സ്പോൺസർ ചെയ്യുക</string>
+    <string name="settings_upgrade_status_foss_description">നിങ്ങളുടെ പിന്തുണക്കാരന്റെ നില.</string>
     <string name="settings_overview_hide_unmatched_label">പൊരുത്തപ്പെടാത്ത ഉപകരണങ്ങൾ മറയ്ക്കുക</string>
     <string name="settings_overview_hide_unmatched_description">നിങ്ങളുടെ ഒരു പ്രൊഫൈലുമായും പൊരുത്തപ്പെടാത്ത അടുത്തുള്ള ഉപകരണങ്ങൾ അവലോകനത്തിൽ കാണിക്കരുത്, ഉദാ. മറ്റുള്ളവരുടെ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ബാറ്ററി കണക്കുമാനം</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">പൊരുത്തമുള്ള പ്രൊഫൈൽ ഇല്ലാത്ത %d ഉപകരണം</item>
         <item quantity="other">പൊരുത്തമുള്ള പ്രൊഫൈൽ ഇല്ലാത്ത %d ഉപകരണങ്ങൾ</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">പൊരുത്തപ്പെടുന്ന പ്രൊഫൈൽ ഇല്ലാത്ത %d സമീപത്തുള്ള ഉപകരണം കണ്ടെത്തി. ലഭ്യമായ വിശദാംശങ്ങൾക്കായി അത് കാണിക്കുക. അത് നിങ്ങളുടേതാണെങ്കിൽ, തിരിച്ചറിയാൻ ഉപകരണങ്ങളിൽ നിന്ന് ഒരു പ്രൊഫൈൽ ചേർക്കുക.</item>
+        <item quantity="other">പൊരുത്തപ്പെടുന്ന പ്രൊഫൈലുകൾ ഇല്ലാതെ %d സമീപത്തുള്ള ഉപകരണങ്ങൾ കണ്ടെത്തി. ലഭ്യമായ വിശദാംശങ്ങൾക്കായി അവ കാണിക്കുക. അവയിലൊന്ന് നിങ്ങളുടേതാണെങ്കിൽ, തിരിച്ചറിയാൻ ഉപകരണങ്ങളിൽ നിന്ന് ഒരു പ്രൊഫൈൽ ചേർക്കുക.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d കൂടുതൽ ഉപകരണം</item>

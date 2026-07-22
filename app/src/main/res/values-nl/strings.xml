@@ -20,7 +20,6 @@
     <string name="general_example_label">Bijv.: %s</string>
     <string name="upgrade_capod_label">Upgrade CAPod</string>
     <string name="upgrade_capod_description">Krijg extra functies en ondersteun de ontwikkelaar.</string>
-    <string name="upgrade_preamble">CAPod wordt ontwikkeld door één persoon. Upgraden ontgrendelt extra functies en helpt de app in leven te houden.</string>
     <string name="upgrade_benefit_themes">Thema-aanpassing</string>
     <string name="upgrade_benefit_autoplay">Automatisch afspelen &amp; pauzeren</string>
     <string name="upgrade_benefit_popups">Popup bij openen van hoesje &amp; verbinding</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Apparaatbediening — ruis, stelen &amp; meer</string>
     <string name="upgrade_benefit_support">Ondersteun de ontwikkelaar</string>
     <string name="upgrade_benefit_disclaimer">Beschikbaarheid van functies is afhankelijk van je koptelefoon en apparaat.</string>
-    <string name="upgrade_screen_options_description">Dezelfde functies, verschillende prijzen. Het abonnement bevat een gratis proefperiode en kan op elk moment worden opgezegd.</string>
-    <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode</string>
-    <string name="upgrade_screen_subscription_action">Jaarlijks abonneren</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/jaar</string>
-    <string name="upgrade_screen_iap_action">Eenmalig kopen</string>
-    <string name="upgrade_screen_iap_action_hint">Eenmalige aankoop: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
-    <string name="upgrade_screen_restore_purchase_message">Geen aankopen gevonden. Gebruikt je wel het juiste account?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Als je de app onlangs hebt gekocht, kan het even duren voordat Google Play de gegevens synchroniseert.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Probeer het over een paar minuten opnieuw als je aankoop niet verschijnt.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Zorg ervoor dat je bent aangemeld met hetzelfde Google-account dat is gebruikt voor de aankoop.</string>
     <string name="settings_monitor_connected_notification_label">Extra melding</string>
     <string name="settings_monitor_connected_notification_description">Toont een extra melding wanneer een apparaat is verbonden. Hiermee kun je de permanente melding \"Geen apparaten\" verbergen door het kanaal \"Apparaatstatus\" uit te schakelen.</string>
     <string name="settings_keep_notification_after_disconnect_label">Melding behouden na verbreken verbinding</string>
@@ -79,7 +67,7 @@
     <string name="settings_charged_notification_label">Oplading voltooid-melding</string>
     <string name="settings_charged_notification_description">Stuur een melding zodra alles wat aan het opladen is het doellaadniveau bereikt.</string>
     <string name="settings_charged_threshold_label">Doellaadniveau</string>
-    <string name="settings_charged_scope_label">Bewaakte batterijen</string>
+    <string name="settings_charged_scope_label">Gecontroleerde batterijen</string>
     <string name="settings_charged_scope_pods_label">Alleen pods</string>
     <string name="settings_charged_scope_case_label">Alleen case</string>
     <string name="settings_charged_scope_both_label">Pods en case</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Foutopsporing</string>
     <string name="settings_general_label">Instellingen</string>
     <string name="settings_general_description">Algemene aanpassingen die de hele app beïnvloeden.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Je upgrade- en aankoopstatus.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsor CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Je supporterstatus.</string>
     <string name="settings_overview_hide_unmatched_label">Niet-overeenkomende apparaten verbergen</string>
     <string name="settings_overview_hide_unmatched_description">Verberg apparaten in het overzicht die niet overeenkomen met je profielen, bijv. AirPods van anderen.</string>
     <string name="device_battery_estimate_toggle_label">Batterijschattingen</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d apparaat zonder overeenkomend profiel</item>
         <item quantity="other">%d apparaten zonder overeenkomend profiel</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Er is %d apparaat in de buurt gedetecteerd zonder bijbehorend profiel. Bekijk het voor beschikbare details. Als het van jou is, voeg dan een profiel toe via Apparaten om het te herkennen.</item>
+        <item quantity="other">Er zijn %d apparaten in de buurt gedetecteerd zonder bijbehorende profielen. Bekijk ze voor beschikbare details. Als een ervan van jou is, voeg dan een profiel toe via Apparaten om het te herkennen.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d extra apparaat</item>
@@ -436,7 +432,7 @@
     <string name="device_settings_info_battery_health_left_label">Linker batterijgezondheid (gesch.)</string>
     <string name="device_settings_info_battery_health_right_label">Rechter batterijgezondheid (gesch.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
-    <string name="device_settings_info_battery_health_pending">Nog aan het bepalen, kom later terug</string>
+    <string name="device_settings_info_battery_health_pending">Nog steeds in onderzoek,  kom later terug</string>
     <string name="device_settings_info_details_label">Apparaatdetails</string>
     <string name="device_settings_info_details_action">Apparaatdetails weergeven</string>
     <string name="device_settings_info_status_label">Status</string>

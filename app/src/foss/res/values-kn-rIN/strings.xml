@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">ಜಾಹೀರಾತುಗಳಿಲ್ಲ. ಭಕ್ಷಣೆ ಇಲ್ಲ. Google Play ಲಾಕ್-ಇನ್ ಇಲ್ಲ.</string>
     <string name="upgrade_foss_sponsor_returned_early">ಇಷ್ಟೇ ಹಿಂದಿರುಗಿದಿರಿ? ನಿಮ್ಮ ಬೆಂಬಲ CAPod ಅನ್ನು ಜೀವಂತವಾಗಿಡುತ್ತದೆ.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">%s ರಿಂದ ಬೆಂಬಲಿಗ</string>
+    <string name="upgrade_foss_supporter_thanks">CAPod ಅಭಿವೃದ್ಧಿಗೆ ಬೆಂಬಲ ನೀಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು!</string>
+    <string name="upgrade_foss_sponsor_again_action">ಪ್ರಾಯೋಜಕ ಪುಟ ತೆರೆಯಿರಿ</string>
 </resources>

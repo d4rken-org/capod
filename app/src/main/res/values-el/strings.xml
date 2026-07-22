@@ -20,7 +20,6 @@
     <string name="general_example_label">Π.χ.: %s</string>
     <string name="upgrade_capod_label">Αναβάθμιση CAPod</string>
     <string name="upgrade_capod_description">Αποκτήστε πρόσθετες λειτουργίες και υποστηρίξτε τον προγραμματιστή.</string>
-    <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά στη συνέχεια της εφαρμογής.</string>
     <string name="upgrade_benefit_themes">Προσαρμογή θέματος</string>
     <string name="upgrade_benefit_autoplay">Αυτόματη αναπαραγωγή &amp; αυτόματη παύση</string>
     <string name="upgrade_benefit_popups">Αναδυόμενο παράθυρο κατά το άνοιγμα θήκης &amp; σύνδεση</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Χειριστήρια συσκευής &#8212; θόρυβος, στελέχη &amp; άλλα</string>
     <string name="upgrade_benefit_support">Υποστηρίξτε τον προγραμματιστή</string>
     <string name="upgrade_benefit_disclaimer">Η διαθεσιμότητα λειτουργιών εξαρτάται από τα ακουστικά και τη συσκευή σας.</string>
-    <string name="upgrade_screen_options_description">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή περιλαμβάνει δωρεάν δοκιμή και μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
-    <string name="upgrade_screen_subscription_trial_action">Έναρξη δωρεάν δοκιμής</string>
-    <string name="upgrade_screen_subscription_action">Ετήσια συνδρομή</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/έτος</string>
-    <string name="upgrade_screen_iap_action">Αγορά μία φορά</string>
-    <string name="upgrade_screen_iap_action_hint">Εφάπαξ αγορά: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
-    <string name="upgrade_screen_restore_purchase_message">Δε βρέθηκαν αγορές. Χρησιμοποιείτε τον σωστό λογαριασμό;</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Εάν έχετε αγοράσει πρόσφατα, ενδέχεται να χρειαστεί λίγος χρόνος για συγχρονισμό με το Google Play.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Δοκιμάστε ξανά σε λίγα λεπτά αν η αγορά σας δεν εμφανιστεί.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Βεβαιωθείτε ότι έχετε συνδεθεί με τον ίδιο λογαριασμό Google που χρησιμοποιήσατε για την αγορά.</string>
     <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
     <string name="settings_monitor_connected_notification_description">Εμφανίζει μια επιπλέον ειδοποίηση όταν μια συσκευή είναι συνδεδεμένη. Αυτό σας επιτρέπει να αποκρύψετε τη μόνιμη ειδοποίηση \"Δεν υπάρχουν συσκευές\" απενεργοποιώντας το κανάλι \"Κατάσταση συσκευής\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Διατήρηση ειδοποίησης μετά την αποσύνδεση</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Αποσφαλμάτωση</string>
     <string name="settings_general_label">Ρυθμίσεις</string>
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
+    <string name="settings_upgrade_status_foss_label">Χορηγήστε το CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Η κατάσταση υποστηρικτή σας.</string>
     <string name="settings_overview_hide_unmatched_label">Απόκρυψη μη αντιστοιχισμένων συσκευών</string>
     <string name="settings_overview_hide_unmatched_description">Να μην εμφανίζονται κοντινές συσκευές που δεν αντιστοιχούν σε κανένα από τα προφίλ σου στην επισκόπηση, π.χ. τα AirPods άλλων ανθρώπων.</string>
     <string name="device_battery_estimate_toggle_label">Εκτιμήσεις μπαταρίας</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d συσκευή χωρίς αντίστοιχο προφίλ</item>
         <item quantity="other">%d συσκευές χωρίς αντίστοιχο προφίλ</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Εντοπίστηκε %d κοντινή συσκευή χωρίς αντίστοιχο προφίλ. Εμφανίστε τη για διαθέσιμες λεπτομέρειες. Αν είναι δική σας, προσθέστε ένα προφίλ από τις Συσκευές για να την αναγνωρίσετε.</item>
+        <item quantity="other">Εντοπίστηκαν %d κοντινές συσκευές χωρίς αντίστοιχα προφίλ. Εμφανίστε τις για διαθέσιμες λεπτομέρειες. Αν κάποια είναι δική σας, προσθέστε ένα προφίλ από τις Συσκευές για να την αναγνωρίσετε.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d επιπλέον συσκευή</item>

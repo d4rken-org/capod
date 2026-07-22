@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Iragarkirik ez. Jarraipenik ez. Google Play-ren lotura ez.</string>
     <string name="upgrade_foss_sponsor_returned_early">Dagoeneko itzuli? Zure laguntzak CAPod bizirik mantentzen du.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Laguntzaile %s(e)tik aurrera</string>
+    <string name="upgrade_foss_supporter_thanks">Eskerrik asko CAPod-en garapena babesten duzulako!</string>
+    <string name="upgrade_foss_sponsor_again_action">Ireki babesle-orria</string>
 </resources>

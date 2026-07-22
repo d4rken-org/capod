@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">بدون تبلیغ. بدون ردیابی. بدون وابستگی به Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">زود برگشتیدی؟ حمایت شما CAPod را زنده نگه می‌دارد.</string>
     <string name="upgrade_badge_label">منبع‌آزاد</string>
+    <string name="upgrade_foss_supporter_since">حامی از %s</string>
+    <string name="upgrade_foss_supporter_thanks">از حمایت شما از توسعه CAPod سپاسگزاریم!</string>
+    <string name="upgrade_foss_sponsor_again_action">باز کردن صفحه حمایت مالی</string>
 </resources>

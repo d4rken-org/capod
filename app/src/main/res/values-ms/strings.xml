@@ -20,7 +20,6 @@
     <string name="general_example_label">Cth.: %s</string>
     <string name="upgrade_capod_label">Naik taraf CAPod</string>
     <string name="upgrade_capod_description">Dapatkan ciri tambahan dan sokong pembangun.</string>
-    <string name="upgrade_preamble">CAPod dibangunkan oleh seorang individu. Menaik taraf membuka kunci ciri-ciri tambahan dan membantu mengekalkan aplikasi ini.</string>
     <string name="upgrade_benefit_themes">Penyesuaian tema</string>
     <string name="upgrade_benefit_autoplay">Main automatik &amp; jeda automatik</string>
     <string name="upgrade_benefit_popups">Popup semasa buka kotak &amp; sambungan</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Kawalan peranti &#8212; hingar, batang &amp; lain-lain</string>
     <string name="upgrade_benefit_support">Sokong pembangun</string>
     <string name="upgrade_benefit_disclaimer">Ketersediaan ciri bergantung pada fon kepala dan peranti anda.</string>
-    <string name="upgrade_screen_options_description">Ciri yang sama, harga berbeza. Langganan termasuk percubaan percuma dan boleh dibatalkan bila-bila masa.</string>
-    <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan percuma</string>
-    <string name="upgrade_screen_subscription_action">Langgan tahunan</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/tahun</string>
-    <string name="upgrade_screen_iap_action">Beli sekali</string>
-    <string name="upgrade_screen_iap_action_hint">Pembelian sekali: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
-    <string name="upgrade_screen_restore_purchase_message">Tiada pembelian ditemui. Adakah anda menggunakan akaun yang betul?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jika anda baru membeli, Google Play mungkin mengambil sedikit masa untuk menyegerakkan.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Cuba semula dalam beberapa minit jika pembelian anda tidak muncul.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Pastikan anda log masuk dengan akaun Google yang sama yang digunakan untuk pembelian.</string>
     <string name="settings_monitor_connected_notification_label">Pemberitahuan tambahan</string>
     <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \"Tiada peranti\" dengan melumpuhkan saluran \"Status peranti\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Kekalkan pemberitahuan selepas nyahsambung</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Tetapan</string>
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Status peningkatan dan pembelian anda.</string>
+    <string name="settings_upgrade_status_foss_label">Taja CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Status penyokong anda.</string>
     <string name="settings_overview_hide_unmatched_label">Sembunyikan peranti yang tidak sepadan</string>
     <string name="settings_overview_hide_unmatched_description">Jangan tunjukkan peranti berdekatan yang tidak sepadan dengan mana-mana profil anda dalam gambaran keseluruhan, cth. AirPods orang lain.</string>
     <string name="device_battery_estimate_toggle_label">Anggaran Bateri</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">Peranti tidak sepadan</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d peranti tanpa profil yang sepadan</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">%d peranti berdekatan dikesan tanpa profil yang sepadan. Tunjukkan untuk butiran yang tersedia. Jika salah satu daripadanya milik anda, tambah profil daripada Peranti untuk mengenalinya.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d peranti lagi</item>

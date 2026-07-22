@@ -20,7 +20,6 @@
     <string name="general_example_label">Ex.: %s</string>
     <string name="upgrade_capod_label">Actualizați CAPod</string>
     <string name="upgrade_capod_description">Obțineți funcții suplimentare și sprijiniți dezvoltatorul.</string>
-    <string name="upgrade_preamble">CAPod este dezvoltat de o singură persoană. Actualizarea deblochează funcții extra și ajută la menținerea aplicației în viață.</string>
     <string name="upgrade_benefit_themes">Personalizare temă</string>
     <string name="upgrade_benefit_autoplay">Redare automată și pauză automată</string>
     <string name="upgrade_benefit_popups">Fereastră pop-up la deschiderea husă și conectare</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Controale dispozitiv &#8212; zgomot, tije &amp; altele</string>
     <string name="upgrade_benefit_support">Susțineți dezvoltatorul</string>
     <string name="upgrade_benefit_disclaimer">Disponibilitatea funcțiilor depinde de căștile și dispozitivul dvs.</string>
-    <string name="upgrade_screen_options_description">Aceleași funcții, prețuri diferite. Abonamentul include o perioadă de probă gratuită și poate fi anulat oricând.</string>
-    <string name="upgrade_screen_subscription_trial_action">Începe încercarea gratuită</string>
-    <string name="upgrade_screen_subscription_action">Abonați-vă anual</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/an</string>
-    <string name="upgrade_screen_iap_action">Cumpărați o singură dată</string>
-    <string name="upgrade_screen_iap_action_hint">Achiziție unică: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Restabiliți achiziția</string>
-    <string name="upgrade_screen_restore_purchase_message">Nu s-au găsit achiziții. Folosești contul corect?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Dacă ați cumpărat recent, poate dura câteva momente până când Google Play sincronizează.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Înercați din nou în câteva minute dacă achiziția nu apare.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Asigurați-vă că sunteți conectat cu același cont Google utilizat pentru achiziție.</string>
     <string name="settings_monitor_connected_notification_label">Notificare suplimentară</string>
     <string name="settings_monitor_connected_notification_description">Afișează o notificare suplimentară atunci când un dispozitiv este conectat. Acest lucru vă permite să ascundeți notificarea permanentă \"Niciun dispozitiv\" prin dezactivarea canalului \"Stare dispozitiv\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Păstrează notificarea după deconectare</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Depanare</string>
     <string name="settings_general_label">Setări</string>
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Starea achiziției și a upgrade-ului tău.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsorizează CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Starea ta de susținător.</string>
     <string name="settings_overview_hide_unmatched_label">Ascunde dispozitivele nepotrivite</string>
     <string name="settings_overview_hide_unmatched_description">Nu afișa dispozitivele din apropiere care nu corespund niciunui profil al tău în prezentare generală, de ex. AirPods-urile altor persoane.</string>
     <string name="device_battery_estimate_toggle_label">Estimări ale bateriei</string>
@@ -216,6 +208,11 @@
         <item quantity="one">%d dispozitiv fără profil corespunzător</item>
         <item quantity="few">%d dispozitive fără profil corespunzător</item>
         <item quantity="other">%d de dispozitive fără profil corespunzător</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">A fost detectat %d dispozitiv din apropiere fără un profil corespunzător. Afișează-l pentru detalii disponibile. Dacă este al tău, adaugă un profil din Dispozitive pentru a-l recunoaște.</item>
+        <item quantity="few">Au fost detectate %d dispozitive din apropiere fără profiluri corespunzătoare. Afișează-le pentru detalii disponibile. Dacă unul este al tău, adaugă un profil din Dispozitive pentru a-l recunoaște.</item>
+        <item quantity="other">Au fost detectate %d de dispozitive din apropiere fără profiluri corespunzătoare. Afișează-le pentru detalii disponibile. Dacă unul este al tău, adaugă un profil din Dispozitive pentru a-l recunoaște.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dispozitiv în plus</item>

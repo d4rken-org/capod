@@ -20,7 +20,6 @@
     <string name="general_example_label">Nt: %s</string>
     <string name="upgrade_capod_label">Maksa CAPodi eest</string>
     <string name="upgrade_capod_description">Saate lisavõimalusi ja toetate arendajat.</string>
-    <string name="upgrade_preamble">CAPodi arendab üks inimene. Uuendamine avab lisavõimalused ja aitab rakendust arendada.</string>
     <string name="upgrade_benefit_themes">Teema kohandamine</string>
     <string name="upgrade_benefit_autoplay">Automaatesitus ja automaatne paus</string>
     <string name="upgrade_benefit_popups">Hüpikaken korpuse avamisel ja ühendamisel</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Seadme juhtnupud &#8212; müra, varred ja muud</string>
     <string name="upgrade_benefit_support">Toeta arendajat</string>
     <string name="upgrade_benefit_disclaimer">Funktsioonide saadavus sõltub kõrvaklappidest ja seadmest.</string>
-    <string name="upgrade_screen_options_description">Samad võimalused, erinev hind. Tellimus sisaldab tasuta katseaega ja selle saab igal ajal tühistada.</string>
-    <string name="upgrade_screen_subscription_trial_action">Proovi</string>
-    <string name="upgrade_screen_subscription_action">Telli aastaks</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/aastas</string>
-    <string name="upgrade_screen_iap_action">Osta korra</string>
-    <string name="upgrade_screen_iap_action_hint">Ühekordne ost: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Taasta ost</string>
-    <string name="upgrade_screen_restore_purchase_message">Ühtki ostu ei leitud. Kasutate õiget kontot?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Kui olete hiljuti ostnud, võib Google Playl kuluda ajakohastamiseks hetk.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Proovige mõne minuti pärast uuesti, kui teie ost ei ilmu.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Veenduge, et olete sisse logitud sama Google\'i kontoga, mida kasutasite ostu sooritamiseks.</string>
     <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
     <string name="settings_monitor_connected_notification_description">Kuvab seadme ühendumisel lisateavituse. See peidab pidevalt nähtava „Seadmed puuduvad“ teate, selleks keelates „Seadme olek“ kanali.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Silumine</string>
     <string name="settings_general_label">Seaded</string>
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
+    <string name="settings_upgrade_status_gplay_label">Tasuline CAPod</string>
+    <string name="settings_upgrade_status_gplay_description">Sinu uuenduse ja ostu olek.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsoreeri CAPodi</string>
+    <string name="settings_upgrade_status_foss_description">Sinu toetaja staatus.</string>
     <string name="settings_overview_hide_unmatched_label">Peida mittevastavad seadmed</string>
     <string name="settings_overview_hide_unmatched_description">Ära näita ülevaates lähedalasuvaid seadmeid, mis ei vasta ühelegi sinu profiilile, nt teiste inimeste AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Aku hinnangud</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d seade ei kattu profiiliga</item>
         <item quantity="other">%d seadet ei kattu profiiliga</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Tuvastati %d lähedalasuv seade, millel puudub sobiv profiil. Kuva üksikasjad. Kui see on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
+        <item quantity="other">Tuvastati %d lähedalasuvat seadet, millel puudub sobiv profiil. Kuva üksikasjad. Kui mõni neist on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d seade veel</item>

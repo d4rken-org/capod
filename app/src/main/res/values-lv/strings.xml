@@ -20,7 +20,6 @@
     <string name="general_example_label">Piem.: %s</string>
     <string name="upgrade_capod_label">Uzlabot CAPod</string>
     <string name="upgrade_capod_description">Iegūsti papildu iespējas un atbalsti izstrādātāju!</string>
-    <string name="upgrade_preamble">CAPod ir izstrādājis viens cilvēks. Uzlabošana atslēdz papildu iespējas un palīdz uzturēt lietotnes esamību.</string>
     <string name="upgrade_benefit_themes">Izskata pielāgošana</string>
     <string name="upgrade_benefit_autoplay">Automātiska atskaņošana un apturēšana</string>
     <string name="upgrade_benefit_popups">Uznirstošs logs pēc futrāļa atvēršanas un savienošanās</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Ierīces vadīklas — troksnis, kātieni un vairāk</string>
     <string name="upgrade_benefit_support">Izstrādātāja atbalstīšana</string>
     <string name="upgrade_benefit_disclaimer">Iespēju pieejamība atkarīga no austiņam un ierīces.</string>
-    <string name="upgrade_screen_options_description">Vienādas funkcijas, atšķirīgas cenas. Abonements ietver bezmaksas izmēģinājumu un var tikt atcelts jebkurā laikā.</string>
-    <string name="upgrade_screen_subscription_trial_action">Sākt bezmaksas izmēģinājumu</string>
-    <string name="upgrade_screen_subscription_action">Abonēt gadā</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/gadā</string>
-    <string name="upgrade_screen_iap_action">Pirkt vienreiz</string>
-    <string name="upgrade_screen_iap_action_hint">Vienreizējs pirkums: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Atjaunot pirkumu</string>
-    <string name="upgrade_screen_restore_purchase_message">Nav atrasts neviens pirkums. Vai izmantojat pareizo kontu?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ja esat nesen iegādājies, Google Play var aizņemt brīdi, lai sinhronizētu.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Mēģiniet vēlreiz pēc dažām minūtēm, ja jūsu pirkums neparādās.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Pārliecinieties, ka esat pieteicies ar to pašu Google kontu, kas izmantots pirkumam.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
     <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Atkļūdošana</string>
     <string name="settings_general_label">Iestatījumi</string>
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Tavs jaunināšanas un pirkuma statuss.</string>
+    <string name="settings_upgrade_status_foss_label">Atbalsti CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Tavs atbalstītāja statuss.</string>
     <string name="settings_overview_hide_unmatched_label">Slēpt neatbilstošās ierīces</string>
     <string name="settings_overview_hide_unmatched_description">Nerādīt tuvumā esošās ierīces, kas neatbilst nevienam no jūsu profiliem pārskatā, piemēram, citu cilvēku AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Baterijas novērtējumi</string>
@@ -216,6 +208,11 @@
         <item quantity="zero">%d ierīce bez atbilstoša profila</item>
         <item quantity="one">%d ierīces bez atbilstoša profila</item>
         <item quantity="other">%d ierīces bez atbilstoša profila</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="zero">Tuvumā tika atklāts %d ierīču bez atbilstoša profila. Parādi tās, lai redzētu pieejamo informāciju. Ja kāda no tām ir tava, pievieno profilu sadaļā Ierīces, lai to atpazītu.</item>
+        <item quantity="one">Tuvumā tika atklāta %d ierīce bez atbilstoša profila. Parādi to, lai redzētu pieejamo informāciju. Ja tā ir tava, pievieno profilu sadaļā Ierīces, lai to atpazītu.</item>
+        <item quantity="other">Tuvumā tika atklātas %d ierīces bez atbilstoša profila. Parādi tās, lai redzētu pieejamo informāciju. Ja kāda no tām ir tava, pievieno profilu sadaļā Ierīces, lai to atpazītu.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="zero">%d papildu ierīces</item>

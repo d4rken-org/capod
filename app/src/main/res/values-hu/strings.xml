@@ -20,7 +20,6 @@
     <string name="general_example_label">Pl.: %s</string>
     <string name="upgrade_capod_label">CAPod frissítése</string>
     <string name="upgrade_capod_description">Szerezzen be további funkciókat és támogassa a fejlesztőt.</string>
-    <string name="upgrade_preamble">A CAPod-ot egyetlen fejlesztő készíti. A frissítéssel extra funkciókat érhetsz el, és segíted az alkalmazás életben tartását.</string>
     <string name="upgrade_benefit_themes">Téma testreszabás</string>
     <string name="upgrade_benefit_autoplay">Automatikus lejátszás és szüneteltetés</string>
     <string name="upgrade_benefit_popups">Felugró ablak tok megnyitásakor és csatlakozáskor</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Eszközvezérlők &#8212; zaj, szárak &amp; egyéb</string>
     <string name="upgrade_benefit_support">Támogasd a fejlesztőt</string>
     <string name="upgrade_benefit_disclaimer">A funkció elérhetősége a fejhallgatótól és az eszköztől függ.</string>
-    <string name="upgrade_screen_options_description">Ugyanazok a funkciók, különböző árazással. Az előfizetés ingyenes próbaidőszakot tartalmaz, és bármikor lemondható.</string>
-    <string name="upgrade_screen_subscription_trial_action">Ingyenes próba indítása</string>
-    <string name="upgrade_screen_subscription_action">Éves előfizetés</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/év</string>
-    <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
-    <string name="upgrade_screen_iap_action_hint">Egyszeri vásárlás: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Vásárlás visszaállítása</string>
-    <string name="upgrade_screen_restore_purchase_message">Nem található vásárlás. A megfelelő fiókot használja?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ha nemrég vásároltál, a Google Play-nek egy pillanatra szüksége lehet a szinkronizáláshoz.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Próbálkozz újra néhány perc múlva, ha a vásárlás nem jelenik meg.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Győződj meg róla, hogy ugyanazzal a Google-fiókkal vagy bejelentkezve, amellyel a vásárlást végezted.</string>
     <string name="settings_monitor_connected_notification_label">Extra értesítés</string>
     <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \"Nincs eszköz\" értesítés elrejtését az \"Eszköz állapota\" csatorna letiltásával.</string>
     <string name="settings_keep_notification_after_disconnect_label">Értesítés megőrzése lecsatlakozás után</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Hibakeresés</string>
     <string name="settings_general_label">Beállítások</string>
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Az előfizetésed és vásárlásod állapota.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod támogatása</string>
+    <string name="settings_upgrade_status_foss_description">A támogatói állapotod.</string>
     <string name="settings_overview_hide_unmatched_label">Párosítatlan eszközök elrejtése</string>
     <string name="settings_overview_hide_unmatched_description">Ne jelenjenek meg az áttekintőben azok a közeli eszközök, amelyek nem egyeznek egy profilodhoz sem, pl. mások AirPodjai.</string>
     <string name="device_battery_estimate_toggle_label">Akkumulátor becslések</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d eszköz párosított profil nélkül</item>
         <item quantity="other">%d eszköz párosított profil nélkül</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d közeli eszközt észleltünk illeszkedő profil nélkül. Nyisd meg a rendelkezésre álló részletekért. Ha a tiéd, adj hozzá egy profilt az Eszközök menüben, hogy felismerje.</item>
+        <item quantity="other">%d közeli eszközt észleltünk illeszkedő profilok nélkül. Nyisd meg őket a rendelkezésre álló részletekért. Ha valamelyik a tiéd, adj hozzá egy profilt az Eszközök menüben, hogy felismerje.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d további eszköz</item>

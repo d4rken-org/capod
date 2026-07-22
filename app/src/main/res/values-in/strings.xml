@@ -20,7 +20,6 @@
     <string name="general_example_label">Misalnya: %s</string>
     <string name="upgrade_capod_label">Tingkatkan CAPod</string>
     <string name="upgrade_capod_description">Dapatkan fitur tambahan dan dukung pengembang.</string>
-    <string name="upgrade_preamble">CAPod dikembangkan oleh satu orang. Meningkatkan versi membuka fitur tambahan dan membantu menjaga aplikasi tetap berjalan.</string>
     <string name="upgrade_benefit_themes">Kustomisasi tema</string>
     <string name="upgrade_benefit_autoplay">Putar otomatis &amp; jeda otomatis</string>
     <string name="upgrade_benefit_popups">Popup saat kotak dibuka &amp; dihubungkan</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Kontrol perangkat &#8212; kebisingan, tangkai &amp; lainnya</string>
     <string name="upgrade_benefit_support">Dukung pengembang</string>
     <string name="upgrade_benefit_disclaimer">Ketersediaan fitur bergantung pada headphone dan perangkat Anda.</string>
-    <string name="upgrade_screen_options_description">Fitur sama, harga berbeda. Langganan mencakup uji coba gratis dan dapat dibatalkan kapan saja.</string>
-    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis</string>
-    <string name="upgrade_screen_subscription_action">Berlangganan tahunan</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/tahun</string>
-    <string name="upgrade_screen_iap_action">Beli sekali</string>
-    <string name="upgrade_screen_iap_action_hint">Pembelian satu kali: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
-    <string name="upgrade_screen_restore_purchase_message">Tidak ada pembelian yang ditemukan. Apakah Anda menggunakan akun yang benar?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jika Anda baru saja melakukan pembelian, mungkin butuh beberapa saat agar Google Play dapat menyinkronkan.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Coba lagi dalam beberapa menit jika pembelian Anda belum muncul.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Pastikan Anda masuk dengan akun Google yang sama yang digunakan untuk pembelian.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
     <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \"Tidak ada perangkat\" dengan menonaktifkan saluran \"Status perangkat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Pertahankan notifikasi setelah terputus</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Pengaturan</string>
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Status peningkatan dan pembelian Anda.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsori CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Status pendukung Anda.</string>
     <string name="settings_overview_hide_unmatched_label">Sembunyikan perangkat yang tidak cocok</string>
     <string name="settings_overview_hide_unmatched_description">Jangan tampilkan perangkat terdekat yang tidak cocok dengan profil mana pun di ringkasan, misalnya AirPods milik orang lain.</string>
     <string name="device_battery_estimate_toggle_label">Perkiraan Baterai</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">Perangkat tidak cocok</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d perangkat tanpa profil yang cocok</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">%d perangkat di sekitar terdeteksi tanpa profil yang cocok. Tampilkan untuk melihat detail yang tersedia. Jika salah satunya milik Anda, tambahkan profil dari Perangkat untuk mengenalinya.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d perangkat lainnya</item>

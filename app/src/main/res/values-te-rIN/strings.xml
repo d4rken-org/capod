@@ -20,7 +20,6 @@
     <string name="general_example_label">ఉదా.: %s</string>
     <string name="upgrade_capod_label">CAPod నవీకరించు</string>
     <string name="upgrade_capod_description">అదనపు ఫీచర్లను పొందండి మరియు డెవలపర్‌కు మద్దతు ఇవ్వండి.</string>
-    <string name="upgrade_preamble">CAPod ఒక వ్యక్తిచే అభివృద్ధి చేయబడింది. అప్‌గ్రేడ్ చేయడం అదనపు ఫీచర్లను అన్‌లాక్ చేస్తుంది మరియు యాప్‌ను సజీవంగా ఉంచడానికి సహాయపడుతుంది.</string>
     <string name="upgrade_benefit_themes">థీమ్ కస్టమైజేషన్</string>
     <string name="upgrade_benefit_autoplay">ఆటో-ప్లే &amp; ఆటో-పాజ్</string>
     <string name="upgrade_benefit_popups">కేస్ తెరిచినప్పుడు &amp; కనెక్షన్‌పై పాప్‌అప్</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">పరికర నియంత్రణలు &#8212; నాయిస్, స్టెమ్‌లు &amp; మరిన్ని</string>
     <string name="upgrade_benefit_support">డెవలపర్‌కు మద్దతు ఇవ్వండి</string>
     <string name="upgrade_benefit_disclaimer">ఫీచర్ అందుబాటు మీ హెడ్‌ఫోన్‌లు మరియు పరికరంపై ఆధారపడి ఉంటుంది.</string>
-    <string name="upgrade_screen_options_description">ఒకే ఫీచర్లు, వేర్వేరు ధరలు. సబ్‌స్క్రిప్షన్ ఉచిత ట్రయల్ కలిగి ఉంటుంది మరియు ఎప్పుడైనా రద్దు చేయవచ్చు.</string>
-    <string name="upgrade_screen_subscription_trial_action">ఉచిత ప్రయత్నం ప్రారంభించండి</string>
-    <string name="upgrade_screen_subscription_action">వార్షికంగా సబ్‌స్క్రైబ్ చేయండి</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/సంవత్సరం</string>
-    <string name="upgrade_screen_iap_action">ఒకసారి కొనండి</string>
-    <string name="upgrade_screen_iap_action_hint">ఒకసారి కొనుగోలు: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">కొనుగోలును పునరుద్ధరించండి</string>
-    <string name="upgrade_screen_restore_purchase_message">కొనుగోళ్లు ఏవీ కనుగొనబడలేదు. మీరు సరైన ఖాతాను ఉపయోగిస్తున్నారా?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">మీరు ఇటీవల కొనుగోలు చేసి ఉంటే, Google Play సమకాలీకరించడానికి కొంత సమయం పట్టవచ్చు.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">మీ కొనుగోలు కనిపించకపోతే కొన్ని నిమిషాల తర్వాత మళ్ళీ ప్రయత్నించండి.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">కొనుగోలు కోసం ఉపయోగించిన అదే Google ఖాతాతో సైన్ ఇన్ అయ్యారని నిర్ధారించుకోండి.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
     <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
     <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">డీబగ్</string>
     <string name="settings_general_label">సెట్టింగ్‌లు</string>
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">మీ అప్‌గ్రేడ్ మరియు కొనుగోలు స్థితి.</string>
+    <string name="settings_upgrade_status_foss_label">CAPodకి స్పాన్సర్ చేయండి</string>
+    <string name="settings_upgrade_status_foss_description">మీ సపోర్టర్ స్థితి.</string>
     <string name="settings_overview_hide_unmatched_label">సరిపోలని పరికరాలను దాచు</string>
     <string name="settings_overview_hide_unmatched_description">మీ ప్రొఫైల్‌లలో ఏదీ సరిపోలని దగ్గరి పరికరాలను అవలోకనంలో చూపించవద్దు, ఉదా. ఇతరుల AirPods.</string>
     <string name="device_battery_estimate_toggle_label">బ్యాటరీ అంచనాలు</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">సరిపోలే ప్రొఫైల్ లేని %d పరికరం</item>
         <item quantity="other">సరిపోలే ప్రొఫైల్ లేని %d పరికరాలు</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d సమీపంలోని పరికరం సరిపోలే ప్రొఫైల్ లేకుండా గుర్తించబడింది. అందుబాటులో ఉన్న వివరాల కోసం దాన్ని చూపించండి. ఇది మీదైతే, దాన్ని గుర్తించడానికి పరికరాల నుండి ఒక ప్రొఫైల్‌ను జోడించండి.</item>
+        <item quantity="other">%d సమీపంలోని పరికరాలు సరిపోలే ప్రొఫైల్‌లు లేకుండా గుర్తించబడ్డాయి. అందుబాటులో ఉన్న వివరాల కోసం వాటిని చూపించండి. వాటిలో ఒకటి మీదైతే, దాన్ని గుర్తించడానికి పరికరాల నుండి ఒక ప్రొఫైల్‌ను జోడించండి.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d మరిన్ని పరికరం</item>

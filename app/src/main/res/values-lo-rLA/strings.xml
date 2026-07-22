@@ -20,7 +20,6 @@
     <string name="general_example_label">ຕົວຢ່າງ: %s</string>
     <string name="upgrade_capod_label">ອັບເກຣດ CAPod</string>
     <string name="upgrade_capod_description">ຮັບຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ສະໜັບສະໜູນຜູ້ພັດທະນາ.</string>
-    <string name="upgrade_preamble">CAPod ຖືກພັດທະນາໂດຍຄົນດຽວ. ການອັບເກຣດຈະປົດລັອກຟີເຈີເພີ່ມເຕີມ ແລະ ຊ່ວຍຮັກສາແອັບໃຫ້ດຳເນີນຕໍ່ໄປ.</string>
     <string name="upgrade_benefit_themes">ປັບແຕ່ງຮູບແບບ</string>
     <string name="upgrade_benefit_autoplay">ຫຼິ້ນອັດຕະໂນມັດ &amp; ຢຸດຊົ່ວຄາວອັດຕະໂນມັດ</string>
     <string name="upgrade_benefit_popups">ປັອບອັບເມື່ອເປີດກ່ອງ &amp; ເຊື່ອມຕໍ່</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ການຄວບຄຸມອຸປະກອນ — ເສີງຣົບກວນ, ກ້ານ &amp; ອື່ນຂຶ້ນ</string>
     <string name="upgrade_benefit_support">ສະໜັບສະໜູນຜູ້ພັດທະນາ</string>
     <string name="upgrade_benefit_disclaimer">ການມີອີກຸ່ມຂຶ້ນອຍູ່ກັບຫູຟັງແລະອຸປະກອນຂອງທ່ານ.</string>
-    <string name="upgrade_screen_options_description">ຟີເຈີດຽວກັນ, ລາຄາຕ່າງກັນ. ການສະໝັກສະມາຊິກລວມການທົດລອງໃຊ້ຟຣີ ແລະ ສາມາດຍົກເລີກໄດ້ທຸກເວລາ.</string>
-    <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງໃຊ້ຟຣີ</string>
-    <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກລາຍປີ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ປີ</string>
-    <string name="upgrade_screen_iap_action">ຊື້ຄັ້ງດຽວ</string>
-    <string name="upgrade_screen_iap_action_hint">ການຊື້ຄັ້ງດຽວ: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ກູ້ຄືນການຊື້</string>
-    <string name="upgrade_screen_restore_purchase_message">ບໍ່ພົບການຊື້. ທ່ານກຳລັງໃຊ້ບັນຊີທີ່ຖືກຕ້ອງບໍ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ຖ້າທ່ານຊື້ຜ່ານມາບໍ່ດົນ, ອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງສຳລັບ Google Play ໃນການຊິ້ງຂໍ້ມູນ.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ລອງໃໝ່ຫຼັງຈາກສອງສາມນາທີ ຖ້າການຊື້ຂອງທ່ານຍັງບໍ່ສະແດງ.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ໃຫ້ແນ່ໃຈວ່າທ່ານໄດ້ລ໋ອກອິນດ້ວຍບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
     <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ດີບັກ</string>
     <string name="settings_general_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">ສະຖານະການອັບເກຣດ ແລະ ການຊື້ຂອງທ່ານ.</string>
+    <string name="settings_upgrade_status_foss_label">ສະໜັບສະໜູນ CAPod</string>
+    <string name="settings_upgrade_status_foss_description">ສະຖານະຜູ້ສະໜັບສະໜູນຂອງທ່ານ.</string>
     <string name="settings_overview_hide_unmatched_label">຋່ອນອຸປະກອນທີ່ໄມ່ຕໍງກັນ</string>
     <string name="settings_overview_hide_unmatched_description">ບໍ່ສະແດງອຸປະກອນໃກ້ທີ່ໄມ່ຕໍງກັບໂປຣໄຟລ໌ຂອງທ່ານໃນບັນທຶກປະກອບການ, ເຊັ່ນ: AirPods ຂອງຄນອື່ນ.</string>
     <string name="device_battery_estimate_toggle_label">ການປະເມີນແບັດເຕີຣີ</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">ອຸປະກອນທີ່ບໍ່ກົງກັນ</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d ອຸປະກອນທີ່ບໍ່ມີໂປຣໄຟລ໌ກົງກັນ</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">ກວດພົບອຸປະກອນໃກ້ຄຽງ %d ໜ່ວຍ ໂດຍບໍ່ມີໂປຣໄຟລ໌ທີ່ກົງກັນ. ສະແດງເພື່ອເບິ່ງລາຍລະອຽດທີ່ມີ. ຖ້າມັນເປັນຂອງທ່ານ, ໃຫ້ເພີ່ມໂປຣໄຟລ໌ຈາກອຸປະກອນເພື່ອຈົດຈຳມັນ.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d ອຸປະກອນເພີ່ມເຕີມ</item>
@@ -492,7 +487,7 @@
     <string name="device_settings_microphone_mode_description">ຫູຟັງຂ້າງໃດທີ່ໃຊ້ເປັນໄມໂຄໂຟນ</string>
     <string name="device_settings_microphone_mode_auto">ອັດຕະໂນມັດ</string>
     <string name="device_settings_microphone_mode_right">ຂວາ</string>
-    <string name="device_settings_microphone_mode_left">຋້າຍ</string>
+    <string name="device_settings_microphone_mode_left">ຊ້າຍ</string>
     <string name="device_settings_noise_control_current_mode_label">ໂໝດປັດຈຸບັນ</string>
     <string name="device_settings_listening_mode_cycle_label">ການແວ່ນວງແບບກົດຄ້າງ</string>
     <string name="device_settings_listening_mode_cycle_description">ເລືອກໂໝດທີ່ສາມາດໃຊ້ໄດ້ເມື່ອຖືອ stem ແລະໃນຕົວເລືອກໄວ.</string>

@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Жарнама. Кадалоолоо жок. Google Playга байланма.</string>
     <string name="upgrade_foss_sponsor_returned_early">Артка кайттыңызбы? Сиздин колдооңуз CAPodты тирүү сактайт.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">%s\'дан бери колдоочу</string>
+    <string name="upgrade_foss_supporter_thanks">CAPod\'дун өнүгүшүн колдогонуңуз үчүн рахмат!</string>
+    <string name="upgrade_foss_sponsor_again_action">Демөөрчүлүк баракчасын ачуу</string>
 </resources>

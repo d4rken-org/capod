@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Ei mainoksia. Ei seurantaa. Ei Google Play -riippuvuutta.</string>
     <string name="upgrade_foss_sponsor_returned_early">Jo takaisin? Tukesi pitää CAPod-sovelluksen hengissä.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Tukija %s lähtien</string>
+    <string name="upgrade_foss_supporter_thanks">Kiitos, että tuet CAPodin kehitystä!</string>
+    <string name="upgrade_foss_sponsor_again_action">Avaa sponsorisivu</string>
 </resources>

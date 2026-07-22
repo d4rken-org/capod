@@ -20,7 +20,6 @@
     <string name="general_example_label">Жишээ нь: %s</string>
     <string name="upgrade_capod_label">CAPod-г шинэчлэх</string>
     <string name="upgrade_capod_description">Нэмэлт боломжуудыг авч, хөгжүүлэгчийг дэмжинэ үү.</string>
-    <string name="upgrade_preamble">CAPod-ийг нэг хүн боловсруулсан. Шинэчлэх нь нэмэлт функцуудыг нээж, аппликейшнийг амьд байлгахад тусалдаг.</string>
     <string name="upgrade_benefit_themes">Загварын тохиргоо</string>
     <string name="upgrade_benefit_autoplay">Автомат тоглуулах &amp; автомат зогсоох</string>
     <string name="upgrade_benefit_popups">Тохиолдол нээх &amp; холбогдох үед popup</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Төхөөрөмжийн удирдлага &#8212; чимээ, иш &amp; бусад</string>
     <string name="upgrade_benefit_support">Хөгжүүлэгчийг дэмжих</string>
     <string name="upgrade_benefit_disclaimer">Функцийн боломж таны чихэвч болон төхөөрөмжөөс хамаарна.</string>
-    <string name="upgrade_screen_options_description">Ижил функцүүд, өөр үнэ. Захиалга үнэгүй туршилтын хугацаатай бөгөөд хүссэн үедээ цуцлах боломжтой.</string>
-    <string name="upgrade_screen_subscription_trial_action">Үнэгүй туршилт эхлэх</string>
-    <string name="upgrade_screen_subscription_action">Жил бүр захиалах</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/жил</string>
-    <string name="upgrade_screen_iap_action">Нэг удаа худалдан авах</string>
-    <string name="upgrade_screen_iap_action_hint">Нэг удаагийн худалдан авалт: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Худалдан авалтыг сэргээх</string>
-    <string name="upgrade_screen_restore_purchase_message">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Хэрэв та саяхан худалдан авсан бол Google Play синхрончлоход хэдэн мөч зарцуулж магадгүй.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Худалдан авалт таны дансанд харагдахгүй байвал хэдэн минутын дараа дахин оролдоно уу.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Худалдан авалтад ашигласан Google аккаунтаараа нэвтэрсэн эсэхийг шалгаарай.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
     <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \"Төхөөрөмжийн төлөв\" сувгийг идэвхгүй болгосноор \"Төхөөрөмж алга\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
     <string name="settings_keep_notification_after_disconnect_label">Салсны дараа мэдэгдлийг хадгалах</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Дебаг</string>
     <string name="settings_general_label">Тохиргоо</string>
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Про</string>
+    <string name="settings_upgrade_status_gplay_description">Таны шинэчлэлт болон худалдан авалтын төлөв.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod-ыг ивээн тэтгэх</string>
+    <string name="settings_upgrade_status_foss_description">Таны дэмжигчийн төлөв.</string>
     <string name="settings_overview_hide_unmatched_label">Тохирохгүй төхөөрөмжүүдийг нуух</string>
     <string name="settings_overview_hide_unmatched_description">Таны профайлтай тохирохгүй ойрхон байгаа төхөөрөмжүүдийг, тухайлбал бусад хүмүүсийн AirPods-ийг тоймд харуулахгүй.</string>
     <string name="device_battery_estimate_toggle_label">Батерейны үнэлгээ</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Тохирох профайлгүй %d төхөөрөмж</item>
         <item quantity="other">Тохирох профайлгүй %d төхөөрөмж</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d ойролцоох төхөөрөмж тохирох профильгүйгээр илэрлээ. Дэлгэрэнгүй мэдээллийг үзэхийн тулд үзүүлнэ үү. Хэрэв энэ нь тань бол таних боломжтой болгохын тулд Төхөөрөмж хэсгээс профиль нэмнэ үү.</item>
+        <item quantity="other">%d ойролцоох төхөөрөмж тохирох профильгүйгээр илэрлээ. Дэлгэрэнгүй мэдээллийг үзэхийн тулд тэдгээрийг үзүүлнэ үү. Хэрэв аль нэг нь тань бол таних боломжтой болгохын тулд Төхөөрөмж хэсгээс профиль нэмнэ үү.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d дэлгэрэнгүй төхөөрөмж</item>

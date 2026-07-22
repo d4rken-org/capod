@@ -20,7 +20,6 @@
     <string name="general_example_label">Например: %s</string>
     <string name="upgrade_capod_label">Улучшить CAPod</string>
     <string name="upgrade_capod_description">Получите дополнительные функции и поддержите разработчика.</string>
-    <string name="upgrade_preamble">CAPod разработан одним человеком. Обновление открывает дополнительные функции и помогает поддерживать приложение.</string>
     <string name="upgrade_benefit_themes">Настройка темы</string>
     <string name="upgrade_benefit_autoplay">Авто-воспроизведение и авто-пауза</string>
     <string name="upgrade_benefit_popups">Всплывающее окно при открытии чехла и подключении</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Управление устройством — шум, штоки и не только</string>
     <string name="upgrade_benefit_support">Поддержать разработчика</string>
     <string name="upgrade_benefit_disclaimer">Доступность функций зависит от Ваших наушников и устройства.</string>
-    <string name="upgrade_screen_options_description">Одинаковые функции, разные цены. Подписка включает бесплатный пробный период и может быть отменена в любое время.</string>
-    <string name="upgrade_screen_subscription_trial_action">Начать бесплатный пробный период</string>
-    <string name="upgrade_screen_subscription_action">Подписаться на год</string>
-    <string name="upgrade_screen_subscription_action_hint">%s в год</string>
-    <string name="upgrade_screen_iap_action">Купить один раз</string>
-    <string name="upgrade_screen_iap_action_hint">Единовременная покупка: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Восстановить покупку</string>
-    <string name="upgrade_screen_restore_purchase_message">Покупки не найдены. Вы используете правильный аккаунт?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Если Вы недавно совершили покупку, Google Play может потребоваться некоторое время для синхронизации.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Попробуйте снова через несколько минут, если Ваша покупка не отображается.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Убедитесь, что Вы вошли в ту же учётную запись Google, которая использовалась при покупке.</string>
     <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
     <string name="settings_monitor_connected_notification_description">Показывать дополнительное уведомление, когда устройство подключено. Это позволяет скрыть постоянное уведомление «Нет устройств», отключая канал «Статус устройства».</string>
     <string name="settings_keep_notification_after_disconnect_label">Оставить уведомление после отключения</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Отладка</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Ваш статус обновления и покупки.</string>
+    <string name="settings_upgrade_status_foss_label">Поддержать CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Статус вашей поддержки.</string>
     <string name="settings_overview_hide_unmatched_label">Скрывать несопряжённые устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показывать ближайшие устройства, не соответствующие ни одному из твоих профилей, в обзоре, например AirPods других людей.</string>
     <string name="device_battery_estimate_toggle_label">Расчётное время батареи</string>
@@ -218,6 +210,12 @@ AL_Cool_T</string>
         <item quantity="few">%d устр. без соответствующего профиля</item>
         <item quantity="many">%d устр. без соответствующего профиля</item>
         <item quantity="other">%d устр. без соответствующего профиля</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Обнаружено %d устройство поблизости без подходящего профиля. Откройте его, чтобы увидеть доступные сведения. Если это ваше устройство, добавьте профиль в разделе «Устройства», чтобы его распознать.</item>
+        <item quantity="few">Обнаружено %d устройства поблизости без подходящих профилей. Откройте их, чтобы увидеть доступные сведения. Если одно из них ваше, добавьте профиль в разделе «Устройства», чтобы его распознать.</item>
+        <item quantity="many">Обнаружено %d устройств поблизости без подходящих профилей. Откройте их, чтобы увидеть доступные сведения. Если одно из них ваше, добавьте профиль в разделе «Устройства», чтобы его распознать.</item>
+        <item quantity="other">Обнаружено %d устройства поблизости без подходящих профилей. Откройте их, чтобы увидеть доступные сведения. Если одно из них ваше, добавьте профиль в разделе «Устройства», чтобы его распознать.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">Ещё %d устройство</item>

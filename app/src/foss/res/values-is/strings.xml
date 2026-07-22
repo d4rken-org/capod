@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Engar auglysíngar. Engin rakning. Ekkert Google Play-lás.</string>
     <string name="upgrade_foss_sponsor_returned_early">Aftur þegar? Styðjað þít heldur CAPod lifandi.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Styrktaraðili síðan %s</string>
+    <string name="upgrade_foss_supporter_thanks">Takk fyrir að styðja þróun CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Opna styrktarsíðu</string>
 </resources>

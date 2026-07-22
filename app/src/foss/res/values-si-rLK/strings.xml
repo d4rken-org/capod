@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">අළු නැත. ට්‍රැකිං නැත. Google Play සලක඾ත්වය නැත.</string>
     <string name="upgrade_foss_sponsor_returned_early">එක්බේන්මට පළ්ට? ඔබ෪් සහය් CAPod ක්‍රියාත්මකව තබා ගෙනයි.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">%s සිට අනුග්‍රාහකයෙකි</string>
+    <string name="upgrade_foss_supporter_thanks">CAPod හි සංවර්ධනයට සහාය දැක්වූ ඔබට ස්තූතියි!</string>
+    <string name="upgrade_foss_sponsor_again_action">අනුග්‍රාහක පිටුව විවෘත කරන්න</string>
 </resources>

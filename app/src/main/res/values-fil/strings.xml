@@ -20,7 +20,6 @@
     <string name="general_example_label">Hal.: %s</string>
     <string name="upgrade_capod_label">I-upgrade ang CAPod</string>
     <string name="upgrade_capod_description">Kumuha ng mga karagdagang feature at suportahan ang developer.</string>
-    <string name="upgrade_preamble">Ang CAPod ay ginawa ng isang tao. Ang pag-upgrade ay nagbubukas ng mga karagdagang feature at tumutulong na mapanatiling buhay ang app.</string>
     <string name="upgrade_benefit_themes">Pag-customize ng tema</string>
     <string name="upgrade_benefit_autoplay">Auto-play &amp; auto-pause</string>
     <string name="upgrade_benefit_popups">Popup sa pagbubukas ng case &amp; koneksyon</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Mga kontrol ng device &#8212; ingay, stem at iba pa</string>
     <string name="upgrade_benefit_support">Suportahan ang developer</string>
     <string name="upgrade_benefit_disclaimer">Ang availability ng feature ay depende sa iyong headphones at device.</string>
-    <string name="upgrade_screen_options_description">Parehong mga feature, iba\'t ibang presyo. Ang subscription ay may kasamang libreng pagsubok at maaaring kanselahin anumang oras.</string>
-    <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng pagsubok</string>
-    <string name="upgrade_screen_subscription_action">Mag-subscribe taon-taon</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/taon</string>
-    <string name="upgrade_screen_iap_action">Bilhin nang isang beses</string>
-    <string name="upgrade_screen_iap_action_hint">Isang beses na pagbili: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">I-restore ang pagbili</string>
-    <string name="upgrade_screen_restore_purchase_message">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Kung nabili mo kamakailan, maaaring tumagal ng ilang sandali para ma-sync ng Google Play.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Subukang muli pagkatapos ng ilang minuto kung hindi lumabas ang iyong pagbili.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Tiyaking naka-sign in ka sa parehong Google account na ginamit sa pagbili.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
     <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
     <string name="settings_keep_notification_after_disconnect_label">Panatilihin ang notipikasyon pagkatapos mag-disconnect</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mga Setting</string>
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Ang katayuan ng iyong pag-upgrade at pagbili.</string>
+    <string name="settings_upgrade_status_foss_label">I-sponsor ang CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Ang iyong katayuan bilang tagasuporta.</string>
     <string name="settings_overview_hide_unmatched_label">Itago ang mga hindi tugmang device</string>
     <string name="settings_overview_hide_unmatched_description">Huwag ipakita ang mga kalapit na device na hindi tugma sa alinman sa iyong mga profile sa pangkalahatang-tanaw, hal. ang mga AirPods ng ibang tao.</string>
     <string name="device_battery_estimate_toggle_label">Mga Pagtataya ng Baterya</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d device na walang katugmang profile</item>
         <item quantity="other">%d mga device na walang katugmang profile</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Natukoy ang %d katabing device na walang katugmang profile. Ipakita ito para sa mga available na detalye. Kung sa iyo ito, magdagdag ng profile mula sa Mga Device para makilala ito.</item>
+        <item quantity="other">Natukoy ang %d katabing device na walang katugmang mga profile. Ipakita ang mga ito para sa mga available na detalye. Kung sa iyo ang isa, magdagdag ng profile mula sa Mga Device para makilala ito.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d pang device</item>

@@ -20,7 +20,6 @@
     <string name="general_example_label">მაგ.: %s</string>
     <string name="upgrade_capod_label">CAPod-ის განახლება</string>
     <string name="upgrade_capod_description">მიიღეთ დამატებითი ფუნქციები და მხარი დაუჭირეთ დეველოპერს.</string>
-    <string name="upgrade_preamble">CAPod შემუშავებულია ერთი ადამიანის მიერ. განახლება ხსნის დამატებით ფუნქციებს და ეხმარება აპს გადარჩენაში.</string>
     <string name="upgrade_benefit_themes">თემის მორგება</string>
     <string name="upgrade_benefit_autoplay">ავტო-დაკვრა და ავტო-პაუზა</string>
     <string name="upgrade_benefit_popups">Popup ქეისის გახსნისა და დაკავშირებისას</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">მოწყობილობის კონტროლი — ხმაური, ღეროები და სხვა</string>
     <string name="upgrade_benefit_support">დეველოპერის მხარდაჭერა</string>
     <string name="upgrade_benefit_disclaimer">ფუნქციის ხელმისაწვდომობა დამოკიდებულია თქვენს ყურსასმენსა და მოწყობილობაზე.</string>
-    <string name="upgrade_screen_options_description">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერა მოიცავს უფასო საცდელ პერიოდს და შეიძლება გაუქმდეს ნებისმიერ დროს.</string>
-    <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო საცდელი ვერსიით</string>
-    <string name="upgrade_screen_subscription_action">გამოიწერეთ წლიურად</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/წელი</string>
-    <string name="upgrade_screen_iap_action">ერთხელ შეიძინეთ</string>
-    <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
-    <string name="upgrade_screen_restore_purchase_message">შენაძენები ვერ მოიძებნა. იყენებთ სწორ ანგარიშს?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">თუ ახლახანს შეიძინეთ, Google Play-ს სინქრონიზაციას შეიძლება გარკვეული დრო დასჭირდეს.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">რამდენიმე წუთში სცადეთ თავიდან, თუ თქვენი შეძენა არ ჩანს.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">დარწმუნდით, რომ შესულა ხართ იმავე Google ანგარიშით, რომელიც გამოიყენეთ შეძენისას.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
     <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \"მოწყობილობები არ არის\" შეტყობინება \"მოწყობილობის სტატუსის\" არხის გამორთვით.</string>
     <string name="settings_keep_notification_after_disconnect_label">შეტყობინების შენარჩუნება გათიშვის შემდეგ</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">გამართვა</string>
     <string name="settings_general_label">პარამეტრები</string>
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">თქვენი განახლებისა და შესყიდვის სტატუსი.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod-ის სპონსორობა</string>
+    <string name="settings_upgrade_status_foss_description">თქვენი მხარდამჭერის სტატუსი.</string>
     <string name="settings_overview_hide_unmatched_label">შეუსაბამო მოწყობილობების დამალვა</string>
     <string name="settings_overview_hide_unmatched_description">არ აჩვენო მახლობლად მყოფი მოწყობილობები, რომლებიც არ ემთხვევა თქვენს პროფილებს მიმოხილვაში, მაგ. სხვა ადამიანების AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ბატარეის შეფასებები</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d მოწყობილობა შესაბამისი პროფილის გარეშეა</item>
         <item quantity="other">%d მოწყობილობა შესაბამისი პროფილის გარეშეა</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d ახლომდებარე მოწყობილობა აღმოჩენილია შესაბამისი პროფილის გარეშე. სანახავად გახსენით დეტალები. თუ ეს თქვენია, დაამატეთ პროფილი მოწყობილობებში მის ამოსაცნობად.</item>
+        <item quantity="other">%d ახლომდებარე მოწყობილობა აღმოჩენილია შესაბამისი პროფილების გარეშე. სანახავად გახსენით დეტალები. თუ ერთ-ერთი თქვენია, დაამატეთ პროფილი მოწყობილობებში მისი ამოსაცნობად.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d დამატებითი მოწყობილობა</item>

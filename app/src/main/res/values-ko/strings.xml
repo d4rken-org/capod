@@ -20,7 +20,6 @@
     <string name="general_example_label">예: %s</string>
     <string name="upgrade_capod_label">CAPod 업그레이드</string>
     <string name="upgrade_capod_description">추가 기능을 받고 개발자를 지원하세요.</string>
-    <string name="upgrade_preamble">CAPod는 한 명이 개발합니다. 업그레이드하면 추가 기능이 잠금 해제되고 앱 유지에 도움이 됩니다.</string>
     <string name="upgrade_benefit_themes">테마 사용자 지정</string>
     <string name="upgrade_benefit_autoplay">자동 재생 &amp; 자동 일시정지</string>
     <string name="upgrade_benefit_popups">케이스 열기 &amp; 연결 시 팝업</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">기기 제어 &#8212; 소음, 스템 &amp; 기타</string>
     <string name="upgrade_benefit_support">개발자 지원</string>
     <string name="upgrade_benefit_disclaimer">기능 사용 가능 여부는 헤드폰 및 기기에 따라 다릅니다.</string>
-    <string name="upgrade_screen_options_description">동일한 기능, 다른 가격. 구독에는 무료 체험이 포함되며 언제든지 취소할 수 있습니다.</string>
-    <string name="upgrade_screen_subscription_trial_action">무료 체험 시작</string>
-    <string name="upgrade_screen_subscription_action">연간 구독</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/년</string>
-    <string name="upgrade_screen_iap_action">한 번 구매</string>
-    <string name="upgrade_screen_iap_action_hint">일회성 구매: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">구매 복원</string>
-    <string name="upgrade_screen_restore_purchase_message">구매 내역을 찾지 못했습니다. 결제했던 계정이 맞나요?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">최근에 구매하셨다면 Google Play가 동기화하는 데 잠시 시간이 걸릴 수 있습니다.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">구매 내역이 표시되지 않으면 몇 분 후 다시 시도해 주세요.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">구매에 사용한 Google 계정으로 로그인되어 있는지 확인해 주세요.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
     <string name="settings_monitor_connected_notification_description">기기가 연결되면 추가 알림을 표시합니다. 이렇게 하면 \"기기 상태\" 채널을 비활성화하여 영구적인 \"기기 없음\" 알림을 숨길 수 있습니다.</string>
     <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">디버그</string>
     <string name="settings_general_label">설정</string>
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">업그레이드 및 구매 상태입니다.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod 후원하기</string>
+    <string name="settings_upgrade_status_foss_description">후원자 상태입니다.</string>
     <string name="settings_overview_hide_unmatched_label">일치하지 않는 기기 숨기기</string>
     <string name="settings_overview_hide_unmatched_description">개요에서 프로필과 일치하지 않는 주변 기기(예: 다른 사람의 AirPods)를 표시하지 않습니다.</string>
     <string name="device_battery_estimate_toggle_label">배터리 추정</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">일치하지 않는 기기</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d프로필과 일치하지 않는 기기</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">일치하는 프로필이 없는 근처 기기 %d개가 감지되었습니다. 자세한 정보를 보려면 표시하세요. 본인의 기기라면 기기 화면에서 프로필을 추가하여 인식시키세요.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d개 기기 더</item>
@@ -451,7 +446,7 @@
     <string name="device_settings_category_sound_label">사운드</string>
     <string name="device_settings_category_controls_label">제어</string>
     <string name="device_settings_nc_one_airpod_label">단일 이어팟으로 ANC 사용</string>
-    <string name="device_settings_nc_one_airpod_description">AirPod 한 쪽만 착용 시 노이즈 캐슬링 유지</string>
+    <string name="device_settings_nc_one_airpod_description">AirPod 한 쪽만 착용 시 노이즈 캔슬링 유지</string>
     <string name="device_settings_personalized_volume_label">개인화된 음량</string>
     <string name="device_settings_personalized_volume_description">환경에 따라 미디어 볼륨 조정</string>
     <string name="device_settings_conversation_awareness_description">누군가 말할 때 미디어 볼륨 낮추고 소음 줄이기</string>
@@ -503,7 +498,7 @@
     <string name="device_settings_listening_mode_cycle_summary_helper_override">빠른 전환기에서 사용됩니다. 사용자 지정 스템 길게 누르기 작업이 AirPods 순환을 재정의합니다.</string>
     <string name="device_settings_listening_mode_cycle_minimum">적어도 2개의 모드가 활성화되어 있어야 합니다.</string>
     <string name="device_settings_listening_mode_cycle_off">끄기</string>
-    <string name="device_settings_listening_mode_cycle_anc">노이즈 캐슬링</string>
+    <string name="device_settings_listening_mode_cycle_anc">노이즈 캔슬링</string>
     <string name="device_settings_listening_mode_cycle_transparency">투명도</string>
     <string name="device_settings_listening_mode_cycle_adaptive">적응형</string>
     <string name="device_settings_allow_off_label">Off 모드 허용</string>

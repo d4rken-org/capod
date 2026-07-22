@@ -20,7 +20,6 @@
     <string name="general_example_label">مثال: %s</string>
     <string name="upgrade_capod_label">ارتقای CAPod</string>
     <string name="upgrade_capod_description">ویژگی‌های اضافی دریافت کنید و از توسعه‌دهنده حمایت کنید.</string>
-    <string name="upgrade_preamble">CAPod توسط یک نفر توسعه داده می‌شود. ارتقا دادن ویژگی‌های اضافی را باز می‌کند و به زنده نگه داشتن برنامه کمک می‌کند.</string>
     <string name="upgrade_benefit_themes">سفارشی‌سازی پوسته</string>
     <string name="upgrade_benefit_autoplay">پخش خودکار و توقف خودکار</string>
     <string name="upgrade_benefit_popups">پنجره‌ی بازشو هنگام باز کردن جعبه و اتصال</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">کنترل‌های دستگاه — نویز، ساقه و بیشتر</string>
     <string name="upgrade_benefit_support">حمایت از توسعه‌دهنده</string>
     <string name="upgrade_benefit_disclaimer">در دسترس بودن ویژگی‌ها به هدفون و دستگاه شما بستگی دارد.</string>
-    <string name="upgrade_screen_options_description">ویژگی‌های یکسان، قیمت‌گذاری متفاوت. اشتراک شامل آزمایش رایگان است و در هر زمانی می‌توان آن را لغو کرد.</string>
-    <string name="upgrade_screen_subscription_trial_action">شروع دوره آزمایشی</string>
-    <string name="upgrade_screen_subscription_action">اشتراک سالانه</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/سال</string>
-    <string name="upgrade_screen_iap_action">یک‌بار خرید کنید</string>
-    <string name="upgrade_screen_iap_action_hint">خرید یک‌باره: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">بازیابی خرید</string>
-    <string name="upgrade_screen_restore_purchase_message">خریدی یافت نشد. آیا از حساب درستی استفاده می‌کنید؟</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">اگر اخیراً خرید کرده‌اید، ممکن است چند لحظه طول بکشد تا Google Play همگام‌سازی شود.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">اگر خرید شما نمایش داده نشد، چند دقیقه دیگر دوباره امتحان کنید.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">مطمئن شوید با همان حساب Google که برای خرید استفاده کردید وارد شده‌اید.</string>
     <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
     <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \"بدون دستگاه\" را با غیرفعال کردن کانال \"وضعیت دستگاه\" پنهان کنید.</string>
     <string name="settings_keep_notification_after_disconnect_label">حفظ اعلان پس از قطع اتصال</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">اشکال‌زدایی</string>
     <string name="settings_general_label">تنظیمات</string>
     <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">وضعیت ارتقا و خرید شما.</string>
+    <string name="settings_upgrade_status_foss_label">حمایت از CAPod</string>
+    <string name="settings_upgrade_status_foss_description">وضعیت حمایت شما.</string>
     <string name="settings_overview_hide_unmatched_label">پنهان کردن دستگاه‌های نامتناسب</string>
     <string name="settings_overview_hide_unmatched_description">دستگاه‌های نزدیکی که با هیچ‌کدام از پروفایل‌های شما تطابق ندارند در نمای کلی نمایش داده نمی‌شوند، مثلاً AirPods دیگران.</string>
     <string name="device_battery_estimate_toggle_label">برآورد زمان باتری</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d دستگاه بدون پروفایل منطبق</item>
         <item quantity="other">%d دستگاه بدون پروفایل منطبق</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d دستگاه نزدیک بدون پروفایل منطبق شناسایی شد. برای مشاهده جزئیات موجود، آن را نمایش دهید. اگر مال شماست، از بخش «دستگاه‌ها» یک پروفایل اضافه کنید تا شناسایی شود.</item>
+        <item quantity="other">%d دستگاه نزدیک بدون پروفایل منطبق شناسایی شدند. برای مشاهده جزئیات موجود، آن‌ها را نمایش دهید. اگر یکی از آن‌ها مال شماست، از بخش «دستگاه‌ها» یک پروفایل اضافه کنید تا شناسایی شود.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d دستگاه دیگر</item>
