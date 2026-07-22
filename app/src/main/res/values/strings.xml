@@ -44,6 +44,7 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">If you\'ve recently purchased, it may take a moment for Google Play to sync.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Try again in a few minutes if your purchase doesn\'t appear.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Make sure you\'re signed in with the same Google account used for the purchase.</string>
+    <string name="upgrade_screen_restore_webinstall_hint">Multiple accounts can confuse Google Play. Installing the app through the Google Play website forces the association with a specific account.</string>
     <string name="upgrade_screen_restore_banner_title">Already bought Pro?</string>
     <string name="upgrade_screen_restore_banner_body">It looks like you upgraded to Pro on this device before. Restore your purchase to unlock it again.</string>
     <string name="upgrade_screen_restore_success_message">Purchase restored.</string>

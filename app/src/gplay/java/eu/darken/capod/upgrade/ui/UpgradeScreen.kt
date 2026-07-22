@@ -224,6 +224,7 @@ internal fun RestoreFailedDialog(
                     stringResource(R.string.upgrade_screen_restore_purchase_message),
                     stringResource(R.string.upgrade_screen_restore_troubleshooting_msg),
                     stringResource(R.string.upgrade_screen_restore_multiaccount_hint),
+                    stringResource(R.string.upgrade_screen_restore_webinstall_hint),
                     stringResource(R.string.upgrade_screen_restore_sync_patience_hint),
                 ).joinToString("\n\n")
             )
