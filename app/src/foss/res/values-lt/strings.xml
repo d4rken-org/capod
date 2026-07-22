@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Jokių reklamų. Jokio sekimo. Jokio „Google Play“ priklausomybės.</string>
     <string name="upgrade_foss_sponsor_returned_early">Jau grįžte? Jūsų parama palaiko CAPod gyvybę.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Rėmėjas nuo %s</string>
+    <string name="upgrade_foss_supporter_thanks">Ačiū, kad remiate CAPod kūrimą!</string>
+    <string name="upgrade_foss_sponsor_again_action">Atidaryti rėmėjo puslapį</string>
 </resources>

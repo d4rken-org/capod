@@ -20,7 +20,6 @@
     <string name="general_example_label">ตัวอย่าง: %s</string>
     <string name="upgrade_capod_label">อัปเกรด CAPod</string>
     <string name="upgrade_capod_description">รับคุณสมบัติเพิ่มเติมและสนับสนุนนักพัฒนา</string>
-    <string name="upgrade_preamble">CAPod พัฒนาโดยบุคคลเพียงคนเดียว การอัปเกรดจะปลดล็อกฟีเจอร์เพิ่มเติมและช่วยให้แอปนี้ดำเนินต่อไปได้</string>
     <string name="upgrade_benefit_themes">การปรับแต่งธีม</string>
     <string name="upgrade_benefit_autoplay">เล่นอัตโนมัติและหยุดชั่วคราวอัตโนมัติ</string>
     <string name="upgrade_benefit_popups">ป๊อปอัปเมื่อเปิดเคสและเชื่อมต่อ</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">การควบคุมอุปกรณ์ — เสียง, ก้าน และอื่นๆ</string>
     <string name="upgrade_benefit_support">สนับสนุนนักพัฒนา</string>
     <string name="upgrade_benefit_disclaimer">การใช้งานคุณสมบัติขึ้นอยู่กับหูฟังและอุปกรณ์ของคุณ</string>
-    <string name="upgrade_screen_options_description">ฟีเจอร์เดียวกัน ราคาต่างกัน การสมัครสมาชิกมีช่วงทดลองใช้ฟรีและสามารถยกเลิกได้ทุกเมื่อ</string>
-    <string name="upgrade_screen_subscription_trial_action">เริ่มทดลองใช้ฟรี</string>
-    <string name="upgrade_screen_subscription_action">สมัครสมาชิกรายปี</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ปี</string>
-    <string name="upgrade_screen_iap_action">ซื้อครั้งเดียว</string>
-    <string name="upgrade_screen_iap_action_hint">ซื้อครั้งเดียว: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">กู้คืนการซื้อ</string>
-    <string name="upgrade_screen_restore_purchase_message">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">หากคุณเพิ่งซื้อไป อาจใช้เวลาสักครู่ให้ Google Play ซิงค์ข้อมูล</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ลองอีกครั้งในอีกไม่กี่นาทีหากการซื้อของคุณยังไม่ปรากฏ</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ตรวจสอบให้แน่ใจว่าคุณลงชื่อเข้าใช้ด้วยบัญชี Google เดียวกับที่ใช้ซื้อ</string>
     <string name="settings_monitor_connected_notification_label">การแจ้งเตือนเพิ่มเติม</string>
     <string name="settings_monitor_connected_notification_description">แสดงการแจ้งเตือนเพิ่มเติมเมื่ออุปกรณ์เชื่อมต่อ ซึ่งช่วยให้คุณสามารถซ่อนการแจ้งเตือนถาวร \"ไม่มีอุปกรณ์\" โดยการปิดใช้งานช่อง \"สถานะอุปกรณ์\"</string>
     <string name="settings_keep_notification_after_disconnect_label">คงการแจ้งเตือนหลังตัดการเชื่อมต่อ</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ดีบัก</string>
     <string name="settings_general_label">การตั้งค่า</string>
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">สถานะการอัปเกรดและการซื้อของคุณ</string>
+    <string name="settings_upgrade_status_foss_label">สนับสนุน CAPod</string>
+    <string name="settings_upgrade_status_foss_description">สถานะผู้สนับสนุนของคุณ</string>
     <string name="settings_overview_hide_unmatched_label">ซ่อนอุปกรณ์ที่ไม่ตรงกัน</string>
     <string name="settings_overview_hide_unmatched_description">ไม่แสดงอุปกรณ์ใกล้เคียงที่ไม่ตรงกับโปรไฟล์ของคุณในภาพรวม เช่น AirPods ของคนอื่น</string>
     <string name="device_battery_estimate_toggle_label">การประมาณแบตเตอรี่</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">อุปกรณ์ที่ไม่ตรงกัน</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d อุปกรณ์ที่ไม่มีโปรไฟล์ที่ตรงกัน</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">พบอุปกรณ์ใกล้เคียง %d เครื่องที่ไม่มีโปรไฟล์ที่ตรงกัน แตะเพื่อดูรายละเอียดที่มี หากเป็นอุปกรณ์ของคุณ ให้เพิ่มโปรไฟล์จากหน้าอุปกรณ์เพื่อจดจำอุปกรณ์นั้น</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d อุปกรณ์เพิ่มเติม</item>

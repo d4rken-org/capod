@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Bez reklamām. Bez izsekošanas. Bez Google Play saistībām.</string>
     <string name="upgrade_foss_sponsor_returned_early">Jau atpakaļ? Tavs atbalsts uztur CAPod esamību.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Atbalstītājs kopš %s</string>
+    <string name="upgrade_foss_supporter_thanks">Paldies, ka atbalsti CAPod izstrādi!</string>
+    <string name="upgrade_foss_sponsor_again_action">Atvērt sponsorēšanas lapu</string>
 </resources>

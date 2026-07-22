@@ -20,7 +20,6 @@
     <string name="general_example_label">Isib.: %s</string>
     <string name="upgrade_capod_label">Thuthukisa i-CAPod</string>
     <string name="upgrade_capod_description">Thola izici ezengeziwe futhi usekele unjiniyela.</string>
-    <string name="upgrade_preamble">I-CAPod yenziwa umuntu oyedwa. Ukuthuthuka kuvula izici ezithe thula futhi kusiza ukugcina uhlelo lokusebenza luphila.</string>
     <string name="upgrade_benefit_themes">Ukuhlelwa kwetheme</string>
     <string name="upgrade_benefit_autoplay">Ukudlala ngokwezinhlelo &amp; ukumisa ngokwezinhlelo</string>
     <string name="upgrade_benefit_popups">Ividiyo yokuvula indwangu &amp; ukuxhuma</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Izilawuli zedivayisi &#8212; umsindo, izipini &amp; okunye</string>
     <string name="upgrade_benefit_support">Seka umqambi</string>
     <string name="upgrade_benefit_disclaimer">Ukutholakala kwezici kuncike ezindlebezaneni zakho nasedivayisini.</string>
-    <string name="upgrade_screen_options_description">Izici ezifanayo, amanani ahlukene. Isigwebo sifaka isikhathi sokuhlola simahala futhi singahoxiswa nganoma yiziphi izikhathi.</string>
-    <string name="upgrade_screen_subscription_trial_action">Qala isikhathi sokuhlola simahala</string>
-    <string name="upgrade_screen_subscription_action">Bhalisela unyaka</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ngonyaka</string>
-    <string name="upgrade_screen_iap_action">Thenga kanye</string>
-    <string name="upgrade_screen_iap_action_hint">Ukuthenga kanye: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Buyisela ukuthenga</string>
-    <string name="upgrade_screen_restore_purchase_message">Akukho ukuthenga okutholakele. Ingabe usebenzisa i-akhawunti efanele?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Uma uthenga kamuva nje, kungathatha isikhashana i-Google Play ukuvumelanisa.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Zama futhi emaminithini ambalwa uma ukuthenga kwakho kungabonakali.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Qiniseka ukuthi ungene nge-akhawunti efanayo ye-Google esetshenzisiwe ekuthengeni.</string>
     <string name="settings_monitor_connected_notification_label">Isaziso esengeziwe</string>
     <string name="settings_monitor_connected_notification_description">Ibonisa isaziso esengeziwe lapho idivayisi ixhunyiwe. Lokhu kukuvumela ukuthi ufihle isaziso esihlala njalo esithi \"Awekho amadivayisi\" ngokukhubaza isiteshi \"Isimo sedivayisi\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Gcina isaziso ngemva kokunqamuka</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Ukulungiswa</string>
     <string name="settings_general_label">Izilungiselelo</string>
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
+    <string name="settings_upgrade_status_foss_label">Xhasa i-CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Isimo sakho sokusekela.</string>
     <string name="settings_overview_hide_unmatched_label">Fihla amadivayisi angafanele</string>
     <string name="settings_overview_hide_unmatched_description">Ungabonisi amadivayisi aseduzane angafanele namaprofile akho embonweni jikelele, isib. ama-AirPods abantu abanye.</string>
     <string name="device_battery_estimate_toggle_label">Izilinganiso zeBatari</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Idivayisi engu-%d engenayo iphrofayili ehambisanayo</item>
         <item quantity="other">Amadivayisi angu-%d angenayo iphrofayili ehambisanayo</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Kutholwe idivayisi engu-%d eseduze engenayo iphrofayela efanayo. Yiveze ukuze ubone imininingwane etholakalayo. Uma ingeyakho, engeza iphrofayela kusuka ku-Amadivayisi ukuze uyiqaphele.</item>
+        <item quantity="other">Kutholwe amadivayisi angu-%d aseduze angenayo amaphrofayela afanayo. Awaveze ukuze ubone imininingwane etholakalayo. Uma elinye lingelakho, engeza iphrofayela kusuka ku-Amadivayisi ukuze ulazi.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d idivayisi eyengeziwe</item>

@@ -20,7 +20,6 @@
     <string name="general_example_label">उदा.: %s</string>
     <string name="upgrade_capod_label">CAPod अपग्रेड करा</string>
     <string name="upgrade_capod_description">अतिरिक्त वैशिष्ट्ये मिळवा आणि विकसकाला पाठिंबा द्या.</string>
-    <string name="upgrade_preamble">CAPod एका व्यक्तीने विकसित केला आहे. अपग्रेड केल्यास अतिरिक्त वैशिष्ट्ये मिळतात आणि अॅप सुरू ठेवण्यास मदत होते.</string>
     <string name="upgrade_benefit_themes">थीम सानुकूलन</string>
     <string name="upgrade_benefit_autoplay">ऑटो-प्ले आणि ऑटो-पॉज</string>
     <string name="upgrade_benefit_popups">केस उघडताना आणि कनेक्शनवर पॉपअप</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">डिव्हाइस नियंत्रणे — आवाज, स्टेम आणि बरेच काही</string>
     <string name="upgrade_benefit_support">डेव्हलपरला समर्थन द्या</string>
     <string name="upgrade_benefit_disclaimer">वैशिष्ट्य उपलब्धता तुमच्या हेडफोन आणि डिव्हाइसवर अवलंबून आहे.</string>
-    <string name="upgrade_screen_options_description">समान वैशिष्ट्ये, वेगळी किंमत. सदस्यतेमध्ये विनामूल्य चाचणी समाविष्ट आहे आणि कोणत्याही वेळी रद्द केली जाऊ शकते.</string>
-    <string name="upgrade_screen_subscription_trial_action">विनामूल्य चाचणी सुरू करा</string>
-    <string name="upgrade_screen_subscription_action">वार्षिक सदस्यता घ्या</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/वर्ष</string>
-    <string name="upgrade_screen_iap_action">एकदाच खरेदी करा</string>
-    <string name="upgrade_screen_iap_action_hint">एकवेळ खरेदी: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">खरेदी पुनर्संचयित करा</string>
-    <string name="upgrade_screen_restore_purchase_message">कोणतीही खरेदी आढळली नाही. तुम्ही योग्य खाते वापरत आहात का?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">जर तुम्ही नुकतीच खरेदी केली असेल, तर Google Play ला समक्रमित होण्यास थोडा वेळ लागू शकतो.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">जर तुमची खरेदी दिसत नसेल, तर काही मिनिटांनी पुन्हा प्रयत्न करा.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">खरेदीसाठी वापरलेल्या त्याच Google खात्याने साइन इन असल्याची खात्री करा.</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
     <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \"डिव्हाइस स्थिती\" चॅनेल अक्षम करून कायमस्वरूपी \"कोणतेही डिव्हाइस नाही\" सूचना लपविण्यास अनुमती देते.</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट झाल्यानंतर सूचना ठेवा</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">डीबग</string>
     <string name="settings_general_label">सेटिंग्ज</string>
     <string name="settings_general_description">संपूर्ण अॅपवर परिणाम करणारे सामान्य बदल.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">तुमची अपग्रेड आणि खरेदी स्थिती.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod ला प्रायोजित करा</string>
+    <string name="settings_upgrade_status_foss_description">तुमची समर्थक स्थिती.</string>
     <string name="settings_overview_hide_unmatched_label">न जुळणारी उपकरणे लपवा</string>
     <string name="settings_overview_hide_unmatched_description">आढावा विभागात तुमच्या कोणत्याही प्रोफाइलशी न जुळणारी जवळची उपकरणे दाखवू नका, उदा. इतर लोकांचे AirPods.</string>
     <string name="device_battery_estimate_toggle_label">बॅटरी अंदाज</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">जुळणारे प्रोफाइल नसलेले %d डिव्हाइस</item>
         <item quantity="other">जुळणारे प्रोफाइल नसलेले %d डिव्हाइस</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d जवळचे डिव्हाइस जुळणाऱ्या प्रोफाइलशिवाय आढळले. उपलब्ध तपशिलांसाठी ते दाखवा. जर ते तुमचे असेल, तर ते ओळखण्यासाठी डिव्हाइसेसमधून प्रोफाइल जोडा.</item>
+        <item quantity="other">%d जवळची डिव्हाइसेस जुळणाऱ्या प्रोफाइल्सशिवाय आढळली. उपलब्ध तपशिलांसाठी ती दाखवा. जर त्यापैकी एक तुमचे असेल, तर ते ओळखण्यासाठी डिव्हाइसेसमधून प्रोफाइल जोडा.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d अधिक डिव्हाइस</item>

@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Hakuna matangazo. Hakuna ufuatiliaji. Hakuna kufungwa kwa Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Unarudi tayari? Msaada wako unaweka CAPod iwe hai.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Msaidizi tangu %s</string>
+    <string name="upgrade_foss_supporter_thanks">Asante kwa kuunga mkono maendeleo ya CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Fungua ukurasa wa udhamini</string>
 </resources>

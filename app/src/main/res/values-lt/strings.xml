@@ -20,7 +20,6 @@
     <string name="general_example_label">Pvz.: %s</string>
     <string name="upgrade_capod_label">Naujinti CAPod</string>
     <string name="upgrade_capod_description">Gaukite papildomų funkcijų ir paremkite kūrėją.</string>
-    <string name="upgrade_preamble">CAPod sukūrė vienas žmogus. Atnaujinimas atrakins papildomas funkcijas ir padės išlaikyti programėlę gyvą.</string>
     <string name="upgrade_benefit_themes">Temos pritaikymas</string>
     <string name="upgrade_benefit_autoplay">Automatinis grojimas ir pauzė</string>
     <string name="upgrade_benefit_popups">Iššokantis langas atidarius dėklą ir prisijungus</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Ĭrenginio valdikliai &#8212; triukšmas, koteliai ir daugiau</string>
     <string name="upgrade_benefit_support">Paremkite kūrėją</string>
     <string name="upgrade_benefit_disclaimer">Funkcijų pasiekiamumas priklauso nuo jūsų ausinių ir įrenginio.</string>
-    <string name="upgrade_screen_options_description">Tos pačios funkcijos, skirtingos kainos. Prenumerata apima nemokamą bandomąjį laikotarpį ir gali būti atšaukta bet kuriuo metu.</string>
-    <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą bandomąjį laikotarpį</string>
-    <string name="upgrade_screen_subscription_action">Prenumeruoti kasmet</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/metai</string>
-    <string name="upgrade_screen_iap_action">Pirkti vieną kartą</string>
-    <string name="upgrade_screen_iap_action_hint">Vienkartinis pirkimas: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
-    <string name="upgrade_screen_restore_purchase_message">Nerasta jokių pirkinių. Ar naudojate tinkamą paskyrą?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jei neseniai įsigįjote, gali užtrukti kol „Google Play“ sinchronizuosis.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Pabandykite dar kartą po kelių minučių, jei jūsų pirkimas neatsiranda.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Patikrinkite, ar esate prisijungę ta pačia „Google“ paskyra, kuri buvo naudota pirkiniui.</string>
     <string name="settings_monitor_connected_notification_label">Papildomas pranešimas</string>
     <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \"Nėra įrenginių\" išjungiant kanalą \"Įrenginio būsena\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Palikti pranešimą atjungus</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Derinimas</string>
     <string name="settings_general_label">Nustatymai</string>
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Jūsų atnaujinimo ir pirkimo būsena.</string>
+    <string name="settings_upgrade_status_foss_label">Remti CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Jūsų rėmėjo būsena.</string>
     <string name="settings_overview_hide_unmatched_label">Slėpti neatitinkančius įrenginius</string>
     <string name="settings_overview_hide_unmatched_description">Nerodykite netoliese esančių įrenginius, kurie neatitinka nė vieno jūsų profilio apžvalgoje, pvz. kitų žmonų AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Baterijos įverčiai</string>
@@ -217,6 +209,12 @@
         <item quantity="few">%d įrenginiai be atitinkamo profilio</item>
         <item quantity="many">%d įrenginių be atitinkamo profilio</item>
         <item quantity="other">%d įrenginių be atitinkamo profilio</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Aptiktas %d netoliese esantis įrenginys be atitinkančio profilio. Rodykite jį, kad pamatytumėte visą informaciją. Jei tai jūsų įrenginys, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
+        <item quantity="few">Aptikti %d netoliese esantys įrenginiai be atitinkančių profilių. Rodykite juos, kad pamatytumėte visą informaciją. Jei vienas iš jų yra jūsų, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
+        <item quantity="many">Aptikta %d netoliese esančio įrenginio dalis be atitinkančio profilio. Rodykite juos, kad pamatytumėte visą informaciją. Jei vienas iš jų yra jūsų, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
+        <item quantity="other">Aptikta %d netoliese esančių įrenginių be atitinkančių profilių. Rodykite juos, kad pamatytumėte visą informaciją. Jei vienas iš jų yra jūsų, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d daugiau įrenginys</item>

@@ -20,7 +20,6 @@
     <string name="general_example_label">例: %s</string>
     <string name="upgrade_capod_label">CAPodをアップグレード</string>
     <string name="upgrade_capod_description">追加機能を入手し、開発者をサポートします。</string>
-    <string name="upgrade_preamble">CAPodは一人の開発者によって作られています。アップグレードすると追加機能がアンロックされ、アプリの存続を支援できます。</string>
     <string name="upgrade_benefit_themes">テーマのカスタマイズ</string>
     <string name="upgrade_benefit_autoplay">自動再生 &amp; 自動一時停止</string>
     <string name="upgrade_benefit_popups">ケースオープン &amp; 接続時のポップアップ</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">デバイスコントロール &#8212; ノイズ、ステムおよびその他</string>
     <string name="upgrade_benefit_support">開発者を支援する</string>
     <string name="upgrade_benefit_disclaimer">機能の利用可能性はヘッドフォンとデバイスによって異なります。</string>
-    <string name="upgrade_screen_options_description">同じ機能、異なる価格設定。サブスクリプションには無料トライアルが含まれており、いつでもキャンセルできます。</string>
-    <string name="upgrade_screen_subscription_trial_action">試用を開始する</string>
-    <string name="upgrade_screen_subscription_action">年間サブスクリプション</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/年</string>
-    <string name="upgrade_screen_iap_action">買い切り</string>
-    <string name="upgrade_screen_iap_action_hint">1回限りの購入: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">購入を復元</string>
-    <string name="upgrade_screen_restore_purchase_message">購入履歴がありません。正しいアカウントを使用していますか？</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">最近購入した場合、Google Playが同期するまで少し時間がかかる場合があります。</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">購入が表示されない場合は、数分後に再度お試しください。</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">購入に使用したGoogleアカウントでサインインしていることを確認してください。</string>
     <string name="settings_monitor_connected_notification_label">追加通知</string>
     <string name="settings_monitor_connected_notification_description">デバイスが接続されると追加の通知を表示します。これにより、「デバイスステータス」チャネルを無効にすることで、永続的な「デバイスなし」通知を非表示にできます。</string>
     <string name="settings_keep_notification_after_disconnect_label">切断後も通知を維持</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">デバッグ</string>
     <string name="settings_general_label">設定</string>
     <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">アップグレードと購入状況</string>
+    <string name="settings_upgrade_status_foss_label">CAPodをサポート</string>
+    <string name="settings_upgrade_status_foss_description">サポーターのステータス</string>
     <string name="settings_overview_hide_unmatched_label">一致しないデバイスを非表示</string>
     <string name="settings_overview_hide_unmatched_description">プロフィールに一致しない近くのデバイス（他の人のAirPodsなど）を概要に表示しません。</string>
     <string name="device_battery_estimate_toggle_label">バッテリー推定値</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">一致しないデバイス</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">一致するプロファイルがないデバイス %d 台</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">近くで一致するプロファイルのないデバイスが%d件検出されました。詳細を確認するには表示してください。ご自身のデバイスであれば、「デバイス」からプロファイルを追加すると認識されます。</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d台追加のデバイス</item>
@@ -556,7 +551,7 @@
     <string name="press_action_volume_down">音量を下げる</string>
     <string name="press_action_mute_toggle">ミュート</string>
     <string name="press_action_stop">停止</string>
-    <string name="press_action_fast_forward">快辺り</string>
+    <string name="press_action_fast_forward">早送り</string>
     <string name="press_action_rewind">巻き戻し</string>
     <string name="press_action_cycle_anc">ノイズコントロールを切り替え</string>
     <string name="press_action_toggle_anc_transparency">トランスペアレンシーを切り替え</string>

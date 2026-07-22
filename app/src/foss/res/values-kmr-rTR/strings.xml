@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Reklam tune. Śopandin tune. Girêdana Google Play tune.</string>
     <string name="upgrade_foss_sponsor_returned_early">Zirû vegeriya? Piştgiriya we CAPod sax dihêle.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Piştgir ji %s ve</string>
+    <string name="upgrade_foss_supporter_thanks">Spas ji bo piştgiriya te ya pêşxistina CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Rûpela piştgiriyê veke</string>
 </resources>

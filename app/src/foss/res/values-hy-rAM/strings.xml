@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Լրատնություն չկա: հետքխկություն չկա: Google Play-ի կապվածություն չկա:</string>
     <string name="upgrade_foss_sponsor_returned_early">Արդևն հետ? ձևր աիկտակցությունը CAPod-ին կենդանի պահում:</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Հովանավոր է %s-ից</string>
+    <string name="upgrade_foss_supporter_thanks">Շնորհակալություն CAPod-ի զարգացումն աջակցելու համար!</string>
+    <string name="upgrade_foss_sponsor_again_action">Բացել հովանավորության էջը</string>
 </resources>

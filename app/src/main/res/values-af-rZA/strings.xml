@@ -20,7 +20,6 @@
     <string name="general_example_label">Bv.: %s</string>
     <string name="upgrade_capod_label">Gradeer CAPod op</string>
     <string name="upgrade_capod_description">Kry addisionele kenmerke en ondersteun die ontwikkelaar.</string>
-    <string name="upgrade_preamble">CAPod word deur een persoon ontwikkel. Opgradering ontsluit ekstra funksies en help om die app aan die lewe te hou.</string>
     <string name="upgrade_benefit_themes">Tema-aanpassing</string>
     <string name="upgrade_benefit_autoplay">Outo-speel &amp; outo-pouseer</string>
     <string name="upgrade_benefit_popups">Opspringvenster by kas oop &amp; verbinding</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Toestelbeheer — geraas, stamme en meer</string>
     <string name="upgrade_benefit_support">Ondersteun die ontwikkelaar</string>
     <string name="upgrade_benefit_disclaimer">Kenmerkbeskikbaarheid hang af van jou oorfone en toestel.</string>
-    <string name="upgrade_screen_options_description">Dieselfde funksies, verskillende pryse. Die intekening sluit \'n gratis proeftydperk in en kan te eniger tyd gekanselleer word.</string>
-    <string name="upgrade_screen_subscription_trial_action">Begin gratis proeftydperk</string>
-    <string name="upgrade_screen_subscription_action">Teken jaarliks in</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/jaar</string>
-    <string name="upgrade_screen_iap_action">Koop een keer</string>
-    <string name="upgrade_screen_iap_action_hint">Eenmalige aankoop: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
-    <string name="upgrade_screen_restore_purchase_message">Geen aankope gevind nie. Gebruik jy die regte rekening?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">As u onlangs gekoop het, kan dit \'n oomblik neem vir Google Play om te sinkroniseer.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Probeer weer oor \'n paar minute as u aankoop nie verskyn nie.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Maak seker dat u met dieselfde Google-rekening aangemeld is wat vir die aankoop gebruik is.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra kennisgewing</string>
     <string name="settings_monitor_connected_notification_description">Wys \'n ekstra kennisgewing wanneer \'n toestel gekoppel is. Dit laat jou toe om die permanente \"Geen toestelle\" kennisgewing te versteek deur die \"Toestelstatus\" kanaal te deaktiveer.</string>
     <string name="settings_keep_notification_after_disconnect_label">Hou kennisgewing ná ontkoppeling</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Ontfout</string>
     <string name="settings_general_label">Algemene instellings</string>
     <string name="settings_general_description">Algemene aanpassings wat die hele toepassing beïnvloed.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Jou opgradering- en aankoopstatus.</string>
+    <string name="settings_upgrade_status_foss_label">Borg CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Jou ondersteunerstatus.</string>
     <string name="settings_overview_hide_unmatched_label">Versteek onooreenstemmende toestelle</string>
     <string name="settings_overview_hide_unmatched_description">Moenie naby toestelle wys wat nie ooreenstem met enige van jou profiele in die oorsig nie, bv. ander mense se AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteryskattings</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d toestel sonder ooreenstemmende profiel</item>
         <item quantity="other">%d toestelle sonder ooreenstemmende profiel</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d toestel in die omgewing is sonder \'n passende profiel opgespoor. Wys dit vir beskikbare besonderhede. As dit joune is, voeg \'n profiel by vanaf Toestelle om dit te herken.</item>
+        <item quantity="other">%d toestelle in die omgewing is sonder passende profiele opgespoor. Wys hulle vir beskikbare besonderhede. As een joune is, voeg \'n profiel by vanaf Toestelle om dit te herken.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d meer toestel</item>

@@ -20,7 +20,6 @@
     <string name="general_example_label">Es.: %s</string>
     <string name="upgrade_capod_label">Agioma CAPod</string>
     <string name="upgrade_capod_description">Otene funtziones agiuntivas e susteni s\'isvilupadore.</string>
-    <string name="upgrade_preamble">CAPod est isvilupadu dae una sola persona. Aggiornar isbloca funtzionalidades in prus e agiudat a mantènnere s\'app in vita.</string>
     <string name="upgrade_benefit_themes">Personalizzatzione de su tema</string>
     <string name="upgrade_benefit_autoplay">Reprodutzione autom. e pausa autom.</string>
     <string name="upgrade_benefit_popups">Popup a s\'apertùra de sa custodia e cullegamentu</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Controlos de su dispositivo &#8212; rumoriu, fustos &amp; àteru</string>
     <string name="upgrade_benefit_support">Sostèni su isviluppadore</string>
     <string name="upgrade_benefit_disclaimer">Sa disponibilidade de sas funtziones dipendiat dae sos túmpanos e de su dispositivo.</string>
-    <string name="upgrade_screen_options_description">Sas matessi funtzionalidades, prezzu diferente. S\'abbonamentu inchiet una proa gratis e podet èssere annulladu in cualesisiat momentu.</string>
-    <string name="upgrade_screen_subscription_trial_action">Cumintzare sa proa gratis</string>
-    <string name="upgrade_screen_subscription_action">Abbonare annualmente</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/annu</string>
-    <string name="upgrade_screen_iap_action">Comporare una borta sola</string>
-    <string name="upgrade_screen_iap_action_hint">Compora una borta: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
-    <string name="upgrade_screen_restore_purchase_message">Perunu achistu agatadu. Ses usende su contu giustu?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Si as cumporadu recentemente, podet tocare un momentu pro Google Play a sincronizare.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Proa a torrare in pagas minutos si sa compora tua no cumparit.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Asegurade-bos de èssere intradu cun su matessi contu Google usadu pro sa compora.</string>
     <string name="settings_monitor_connected_notification_label">Notìfica extra</string>
     <string name="settings_monitor_connected_notification_description">Mustrat una notìfica extra cando unu dispositivu est cullegadu. Custu ti permitit de cuare sa notìfica permanente \"Perunu dispositivu\" disativende su canale \"Istadu de su dispositivu\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantene sa notìfica a pustis de sa disconnexione</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cunfiguratziones</string>
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">S\'istadu de su megioramentu e de sa comporadura tua.</string>
+    <string name="settings_upgrade_status_foss_label">Sostene CAPod</string>
+    <string name="settings_upgrade_status_foss_description">S\'istadu tuo de sustentadore.</string>
     <string name="settings_overview_hide_unmatched_label">Cuntzela dispositivos non corrispondentes</string>
     <string name="settings_overview_hide_unmatched_description">Non mòstres dispositivos in bidda chi non cumbenit cun nissunu de sos tuos perfìles in sa visuale generale, p.e. sos AirPods de àtera gente.</string>
     <string name="device_battery_estimate_toggle_label">Estimatziones de bateria</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d dispositivu sena profilu currispondente</item>
         <item quantity="other">%d dispositivos sena profilu currispondente</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Est istadu detetadu %d dispositivu acurtzu chene profilu currispondente. Ammustra·lu pro nde bider is detàllios. Si est su tuo, agiunghe unu profilu dae Dispositivos pro lu reconnoschere.</item>
+        <item quantity="other">Sunt istados detetados %d dispositivos acurtzu chene profilos currispondentes. Ammustra·los pro nde bider is detàllios. Si unu est su tuo, agiunghe unu profilu dae Dispositivos pro lu reconnoschere.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dispositivo in prus</item>

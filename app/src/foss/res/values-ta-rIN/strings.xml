@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">ஐவிளம்பரம் இல்லை. கண்காணிப்பு இல்லை. Google Play கட்டுப்பாட்டு இல்லை.</string>
     <string name="upgrade_foss_sponsor_returned_early">இத்தனை இருக்கிறீரகளா? உங்கள் ஆதரவு CAPodஐ உயிருடன் வைத்திருக்கிறது.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">%s முதல் ஆதரவாளர்</string>
+    <string name="upgrade_foss_supporter_thanks">CAPod-இன் மேம்பாட்டை ஆதரித்ததற்கு நன்றி!</string>
+    <string name="upgrade_foss_sponsor_again_action">ஸ்பான்சர் பக்கத்தைத் திற</string>
 </resources>

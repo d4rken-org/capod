@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Azikho izibhangeli. Akunakulandelelwa. Ayikho ukuvinjwa kwe-Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Ubuyile? Ukwesekwa kwakho kugcina i-CAPod iphila.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Umsekeli kusukela ngo-%s</string>
+    <string name="upgrade_foss_supporter_thanks">Ngiyabonga ngokusekela ukuthuthukiswa kwe-CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Vula ikhasi lomxhasi</string>
 </resources>

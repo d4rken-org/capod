@@ -20,7 +20,6 @@
     <string name="general_example_label">எ.கா.: %s</string>
     <string name="upgrade_capod_label">CAPod ஐ மேம்படுத்து</string>
     <string name="upgrade_capod_description">கூடுதல் அம்சங்களைப் பெற்று டெவலப்பரை ஆதரிக்கவும்.</string>
-    <string name="upgrade_preamble">CAPod ஒரு நபரால் உருவாக்கப்பட்டது. மேம்படுத்துவது கூடுதல் அம்சங்களை திறக்கிறது மற்றும் பயன்பாட்டை உயிருடன் வைத்திருக்க உதவுகிறது.</string>
     <string name="upgrade_benefit_themes">தீம் தனிப்பயனாக்கம்</string>
     <string name="upgrade_benefit_autoplay">தானியங்கு இயக்கம் மற்றும் தானியங்கு இடைநிறுத்தம்</string>
     <string name="upgrade_benefit_popups">கேஸ் திறக்கும்போது மற்றும் இணைப்பின்போது பாப்அப்</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">சாதன கட்டுப்பாடுகள் — இரைச்சல், ஸ்டெம்கள் மற்றும் மேலும்</string>
     <string name="upgrade_benefit_support">டெவலப்பரை ஆதரிக்கவும்</string>
     <string name="upgrade_benefit_disclaimer">அம்சங்களின் கிடைக்கும் தன்மை உங்கள் ஹெட்ஃபோன்கள் மற்றும் சாதனத்தை சார்ந்துள்ளது.</string>
-    <string name="upgrade_screen_options_description">ஒரே அம்சங்கள், வேறுபட்ட விலை. சந்தா இலவச சோதனையை உள்ளடக்கியது மற்றும் எந்த நேரத்திலும் ரத்து செய்யலாம்.</string>
-    <string name="upgrade_screen_subscription_trial_action">இலவச சோதனையை தொடங்கவும்</string>
-    <string name="upgrade_screen_subscription_action">ஆண்டுதோறும் சந்தா செலுத்தவும்</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ஆண்டு</string>
-    <string name="upgrade_screen_iap_action">ஒரு முறை வாங்கவும்</string>
-    <string name="upgrade_screen_iap_action_hint">ஒரு முறை வாங்குதல்: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">வாங்குதலை மீட்டமை</string>
-    <string name="upgrade_screen_restore_purchase_message">வாங்குதல்கள் எதுவும் இல்லை. நீங்கள் சரியான கணக்கைப் பயன்படுத்துகிறீர்களா?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">நீங்கள் சமீபத்தில் வாங்கியிருந்தால், Google Play ஒத்திசைக்க சிறிது நேரம் ஆகலாம்.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">உங்கள் கொள்முதல் தோன்றவில்லை என்றால் சில நிமிடங்களில் மீண்டும் முயற்சிக்கவும்.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">கொள்முதலுக்கு பயன்படுத்திய அதே Google கணக்கில் நீங்கள் உள்நுழைந்திருக்கிறீர்கள் என்பதை உறுதிசெய்யவும்.</string>
     <string name="settings_monitor_connected_notification_label">கூடுதல் அறிவிப்பு</string>
     <string name="settings_monitor_connected_notification_description">ஒரு சாதனம் இணைக்கப்படும்போது கூடுதல் அறிவிப்பைக் காட்டுகிறது. \"சாதன நிலை\" சேனலை முடக்குவதன் மூலம் நிரந்தர \"சாதனங்கள் இல்லை\" அறிவிப்பை மறைக்க இது உங்களை அனுமதிக்கிறது.</string>
     <string name="settings_keep_notification_after_disconnect_label">துண்டிக்கப்பட்ட பிறகு அறிவிப்பை வைத்திரு</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">பிழைதிருத்தல்</string>
     <string name="settings_general_label">அமைப்புகள்</string>
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">உங்கள் மேம்படுத்தல் மற்றும் கொள்முதல் நிலை.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod-ஐ ஆதரவு செய்யுங்கள்</string>
+    <string name="settings_upgrade_status_foss_description">உங்கள் ஆதரவாளர் நிலை.</string>
     <string name="settings_overview_hide_unmatched_label">பொருந்தாத சாதனங்களை மறை</string>
     <string name="settings_overview_hide_unmatched_description">உங்கள் சுயவிவரங்களில் எதுவும் பொருந்தாத அருகில் உள்ள சாதனங்களை மேலோட்டத்தில் காட்டாதே, எ.கா. மற்றவர்களின் AirPods.</string>
     <string name="device_battery_estimate_toggle_label">பேட்டரி மதிப்பீடுகள்</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">பொருந்தும் சுயவிவரம் இல்லாத %d சாதனம்</item>
         <item quantity="other">பொருந்தும் சுயவிவரம் இல்லாத %d சாதனங்கள்</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d அருகிலுள்ள சாதனம் பொருந்தும் சுயவிவரம் இல்லாமல் கண்டறியப்பட்டது. கிடைக்கும் விவரங்களுக்கு அதைக் காட்டவும். இது உங்களுடையது எனில், அதை அடையாளம் காண சாதனங்களில் இருந்து ஒரு சுயவிவரத்தைச் சேர்க்கவும்.</item>
+        <item quantity="other">%d அருகிலுள்ள சாதனங்கள் பொருந்தும் சுயவிவரங்கள் இல்லாமல் கண்டறியப்பட்டன. கிடைக்கும் விவரங்களுக்கு அவற்றைக் காட்டவும். ஒன்று உங்களுடையது எனில், அதை அடையாளம் காண சாதனங்களில் இருந்து ஒரு சுயவிவரத்தைச் சேர்க்கவும்.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d கருவி</item>

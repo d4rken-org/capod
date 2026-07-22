@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Peroe publicidade. Peroe trachiamentu. Peroe dipendentzia de Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Zas torradas giai? Su sostegnu tuyu mantenet CAPod in vida.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Sustentadore dae su %s</string>
+    <string name="upgrade_foss_supporter_thanks">Gràtzias pro sustènnere s\'isvilupu de CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Aberi sa pàgina de sponsorizatzione</string>
 </resources>

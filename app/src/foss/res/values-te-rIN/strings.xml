@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">జాహీరాతులు లేవు. ట్రాకింగ్ లేదు. Google Play ఒక్కటికి పరిమితం కాదు.</string>
     <string name="upgrade_foss_sponsor_returned_early">ఇర్వై వెనక్కి వెళ్ళారా? మీ మద్దతు CAPodను సజీవంగా ఉంచుతుంది.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">%s నుండి సపోర్టర్</string>
+    <string name="upgrade_foss_supporter_thanks">CAPod అభివృద్ధికి మద్దతు ఇచ్చినందుకు ధన్యవాదాలు!</string>
+    <string name="upgrade_foss_sponsor_again_action">స్పాన్సర్ పేజీని తెరవండి</string>
 </resources>

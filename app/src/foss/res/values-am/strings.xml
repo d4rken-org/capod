@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">ምንም ማስታወቂያ የሉም። ምንም ክትትል የሉም። ምንም Google Play ቆለፋ የሉም።</string>
     <string name="upgrade_foss_sponsor_returned_early">ቀድሞ ተመለሱ፡ ድጋፏዎ CAPodን ህያው ያቆይላል።</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">ደጋፊ ከ%s ጀምሮ</string>
+    <string name="upgrade_foss_supporter_thanks">የCAPod ልማትን ስለደገፉ እናመሰግናለን!</string>
+    <string name="upgrade_foss_sponsor_again_action">የስፖንሰር ገጽን ክፈት</string>
 </resources>

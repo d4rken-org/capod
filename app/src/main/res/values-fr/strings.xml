@@ -20,7 +20,6 @@
     <string name="general_example_label">Exemple : %s</string>
     <string name="upgrade_capod_label">Surclasser CAPod</string>
     <string name="upgrade_capod_description">Obtenez des fonctions supplémentaires et soutenez le développeur.</string>
-    <string name="upgrade_preamble">CAPod est développée par une seule personne. Passer à la version Pro déverrouille des fonctions supplémentaires et contribue à la pérennité de l’appli.</string>
     <string name="upgrade_benefit_themes">Personnalisation du thème</string>
     <string name="upgrade_benefit_autoplay">Lecture et pause automatiques</string>
     <string name="upgrade_benefit_popups">Fenêtre de notification à l\'ouverture de l\'étui et à la connexion</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Contrôles de l’appareil — bruit, tiges &amp; plus</string>
     <string name="upgrade_benefit_support">Soutenir le développeur</string>
     <string name="upgrade_benefit_disclaimer">La disponibilité des fonctionnalités dépend de votre casque et de votre appareil.</string>
-    <string name="upgrade_screen_options_description">Mêmes fonctions, tarification différente. L’abonnement comprend un essai gratuit et peut être annulé n’importe quand.</string>
-    <string name="upgrade_screen_subscription_trial_action">Commencer l’essai gratuit</string>
-    <string name="upgrade_screen_subscription_action">Abonnement annuel</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/an</string>
-    <string name="upgrade_screen_iap_action">Acheter une fois</string>
-    <string name="upgrade_screen_iap_action_hint">Achat unique : %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Rétablir l’achat</string>
-    <string name="upgrade_screen_restore_purchase_message">Aucun achat n’a été trouvé. Utilisez-vous le bon compte ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Si l’achat est récent, Google Play peut mettre du temps à synchroniser.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Si votre achat n’apparaît pas, réessayez dans quelques minutes.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Le même compte Google doit être utilisé pour l’achat et la connexion.</string>
     <string name="settings_monitor_connected_notification_label">Notification supplémentaire</string>
     <string name="settings_monitor_connected_notification_description">Affiche une notification supplémentaire si un appareil est connecté. Cela vous permet de masquer la notification permanente « Aucun appareil » en désactivant le canal « État de l’appareil ».</string>
     <string name="settings_keep_notification_after_disconnect_label">Garder la notification après déconnexion</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Débogage</string>
     <string name="settings_general_label">Paramètres</string>
     <string name="settings_general_description">Réglage généraux qui affectent l\'appli entière.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Votre statut de mise à niveau et d’achat.</string>
+    <string name="settings_upgrade_status_foss_label">Parrainer CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Votre statut de soutien.</string>
     <string name="settings_overview_hide_unmatched_label">Masquer les appareils sans correspondance</string>
     <string name="settings_overview_hide_unmatched_description">Ne pas afficher dans l’aperçu les appareils à proximité qui ne correspondent à aucun de vos profils, p. ex. les AirPods d’autres personnes.</string>
     <string name="device_battery_estimate_toggle_label">Estimations batterie</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d appareil sans profil correspondant</item>
         <item quantity="other">%d appareils sans profil correspondant</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d appareil à proximité a été détecté sans profil correspondant. Affichez-le pour voir les détails disponibles. S’il est à vous, ajoutez un profil depuis Appareils pour le reconnaître.</item>
+        <item quantity="other">%d appareils à proximité ont été détectés sans profil correspondant. Affichez-les pour voir les détails disponibles. Si l’un d’eux est à vous, ajoutez un profil depuis Appareils pour le reconnaître.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d appareil supplémentaire</item>

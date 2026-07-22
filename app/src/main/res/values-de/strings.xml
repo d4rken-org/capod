@@ -20,7 +20,6 @@
     <string name="general_example_label">zB: %s</string>
     <string name="upgrade_capod_label">Verbesser CAPod</string>
     <string name="upgrade_capod_description">Erhalte zusätzliche Funktionen und unterstütze den Entwickler.</string>
-    <string name="upgrade_preamble">CAPod wird von einer einzelnen Person entwickelt. Ein Upgrade schaltet zusätzliche Funktionen frei und hilft, die App am Leben zu erhalten.</string>
     <string name="upgrade_benefit_themes">Design-Anpassung</string>
     <string name="upgrade_benefit_autoplay">Automatische Wiedergabe &amp; automatisches Pausieren</string>
     <string name="upgrade_benefit_popups">Popup beim Öffnen des Cases &amp; bei Verbindung</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Gerätesteuerung — Geräusche, Stifte &amp; mehr</string>
     <string name="upgrade_benefit_support">Entwickler unterstützen</string>
     <string name="upgrade_benefit_disclaimer">Die Verfügbarkeit der Funktionen hängt von Ihren Kopfhörern und Ihrem Gerät ab.</string>
-    <string name="upgrade_screen_options_description">Gleiche Funktionen, unterschiedliche Preise. Das Abonnement enthält eine kostenlose Testphase und kann jederzeit gekündigt werden.</string>
-    <string name="upgrade_screen_subscription_trial_action">Kostenlos testen</string>
-    <string name="upgrade_screen_subscription_action">Jährlich abonnieren</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/Jahr</string>
-    <string name="upgrade_screen_iap_action">Einmalig kaufen</string>
-    <string name="upgrade_screen_iap_action_hint">Einmaliger Kauf: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Kauf wiederherstellen</string>
-    <string name="upgrade_screen_restore_purchase_message">Keine Käufe gefunden. Verwendest Du das richtige Konto?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Wenn du kürzlich gekauft hast, kann es einen Moment dauern, bis Google Play synchronisiert.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Versuche es in wenigen Minuten erneut, falls dein Kauf nicht erscheint.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Stelle sicher, dass du mit demselben Google-Konto angemeldet bist, das für den Kauf verwendet wurde.</string>
     <string name="settings_monitor_connected_notification_label">Zusätzliche Benachrichtigung</string>
     <string name="settings_monitor_connected_notification_description">Zeigt eine zusätzliche Benachrichtigung an, wenn ein Gerät verbunden ist. Dadurch kannst du die permanente Benachrichtigung „Keine Geräte“ ausblenden, indem du den Kanal „Gerätestatus“ deaktivierst.</string>
     <string name="settings_keep_notification_after_disconnect_label">Benachrichtigung nach Trennung beibehalten</string>
@@ -47,9 +35,9 @@
     <string name="settings_autopause_label">Automatische Pause</string>
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
-    <string name="settings_autoplay_description">Musik fortsetzen, wenn du deine Pods wieder trägst – aber nur, wenn Auto-Pause sie gestoppt hat. Pausen, die du selbst ausgelöst hast (Telefon, AirPods-Stiel, Schlaf), bleiben aktiv.</string>
-    <string name="settings_start_music_on_wear_label">Musik beim Anlegen starten</string>
-    <string name="settings_start_music_on_wear_description">Versucht immer, Musik abzuspielen, wenn du deine Pods aufsetzt.</string>
+    <string name="settings_autoplay_description">Musik fortsetzen, sobald du deine Pods wieder trägst – aber nur, wenn Auto-Pause sie gestoppt hat. Von dir selbst ausgelöste Pausen (Telefon, AirPods-Stiel, Schlaf) bleiben aktiv.</string>
+    <string name="settings_start_music_on_wear_label">Musik fortsetzen beim Einsetzen</string>
+    <string name="settings_start_music_on_wear_description">Versucht immer, Musik abzuspielen, wenn du deine Pods einsetzt – auch nach einer manuellen Pause.</string>
     <string name="settings_eardetection_info_label">Hinweis zur Ohr-Erkennung</string>
     <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_signal_minimum_label">Minimale Signalqualität</string>
@@ -76,8 +64,8 @@
     <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
     <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="settings_popup_info_not_in_app">Popups werden nur angezeigt, wenn du nicht in der App bist.</string>
-    <string name="settings_charged_notification_label">Aufgeladen-Benachrichtigung</string>
-    <string name="settings_charged_notification_description">Zeigt eine Benachrichtigung an, sobald alles, was geladen wird, den Ziel-Ladestand erreicht.</string>
+    <string name="settings_charged_notification_label">Benachrichtigung wenn geladen</string>
+    <string name="settings_charged_notification_description">Zeigt eine Benachrichtigung an, sobald alle ladenden Geräte den Ziel-Akkustand erreicht haben.</string>
     <string name="settings_charged_threshold_label">Ziel-Ladestand</string>
     <string name="settings_charged_scope_label">Überwachte Akkus</string>
     <string name="settings_charged_scope_pods_label">Nur Pods</string>
@@ -120,14 +108,18 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Einstellungen</string>
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Dein Upgrade- und Kaufstatus.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod unterstützen</string>
+    <string name="settings_upgrade_status_foss_description">Dein Unterstützerstatus.</string>
     <string name="settings_overview_hide_unmatched_label">Nicht zugeordnete Geräte ausblenden</string>
-    <string name="settings_overview_hide_unmatched_description">Geräte in der Nähe, die keinem deiner Profile entsprechen, werden in der Übersicht nicht angezeigt, z. B. AirPods anderer Personen.</string>
-    <string name="device_battery_estimate_toggle_label">Batterieschätzungen</string>
-    <string name="device_battery_estimate_card_desc">Erfahre, wie dieses Gerät geladen und entladen wird, um die verbleibende Zeit, die Zeit bis zur Aufladung und die Batteriegesundheit zu schätzen.</string>
+    <string name="settings_overview_hide_unmatched_description">Zeigt fremde Geräte in der Nähe, die zu keinem deiner Profile passen z. B. AirPods anderer Personen, nicht in der Übersicht an.</string>
+    <string name="device_battery_estimate_toggle_label">Akkulaufzeit-Schätzung</string>
+    <string name="device_battery_estimate_card_desc">Lerne, wie dieses Gerät lädt und entlädt, um die verbleibende Zeit, die Zeit bis zum vollständigen Laden und den Akkuzustand zu schätzen.</string>
     <string name="device_battery_estimate_reset_action">Gelernte Daten zurücksetzen</string>
-    <string name="device_battery_estimate_reset_desc">Nochmal von vorne mit der nominalen Batterielaufzeit beginnen.</string>
+    <string name="device_battery_estimate_reset_desc">Startet ab der Nennkapazität neu.</string>
     <string name="device_battery_estimate_reset_confirm_title">Gelernte Daten zurücksetzen?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod wird die gemessene Entladung, die Ladegeschwindigkeit und die Batteriegesundheit dieses Geräts vergessen und nochmal von vorne mit der nominalen Batterielaufzeit beginnen.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod wird den gemessenen Verbrauch, die Ladegeschwindigkeit und den Akkuzustand dieses Geräts zurücksetzen und mit der Nennlaufzeit neu beginnen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
     <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
@@ -209,12 +201,16 @@
     <string name="overview_monitoring_active_label">Überwachung für Geräte</string>
     <string name="overview_monitoring_active_description">Stelle sicher, dass dein Gerät in der Nähe ist und aktiv ist.</string>
     <string name="overview_troubleshoot_suggestion_label">Verbunden, aber keine Daten</string>
-    <string name="overview_troubleshoot_suggestion_description">Dein Gerät ist verbunden, aber CAPod empfängt keine Live-Daten davon. Dein Telefon benötigt möglicherweise eine Kompatibilitätsoption – die Fehlerbehebung kann versuchen, automatisch eine zu finden.</string>
+    <string name="overview_troubleshoot_suggestion_description">Dein Gerät ist verbunden, aber CAPod empfängt keine Livedaten. Dein Smartphone benötigt möglicherweise eine Kompatibilitätsoption – die Fehlersuche kann versuchen, automatisch eine zu finden.</string>
     <string name="overview_troubleshoot_suggestion_action">Fehlerbehebung starten</string>
     <string name="overview_unmatched_devices_label">Nicht zugeordnete Geräte</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d Gerät ohne passendes Profil</item>
         <item quantity="other">%d Geräte ohne passendes Profil</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">In der Nähe wurde %d Gerät ohne passendes Profil erkannt. Zeig es an, um verfügbare Details zu sehen. Wenn es dir gehört, füge unter Geräte ein Profil hinzu, um es zu erkennen.</item>
+        <item quantity="other">In der Nähe wurden %d Geräte ohne passende Profile erkannt. Zeig sie an, um verfügbare Details zu sehen. Wenn eines dir gehört, füge unter Geräte ein Profil hinzu, um es zu erkennen.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d weiteres Gerät</item>
@@ -432,11 +428,11 @@
     <string name="device_settings_info_right_serial_label">Seriennummer rechter Pod</string>
     <string name="device_settings_info_left_bonded_label">Links gekoppelt</string>
     <string name="device_settings_info_right_bonded_label">Rechts gekoppelt</string>
-    <string name="device_settings_info_battery_health_label">Batteriezustand (geschätzt)</string>
-    <string name="device_settings_info_battery_health_left_label">Linker Batteriezustand (gesch.)</string>
-    <string name="device_settings_info_battery_health_right_label">Rechter Batteriezustand (gesch.)</string>
+    <string name="device_settings_info_battery_health_label">Akkuzustand (geschätzt)</string>
+    <string name="device_settings_info_battery_health_left_label">Akkuzustand links (geschätzt)</string>
+    <string name="device_settings_info_battery_health_right_label">Akkuzustand rechts (geschätzt)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
-    <string name="device_settings_info_battery_health_pending">Wird noch ermittelt, schau später nochmal</string>
+    <string name="device_settings_info_battery_health_pending">Wird noch ermittelt, später erneut prüfen</string>
     <string name="device_settings_info_details_label">Gerätedetails</string>
     <string name="device_settings_info_details_action">Gerätedetails anzeigen</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -447,7 +443,7 @@
     <string name="device_settings_not_connected_connect_action">Verbinden</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth-Einstellungen öffnen</string>
     <string name="device_settings_not_nearby_label">Gerät nicht in der Nähe</string>
-    <string name="device_settings_not_nearby_description">Einstellungen sind nur verfügbar, wenn dieses Gerät in der Nähe und mit deinem Telefon verbunden ist.</string>
+    <string name="device_settings_not_nearby_description">Einstellungen sind nur verfügbar, wenn sich dieses Gerät in der Nähe befindet und mit deinem Smartphone verbunden ist.</string>
     <string name="device_settings_aap_unavailable_label">Erweiterte Einstellungen nicht verfügbar</string>
     <string name="device_settings_aap_unavailable_description">Erweiterte AirPods-Einstellungen erfordern eine Bluetooth-Funktion, die auf diesem Telefon nicht verfügbar ist. Dies könnte durch ein zukünftiges Android-Update deines Geräteherstellers behoben werden.</string>
     <string name="device_settings_aap_unavailable_action">Kompatibilitätsliste anzeigen</string>
@@ -494,7 +490,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Welcher Ohrstöpsel als Mikrofon verwendet wird</string>
+    <string name="device_settings_microphone_mode_description">Legt fest, welcher Ohrhörer als Mikrofon verwendet wird</string>
     <string name="device_settings_microphone_mode_auto">Automatisch</string>
     <string name="device_settings_microphone_mode_right">Rechts</string>
     <string name="device_settings_microphone_mode_left">Links</string>
@@ -516,7 +512,7 @@
     <string name="reaction_sleep_channel_label">Schlaferkennung</string>
     <string name="reaction_sleep_notification_title">Pausiert durch Schlafmodus-Erkennung</string>
     <string name="reaction_sleep_notification_text">%1$s hat erkannt, dass du eingeschlafen bist, daher wurde deine Musik pausiert. Du kannst dies in den Geräteeinstellungen deaktivieren.</string>
-    <string name="reaction_charged_channel_label">Aufgeladen-Benachrichtigung</string>
+    <string name="reaction_charged_channel_label">Akkustand-Benachrichtigung</string>
     <string name="reaction_charged_notification_title">Laden abgeschlossen</string>
     <string name="reaction_charged_notification_text_full">%1$s ist vollständig geladen.</string>
     <string name="reaction_charged_notification_text_partial">%1$s wurde auf %2$d%% geladen.</string>

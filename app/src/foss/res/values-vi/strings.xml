@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">Không quảng cáo. Không theo dõi. Không phụ thuộc Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Quay lại rồi sao? Sự ủng hộ của bạn giúp CAPod tiếp tục tồn tại.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">Người ủng hộ từ %s</string>
+    <string name="upgrade_foss_supporter_thanks">Cảm ơn bạn đã ủng hộ sự phát triển của CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Mở trang tài trợ</string>
 </resources>

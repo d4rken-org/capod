@@ -20,7 +20,6 @@
     <string name="general_example_label">ឧទាហរណ៍៖ %s</string>
     <string name="upgrade_capod_label">ដំឡើងកំណែ CAPod</string>
     <string name="upgrade_capod_description">ទទួលបានមុខងារបន្ថែម និងគាំទ្រអ្នកអភិវឌ្ឍន៍។</string>
-    <string name="upgrade_preamble">CAPod ត្រូវបានអភិវឌ្ឍដោយបុគ្គលម្នាក់។ ការតម្លើងកំណែថ្មីដោះសោមុខងារបន្ថែម ហើយជួយឱ្យកម្មវិធីនៅតែដំណើរការ។</string>
     <string name="upgrade_benefit_themes">ការប្ដូរទ្រង់ទ្រាយតាមបំណង</string>
     <string name="upgrade_benefit_autoplay">ចាក់ដោយស្វ័យប្រវត្តិ &amp; ផ្អាកដោយស្វ័យប្រវត្តិ</string>
     <string name="upgrade_benefit_popups">Popup នៅពេលបើកប្រអប់ &amp; ការភ្ជាប់</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ការគ្រប់គ្រងឧបករណ៍ &#8212; សំឡេងរំខាន ដង &amp; ច្រើនតៀត</string>
     <string name="upgrade_benefit_support">គាំទ្រអ្នកអភិវឌ្ឍន៍</string>
     <string name="upgrade_benefit_disclaimer">ភាពអាចប្រើបានអាស្រ័យលើកាស និងឧបករណ៍របស់អ្នក។</string>
-    <string name="upgrade_screen_options_description">មុខងារដូចគ្នា តំលៃខុសគ្នា។ ការជាវរួមមានការសាកល្បងឥតគិតថ្លៃ ហើយអាចលុបចោលបានគ្រប់ពេល។</string>
-    <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្ដើមការសាកល្បងឥតគិតថ្លៃ</string>
-    <string name="upgrade_screen_subscription_action">ជាវប្រចាំ១្នាំ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/១្នាំ</string>
-    <string name="upgrade_screen_iap_action">តិញម្តងជាអចិន្ត្រៀយ៍</string>
-    <string name="upgrade_screen_iap_action_hint">ការតិញម្តង: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ស្តារការជាវមកវិញ</string>
-    <string name="upgrade_screen_restore_purchase_message">រកមិនឃើញការទិញទេ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ប្រសិនបើអ្នកបានតិញថ្មី៦ វាអាចចំណាយពេលបន្តិចដើម្បីឥយ្វ Google Play ធ្វើការធ្វើឥ្ស្របគ្នា។</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ព្យាយាមម្តងតិឡតក្នុងរយែពេលប៉ុន្មានាតិប្រសិនបើការតិញរបស់អ្នកមិនបានបង្ហាញ។</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ត្រូវប្រាកតថ្លៃអ្នកបានចូលដោយប្រើកគណនី Google ដូចគ្នាដែលប្រើសម្រាប់ការតិញ។</string>
     <string name="settings_monitor_connected_notification_label">ការជូនដំណឹងបន្ថែម</string>
     <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងបន្ថែមនៅពេលឧបករណ៍ត្រូវបានភ្ជាប់។ វាអនុញ្ញាតឱ្យអ្នកលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" ដោយបិទឆានែល \"ស្ថានភាពឧបករណ៍\"។</string>
     <string name="settings_keep_notification_after_disconnect_label">រក្សាការជូនដំណឹងបន្ទាប់ពីផ្តាច់</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ការបំបាត់កំហុស</string>
     <string name="settings_general_label">ការកំណត់</string>
     <string name="settings_general_description">ការកែតម្រូវទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">ស្ថានភាពការដំឡើងកម្រិត និងការទិញរបស់អ្នក។</string>
+    <string name="settings_upgrade_status_foss_label">ឧបត្ថម្ភ CAPod</string>
+    <string name="settings_upgrade_status_foss_description">ស្ថានភាពអ្នកគាំទ្ររបស់អ្នក។</string>
     <string name="settings_overview_hide_unmatched_label">លាក់ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
     <string name="settings_overview_hide_unmatched_description">មិនបង្ហាញឧបករណ៍នៅជិតដែលមិនត្រូវនឹងប្រវត្តិរូបណាមួយរបស់អ្នកនៅក្នុងទិដ្ឋភាពទូទៅ ឧ. AirPods របស់អ្នកដទៃ។</string>
     <string name="device_battery_estimate_toggle_label">ការប៉ាន់ប្រមាណថាមពលថ្ម</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">ឧបករណ៍ %d គ្មានទម្រង់ត្រូវគ្នា</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">បានរកឃើញឧបករណ៍នៅជិត %d ដោយគ្មានទម្រង់ដែលត្រូវគ្នា។ បង្ហាញឧបករណ៍ទាំងនោះដើម្បីមើលព័ត៌មានលម្អិតដែលមាន។ ប្រសិនបើមួយក្នុងចំណោមនោះជារបស់អ្នក សូមបន្ថែមទម្រង់ពីឧបករណ៍ដើម្បីស្គាល់វា។</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">%d ឧបករណ៍បន្ថែម</item>

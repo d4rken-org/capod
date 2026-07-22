@@ -20,7 +20,6 @@
     <string name="general_example_label">F.eks.: %s</string>
     <string name="upgrade_capod_label">Oppgrader CAPod</string>
     <string name="upgrade_capod_description">Få flere funksjoner og støtt utvikleren.</string>
-    <string name="upgrade_preamble">CAPod er utviklet av én person. Oppgradering låser opp ekstra funksjoner og bidrar til å holde appen i live.</string>
     <string name="upgrade_benefit_themes">Tematilpasning</string>
     <string name="upgrade_benefit_autoplay">Autoavspilling &amp; autopause</string>
     <string name="upgrade_benefit_popups">Popup ved åpning av etui &amp; tilkobling</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Enhetskontroller &#8212; støy, stilker &amp; mer</string>
     <string name="upgrade_benefit_support">Støtt utvikleren</string>
     <string name="upgrade_benefit_disclaimer">Funksjonstilgjengelighet avhenger av hodetelefonene og enheten din.</string>
-    <string name="upgrade_screen_options_description">Samme funksjoner, ulike priser. Abonnementet inkluderer en gratis prøveperiode og kan kanselleres når som helst.</string>
-    <string name="upgrade_screen_subscription_trial_action">Start gratis prøveperiode</string>
-    <string name="upgrade_screen_subscription_action">Abonner årlig</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/år</string>
-    <string name="upgrade_screen_iap_action">Kjøp én gang</string>
-    <string name="upgrade_screen_iap_action_hint">Engangskjøp: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Gjenopprett kjøp</string>
-    <string name="upgrade_screen_restore_purchase_message">Ingen kjøp funnet. Bruker du riktig konto?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Hvis du nylig har kjøpt, kan det ta et øyeblikk før Google Play synkroniserer.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Prøv igjen om noen minutter hvis kjøpet ditt ikke vises.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Sørg for at du er logget inn med den samme Google-kontoen som ble brukt til kjøpet.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra varsling</string>
     <string name="settings_monitor_connected_notification_description">Viser en ekstra varsling når en enhet er tilkoblet. Dette lar deg skjule det permanente varselet \"Ingen enheter\" ved å deaktivere kanalen \"Enhetsstatus\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Behold varsling etter frakobling</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Feilsøking</string>
     <string name="settings_general_label">Innstillinger</string>
     <string name="settings_general_description">Generelle justeringer som påvirker hele appen.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Din oppgraderings- og kjøpsstatus.</string>
+    <string name="settings_upgrade_status_foss_label">Bli sponsor for CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Din støttestatus.</string>
     <string name="settings_overview_hide_unmatched_label">Skjul ikke-matchende enheter</string>
     <string name="settings_overview_hide_unmatched_description">Ikke vis enheter i nærheten som ikke samsvarer med noen av profilene dine i oversikten, f.eks. andre personers AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteriestimater</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d enhet uten matchende profil</item>
         <item quantity="other">%d enheter uten matchende profil</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d enhet i nærheten ble oppdaget uten en matchende profil. Vis den for tilgjengelige detaljer. Hvis den er din, kan du legge til en profil fra Enheter for å gjenkjenne den.</item>
+        <item quantity="other">%d enheter i nærheten ble oppdaget uten matchende profiler. Vis dem for tilgjengelige detaljer. Hvis en av dem er din, kan du legge til en profil fra Enheter for å gjenkjenne den.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d enhet til</item>

@@ -20,7 +20,6 @@
     <string name="general_example_label">Esim.: %s</string>
     <string name="upgrade_capod_label">Päivitä CAPod</string>
     <string name="upgrade_capod_description">Hanki lisäominaisuuksia ja tue kehittäjää.</string>
-    <string name="upgrade_preamble">CAPod on yhden henkilön kehittämä. Päivittäminen avaa lisäominaisuuksia ja auttaa pitämään sovelluksen hengissä.</string>
     <string name="upgrade_benefit_themes">Teeman mukauttaminen</string>
     <string name="upgrade_benefit_autoplay">Automaattinen toisto &amp; tauko</string>
     <string name="upgrade_benefit_popups">Ponnahdusikkuna koteloa avattaessa &amp; yhdistettäessä</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Laitteen ohjaimet — melu, varret ja muuta</string>
     <string name="upgrade_benefit_support">Tue kehittäjää</string>
     <string name="upgrade_benefit_disclaimer">Ominaisuuksien saatavuus riippuu kuulokkeistasi ja laitteestasi.</string>
-    <string name="upgrade_screen_options_description">Samat ominaisuudet, eri hinnoittelu. Tilaus sisältää ilmaisen kokeilujakson ja sen voi peruuttaa milloin tahansa.</string>
-    <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen kokeilu</string>
-    <string name="upgrade_screen_subscription_action">Tilaa vuosittain</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/vuosi</string>
-    <string name="upgrade_screen_iap_action">Osta kertamaksulla</string>
-    <string name="upgrade_screen_iap_action_hint">Kertaostos: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
-    <string name="upgrade_screen_restore_purchase_message">Ostoksia ei löytynyt. Käytätkö oikeaa tiliä?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jos olet hiljattain ostanut, Google Playn synkronointi saattaa kestää hetken.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Yritä uudelleen muutaman minuutin kuluttua, jos ostoksesi ei näy.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Varmista, että olet kirjautunut sisään samalla Google-tilillä, jolla teit ostoksen.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
     <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \"Ei laitteita\" -ilmoituksen poistamalla \"Laitteen tila\" -kanavan käytöstä.</string>
     <string name="settings_keep_notification_after_disconnect_label">Säilytä ilmoitus yhteyden katkaisun jälkeen</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Virheenjäljitys</string>
     <string name="settings_general_label">Asetukset</string>
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Päivitys- ja ostotilasi.</string>
+    <string name="settings_upgrade_status_foss_label">Tue CAPodia</string>
+    <string name="settings_upgrade_status_foss_description">Tukijatilasi.</string>
     <string name="settings_overview_hide_unmatched_label">Piilota yhteensopimattomat laitteet</string>
     <string name="settings_overview_hide_unmatched_description">Älä näytä lähistöllä olevia laitteita, jotka eivät vastaa mitään profiileistasi yleiskatsauksessa, esim. muiden ihmisten AirPodseja.</string>
     <string name="device_battery_estimate_toggle_label">Akun arviot</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d laite ilman vastaavaa profiilia</item>
         <item quantity="other">%d laitetta ilman vastaavaa profiilia</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d lähellä oleva laite havaittiin ilman vastaavaa profiilia. Näytä se saadaksesi lisätietoja. Jos se on sinun, lisää profiili Laitteet-osiosta tunnistaaksesi sen.</item>
+        <item quantity="other">%d lähellä olevaa laitetta havaittiin ilman vastaavaa profiilia. Näytä ne saadaksesi lisätietoja. Jos jokin niistä on sinun, lisää profiili Laitteet-osiosta tunnistaaksesi sen.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d lisälaitetta</item>

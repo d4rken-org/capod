@@ -20,7 +20,6 @@
     <string name="general_example_label">Napr.: %s</string>
     <string name="upgrade_capod_label">Upgradovať CAPod</string>
     <string name="upgrade_capod_description">Získajte ďalšie funkcie a podporte vývojára.</string>
-    <string name="upgrade_preamble">CAPod vyvíja jedna osoba. Aktualizácia odomkne extra funkcie a pomáha udržiavať aplikáciu v prevádzke.</string>
     <string name="upgrade_benefit_themes">Prispôsobenie tém</string>
     <string name="upgrade_benefit_autoplay">Automatické prehrávanie &amp; pauza</string>
     <string name="upgrade_benefit_popups">Vyskakovacie okno pri otvorení puzdra &amp; pripojení</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Ovládanie zariadenia &#8212; hluk, stonky &amp; ďalšie</string>
     <string name="upgrade_benefit_support">Podporte vývojára</string>
     <string name="upgrade_benefit_disclaimer">Dostupnosť funkcií závisí od vašich slúchadiel a zariadenia.</string>
-    <string name="upgrade_screen_options_description">Rovnaké funkcie, rôzne ceny. Predplatné zahŕňa bezplatnú skúšobnú dobu a môže byť kedykoľvek zrušené.</string>
-    <string name="upgrade_screen_subscription_trial_action">Vyskúšajte zadarmo</string>
-    <string name="upgrade_screen_subscription_action">Predplatiť ročne</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/rok</string>
-    <string name="upgrade_screen_iap_action">Kúpiť jednorazovo</string>
-    <string name="upgrade_screen_iap_action_hint">Jednorazový nákup: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Obnoviť nákup</string>
-    <string name="upgrade_screen_restore_purchase_message">Nenašli sa žiadne nákupy. Používate správny účet?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ak ste nedávno nakúpili, môže chvíľu trvať, kým Google Play synchronizuje.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Skúste to znova o niekoľko minút, ak sa váš nákup nezobrazí.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Uistite sa, že ste prihlásení rovnakým účtom Google, ktorý ste použili pri nákupe.</string>
     <string name="settings_monitor_connected_notification_label">Dodatočné oznámenie</string>
     <string name="settings_monitor_connected_notification_description">Zobrazí dodatočné oznámenie keď je zariadenie pripojené. To umožňuje skryť trvalé oznámenie \"Žiadne zariadenia\" vypnutím kanálu \"Stav zariadenia\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Ponechať oznámenie po odpojení</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Ladiť</string>
     <string name="settings_general_label">Nastavenia</string>
     <string name="settings_general_description">Všeobecné vylepšenia, ktoré ovplyvňujú celú aplikáciu.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Stav vášho upgradu a nákupu.</string>
+    <string name="settings_upgrade_status_foss_label">Podporiť CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Váš stav podporovateľa.</string>
     <string name="settings_overview_hide_unmatched_label">Skryť nezhodné zariadenia</string>
     <string name="settings_overview_hide_unmatched_description">V prehľade nezobrazovať blízke zariadenia, ktoré nezodpovedajú žiadnemu z vašich profilov, napr. AirPods iných ľudí.</string>
     <string name="device_battery_estimate_toggle_label">Odhady batérie</string>
@@ -217,6 +209,12 @@
         <item quantity="few">%d zariadenia bez zodpovedajúceho profilu</item>
         <item quantity="many">%d zariadení bez zodpovedajúceho profilu</item>
         <item quantity="other">%d zariadení bez zodpovedajúceho profilu</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">V okolí bolo zistené %d zariadenie bez zodpovedajúceho profilu. Zobrazte ho pre dostupné podrobnosti. Ak je vaše, pridajte profil v časti Zariadenia, aby ste ho rozpoznali.</item>
+        <item quantity="few">V okolí boli zistené %d zariadenia bez zodpovedajúcich profilov. Zobrazte ich pre dostupné podrobnosti. Ak je jedno z nich vaše, pridajte profil v časti Zariadenia, aby ste ho rozpoznali.</item>
+        <item quantity="many">V okolí bolo zistených %d zariadení bez zodpovedajúcich profilov. Zobrazte ich pre dostupné podrobnosti. Ak je jedno z nich vaše, pridajte profil v časti Zariadenia, aby ste ho rozpoznali.</item>
+        <item quantity="other">V okolí bolo zistených %d zariadení bez zodpovedajúcich profilov. Zobrazte ich pre dostupné podrobnosti. Ak je jedno z nich vaše, pridajte profil v časti Zariadenia, aby ste ho rozpoznali.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d ďalšie zariadenie</item>

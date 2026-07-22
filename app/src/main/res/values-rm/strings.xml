@@ -20,7 +20,6 @@
     <string name="general_example_label">Ex.: %s</string>
     <string name="upgrade_capod_label">Actualisar CAPod</string>
     <string name="upgrade_capod_description">Obtegnair funcziuns supplementaras e sustegnair il sviluppader.</string>
-    <string name="upgrade_preamble">CAPod è sviluppà da ina singula persuna. Actualisar sblucca funcziuns supplementaras ed agida a mantegnair l\'app viva.</string>
     <string name="upgrade_benefit_themes">Persunalisaziun dal tema</string>
     <string name="upgrade_benefit_autoplay">Start automatic &amp; pausa automatica</string>
     <string name="upgrade_benefit_popups">Popup sin avrir il cais &amp; connexiun</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Controlla da l\'apparat — bumbac, tijas e dapli</string>
     <string name="upgrade_benefit_support">Sustegnair il sviluppader</string>
     <string name="upgrade_benefit_disclaimer">La disponibilitad da funcziuns dependa da tias ureglias e da tia app.</string>
-    <string name="upgrade_screen_options_description">Medemas funcziuns, auter pretsch. L\'abunament includa ina prova gratuita ed po vegnir annullà en mintga mument.</string>
-    <string name="upgrade_screen_subscription_trial_action">Entschaiver la prova gratuita</string>
-    <string name="upgrade_screen_subscription_action">Abunament annual</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/onn</string>
-    <string name="upgrade_screen_iap_action">Cumprar ina giada</string>
-    <string name="upgrade_screen_iap_action_hint">Cumpra ina giada: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Restaurar la cumpra</string>
-    <string name="upgrade_screen_restore_purchase_message">Nagins acquists chattads. Utiliseschas ti il conto gist?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Sche vus avais cumprà dacurt, po dar ina muntada avantgut che Google Play sincronisescha.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Empruva anc ina giada suenter intgins minutas sche la cumpra n\'appara betg.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Controllai che vus seis connectà cun il medem conto Google duvrà per la cumpra.</string>
     <string name="settings_monitor_connected_notification_label">Notificaziun supplementara</string>
     <string name="settings_monitor_connected_notification_description">Mussa ina notificaziun supplementara cura ch\'in apparat è connectà. Quai permetta da zoppar la notificaziun permanenta \"Nagins apparats\" cun deactivar il chanal \"Stadi da l\'apparat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantegnair la notificaziun suenter la deconnexiun</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Configuraziuns</string>
     <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Tes status d\'upgrade e da cumpra.</string>
+    <string name="settings_upgrade_status_foss_label">Sponsurar CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Tes status sco sustegnider.</string>
     <string name="settings_overview_hide_unmatched_label">Zuppentar apparats betg concordants</string>
     <string name="settings_overview_hide_unmatched_description">Na mussa betg ils apparats visadaifer che na correspundan a nagin da tis profils en la survista, p.ex. ils AirPods d\'autras persunas.</string>
     <string name="device_battery_estimate_toggle_label">Estimaziuns da bateria</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d apparat senza profil correspundent</item>
         <item quantity="other">%d apparats senza profil correspundent</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d apparat en vicinanza è stà scuvrì senza in profil correspundent. Mussa el per vesair ils detagls disponibels. Sche el t\'appartegna, agiundscha in profil en Apparats per al renconuscher.</item>
+        <item quantity="other">%d apparats en vicinanza èn stads scuvrids senza profils correspundents. Mussa els per vesair ils detagls disponibels. Sche in t\'appartegna, agiundscha in profil en Apparats per al renconuscher.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d apparat supplementar</item>

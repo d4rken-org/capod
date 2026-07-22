@@ -20,7 +20,6 @@
     <string name="general_example_label">T.d.: %s</string>
     <string name="upgrade_capod_label">Uppfæra CAPod</string>
     <string name="upgrade_capod_description">Fáðu viðbótareiginleika og styrktu þróunaraðilann.</string>
-    <string name="upgrade_preamble">CAPod er þróað af einum einstaklingi. Uppfærsla opnar aukaeiginleika og hjálpar til við að halda forritinu lifandi.</string>
     <string name="upgrade_benefit_themes">Sérsniðið þema</string>
     <string name="upgrade_benefit_autoplay">Sjálfvirk spilun og hlé</string>
     <string name="upgrade_benefit_popups">Sprettigluggi við opnun hulsins og tengingu</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Tækistjórn &#8212; hávaði, stikur &amp; fleira</string>
     <string name="upgrade_benefit_support">Styðja þróunarmann</string>
     <string name="upgrade_benefit_disclaimer">Tilð eiginleika fer eftir hæðlykkjum þínum og tæki.</string>
-    <string name="upgrade_screen_options_description">Sömu eiginleikar, mismunandi verðlag. Áskriftin inniheldur ókeypis prufutímabil og hægt er að segja henni upp hvenær sem er.</string>
-    <string name="upgrade_screen_subscription_trial_action">Hefja ókeypis prufutímabil</string>
-    <string name="upgrade_screen_subscription_action">Gerast áskrifandi árlega</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ár</string>
-    <string name="upgrade_screen_iap_action">Kaupa einu sinni</string>
-    <string name="upgrade_screen_iap_action_hint">Einskiptiskaup: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Endurheimta kaup</string>
-    <string name="upgrade_screen_restore_purchase_message">Engin kaup fundust. Ertu að nota réttan aðgang?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ef þú keyptir nýlega gæti það tekið smá tíma fyrir Google Play að samstilla.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Reyndu aftur eftir nokkrar mínútur ef kaupin þín birtast ekki.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Gakktu úr skugga um að þú sért skráður inn með sama Google-reikninginn sem notaður var við kaupin.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
     <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \"Engin tæki\" tilkynninguna með því að slökkva á \"Staða tækis\" rásinni.</string>
     <string name="settings_keep_notification_after_disconnect_label">Halda tilkynningu eftir aftengi</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Kembing</string>
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Staða uppfærslu þinnar og kaupa.</string>
+    <string name="settings_upgrade_status_foss_label">Styrkja CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Staða þín sem styrktaraðili.</string>
     <string name="settings_overview_hide_unmatched_label">Fela ópassandi tæki</string>
     <string name="settings_overview_hide_unmatched_description">Sýnir ekki nálæg tæki sem passa ekki við neitt af sniðunum þínum í yfirlitinu, t.d. AirPods annarra.</string>
     <string name="device_battery_estimate_toggle_label">Rafhlöðuáætlanir</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d tæki án samsvarandi sniðs</item>
         <item quantity="other">%d tæki án samsvarandi sniðs</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d tæki í nágrenninu fannst án samsvarandi sniðs. Sýndu það til að sjá tiltækar upplýsingar. Ef það er þitt skaltu bæta við sniði frá Tækjum til að þekkja það.</item>
+        <item quantity="other">%d tæki í nágrenninu fundust án samsvarandi sniða. Sýndu þau til að sjá tiltækar upplýsingar. Ef eitt þeirra er þitt skaltu bæta við sniði frá Tækjum til að þekkja það.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d fleiri tæki</item>

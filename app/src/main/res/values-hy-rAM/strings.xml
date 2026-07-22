@@ -20,7 +20,6 @@
     <string name="general_example_label">Օրինակ՝ %s</string>
     <string name="upgrade_capod_label">Թարմացնել CAPod-ը</string>
     <string name="upgrade_capod_description">Ստացեք լրացուցիչ հնարավորություններ և աջակցեք մշակողին։</string>
-    <string name="upgrade_preamble">CAPod-ը մշակվում է մեկ անձի կողմից: Բարելավելը բացում է լրացուցիչ հնարավորություններ եւ օգնում է հավելվածը կենդանի պահել:</string>
     <string name="upgrade_benefit_themes">Թեմայի հարմարեցում</string>
     <string name="upgrade_benefit_autoplay">Ավտոնվագում &amp; ավտոդադար</string>
     <string name="upgrade_benefit_popups">Թռուցիկ՝ պատյան բացելիս &amp; կապվելիս</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Սառքի կառավարում &#8212; աղմուկ, կոթ &amp; այլ</string>
     <string name="upgrade_benefit_support">Աջակցե՛ք մշակողին</string>
     <string name="upgrade_benefit_disclaimer">Հնարավորության հասանելիությունը կախվի խուխիչին ու սառքից</string>
-    <string name="upgrade_screen_options_description">Նույն հնարավորությունները, տարբեր գին: Բաժանորդագրությունը ներառում է անվճար փորձաշրջան եւ կարող է չեղարկվել ցանկացած պահի:</string>
-    <string name="upgrade_screen_subscription_trial_action">Սկսել անվճար փորձաշրջանը</string>
-    <string name="upgrade_screen_subscription_action">Բաժանորդագրվել տարեկան</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/տարի</string>
-    <string name="upgrade_screen_iap_action">Գնել մեկ անգամ</string>
-    <string name="upgrade_screen_iap_action_hint">Միանգամյա գնում՝ %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Վերականգնել գնումը</string>
-    <string name="upgrade_screen_restore_purchase_message">Գնումներ չեն գտնվել: Արդյո՞ք ճիշտ հաշիվն եք օգտագործում:</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Եթե վերջերս գնել եք, Google Play-ի համաժամացմանը կարող է մի փոքր ժամանակ պահանջվել:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Մի քանի րոպե հետո կրկին փորձեք, եթե ձեր գնումը չի երևում:</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Համոզվեք, որ մուտք եք գործել գնման համար օգտագործված Google հաշվով:</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
     <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
     <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Կարգաբանություն</string>
     <string name="settings_general_label">Կարգավորումներ</string>
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Ձեր արդիացման և գնման կարգավիճակը:</string>
+    <string name="settings_upgrade_status_foss_label">Հովանավորել CAPod-ը</string>
+    <string name="settings_upgrade_status_foss_description">Ձեր հովանավորի կարգավիճակը:</string>
     <string name="settings_overview_hide_unmatched_label">Թաքցնել անհամապատասխան սարքերը</string>
     <string name="settings_overview_hide_unmatched_description">Չցուցադրել մոտակա սարքերը, որոնք չեն համընկնում ձեր պրոֆիլներից որևէ մեկի հետ, օրինակ՝ ուրիշի AirPods-ները:</string>
     <string name="device_battery_estimate_toggle_label">Մարտկոցի գնահատականներ</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d սարք՝ առանց համապատասխան պրոֆիլի</item>
         <item quantity="other">%d սարք՝ առանց համապատասխան պրոֆիլի</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d մոտակա սարք հայտնաբերվեց առանց համապատասխան պրոֆիլի: Ցուցադրեք մատչելի մանրամասների համար: Եթե այն ձերն է, ավելացրեք պրոֆիլ Սարքեր բաժնից՝ այն ճանաչելու համար:</item>
+        <item quantity="other">%d մոտակա սարքեր հայտնաբերվեցին առանց համապատասխան պրոֆիլների: Ցուցադրեք դրանք մատչելի մանրամասների համար: Եթե դրանցից մեկը ձերն է, ավելացրեք պրոֆիլ Սարքեր բաժնից՝ այն ճանաչելու համար:</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d լրացուցիչ սարք</item>

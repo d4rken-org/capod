@@ -20,7 +20,6 @@
     <string name="general_example_label">مثال کے طور پر: %s</string>
     <string name="upgrade_capod_label">CAPod کو اپ گریڈ کریں</string>
     <string name="upgrade_capod_description">اضافی خصوصیات حاصل کریں اور ڈیولپر کی مدد کریں۔</string>
-    <string name="upgrade_preamble">CAPod ایک اکیلے شخص نے بنائی ہے۔ اپگریڈ کرنے سے اضافی خصوصیات ملتی ہیں اور ایپ کو زندہ رکھنے میں مدد ملتی ہے۔</string>
     <string name="upgrade_benefit_themes">تھیم کی تخصیص</string>
     <string name="upgrade_benefit_autoplay">خودکار چلائیں اور خودکار رکیں</string>
     <string name="upgrade_benefit_popups">کیس کھلنے اور کنیکشن پر پاپ اپ</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ڈیوائس کنٹرولز &#8212; شور، اسٹیمز &amp; مزید</string>
     <string name="upgrade_benefit_support">ڈویلپر کی مدد کریں</string>
     <string name="upgrade_benefit_disclaimer">فیچر کی دستیابی آپ کے ہیڈفونز اور ڈیوائس پر منحصر ہے۔</string>
-    <string name="upgrade_screen_options_description">ایک جیسی خصوصیات، مختلف قیمت۔ سبسکرپشن میں مفت ٹرائل شامل ہے اور اسے کسی بھی وقت منسوخ کیا جا سکتا ہے۔</string>
-    <string name="upgrade_screen_subscription_trial_action">مفت ٹرائل شروع کریں</string>
-    <string name="upgrade_screen_subscription_action">سالانہ سبسکرائب کریں</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/سال</string>
-    <string name="upgrade_screen_iap_action">ایک بار خریدیں</string>
-    <string name="upgrade_screen_iap_action_hint">ایک بار کی خریداری: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">خریداری بحال کریں</string>
-    <string name="upgrade_screen_restore_purchase_message">کوئی خریداری نہیں ملی۔ کیا آپ درست اکاؤنٹ استعمال کر رہے ہیں؟</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">اگر آپ نے حال ہی میں خریداری کی ہے، تو Google Play کو ہم آہنگ ہونے میں کچھ وقت لگ سکتا ہے۔</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">اگر آپ کی خریداری ظاہر نہ ہو تو چند منٹ بعد دوبارہ کوشش کریں۔</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">یقینی بنائیں کہ آپ خریداری کے لیے استعمال کیے گئے اسی Google اکاؤنٹ سے سائن ان ہیں۔</string>
     <string name="settings_monitor_connected_notification_label">اضافی اطلاع</string>
     <string name="settings_monitor_connected_notification_description">جب کوئی آلہ منسلک ہوتا ہے تو ایک اضافی اطلاع دکھاتا ہے۔ اس سے آپ \"آلہ کی حیثیت\" چینل کو غیر فعال کر کے مستقل \"کوئی آلہ نہیں\" اطلاع کو چھپا سکتے ہیں۔</string>
     <string name="settings_keep_notification_after_disconnect_label">منقطع ہونے کے بعد اطلاع رکھیں</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ڈیبگ</string>
     <string name="settings_general_label">سیٹنگز</string>
     <string name="settings_general_description">عام تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
+    <string name="settings_upgrade_status_gplay_label">سی اے پوڈ پرو</string>
+    <string name="settings_upgrade_status_gplay_description">آپ کا اپ گریڈ اور خریداری کی حیثیت۔</string>
+    <string name="settings_upgrade_status_foss_label">CAPod کو سپانسر کریں</string>
+    <string name="settings_upgrade_status_foss_description">آپ کے سپورٹر کی حیثیت۔</string>
     <string name="settings_overview_hide_unmatched_label">بے میل آلات چھپائیں</string>
     <string name="settings_overview_hide_unmatched_description">قریبی آلات جو آپ کے کسی بھی پروفائل سے میل نہیں کھاتے انہیں جائزہ میں نہ دکھائیں، مثلاً دوسرے لوگوں کے AirPods۔</string>
     <string name="device_battery_estimate_toggle_label">بیٹری کی تخمینیں</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">مماثل پروفائل کے بغیر %d آلہ</item>
         <item quantity="other">مماثل پروفائل کے بغیر %d آلات</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d قریبی آلہ بغیر کسی مماثل پروفائل کے پایا گیا۔ دستیاب تفصیلات کے لیے اسے دکھائیں۔ اگر یہ آپ کا ہے تو اسے پہچاننے کے لیے ڈیوائسز سے ایک پروفائل شامل کریں۔</item>
+        <item quantity="other">%d قریبی آلات بغیر کسی مماثل پروفائل کے پائے گئے۔ دستیاب تفصیلات کے لیے انہیں دکھائیں۔ اگر ان میں سے کوئی آپ کا ہے تو اسے پہچاننے کے لیے ڈیوائسز سے ایک پروفائل شامل کریں۔</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d مزید ڈیوائس</item>

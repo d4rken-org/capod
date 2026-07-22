@@ -20,7 +20,6 @@
     <string name="general_example_label">例如：%s</string>
     <string name="upgrade_capod_label">升級 CAPod</string>
     <string name="upgrade_capod_description">取得附加功能並支持開發人員。</string>
-    <string name="upgrade_preamble">CAPod 由單人開發。升級可解鎖額外功能，並協助維持應用程式的運作。</string>
     <string name="upgrade_benefit_themes">佈景主題自訂</string>
     <string name="upgrade_benefit_autoplay">自動播放及自動暫停</string>
     <string name="upgrade_benefit_popups">開啟充電盒及連線時顯示彈出視窗</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">裝置控制 — 噪音、桿及更多</string>
     <string name="upgrade_benefit_support">支持開發者</string>
     <string name="upgrade_benefit_disclaimer">功能可用性取決於您的耳機和裝置。</string>
-    <string name="upgrade_screen_options_description">功能相同，定價不同。訂閱包含免費試用期，可隨時取消。</string>
-    <string name="upgrade_screen_subscription_trial_action">開始免費試用</string>
-    <string name="upgrade_screen_subscription_action">按年訂閱</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/年</string>
-    <string name="upgrade_screen_iap_action">一次購買</string>
-    <string name="upgrade_screen_iap_action_hint">一次性購買：%s</string>
-    <string name="upgrade_screen_restore_purchase_action">恢復購買</string>
-    <string name="upgrade_screen_restore_purchase_message">未找到訂單，確定帳戶無誤？</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">如果您最近剛購買，Google Play 可能需要一點時間同步。</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">如果您的購買未顯示，請幾分鐘後再試。</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">請確保您已使用購買時所用的同一個 Google 帳戶登入。</string>
     <string name="settings_monitor_connected_notification_label">額外通知</string>
     <string name="settings_monitor_connected_notification_description">裝置連接時顯示額外通知。這讓您可以停用「裝置狀態」頻道來隱藏永久的「沒有裝置」通知。</string>
     <string name="settings_keep_notification_after_disconnect_label">斷線後保留通知</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">除錯</string>
     <string name="settings_general_label">設定</string>
     <string name="settings_general_description">影響整個應用程式的一般調校。</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">你的升級和購買狀態。</string>
+    <string name="settings_upgrade_status_foss_label">贊助 CAPod</string>
+    <string name="settings_upgrade_status_foss_description">你的贊助狀態。</string>
     <string name="settings_overview_hide_unmatched_label">隱藏不符合的裝置</string>
     <string name="settings_overview_hide_unmatched_description">在總覽中不顯示附近與您的設定檔不符的裝置，例如他人的 AirPods。</string>
     <string name="device_battery_estimate_toggle_label">電池壽命估計</string>
@@ -162,7 +154,7 @@
     <string name="widget_config_transparency_label">背景透明度</string>
     <string name="widget_config_show_device_label">顯示裝置名稱</string>
     <string name="widget_config_reset_label">重設為預設值</string>
-    <string name="widget_config_preview_resize_hint">您可以在將小工具放置到主畫面後調整其大小。</string>
+    <string name="widget_config_preview_resize_hint">在主屏幕上放置小工具後，您可以調整其大小。</string>
     <string name="widget_config_custom_label">自訂</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">深色</string>
@@ -214,6 +206,9 @@
     <string name="overview_unmatched_devices_label">不相符的裝置</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d 個裝置沒有相符的設定檔</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="other">偵測到 %d 部附近裝置沒有相符的設定檔。顯示它們以查看可用詳情。如果其中一部是你的，可以從「裝置」新增設定檔以識別它。</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="other">另外 %d 部裝置</item>

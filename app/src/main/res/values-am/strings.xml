@@ -20,7 +20,6 @@
     <string name="general_example_label">ለምሳሌ፦ %s</string>
     <string name="upgrade_capod_label">CAPodን አሻሽል</string>
     <string name="upgrade_capod_description">ተጨማሪ ባህሪያትን ያግኙ እና ገንቢውን ይደግፉ።</string>
-    <string name="upgrade_preamble">CAPod በአንድ ሰው ብቻ ተዘጋጅቷል። ማሻሻያ ተጨማሪ ባህሪያትን ያስከፍትና መተግበሪያውን ህያው ለማቆየት ይረዳል።</string>
     <string name="upgrade_benefit_themes">ጭብጥ ብጁ አሰናዳ</string>
     <string name="upgrade_benefit_autoplay">ራስ-ሰር አጫውት &amp; ራስ-ሰር አቁም</string>
     <string name="upgrade_benefit_popups">ቴሌ ሲከፈት &amp; ሲገናኝ ፖፕ-አፕ</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">የመሣሪያ መቆጣጠሪያዎች — ጫጫታ፣ ሙሉ እጅ እና ተጨማሪ</string>
     <string name="upgrade_benefit_support">ገንቢውን ደግፍ</string>
     <string name="upgrade_benefit_disclaimer">የባህሪያት አቅርቦት በጆሮ ማዳመጫዎ እና መሣሪያዎ ላይ ይወሰናል።</string>
-    <string name="upgrade_screen_options_description">ተመሳሳይ ባህሪያት፣ የተለያዩ ዋጋዎች። ደንበኝነቱ ነፃ ሙከራ ያካትታል እና በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
-    <string name="upgrade_screen_subscription_trial_action">ነፃ ሙከራ ጀምር</string>
-    <string name="upgrade_screen_subscription_action">በዓመት ደንበኝ ሁን</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ዓመት</string>
-    <string name="upgrade_screen_iap_action">አንድ ጊዜ ግዛ</string>
-    <string name="upgrade_screen_iap_action_hint">አንድ ጊዜ ግዢ፡ %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
-    <string name="upgrade_screen_restore_purchase_message">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">በቅርቡ ካዘዙ፣ Google Play ለማመሳሰል ትንሽ ጊዜ ሊወስድ ይችላል።</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ግዢዎ ካልታየ ከጥቂት ደቂቃዎች በኋላ እንደገና ሞክር።</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ለግዢው ጥቅም ላይ ከዋለው ጋር ተመሳሳይ Google መለያ ተጠቅመህ ገብተሃል ወይም ብለህ አረጋግጥ።</string>
     <string name="settings_monitor_connected_notification_label">ተጨማሪ ማሳወቂያ</string>
     <string name="settings_monitor_connected_notification_description">አንድ መሣሪያ ሲገናኝ ተጨማሪ ማሳወቂያ ያሳያል። ይህ የ \"የመሣሪያ ሁኔታ\" ቻናልን በማሰናከል ቋሚውን \"ምንም መሣሪያዎች የሉም\" የሚለውን ማሳወቂያ እንዲደብቁ ያስችልዎታል።</string>
     <string name="settings_keep_notification_after_disconnect_label">ከተነተቀ በኋላ ማሳወቂያውን ይያዙ</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ዲባግ</string>
     <string name="settings_general_label">ቅንብሮች</string>
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">የማሻሻያ እና የግዢ ሁኔታዎ።</string>
+    <string name="settings_upgrade_status_foss_label">CAPod ን ስፖንሰር ያድርጉ</string>
+    <string name="settings_upgrade_status_foss_description">የደጋፊነት ሁኔታዎ።</string>
     <string name="settings_overview_hide_unmatched_label">ያልተዛመዱ መሳሪያዎችን ደብቅ</string>
     <string name="settings_overview_hide_unmatched_description">ከፕሮፋይሎቻቸው ጋር የማይዛመዱ አቅራቢያ ያሉ መሳሪያዎችን በዝርዝሩ ውስጥ አታሳይ፣ ለምሳሌ የሌሎች ሰዎች AirPods።</string>
     <string name="device_battery_estimate_toggle_label">ባትሪ ግምቶች</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ተዛማጅ መገለጫ የሌለው %d መሣሪያ</item>
         <item quantity="other">ተዛማጅ መገለጫ የሌላቸው %d መሣሪያዎች</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">ከመገለጫ ጋር የማይዛመድ %d አቅራቢያ ያለ መሣሪያ ተገኝቷል። ዝርዝሮችን ለማየት አሳይ። የእርስዎ ከሆነ፣ ለማወቅ ከመሣሪያዎች መገለጫ ያክሉ።</item>
+        <item quantity="other">ከመገለጫዎች ጋር የማይዛመዱ %d አቅራቢያ ያሉ መሣሪያዎች ተገኝተዋል። ዝርዝሮችን ለማየት አሳያቸው። አንዱ የእርስዎ ከሆነ፣ ለማወቅ ከመሣሪያዎች መገለጫ ያክሉ።</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d ተጨማሪ መሣሪያ</item>

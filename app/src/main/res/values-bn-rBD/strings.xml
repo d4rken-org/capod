@@ -20,7 +20,6 @@
     <string name="general_example_label">যেমন: %s</string>
     <string name="upgrade_capod_label">CAPod আপগ্রেড করুন</string>
     <string name="upgrade_capod_description">অতিরিক্ত বৈশিষ্ট্য পান এবং ডেভেলপারকে সমর্থন করুন।</string>
-    <string name="upgrade_preamble">CAPod একজন একক ব্যক্তি দ্বারা তৈরি। আপগ্রেড করলে অতিরিক্ত বৈশিষ্ট্য আনলক হয় এবং অ্যাপটি বাঁচিয়ে রাখতে সহায়তা করে।</string>
     <string name="upgrade_benefit_themes">থিম কাস্টমাইজেশন</string>
     <string name="upgrade_benefit_autoplay">স্বয়ংক্রিয় প্লে এবং স্বয়ংক্রিয় পজ</string>
     <string name="upgrade_benefit_popups">কেস খোলা ও সংযোগের সময় পপআপ</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">ডিভাইস নিয়ন্ত্রণ &#8212; শব্দ, স্টেম &amp; আরও</string>
     <string name="upgrade_benefit_support">ডেভেলপারকে সহায়তা করুন</string>
     <string name="upgrade_benefit_disclaimer">ফিচার প্রাপ্যতা আপনার হেডফোন এবং ডিভাইসের উপর নির্ভর করে।</string>
-    <string name="upgrade_screen_options_description">একই বৈশিষ্ট্য, ভিন্ন মূল্য। সাবস্ক্রিপশনে একটি বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত এবং যেকোনো সময় বাতিল করা যাবে।</string>
-    <string name="upgrade_screen_subscription_trial_action">বিনামূল্যের ট্রায়াল শুরু করুন</string>
-    <string name="upgrade_screen_subscription_action">বার্ষিক সাবস্ক্রাইব করুন</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/বছর</string>
-    <string name="upgrade_screen_iap_action">একবার কিনুন</string>
-    <string name="upgrade_screen_iap_action_hint">এককালীন ক্রয়: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">ক্রয় পুনরুদ্ধার</string>
-    <string name="upgrade_screen_restore_purchase_message">কোনও কেনাকাটা খুঁজে পাওয়া যায়নি। আপনি কি সঠিক অ্যাকাউন্ট ব্যবহার করছেন?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">আপনি সম্প্রতি কিনে থাকলে, Google Play সিঙ্ক করতে কিছু সময় লাগতে পারে।</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">কয়েক মিনিট পরে আবার চেষ্টা করুন যদি আপনার ক্রয় না দেখায়।</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">নিশ্চিত করুন যে আপনি ক্রয়ের জন্য ব্যবহৃত একই Google অ্যাকাউন্ট দিয়ে সাইন ইন করেছেন।</string>
     <string name="settings_monitor_connected_notification_label">অতিরিক্ত বিজ্ঞপ্তি</string>
     <string name="settings_monitor_connected_notification_description">একটি ডিভাইস সংযুক্ত হলে একটি অতিরিক্ত বিজ্ঞপ্তি দেখায়। এটি আপনাকে \"ডিভাইস স্ট্যাটাস\" চ্যানেল নিষ্ক্রিয় করে স্থায়ী \"কোনো ডিভাইস নেই\" বিজ্ঞপ্তি লুকাতে দেয়।</string>
     <string name="settings_keep_notification_after_disconnect_label">সংযোগ বিচ্ছিন্নের পরে বিজ্ঞপ্তি রাখুন</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">ডিবাগ</string>
     <string name="settings_general_label">সেটিংস</string>
     <string name="settings_general_description">পুরো অ্যাপকে প্রভাবিত করে এমন সাধারণ পরিবর্তন।</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">আপনার আপগ্রেড এবং কেনাকাটার স্থিতি।</string>
+    <string name="settings_upgrade_status_foss_label">CAPod স্পনসর করুন</string>
+    <string name="settings_upgrade_status_foss_description">আপনার সমর্থক স্থিতি।</string>
     <string name="settings_overview_hide_unmatched_label">অমিল ডিভাইস লুকান</string>
     <string name="settings_overview_hide_unmatched_description">ওভারভিউতে কাছের এমন ডিভাইস দেখাবে না যেগুলো আপনার কোনো প্রোফাইলের সাথে মেলে না, যেমন অন্যদের AirPods।</string>
     <string name="device_battery_estimate_toggle_label">ব্যাটারি অনুমান</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">মিলিত প্রোফাইল ছাড়া %d ডিভাইস</item>
         <item quantity="other">মিলিত প্রোফাইল ছাড়া %d ডিভাইস</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d-টি কাছাকাছি ডিভাইস মেলে এমন কোনো প্রোফাইল ছাড়াই শনাক্ত হয়েছে। উপলব্ধ বিবরণের জন্য এটি দেখান। এটি যদি আপনার হয়, তাহলে এটিকে শনাক্ত করতে ডিভাইস থেকে একটি প্রোফাইল যোগ করুন।</item>
+        <item quantity="other">%d-টি কাছাকাছি ডিভাইস মেলে এমন কোনো প্রোফাইল ছাড়াই শনাক্ত হয়েছে। উপলব্ধ বিবরণের জন্য সেগুলি দেখান। এর মধ্যে একটি যদি আপনার হয়, তাহলে এটিকে শনাক্ত করতে ডিভাইস থেকে একটি প্রোফাইল যোগ করুন।</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d টি আরও ডিভাইস</item>

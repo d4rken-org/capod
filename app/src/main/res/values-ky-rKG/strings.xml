@@ -20,7 +20,6 @@
     <string name="general_example_label">Мис.: %s</string>
     <string name="upgrade_capod_label">CAPod жаңыртуу</string>
     <string name="upgrade_capod_description">Кошумча функцияларды алыңыз жана иштеп чыгуучуну колдоңуз.</string>
-    <string name="upgrade_preamble">CAPod бир адам тарабынан иштелип чыгат. Жаңыртуу кошумча функцияларды ачып, колдонмонун тирүү калуусуна жардам берет.</string>
     <string name="upgrade_benefit_themes">Темаларды ыңгайлаштыруу</string>
     <string name="upgrade_benefit_autoplay">Авто-ойнотуу &amp; авто-токтотуу</string>
     <string name="upgrade_benefit_popups">Кутуча ачылганда &amp; туташканда калкыма терезе</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Түзмөк башкаруулары — ызы-чуу, таяныч жана башка</string>
     <string name="upgrade_benefit_support">Иштеп чыгуучуну колдоо</string>
     <string name="upgrade_benefit_disclaimer">Функцияларды колдонуу мүмкүнчүлүгү куулак кабыңызга жана түзмөгүңүзгө жараша болот.</string>
-    <string name="upgrade_screen_options_description">Бирдей функциялар, башка баа. Жазылым акысыз сыноо мезгилин камтыйт жана каалаган убакта жокко чыгарылышы мүмкүн.</string>
-    <string name="upgrade_screen_subscription_trial_action">Акысыз сыноону баштоо</string>
-    <string name="upgrade_screen_subscription_action">Жыл сайын жазылуу</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/жыл</string>
-    <string name="upgrade_screen_iap_action">Бир жолу сатып алуу</string>
-    <string name="upgrade_screen_iap_action_hint">Бир жолу сатып алуу: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Сатып алууну калыбына келтирүү</string>
-    <string name="upgrade_screen_restore_purchase_message">Эч кандай сатып алуулар табылган жок. Туура каттоо эсебин колдонуп жатасызбы?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Эгер жакында сатып алган болсоңуз, Google Play синхрондоо үчүн бир аз убакыт кетиши мүмкүн.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Сатып алуу чагылдырылбаса, бир нече мүнөттөн кийин кайра аракет кылыңыз.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Сатып алуу үчүн колдонулган Google аккаунтуна кирип турганыңызды текшериңиз.</string>
     <string name="settings_monitor_connected_notification_label">Кошумча билдирүү</string>
     <string name="settings_monitor_connected_notification_description">Түзмөк туташканда кошумча билдирүү көрсөтүлөт. Бул \"Түзмөктүн абалы\" каналын өчүрүү менен туруктуу \"Түзмөктөр жок\" билдирүүсүн жашырууга мүмкүндүк берет.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ажыратылгандан кийин билдирүүнү сактоо</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Мүчүлүштүктөрдү оңдоо</string>
     <string name="settings_general_label">Орнотуулар</string>
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Жаңыртуу жана сатып алуу статусуңуз.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod\'ду колдоо</string>
+    <string name="settings_upgrade_status_foss_description">Колдоочу статусуңуз.</string>
     <string name="settings_overview_hide_unmatched_label">Дал келбеген түзмөктөрдү жашыруу</string>
     <string name="settings_overview_hide_unmatched_description">Профилдериңиздин эч бирине дал келбеген жакын жердеги түзмөктөрдү, мисалы башка адамдардын AirPods\'ун, чолпондо көрсөтпөө.</string>
     <string name="device_battery_estimate_toggle_label">Батарея болжолдоосу</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d түзмөк профилсиз</item>
         <item quantity="other">%d түзмөк профилсиз</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d жакын жайгашкан түзмөк дал келген профилсиз аныкталды. Кеңири маалымат үчүн аны көрсөтүңүз. Эгер ал сизге таандык болсо, аны таануу үчүн Түзмөктөр бөлүмүнөн профиль кошуңуз.</item>
+        <item quantity="other">%d жакын жайгашкан түзмөк дал келген профилдерсиз аныкталды. Кеңири маалымат үчүн аларды көрсөтүңүз. Эгер алардын бири сизге таандык болсо, аны таануу үчүн Түзмөктөр бөлүмүнөн профиль кошуңуз.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d дагы түзмөк</item>

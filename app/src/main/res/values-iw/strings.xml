@@ -20,7 +20,6 @@
     <string name="general_example_label">דוגמא: %s</string>
     <string name="upgrade_capod_label">שדרוג CAPod</string>
     <string name="upgrade_capod_description">קבל תכונות נוספות ותמיכה במפתח.</string>
-    <string name="upgrade_preamble">CAPod פותחה על ידי אדם אחד. שדרוג פותח תכונות נוספות ועוזר לשמור על האפליקציה בחיים.</string>
     <string name="upgrade_benefit_themes">התאמה אישית של ערכת נושא</string>
     <string name="upgrade_benefit_autoplay">השמעה אוטומטית והשהיה אוטומטית</string>
     <string name="upgrade_benefit_popups">חלון קופץ בפתיחת הנרתיק וחיבור</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">בקרות מכשיר — רעש, זרועות ועוד</string>
     <string name="upgrade_benefit_support">תמוך במפתח</string>
     <string name="upgrade_benefit_disclaimer">זמינות התכונות תלויה באוזניות ובמכשיר שלך.</string>
-    <string name="upgrade_screen_options_description">אותן תכונות, מחיר שונה. המנוי כולל ניסיון חינם וניתן לביטול בכל עת.</string>
-    <string name="upgrade_screen_subscription_trial_action">התחל ניסיון חינם</string>
-    <string name="upgrade_screen_subscription_action">הירשם שנתי</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/שנה</string>
-    <string name="upgrade_screen_iap_action">קנה פעם אחת</string>
-    <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">שחזור רכישה</string>
-    <string name="upgrade_screen_restore_purchase_message">לא נמצאו רכישות. האם אתה משתמש בחשבון הנכון?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">אם רכשת לאחרונה, ייתכן שיידרש זמן מה כדי ש-Google Play יסתנכרן.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">נסה שוב בעוד כמה דקות אם הרכישה שלך לא מופיעה.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">ודא שאתה מחובר עם אותו חשבון Google שבו השתמשת לרכישה.</string>
     <string name="settings_monitor_connected_notification_label">התראה נוספת</string>
     <string name="settings_monitor_connected_notification_description">מציג התראה נוספת כאשר מכשיר מחובר. זה מאפשר לך להסתיר את ההתראה הקבועה \"אין מכשירים\" על ידי השבתת הערוץ \"סטטוס מכשיר\".</string>
     <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">איתור באגים</string>
     <string name="settings_general_label">הגדרות</string>
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod פרו</string>
+    <string name="settings_upgrade_status_gplay_description">סטטוס השדרוג והרכישה שלך.</string>
+    <string name="settings_upgrade_status_foss_label">תמכו ב-CAPod</string>
+    <string name="settings_upgrade_status_foss_description">סטטוס התמיכה שלך.</string>
     <string name="settings_overview_hide_unmatched_label">הסתר מכשירים שאינם תואמים</string>
     <string name="settings_overview_hide_unmatched_description">אל תציג מכשירים קרובים שאינם תואמים אף אחד מהפרופילים שלך בתצוגה הכללית, למשל AirPods של אנשים אחרים.</string>
     <string name="device_battery_estimate_toggle_label">הערכות סוללה</string>
@@ -217,6 +209,12 @@
         <item quantity="two">%d מכשירים ללא פרופיל תואם</item>
         <item quantity="many">%d מכשירים ללא פרופיל תואם</item>
         <item quantity="other">%d מכשירים ללא פרופיל תואם</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d מכשיר קרוב זוהה ללא פרופיל תואם. הציגו אותו לפרטים זמינים. אם הוא שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
+        <item quantity="two">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
+        <item quantity="many">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
+        <item quantity="other">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">התקן %d נוסף</item>

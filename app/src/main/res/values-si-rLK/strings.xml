@@ -20,7 +20,6 @@
     <string name="general_example_label">උදා: %s</string>
     <string name="upgrade_capod_label">CAPod යාවත්කාලීන කරන්න</string>
     <string name="upgrade_capod_description">අමතර විශේෂාංග ලබාගෙන සංවර්ධකයාට සහාය වන්න.</string>
-    <string name="upgrade_preamble">CAPod සකසා ඇත්තේ එක් කෙනෙකු විසිනි. යාවත්කාලීන කිරීම අමතර විශේෂාංග විවෘත කරන අතර යෙදුම ක්‍රියාත්මකව තබා ගැනීමට උපකාරී වේ.</string>
     <string name="upgrade_benefit_themes">තේමා අභිරුචිකරණය</string>
     <string name="upgrade_benefit_autoplay">ස්වයංක්‍රීය ධාවනය සහ ස්වයංක්‍රීය විරාමය</string>
     <string name="upgrade_benefit_popups">කේස් විවෘත කිරීමේ සහ සම්බන්ධතාවයේ පොප්අප්</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">උපාංග පාලන &#8212; ශබ්දය, කද &amp; තවත්</string>
     <string name="upgrade_benefit_support">සංවර්ධකයාට සහාය දෙන්න</string>
     <string name="upgrade_benefit_disclaimer">විශේෂාංග ලබා ගෙඳීමේ හැකියාව ඔබේ හෙඩ්ෆෝන් සහ උපාංගය මත රෞදා පවතී.</string>
-    <string name="upgrade_screen_options_description">එකම විශේෂාංග, විවිධ මිල ගණන්. දායකත්වය නොමිලේ අත්හදා බැලීමක් ඇතුළත් වන අතර ඕනෑම වේලාවක අවලංගු කළ හැකිය.</string>
-    <string name="upgrade_screen_subscription_trial_action">නොමිලේ අත්හදා බැලීම ආරම්භ කරන්න</string>
-    <string name="upgrade_screen_subscription_action">වාර්ෂිකව දායක වන්න</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/වර්ෂයකට</string>
-    <string name="upgrade_screen_iap_action">එකවර මිලදී ගන්න</string>
-    <string name="upgrade_screen_iap_action_hint">එක් වරක් මිලදී ගැනීම: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
-    <string name="upgrade_screen_restore_purchase_message">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክክለኛ ගිණුම භාවිතා කරනවාද?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ඔබ මෑතකදී මිලදී ගත්නේ නම්, Google Play සමමුහුර්ත කිරීමට මොහොතක් ගත විය හැක.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">ඔබේ මිලදී ගැනීම දිස් නොවේ නම් මිනිත්තු කිහිපයකින් නැවත උත්සාහ කරන්න.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">මිලදී ගැනීම සඳහා භාවිතා කළ එකම Google ගිණුමෙන් ඔබ පුරනය වී ඇති බවට සහතික වන්න.</string>
     <string name="settings_monitor_connected_notification_label">අමතර දැනුම්දීම</string>
     <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධ වූ විට අමතර දැනුම්දීමක් පෙන්වයි. \"උපාංග තත්ත්වය\" නාලිකාව අක්‍රීය කිරීමෙන් \"උපාංග නොමැත\" ස්ථිර දැනුම්දීම සැඟවීමට මෙය ඔබට ඉඩ සලසයි.</string>
     <string name="settings_keep_notification_after_disconnect_label">විසන්ධි වූ පසු දැනුම්දීම තබන්න</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">වැදගන්න පරීක්‍ෂණය</string>
     <string name="settings_general_label">සැකසුම්</string>
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">ඔබේ උසස් කිරීම සහ මිලදී ගැනීමේ තත්ත්වය.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod අනුග්‍රහය දක්වන්න</string>
+    <string name="settings_upgrade_status_foss_description">ඔබේ අනුග්‍රාහක තත්ත්වය.</string>
     <string name="settings_overview_hide_unmatched_label">නොගැලපෙන උපාංග සඟවන්න</string>
     <string name="settings_overview_hide_unmatched_description">ඔබේ profile වල නොගැලපෙන ආසන්නයේ ඇති උපාංග දළ ළිස්ලේෂණයේ නොපෙන්වන්න, උදා. අනේකුත් පුද්ගලයන්ගේ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">බැටරි ඇස්තමේන්තු</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ගැලපෙන පැතිකඩක් නොමැති උපාංග %d ක්</item>
         <item quantity="other">ගැලපෙන පැතිකඩක් නොමැති උපාංග %d ක්</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">නුදුරින් උපාංග %dක් ගැලපෙන පැතිකඩක් නොමැතිව අනාවරණය විය. පවතින විස්තර දැකීමට එය පෙන්වන්න. එය ඔබේ නම්, එය හඳුනා ගැනීමට උපාංග අංශයෙන් පැතිකඩක් එක් කරන්න.</item>
+        <item quantity="other">නුදුරින් උපාංග %dක් ගැලපෙන පැතිකඩ නොමැතිව අනාවරණය විය. පවතින විස්තර දැකීමට ඒවා පෙන්වන්න. ඉන් එකක් ඔබේ නම්, එය හඳුනා ගැනීමට උපාංග අංශයෙන් පැතිකඩක් එක් කරන්න.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d තවත් උපාංගයක්</item>

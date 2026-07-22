@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">ບໍ່ມີໂຄສະນາ. ບໍ່ມີການຕິດຕາມ. ບໍ່ຕິດ Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">ກັບມາແລ້ວ? ການສະໜັບສະໜູນຂອງທ່ານຮັກສາ CAPod ໃຫ້ດຳເນີນຕໍ່ໄປ.</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">ຜູ້ສະໜັບສະໜູນຕັ້ງແຕ່ %s</string>
+    <string name="upgrade_foss_supporter_thanks">ຂອບຊູ່ສຳລັບການສະໜັບສະໜູນການພັດທະນາຂອງ CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">ເປິດໝ້າສະໜັບສະໜູນ</string>
 </resources>

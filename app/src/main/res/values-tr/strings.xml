@@ -20,7 +20,6 @@
     <string name="general_example_label">Örn.: %s</string>
     <string name="upgrade_capod_label">CAPod\'u Güncelle</string>
     <string name="upgrade_capod_description">Ek özellikler edinin ve geliştiriciyi destekleyin.</string>
-    <string name="upgrade_preamble">CAPod bir kişi tarafından geliştirilmiştir. Yükseltme ekstra özelliklerin kilidini açar ve uygulamanın canlı kalabilmesine yardımcı olur.</string>
     <string name="upgrade_benefit_themes">Tema özelleştirmesi</string>
     <string name="upgrade_benefit_autoplay">Oto-oynatma &amp; oto-duraklatma</string>
     <string name="upgrade_benefit_popups">Kutu açıldığında &amp; bağlandığında popup</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Cihaz kontrolleri — gürültü, saplar ve daha fazlası</string>
     <string name="upgrade_benefit_support">Geliştriciyi destekle</string>
     <string name="upgrade_benefit_disclaimer">Özellik kullanılabilirliği kulaklistığinize ve cihazınıza bağlıdır.</string>
-    <string name="upgrade_screen_options_description">Aynı özellikler, farklı fiyatlandırma. Abonelik ücretsiz deneme içerir ve istediğin zaman iptal edilebilirsin.</string>
-    <string name="upgrade_screen_subscription_trial_action">Ücretsiz deneme süresini başlatın</string>
-    <string name="upgrade_screen_subscription_action">Yıllık abone ol</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/yıl</string>
-    <string name="upgrade_screen_iap_action">Bir kez satın al</string>
-    <string name="upgrade_screen_iap_action_hint">Tek seferlik satın alma: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Satın almayı geri yükle</string>
-    <string name="upgrade_screen_restore_purchase_message">Satın alma bulunamadı. Doğru hesabı mı kullanıyorsunuz?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Eğer yakın zamanda satın aldıysanız, Google Play\'in senkronize etmesi biraz zaman alabilir.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Satın alma işlemi görünmüyorsa birkaç dakika sonra tekrar deneyin.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Satın alma için kullanılan Google hesabıyla oturum açtığından emin ol.</string>
     <string name="settings_monitor_connected_notification_label">Ek bildirim</string>
     <string name="settings_monitor_connected_notification_description">Bir cihaz bağlandığında ek bir bildirim gösterir. Bu, \"Cihaz durumu\" kanalını devre dışı bırakarak kalıcı \"Cihaz yok\" bildirimini gizlemenizi sağlar.</string>
     <string name="settings_keep_notification_after_disconnect_label">Bağlantı kesildikten sonra bildirimi koru</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Hata ayıklama</string>
     <string name="settings_general_label">Ayarlar</string>
     <string name="settings_general_description">Uygulamayı etkileyen genel ince ayarlar.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Yükseltme ve satın alma durumun.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod\'a Sponsor Ol</string>
+    <string name="settings_upgrade_status_foss_description">Destekçi durumun.</string>
     <string name="settings_overview_hide_unmatched_label">Eşleşmeyen cihazları gizle</string>
     <string name="settings_overview_hide_unmatched_description">Genel bakışta profillerinizden herhangi biriyle eşleşmeyen yakındaki cihazları gösterme, örn. başkalarının AirPods\'ları.</string>
     <string name="device_battery_estimate_toggle_label">Pil Tahminleri</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d cihaz eşleşen profil olmadan</item>
         <item quantity="other">%d cihaz eşleşen profil olmadan</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Eşleşen bir profili olmayan %d yakın cihaz tespit edildi. Mevcut ayrıntıları görmek için gösterin. Senin cihazınsa, tanınması için Cihazlar bölümünden bir profil ekle.</item>
+        <item quantity="other">Eşleşen profili olmayan %d yakın cihaz tespit edildi. Mevcut ayrıntıları görmek için gösterin. Biri seninse, tanınması için Cihazlar bölümünden bir profil ekle.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d cihaz daha</item>

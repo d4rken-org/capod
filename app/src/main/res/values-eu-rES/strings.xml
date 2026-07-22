@@ -20,7 +20,6 @@
     <string name="general_example_label">Adib.: %s</string>
     <string name="upgrade_capod_label">Bertsio-berritu CAPod</string>
     <string name="upgrade_capod_description">Lortu ezaugarri gehigarriak eta lagundu garatzaileari.</string>
-    <string name="upgrade_preamble">CAPod pertsona bakar batek garatzen du. Berrituz gero, funtzio gehigarriak desblokeatzen dira eta aplikazioa bizirik mantentzen laguntzen duzu.</string>
     <string name="upgrade_benefit_themes">Gai pertsonalizazioa</string>
     <string name="upgrade_benefit_autoplay">Erreprodukzio automatikoa eta eten automatikoa</string>
     <string name="upgrade_benefit_popups">Leiho gainerakorra kutxako irekieran eta konexioan</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Gailuaren kontrolak &#8212; zarata, kaxa-ardatzak eta gehiago</string>
     <string name="upgrade_benefit_support">Lagundu garatzaileari</string>
     <string name="upgrade_benefit_disclaimer">Funtzionen erabilgarritasuna entzungailuen eta gailuaren araberakoa da.</string>
-    <string name="upgrade_screen_options_description">Funtzio berak, prezio desberdinak. Harpidetzak doako epealdia barne du eta edozein unetan ezeztatu daiteke.</string>
-    <string name="upgrade_screen_subscription_trial_action">Hasi doako epealdia</string>
-    <string name="upgrade_screen_subscription_action">Harpidetza urtekoa</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/urteko</string>
-    <string name="upgrade_screen_iap_action">Erosi behin</string>
-    <string name="upgrade_screen_iap_action_hint">Erosketa bakarra: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Berreskuratu erosketa</string>
-    <string name="upgrade_screen_restore_purchase_message">Ez da erosketarik aurkitu. Kontu egokia erabiltzen ari zara?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Duela gutxi erosi baduzu, baliteke Google Play-k sinkronizatzeko une bat behar izatea.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Saiatu berriro minutu batzuen buruan zure erosketa agertzen ez bada.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Ziurtatu erosketan erabilitako Google kontu berarekin saioa hasita daudela.</string>
     <string name="settings_monitor_connected_notification_label">Jakinarazpen gehigarria</string>
     <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean jakinarazpen gehigarri bat erakusten du. Honek \"Gailurik ez\" jakinarazpen iraunkorra ezkutatzeko aukera ematen dizu \"Gailuaren egoera\" kanala desgaituz.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantendu jakinarazpena deskonektatu ondoren</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Arazketa</string>
     <string name="settings_general_label">Ezarpenak</string>
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Zure eguneratze- eta erosketa-egoera.</string>
+    <string name="settings_upgrade_status_foss_label">Babestu CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Zure laguntzaile-egoera.</string>
     <string name="settings_overview_hide_unmatched_label">Ezkutatu bat ez datozen gailuak</string>
     <string name="settings_overview_hide_unmatched_description">Ez erakutsi ikuspegiaren inguruan dauden eta zure profilekin bat ez datozen gailuak, esaterako, beste pertsonen AirPods-ak.</string>
     <string name="device_battery_estimate_toggle_label">Bateriaren estimazioak</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d gailu bat datorren profilik gabe</item>
         <item quantity="other">%d gailu bat datozen profilik gabe</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Gertuko gailu %d bat antzeman da bat datorren profilik gabe. Erakutsi eskuragarri dauden xehetasunak ikusteko. Zurea bada, gehitu profil bat Gailuak ataletik ezagutzeko.</item>
+        <item quantity="other">Gertuko %d gailu antzeman dira bat datozen profilik gabe. Erakutsi haiek eskuragarri dauden xehetasunak ikusteko. Bat zurea bada, gehitu profil bat Gailuak ataletik ezagutzeko.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d gailu gehiago</item>

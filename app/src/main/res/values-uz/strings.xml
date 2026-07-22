@@ -20,7 +20,6 @@
     <string name="general_example_label">Masalan: %s</string>
     <string name="upgrade_capod_label">CAPod\'ni yangilash</string>
     <string name="upgrade_capod_description">Qo\'shimcha funktsiyalarni oling va ishlab chiquvchini qo\'llab-quvvatlang.</string>
-    <string name="upgrade_preamble">CAPod bitta shaxs tomonidan ishlab chiqilgan. Yangilash qo\'shimcha funksiyalarni ochadi va ilovani tirik saqlashga yordam beradi.</string>
     <string name="upgrade_benefit_themes">Mavzu sozlamalari</string>
     <string name="upgrade_benefit_autoplay">Avtomatik ijro &amp; avtomatik to\'xtatish</string>
     <string name="upgrade_benefit_popups">Quti ochilganda &amp; ulanishda qalqib chiquvchi oyna</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Qurilma boshqaruvlari — shovqin, soplar va boshqalar</string>
     <string name="upgrade_benefit_support">Dasturchini qo\'llab-quvvatlash</string>
     <string name="upgrade_benefit_disclaimer">Xususiyatlarning mavjudligi quloqchinlaringiz va qurilmangizga bog\'liq.</string>
-    <string name="upgrade_screen_options_description">Bir xil funksiyalar, farqli narxlar. Obuna bepul sinov muddatini o\'z ichiga oladi va istalgan vaqtda bekor qilinishi mumkin.</string>
-    <string name="upgrade_screen_subscription_trial_action">Bepul sinov boshlash</string>
-    <string name="upgrade_screen_subscription_action">Yillik obuna</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/yil</string>
-    <string name="upgrade_screen_iap_action">Bir marta sotib olish</string>
-    <string name="upgrade_screen_iap_action_hint">Bir martalik xarid: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Xaridni tiklash</string>
-    <string name="upgrade_screen_restore_purchase_message">Xaridlar topilmadi. To‘g‘ri hisobdan foydalanayapsizmi?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Agar yaqinda xarid qilgan bo\'lsangiz, Google Play sinxronlashishi uchun bir oz vaqt ketishi mumkin.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Xaridingiz ko\'rinmasa, bir necha daqiqadan so\'ng qayta urinib ko\'ring.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Xarid uchun ishlatiladigan Google hisobingizga kirganingizni tekshiring.</string>
     <string name="settings_monitor_connected_notification_label">Qo\'shimcha bildirishnoma</string>
     <string name="settings_monitor_connected_notification_description">Qurilma ulanganda qo\'shimcha bildirishnoma ko\'rsatadi. Bu sizga \"Qurilma holati\" kanalini o\'chirib qo\'yish orqali doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishga imkon beradi.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uzilgandan keyin bildirishnomani saqlash</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Sozlamalar</string>
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Yangilanish va xarid holatingiz.</string>
+    <string name="settings_upgrade_status_foss_label">CAPod\'ga homiylik qilish</string>
+    <string name="settings_upgrade_status_foss_description">Homiylik holatingiz.</string>
     <string name="settings_overview_hide_unmatched_label">Mos kelmaydigan qurilmalarni yashirish</string>
     <string name="settings_overview_hide_unmatched_description">Umumiy ko\'rinishda profillaringizdan biriga mos kelmaydigan yaqin qurilmalarni ko\'rsatmaslik, masalan, boshqa odamlarning AirPods qurilmalari.</string>
     <string name="device_battery_estimate_toggle_label">Batareya taxminlari</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Mos profili yo\'q %d ta qurilma</item>
         <item quantity="other">Mos profili yo\'q %d ta qurilma</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d ta yaqin atrofdagi qurilma mos profilsiz aniqlandi. Tafsilotlar uchun uni ko\'rsating. Agar u sizniki bo\'lsa, uni aniqlash uchun Qurilmalar bo\'limidan profil qo\'shing.</item>
+        <item quantity="other">%d ta yaqin atrofdagi qurilma mos profilsiz aniqlandi. Tafsilotlar uchun ularni ko\'rsating. Agar ulardan biri sizniki bo\'lsa, uni aniqlash uchun Qurilmalar bo\'limidan profil qo\'shing.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d ta qurilma</item>

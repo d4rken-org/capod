@@ -20,7 +20,6 @@
     <string name="general_example_label">उदाहरण: %s</string>
     <string name="upgrade_capod_label">CAPod अपग्रेड गर्नुहोस्</string>
     <string name="upgrade_capod_description">थप सुविधाहरू पाउनुहोस् र विकासकर्तालाई समर्थन गर्नुहोस्।</string>
-    <string name="upgrade_preamble">CAPod एकल व्यक्तिद्वारा विकास गरिएको छ। अपग्रेड गर्दा थप सुविधाहरू अनलक हुन्छन् र एपलाई जीवित राख्न मद्दत गर्छ।</string>
     <string name="upgrade_benefit_themes">थिम अनुकूलन</string>
     <string name="upgrade_benefit_autoplay">स्वत: प्ले र स्वत: पज</string>
     <string name="upgrade_benefit_popups">केस खोल्दा र जडान हुँदा पपअप</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">उपकरण नियन्त्रणहरू — शोर, स्टेम र थप</string>
     <string name="upgrade_benefit_support">डेभलपरलाई सहयोग गर्नुहोस्</string>
     <string name="upgrade_benefit_disclaimer">सुविधाको उपलब्धता तपाईंको हेडफोन र उपकरणमा निर्भर गर्छ।</string>
-    <string name="upgrade_screen_options_description">समान सुविधाहरू, फरक मूल्य निर्धारण। सदस्यतामा निःशुल्क परीक्षण समावेश छ र जुनसुकै बेला रद्द गर्न सकिन्छ।</string>
-    <string name="upgrade_screen_subscription_trial_action">निःशुल्क परीक्षण सुरु गर्नुहोस्</string>
-    <string name="upgrade_screen_subscription_action">वार्षिक सदस्यता लिनुहोस्</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/वर्ष</string>
-    <string name="upgrade_screen_iap_action">एक पटक किन्नुहोस्</string>
-    <string name="upgrade_screen_iap_action_hint">एक-पटक खरिद: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">खरिद पुनर्स्थापना गर्नुहोस्</string>
-    <string name="upgrade_screen_restore_purchase_message">कुनै खरिदहरू फेला परेनन्। के तपाईंले सही खाता प्रयोग गरिरहनुभएको छ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">यदि तपाईंले भर्खरै खरिद गर्नुभएको छ भने, Google Play लाई सिङ्क गर्न केही समय लाग्न सक्छ।</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">तपाईंको खरिद देखिएन भने केही मिनेटमा फेरि प्रयास गर्नुहोस्।</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">खरिदमा प्रयोग गरिएको Google खाताबाट साइन इन गर्नुभएको छ भनी निश्चित गर्नुहोस्।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
     <string name="settings_monitor_connected_notification_description">उपकरण जडान हुँदा अतिरिक्त सूचना देखाउँछ। यसले तपाईंलाई \"उपकरण स्थिति\" च्यानल असक्षम गरेर स्थायी \"कुनै उपकरण छैन\" सूचना लुकाउन अनुमति दिन्छ।</string>
     <string name="settings_keep_notification_after_disconnect_label">विच्छेद पछि सूचना राख्नुहोस्</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">डिबग</string>
     <string name="settings_general_label">सेटिङहरू</string>
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">तपाईंको अपग्रेड र खरिद स्थिति।</string>
+    <string name="settings_upgrade_status_foss_label">CAPod लाई प्रायोजन गर्नुहोस्</string>
+    <string name="settings_upgrade_status_foss_description">तपाईंको समर्थक स्थिति।</string>
     <string name="settings_overview_hide_unmatched_label">नमिलेका यन्त्रहरू लुकाउनुस्</string>
     <string name="settings_overview_hide_unmatched_description">अवलोकनमा तपाईंको कुनै पनि प्रोफाइलसँग नमिल्ने नजिकका यन्त्रहरू नदेखाउनुस्, जस्तै अरू मान्छेका AirPods।</string>
     <string name="device_battery_estimate_toggle_label">ब्याटरी अनुमान</string>
@@ -215,6 +207,10 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">मेल खाने प्रोफाइल नभएको %d उपकरण</item>
         <item quantity="other">मेल खाने प्रोफाइल नभएका %d उपकरणहरू</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">%d नजिकैको यन्त्र मिल्दो प्रोफाइल बिना पत्ता लाग्यो। उपलब्ध विवरणहरूका लागि यसलाई देखाउनुहोस्। यदि यो तपाईंको हो भने, यसलाई चिन्नका लागि यन्त्रहरूबाट प्रोफाइल थप्नुहोस्।</item>
+        <item quantity="other">%d नजिकैका यन्त्रहरू मिल्दो प्रोफाइलहरू बिना पत्ता लागे। उपलब्ध विवरणहरूका लागि तिनीहरूलाई देखाउनुहोस्। यदि तिनीहरूमध्ये एउटा तपाईंको हो भने, यसलाई चिन्नका लागि यन्त्रहरूबाट प्रोफाइल थप्नुहोस्।</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d थप उपकरण</item>

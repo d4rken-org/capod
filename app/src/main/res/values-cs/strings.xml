@@ -20,7 +20,6 @@
     <string name="general_example_label">Např.: %s</string>
     <string name="upgrade_capod_label">Upgradovat CAPod</string>
     <string name="upgrade_capod_description">Získat další funkce a podpořit vývojáře.</string>
-    <string name="upgrade_preamble">CAPod vyvíjí jediná osoba. Upgrade odemkne další funkce a pomůže udržet aplikaci naživu.</string>
     <string name="upgrade_benefit_themes">Přizpůsobení motivu</string>
     <string name="upgrade_benefit_autoplay">Automatické přehrávání a pozastavení</string>
     <string name="upgrade_benefit_popups">Vyskakovací okno při otevření a připojení</string>
@@ -29,17 +28,6 @@
     <string name="upgrade_benefit_device_controls">Ovládací prvky zařízení &#8212; šum, okolní hluk a další</string>
     <string name="upgrade_benefit_support">Podpořit vývojáře</string>
     <string name="upgrade_benefit_disclaimer">Dostupnost funkcí závisí na vašich sluchátkách a zařízení.</string>
-    <string name="upgrade_screen_options_description">Stejné funkce, různé ceny. Předplatné zahrnuje bezplatnou zkušební dobu a lze jej kdykoli zrušit.</string>
-    <string name="upgrade_screen_subscription_trial_action">Spustit zkušební verzi</string>
-    <string name="upgrade_screen_subscription_action">Předplatit na rok</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/rok</string>
-    <string name="upgrade_screen_iap_action">Koupit jednou</string>
-    <string name="upgrade_screen_iap_action_hint">Jednorázový nákup: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Obnovit nákup</string>
-    <string name="upgrade_screen_restore_purchase_message">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Pokud jste produkt zakoupili nedávno, synchronizace Google Play může chvíli trvat.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Pokud se váš nákup nezobrazí, zkuste to znovu za několik minut.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Ujistěte se, že jste přihlášeni ke stejnému účtu Google, který jste použili při nákupu.</string>
     <string name="settings_monitor_connected_notification_label">Dodatečné oznámení</string>
     <string name="settings_monitor_connected_notification_description">Zobrazí dodatečné oznámení, když je zařízení připojeno. To umožňuje skrýt trvalé oznámení \"Žádné zařízení\" vypnutím kanálu \"Stav zařízení\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Uchovat oznámení po odpojení</string>
@@ -120,6 +108,10 @@
     <string name="settings_category_debug_label">Ladění</string>
     <string name="settings_general_label">Nastavení</string>
     <string name="settings_general_description">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
+    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_gplay_description">Stav vašeho upgradu a nákupu.</string>
+    <string name="settings_upgrade_status_foss_label">Sponzorovat CAPod</string>
+    <string name="settings_upgrade_status_foss_description">Stav vaší podpory.</string>
     <string name="settings_overview_hide_unmatched_label">Skrýt nepřiřazená zařízení</string>
     <string name="settings_overview_hide_unmatched_description">V přehledu nezobrazovat blízká zařízení, která neodpovídají žádnému z vašich profilů, např. AirPods jiných lidí.</string>
     <string name="device_battery_estimate_toggle_label">Odhady baterie</string>
@@ -217,6 +209,12 @@
         <item quantity="few">%d zařízení bez odpovídajícího profilu</item>
         <item quantity="many">%d zařízení bez odpovídajícího profilu</item>
         <item quantity="other">%d zařízení bez odpovídajícího profilu</item>
+    </plurals>
+    <plurals name="overview_unmatched_devices_description">
+        <item quantity="one">Bylo zjištěno %d blízké zařízení bez odpovídajícího profilu. Zobrazte je pro dostupné podrobnosti. Pokud je vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
+        <item quantity="few">Byla zjištěna %d blízká zařízení bez odpovídajících profilů. Zobrazte je pro dostupné podrobnosti. Pokud je jedno vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
+        <item quantity="many">Bylo zjištěno %d blízkého zařízení bez odpovídajících profilů. Zobrazte je pro dostupné podrobnosti. Pokud je jedno vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
+        <item quantity="other">Bylo zjištěno %d blízkých zařízení bez odpovídajících profilů. Zobrazte je pro dostupné podrobnosti. Pokud je jedno vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d další zařízení</item>
@@ -446,7 +444,7 @@
     <string name="device_settings_info_battery_health_left_label">Stav levé baterie (odh.)</string>
     <string name="device_settings_info_battery_health_right_label">Stav pravé baterie (odh.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
-    <string name="device_settings_info_battery_health_pending">Stále se určuje, zkontrolujte později</string>
+    <string name="device_settings_info_battery_health_pending">Probíhá zjišťování, zkuste to znovu později</string>
     <string name="device_settings_info_details_label">Detaily zařízení</string>
     <string name="device_settings_info_details_action">Zobrazit detaily zařízení</string>
     <string name="device_settings_info_status_label">Stav</string>

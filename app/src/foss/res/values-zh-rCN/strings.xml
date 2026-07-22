@@ -8,4 +8,7 @@
     <string name="upgrade_foss_sponsor_subtitle">无广告。无追踪。无 Google Play 绑定。</string>
     <string name="upgrade_foss_sponsor_returned_early">已经回去了？您的支持是 CAPod 生存的动力。</string>
     <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_foss_supporter_since">自 %s 起成为支持者</string>
+    <string name="upgrade_foss_supporter_thanks">感谢您支持 CAPod 的开发!</string>
+    <string name="upgrade_foss_sponsor_again_action">打开赞助页面</string>
 </resources>
