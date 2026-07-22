@@ -151,7 +151,7 @@ class MainActivity : Activity2() {
         if (intent?.getBooleanExtra(EXTRA_NAVIGATE_TO_UPGRADE, false) == true) {
             intent.removeExtra(EXTRA_NAVIGATE_TO_UPGRADE)
             if (generalSettings.isOnboardingDone.valueBlocking) {
-                navCtrl.goTo(Nav.Main.Upgrade)
+                navCtrl.goTo(Nav.Main.Upgrade())
             }
         }
     }

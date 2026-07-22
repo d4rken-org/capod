@@ -25,6 +25,7 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
+import java.util.concurrent.atomic.AtomicLong
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -43,7 +44,7 @@ class BillingClientConnectionProvider @Inject constructor(
         // subscribes (construction order race) — the latest fresh observation must not be lost.
         // Failures stay replay=0: they can only originate from a purchase flow, which requires the
         // consumer to already exist, and a consumed event must not be re-delivered.
-        val freshPurchaseObservations = MutableSharedFlow<Collection<Purchase>>(
+        val freshPurchaseObservations = MutableSharedFlow<FreshPurchases>(
             replay = 1,
             extraBufferCapacity = 16,
             onBufferOverflow = BufferOverflow.DROP_OLDEST,
@@ -52,6 +53,18 @@ class BillingClientConnectionProvider @Inject constructor(
             extraBufferCapacity = 8,
             onBufferOverflow = BufferOverflow.DROP_OLDEST,
         )
+        // replay=1: the connect-time initial query can fail or time out before UpgradeRepoGplay
+        // subscribes — that first failure must still start the unconfirmed-episode clock. A stale
+        // replayed failure is harmless (episode recording is set-if-unset and guarded).
+        val freshFailureEvents = MutableSharedFlow<Unit>(
+            replay = 1,
+            extraBufferCapacity = 8,
+            onBufferOverflow = BufferOverflow.DROP_OLDEST,
+        )
+        // Bumped on every successful onPurchasesUpdated BEFORE its data is published: a refresh
+        // compares the generation around its queries to detect a racing purchase event, which
+        // downgrades that refresh's snapshot from "proves absence" to "presence only".
+        val listenerGeneration = AtomicLong(0)
 
         val client = newBuilder(context).apply {
             enablePendingPurchases(
@@ -65,9 +78,15 @@ class BillingClientConnectionProvider @Inject constructor(
                     log(TAG) {
                         "onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases)"
                     }
+                    listenerGeneration.incrementAndGet()
                     purchasePublisher.value = purchases.orEmpty()
                     freshPurchaseObservations.tryEmit(
-                        purchases.orEmpty().filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
+                        FreshPurchases(
+                            purchases = purchases.orEmpty().filter { it.purchaseState == Purchase.PurchaseState.PURCHASED },
+                            // Push payloads only carry this session's purchases — they prove
+                            // presence, never absence.
+                            isFullSnapshot = false,
+                        )
                     )
                 } else {
                     log(TAG, WARN) {
@@ -94,7 +113,9 @@ class BillingClientConnectionProvider @Inject constructor(
                             client = client,
                             purchasesGlobal = purchasePublisher,
                             freshObservations = freshPurchaseObservations,
+                            freshFailuresGlobal = freshFailureEvents,
                             purchaseFailuresGlobal = purchaseFailureEvents,
+                            listenerGeneration = { listenerGeneration.get() },
                         )
 
                         trySendBlocking(connection)
@@ -107,8 +128,15 @@ class BillingClientConnectionProvider @Inject constructor(
                                 val initial = withTimeoutOrNull(INITIAL_QUERY_TIMEOUT_MS) {
                                     connection.refreshPurchases()
                                 }
-                                if (initial != null) log(TAG) { "Initial purchase query successful." }
-                                else log(TAG, WARN) { "Initial purchase query timed out." }
+                                if (initial != null) {
+                                    log(TAG) { "Initial purchase query successful." }
+                                } else {
+                                    log(TAG, WARN) { "Initial purchase query timed out." }
+                                    // The timeout cancels the query before its own failure path
+                                    // runs — signal it here so the unconfirmed-episode clock can
+                                    // start during a sustained Play outage.
+                                    freshFailureEvents.tryEmit(Unit)
+                                }
                             } catch (e: CancellationException) {
                                 throw e
                             } catch (e: Exception) {

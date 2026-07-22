@@ -11,19 +11,23 @@ import eu.darken.capod.common.upgrade.core.client.BillingResultException
 import eu.darken.capod.common.upgrade.core.client.GplayServiceUnavailableException
 import eu.darken.capod.common.upgrade.core.client.ItemAlreadyOwnedBillingException
 import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
+import eu.darken.capod.common.upgrade.core.client.FreshPurchases
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo.Companion.tryMapUserFriendly
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.junit.jupiter.api.Test
@@ -253,7 +257,8 @@ class BillingDataRepoTest : BaseTest() {
     private class ForegroundRefreshHarness(testScope: TestScope) {
         val clientConnection = mockk<BillingClientConnection> {
             every { purchases } returns emptyFlow()
-            coEvery { refreshPurchases() } returns emptyList()
+            every { freshFailures } returns emptyFlow()
+            coEvery { refreshPurchases() } returns FreshPurchases(emptyList(), isFullSnapshot = true)
         }
         val provider = mockk<BillingClientConnectionProvider> {
             every { connection } returns flowOf(this@ForegroundRefreshHarness.clientConnection)
@@ -312,5 +317,71 @@ class BillingDataRepoTest : BaseTest() {
         coVerify(exactly = 0) { harness.clientConnection.refreshPurchases() }
 
         testScope.cancel()
+    }
+
+    @Test
+    fun `a foreground refresh timeout is reported as a refresh failure`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // A hung refresh is cancelled by the foreground pipeline's timeout BEFORE the query's own
+        // failure path can signal anything — without this local report, a sustained outage would
+        // never start the unconfirmed-episode clock.
+        val clientConnection = mockk<BillingClientConnection> {
+            every { purchases } returns emptyFlow()
+            every { freshFailures } returns emptyFlow()
+            coEvery { refreshPurchases() } coAnswers { awaitCancellation() }
+        }
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flowOf(clientConnection)
+        }
+        val foreground = MutableStateFlow(false)
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns foreground
+        }
+
+        try {
+            val repo = BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+            val failures = mutableListOf<Unit>()
+            val collectJob = testScope.launch { repo.refreshFailures.toList(failures) }
+
+            foreground.value = true
+            testScope.testScheduler.advanceTimeBy(31_000)
+            testScope.testScheduler.runCurrent()
+
+            failures.size shouldBe 1
+
+            collectJob.cancel()
+        } finally {
+            testScope.cancel()
+        }
+    }
+
+    @Test
+    fun `querySubscriptions delegates to the connection and maps errors`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        val clientConnection = mockk<BillingClientConnection> {
+            every { purchases } returns emptyFlow()
+            every { freshFailures } returns emptyFlow()
+            coEvery { querySubscriptions() } throws BillingResultException(
+                mockBillingResult(BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE)
+            )
+        }
+        val provider = mockk<BillingClientConnectionProvider> {
+            every { connection } returns flowOf(clientConnection)
+        }
+        val foregroundState = mockk<AppForegroundState> {
+            every { isForeground } returns MutableStateFlow(false)
+        }
+
+        try {
+            val repo = BillingDataRepo(provider, testScope, foregroundState, TestTimeSource())
+
+            // The strict SUBS gate propagates errors, mapped to the user-friendly type so the
+            // caller's error dialog can tell "Play unavailable" apart from other failures.
+            shouldThrow<GplayServiceUnavailableException> {
+                repo.querySubscriptions()
+            }
+        } finally {
+            testScope.cancel()
+        }
     }
 }

@@ -9,6 +9,7 @@ import androidx.compose.material.icons.automirrored.twotone.MenuBook
 import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.SupportAgent
 import androidx.compose.material.icons.twotone.Translate
 import androidx.compose.material3.Icon
@@ -33,6 +34,7 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.upgrade.UpgradeRepo
 
 @Composable
 fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
@@ -46,6 +48,7 @@ fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
             onNavigateUp = { vm.navUp() },
             onGeneralSettings = { vm.navTo(Nav.Settings.General) },
             onDeviceManager = { vm.navTo(Nav.Main.DeviceManager) },
+            onUpgradeStatus = { vm.navTo(Nav.Main.Upgrade(manage = true)) },
             onSupport = { vm.navTo(Nav.Settings.Support) },
             onWiki = { vm.openUrl("https://github.com/d4rken-org/capod/wiki") },
             onChangelog = { vm.openUrl("https://capod.darken.eu/changelog") },
@@ -63,6 +66,7 @@ fun SettingsScreen(
     onNavigateUp: () -> Unit,
     onGeneralSettings: () -> Unit,
     onDeviceManager: () -> Unit,
+    onUpgradeStatus: () -> Unit,
     onSupport: () -> Unit,
     onWiki: () -> Unit,
     onChangelog: () -> Unit,
@@ -116,6 +120,23 @@ fun SettingsScreen(
                     subtitle = stringResource(R.string.settings_devices_description),
                     icon = Icons.TwoTone.DevicesOther,
                     onClick = onDeviceManager,
+                )
+            }
+            item {
+                // Always visible: owners need a way to check their Pro/supporter status, and
+                // non-owners get another path to the upgrade screen.
+                val isFoss = state.upgradeType == UpgradeRepo.Type.FOSS
+                SettingsBaseItem(
+                    title = stringResource(
+                        if (isFoss) R.string.settings_upgrade_status_foss_label
+                        else R.string.settings_upgrade_status_gplay_label
+                    ),
+                    subtitle = stringResource(
+                        if (isFoss) R.string.settings_upgrade_status_foss_description
+                        else R.string.settings_upgrade_status_gplay_description
+                    ),
+                    icon = Icons.TwoTone.Stars,
+                    onClick = onUpgradeStatus,
                 )
             }
             item {
@@ -181,6 +202,7 @@ private fun SettingsScreenPreview() = PreviewWrapper {
         onNavigateUp = {},
         onGeneralSettings = {},
         onDeviceManager = {},
+        onUpgradeStatus = {},
         onSupport = {},
         onWiki = {},
         onChangelog = {},

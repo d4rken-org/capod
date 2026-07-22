@@ -20,7 +20,7 @@ object Nav {
         data object TroubleShooter : Main
 
         @Serializable
-        data object Upgrade : Main
+        data class Upgrade(val manage: Boolean = false) : Main
 
         @Serializable
         data class DeviceSettings(val profileId: String) : Main

@@ -334,7 +334,7 @@ class OverviewViewModel @Inject constructor(
 
     fun onUpgrade() {
         log(TAG, INFO) { "onUpgrade()" }
-        navTo(Nav.Main.Upgrade)
+        navTo(Nav.Main.Upgrade())
     }
 
     fun toggleUnmatchedDevices() {

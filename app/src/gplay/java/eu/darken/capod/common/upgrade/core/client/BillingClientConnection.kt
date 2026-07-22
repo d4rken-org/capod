@@ -35,9 +35,11 @@ import kotlinx.coroutines.sync.withLock
 
 data class BillingClientConnection(
     private val client: BillingClient,
-    private val purchasesGlobal: Flow<Collection<Purchase>>,
-    private val freshObservations: MutableSharedFlow<Collection<Purchase>>,
+    private val purchasesGlobal: MutableStateFlow<Collection<Purchase>>,
+    private val freshObservations: MutableSharedFlow<FreshPurchases>,
+    private val freshFailuresGlobal: MutableSharedFlow<Unit>,
     private val purchaseFailuresGlobal: Flow<BillingResult>,
+    private val listenerGeneration: () -> Long,
 ) {
 
     // Non-OK results from onPurchasesUpdated (e.g. async ITEM_ALREADY_OWNED after the Play sheet
@@ -47,7 +49,14 @@ data class BillingClientConnection(
     // Every conclusive fresh look at PURCHASED purchases (successful queries and push payloads),
     // regardless of whether it differs from the previous one — the combined `purchases` state is
     // equality-deduped and can mix in stale listener data, so grace stamping must not use it.
-    val freshPurchases: Flow<Collection<Purchase>> = freshObservations
+    // Each observation carries provenance: only a full snapshot proves absence.
+    val freshPurchases: Flow<FreshPurchases> = freshObservations
+
+    // Failed attempts to get a fresh conclusive look (query errors, initial-query timeout).
+    // Consumed by UpgradeRepoGplay to start the unconfirmed-episode clock — without this, a
+    // sustained Play outage would never escalate the grace UI to its diagnostics stage.
+    val freshFailures: Flow<Unit> = freshFailuresGlobal
+
     private data class QueryCaches(
         val iaps: Collection<Purchase>? = null,
         val subs: Collection<Purchase>? = null,
@@ -56,8 +65,9 @@ data class BillingClientConnection(
     private val queryCache = MutableStateFlow(QueryCaches())
 
     // Serializes refreshes on this connection: the connect-time initial query, foreground
-    // refreshes, manual restores and already-owned recoveries may overlap, and an older query
-    // completing late must not overwrite the cache with stale purchases.
+    // refreshes, manual restores, switch-gate verifications and already-owned recoveries may
+    // overlap, and an older query completing late must not overwrite the cache with stale
+    // purchases.
     private val refreshLock = Mutex()
 
     val purchases: Flow<Collection<Purchase>> = combine(
@@ -82,11 +92,13 @@ data class BillingClientConnection(
     // Tolerant of a single product-type failure: a known Pro purchase found by either type is
     // authoritative, and an error only surfaces otherwise — so callers can tell "not owned" apart
     // from "couldn't verify".
-    suspend fun refreshPurchases(): Collection<Purchase> = refreshLock.withLock {
+    suspend fun refreshPurchases(): FreshPurchases = refreshLock.withLock {
         refreshPurchasesLocked()
     }
 
-    private suspend fun refreshPurchasesLocked(): Collection<Purchase> = coroutineScope {
+    private suspend fun refreshPurchasesLocked(): FreshPurchases = coroutineScope {
+        val generationBefore = listenerGeneration()
+
         val iapsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.INAPP) }
         val subsDeferred = async { queryPurchasedProducts(BillingClient.ProductType.SUBS) }
 
@@ -98,7 +110,14 @@ data class BillingClientConnection(
         // authoritative found) must not touch the caches at all, or a partially updated state
         // could surface synthetic ownership to the hot purchases flow and wrongly refresh the
         // grace anchor from stale data.
-        val combined = combinePurchaseResults(iaps, subs)
+        val combined = try {
+            combinePurchaseResults(iaps, subs)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            freshFailuresGlobal.tryEmit(Unit)
+            throw e
+        }
 
         // Single atomic snapshot update; a failed type retains its previous value.
         queryCache.update { previous ->
@@ -107,12 +126,90 @@ data class BillingClientConnection(
                 subs = subs.getOrNull() ?: previous.subs,
             )
         }
+        val bothOk = iaps.isSuccess && subs.isSuccess
+        reconcileListenerRecords(
+            fresh = combined,
+            generationBefore = generationBefore,
+            // A conclusive both-type query proves absence for every product: listener records it
+            // didn't return are stale (refunded, expired) and must not linger until restart.
+            absenceProven = bothOk,
+            absenceScope = { true },
+        )
+
+        // Absence is only proven when both type queries succeeded AND no purchase event raced the
+        // queries: a racing event either flips the generation (downgrading this to presence-only),
+        // or its own fresh emission follows ours and immediately re-stamps the confirmation.
+        val isFullSnapshot = bothOk && listenerGeneration() == generationBefore
+        val fresh = FreshPurchases(combined, isFullSnapshot)
 
         // A conclusive refresh is a fresh observation for the grace stamping, even when the result
         // equals the previous one and the state flows dedupe it away.
-        freshObservations.tryEmit(combined)
+        freshObservations.tryEmit(fresh)
 
-        combined
+        fresh
+    }
+
+    // Strict SUBS-only verification query for the switch-to-IAP gate: errors propagate (the
+    // caller fails closed), and the result is committed to the caches so the ownership UI heals
+    // from stale renewal state (e.g. after the user cancelled the subscription in Play).
+    suspend fun querySubscriptions(): Collection<Purchase> = refreshLock.withLock {
+        val generationBefore = listenerGeneration()
+        val subs = try {
+            queryPurchasesByType(BillingClient.ProductType.SUBS)
+                .filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            freshFailuresGlobal.tryEmit(Unit)
+            throw e
+        }
+
+        queryCache.update { it.copy(subs = subs) }
+        reconcileListenerRecords(
+            fresh = subs,
+            generationBefore = generationBefore,
+            // A conclusive SUBS query proves absence for subscriptions only.
+            absenceProven = true,
+            absenceScope = { it.isKnownSub() },
+        )
+
+        // Presence-only provenance: a SUBS query proves nothing about the IAP.
+        freshObservations.tryEmit(FreshPurchases(subs, isFullSnapshot = false))
+
+        // Include listener-known subscription records the query doesn't cover (a purchase racing
+        // the query survives reconciliation) — over-blocking the switch is safe, missing a
+        // renewing sub is not.
+        val listenerSubs = purchasesGlobal.value.filter { listenerRecord ->
+            listenerRecord.purchaseState == Purchase.PurchaseState.PURCHASED &&
+                listenerRecord.isKnownSub() &&
+                subs.none { it.purchaseToken == listenerRecord.purchaseToken }
+        }
+
+        subs + listenerSubs
+    }
+
+    private fun Purchase.isKnownSub(): Boolean = products.any { it == CapodSku.Sub.PRO_UPGRADE.id }
+
+    // Reconciles the listener overlay against a fresh query result — but ONLY when no purchase
+    // event raced the query (generation unchanged, re-checked inside the CAS loop): a listener
+    // record published mid-query is NEWER than the query result and must survive, or a
+    // just-renewed subscription could be deleted by an older query and slip past the IAP gate.
+    // Without a race: fresh records supersede same-token listener records (a stale in-session
+    // isAutoRenewing=true must not coexist with newer query state forever), and when absence was
+    // proven, in-scope listener records the query didn't return are dropped entirely (refunded or
+    // expired purchases must not keep resurrecting until process restart).
+    private fun reconcileListenerRecords(
+        fresh: Collection<Purchase>,
+        generationBefore: Long,
+        absenceProven: Boolean,
+        absenceScope: (Purchase) -> Boolean,
+    ) {
+        purchasesGlobal.update { current ->
+            if (listenerGeneration() != generationBefore) return@update current
+            current.filterNot { old ->
+                fresh.any { it.purchaseToken == old.purchaseToken } || (absenceProven && absenceScope(old))
+            }
+        }
     }
 
     // Never throws except on cancellation, so a single failing product-type query doesn't cancel

@@ -283,7 +283,7 @@ class DeviceSettingsViewModel @Inject constructor(
         if (upgradeRepo.isPro()) {
             sendInternal(command)
         } else {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
         }
     }
 
@@ -311,7 +311,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setAllowOffOption(enabled: Boolean) = launch {
         if (!upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         if (enabled) {
@@ -334,7 +334,7 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setSleepDetection(enabled: Boolean) = launch {
         log(TAG, INFO) { "setSleepDetection($enabled)" }
         if (enabled && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         sendInternal(AapCommand.SetSleepDetection(enabled))
@@ -386,7 +386,7 @@ class DeviceSettingsViewModel @Inject constructor(
     ) = launch {
         // Disabling never requires pro; enabling does.
         if (enabled && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         updateProfileNow(transform)
@@ -402,7 +402,7 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setAutoPlay(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPlay($enabled)" }
         if (enabled && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         updateProfileNow { it.copy(autoPlay = enabled) }
@@ -412,7 +412,7 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setAutoPause(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPause($enabled)" }
         if (enabled && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         updateProfileNow { it.copy(autoPause = enabled) }
@@ -422,7 +422,7 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setStartMusicOnWear(enabled: Boolean) = launch {
         log(TAG, INFO) { "setStartMusicOnWear($enabled)" }
         if (enabled && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         updateProfileNow { it.copy(startMusicOnWear = enabled) }
@@ -491,7 +491,7 @@ class DeviceSettingsViewModel @Inject constructor(
         // The action picker is only shown while Conversation Awareness is already enabled (the pod
         // emits no speaking frames otherwise), so no need to auto-enable it here.
         if (action != ConversationAction.NOTHING && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         updateProfileNow { it.copy(conversationAction = action) }
@@ -535,7 +535,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun launchUpgrade() {
         log(TAG, INFO) { "launchUpgrade()" }
-        navTo(Nav.Main.Upgrade)
+        navTo(Nav.Main.Upgrade())
     }
 
     fun openIssueTracker() {

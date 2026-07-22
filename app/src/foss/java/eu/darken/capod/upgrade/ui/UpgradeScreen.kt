@@ -38,10 +38,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -60,14 +63,21 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 @Composable
-fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
+fun UpgradeScreenHost(
+    manage: Boolean = false,
+    vm: UpgradeViewModel = hiltViewModel(),
+) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
     val snackbarHostState = remember { SnackbarHostState() }
     val returnedEarlyMessage = stringResource(R.string.upgrade_foss_sponsor_returned_early)
+    val state by vm.state.collectAsState()
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
@@ -90,11 +100,153 @@ fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
         }
     }
 
-    UpgradeScreen(
-        snackbarHostState = snackbarHostState,
-        onNavigateUp = { vm.navUp() },
-        onSponsor = { vm.sponsor() },
-    )
+    val current = state
+    when {
+        // DataStore hasn't answered yet — render nothing rather than flashing the sales route
+        // (with its armable unlock heuristic) at an existing supporter.
+        current == null -> Unit
+
+        manage && current.isPro -> {
+            // Existing supporter checking their status: no sales pitch, and the sponsor link here
+            // must not re-run the unlock heuristic (which would rewrite the supporter-since date).
+            SupporterStatusScreen(
+                upgradedAt = current.upgradedAt,
+                onNavigateUp = { vm.navUp() },
+                onSponsorPage = { vm.openSponsorPage() },
+            )
+        }
+
+        else -> UpgradeScreen(
+            snackbarHostState = snackbarHostState,
+            onNavigateUp = { vm.navUp() },
+            onSponsor = { vm.sponsor() },
+        )
+    }
+}
+
+@Composable
+fun SupporterStatusScreen(
+    upgradedAt: java.time.Instant?,
+    onNavigateUp: () -> Unit,
+    onSponsorPage: () -> Unit,
+) {
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.surface,
+    ) { paddingValues ->
+        Box(modifier = Modifier.padding(paddingValues)) {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Spacer(modifier = Modifier.height(48.dp))
+
+                Box(contentAlignment = Alignment.Center) {
+                    Surface(
+                        modifier = Modifier.size(120.dp),
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
+                    ) {}
+                    Image(
+                        painter = painterResource(R.drawable.splash_graphic2),
+                        contentDescription = null,
+                        modifier = Modifier.size(80.dp),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = buildAnnotatedString {
+                        append("CAPod ")
+                        withStyle(SpanStyle(color = colorResource(R.color.brand_secondary), fontWeight = FontWeight.Bold)) {
+                            append("FOSS")
+                        }
+                    },
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag("upgrade.foss.supporterCard"),
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.TwoTone.Favorite,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = upgradedAt
+                                    ?.let { instant ->
+                                        stringResource(
+                                            R.string.upgrade_foss_supporter_since,
+                                            remember(instant) {
+                                                DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                                                    .withZone(ZoneId.systemDefault())
+                                                    .format(instant)
+                                            }
+                                        )
+                                    }
+                                    ?: stringResource(R.string.upgrade_foss_supporter_thanks),
+                                style = MaterialTheme.typography.titleMedium,
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = stringResource(R.string.upgrade_foss_supporter_thanks),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Button(
+                    onClick = onSponsorPage,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(12.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Favorite,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp),
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = stringResource(R.string.upgrade_foss_sponsor_again_action),
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+            }
+
+            IconButton(
+                onClick = onNavigateUp,
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(4.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
+                    contentDescription = null,
+                )
+            }
+        }
+    }
 }
 
 private data class Benefit(val icon: ImageVector, val textRes: Int)
@@ -267,5 +419,15 @@ private fun UpgradeScreenPreview() = PreviewWrapper {
     UpgradeScreen(
         onNavigateUp = {},
         onSponsor = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun SupporterStatusScreenPreview() = PreviewWrapper {
+    SupporterStatusScreen(
+        upgradedAt = java.time.Instant.parse("2025-11-02T12:00:00Z"),
+        onNavigateUp = {},
+        onSponsorPage = {},
     )
 }

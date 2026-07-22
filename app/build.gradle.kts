@@ -198,6 +198,12 @@ dependencies {
     "gplayImplementation"("com.android.billingclient:billing:8.0.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 
+    // Robolectric-backed Compose UI tests (run as regular unit tests via the vintage engine).
+    testImplementation(platform("androidx.compose:compose-bom:${Versions.Compose.bom}"))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("androidx.compose.ui:ui-test-manifest")
+    testImplementation("org.robolectric:robolectric:4.15.1")
+
     "screenshotTestImplementation"(platform("androidx.compose:compose-bom:${Versions.Compose.bom}"))
     "screenshotTestImplementation"("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha13")
     "screenshotTestImplementation"("androidx.compose.ui:ui-tooling")

@@ -144,7 +144,7 @@ class PressControlsViewModel @Inject constructor(
         // 2. Free-clear allowance — always allow clearing to None.
         // 3. Otherwise Pro is required.
         if (action != StemAction.None && !upgradeRepo.isPro()) {
-            navTo(Nav.Main.Upgrade)
+            navTo(Nav.Main.Upgrade())
             return@launch
         }
         // 4. Mutate + cross-side effect.

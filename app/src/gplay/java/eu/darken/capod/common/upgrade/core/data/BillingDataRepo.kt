@@ -77,11 +77,23 @@ class BillingDataRepo @Inject constructor(
 
     // Every fresh observation of PURCHASED purchases (successful queries and push payloads) —
     // unlike billingData this is not equality-deduped state and never mixes in stale listener
-    // data, so it is the only valid source for grace stamping.
-    val freshBillingData: Flow<BillingData> = connectionProvider
+    // data, so it is the only valid source for grace stamping. Carries provenance: only full
+    // snapshots may prove absence.
+    val freshBillingData: Flow<FreshBillingData> = connectionProvider
         .flatMapLatest { it.freshPurchases }
-        .map { BillingData(purchases = it) }
+        .map { FreshBillingData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot) }
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
+
+    // Local failures the connection can't see itself (e.g. a foreground refresh timing out while
+    // the connection retry backoff is still waiting).
+    private val localRefreshFailures = MutableSharedFlow<Unit>(extraBufferCapacity = 8)
+
+    // Failed attempts to get fresh conclusive purchase data (query errors, timeouts). Consumed by
+    // UpgradeRepoGplay to start the unconfirmed-episode clock during sustained Play outages.
+    val refreshFailures: Flow<Unit> = merge(
+        connectionProvider.flatMapLatest { it.freshFailures },
+        localRefreshFailures,
+    )
 
     init {
         connectionProvider
@@ -156,8 +168,14 @@ class BillingDataRepo @Inject constructor(
                     // Bounded: an unavailable connection suspends refresh() indefinitely (60s
                     // retry loop) and would otherwise block all future foreground refreshes.
                     val result = withTimeoutOrNull(FOREGROUND_REFRESH_TIMEOUT_MS) { refresh() }
-                    if (result != null) log(TAG) { "Foreground purchase refresh done" }
-                    else log(TAG, WARN) { "Foreground purchase refresh timed out" }
+                    if (result != null) {
+                        log(TAG) { "Foreground purchase refresh done" }
+                    } else {
+                        log(TAG, WARN) { "Foreground purchase refresh timed out" }
+                        // The timeout cancels the query before its own failure path can signal —
+                        // report it here so the unconfirmed-episode clock still starts.
+                        localRefreshFailures.tryEmit(Unit)
+                    }
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
@@ -168,12 +186,22 @@ class BillingDataRepo @Inject constructor(
             .launchIn(scope)
     }
 
-    suspend fun refresh(): BillingData = try {
+    suspend fun refresh(): FreshBillingData = try {
         connectionKicks.tryEmit(Unit)
         val clientConnection = connectionProvider.first()
-        val purchases = clientConnection.refreshPurchases()
+        val fresh = clientConnection.refreshPurchases()
 
-        BillingData(purchases = purchases)
+        FreshBillingData(data = BillingData(purchases = fresh.purchases), isFullSnapshot = fresh.isFullSnapshot)
+    } catch (e: Exception) {
+        throw e.tryMapUserFriendly()
+    }
+
+    // Strict SUBS-only ownership check for the switch-to-IAP gate: errors propagate so callers
+    // can fail closed, and the fresh result is committed so stale renewal state heals.
+    suspend fun querySubscriptions(): Collection<Purchase> = try {
+        connectionKicks.tryEmit(Unit)
+        val clientConnection = connectionProvider.first()
+        clientConnection.querySubscriptions()
     } catch (e: Exception) {
         throw e.tryMapUserFriendly()
     }
