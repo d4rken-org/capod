@@ -1,10 +1,17 @@
 package eu.darken.capod.main.ui.overview.cards
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.DeviceUnknown
+import androidx.compose.material.icons.twotone.Visibility
+import androidx.compose.material.icons.twotone.VisibilityOff
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -29,20 +36,39 @@ fun UnmatchedDevicesCard(
             .fillMaxWidth()
             .padding(8.dp),
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
+        Column(
+            modifier = Modifier.padding(16.dp),
         ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.TwoTone.DeviceUnknown,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 12.dp),
+                )
+                Text(
+                    text = stringResource(R.string.overview_unmatched_devices_label),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
+
+            Spacer(modifier = Modifier.height(4.dp))
+
             Text(
-                text = pluralStringResource(R.plurals.overview_unmatched_devices_count, count, count),
+                text = pluralStringResource(R.plurals.overview_unmatched_devices_description, count, count),
                 style = MaterialTheme.typography.bodyMedium,
             )
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = onToggle) {
+            TextButton(
+                onClick = onToggle,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Icon(
+                    imageVector = if (isExpanded) Icons.TwoTone.VisibilityOff else Icons.TwoTone.Visibility,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp),
+                )
                 Text(
                     text = if (isExpanded) {
                         stringResource(R.string.general_hide_action)
@@ -58,7 +84,7 @@ fun UnmatchedDevicesCard(
 @Preview2
 @Composable
 private fun UnmatchedDevicesCardCollapsedPreview() = PreviewWrapper {
-    UnmatchedDevicesCard(count = 3, isExpanded = false, onToggle = {})
+    UnmatchedDevicesCard(count = 1, isExpanded = false, onToggle = {})
 }
 
 @Preview2
