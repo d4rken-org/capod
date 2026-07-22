@@ -152,6 +152,31 @@ class UpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `restore results are padded to a minimum visible duration`() = runTest2 {
+        // The repo answers instantly here (warm cache) — the user must still see the check "run":
+        // the result event may only surface once RESTORE_MIN_VISIBLE_MS elapsed.
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(billingData = null)
+        val vm = createVm(repo)
+
+        val events = mutableListOf<UpgradeViewModel.UpgradeEvent>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.events.collect { events.add(it) } }
+
+        vm.restorePurchase()
+        testScheduler.advanceTimeBy(UpgradeViewModel.RESTORE_MIN_VISIBLE_MS - 100)
+        testScheduler.runCurrent()
+
+        events shouldBe emptyList()
+
+        testScheduler.advanceTimeBy(200)
+        testScheduler.runCurrent()
+
+        events shouldBe listOf(UpgradeViewModel.UpgradeEvent.RestoreFailed)
+
+        job.cancel()
+    }
+
+    @Test
     fun `restore is single-flight, taps during a running restore are ignored`() = runTest2 {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {

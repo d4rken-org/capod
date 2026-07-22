@@ -294,7 +294,15 @@ class UpgradeViewModel @Inject constructor(
         log(TAG, INFO) { "restorePurchase()" }
 
         try {
-            val restored = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+            // Pad the round-trip to a minimum visible duration, CONCURRENTLY with the real query
+            // (a pad, not an add-on): warm caches can answer instantly, and a spinner that flashes
+            // for a single frame leaves the user unsure whether anything actually happened.
+            val restored = coroutineScope {
+                val minVisible = async { delay(RESTORE_MIN_VISIBLE_MS) }
+                val result = withTimeoutOrNull(RESTORE_TIMEOUT_MS) { upgradeRepo.restorePurchaseNow() }
+                minVisible.await()
+                result
+            }
             when {
                 restored == null -> {
                     // Play never answered in time; the restore-failed message already suggests the
@@ -353,6 +361,9 @@ class UpgradeViewModel @Inject constructor(
 
     companion object {
         internal const val RESTORE_TIMEOUT_MS = 15_000L
+        // Long enough that the user believes a round-trip to Play happened, short enough not
+        // to drag.
+        internal const val RESTORE_MIN_VISIBLE_MS = 1_500L
         internal const val VERIFY_TIMEOUT_MS = 10_000L
         // The first SKU query after a Play sign-in has been observed to take >8s.
         internal const val SKU_QUERY_TIMEOUT_MS = 15_000L
