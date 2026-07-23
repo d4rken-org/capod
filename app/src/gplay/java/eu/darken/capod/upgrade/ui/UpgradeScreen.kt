@@ -77,6 +77,7 @@ object UpgradeScreenTags {
     const val SUB_BUTTON = "upgrade.sub.button"
     const val IAP_BUTTON = "upgrade.iap.button"
     const val RESTORE_BUTTON = "upgrade.restore.button"
+    const val RETRY_BUTTON = "upgrade.retry.button"
     const val RESTORE_BANNER = "upgrade.restore.banner"
     const val OWNER_HERO = "upgrade.owner.hero"
     const val OWNER_SUB_CARD = "upgrade.owner.subCard"
@@ -145,6 +146,7 @@ fun UpgradeScreenHost(
         onSubscriptionTrial = { activity?.let { vm.onGoSubscriptionTrial(it) } },
         onIap = { activity?.let { vm.onGoIap(it) } },
         onRestore = { vm.restorePurchase() },
+        onRetry = { vm.retrySkuQuery() },
         onManageSubscription = { vm.onManageSubscription() },
     )
 
@@ -248,6 +250,7 @@ fun UpgradeScreen(
     onIap: () -> Unit,
     onRestore: () -> Unit,
     onManageSubscription: () -> Unit,
+    onRetry: () -> Unit = {},
 ) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surface,
@@ -307,6 +310,7 @@ fun UpgradeScreen(
                         onSubscriptionTrial = onSubscriptionTrial,
                         onIap = onIap,
                         onRestore = onRestore,
+                        onRetry = onRetry,
                     )
 
                     state is UpgradeUiState.Loaded -> AcquisitionContent(
@@ -315,6 +319,7 @@ fun UpgradeScreen(
                         onSubscriptionTrial = onSubscriptionTrial,
                         onIap = onIap,
                         onRestore = onRestore,
+                        onRetry = onRetry,
                     )
                 }
 
@@ -544,6 +549,7 @@ private fun GraceContent(
     onSubscriptionTrial: () -> Unit,
     onIap: () -> Unit,
     onRestore: () -> Unit,
+    onRetry: () -> Unit = {},
 ) {
     val grace = state.grace ?: return
 
@@ -609,6 +615,7 @@ private fun GraceContent(
             onSubscriptionTrial = onSubscriptionTrial,
             onIap = onIap,
             onRestore = onRestore,
+            onRetry = onRetry,
             showRestore = false,
         )
     }
@@ -623,6 +630,7 @@ private fun AcquisitionContent(
     onSubscriptionTrial: () -> Unit,
     onIap: () -> Unit,
     onRestore: () -> Unit,
+    onRetry: () -> Unit = {},
 ) {
     val benefits = listOf(
         Benefit(Icons.TwoTone.Palette, R.string.upgrade_benefit_themes),
@@ -713,6 +721,7 @@ private fun AcquisitionContent(
         onSubscriptionTrial = onSubscriptionTrial,
         onIap = onIap,
         onRestore = onRestore,
+        onRetry = onRetry,
     )
 }
 
@@ -795,6 +804,7 @@ private fun PricingContent(
     onSubscriptionTrial: () -> Unit,
     onIap: () -> Unit,
     onRestore: () -> Unit,
+    onRetry: () -> Unit = {},
     showRestore: Boolean = true,
 ) {
     // Subscription button (primary)
@@ -868,7 +878,9 @@ private fun PricingContent(
         }
     }
 
-    // If no details loaded at all, show a simple fallback upgrade button
+    // If no details loaded at all, show a simple fallback upgrade button (which re-queries the SKU
+    // at purchase time) plus a Retry that reloads the offers — a cold/slow Play store can otherwise
+    // leave price and subscription/trial selection unavailable for the whole screen visit.
     if (!state.subAvailable && !state.iapAvailable) {
         Button(
             onClick = onIap,
@@ -890,6 +902,25 @@ private fun PricingContent(
                 text = stringResource(R.string.general_upgrade_action),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedButton(
+            onClick = onRetry,
+            // Disabled while a query is running so repeated taps can't thrash the query flow —
+            // owners/grace users keep this fallback visible price-independently.
+            enabled = !state.skuQueryInProgress,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp)
+                .testTag(UpgradeScreenTags.RETRY_BUTTON),
+            shape = RoundedCornerShape(12.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.general_retry_action),
+                style = MaterialTheme.typography.titleMedium,
             )
         }
     }

@@ -74,16 +74,34 @@ data class BillingClientConnection(
         purchasesGlobal,
         queryCache,
     ) { global, cached ->
-        val combined = mutableSetOf<Purchase>()
+        // Dedup by purchaseToken, not Purchase identity: the query-cache snapshot and the listener
+        // overlay can hold the SAME purchase with a different ack-state — Play's immutable Purchase
+        // keeps reporting isAcknowledged=false until a fresh query supersedes it — so a Set/equals
+        // dedup (originalJson+signature differ) would keep BOTH. Insert the query-cache entries
+        // first, then let the listener overlay overwrite by token: reconcileListenerRecords() has
+        // already dropped same-token listener records after a non-raced query and deliberately KEEPS
+        // them when a purchase raced the query, so a surviving overlay entry is by construction the
+        // newer one — the overlay is not unconditionally fresher, it only wins when reconciliation
+        // left it in place.
+        val byToken = LinkedHashMap<String, Purchase>()
 
-        cached.iaps?.let { combined.addAll(it) }
-        cached.subs?.let { combined.addAll(it) }
+        fun keep(purchase: Purchase) {
+            if (purchase.purchaseToken.isBlank()) {
+                // Play supplies a non-empty token for PURCHASED purchases; a blank one is malformed
+                // and must not collapse every such record under the "" key.
+                log(TAG, WARN) { "Ignoring PURCHASED record with blank purchaseToken: $purchase" }
+                return
+            }
+            byToken[purchase.purchaseToken] = purchase
+        }
 
+        cached.iaps?.forEach { keep(it) }
+        cached.subs?.forEach { keep(it) }
         global
             .filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
-            .let { combined.addAll(it) }
+            .forEach { keep(it) }
 
-        combined.sortedByDescending { it.purchaseTime }
+        byToken.values.sortedByDescending { it.purchaseTime }
     }
         .setupCommonEventHandlers(TAG) { "purchases" }
 

@@ -61,6 +61,9 @@ class UpgradeViewModelTest : BaseTest() {
         every { wasEverPro } returns MutableStateFlow(false)
         every { proUnconfirmedSince } returns MutableStateFlow(0L)
         every { isSettled } returns MutableStateFlow(true)
+        // A relaxed mock returns a Flow that never emits — the effectiveRestore combine would
+        // starve and the state flow would never leave Loading.
+        every { autoRestoreBusy } returns MutableStateFlow(false)
         coEvery { queryCurrentSubscriptions() } returns emptyList()
         coEvery { querySkus(any()) } returns emptyList()
     }
@@ -627,5 +630,116 @@ class UpgradeViewModelTest : BaseTest() {
 
         state.iapEnabled shouldBe false
         state.subscriptionEnabled shouldBe false
+    }
+
+    @Test
+    fun `toLoadedState disables the buy actions during a restore`() {
+        val state = toLoadedState(
+            skus = SkuQueryState(done = true),
+            ownership = Ownership(),
+            grace = null,
+            showRestoreBanner = false,
+            settled = true,
+            restoreInProgress = true,
+            verificationInProgress = false,
+        )
+
+        state.iapEnabled shouldBe false
+        state.subscriptionEnabled shouldBe false
+    }
+
+    // --- SKU-query retry (P3) ---
+
+    @Test
+    fun `a slow but healthy Play store waits for the query instead of tripping the timeout`() = runTest2 {
+        // 9s is under the 15s SKU-query timeout — the store is slow, not broken. Prove the screen
+        // WAITED for the slow query (still Loading at 5s) and only loaded once it answered at 9s; a
+        // shorter timeout would have flipped to Loaded early with null details.
+        val repo = mockRepo()
+        coEvery { repo.querySkus(any()) } coAnswers {
+            delay(9_000)
+            emptyList()
+        }
+        val vm = createVm(repo)
+
+        val states = mutableListOf<UpgradeUiState>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect { states.add(it) } }
+
+        testScheduler.advanceTimeBy(5_000)
+        testScheduler.runCurrent()
+        states.last().shouldBeInstanceOf<UpgradeUiState.Loading>()
+
+        testScheduler.advanceTimeBy(4_500)
+        testScheduler.runCurrent()
+        states.last().shouldBeInstanceOf<UpgradeUiState.Loaded>()
+
+        job.cancel()
+    }
+
+    @Test
+    fun `retry re-runs the SKU queries`() = runTest2 {
+        val repo = mockRepo()
+        val vm = createVm(repo)
+        vm.state.first { it is UpgradeUiState.Loaded }
+
+        vm.retrySkuQuery()
+        advanceUntilIdle()
+
+        // Initial aggregate query + the retried generation.
+        coVerify(exactly = 2) { repo.querySkus(CapodSku.Iap.PRO_UPGRADE) }
+    }
+
+    @Test
+    fun `retry is disabled while a SKU query is still running`() = runTest2 {
+        // Grace users render the fallback + Retry price-independently while the query runs; the
+        // Retry must be disabled then so repeated taps can't thrash the query flow.
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        )
+        every { repo.proUnconfirmedSince } returns MutableStateFlow(now() - Duration.ofHours(25).toMillis())
+        coEvery { repo.querySkus(any()) } coAnswers { awaitCancellation() }
+        val vm = createVm(repo)
+
+        val state = vm.state.first { it is UpgradeUiState.Loaded } as UpgradeUiState.Loaded
+
+        state.skuQueryInProgress shouldBe true
+    }
+
+    // --- autoRestoreBusy gate (P2) ---
+
+    @Test
+    fun `the invisible auto-restore disables the buy buttons`() = runTest2 {
+        val repo = mockRepo()
+        val autoBusy = MutableStateFlow(false)
+        every { repo.autoRestoreBusy } returns autoBusy
+        val vm = createVm(repo)
+
+        val states = mutableListOf<UpgradeUiState>()
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { vm.state.collect { states.add(it) } }
+        testScheduler.runCurrent()
+        (states.last() as UpgradeUiState.Loaded).iapEnabled shouldBe true
+
+        autoBusy.value = true
+        testScheduler.runCurrent()
+
+        (states.last() as UpgradeUiState.Loaded).iapEnabled shouldBe false
+        (states.last() as UpgradeUiState.Loaded).restoreInProgress shouldBe true
+
+        job.cancel()
+    }
+
+    @Test
+    fun `a purchase tap during the invisible auto-restore is refused authoritatively`() = runTest2 {
+        // Button disabling lags a tap; the authoritative gate in runExclusive must refuse a tap
+        // dispatched while the silent restore runs, or a subscribe would buy on top of the owned IAP.
+        val repo = mockRepo()
+        every { repo.autoRestoreBusy } returns MutableStateFlow(true)
+        val vm = createVm(repo)
+
+        vm.onGoSubscription(mockk<Activity>())
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.launchBillingFlow(any(), any(), any()) }
     }
 }

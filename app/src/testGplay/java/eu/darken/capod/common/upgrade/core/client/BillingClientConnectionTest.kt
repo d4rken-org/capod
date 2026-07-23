@@ -328,4 +328,46 @@ class BillingClientConnectionTest : BaseTest() {
             )
         }
     }
+
+    // --- Token-based dedup of the merged purchases view (P4) ---
+
+    @Test
+    fun `a same-token listener overlay overwrites the query-cache record`() = runTest2 {
+        // The query cache holds a snapshot of a purchase; the listener then pushes a fresher copy
+        // (differing ack-state) under the same token. Dedup by token must keep exactly one entry,
+        // and the listener overlay — left in place by reconciliation — wins.
+        val cached = mockPurchase(CapodSku.Iap.PRO_UPGRADE.id, token = "shared")
+        val overlay = mockPurchase(CapodSku.Iap.PRO_UPGRADE.id, token = "shared")
+        val harness = Harness()
+        coEvery { harness.client.queryPurchasesAsync(any<QueryPurchasesParams>()) } returnsMany listOf(
+            harness.okResult(listOf(cached)),
+            harness.okResult(emptyList()),
+        )
+        harness.connection.refreshPurchases()
+
+        // A listener push arriving after the refresh — same token, fresher instance.
+        harness.purchasesGlobal.value = listOf(overlay)
+
+        harness.connection.purchases.first() shouldContainExactly listOf(overlay)
+    }
+
+    @Test
+    fun `distinct-token purchases all survive and stay ordered by purchase time`() = runTest2 {
+        val older = mockPurchase(CapodSku.Iap.PRO_UPGRADE.id, token = "a", purchaseTime = 1_000)
+        val newer = mockPurchase(CapodSku.Sub.PRO_UPGRADE.id, token = "b", purchaseTime = 2_000)
+        val harness = Harness(purchasesGlobal = MutableStateFlow(listOf(older, newer)))
+
+        harness.connection.purchases.first() shouldContainExactly listOf(newer, older)
+    }
+
+    @Test
+    fun `a purchased record with a blank token is discarded`() = runTest2 {
+        // Play supplies a non-empty token for PURCHASED purchases; a blank one is malformed and
+        // must not collapse every such record under the "" key.
+        val valid = mockPurchase(CapodSku.Iap.PRO_UPGRADE.id, token = "valid", purchaseTime = 2_000)
+        val blank = mockPurchase(CapodSku.Sub.PRO_UPGRADE.id, token = "", purchaseTime = 1_000)
+        val harness = Harness(purchasesGlobal = MutableStateFlow(listOf(valid, blank)))
+
+        harness.connection.purchases.first() shouldContainExactly listOf(valid)
+    }
 }

@@ -20,6 +20,9 @@ sealed interface UpgradeUiState {
         val settled: Boolean = true,
         val restoreInProgress: Boolean = false,
         val verificationInProgress: Boolean = false,
+        // A SKU-detail query is still running. Owners/grace users render the fallback + Retry
+        // price-independently, so the Retry affordance disables itself while this is true.
+        val skuQueryInProgress: Boolean = false,
     ) : UpgradeUiState {
         val subAvailable: Boolean get() = subscriptionAction != SubscriptionAction.UNAVAILABLE
         val iapAvailable: Boolean get() = iapPrice != null
@@ -69,6 +72,7 @@ fun toLoadedState(
     settled: Boolean,
     restoreInProgress: Boolean,
     verificationInProgress: Boolean,
+    skuQueryInProgress: Boolean = false,
 ): UpgradeUiState.Loaded {
     val iapOffer = skus.iap?.details?.oneTimePurchaseOfferDetails
     val subOffers = skus.sub?.details?.subscriptionOfferDetails
@@ -94,5 +98,6 @@ fun toLoadedState(
         settled = settled,
         restoreInProgress = restoreInProgress,
         verificationInProgress = verificationInProgress,
+        skuQueryInProgress = skuQueryInProgress,
     )
 }
