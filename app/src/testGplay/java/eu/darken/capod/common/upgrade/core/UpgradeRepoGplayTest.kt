@@ -23,9 +23,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
@@ -38,6 +40,7 @@ import testhelpers.BaseTest
 import testhelpers.TestTimeSource
 import testhelpers.coroutine.runTest2
 import java.io.File
+import java.io.IOException
 import java.time.Duration
 
 class UpgradeRepoGplayTest : BaseTest() {
@@ -106,8 +109,9 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         billingDataFlow.emit(BillingData(purchases = emptyList()))
 
-        // First emission is onStart, second is billing data
-        emissions.size shouldBe 2
+        // The startup ticks (grace-deadline onStart + the initial cache read) plus the empty
+        // billing emission all map to the same not-pro state — assert the contract, not the
+        // incidental emission count.
         val info = emissions.last()
         info.isPro shouldBe false
         info.error.shouldBeNull()
@@ -777,6 +781,166 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         repo.proUnconfirmedSince.first() shouldBe now()
 
+        testScope.cancel()
+    }
+
+    // --- Storage-failure resilience (P1) ---
+
+    // A cache whose reads/writes fail like a full or corrupt DataStore.
+    private fun failingCache(): BillingCache = mockk(relaxed = true) {
+        every { lastProStateAt } returns mockk { every { flow } returns flow { throw IOException("disk full") } }
+        every { lastProStateSku } returns mockk { every { flow } returns flow { throw IOException("disk full") } }
+        every { proUnconfirmedAt } returns mockk { every { flow } returns flow { throw IOException("disk full") } }
+        coEvery { stampLastProState(any(), any()) } throws IOException("disk full")
+        coEvery { recordProUnconfirmed(any()) } throws IOException("disk full")
+    }
+
+    private fun repoWith(cache: BillingCache, scope: TestScope): UpgradeRepoGplay = UpgradeRepoGplay(
+        scope = scope,
+        billingDataRepo = billingDataRepo,
+        billingCache = cache,
+        timeSource = timeSource,
+    )
+
+    @Test
+    fun `a known purchase is pro even when the grace cache is unreadable and unwritable`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // restorePurchaseNow maps the fresh data directly: mapped-first must return Pro without
+        // touching the cache, and the best-effort stamp must swallow the write failure.
+        coEvery { billingDataRepo.refresh() } returns freshData(
+            purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))
+        )
+        val repo = repoWith(failingCache(), testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `unknown-only purchases still fall through to the grace check`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // A purchase list of only products this app doesn't recognize maps to zero upgrades — it
+        // must NOT masquerade as a confirmed purchase, but fall through to grace for a recent owner.
+        coEvery { billingDataRepo.refresh() } returns freshData(
+            purchases = listOf(mockPurchase("some.unknown.product"))
+        )
+        billingCache.lastProStateAt.valueBlocking = now() - 1_000L
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe true
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `unknown-only purchases without recent grace are not pro`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } returns freshData(
+            purchases = listOf(mockPurchase("some.unknown.product"))
+        )
+        val repo = createRepo(testScope)
+
+        repo.restorePurchaseNow().isPro shouldBe false
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `a confirmed purchase surfaces on upgradeInfo even when the grace cache is unreadable`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        // The pre-data null placeholder and the empty snapshot both hit the (unreadable) grace probe
+        // first; the mapping must NOT throw and loop there, or a real Pro purchase arriving behind
+        // them would never be processed. mapped-first must surface the purchase regardless.
+        val billing = MutableSharedFlow<BillingData>(replay = 1)
+        every { billingDataRepo.billingData } returns billing
+        val repo = repoWith(failingCache(), testScope)
+
+        val emissions = mutableListOf<eu.darken.capod.common.upgrade.UpgradeRepo.Info>()
+        val job = testScope.launch { repo.upgradeInfo.toList(emissions) }
+
+        billing.emit(BillingData(purchases = emptyList()))
+        emissions.last().isPro shouldBe false
+
+        billing.emit(BillingData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id))))
+        emissions.last().isPro shouldBe true
+
+        job.cancel()
+        testScope.cancel()
+    }
+
+    @Test
+    fun `a persistently failing grace cache degrades to not-pro without erroring or terminating`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        every { billingDataRepo.billingData } returns flowOf(BillingData(purchases = emptyList()))
+        val repo = repoWith(failingCache(), testScope)
+
+        // The grace probe reads the broken cache but is guarded+bounded, so the mapping never throws:
+        // the flow emits a plain not-pro Info (no error) instead of terminating. The companion test
+        // above proves it keeps processing a later confirmed purchase, so the flow stays alive.
+        val info = repo.upgradeInfo.first()
+        info.isPro shouldBe false
+        info.error.shouldBeNull()
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `wasEverPro falls back to false when its cache read fails`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        val repo = repoWith(failingCache(), testScope)
+
+        repo.wasEverPro.first() shouldBe false
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `proUnconfirmedSince falls back to 0 when its cache read fails`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        val repo = repoWith(failingCache(), testScope)
+
+        repo.proUnconfirmedSince.first() shouldBe 0L
+
+        testScope.cancel()
+    }
+
+    @Test
+    fun `retryDelayMs grows and caps at five minutes`() {
+        UpgradeRepoGplay.retryDelayMs(0) shouldBe 30_000L
+        UpgradeRepoGplay.retryDelayMs(1) shouldBe 60_000L
+        UpgradeRepoGplay.retryDelayMs(2) shouldBe 120_000L
+        UpgradeRepoGplay.retryDelayMs(3) shouldBe 240_000L
+        UpgradeRepoGplay.retryDelayMs(4) shouldBe 300_000L
+        UpgradeRepoGplay.retryDelayMs(100) shouldBe 300_000L
+        UpgradeRepoGplay.retryDelayMs(Long.MAX_VALUE) shouldBe 300_000L
+    }
+
+    // --- autoRestoreBusy gate (P2) ---
+
+    @Test
+    fun `autoRestoreBusy rises during the invisible already-owned restore and falls after`() = runTest2 {
+        val testScope = TestScope(UnconfinedTestDispatcher(testScheduler))
+        coEvery { billingDataRepo.refresh() } coAnswers {
+            delay(1_000)
+            freshData(purchases = listOf(mockPurchase(CapodSku.Iap.PRO_UPGRADE.id)))
+        }
+        every { billingDataRepo.purchaseFailures } returns
+            flowOf(mockBillingResult(BillingResponseCode.ITEM_ALREADY_OWNED))
+
+        // The event fires on construction; the restore then suspends in refresh().
+        val repo = createRepo(testScope)
+
+        val states = mutableListOf<Boolean>()
+        val job = testScope.launch { repo.autoRestoreBusy.toList(states) }
+        testScope.testScheduler.runCurrent()
+        states.last() shouldBe true
+
+        testScope.testScheduler.advanceTimeBy(1_100)
+        testScope.testScheduler.runCurrent()
+        states.last() shouldBe false
+
+        job.cancel()
         testScope.cancel()
     }
 }

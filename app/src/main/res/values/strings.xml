@@ -5,6 +5,7 @@
     <string name="general_copy_action">Copy</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_retry_action">Retry</string>
     <string name="common_feature_requires_pro_msg">Upgrade to unlock.</string>
     <string name="common_upgrade_required_label">Requires upgrade</string>
     <string name="general_donate_action">Donate</string>

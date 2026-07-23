@@ -53,6 +53,7 @@ class UpgradeScreenComposeTest {
         onIap: () -> Unit = {},
         onRestore: () -> Unit = {},
         onManageSubscription: () -> Unit = {},
+        onRetry: () -> Unit = {},
     ) {
         composeRule.setContent {
             UpgradeScreen(
@@ -63,8 +64,41 @@ class UpgradeScreenComposeTest {
                 onIap = onIap,
                 onRestore = onRestore,
                 onManageSubscription = onManageSubscription,
+                onRetry = onRetry,
             )
         }
+    }
+
+    // No-offer fallback state (cold/slow Play store returned no product details).
+    private fun noOffers(skuQueryInProgress: Boolean = false) = UpgradeUiState.Loaded(
+        subscriptionAction = SubscriptionAction.UNAVAILABLE,
+        subscriptionEnabled = false,
+        subscriptionPrice = null,
+        iapEnabled = true,
+        iapPrice = null,
+        skuQueryInProgress = skuQueryInProgress,
+    )
+
+    @Test
+    fun `the no-offers fallback shows a Retry that fires the callback`() {
+        var retries = 0
+        setScreen(state = noOffers(), onRetry = { retries++ })
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.RETRY_BUTTON)
+            .performScrollTo()
+            .assertIsEnabled()
+            .performClick()
+
+        retries shouldBe 1
+    }
+
+    @Test
+    fun `the Retry button is disabled while a SKU query is running`() {
+        setScreen(state = noOffers(skuQueryInProgress = true))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.RETRY_BUTTON)
+            .performScrollTo()
+            .assertIsNotEnabled()
     }
 
     // --- Owner states ---
