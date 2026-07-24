@@ -72,6 +72,7 @@ object UpgradeScreenTags {
     const val BENEFITS = "upgrade.benefits"
     const val OFFERS = "upgrade.offers"
     const val OFFERS_UNAVAILABLE = "upgrade.offers.unavailable"
+    const val OFFERS_SETTLING = "upgrade.offers.settling"
     const val LOADING = "upgrade.loading"
 }
 
