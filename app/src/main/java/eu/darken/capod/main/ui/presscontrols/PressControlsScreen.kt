@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.presscontrols
 
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -176,7 +177,10 @@ fun PressControlsScreen(
             )
         },
     ) { paddingValues ->
-        LazyColumn(modifier = Modifier.padding(paddingValues)) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = paddingValues,
+        ) {
             item("description") {
                 Text(
                     text = stringResource(R.string.press_controls_description),

@@ -1,6 +1,6 @@
 package eu.darken.capod.main.ui.settings.acks
 
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -54,7 +54,10 @@ fun AcknowledgementsScreen(
             )
         },
     ) { innerPadding ->
-        LazyColumn(modifier = Modifier.padding(innerPadding)) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = innerPadding,
+        ) {
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.general_thank_you_label))
             }

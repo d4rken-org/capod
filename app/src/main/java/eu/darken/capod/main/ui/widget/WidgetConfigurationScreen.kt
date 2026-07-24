@@ -22,15 +22,14 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
@@ -77,6 +76,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.common.compose.systemBarsAndCutoutInsets
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
 
@@ -102,12 +102,13 @@ fun WidgetConfigurationScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)),
+            .imePadding(),
     ) {
         Column(
             modifier = Modifier
                 .weight(1f)
                 .verticalScroll(rememberScrollState())
+                .windowInsetsPadding(systemBarsAndCutoutInsets.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
                 .padding(top = 24.dp, bottom = 16.dp),
         ) {
             Text(
@@ -347,7 +348,7 @@ fun WidgetConfigurationScreen(
 
         // Bottom bar
         Surface(tonalElevation = 3.dp) {
-            Column(modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Bottom))) {
+            Column(modifier = Modifier.windowInsetsPadding(systemBarsAndCutoutInsets.only(WindowInsetsSides.Bottom + WindowInsetsSides.Horizontal))) {
                 if (!state.isPro) {
                     Text(
                         text = stringResource(R.string.common_feature_requires_pro_msg),

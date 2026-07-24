@@ -8,12 +8,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -104,7 +109,7 @@ internal fun UpgradeScreenContainer(
         modifier = modifier,
         containerColor = MaterialTheme.colorScheme.surface,
     ) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
+        Box(modifier = Modifier.fillMaxSize()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -113,6 +118,7 @@ internal fun UpgradeScreenContainer(
             ) {
                 Column(
                     modifier = Modifier
+                        .padding(paddingValues)
                         // widthIn BEFORE fillMaxWidth: reversed, fillMaxWidth would pin the min to
                         // the full screen and the 560dp cap would never take effect on wide screens.
                         .widthIn(max = 560.dp)
@@ -128,6 +134,7 @@ internal fun UpgradeScreenContainer(
                 onClick = onNavigateUp,
                 modifier = Modifier
                     .align(Alignment.TopStart)
+                    .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Start))
                     .padding(4.dp),
             ) {
                 // Matches capod's app-wide back-button convention (no navigate-up string exists).

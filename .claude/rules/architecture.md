@@ -87,7 +87,7 @@ The monitor-layer glue (`monitor/core/aap/`) described above wires this stack in
 
 ### Common Utilities
 
-- `EdgeToEdgeHelper`: Handles Android edge-to-edge display insets
+- `common/compose/InsetsExtensions.kt`: `PaddingValues.plus` operator and `systemBarsAndCutoutInsets` for laying out non-Scaffold screens edge-to-edge
 
 ## Build Configuration
 

@@ -76,8 +76,8 @@ fun TroubleShooterScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
+                .verticalScroll(rememberScrollState())
+                .padding(innerPadding),
         ) {
             Card(
                 modifier = Modifier
