@@ -1,6 +1,7 @@
 package eu.darken.capod.upgrade.ui
 
 import android.app.Application
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
@@ -16,8 +17,9 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-// Behavioral Compose tests for the upgrade screen states — offer visibility, enabled states,
-// grace stages and dialogs. Runs on the JVM via Robolectric (vintage engine under JUnit5).
+// Behavioral Compose tests for the offercard upgrade screen — offer visibility, enabled states,
+// grace stages, restore surfaces and dialogs. Runs on the JVM via Robolectric (vintage engine
+// under JUnit5).
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], application = Application::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -26,23 +28,27 @@ class UpgradeScreenComposeTest {
     @get:Rule
     val composeRule = createComposeRule()
 
+    // Mirrors toLoadedState's gating (incl. verification) so enabled-state assertions match the VM.
     private fun loaded(
         ownership: Ownership = Ownership(),
         grace: GraceHint? = null,
         showRestoreBanner: Boolean = false,
-        settledEnabled: Boolean = true,
+        settled: Boolean = true,
         restoreInProgress: Boolean = false,
         verificationInProgress: Boolean = false,
+        subscriptionAction: SubscriptionAction = SubscriptionAction.TRIAL,
+        subscriptionPrice: String? = "€3.49",
+        iapPrice: String? = "€6.49",
     ) = UpgradeUiState.Loaded(
-        subscriptionAction = SubscriptionAction.TRIAL,
-        subscriptionEnabled = settledEnabled && ownership.subscription == null && !restoreInProgress,
-        subscriptionPrice = "€3.49",
-        iapEnabled = settledEnabled && !ownership.hasIap && !restoreInProgress,
-        iapPrice = "€6.49",
+        subscriptionAction = subscriptionAction,
+        subscriptionEnabled = settled && ownership.subscription == null && !restoreInProgress && !verificationInProgress,
+        subscriptionPrice = subscriptionPrice,
+        iapEnabled = settled && !ownership.hasIap && !restoreInProgress && !verificationInProgress,
+        iapPrice = iapPrice,
         ownership = ownership,
         grace = grace,
         showRestoreBanner = showRestoreBanner,
-        settled = settledEnabled,
+        settled = settled,
         restoreInProgress = restoreInProgress,
         verificationInProgress = verificationInProgress,
     )
@@ -50,6 +56,7 @@ class UpgradeScreenComposeTest {
     private fun setScreen(
         state: UpgradeUiState,
         onSubscription: () -> Unit = {},
+        onSubscriptionTrial: () -> Unit = {},
         onIap: () -> Unit = {},
         onRestore: () -> Unit = {},
         onManageSubscription: () -> Unit = {},
@@ -60,7 +67,7 @@ class UpgradeScreenComposeTest {
                 state = state,
                 onNavigateUp = {},
                 onSubscription = onSubscription,
-                onSubscriptionTrial = onSubscription,
+                onSubscriptionTrial = onSubscriptionTrial,
                 onIap = onIap,
                 onRestore = onRestore,
                 onManageSubscription = onManageSubscription,
@@ -69,15 +76,13 @@ class UpgradeScreenComposeTest {
         }
     }
 
-    // No-offer fallback state (cold/slow Play store returned no product details).
-    private fun noOffers(skuQueryInProgress: Boolean = false) = UpgradeUiState.Loaded(
+    // --- No-offers fallback ---
+
+    private fun noOffers(skuQueryInProgress: Boolean = false) = loaded(
         subscriptionAction = SubscriptionAction.UNAVAILABLE,
-        subscriptionEnabled = false,
         subscriptionPrice = null,
-        iapEnabled = true,
         iapPrice = null,
-        skuQueryInProgress = skuQueryInProgress,
-    )
+    ).copy(skuQueryInProgress = skuQueryInProgress)
 
     @Test
     fun `the no-offers fallback shows a Retry that fires the callback`() {
@@ -93,12 +98,87 @@ class UpgradeScreenComposeTest {
     }
 
     @Test
+    fun `the no-offers fallback purchase button fires onIap`() {
+        var iapTapped = false
+        setScreen(state = noOffers(), onIap = { iapTapped = true })
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.IAP_BUTTON)
+            .performScrollTo()
+            .assertIsEnabled()
+            .performClick()
+
+        iapTapped shouldBe true
+    }
+
+    @Test
     fun `the Retry button is disabled while a SKU query is running`() {
         setScreen(state = noOffers(skuQueryInProgress = true))
 
         composeRule.onNodeWithTag(UpgradeScreenTags.RETRY_BUTTON)
             .performScrollTo()
             .assertIsNotEnabled()
+    }
+
+    // --- Partial offer availability ---
+
+    @Test
+    fun `subscription-only offers hide the IAP row`() {
+        setScreen(loaded(iapPrice = null))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.IAP_BUTTON).assertDoesNotExist()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_UNAVAILABLE).assertDoesNotExist()
+    }
+
+    @Test
+    fun `iap-only offers hide the subscription row`() {
+        setScreen(loaded(subscriptionAction = SubscriptionAction.UNAVAILABLE, subscriptionPrice = null))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.IAP_BUTTON).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).assertDoesNotExist()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_UNAVAILABLE).assertDoesNotExist()
+    }
+
+    @Test
+    fun `no offers at all shows the unavailable card`() {
+        setScreen(noOffers())
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_UNAVAILABLE).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS).assertDoesNotExist()
+    }
+
+    // --- Offer routing ---
+
+    @Test
+    fun `the trial subscription routes to the trial callback`() {
+        var trial = 0
+        var standard = 0
+        setScreen(
+            loaded(subscriptionAction = SubscriptionAction.TRIAL),
+            onSubscription = { standard++ },
+            onSubscriptionTrial = { trial++ },
+        )
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().performClick()
+
+        trial shouldBe 1
+        standard shouldBe 0
+    }
+
+    @Test
+    fun `the standard subscription routes to the standard callback`() {
+        var trial = 0
+        var standard = 0
+        setScreen(
+            loaded(subscriptionAction = SubscriptionAction.STANDARD),
+            onSubscription = { standard++ },
+            onSubscriptionTrial = { trial++ },
+        )
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().performClick()
+
+        standard shouldBe 1
+        trial shouldBe 0
     }
 
     // --- Owner states ---
@@ -110,9 +190,9 @@ class UpgradeScreenComposeTest {
         composeRule.onNodeWithTag(UpgradeScreenTags.OWNER_HERO).assertIsDisplayed()
         composeRule.onNodeWithTag(UpgradeScreenTags.OWNER_SUB_CARD).assertIsDisplayed()
         composeRule.onNodeWithTag(UpgradeScreenTags.SWITCH_BUTTON).performScrollTo().assertIsNotEnabled()
-        // No sales pitch, no acquisition buttons for owners.
+        // No sales pitch, no acquisition offers for owners.
         composeRule.onNodeWithTag(UpgradeScreenTags.BENEFITS).assertDoesNotExist()
-        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).assertDoesNotExist()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS).assertDoesNotExist()
     }
 
     @Test
@@ -128,6 +208,18 @@ class UpgradeScreenComposeTest {
         button.performClick()
 
         iapTapped shouldBe true
+    }
+
+    @Test
+    fun `the non-renewing switch stays enabled even when the IAP price is missing`() {
+        setScreen(
+            loaded(
+                ownership = Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)),
+                iapPrice = null,
+            ),
+        )
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SWITCH_BUTTON).performScrollTo().assertIsEnabled()
     }
 
     @Test
@@ -175,7 +267,7 @@ class UpgradeScreenComposeTest {
         setScreen(
             loaded(
                 ownership = Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)),
-                settledEnabled = false,
+                settled = false,
             ),
         )
 
@@ -192,6 +284,18 @@ class UpgradeScreenComposeTest {
         )
 
         composeRule.onNodeWithTag(UpgradeScreenTags.SWITCH_BUTTON).performScrollTo().assertIsNotEnabled()
+    }
+
+    @Test
+    fun `verification in progress disables the owner restore`() {
+        setScreen(
+            loaded(
+                ownership = Ownership(subscription = SubscriptionOwnership(isAutoRenewing = true)),
+                verificationInProgress = true,
+            ),
+        )
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.RESTORE_BUTTON).performScrollTo().assertIsNotEnabled()
     }
 
     // --- Grace states ---
@@ -219,9 +323,18 @@ class UpgradeScreenComposeTest {
         // Offers return so an actually-expired subscriber can switch without waiting out grace.
         composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().assertIsDisplayed()
         composeRule.onNodeWithTag(UpgradeScreenTags.IAP_BUTTON).performScrollTo().assertIsDisplayed()
+        // No pitch next to the grace card.
+        composeRule.onNodeWithTag(UpgradeScreenTags.BENEFITS).assertDoesNotExist()
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GRACE_RESTORE_BUTTON).performScrollTo().performClick()
         restoreTapped shouldBe true
+    }
+
+    @Test
+    fun `verification disables the grace restore`() {
+        setScreen(loaded(grace = GraceHint(showDiagnostics = true), verificationInProgress = true))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.GRACE_RESTORE_BUTTON).performScrollTo().assertIsNotEnabled()
     }
 
     // --- Acquisition states ---
@@ -238,18 +351,57 @@ class UpgradeScreenComposeTest {
     }
 
     @Test
+    fun `same-phase state changes recompose the offers in place`() {
+        // Guards the AnimatedContent keying: a Loaded→Loaded change that keeps offers available
+        // must update the existing offer buttons, not re-run an enter transition or get stuck on a
+        // stale snapshot.
+        val state = mutableStateOf(loaded(settled = false))
+        composeRule.setContent {
+            UpgradeScreen(
+                state = state.value,
+                onNavigateUp = {},
+                onSubscription = {},
+                onSubscriptionTrial = {},
+                onIap = {},
+                onRestore = {},
+                onManageSubscription = {},
+                onRetry = {},
+            )
+        }
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().assertIsNotEnabled()
+
+        state.value = loaded(settled = true)
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().assertIsEnabled()
+    }
+
+    @Test
     fun `purchase buttons are disabled before billing has settled`() {
-        setScreen(loaded(settledEnabled = false))
+        setScreen(loaded(settled = false))
 
         composeRule.onNodeWithTag(UpgradeScreenTags.SUB_BUTTON).performScrollTo().assertIsNotEnabled()
         composeRule.onNodeWithTag(UpgradeScreenTags.IAP_BUTTON).performScrollTo().assertIsNotEnabled()
     }
 
     @Test
-    fun `restore banner appears for returning buyers`() {
-        setScreen(loaded(showRestoreBanner = true))
+    fun `returning buyers get exactly one emphasized restore action`() {
+        var restored = false
+        setScreen(loaded(showRestoreBanner = true), onRestore = { restored = true })
 
         composeRule.onNodeWithTag(UpgradeScreenTags.RESTORE_BANNER).performScrollTo().assertIsDisplayed()
+        // The emphasized banner action is the ONLY restore affordance — no ordinary section below.
+        composeRule.onNodeWithTag(UpgradeScreenTags.RESTORE_BUTTON).assertDoesNotExist()
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.RESTORE_BANNER_ACTION).performScrollTo().performClick()
+        restored shouldBe true
+    }
+
+    @Test
+    fun `verification disables the emphasized returning-buyer restore`() {
+        setScreen(loaded(showRestoreBanner = true, verificationInProgress = true))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.RESTORE_BANNER_ACTION).performScrollTo().assertIsNotEnabled()
     }
 
     @Test
@@ -288,11 +440,17 @@ class UpgradeScreenComposeTest {
     }
 
     @Test
-    fun `restore-failed dialog renders the troubleshooting hints`() {
+    fun `restore-failed dialog contact support fires only its own callback`() {
+        var contacted = 0
+        var dismissed = 0
         composeRule.setContent {
-            RestoreFailedDialog(onDismiss = {})
+            RestoreFailedDialog(onDismiss = { dismissed++ }, onContactSupport = { contacted++ })
         }
 
         composeRule.onNodeWithTag(UpgradeScreenTags.DIALOG_RESTORE_FAILED).assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.CONTACT_SUPPORT_BUTTON).performClick()
+
+        contacted shouldBe 1
+        dismissed shouldBe 0
     }
 }
