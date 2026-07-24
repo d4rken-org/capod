@@ -56,6 +56,7 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledCard
 import eu.darken.capod.main.ui.overview.cards.DeviceLimitUpgradeCard
 import eu.darken.capod.main.ui.overview.cards.DualPodsCard
+import eu.darken.capod.main.ui.overview.cards.MonitorKilledHintCard
 import eu.darken.capod.main.ui.overview.cards.MonitoringActiveCard
 import eu.darken.capod.main.ui.overview.cards.NoProfilesCard
 import eu.darken.capod.main.ui.overview.cards.PermissionCard
@@ -175,6 +176,9 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onManageDevices = { vm.goToDeviceManager() },
         onSettings = { vm.goToSettings() },
         onTroubleShooter = { vm.goToTroubleShooter() },
+        onOsKillShowInstructions = { vm.onOsKillShowInstructions() },
+        onOsKillAutostartSettings = { vm.onOsKillAutostartSettings() },
+        onOsKillDismiss = { vm.dismissOsKillHint() },
         onUpgrade = { vm.onUpgrade() },
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
@@ -198,6 +202,9 @@ fun OverviewScreen(
     onManageDevices: () -> Unit,
     onSettings: () -> Unit,
     onTroubleShooter: () -> Unit = {},
+    onOsKillShowInstructions: () -> Unit = {},
+    onOsKillAutostartSettings: () -> Unit = {},
+    onOsKillDismiss: () -> Unit = {},
     onUpgrade: () -> Unit,
     onToggleUnmatched: () -> Unit,
     onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
@@ -292,6 +299,18 @@ fun OverviewScreen(
                     permission = permission,
                     onRequest = onRequestPermission,
                 )
+            }
+
+            // 1b. OS killed the monitor — historical fact, shown regardless of current BT/scan state
+            if (state.showOsKillHint) {
+                item(key = "os_kill_hint") {
+                    MonitorKilledHintCard(
+                        showAutostartAction = state.showOsKillAutostartAction,
+                        onShowInstructions = onOsKillShowInstructions,
+                        onAutostartSettings = onOsKillAutostartSettings,
+                        onDismiss = onOsKillDismiss,
+                    )
+                }
             }
 
             // 2. Bluetooth disabled card

@@ -43,6 +43,11 @@
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
 
+    <!-- Package visibility (API 30+): resolving the MIUI/HyperOS autostart settings screen. -->
+    <queries>
+        <package android:name="com.miui.securitycenter" />
+    </queries>
+
     <application
         android:name=".App"
         android:allowBackup="true"

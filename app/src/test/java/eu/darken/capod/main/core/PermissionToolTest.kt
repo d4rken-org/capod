@@ -8,7 +8,7 @@ import testhelpers.BaseTest
 class PermissionToolTest : BaseTest() {
 
     @Test
-    fun `IGNORE_BATTERY_OPTIMIZATION is applicable only in ALWAYS mode`() {
+    fun `IGNORE_BATTERY_OPTIMIZATION is applicable in ALWAYS and AUTOMATIC modes`() {
         PermissionTool.isApplicable(
             Permission.IGNORE_BATTERY_OPTIMIZATION,
             MonitorMode.ALWAYS,
@@ -18,7 +18,7 @@ class PermissionToolTest : BaseTest() {
             Permission.IGNORE_BATTERY_OPTIMIZATION,
             MonitorMode.AUTOMATIC,
             anyPopupEnabled = false,
-        ) shouldBe false
+        ) shouldBe true
         PermissionTool.isApplicable(
             Permission.IGNORE_BATTERY_OPTIMIZATION,
             MonitorMode.MANUAL,
@@ -73,13 +73,27 @@ class PermissionToolTest : BaseTest() {
 
     @Test
     fun `mode-gated permissions don't depend on popup state`() {
-        // IGNORE_BATTERY_OPTIMIZATION and ACCESS_BACKGROUND_LOCATION gate on mode only.
+        // IGNORE_BATTERY_OPTIMIZATION and ACCESS_BACKGROUND_LOCATION gate on mode only —
+        // but on different modes: battery optimization applies to all unattended modes,
+        // background location only to ALWAYS.
         listOf(Permission.IGNORE_BATTERY_OPTIMIZATION, Permission.ACCESS_BACKGROUND_LOCATION).forEach { perm ->
             PermissionTool.isApplicable(perm, MonitorMode.ALWAYS, anyPopupEnabled = true) shouldBe true
             PermissionTool.isApplicable(perm, MonitorMode.ALWAYS, anyPopupEnabled = false) shouldBe true
-            PermissionTool.isApplicable(perm, MonitorMode.AUTOMATIC, anyPopupEnabled = true) shouldBe false
-            PermissionTool.isApplicable(perm, MonitorMode.AUTOMATIC, anyPopupEnabled = false) shouldBe false
+            PermissionTool.isApplicable(perm, MonitorMode.MANUAL, anyPopupEnabled = true) shouldBe false
+            PermissionTool.isApplicable(perm, MonitorMode.MANUAL, anyPopupEnabled = false) shouldBe false
         }
+        PermissionTool.isApplicable(
+            Permission.IGNORE_BATTERY_OPTIMIZATION, MonitorMode.AUTOMATIC, anyPopupEnabled = true,
+        ) shouldBe true
+        PermissionTool.isApplicable(
+            Permission.IGNORE_BATTERY_OPTIMIZATION, MonitorMode.AUTOMATIC, anyPopupEnabled = false,
+        ) shouldBe true
+        PermissionTool.isApplicable(
+            Permission.ACCESS_BACKGROUND_LOCATION, MonitorMode.AUTOMATIC, anyPopupEnabled = true,
+        ) shouldBe false
+        PermissionTool.isApplicable(
+            Permission.ACCESS_BACKGROUND_LOCATION, MonitorMode.AUTOMATIC, anyPopupEnabled = false,
+        ) shouldBe false
     }
 
     @Test
