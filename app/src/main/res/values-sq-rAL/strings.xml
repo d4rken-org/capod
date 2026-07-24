@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cilësimet</string>
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Statusi juaj i përmirësimit dhe blerjes.</string>
-    <string name="settings_upgrade_status_foss_label">Sponsorizo CAPod-in</string>
-    <string name="settings_upgrade_status_foss_description">Statusi juaj i mbështetësit.</string>
     <string name="settings_overview_hide_unmatched_label">Fshih pajisjet e papërputhura</string>
     <string name="settings_overview_hide_unmatched_description">Mos shfaq pajisjet afërsisht që nuk përputhen me asnjë nga profilet tuaja në pamje të përgjithshme, p.sh. AirPods-et e njerëzve të tjerë.</string>
     <string name="device_battery_estimate_toggle_label">Vlerësimet e baterisë</string>

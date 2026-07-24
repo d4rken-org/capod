@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s부터 후원자</string>
     <string name="upgrade_foss_supporter_thanks">CAPod 개발을 후원해 주셔서 감사합니다!</string>
     <string name="upgrade_foss_sponsor_again_action">후원 페이지 열기</string>
+    <string name="settings_upgrade_status_label">CAPod 후원하기</string>
+    <string name="settings_upgrade_status_description">후원자 상태입니다.</string>
 </resources>

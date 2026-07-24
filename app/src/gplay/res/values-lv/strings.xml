@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Notiek pirkuma apstiprināšana</string>
     <string name="upgrade_screen_grace_body_short">Google Play vēl nav apstiprinājis tavu pirkumu. Pro joprojām ir aktīvs — nekas nav jādara.</string>
     <string name="upgrade_screen_grace_body">Google Play jau kādu laiku nav apstiprinājis tavu pirkumu. Pro joprojām ir aktīvs. Pārliecinies, ka esi tiešsaistē un pieteicies ar Google kontu, kas izmantots pirkumam, tad mēģini atjaunot pirkumu.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Tavs jaunināšanas un pirkuma statuss.</string>
 </resources>

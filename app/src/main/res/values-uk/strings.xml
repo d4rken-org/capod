@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Налагодження</string>
     <string name="settings_general_label">Налаштування</string>
     <string name="settings_general_description">Загальні функції, що впливають на всю програму.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Статус вашого оновлення та покупки.</string>
-    <string name="settings_upgrade_status_foss_label">Спонсорувати CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Статус вашої підтримки.</string>
     <string name="settings_overview_hide_unmatched_label">Приховати нерозпізнані пристрої</string>
     <string name="settings_overview_hide_unmatched_description">Не показувати в огляді пристрої поблизу, які не відповідають жодному з ваших профілів, наприклад AirPods інших людей.</string>
     <string name="device_battery_estimate_toggle_label">Оцінки батареї</string>

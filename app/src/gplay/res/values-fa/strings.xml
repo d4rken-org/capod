@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">در حال تأیید خرید شما</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلی هنوز خرید شما را تأیید نکرده است. Pro همچنان فعال است — نیازی به اقدام نیست.</string>
     <string name="upgrade_screen_grace_body">گوگل پلی مدتی است خرید شما را تأیید نکرده است. Pro همچنان فعال است. مطمئن شوید که آنلاین هستید و با همان حساب گوگلی که خرید را با آن انجام داده‌اید وارد شده‌اید، سپس بازیابی را امتحان کنید.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">وضعیت ارتقا و خرید شما.</string>
 </resources>

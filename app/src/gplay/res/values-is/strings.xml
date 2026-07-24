@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Staðfesti kaupin þín</string>
     <string name="upgrade_screen_grace_body_short">Google Play hefur ekki staðfest kaupin þín ennþá. Pro er áfram virkt — engra aðgerða er þörf.</string>
     <string name="upgrade_screen_grace_body">Google Play hefur ekki staðfest kaupin þín um nokkurt skeið. Pro er áfram virkt. Gakktu úr skugga um að þú sért nettengd(ur) og skráð(ur) inn með Google reikningnum sem notaður var við kaupin, og reyndu svo að endurheimta.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Staða uppfærslu þinnar og kaupa.</string>
 </resources>

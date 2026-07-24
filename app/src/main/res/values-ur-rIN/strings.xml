@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ڈیبگ</string>
     <string name="settings_general_label">سیٹنگز</string>
     <string name="settings_general_description">عام تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
-    <string name="settings_upgrade_status_gplay_label">سی اے پوڈ پرو</string>
-    <string name="settings_upgrade_status_gplay_description">آپ کا اپ گریڈ اور خریداری کی حیثیت۔</string>
-    <string name="settings_upgrade_status_foss_label">CAPod کو سپانسر کریں</string>
-    <string name="settings_upgrade_status_foss_description">آپ کے سپورٹر کی حیثیت۔</string>
     <string name="settings_overview_hide_unmatched_label">بے میل آلات چھپائیں</string>
     <string name="settings_overview_hide_unmatched_description">قریبی آلات جو آپ کے کسی بھی پروفائل سے میل نہیں کھاتے انہیں جائزہ میں نہ دکھائیں، مثلاً دوسرے لوگوں کے AirPods۔</string>
     <string name="device_battery_estimate_toggle_label">بیٹری کی تخمینیں</string>

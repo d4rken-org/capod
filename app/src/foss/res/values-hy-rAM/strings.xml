@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Հովանավոր է %s-ից</string>
     <string name="upgrade_foss_supporter_thanks">Շնորհակալություն CAPod-ի զարգացումն աջակցելու համար!</string>
     <string name="upgrade_foss_sponsor_again_action">Բացել հովանավորության էջը</string>
+    <string name="settings_upgrade_status_label">Հովանավորել CAPod-ը</string>
+    <string name="settings_upgrade_status_description">Ձեր հովանավորի կարգավիճակը:</string>
 </resources>

@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Arazketa</string>
     <string name="settings_general_label">Ezarpenak</string>
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Zure eguneratze- eta erosketa-egoera.</string>
-    <string name="settings_upgrade_status_foss_label">Babestu CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Zure laguntzaile-egoera.</string>
     <string name="settings_overview_hide_unmatched_label">Ezkutatu bat ez datozen gailuak</string>
     <string name="settings_overview_hide_unmatched_description">Ez erakutsi ikuspegiaren inguruan dauden eta zure profilekin bat ez datozen gailuak, esaterako, beste pertsonen AirPods-ak.</string>
     <string name="device_battery_estimate_toggle_label">Bateriaren estimazioak</string>

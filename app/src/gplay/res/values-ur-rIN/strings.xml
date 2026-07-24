@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">آپ کی خریداری کی تصدیق ہو رہی ہے</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلے نے ابھی تک آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے — کسی اقدام کی ضرورت نہیں۔</string>
     <string name="upgrade_screen_grace_body">گوگل پلے نے کافی عرصے سے آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے۔ یقینی بنائیں کہ آپ آن لائن ہیں اور وہی گوگل اکاؤنٹ سے سائن ان ہیں جو خریداری کے لیے استعمال ہوا تھا، پھر بحال کرنے کی کوشش کریں۔</string>
+    <string name="settings_upgrade_status_label">سی اے پوڈ پرو</string>
+    <string name="settings_upgrade_status_description">آپ کا اپ گریڈ اور خریداری کی حیثیت۔</string>
 </resources>

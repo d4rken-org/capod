@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mîheng</string>
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Rewşa nûvekirin û kirîna te.</string>
-    <string name="settings_upgrade_status_foss_label">Alîkariya CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Rewşa piştgiriya te.</string>
     <string name="settings_overview_hide_unmatched_label">Amûrên neçêkirî veşêre</string>
     <string name="settings_overview_hide_unmatched_description">Amûrên nêzîk ên ku bi ti profilên te re li hev nakin di nêrîna giştî de nîşan nede, mînak AirPods-ên kesên din.</string>
     <string name="device_battery_estimate_toggle_label">Texmînên Pîlandinê</string>

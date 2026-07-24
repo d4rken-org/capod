@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Col·laborador des de %s</string>
     <string name="upgrade_foss_supporter_thanks">Gràcies per donar suport al desenvolupament de CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Obre la pàgina de patrocini</string>
+    <string name="settings_upgrade_status_label">Patrocina CAPod</string>
+    <string name="settings_upgrade_status_description">El teu estat de col·laborador.</string>
 </resources>

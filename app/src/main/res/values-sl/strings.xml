@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Razhroščevanje</string>
     <string name="settings_general_label">Nastavitve</string>
     <string name="settings_general_description">Splošne prilagoditve, ki vplivajo na celotno aplikacijo.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Vaš status nadgradnje in nakupa.</string>
-    <string name="settings_upgrade_status_foss_label">Podpri CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Vaš status podpornika.</string>
     <string name="settings_overview_hide_unmatched_label">Skrij neusklajene naprave</string>
     <string name="settings_overview_hide_unmatched_description">V pregledu ne prikazuj bližnjih naprav, ki ne ustrezajo nobenim od tvojih profilov, npr. AirPods drugih oseb.</string>
     <string name="device_battery_estimate_toggle_label">Ocene baterije</string>

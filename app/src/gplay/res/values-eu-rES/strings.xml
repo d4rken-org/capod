@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Zure erosketa berresten</string>
     <string name="upgrade_screen_grace_body_short">Google Playk oraindik ez du zure erosketa berretsi. Pro aktibo dago oraindik — ez da ekintzarik behar.</string>
     <string name="upgrade_screen_grace_body">Google Playk denbora luzez ez du zure erosketa berretsi. Pro aktibo dago oraindik. Ziurtatu konektatuta zaudela eta erosketa egiteko erabilitako Google kontuarekin saioa hasita duzula, eta gero saiatu leheneratzen.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Zure eguneratze- eta erosketa-egoera.</string>
 </resources>

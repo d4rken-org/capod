@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Сатып алууңуз ырасталууда</string>
     <string name="upgrade_screen_grace_body_short">Google Play сатып алууңузду азырынча ырастаган жок. Pro дагы эле активдүү — эч нерсе кылуунун кереги жок.</string>
     <string name="upgrade_screen_grace_body">Google Play сатып алууңузду бир далай убакыттан бери ырастаган жок. Pro дагы эле активдүү. Онлайн экениңизди жана сатып алуу үчүн колдонулган Google каттоо эсеби менен кирип турганыңызды текшериңиз, андан кийин калыбына келтирип көрүңүз.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Жаңыртуу жана сатып алуу статусуңуз.</string>
 </resources>

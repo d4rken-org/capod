@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Supporter since %s</string>
     <string name="upgrade_foss_supporter_thanks">Thank you for supporting CAPod\'s development!</string>
     <string name="upgrade_foss_sponsor_again_action">Open sponsor page</string>
+    <string name="settings_upgrade_status_label">Sponsor CAPod</string>
+    <string name="settings_upgrade_status_description">Your supporter status.</string>
 </resources>

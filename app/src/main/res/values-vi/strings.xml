@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Gỡ lỗi</string>
     <string name="settings_general_label">Cài đặt</string>
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Trạng thái nâng cấp và mua hàng của bạn.</string>
-    <string name="settings_upgrade_status_foss_label">Tài trợ CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Trạng thái người ủng hộ của bạn.</string>
     <string name="settings_overview_hide_unmatched_label">Ẩn thiết bị không khớp</string>
     <string name="settings_overview_hide_unmatched_description">Không hiển thị các thiết bị lân cận không khớp với bất kỳ hồ sơ nào của bạn trong tổng quan, ví dụ: AirPods của người khác.</string>
     <string name="device_battery_estimate_toggle_label">Ước tính pin</string>

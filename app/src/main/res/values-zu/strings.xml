@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Ukulungiswa</string>
     <string name="settings_general_label">Izilungiselelo</string>
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
-    <string name="settings_upgrade_status_foss_label">Xhasa i-CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Isimo sakho sokusekela.</string>
     <string name="settings_overview_hide_unmatched_label">Fihla amadivayisi angafanele</string>
     <string name="settings_overview_hide_unmatched_description">Ungabonisi amadivayisi aseduzane angafanele namaprofile akho embonweni jikelele, isib. ama-AirPods abantu abanye.</string>
     <string name="device_battery_estimate_toggle_label">Izilinganiso zeBatari</string>

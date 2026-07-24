@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Mengonfirmasi pembelian Anda</string>
     <string name="upgrade_screen_grace_body_short">Google Play belum mengonfirmasi pembelian Anda. Pro masih aktif — tidak perlu tindakan apa pun.</string>
     <string name="upgrade_screen_grace_body">Google Play belum mengonfirmasi pembelian Anda untuk beberapa waktu. Pro masih aktif. Pastikan Anda daring dan masuk dengan akun Google yang digunakan untuk pembelian, lalu coba pulihkan.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Status peningkatan dan pembelian Anda.</string>
 </resources>

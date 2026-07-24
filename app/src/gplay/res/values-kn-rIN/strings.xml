@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ಇನ್ನೂ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ — ಯಾವುದೇ ಕ್ರಮದ ಅಗತ್ಯವಿಲ್ಲ.</string>
     <string name="upgrade_screen_grace_body">Google Play ಸ್ವಲ್ಪ ಸಮಯದಿಂದ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ. ನೀವು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ ಮತ್ತು ಖರೀದಿಗೆ ಬಳಸಿದ Google ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಂಡು, ನಂತರ ಮರುಸ್ಥಾಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಅಪ್‌ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
 </resources>

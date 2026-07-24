@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Piştgir ji %s ve</string>
     <string name="upgrade_foss_supporter_thanks">Spas ji bo piştgiriya te ya pêşxistina CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Rûpela piştgiriyê veke</string>
+    <string name="settings_upgrade_status_label">Alîkariya CAPod</string>
+    <string name="settings_upgrade_status_description">Rewşa piştgiriya te.</string>
 </resources>

@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Sustegnider dapi %s</string>
     <string name="upgrade_foss_supporter_thanks">Grazia per sustegnair il svilup da CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Avrir la pagina da sponsurisaziun</string>
+    <string name="settings_upgrade_status_label">Sponsurar CAPod</string>
+    <string name="settings_upgrade_status_description">Tes status sco sustegnider.</string>
 </resources>

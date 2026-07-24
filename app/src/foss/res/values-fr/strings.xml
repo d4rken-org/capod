@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Soutien depuis %s</string>
     <string name="upgrade_foss_supporter_thanks">Merci de soutenir le développement de CAPod !</string>
     <string name="upgrade_foss_sponsor_again_action">Ouvrir la page de parrainage</string>
+    <string name="settings_upgrade_status_label">Parrainer CAPod</string>
+    <string name="settings_upgrade_status_description">Votre statut de soutien.</string>
 </resources>

@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">பிழைதிருத்தல்</string>
     <string name="settings_general_label">அமைப்புகள்</string>
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">உங்கள் மேம்படுத்தல் மற்றும் கொள்முதல் நிலை.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod-ஐ ஆதரவு செய்யுங்கள்</string>
-    <string name="settings_upgrade_status_foss_description">உங்கள் ஆதரவாளர் நிலை.</string>
     <string name="settings_overview_hide_unmatched_label">பொருந்தாத சாதனங்களை மறை</string>
     <string name="settings_overview_hide_unmatched_description">உங்கள் சுயவிவரங்களில் எதுவும் பொருந்தாத அருகில் உள்ள சாதனங்களை மேலோட்டத்தில் காட்டாதே, எ.கா. மற்றவர்களின் AirPods.</string>
     <string name="device_battery_estimate_toggle_label">பேட்டரி மதிப்பீடுகள்</string>

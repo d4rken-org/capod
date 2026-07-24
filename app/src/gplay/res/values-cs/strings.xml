@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Potvrzování vašeho nákupu</string>
     <string name="upgrade_screen_grace_body_short">Google Play zatím nepotvrdil váš nákup. Pro je stále aktivní — není potřeba nic dělat.</string>
     <string name="upgrade_screen_grace_body">Google Play už delší dobu nepotvrdil váš nákup. Pro je stále aktivní. Ujistěte se, že jste online a přihlášeni k účtu Google použitému při nákupu, a poté zkuste nákup obnovit.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Stav vašeho upgradu a nákupu.</string>
 </resources>

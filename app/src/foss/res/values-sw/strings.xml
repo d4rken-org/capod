@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Msaidizi tangu %s</string>
     <string name="upgrade_foss_supporter_thanks">Asante kwa kuunga mkono maendeleo ya CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Fungua ukurasa wa udhamini</string>
+    <string name="settings_upgrade_status_label">Dhamini CAPod</string>
+    <string name="settings_upgrade_status_description">Hali ya usaidizi wako.</string>
 </resources>

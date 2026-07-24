@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Sazlama</string>
     <string name="settings_general_label">Parametrlər</string>
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Yüksəltmə və satınalma statusunuz.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod-a sponsor olun</string>
-    <string name="settings_upgrade_status_foss_description">Dəstəkçi statusunuz.</string>
     <string name="settings_overview_hide_unmatched_label">Uyğun olmayan cihazları gizlət</string>
     <string name="settings_overview_hide_unmatched_description">İcmalda profillərinizə uyğun gəlməyən yaxın cihazları göstərməyin, məs. başqalarının AirPods-ları.</string>
     <string name="device_battery_estimate_toggle_label">Batareya qiymətləndirmələri</string>

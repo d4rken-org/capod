@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ดีบัก</string>
     <string name="settings_general_label">การตั้งค่า</string>
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">สถานะการอัปเกรดและการซื้อของคุณ</string>
-    <string name="settings_upgrade_status_foss_label">สนับสนุน CAPod</string>
-    <string name="settings_upgrade_status_foss_description">สถานะผู้สนับสนุนของคุณ</string>
     <string name="settings_overview_hide_unmatched_label">ซ่อนอุปกรณ์ที่ไม่ตรงกัน</string>
     <string name="settings_overview_hide_unmatched_description">ไม่แสดงอุปกรณ์ใกล้เคียงที่ไม่ตรงกับโปรไฟล์ของคุณในภาพรวม เช่น AirPods ของคนอื่น</string>
     <string name="device_battery_estimate_toggle_label">การประมาณแบตเตอรี่</string>

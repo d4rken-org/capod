@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">உங்கள் கொள்முதலை உறுதிப்படுத்துகிறது</string>
     <string name="upgrade_screen_grace_body_short">Google Play இன்னும் உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது — எந்த நடவடிக்கையும் தேவையில்லை.</string>
     <string name="upgrade_screen_grace_body">Google Play சிறிது காலமாக உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது. நீங்கள் ஆன்லைனில் இருப்பதையும், கொள்முதலுக்குப் பயன்படுத்திய Google கணக்கில் உள்நுழைந்திருப்பதையும் உறுதிப்படுத்திக் கொண்டு, பின்னர் மீட்டெடுக்க முயற்சிக்கவும்.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">உங்கள் மேம்படுத்தல் மற்றும் கொள்முதல் நிலை.</string>
 </resources>

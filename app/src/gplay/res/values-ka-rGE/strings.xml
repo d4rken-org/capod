@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">თქვენი შესყიდვის დადასტურება</string>
     <string name="upgrade_screen_grace_body_short">Google Play-მ ჯერ არ დაადასტურა თქვენი შესყიდვა. Pro კვლავ აქტიურია — არანაირი მოქმედება არ არის საჭირო.</string>
     <string name="upgrade_screen_grace_body">Google Play-მ დიდი ხანია არ დაუდასტურებია თქვენი შესყიდვა. Pro კვლავ აქტიურია. დარწმუნდით, რომ ხართ ონლაინ და შესული ხართ იმ Google ანგარიშით, რომლითაც შესყიდვა განახორციელეთ, შემდეგ სცადეთ აღდგენა.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">თქვენი განახლებისა და შესყიდვის სტატუსი.</string>
 </resources>

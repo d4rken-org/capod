@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Atkļūdošana</string>
     <string name="settings_general_label">Iestatījumi</string>
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Tavs jaunināšanas un pirkuma statuss.</string>
-    <string name="settings_upgrade_status_foss_label">Atbalsti CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Tavs atbalstītāja statuss.</string>
     <string name="settings_overview_hide_unmatched_label">Slēpt neatbilstošās ierīces</string>
     <string name="settings_overview_hide_unmatched_description">Nerādīt tuvumā esošās ierīces, kas neatbilst nevienam no jūsu profiliem pārskatā, piemēram, citu cilvēku AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Baterijas novērtējumi</string>

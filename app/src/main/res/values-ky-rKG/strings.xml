@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Мүчүлүштүктөрдү оңдоо</string>
     <string name="settings_general_label">Орнотуулар</string>
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Жаңыртуу жана сатып алуу статусуңуз.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod\'ду колдоо</string>
-    <string name="settings_upgrade_status_foss_description">Колдоочу статусуңуз.</string>
     <string name="settings_overview_hide_unmatched_label">Дал келбеген түзмөктөрдү жашыруу</string>
     <string name="settings_overview_hide_unmatched_description">Профилдериңиздин эч бирине дал келбеген жакын жердеги түзмөктөрдү, мисалы башка адамдардын AirPods\'ун, чолпондо көрсөтпөө.</string>
     <string name="device_battery_estimate_toggle_label">Батарея болжолдоосу</string>

@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">আপনার কেনাকাটা নিশ্চিত করা হচ্ছে</string>
     <string name="upgrade_screen_grace_body_short">Google Play এখনও আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে — কোনো পদক্ষেপের প্রয়োজন নেই।</string>
     <string name="upgrade_screen_grace_body">Google Play অনেকক্ষণ ধরে আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে। আপনি অনলাইনে আছেন এবং কেনাকাটার জন্য ব্যবহৃত Google অ্যাকাউন্ট দিয়ে সাইন ইন করা আছেন কিনা তা নিশ্চিত করুন, তারপর পুনরুদ্ধার করার চেষ্টা করুন।</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">আপনার আপগ্রেড এবং কেনাকাটার স্থিতি।</string>
 </resources>

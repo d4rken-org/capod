@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Confirmant la teva compra</string>
     <string name="upgrade_screen_grace_body_short">Google Play encara no ha confirmat la teva compra. Pro segueix actiu: no cal fer res.</string>
     <string name="upgrade_screen_grace_body">Fa temps que Google Play no confirma la teva compra. Pro segueix actiu. Assegura\'t que tens connexió i has iniciat sessió amb el compte de Google que vas fer servir per a la compra, i després prova de restaurar-la.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">El teu estat d\'actualització i compra.</string>
 </resources>

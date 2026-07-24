@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">正在確認你的購買</string>
     <string name="upgrade_screen_grace_body_short">Google Play 尚未確認你的購買。Pro 仍然有效——無需任何操作。</string>
     <string name="upgrade_screen_grace_body">Google Play 已有一段時間未有確認你的購買。Pro 仍然有效。請確保你已連接網絡，並使用購買時所用的 Google 帳戶登入，然後嘗試還原。</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">你的升級和購買狀態。</string>
 </resources>

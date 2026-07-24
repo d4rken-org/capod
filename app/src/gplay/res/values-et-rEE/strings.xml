@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Sinu ostu kinnitamine</string>
     <string name="upgrade_screen_grace_body_short">Google Play ei ole sinu ostu veel kinnitanud. Pro on endiselt aktiivne — midagi ette võtta pole vaja.</string>
     <string name="upgrade_screen_grace_body">Google Play ei ole sinu ostu juba mõnda aega kinnitanud. Pro on endiselt aktiivne. Veendu, et oled võrgus ja sisse logitud Google\'i kontoga, millega ostu tegid, ning proovi seejärel taastada.</string>
+    <string name="settings_upgrade_status_label">Tasuline CAPod</string>
+    <string name="settings_upgrade_status_description">Sinu uuenduse ja ostu olek.</string>
 </resources>

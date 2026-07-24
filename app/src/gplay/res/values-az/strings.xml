@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Satınalmanız təsdiqlənir</string>
     <string name="upgrade_screen_grace_body_short">Google Play hələ satınalmanızı təsdiqləməyib. Pro hələ də aktivdir — heç bir əməliyyat lazım deyil.</string>
     <string name="upgrade_screen_grace_body">Google Play bir müddətdir satınalmanızı təsdiqləməyib. Pro hələ də aktivdir. Onlayn olduğunuzdan və satınalma üçün istifadə edilən Google hesabı ilə daxil olduğunuzdan əmin olun, sonra bərpa etməyi sınayın.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Yüksəltmə və satınalma statusunuz.</string>
 </resources>

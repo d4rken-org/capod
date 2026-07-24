@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">მხარდამჭერი %s-დან</string>
     <string name="upgrade_foss_supporter_thanks">მადლობა CAPod-ის განვითარების მხარდაჭერისთვის!</string>
     <string name="upgrade_foss_sponsor_again_action">სპონსორის გვერდის გახსნა</string>
+    <string name="settings_upgrade_status_label">CAPod-ის სპონსორობა</string>
+    <string name="settings_upgrade_status_description">თქვენი მხარდამჭერის სტატუსი.</string>
 </resources>

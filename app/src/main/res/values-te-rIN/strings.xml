@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">డీబగ్</string>
     <string name="settings_general_label">సెట్టింగ్‌లు</string>
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">మీ అప్‌గ్రేడ్ మరియు కొనుగోలు స్థితి.</string>
-    <string name="settings_upgrade_status_foss_label">CAPodకి స్పాన్సర్ చేయండి</string>
-    <string name="settings_upgrade_status_foss_description">మీ సపోర్టర్ స్థితి.</string>
     <string name="settings_overview_hide_unmatched_label">సరిపోలని పరికరాలను దాచు</string>
     <string name="settings_overview_hide_unmatched_description">మీ ప్రొఫైల్‌లలో ఏదీ సరిపోలని దగ్గరి పరికరాలను అవలోకనంలో చూపించవద్దు, ఉదా. ఇతరుల AirPods.</string>
     <string name="device_battery_estimate_toggle_label">బ్యాటరీ అంచనాలు</string>

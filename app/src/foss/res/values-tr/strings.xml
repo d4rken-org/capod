@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s tarihinden beri destekçi</string>
     <string name="upgrade_foss_supporter_thanks">CAPod\'un geliştirilmesini desteklediğin için teşekkürler!</string>
     <string name="upgrade_foss_sponsor_again_action">Sponsor sayfasını aç</string>
+    <string name="settings_upgrade_status_label">CAPod\'a Sponsor Ol</string>
+    <string name="settings_upgrade_status_description">Destekçi durumun.</string>
 </resources>

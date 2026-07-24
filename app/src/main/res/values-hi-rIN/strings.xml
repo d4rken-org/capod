@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">डीबग</string>
     <string name="settings_general_label">सेटिंग्स</string>
     <string name="settings_general_description">सामान्य समायोजन जो पूरे ऐप को प्रभावित करते हैं।</string>
-    <string name="settings_upgrade_status_gplay_label">कैपोड प्रो</string>
-    <string name="settings_upgrade_status_gplay_description">आपकी अपग्रेड और खरीद स्थिति।</string>
-    <string name="settings_upgrade_status_foss_label">CAPod को प्रायोजित करें</string>
-    <string name="settings_upgrade_status_foss_description">आपकी समर्थक स्थिति।</string>
     <string name="settings_overview_hide_unmatched_label">बेमेल डिवाइस छुपाएँ</string>
     <string name="settings_overview_hide_unmatched_description">ओवरव्यू में उन नज़दीकी डिवाइस न दिखाएँ जो आपकी किसी प्रोफ़ाइल से मेल नहीं खाते, जैसे दूसरों के AirPods।</string>
     <string name="device_battery_estimate_toggle_label">बैटरी अनुमान</string>

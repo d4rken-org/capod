@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Կարգաբանություն</string>
     <string name="settings_general_label">Կարգավորումներ</string>
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Ձեր արդիացման և գնման կարգավիճակը:</string>
-    <string name="settings_upgrade_status_foss_label">Հովանավորել CAPod-ը</string>
-    <string name="settings_upgrade_status_foss_description">Ձեր հովանավորի կարգավիճակը:</string>
     <string name="settings_overview_hide_unmatched_label">Թաքցնել անհամապատասխան սարքերը</string>
     <string name="settings_overview_hide_unmatched_description">Չցուցադրել մոտակա սարքերը, որոնք չեն համընկնում ձեր պրոֆիլներից որևէ մեկի հետ, օրինակ՝ ուրիշի AirPods-ները:</string>
     <string name="device_battery_estimate_toggle_label">Մարտկոցի գնահատականներ</string>

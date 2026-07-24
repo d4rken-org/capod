@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ດີບັກ</string>
     <string name="settings_general_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">ສະຖານະການອັບເກຣດ ແລະ ການຊື້ຂອງທ່ານ.</string>
-    <string name="settings_upgrade_status_foss_label">ສະໜັບສະໜູນ CAPod</string>
-    <string name="settings_upgrade_status_foss_description">ສະຖານະຜູ້ສະໜັບສະໜູນຂອງທ່ານ.</string>
     <string name="settings_overview_hide_unmatched_label">຋່ອນອຸປະກອນທີ່ໄມ່ຕໍງກັນ</string>
     <string name="settings_overview_hide_unmatched_description">ບໍ່ສະແດງອຸປະກອນໃກ້ທີ່ໄມ່ຕໍງກັບໂປຣໄຟລ໌ຂອງທ່ານໃນບັນທຶກປະກອບການ, ເຊັ່ນ: AirPods ຂອງຄນອື່ນ.</string>
     <string name="device_battery_estimate_toggle_label">ການປະເມີນແບັດເຕີຣີ</string>

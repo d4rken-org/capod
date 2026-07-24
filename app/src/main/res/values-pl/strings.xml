@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debuguj</string>
     <string name="settings_general_label">Ustawienia</string>
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Stan Twojego zakupu i uaktualnienia.</string>
-    <string name="settings_upgrade_status_foss_label">Sponsoruj CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Status Twojego wsparcia.</string>
     <string name="settings_overview_hide_unmatched_label">Ukryj niedopasowane urządzenia</string>
     <string name="settings_overview_hide_unmatched_description">Nie pokazuj w przeglądzie pobliskich urządzeń, które nie pasują do żadnego z twoich profili, np. AirPods innych osób.</string>
     <string name="device_battery_estimate_toggle_label">Szacunkowy czas pracy baterii</string>

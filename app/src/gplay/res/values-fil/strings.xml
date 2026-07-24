@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Kinukumpirma ang iyong pagbili</string>
     <string name="upgrade_screen_grace_body_short">Hindi pa nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro — walang kailangang gawin.</string>
     <string name="upgrade_screen_grace_body">Matagal nang hindi nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro. Siguraduhing online ka at naka-sign in sa Google account na ginamit sa pagbili, pagkatapos ay subukang i-restore.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Ang katayuan ng iyong pag-upgrade at pagbili.</string>
 </resources>

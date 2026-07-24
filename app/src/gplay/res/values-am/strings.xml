@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">ግዢዎን በማረጋገጥ ላይ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ግዢዎን እስካሁን አላረጋገጠም። Pro አሁንም ንቁ ነው — ምንም እርምጃ አያስፈልግም።</string>
     <string name="upgrade_screen_grace_body">Google Play ለተወሰነ ጊዜ ግዢዎን አላረጋገጠም። Pro አሁንም ንቁ ነው። መስመር ላይ መሆንዎን እና ለግዢው ጥቅም ላይ በዋለው የGoogle መለያ መግባትዎን ያረጋግጡ፣ ከዚያ ወደነበረበት ለመመለስ ይሞክሩ።</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">የማሻሻያ እና የግዢ ሁኔታዎ።</string>
 </resources>

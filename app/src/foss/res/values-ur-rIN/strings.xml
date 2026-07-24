@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s سے سپورٹر</string>
     <string name="upgrade_foss_supporter_thanks">CAPod کی ترقی کی حمایت کرنے کا شکریہ!</string>
     <string name="upgrade_foss_sponsor_again_action">سپانسر پیج کھولیں</string>
+    <string name="settings_upgrade_status_label">CAPod کو سپانسر کریں</string>
+    <string name="settings_upgrade_status_description">آپ کے سپورٹر کی حیثیت۔</string>
 </resources>

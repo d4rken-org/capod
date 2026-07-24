@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Sozlamalar</string>
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Yangilanish va xarid holatingiz.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod\'ga homiylik qilish</string>
-    <string name="settings_upgrade_status_foss_description">Homiylik holatingiz.</string>
     <string name="settings_overview_hide_unmatched_label">Mos kelmaydigan qurilmalarni yashirish</string>
     <string name="settings_overview_hide_unmatched_description">Umumiy ko\'rinishda profillaringizdan biriga mos kelmaydigan yaqin qurilmalarni ko\'rsatmaslik, masalan, boshqa odamlarning AirPods qurilmalari.</string>
     <string name="device_battery_estimate_toggle_label">Batareya taxminlari</string>

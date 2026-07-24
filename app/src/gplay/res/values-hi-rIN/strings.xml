@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">आपकी खरीदारी की पुष्टि की जा रही है</string>
     <string name="upgrade_screen_grace_body_short">Google Play ने अभी तक आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है — कोई कार्रवाई जरूरी नहीं।</string>
     <string name="upgrade_screen_grace_body">Google Play ने काफ़ी समय से आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है। सुनिश्चित करें कि आप ऑनलाइन हैं और उसी Google खाते से साइन इन हैं जिससे खरीदारी की गई थी, फिर पुनर्स्थापित करने का प्रयास करें।</string>
+    <string name="settings_upgrade_status_label">कैपोड प्रो</string>
+    <string name="settings_upgrade_status_description">आपकी अपग्रेड और खरीद स्थिति।</string>
 </resources>

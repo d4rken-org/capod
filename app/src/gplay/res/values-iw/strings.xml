@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">מאשר את הרכישה שלך</string>
     <string name="upgrade_screen_grace_body_short">Google Play עדיין לא אישר את הרכישה שלך. Pro עדיין פעיל — אין צורך בפעולה.</string>
     <string name="upgrade_screen_grace_body">Google Play לא אישר את הרכישה שלך כבר זמן מה. Pro עדיין פעיל. ודא שאתה מחובר לאינטרנט ומחובר עם חשבון ה-Google שבו בוצעה הרכישה, ולאחר מכן נסה לשחזר.</string>
+    <string name="settings_upgrade_status_label">CAPod פרו</string>
+    <string name="settings_upgrade_status_description">סטטוס השדרוג והרכישה שלך.</string>
 </resources>

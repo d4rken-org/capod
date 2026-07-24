@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Depuració</string>
     <string name="settings_general_label">Configuració</string>
     <string name="settings_general_description">Configuracions generals que afecten a tota l\'aplicació.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">El teu estat d\'actualització i compra.</string>
-    <string name="settings_upgrade_status_foss_label">Patrocina CAPod</string>
-    <string name="settings_upgrade_status_foss_description">El teu estat de col·laborador.</string>
     <string name="settings_overview_hide_unmatched_label">Amaga els dispositius no coincidents</string>
     <string name="settings_overview_hide_unmatched_description">No mostris els dispositius propers que no coincideixen amb cap dels perfils a la vista general. P. ex. els AirPods d’altres persones.</string>
     <string name="device_battery_estimate_toggle_label">Estimació de la bateria</string>

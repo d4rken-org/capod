@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Toetaja alates %s</string>
     <string name="upgrade_foss_supporter_thanks">Täname, et toetad CAPodi arendust!</string>
     <string name="upgrade_foss_sponsor_again_action">Ava sponsorlehekülg</string>
+    <string name="settings_upgrade_status_label">Sponsoreeri CAPodi</string>
+    <string name="settings_upgrade_status_description">Sinu toetaja staatus.</string>
 </resources>

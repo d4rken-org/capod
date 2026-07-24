@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Kirîna te tê pejirandin</string>
     <string name="upgrade_screen_grace_body_short">Google Play hê kirîna te napejirîne. Pro hîn jî çalak e — ne hewce ye tu tiştekî bikî.</string>
     <string name="upgrade_screen_grace_body">Google Play demek e kirîna te napejirîne. Pro hîn jî çalak e. Piştrast bike ku tu girêdayî înternetê yî û bi hesabê Google yê ku pê kirî têkevî, paşê kirînê vegerîne.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Rewşa nûvekirin û kirîna te.</string>
 </resources>

@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Derinimas</string>
     <string name="settings_general_label">Nustatymai</string>
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Jūsų atnaujinimo ir pirkimo būsena.</string>
-    <string name="settings_upgrade_status_foss_label">Remti CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Jūsų rėmėjo būsena.</string>
     <string name="settings_overview_hide_unmatched_label">Slėpti neatitinkančius įrenginius</string>
     <string name="settings_overview_hide_unmatched_description">Nerodykite netoliese esančių įrenginius, kurie neatitinka nė vieno jūsų profilio apžvalgoje, pvz. kitų žmonų AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Baterijos įverčiai</string>

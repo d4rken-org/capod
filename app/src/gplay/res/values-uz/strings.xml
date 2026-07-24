@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Xaridingiz tasdiqlanmoqda</string>
     <string name="upgrade_screen_grace_body_short">Google Play hali xaridingizni tasdiqlamadi. Pro hali ham faol — hech qanday amal talab qilinmaydi.</string>
     <string name="upgrade_screen_grace_body">Google Play xaridingizni ancha vaqtdan beri tasdiqlamadi. Pro hali ham faol. Onlayn ekanligingizga va xarid uchun ishlatilgan Google hisobi bilan tizimga kirganingizga ishonch hosil qiling, so\'ngra tiklashga urinib ko\'ring.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Yangilanish va xarid holatingiz.</string>
 </resources>

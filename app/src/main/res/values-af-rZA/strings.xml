@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Ontfout</string>
     <string name="settings_general_label">Algemene instellings</string>
     <string name="settings_general_description">Algemene aanpassings wat die hele toepassing beïnvloed.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Jou opgradering- en aankoopstatus.</string>
-    <string name="settings_upgrade_status_foss_label">Borg CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Jou ondersteunerstatus.</string>
     <string name="settings_overview_hide_unmatched_label">Versteek onooreenstemmende toestelle</string>
     <string name="settings_overview_hide_unmatched_description">Moenie naby toestelle wys wat nie ooreenstem met enige van jou profiele in die oorsig nie, bv. ander mense se AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteryskattings</string>

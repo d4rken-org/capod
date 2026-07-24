@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">调试</string>
     <string name="settings_general_label">设置</string>
     <string name="settings_general_description">影响整个应用的一般性设置。</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">您的升级和购买状态。</string>
-    <string name="settings_upgrade_status_foss_label">赞助 CAPod</string>
-    <string name="settings_upgrade_status_foss_description">您的支持者状态。</string>
     <string name="settings_overview_hide_unmatched_label">隐藏不匹配的设备</string>
     <string name="settings_overview_hide_unmatched_description">不在概览中显示附近与任何配置文件不匹配的设备，例如他人的 AirPods。</string>
     <string name="device_battery_estimate_toggle_label">电池续航估计</string>

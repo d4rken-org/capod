@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">डीबग</string>
     <string name="settings_general_label">सेटिंग्ज</string>
     <string name="settings_general_description">संपूर्ण अॅपवर परिणाम करणारे सामान्य बदल.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">तुमची अपग्रेड आणि खरेदी स्थिती.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod ला प्रायोजित करा</string>
-    <string name="settings_upgrade_status_foss_description">तुमची समर्थक स्थिती.</string>
     <string name="settings_overview_hide_unmatched_label">न जुळणारी उपकरणे लपवा</string>
     <string name="settings_overview_hide_unmatched_description">आढावा विभागात तुमच्या कोणत्याही प्रोफाइलशी न जुळणारी जवळची उपकरणे दाखवू नका, उदा. इतर लोकांचे AirPods.</string>
     <string name="device_battery_estimate_toggle_label">बॅटरी अंदाज</string>
