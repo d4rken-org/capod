@@ -127,16 +127,16 @@ fun <T> ReorderableAutoScroll(state: ReorderableState<T>) {
         if (!state.isDragging) return@LaunchedEffect
         while (isActive) {
             val layoutInfo = state.lazyListState.layoutInfo
-            val viewportStart = layoutInfo.viewportStartOffset
-            val viewportEnd = layoutInfo.viewportEndOffset
+            val contentStart = layoutInfo.viewportStartOffset + layoutInfo.beforeContentPadding
+            val contentEnd = layoutInfo.viewportEndOffset - layoutInfo.afterContentPadding
             val draggedIdx = state.draggedIndex ?: break
             val draggedItem = layoutInfo.visibleItemsInfo.firstOrNull { it.index == draggedIdx }
             if (draggedItem != null) {
                 val itemCenter = draggedItem.offset + draggedItem.size / 2 + state.dragOffsetY
                 val scrollSpeed = 8f
                 val delta = when {
-                    itemCenter < viewportStart + scrollThresholdPx -> -scrollSpeed
-                    itemCenter > viewportEnd - scrollThresholdPx -> scrollSpeed
+                    itemCenter < contentStart + scrollThresholdPx -> -scrollSpeed
+                    itemCenter > contentEnd - scrollThresholdPx -> scrollSpeed
                     else -> 0f
                 }
                 if (delta != 0f) state.lazyListState.scrollBy(delta)

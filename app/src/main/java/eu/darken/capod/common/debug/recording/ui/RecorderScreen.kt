@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
@@ -54,6 +52,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.systemBarsAndCutoutInsets
 import java.io.File
 
 @Composable
@@ -68,49 +67,49 @@ fun RecorderScreen(
     val context = LocalContext.current
 
     Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState())
+                    .windowInsetsPadding(systemBarsAndCutoutInsets.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal)),
+            ) {
+                // Hero section
+                HeroSection()
+
+                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+                    // Sensitive information card
+                    SensitiveInfoCard(onPrivacyPolicy = onPrivacyPolicy)
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    // Session path card
+                    SessionPathCard(path = state.logDir?.path ?: "")
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Log files section
+                    LogFilesSection(
+                        entries = state.logEntries,
+                        compressedSize = state.compressedSize,
+                        recordingDurationSecs = state.recordingDurationSecs,
+                        context = context,
+                    )
+                }
+            }
+
+            // Bottom action bar
+            BottomActionBar(
+                isWorking = state.isWorking,
+                onDiscard = onDiscard,
+                onKeep = onKeep,
+                onShare = onShare,
+            )
+        }
+
         if (state.isWorking) {
             LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
         }
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))
-                .verticalScroll(rememberScrollState())
-                .padding(bottom = 80.dp),
-        ) {
-            // Hero section
-            HeroSection()
-
-            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                // Sensitive information card
-                SensitiveInfoCard(onPrivacyPolicy = onPrivacyPolicy)
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                // Session path card
-                SessionPathCard(path = state.logDir?.path ?: "")
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Log files section
-                LogFilesSection(
-                    entries = state.logEntries,
-                    compressedSize = state.compressedSize,
-                    recordingDurationSecs = state.recordingDurationSecs,
-                    context = context,
-                )
-            }
-        }
-
-        // Bottom action bar
-        BottomActionBar(
-            isWorking = state.isWorking,
-            onDiscard = onDiscard,
-            onKeep = onKeep,
-            onShare = onShare,
-            modifier = Modifier.align(Alignment.BottomCenter),
-        )
     }
 }
 
@@ -373,7 +372,9 @@ private fun BottomActionBar(
             color = MaterialTheme.colorScheme.surfaceContainerHigh,
         ) {
             Row(
-                modifier = Modifier.padding(12.dp),
+                modifier = Modifier
+                    .windowInsetsPadding(systemBarsAndCutoutInsets.only(WindowInsetsSides.Bottom + WindowInsetsSides.Horizontal))
+                    .padding(12.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 OutlinedButton(
@@ -415,7 +416,6 @@ private fun BottomActionBar(
                 }
             }
         }
-        Spacer(modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Bottom)))
     }
 }
 

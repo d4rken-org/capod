@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.settings.general
 
 import android.os.Build
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -105,7 +106,10 @@ fun GeneralSettingsScreen(
             )
         },
     ) { innerPadding ->
-        LazyColumn(modifier = Modifier.padding(innerPadding)) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = innerPadding,
+        ) {
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
             }

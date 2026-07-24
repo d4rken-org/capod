@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -44,6 +45,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.ReorderableAutoScroll
+import eu.darken.capod.common.compose.plus
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.compose.reorderableItemModifier
 import eu.darken.capod.common.compose.rememberReorderableState
@@ -123,9 +125,8 @@ fun DeviceManagerScreen(
             val showDragHandles = reorderableState.items.size >= 2
             LazyColumn(
                 state = lazyListState,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = innerPadding + PaddingValues(bottom = 88.dp),
             ) {
                 itemsIndexed(
                     items = reorderableState.items,
