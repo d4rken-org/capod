@@ -78,10 +78,11 @@ class UpgradeScreenComposeTest {
 
     // --- No-offers fallback ---
 
-    private fun noOffers(skuQueryInProgress: Boolean = false) = loaded(
+    private fun noOffers(skuQueryInProgress: Boolean = false, settled: Boolean = true) = loaded(
         subscriptionAction = SubscriptionAction.UNAVAILABLE,
         subscriptionPrice = null,
         iapPrice = null,
+        settled = settled,
     ).copy(skuQueryInProgress = skuQueryInProgress)
 
     @Test
@@ -111,12 +112,23 @@ class UpgradeScreenComposeTest {
     }
 
     @Test
-    fun `the Retry button is disabled while a SKU query is running`() {
+    fun `no offers while a query is running shows the settling spinner, not the unavailable card`() {
+        // The red "unavailable" card must not appear while offers are still being fetched.
         setScreen(state = noOffers(skuQueryInProgress = true))
 
-        composeRule.onNodeWithTag(UpgradeScreenTags.RETRY_BUTTON)
-            .performScrollTo()
-            .assertIsNotEnabled()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_SETTLING).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_UNAVAILABLE).assertDoesNotExist()
+        composeRule.onNodeWithTag(UpgradeScreenTags.RETRY_BUTTON).assertDoesNotExist()
+    }
+
+    @Test
+    fun `no offers before billing has settled shows the settling spinner, not the unavailable card`() {
+        // On entry the account looks like a non-owner until Play answers; the red card must wait
+        // until we're actually sure Play returned nothing.
+        setScreen(state = noOffers(settled = false))
+
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_SETTLING).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag(UpgradeScreenTags.OFFERS_UNAVAILABLE).assertDoesNotExist()
     }
 
     // --- Partial offer availability ---

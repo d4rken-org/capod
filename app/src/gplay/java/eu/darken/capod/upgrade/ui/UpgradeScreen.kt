@@ -273,10 +273,20 @@ private fun AcquisitionContent(
     }
 }
 
-// The offers card, cross-faded ONLY on the offers-availability discriminator so ordinary
-// Loaded→Loaded updates (settled/restore/verification) recompose in place instead of animating a
-// duplicate-tagged, briefly-interactive copy of the whole box.
-private enum class OffersPhase { LOADED, NO_OFFERS }
+// The offers card, cross-faded ONLY on the offers phase so ordinary Loaded→Loaded updates
+// (settled/restore/verification) recompose in place instead of animating a duplicate-tagged,
+// briefly-interactive copy of the whole box.
+private enum class OffersPhase { LOADED, SETTLING, NO_OFFERS }
+
+private fun UpgradeUiState.Loaded.offersPhase(): OffersPhase = when {
+    subAvailable || iapAvailable -> OffersPhase.LOADED
+    // Before the first billing reconciliation (or while a query is still running) missing offers are
+    // warm-up, not an outage: on entry upgradeInfo looks like a non-owner until Play answers, so an
+    // owner would otherwise flash the red "unavailable" card for the split second before their
+    // status resolves. Show a neutral spinner until we're actually sure Play returned nothing.
+    !settled || skuQueryInProgress -> OffersPhase.SETTLING
+    else -> OffersPhase.NO_OFFERS
+}
 
 @Composable
 private fun UpgradeOffersBox(
@@ -291,20 +301,24 @@ private fun UpgradeOffersBox(
     // offers fading out, etc.). Same-phase Loaded→Loaded updates share a key and recompose in place.
     AnimatedContent(
         targetState = state,
-        contentKey = { if (it.subAvailable || it.iapAvailable) OffersPhase.LOADED else OffersPhase.NO_OFFERS },
+        contentKey = { it.offersPhase() },
         transitionSpec = { fadeIn() togetherWith fadeOut() },
         label = "upgrade-offers",
         modifier = Modifier.fillMaxWidth(),
     ) { animatedState ->
-        if (animatedState.subAvailable || animatedState.iapAvailable) {
-            LoadedOffers(
+        when (animatedState.offersPhase()) {
+            OffersPhase.LOADED -> LoadedOffers(
                 state = animatedState,
                 onSubscription = onSubscription,
                 onSubscriptionTrial = onSubscriptionTrial,
                 onIap = onIap,
             )
-        } else {
-            NoOffersCard(
+
+            OffersPhase.SETTLING -> UpgradeActionCard {
+                UpgradeLoadingBlock(modifier = Modifier.testTag(UpgradeScreenTags.OFFERS_SETTLING))
+            }
+
+            OffersPhase.NO_OFFERS -> NoOffersCard(
                 state = animatedState,
                 onIap = onIap,
                 onRetry = onRetry,

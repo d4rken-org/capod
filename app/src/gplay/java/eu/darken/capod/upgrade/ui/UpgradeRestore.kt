@@ -110,8 +110,10 @@ internal fun RestoreFailedDialog(
             }
         },
         dismissButton = {
+            // "Close", not "Cancel": this dialog reports a result, it doesn't ask the user to
+            // confirm or abort an action.
             TextButton(onClick = onDismiss) {
-                Text(text = stringResource(R.string.general_cancel_action))
+                Text(text = stringResource(R.string.general_close_action))
             }
         },
     )
