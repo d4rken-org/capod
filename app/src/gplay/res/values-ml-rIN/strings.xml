@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിക്കുന്നു</string>
     <string name="upgrade_screen_grace_body_short">Google Play ഇതുവരെ നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ് — ഒരു നടപടിയും ആവശ്യമില്ല.</string>
     <string name="upgrade_screen_grace_body">കുറച്ച് സമയമായി Google Play നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ്. നിങ്ങൾ ഓൺലൈനിലാണെന്നും വാങ്ങലിനായി ഉപയോഗിച്ച Google അക്കൗണ്ട് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്നും ഉറപ്പാക്കുക, എന്നിട്ട് പുനഃസ്ഥാപിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും നില.</string>
 </resources>

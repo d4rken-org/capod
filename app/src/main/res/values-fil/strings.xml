@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mga Setting</string>
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Ang katayuan ng iyong pag-upgrade at pagbili.</string>
-    <string name="settings_upgrade_status_foss_label">I-sponsor ang CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Ang iyong katayuan bilang tagasuporta.</string>
     <string name="settings_overview_hide_unmatched_label">Itago ang mga hindi tugmang device</string>
     <string name="settings_overview_hide_unmatched_description">Huwag ipakita ang mga kalapit na device na hindi tugma sa alinman sa iyong mga profile sa pangkalahatang-tanaw, hal. ang mga AirPods ng ibang tao.</string>
     <string name="device_battery_estimate_toggle_label">Mga Pagtataya ng Baterya</string>

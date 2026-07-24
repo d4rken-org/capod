@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">වැදගන්න පරීක්‍ෂණය</string>
     <string name="settings_general_label">සැකසුම්</string>
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">ඔබේ උසස් කිරීම සහ මිලදී ගැනීමේ තත්ත්වය.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod අනුග්‍රහය දක්වන්න</string>
-    <string name="settings_upgrade_status_foss_description">ඔබේ අනුග්‍රාහක තත්ත්වය.</string>
     <string name="settings_overview_hide_unmatched_label">නොගැලපෙන උපාංග සඟවන්න</string>
     <string name="settings_overview_hide_unmatched_description">ඔබේ profile වල නොගැලපෙන ආසන්නයේ ඇති උපාංග දළ ළිස්ලේෂණයේ නොපෙන්වන්න, උදා. අනේකුත් පුද්ගලයන්ගේ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">බැටරි ඇස්තමේන්තු</string>

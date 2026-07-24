@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Inathibitisha ununuzi wako</string>
     <string name="upgrade_screen_grace_body_short">Google Play bado haijathibitisha ununuzi wako. Pro bado inatumika — hakuna hatua inayohitajika.</string>
     <string name="upgrade_screen_grace_body">Google Play haijathibitisha ununuzi wako kwa muda. Pro bado inatumika. Hakikisha uko mtandaoni na umeingia na akaunti ya Google iliyotumika kununua, kisha jaribu kurejesha.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Hali ya uboreshaji na ununuzi wako.</string>
 </resources>

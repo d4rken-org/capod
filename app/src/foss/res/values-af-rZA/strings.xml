@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Ondersteuner sedert %s</string>
     <string name="upgrade_foss_supporter_thanks">Dankie dat jy CAPod se ontwikkeling ondersteun!</string>
     <string name="upgrade_foss_sponsor_again_action">Maak borgblad oop</string>
+    <string name="settings_upgrade_status_label">Borg CAPod</string>
+    <string name="settings_upgrade_status_description">Jou ondersteunerstatus.</string>
 </resources>

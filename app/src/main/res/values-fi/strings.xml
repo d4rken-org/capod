@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Virheenjäljitys</string>
     <string name="settings_general_label">Asetukset</string>
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Päivitys- ja ostotilasi.</string>
-    <string name="settings_upgrade_status_foss_label">Tue CAPodia</string>
-    <string name="settings_upgrade_status_foss_description">Tukijatilasi.</string>
     <string name="settings_overview_hide_unmatched_label">Piilota yhteensopimattomat laitteet</string>
     <string name="settings_overview_hide_unmatched_description">Älä näytä lähistöllä olevia laitteita, jotka eivät vastaa mitään profiileistasi yleiskatsauksessa, esim. muiden ihmisten AirPodseja.</string>
     <string name="device_battery_estimate_toggle_label">Akun arviot</string>

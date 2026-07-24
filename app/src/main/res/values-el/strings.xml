@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Αποσφαλμάτωση</string>
     <string name="settings_general_label">Ρυθμίσεις</string>
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
-    <string name="settings_upgrade_status_foss_label">Χορηγήστε το CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Η κατάσταση υποστηρικτή σας.</string>
     <string name="settings_overview_hide_unmatched_label">Απόκρυψη μη αντιστοιχισμένων συσκευών</string>
     <string name="settings_overview_hide_unmatched_description">Να μην εμφανίζονται κοντινές συσκευές που δεν αντιστοιχούν σε κανένα από τα προφίλ σου στην επισκόπηση, π.χ. τα AirPods άλλων ανθρώπων.</string>
     <string name="device_battery_estimate_toggle_label">Εκτιμήσεις μπαταρίας</string>

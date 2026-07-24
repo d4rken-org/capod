@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">داعم منذ %s</string>
     <string name="upgrade_foss_supporter_thanks">شكرًا لدعمك تطوير CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">فتح صفحة الرعاية</string>
+    <string name="settings_upgrade_status_label">ادعم CAPod</string>
+    <string name="settings_upgrade_status_description">حالة الداعم الخاصة بك.</string>
 </resources>

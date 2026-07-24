@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Tukija %s lähtien</string>
     <string name="upgrade_foss_supporter_thanks">Kiitos, että tuet CAPodin kehitystä!</string>
     <string name="upgrade_foss_sponsor_again_action">Avaa sponsorisivu</string>
+    <string name="settings_upgrade_status_label">Tue CAPodia</string>
+    <string name="settings_upgrade_status_description">Tukijatilasi.</string>
 </resources>

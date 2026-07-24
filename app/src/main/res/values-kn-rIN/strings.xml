@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ಡೀಬಗ್</string>
     <string name="settings_general_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">ನಿಮ್ಮ ಅಪ್‌ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod ಅನ್ನು ಪ್ರಾಯೋಜಿಸಿ</string>
-    <string name="settings_upgrade_status_foss_description">ನಿಮ್ಮ ಬೆಂಬಲಿಗ ಸ್ಥಿತಿ.</string>
     <string name="settings_overview_hide_unmatched_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳನ್ನು ಮರೆಮಾಡಿ</string>
     <string name="settings_overview_hide_unmatched_description">ನಿಮ್ಮ ಯಾವುದೇ ಪ್ರೊಫೈಲ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗದ ಹತ್ತಿರದ ಸಾಧನಗಳನ್ನು ಅವಲೋಕನದಲ್ಲಿ ತೋರಿಸಬೇಡಿ, ಉದಾ. ಇತರ ಜನರ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ಬ್ಯಾಟರಿ ಅಂದಾಜುಗಳು</string>

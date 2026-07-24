@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Felsökning</string>
     <string name="settings_general_label">Inställningar</string>
     <string name="settings_general_description">Allmänna justeringar som påverkar hela appen.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Din uppgraderings- och köpstatus.</string>
-    <string name="settings_upgrade_status_foss_label">Sponsra CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Din supporterstatus.</string>
     <string name="settings_overview_hide_unmatched_label">Dölj omatchade enheter</string>
     <string name="settings_overview_hide_unmatched_description">Visa inte närliggande enheter som inte matchar någon av dina profiler i översikten, t.ex. andras AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteriuppskattningar</string>

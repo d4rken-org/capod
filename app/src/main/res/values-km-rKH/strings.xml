@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ការបំបាត់កំហុស</string>
     <string name="settings_general_label">ការកំណត់</string>
     <string name="settings_general_description">ការកែតម្រូវទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">ស្ថានភាពការដំឡើងកម្រិត និងការទិញរបស់អ្នក។</string>
-    <string name="settings_upgrade_status_foss_label">ឧបត្ថម្ភ CAPod</string>
-    <string name="settings_upgrade_status_foss_description">ស្ថានភាពអ្នកគាំទ្ររបស់អ្នក។</string>
     <string name="settings_overview_hide_unmatched_label">លាក់ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
     <string name="settings_overview_hide_unmatched_description">មិនបង្ហាញឧបករណ៍នៅជិតដែលមិនត្រូវនឹងប្រវត្តិរូបណាមួយរបស់អ្នកនៅក្នុងទិដ្ឋភាពទូទៅ ឧ. AirPods របស់អ្នកដទៃ។</string>
     <string name="device_battery_estimate_toggle_label">ការប៉ាន់ប្រមាណថាមពលថ្ម</string>

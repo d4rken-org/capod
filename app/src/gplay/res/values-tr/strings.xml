@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Satın alman onaylanıyor</string>
     <string name="upgrade_screen_grace_body_short">Google Play satın almanı henüz onaylamadı. Pro hâlâ aktif — herhangi bir işlem yapmana gerek yok.</string>
     <string name="upgrade_screen_grace_body">Google Play satın almanı bir süredir onaylamadı. Pro hâlâ aktif. Çevrimiçi olduğundan ve satın alma için kullanılan Google hesabıyla oturum açtığından emin ol, ardından geri yüklemeyi dene.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Yükseltme ve satın alma durumun.</string>
 </resources>

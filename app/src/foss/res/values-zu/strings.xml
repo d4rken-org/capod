@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Umsekeli kusukela ngo-%s</string>
     <string name="upgrade_foss_supporter_thanks">Ngiyabonga ngokusekela ukuthuthukiswa kwe-CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Vula ikhasi lomxhasi</string>
+    <string name="settings_upgrade_status_label">Xhasa i-CAPod</string>
+    <string name="settings_upgrade_status_description">Isimo sakho sokusekela.</string>
 </resources>

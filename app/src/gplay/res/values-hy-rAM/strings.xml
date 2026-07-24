@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Հաստատում ենք ձեր գնումը</string>
     <string name="upgrade_screen_grace_body_short">Google Play-ը դեռ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է․ գործողություն պահանջվող չէ:</string>
     <string name="upgrade_screen_grace_body">Google Play-ը որոշ ժամանակ է, ինչ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է: Համոզվեք, որ առցանց եք և մուտք գործած այն Google հաշվով, որով կատարվել է գնումը, ապա փորձեք վերականգնել:</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Ձեր արդիացման և գնման կարգավիճակը:</string>
 </resources>

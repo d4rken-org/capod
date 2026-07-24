@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Mbështetës që nga %s</string>
     <string name="upgrade_foss_supporter_thanks">Faleminderit për mbështetjen e zhvillimit të CAPod-it!</string>
     <string name="upgrade_foss_sponsor_again_action">Hap faqen e sponsorizimit</string>
+    <string name="settings_upgrade_status_label">Sponsorizo CAPod-in</string>
+    <string name="settings_upgrade_status_description">Statusi juaj i mbështetësit.</string>
 </resources>

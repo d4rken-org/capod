@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Patvirtinamas jūsų pirkimas</string>
     <string name="upgrade_screen_grace_body_short">„Google Play“ dar nepatvirtino jūsų pirkimo. „Pro“ vis dar aktyvus — jokių veiksmų atlikti nereikia.</string>
     <string name="upgrade_screen_grace_body">„Google Play“ jau kurį laiką nepatvirtina jūsų pirkimo. „Pro“ vis dar aktyvus. Įsitikinkite, kad esate prisijungę prie interneto ir naudojate „Google“ paskyrą, kuria atlikote pirkimą, tuomet pabandykite atkurti.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Jūsų atnaujinimo ir pirkimo būsena.</string>
 </resources>

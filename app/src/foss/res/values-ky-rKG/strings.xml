@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s\'дан бери колдоочу</string>
     <string name="upgrade_foss_supporter_thanks">CAPod\'дун өнүгүшүн колдогонуңуз үчүн рахмат!</string>
     <string name="upgrade_foss_sponsor_again_action">Демөөрчүлүк баракчасын ачуу</string>
+    <string name="settings_upgrade_status_label">CAPod\'ду колдоо</string>
+    <string name="settings_upgrade_status_description">Колдоочу статусуңуз.</string>
 </resources>

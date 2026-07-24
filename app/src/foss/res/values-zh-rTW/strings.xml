@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">自 %s 起成為贊助者</string>
     <string name="upgrade_foss_supporter_thanks">感謝您支持 CAPod 的開發！</string>
     <string name="upgrade_foss_sponsor_again_action">開啟贊助頁面</string>
+    <string name="settings_upgrade_status_label">贊助 CAPod</string>
+    <string name="settings_upgrade_status_description">您的贊助者狀態。</string>
 </resources>

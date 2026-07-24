@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">תומך מאז %s</string>
     <string name="upgrade_foss_supporter_thanks">תודה שאתה תומך בפיתוח של CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">פתח את דף התמיכה</string>
+    <string name="settings_upgrade_status_label">תמכו ב-CAPod</string>
+    <string name="settings_upgrade_status_description">סטטוס התמיכה שלך.</string>
 </resources>

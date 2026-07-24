@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s ರಿಂದ ಬೆಂಬಲಿಗ</string>
     <string name="upgrade_foss_supporter_thanks">CAPod ಅಭಿವೃದ್ಧಿಗೆ ಬೆಂಬಲ ನೀಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು!</string>
     <string name="upgrade_foss_sponsor_again_action">ಪ್ರಾಯೋಜಕ ಪುಟ ತೆರೆಯಿರಿ</string>
+    <string name="settings_upgrade_status_label">CAPod ಅನ್ನು ಪ್ರಾಯೋಜಿಸಿ</string>
+    <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಬೆಂಬಲಿಗ ಸ್ಥಿತಿ.</string>
 </resources>

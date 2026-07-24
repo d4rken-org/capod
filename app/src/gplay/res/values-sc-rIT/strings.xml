@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Cunfirmande su cùmperu tuo</string>
     <string name="upgrade_screen_grace_body_short">Google Play no at ancora cunfirmadu su cùmperu tuo. Pro est galu atívu — no b\'at bisòngiu de fàghere nudda.</string>
     <string name="upgrade_screen_grace_body">Google Play no at cunfirmadu su cùmperu tuo dae unu pagu de tempus. Pro est galu atívu. Assegura·ti de èssere in lìnia e de àere fatu s\'aciesu cun su contu Google impreadu pro su cùmperu, e a pustis proa a ripristinare.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">S\'istadu de su megioramentu e de sa comporadura tua.</string>
 </resources>

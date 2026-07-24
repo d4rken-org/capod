@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s සිට අනුග්‍රාහකයෙකි</string>
     <string name="upgrade_foss_supporter_thanks">CAPod හි සංවර්ධනයට සහාය දැක්වූ ඔබට ස්තූතියි!</string>
     <string name="upgrade_foss_sponsor_again_action">අනුග්‍රාහක පිටුව විවෘත කරන්න</string>
+    <string name="settings_upgrade_status_label">CAPod අනුග්‍රහය දක්වන්න</string>
+    <string name="settings_upgrade_status_description">ඔබේ අනුග්‍රාහක තත්ත්වය.</string>
 </resources>

@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s မှစ၍ ပံ့ပိုးသူ</string>
     <string name="upgrade_foss_supporter_thanks">CAPod ၏ ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပေးသည့်အတွက် ကျေးဇူးတင်ပါသည်!</string>
     <string name="upgrade_foss_sponsor_again_action">ပံ့ပိုးသူစာမျက်နှာကို ဖွင့်ပါ</string>
+    <string name="settings_upgrade_status_label">CAPod ကို ပံ့ပိုးပါ</string>
+    <string name="settings_upgrade_status_description">သင့်ပံ့ပိုးသူအခြေအနေ။</string>
 </resources>

@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">ഡീബഗ്</string>
     <string name="settings_general_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും നില.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod-നെ സ്പോൺസർ ചെയ്യുക</string>
-    <string name="settings_upgrade_status_foss_description">നിങ്ങളുടെ പിന്തുണക്കാരന്റെ നില.</string>
     <string name="settings_overview_hide_unmatched_label">പൊരുത്തപ്പെടാത്ത ഉപകരണങ്ങൾ മറയ്ക്കുക</string>
     <string name="settings_overview_hide_unmatched_description">നിങ്ങളുടെ ഒരു പ്രൊഫൈലുമായും പൊരുത്തപ്പെടാത്ത അടുത്തുള്ള ഉപകരണങ്ങൾ അവലോകനത്തിൽ കാണിക്കരുത്, ഉദാ. മറ്റുള്ളവരുടെ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ബാറ്ററി കണക്കുമാനം</string>

@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Đang xác nhận giao dịch mua của bạn</string>
     <string name="upgrade_screen_grace_body_short">Google Play chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động — không cần thực hiện gì thêm.</string>
     <string name="upgrade_screen_grace_body">Google Play đã một thời gian chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động. Hãy đảm bảo bạn đang trực tuyến và đã đăng nhập bằng tài khoản Google đã dùng để mua, sau đó thử khôi phục.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Trạng thái nâng cấp và mua hàng của bạn.</string>
 </resources>

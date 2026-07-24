@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">ກຳລັງຍືນຍັນການຊື້ຂອງທ່ານ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ຍັງບໍ່ໄດ້ຍືນຍັນການຊື້ຂອງທ່ານ. Pro ຍັງໃຊ້ງານໄດ້ຍູ່ — ບໍ່ຈຳເປັນຕ້ອງເຮັດໜັຍັງ.</string>
     <string name="upgrade_screen_grace_body">Google Play ຍັງບໍ່ໄດ້ຍືນຍັນການຊື້ຂອງທ່ານມາໄລຍະໝຶ່ງແລ້ວ. Pro ຍັງໃຊ້ງານໄດ້ຍູ່. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານອອນລາຍ ແລະ ເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້, ແລ້ວລອງກູ້ຄືນ.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">ສະຖານະການອັບເກຣດ ແລະ ການຊື້ຂອງທ່ານ.</string>
 </resources>

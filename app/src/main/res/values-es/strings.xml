@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Depuración</string>
     <string name="settings_general_label">Ajustes</string>
     <string name="settings_general_description">Ajustes generales que afectan a toda la aplicación.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">El estado de tu mejora y compra.</string>
-    <string name="settings_upgrade_status_foss_label">Patrocina CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Tu estado de colaborador.</string>
     <string name="settings_overview_hide_unmatched_label">Ocultar dispositivos no reconocidos</string>
     <string name="settings_overview_hide_unmatched_description">No mostrar en el resumen los dispositivos cercanos que no coincidan con ninguno de tus perfiles, p. ej. los AirPods de otras personas.</string>
     <string name="device_battery_estimate_toggle_label">Estimaciones de batería</string>

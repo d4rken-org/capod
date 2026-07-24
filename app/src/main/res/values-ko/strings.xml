@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">디버그</string>
     <string name="settings_general_label">설정</string>
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">업그레이드 및 구매 상태입니다.</string>
-    <string name="settings_upgrade_status_foss_label">CAPod 후원하기</string>
-    <string name="settings_upgrade_status_foss_description">후원자 상태입니다.</string>
     <string name="settings_overview_hide_unmatched_label">일치하지 않는 기기 숨기기</string>
     <string name="settings_overview_hide_unmatched_description">개요에서 프로필과 일치하지 않는 주변 기기(예: 다른 사람의 AirPods)를 표시하지 않습니다.</string>
     <string name="device_battery_estimate_toggle_label">배터리 추정</string>

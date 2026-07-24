@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Vahvistetaan ostostasi</string>
     <string name="upgrade_screen_grace_body_short">Google Play ei ole vielä vahvistanut ostostasi. Pro on yhä aktiivinen — mitään ei tarvitse tehdä.</string>
     <string name="upgrade_screen_grace_body">Google Play ei ole vahvistanut ostostasi hetkeen. Pro on yhä aktiivinen. Varmista, että olet verkossa ja kirjautuneena sillä Google-tilillä, jolla teit ostoksen, ja yritä sitten palauttaa se.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Päivitys- ja ostotilasi.</string>
 </resources>

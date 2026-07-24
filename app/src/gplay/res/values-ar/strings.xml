@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">جارٍ تأكيد عملية الشراء</string>
     <string name="upgrade_screen_grace_body_short">لم يؤكّد Google Play عملية الشراء الخاصة بك بعد. لا يزال Pro نشطًا — لا حاجة لاتخاذ أي إجراء.</string>
     <string name="upgrade_screen_grace_body">لم يؤكّد Google Play عملية الشراء الخاصة بك منذ فترة. لا يزال Pro نشطًا. تأكد من اتصالك بالإنترنت وتسجيل دخولك بحساب Google المستخدم في عملية الشراء، ثم حاول استعادة الشراء.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">حالة الترقية والشراء الخاصة بك.</string>
 </resources>

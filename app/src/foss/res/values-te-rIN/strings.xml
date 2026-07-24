@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">%s నుండి సపోర్టర్</string>
     <string name="upgrade_foss_supporter_thanks">CAPod అభివృద్ధికి మద్దతు ఇచ్చినందుకు ధన్యవాదాలు!</string>
     <string name="upgrade_foss_sponsor_again_action">స్పాన్సర్ పేజీని తెరవండి</string>
+    <string name="settings_upgrade_status_label">CAPodకి స్పాన్సర్ చేయండి</string>
+    <string name="settings_upgrade_status_description">మీ సపోర్టర్ స్థితి.</string>
 </resources>

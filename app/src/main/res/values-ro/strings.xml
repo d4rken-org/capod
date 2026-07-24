@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Depanare</string>
     <string name="settings_general_label">Setări</string>
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Starea achiziției și a upgrade-ului tău.</string>
-    <string name="settings_upgrade_status_foss_label">Sponsorizează CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Starea ta de susținător.</string>
     <string name="settings_overview_hide_unmatched_label">Ascunde dispozitivele nepotrivite</string>
     <string name="settings_overview_hide_unmatched_description">Nu afișa dispozitivele din apropiere care nu corespund niciunui profil al tău în prezentare generală, de ex. AirPods-urile altor persoane.</string>
     <string name="device_battery_estimate_toggle_label">Estimări ale bateriei</string>

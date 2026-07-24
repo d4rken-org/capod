@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Laguntzaile %s(e)tik aurrera</string>
     <string name="upgrade_foss_supporter_thanks">Eskerrik asko CAPod-en garapena babesten duzulako!</string>
     <string name="upgrade_foss_sponsor_again_action">Ireki babesle-orria</string>
+    <string name="settings_upgrade_status_label">Babestu CAPod</string>
+    <string name="settings_upgrade_status_description">Zure laguntzaile-egoera.</string>
 </resources>

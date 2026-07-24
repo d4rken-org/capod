@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Επιβεβαίωση της αγοράς σας</string>
     <string name="upgrade_screen_grace_body_short">Το Google Play δεν έχει επιβεβαιώσει ακόμα την αγορά σας. Το Pro παραμένει ενεργό — δεν απαιτείται καμία ενέργεια.</string>
     <string name="upgrade_screen_grace_body">Το Google Play δεν έχει επιβεβαιώσει την αγορά σας εδώ και καιρό. Το Pro παραμένει ενεργό. Βεβαιωθείτε ότι είστε συνδεδεμένοι στο διαδίκτυο και συνδεδεμένοι με τον λογαριασμό Google που χρησιμοποιήσατε για την αγορά, και μετά δοκιμάστε να την επαναφέρετε.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
 </resources>

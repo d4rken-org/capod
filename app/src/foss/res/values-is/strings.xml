@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Styrktaraðili síðan %s</string>
     <string name="upgrade_foss_supporter_thanks">Takk fyrir að styðja þróun CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Opna styrktarsíðu</string>
+    <string name="settings_upgrade_status_label">Styrkja CAPod</string>
+    <string name="settings_upgrade_status_description">Staða þín sem styrktaraðili.</string>
 </resources>

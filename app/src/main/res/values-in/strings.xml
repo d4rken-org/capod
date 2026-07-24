@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Pengaturan</string>
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Status peningkatan dan pembelian Anda.</string>
-    <string name="settings_upgrade_status_foss_label">Sponsori CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Status pendukung Anda.</string>
     <string name="settings_overview_hide_unmatched_label">Sembunyikan perangkat yang tidak cocok</string>
     <string name="settings_overview_hide_unmatched_description">Jangan tampilkan perangkat terdekat yang tidak cocok dengan profil mana pun di ringkasan, misalnya AirPods milik orang lain.</string>
     <string name="device_battery_estimate_toggle_label">Perkiraan Baterai</string>

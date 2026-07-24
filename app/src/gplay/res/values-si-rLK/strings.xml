@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">ඔබේ මිලදී ගැනීම තහවුරු කරමින්</string>
     <string name="upgrade_screen_grace_body_short">Google Play තවම ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි — කිසිදු ක්‍රියාමාර්ගයක් අවශ්‍ය නොවේ.</string>
     <string name="upgrade_screen_grace_body">Google Play ටික කලක් තිස්සේ ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි. ඔබ අන්තර්ජාලයට සම්බන්ධව සිටින බවත්, මිලදී ගැනීම සඳහා භාවිත කළ Google ගිණුමෙන් පුරන්ව ඇති බවත් තහවුරු කරගෙන, පසුව ප්‍රතිසාධනය කිරීමට උත්සාහ කරන්න.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">ඔබේ උසස් කිරීම සහ මිලදී ගැනීමේ තත්ත්වය.</string>
 </resources>

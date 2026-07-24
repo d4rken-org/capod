@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">ဆက်တင်များ</string>
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">သင့်အဆင့်မြှင့်တင်မှုနှင့် ဝယ်ယူမှုအခြေအနေ။</string>
-    <string name="settings_upgrade_status_foss_label">CAPod ကို ပံ့ပိုးပါ</string>
-    <string name="settings_upgrade_status_foss_description">သင့်ပံ့ပိုးသူအခြေအနေ။</string>
     <string name="settings_overview_hide_unmatched_label">မကိုက်ညီသော ကိရိယာများ ဝှက်ရန်</string>
     <string name="settings_overview_hide_unmatched_description">သင့်ပရိုဖိုင်များနှင့် မကိုက်ညီသော အနီးနားရှိ ကိရိယာများကို မည်သည့်အကြောင်းကြောင့်မဆို ခြုံငုံသုံးသပ်ချက်တွင် မပြပါနှင့်၊ ဥပမာ အခြားသူများ၏ AirPods။</string>
     <string name="device_battery_estimate_toggle_label">ဘက်ထရီ ခန့်မှန်းချက်များ</string>

@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Kuqinisekiswa ukuthenga kwakho</string>
     <string name="upgrade_screen_grace_body_short">I-Google Play ayikaqinisekisi ukuthenga kwakho. I-Pro isasebenza — akudingeki sinyathelo.</string>
     <string name="upgrade_screen_grace_body">I-Google Play ayikaqinisekisi ukuthenga kwakho isikhathi eside. I-Pro isasebenza. Qinisekisa ukuthi ukuxhunyiwe ku-inthanethi futhi ungenile nge-akhawunti ye-Google eyasetshenziswa ekutheneni, bese uzama ukubuyisela.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
 </resources>

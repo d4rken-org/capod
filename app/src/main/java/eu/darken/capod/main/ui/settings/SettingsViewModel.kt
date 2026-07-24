@@ -20,7 +20,6 @@ class SettingsViewModel @Inject constructor(
     data class State(
         val isPro: Boolean,
         val sponsorUrl: String?,
-        val upgradeType: UpgradeRepo.Type = UpgradeRepo.Type.GPLAY,
     )
 
     val state = upgradeRepo.upgradeInfo
@@ -28,7 +27,6 @@ class SettingsViewModel @Inject constructor(
             State(
                 isPro = it.isPro,
                 sponsorUrl = upgradeRepo.getSponsorUrl(),
-                upgradeType = it.type,
             )
         }
         .asLiveState()

@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Отстраняване на грешки</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общи настройки, които засягат цялото приложение.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Вашият статус на надстройка и покупка.</string>
-    <string name="settings_upgrade_status_foss_label">Спонсорирай CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Вашият статус на поддръжник.</string>
     <string name="settings_overview_hide_unmatched_label">Скриване на несъответстващи устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показвай намиращи се наблизо устройства, които не съответстват на нито един от профилите ти в прегледа, напр. AirPods на други хора.</string>
     <string name="device_battery_estimate_toggle_label">Оценки на батерията</string>

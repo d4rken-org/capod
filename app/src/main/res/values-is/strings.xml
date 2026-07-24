@@ -108,10 +108,6 @@
     <string name="settings_category_debug_label">Kembing</string>
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
-    <string name="settings_upgrade_status_gplay_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_gplay_description">Staða uppfærslu þinnar og kaupa.</string>
-    <string name="settings_upgrade_status_foss_label">Styrkja CAPod</string>
-    <string name="settings_upgrade_status_foss_description">Staða þín sem styrktaraðili.</string>
     <string name="settings_overview_hide_unmatched_label">Fela ópassandi tæki</string>
     <string name="settings_overview_hide_unmatched_description">Sýnir ekki nálæg tæki sem passa ekki við neitt af sniðunum þínum í yfirlitinu, t.d. AirPods annarra.</string>
     <string name="device_battery_estimate_toggle_label">Rafhlöðuáætlanir</string>

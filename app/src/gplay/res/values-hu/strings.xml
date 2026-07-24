@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">A vásárlásod megerősítése</string>
     <string name="upgrade_screen_grace_body_short">A Google Play még nem erősítette meg a vásárlásodat. A Pro továbbra is aktív – nincs teendő.</string>
     <string name="upgrade_screen_grace_body">A Google Play egy ideje nem erősítette meg a vásárlásodat. A Pro továbbra is aktív. Győződj meg róla, hogy online vagy, és be vagy jelentkezve a vásárláshoz használt Google-fiókkal, majd próbáld meg visszaállítani.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Az előfizetésed és vásárlásod állapota.</string>
 </resources>

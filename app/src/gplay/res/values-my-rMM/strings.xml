@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">သင့်ဝယ်ယူမှုကို အတည်ပြုနေသည်</string>
     <string name="upgrade_screen_grace_body_short">Google Play က သင့်ဝယ်ယူမှုကို အတည်မပြုရသေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည် — မည်သည့်အရာမှ လုပ်ဆောင်ရန် မလိုအပ်ပါ။</string>
     <string name="upgrade_screen_grace_body">Google Play သည် သင့်ဝယ်ယူမှုကို အတန်ကြာအောင် အတည်မပြုနိုင်သေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည်။ အွန်လိုင်းနှင့် ချိတ်ဆက်ထားပြီး ဝယ်ယူမှုတွင် အသုံးပြုခဲ့သည့် Google အကောင့်ဖြင့် လက်မှတ်ရေးထိုးဝင်ထားကြောင်း သေချာစေပြီးမှ ပြန်လည်ရယူရန် စမ်းကြည့်ပါ။</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">သင့်အဆင့်မြှင့်တင်မှုနှင့် ဝယ်ယူမှုအခြေအနေ။</string>
 </resources>

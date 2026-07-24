@@ -49,4 +49,6 @@
     <string name="upgrade_screen_grace_title">Confirmaziun da tia cumpra</string>
     <string name="upgrade_screen_grace_body_short">Google Play n\'ha anc betg confirmà tia cumpra. Pro resta activ — nagina acziun necessaria.</string>
     <string name="upgrade_screen_grace_body">Google Play n\'ha betg confirmà tia cumpra dapi in tschert temp. Pro resta activ. Controllescha che ti sajas online e annunzià cun il conto Google duvrà per la cumpra, ed emprova lura da restaurar.</string>
+    <string name="settings_upgrade_status_label">CAPod Pro</string>
+    <string name="settings_upgrade_status_description">Tes status d\'upgrade e da cumpra.</string>
 </resources>

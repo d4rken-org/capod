@@ -11,4 +11,6 @@
     <string name="upgrade_foss_supporter_since">Tagasuporta simula %s</string>
     <string name="upgrade_foss_supporter_thanks">Salamat sa pagsuporta sa development ng CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Buksan ang sponsor page</string>
+    <string name="settings_upgrade_status_label">I-sponsor ang CAPod</string>
+    <string name="settings_upgrade_status_description">Ang iyong katayuan bilang tagasuporta.</string>
 </resources>
