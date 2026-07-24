@@ -49,4 +49,19 @@
     <string name="upgrade_screen_grace_title">Confirming your purchase</string>
     <string name="upgrade_screen_grace_body_short">Google Play hasn\'t confirmed your purchase yet. Pro is still active — no action needed.</string>
     <string name="upgrade_screen_grace_body">Google Play hasn\'t confirmed your purchase for a while. Pro is still active. Make sure you\'re online and signed in with the Google account used for the purchase, then try restoring.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Upgrade options</string>
+    <string name="upgrade_screen_offers_or">or</string>
+    <string name="upgrade_screen_offers_body">Same features, just different pricing models.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prices unavailable</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play didn\'t return prices right now. Check your connection and try again in a moment.</string>
+    <string name="upgrade_screen_subscription_offer_title">Yearly subscription</string>
+    <string name="upgrade_screen_subscription_offer_body">Renews yearly after the free trial. Cancel anytime in Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Renews yearly. Cancel anytime in Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">One payment, no renewals.</string>
+    <string name="upgrade_screen_benefits_title">Upgrade benefits</string>
+    <string name="upgrade_screen_restore_body">Restoring asks Google Play to re-check this app\'s purchases for the current account. It doesn\'t start a new purchase.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod just checked Google Play, but no Pro purchase could be confirmed for the account Google Play is using for this app.</string>
+    <string name="upgrade_screen_restore_contact_hint">Still stuck? Contact support from the email that made the purchase and include your Google Play order number.</string>
+    <string name="upgrade_screen_contact_support_action">Contact support</string>
 </resources>

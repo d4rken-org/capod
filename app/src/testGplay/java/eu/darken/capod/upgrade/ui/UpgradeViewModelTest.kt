@@ -3,6 +3,7 @@ package eu.darken.capod.upgrade.ui
 import android.app.Activity
 import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.WebpageTool
+import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavEvent
 import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
@@ -440,6 +441,20 @@ class UpgradeViewModelTest : BaseTest() {
         navEvents shouldBe emptyList()
 
         job.cancel()
+    }
+
+    @Test
+    fun `contact support navigates to the contact form`() = runTest2 {
+        val repo = mockRepo()
+        val vm = createVm(repo)
+
+        val navEvent = async { vm.navEvents.first() }
+        vm.onContactSupport()
+        advanceUntilIdle()
+
+        val event = navEvent.await()
+        event.shouldBeInstanceOf<NavEvent.GoTo>()
+        event.destination shouldBe Nav.Settings.ContactSupport
     }
 
     // --- State mapping ---

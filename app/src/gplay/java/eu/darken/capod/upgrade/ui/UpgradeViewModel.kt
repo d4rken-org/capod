@@ -12,6 +12,7 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
+import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
@@ -381,6 +382,11 @@ class UpgradeViewModel @Inject constructor(
     fun onManageSubscription() {
         log(TAG, INFO) { "onManageSubscription()" }
         webpageTool.open(PLAY_SUBSCRIPTION_URL)
+    }
+
+    fun onContactSupport() {
+        log(TAG, INFO) { "onContactSupport()" }
+        navTo(Nav.Settings.ContactSupport)
     }
 
     fun onResume() {
