@@ -44,8 +44,11 @@ open class App : Application() {
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
     override fun onCreate() {
-        super.onCreate()
+        // Must stay ABOVE super.onCreate(): that call performs the Hilt injection which constructs
+        // our singletons. Anything they log while being created is dropped if no logger is installed
+        // yet. Do not "tidy" this line back below super.onCreate().
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
+        super.onCreate()
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler(
