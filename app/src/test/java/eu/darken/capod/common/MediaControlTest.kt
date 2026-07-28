@@ -55,6 +55,9 @@ class MediaControlTest : BaseTest() {
         mediaControl = MediaControl(audioManager, timeSource, handler)
         // Drain the init runnable so `playbackCallbackSlot` is populated for `fireCallback()`.
         initRunnableSlot.captured.run()
+        // Everything posted after init (the pause arm) runs inline and synchronously, which keeps
+        // the arm-before-dispatch ordering that the tests below observe.
+        every { handler.post(any()) } answers { firstArg<Runnable>().run(); true }
     }
 
     private fun playbackConfig(stream: Int): AudioPlaybackConfiguration {
@@ -352,6 +355,34 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
+    fun `stale queued snapshot pair draining before the arm does not clear it`() = runTest {
+        // Regression pin for the queued-pair race: a pre-pause inactive→active pair (e.g. a track
+        // change gap) that was already delivered but not yet drained when the pause armed. On the
+        // pre-fix code the pair drained after the caller-side arm and the active snapshot read as a
+        // fresh music-start edge that cleared it. Arming on the callback handler queues the arm
+        // behind the pair instead.
+        every { audioManager.isMusicActive } returns true
+        fireCallback(true) // seed lastKnownMusicActive=true
+
+        // The pair is queued ahead of the arm, so it drains before the posted runnable runs.
+        every { handler.post(any()) } answers {
+            fireCallback(false)
+            fireCallback(true)
+            firstArg<Runnable>().run()
+            true
+        }
+
+        mediaControl.sendPause(rememberForResume = true)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+
+        // A genuinely later resume still clears the arm.
+        every { handler.post(any()) } answers { firstArg<Runnable>().run(); true }
+        fireCallback(false)
+        fireCallback(true)
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
+    }
+
+    @Test
     fun `concurrent sendPause during sendPlay dispatch keeps the later pause armed`() = runTest {
         // Repro for the lost update: sendPlay's flag write used to land after sendKey's delay(100),
         // so a sendPause arming capPaused inside that window was overwritten back to false.
@@ -461,7 +492,14 @@ class MediaControlTest : BaseTest() {
         every { freshAudioManager.dispatchMediaKeyEvent(any()) } just Runs
         every { freshAudioManager.registerAudioPlaybackCallback(any(), any()) } just Runs
         val freshHandler = mockk<Handler>()
-        every { freshHandler.post(any()) } returns true
+        // The first post is the init runnable and is deliberately left undrained — that is the
+        // premise of this test. Everything posted afterwards (the pause arm) runs inline.
+        var initRunnable: Runnable? = null
+        every { freshHandler.post(any()) } answers {
+            val posted = firstArg<Runnable>()
+            if (initRunnable == null) initRunnable = posted else posted.run()
+            true
+        }
 
         val undrained = MediaControl(freshAudioManager, timeSource, freshHandler)
 

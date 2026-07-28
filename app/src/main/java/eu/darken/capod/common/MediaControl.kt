@@ -12,11 +12,13 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.coroutines.resume
 
 @Singleton
 class MediaControl @Inject constructor(
@@ -149,25 +151,50 @@ class MediaControl @Inject constructor(
 
     private suspend fun sendPauseLocked(rememberForResume: Boolean): Boolean {
         log(TAG, INFO) { "sendPause(rememberForResume=$rememberForResume)" }
-        if (!audioManager.isMusicActive) {
-            log(TAG, INFO) { "Music is not playing, not sending pause" }
-            return false
+        // The arm still strictly precedes the key dispatch, now serialized on the callback handler.
+        // An inactive→active playback callback that fires during the dispatch (e.g. a fast user
+        // resume on the phone, or another app grabbing audio focus and immediately starting) must be
+        // able to clear capPaused without this call overwriting it back to true on a stale pause.
+        // Both run under NonCancellable so a cancellation can never arm without dispatching.
+        return withContext(NonCancellable) {
+            if (!armPauseOnCallbackThread(rememberForResume)) {
+                log(TAG, INFO) { "Music is not playing, not sending pause" }
+                return@withContext false
+            }
+            sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
+            true
         }
-        // Set BEFORE the suspending sendKey() call. If we set after, an inactive→active
-        // playback callback that fires during the dispatch (e.g. a fast user resume on the
-        // phone, or another app grabbing audio focus and immediately starting) could clear
-        // capPaused mid-dispatch and we'd then overwrite it back to true on a stale pause.
-        // This single explicit assignment also covers the contract that an explicit user
-        // pause cancels a pending auto-resume.
-        capPaused = rememberForResume
-        // The live active-check we just passed is itself an observation of music activity. Recording
-        // it stops a music-start snapshot that was still queued on the handler when this pause armed
-        // capPaused from draining afterwards and reading as a fresh inactive→active edge that would
-        // wrongly clear the new arm.
-        lastKnownMusicActive = true
-        sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
-        return true
     }
+
+    /**
+     * Checks whether music is playing and, if so, arms [capPaused] to [rememberForResume] — the
+     * single explicit assignment that also covers the contract that an explicit user pause cancels a
+     * pending auto-resume. Returns whether music was active, i.e. whether a pause is worth dispatching.
+     *
+     * Posting serializes the arm behind every already-queued playback snapshot, so a stale pre-pause
+     * inactive→active pair cannot drain after the arm and read as a fresh music-start edge that
+     * clears it. Snapshots that arrive after this runnable are genuinely later and should clear it.
+     * The live isMusicActive check is itself the observation of music activity that gets recorded
+     * into [lastKnownMusicActive].
+     *
+     * Posting is unconditional: no sender runs on the callback looper and a suspending post cannot
+     * deadlock, so a same-looper fast-path would be dead code.
+     *
+     * This moves sendPause's isMusicActive binder read onto the (near-idle, non-main) callback
+     * thread — intentional.
+     */
+    private suspend fun armPauseOnCallbackThread(rememberForResume: Boolean): Boolean =
+        suspendCancellableCoroutine { cont ->
+            val arm = Runnable {
+                val active = audioManager.isMusicActive
+                if (active) {
+                    capPaused = rememberForResume
+                    lastKnownMusicActive = true
+                }
+                cont.resume(active)
+            }
+            if (!audioCallbackHandler.post(arm)) arm.run() // looper quitting: degrade to inline arming
+        }
 
     /**
      * Dispatches MEDIA_STOP and clears any pending auto-resume — Stop is an explicit user
