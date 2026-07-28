@@ -6,6 +6,7 @@
     <string name="general_copy_action">ចម្លង</string>
     <string name="general_thank_you_label">សូមអរគុណ</string>
     <string name="general_upgrade_action">ដំឡើងកំណែ</string>
+    <string name="general_retry_action">សាកល្បងម្តងទៀត</string>
     <string name="common_feature_requires_pro_msg">តម្លើងកំណែថ្មីដើម្បីដោះសោ។</string>
     <string name="common_upgrade_required_label">តម្រូវការការធ្វើឱ្យប្រសើរ</string>
     <string name="general_donate_action">បរិច្ចាគ</string>

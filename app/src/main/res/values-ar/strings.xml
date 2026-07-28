@@ -6,6 +6,7 @@
     <string name="general_copy_action">نسخ</string>
     <string name="general_thank_you_label">شكرًا لك</string>
     <string name="general_upgrade_action">ترقية</string>
+    <string name="general_retry_action">إعادة المحاولة</string>
     <string name="common_feature_requires_pro_msg">رقِّ للفتح.</string>
     <string name="common_upgrade_required_label">يتطلب الترقية</string>
     <string name="general_donate_action">تبرع</string>

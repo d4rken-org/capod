@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copiază</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_upgrade_action">Actualizare</string>
+    <string name="general_retry_action">Reîncearcă</string>
     <string name="common_feature_requires_pro_msg">Actualizați pentru a debloca.</string>
     <string name="common_upgrade_required_label">Necesită upgrade</string>
     <string name="general_donate_action">Donează</string>

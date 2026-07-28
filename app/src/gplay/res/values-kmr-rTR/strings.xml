@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Kirîna te tê pejirandin</string>
     <string name="upgrade_screen_grace_body_short">Google Play hê kirîna te napejirîne. Pro hîn jî çalak e — ne hewce ye tu tiştekî bikî.</string>
     <string name="upgrade_screen_grace_body">Google Play demek e kirîna te napejirîne. Pro hîn jî çalak e. Piştrast bike ku tu girêdayî înternetê yî û bi hesabê Google yê ku pê kirî têkevî, paşê kirînê vegerîne.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Vebijêrkên bilindkirinê</string>
+    <string name="upgrade_screen_offers_or">an</string>
+    <string name="upgrade_screen_offers_body">Taybetmendiyên heman in, tenê modela baha cuda ye.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Biha ne derketî</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play di vê demê de biha neda. Girêdanê xwe kontrol bike û piştî demekê dîsan hewl bide.</string>
+    <string name="upgrade_screen_subscription_offer_title">Aboneya destsalî</string>
+    <string name="upgrade_screen_subscription_offer_body">Piştî ceribandinê belaş, her sal nûve dibe. Di her demî de dikare di Google Play-ê de betal bike.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Her sal nûve dibe. Di her demî de dikare di Google Play-ê de betal bike.</string>
+    <string name="upgrade_screen_iap_offer_body">Yek parçe, nûvekirtin tune.</string>
+    <string name="upgrade_screen_benefits_title">Faydeyên bilindkirinê</string>
+    <string name="upgrade_screen_restore_body">Vegera kirinê Google Play-ê ji nû ve dixwaze kiryarên vê sepandinê ji bo hesaba heyî kontrol bike. Ew kiryara nû nabe.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod Google Play kontrol kir, lê ji bo hesaba ku Google Play ji bo vê sepandinê bikar tîne, kiryara Pro tesdîq nebû.</string>
+    <string name="upgrade_screen_restore_contact_hint">Hîn jî kelî mabû? Pîştgirê peywendî bin û e-nameya kiryara û hejmar berneya Google Play xwe tê de bîn.</string>
+    <string name="upgrade_screen_contact_support_action">Pîştgirê peywendî bin</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Rewşa nûvekirin û kirîna te.</string>
 </resources>

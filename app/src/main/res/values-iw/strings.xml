@@ -6,6 +6,7 @@
     <string name="general_copy_action">העתק</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_upgrade_action">שידרוג</string>
+    <string name="general_retry_action">נסה שוב</string>
     <string name="common_feature_requires_pro_msg">שדרג כדי לפתח.</string>
     <string name="common_upgrade_required_label">דורש שדרוג</string>
     <string name="general_donate_action">תרומה</string>

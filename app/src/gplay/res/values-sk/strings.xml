@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Potvrdzujeme váš nákup</string>
     <string name="upgrade_screen_grace_body_short">Google Play zatiaľ nepotvrdil váš nákup. Pro je stále aktívne — nie je potrebná žiadna akcia.</string>
     <string name="upgrade_screen_grace_body">Google Play už dlhšie nepotvrdil váš nákup. Pro je stále aktívne. Uistite sa, že ste online a prihlásení s účtom Google, ktorý ste použili pri nákupe, a potom skúste nákup obnoviť.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Možnosti upgradu</string>
+    <string name="upgrade_screen_offers_or">alebo</string>
+    <string name="upgrade_screen_offers_body">Rovnaké funkcie, iba iné cenové modely.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Ceny sú nedostupné</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play teraz nevrátilo ceny. Skontrolujte svoje pripojenie a skúste to znova o chvíľu.</string>
+    <string name="upgrade_screen_subscription_offer_title">Ročné predplatné</string>
+    <string name="upgrade_screen_subscription_offer_body">Obnovuje sa ročne po bezplatnom období. Môžete zrušiť kedykoľvek v Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Obnovuje sa ročne. Môžete zrušiť kedykoľvek v Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Jedna platba bez obnovení.</string>
+    <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
+    <string name="upgrade_screen_restore_body">Obnovenie požiada Google Play, aby znova skontrolovala nákupy tejto aplikácie pre aktuálny účet. Nespúšťa nový nákup.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod práve skontrolovala Google Play, ale nákup verzie Pro sa nepodarilo potvrdiť pre účet, ktorý Google Play používa pre túto aplikáciu.</string>
+    <string name="upgrade_screen_restore_contact_hint">Stále máte problém? Kontaktujte podporu z e-mailu, ktorého ste použili na nákup, a uveďte číslo objednávky Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontaktovať podporu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Stav vášho upgradu a nákupu.</string>
+    <string name="settings_upgrade_status_description">Váš stav upgradu a nákupu.</string>
 </resources>

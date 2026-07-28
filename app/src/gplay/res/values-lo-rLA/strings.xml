@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">ກຳລັງຍືນຍັນການຊື້ຂອງທ່ານ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ຍັງບໍ່ໄດ້ຍືນຍັນການຊື້ຂອງທ່ານ. Pro ຍັງໃຊ້ງານໄດ້ຍູ່ — ບໍ່ຈຳເປັນຕ້ອງເຮັດໜັຍັງ.</string>
     <string name="upgrade_screen_grace_body">Google Play ຍັງບໍ່ໄດ້ຍືນຍັນການຊື້ຂອງທ່ານມາໄລຍະໝຶ່ງແລ້ວ. Pro ຍັງໃຊ້ງານໄດ້ຍູ່. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານອອນລາຍ ແລະ ເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້, ແລ້ວລອງກູ້ຄືນ.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">ທາງເລືອກອັບເກຣດ</string>
+    <string name="upgrade_screen_offers_or">ຫຼື</string>
+    <string name="upgrade_screen_offers_body">ຄຸນສົມບັດດຽວກັນ, ລາຄາຕ່າງກັນເທົ່ານັ້ນ.</string>
+    <string name="upgrade_screen_offers_unavailable_title">ບໍ່ສາມາດໄດ້ລາຄາ</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ບໍ່ໄດ້ສົ່ງຄືນລາຄາໃນຕອນນີ້. ກວດສອບການເຊື່ອມຕໍ່ຂອງເຈົ້າ ແລະ ລອງໃໝ່ໃນໄວ້ໆ.</string>
+    <string name="upgrade_screen_subscription_offer_title">ສະໜັບສະໜູນລາຍປີ</string>
+    <string name="upgrade_screen_subscription_offer_body">ຕໍ່ອາຍຸລາຍປີຫຼັງຈາກໄລຍະທົດລອງຟ້າຍ. ຍົກເລີກໄດ້ຕະຫຼອດເວລາໃນ Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ຕໍ່ອາຍຸລາຍປີ. ຍົກເລີກໄດ້ຕະຫຼອດເວລາໃນ Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">ຈ່າຍເງິນພຽງຄັ້ງດຽວ, ບໍ່ມີການຕໍ່ອາຍຸ.</string>
+    <string name="upgrade_screen_benefits_title">ຜົນປະໂຫຍດຂອງການອັບເກຣດ</string>
+    <string name="upgrade_screen_restore_body">ການກູ້ຄືນຈະຂໍໃຫ້ Google Play ກວດກາໃໝ່ການຊື້ຂອງແອັບນີ້ສໍາລັບບັນຊີປະຈຸບັນ. ມັນບໍ່ໄດ້ເລີ່ມການຊື້ໃໝ່.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ຫາກໍ່ກວດກາ Google Play ແຕ່ບໍ່ສາມາດຢືນຢັນການຊື້ Pro ສໍາລັບບັນຊີທີ່ Google Play ໃຊ້ສໍາລັບແອັບນີ້ໄດ້.</string>
+    <string name="upgrade_screen_restore_contact_hint">ຍັງມີບັນຫາຢູ່ບໍ? ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນໂດຍໃຊ້ອີເມວທີ່ໃຊ້ສໍາລັບການຊື້ ແລະລວມເອົາເລກອໍາເລີຍ Google Play ຂອງທ່ານ.</string>
+    <string name="upgrade_screen_contact_support_action">ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">ສະຖານະການອັບເກຣດ ແລະ ການຊື້ຂອງທ່ານ.</string>
+    <string name="settings_upgrade_status_description">ສະຖານະການອັບເກຣດແລະການຊື້ຂອງທ່ານ</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копіювати</string>
     <string name="general_thank_you_label">Дякуємо</string>
     <string name="general_upgrade_action">Оновити</string>
+    <string name="general_retry_action">Повторити</string>
     <string name="common_feature_requires_pro_msg">Оновіть, щоб розблокувати.</string>
     <string name="common_upgrade_required_label">Потрібне оновлення</string>
     <string name="general_donate_action">Пожертвувати</string>

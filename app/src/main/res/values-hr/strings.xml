@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiraj</string>
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_upgrade_action">Nadogradi</string>
+    <string name="general_retry_action">Pokušaj ponovno</string>
     <string name="common_feature_requires_pro_msg">Nadogradite za otključavanje.</string>
     <string name="common_upgrade_required_label">Potrebna nadogradnja</string>
     <string name="general_donate_action">Doniraj</string>

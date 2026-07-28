@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Patvirtinamas jūsų pirkimas</string>
     <string name="upgrade_screen_grace_body_short">„Google Play“ dar nepatvirtino jūsų pirkimo. „Pro“ vis dar aktyvus — jokių veiksmų atlikti nereikia.</string>
     <string name="upgrade_screen_grace_body">„Google Play“ jau kurį laiką nepatvirtina jūsų pirkimo. „Pro“ vis dar aktyvus. Įsitikinkite, kad esate prisijungę prie interneto ir naudojate „Google“ paskyrą, kuria atlikote pirkimą, tuomet pabandykite atkurti.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Atnaujinimo parinktys</string>
+    <string name="upgrade_screen_offers_or">arba</string>
+    <string name="upgrade_screen_offers_body">Tos pačios funkcijos, tik skirtingi kainų modeliai.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Kainos neprieinamos</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play šiuo metu nepateikė kainų. Patikrinkite savo ryšį ir bandykite iš naujo.</string>
+    <string name="upgrade_screen_subscription_offer_title">Metinė prenumerata</string>
+    <string name="upgrade_screen_subscription_offer_body">Atnaujinama kiekvienais metais po nemokamo bandomojo laikotarpio. Galite atšaukti bet kuriuo metu Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Atnaujinama kiekvienais metais. Galite atšaukti bet kuriuo metu Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Vienas mokėjimas, be atnaujinimų.</string>
+    <string name="upgrade_screen_benefits_title">Atnaujinimo privalumai</string>
+    <string name="upgrade_screen_restore_body">Atkūrimas prašo Google Play dar kartą patikrinti šios programos pirkimus dabartinei paskyrai. Jis nepradeda naujo pirkimo.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod patikrino Google Play, tačiau Pro pirkimo negalėjo patvirtinti paskyroje, kurią Google Play naudoja šiai programai.</string>
+    <string name="upgrade_screen_restore_contact_hint">Vis dar nepadėjo? Susisiekite su palaikymu iš el. pašto, kuris atliko pirkimą, ir pridėkite savo Google Play užsakymo numerį.</string>
+    <string name="upgrade_screen_contact_support_action">Susisiekti su palaikymu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Jūsų atnaujinimo ir pirkimo būsena.</string>
 </resources>

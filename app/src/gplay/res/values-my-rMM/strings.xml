@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">သင့်ဝယ်ယူမှုကို အတည်ပြုနေသည်</string>
     <string name="upgrade_screen_grace_body_short">Google Play က သင့်ဝယ်ယူမှုကို အတည်မပြုရသေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည် — မည်သည့်အရာမှ လုပ်ဆောင်ရန် မလိုအပ်ပါ။</string>
     <string name="upgrade_screen_grace_body">Google Play သည် သင့်ဝယ်ယူမှုကို အတန်ကြာအောင် အတည်မပြုနိုင်သေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည်။ အွန်လိုင်းနှင့် ချိတ်ဆက်ထားပြီး ဝယ်ယူမှုတွင် အသုံးပြုခဲ့သည့် Google အကောင့်ဖြင့် လက်မှတ်ရေးထိုးဝင်ထားကြောင်း သေချာစေပြီးမှ ပြန်လည်ရယူရန် စမ်းကြည့်ပါ။</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">အဆင့်မြှင့်တင် ရွေးချယ်စရာများ</string>
+    <string name="upgrade_screen_offers_or">သို့မဟုတ်</string>
+    <string name="upgrade_screen_offers_body">အင်္ဂုန်များ တူညီ၊ ငွေချေမှုစနစ်သာ ကွဲလွဲသည်။</string>
+    <string name="upgrade_screen_offers_unavailable_title">စျေးနှုန်း မရယူနိုင်ပါ</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play သည် လက်ရှိတွင် စျေးနှုန်း ပေးနိုင်မည်မဟုတ်ပါ။ သင်၏ ချိတ်ဆက်မှု စစ်ဆေးပြီး အနည်းငယ်အကြာ ထပ်မံစမ်းပါ။</string>
+    <string name="upgrade_screen_subscription_offer_title">နှစ်စဉ်အခွင့်အလမ်း</string>
+    <string name="upgrade_screen_subscription_offer_body">အခမဲ့စမ်းသုံးမှုပြီးနောက် နှစ်စဉ်ဆက်လက်သုံးစွဲမည်။ Google Play တွင် အချိန်မျှ ပယ်ဖျက်နိုင်သည်။</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">နှစ်စဉ်ဆက်လက်သုံးစွဲမည်။ Google Play တွင် အချိန်မျှ ပယ်ဖျက်နိုင်သည်။</string>
+    <string name="upgrade_screen_iap_offer_body">တစ်ကြိမ်သာ ငွေချေမှု၊ ပြန်လည်သုံးစွဲခြင်း မရှိပါ။</string>
+    <string name="upgrade_screen_benefits_title">အဆင့်မြင့်တင်ခြင်း၏ အကျိုးအဆီအမွေ</string>
+    <string name="upgrade_screen_restore_body">ပြန်လည်ဆောင်ရွက်ခြင်းသည် Google Play ကို ဤအပ်ပလီကေးရှင်း၏ ဝယ်ယူမှုများကို လက်ရှိ အကောင့်အတွက် ထပ်မံစိစစ်ရန် တောင်းဆိုသည်။ ၎င်းသည် သစ် ဝယ်ယူမှုကို စတင်သည်မဟုတ်ပါ။</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod သည် အခုခါ Google Play ကို စစ်ဆေးခဲ့သည်သော်လည်း ဤအပ်ပလီကေးရှင်းအတွက် Google Play အသုံးပြုနေသော အကောင့်အတွက် Pro ဝယ်ယူမှုကို အတည်ပြုနိုင်ခြင်းမရှိသည်။</string>
+    <string name="upgrade_screen_restore_contact_hint">အဆမပြေသေးသလား။ ဝယ်ယူမှုကိုပြုလုပ်သော အီမေးလ်မှ အကူအညီအတွက် ဆက်သွယ်ပြီး သင်၏ Google Play အမှာစာအမှတ်ကို ထည့်သွင်းပါ။</string>
+    <string name="upgrade_screen_contact_support_action">အကူအညီ ဆက်သွယ်ပါ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">သင့်အဆင့်မြှင့်တင်မှုနှင့် ဝယ်ယူမှုအခြေအနေ။</string>
+    <string name="settings_upgrade_status_description">သင်၏ အဆင့်မြင့်တင်ခြင်း နှင့် ဝယ်ယူမှု အခြေအနေ။</string>
 </resources>

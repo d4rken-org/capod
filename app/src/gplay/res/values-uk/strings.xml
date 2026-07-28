@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Підтвердження вашої покупки</string>
     <string name="upgrade_screen_grace_body_short">Google Play ще не підтвердив вашу покупку. Pro все ще активний — жодних дій не потрібно.</string>
     <string name="upgrade_screen_grace_body">Google Play вже деякий час не підтверджує вашу покупку. Pro все ще активний. Переконайтеся, що ви в мережі та ввійшли в обліковий запис Google, який використовували для покупки, а потім спробуйте відновити.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Варіанти оновлення</string>
+    <string name="upgrade_screen_offers_or">або</string>
+    <string name="upgrade_screen_offers_body">Однакові функції, просто різні моделі ціноутворення.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Ціни недоступні</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play не повернув ціни прямо зараз. Перевірте своє з\'єднання та спробуйте ще раз за хвилину.</string>
+    <string name="upgrade_screen_subscription_offer_title">Щорічна передплата</string>
+    <string name="upgrade_screen_subscription_offer_body">Поновлюється щорічно після безплатного періоду. Скасувати можна будь-коли в Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Поновлюється щорічно. Скасувати можна будь-коли в Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Один платіж, без поновлень.</string>
+    <string name="upgrade_screen_benefits_title">Переваги оновлення</string>
+    <string name="upgrade_screen_restore_body">Відновлення просить Google Play повторно перевірити покупки цього додатка для поточного облікового запису. Це не розпочинає нову покупку.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod щойно перевірив Google Play, але не вдалося підтвердити покупку Pro для облікового запису, який Google Play використовує для цього додатка.</string>
+    <string name="upgrade_screen_restore_contact_hint">Досі не вдається? Зв\'яжіться з підтримкою з електронної пошти, якою було здійснено покупку, і вкажіть номер замовлення Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Зв\'язок з підтримкою</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Статус вашого оновлення та покупки.</string>
+    <string name="settings_upgrade_status_description">Ваш статус оновлення та покупки.</string>
 </resources>

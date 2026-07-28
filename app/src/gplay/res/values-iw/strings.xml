@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">מאשר את הרכישה שלך</string>
     <string name="upgrade_screen_grace_body_short">Google Play עדיין לא אישר את הרכישה שלך. Pro עדיין פעיל — אין צורך בפעולה.</string>
     <string name="upgrade_screen_grace_body">Google Play לא אישר את הרכישה שלך כבר זמן מה. Pro עדיין פעיל. ודא שאתה מחובר לאינטרנט ומחובר עם חשבון ה-Google שבו בוצעה הרכישה, ולאחר מכן נסה לשחזר.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">אפשרויות שדרוג</string>
+    <string name="upgrade_screen_offers_or">או</string>
+    <string name="upgrade_screen_offers_body">אותן תכונות, רק מודלי תמחור שונים.</string>
+    <string name="upgrade_screen_offers_unavailable_title">מחירים אינם זמינים</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play לא החזיר מחירים כעת. בדוק את החיבור שלך ונסה שוב עוד רגע.</string>
+    <string name="upgrade_screen_subscription_offer_title">מנוי שנתי</string>
+    <string name="upgrade_screen_subscription_offer_body">מתחדש מדי שנה לאחר הניסיון החינם. בטל בכל עת ב-Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">מתחדש מדי שנה. בטל בכל עת ב-Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">תשלום אחד, ללא חידושים.</string>
+    <string name="upgrade_screen_benefits_title">יתרונות השדרוג</string>
+    <string name="upgrade_screen_restore_body">שחזור מבקש מ-Google Play לבדוק שוב את הרכישות של האפליקציה הזו עבור החשבון הנוכחי. זה לא מתחיל רכישה חדשה.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod בדיוק בדק את Google Play, אך לא ניתן היה לאשר קנייה של Pro עבור החשבון שבו משתמש Google Play לאפליקציה זו.</string>
+    <string name="upgrade_screen_restore_contact_hint">עדיין תקוע? צור קשר עם התמיכה מהדוא\"ל שביצע את הרכישה וכלול את מספר ההזמנה של Google Play שלך.</string>
+    <string name="upgrade_screen_contact_support_action">צור קשר עם התמיכה</string>
     <string name="settings_upgrade_status_label">CAPod פרו</string>
     <string name="settings_upgrade_status_description">סטטוס השדרוג והרכישה שלך.</string>
 </resources>

@@ -49,6 +49,14 @@
     <string name="upgrade_screen_grace_title">Kuqinisekiswa ukuthenga kwakho</string>
     <string name="upgrade_screen_grace_body_short">I-Google Play ayikaqinisekisi ukuthenga kwakho. I-Pro isasebenza — akudingeki sinyathelo.</string>
     <string name="upgrade_screen_grace_body">I-Google Play ayikaqinisekisi ukuthenga kwakho isikhathi eside. I-Pro isasebenza. Qinisekisa ukuthi ukuxhunyiwe ku-inthanethi futhi ungenile nge-akhawunti ye-Google eyasetshenziswa ekutheneni, bese uzama ukubuyisela.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Izinketho zokuthuthukiso</string>
+    <string name="upgrade_screen_offers_or">noma</string>
+    <string name="upgrade_screen_offers_unavailable_title">Izintengo azitholakali</string>
+    <string name="upgrade_screen_offers_unavailable_message">I-Google Play ayibuyiseli izintengo ngalesi sikhathi. Hlola ikhonneksheni yakho ubuyele zama futhi kamuva nje.</string>
+    <string name="upgrade_screen_iap_offer_body">Inkokhelo eyodwa, akukho okuphinda.</string>
+    <string name="upgrade_screen_benefits_title">Izinzuzo zokuthuthukisa</string>
+    <string name="upgrade_screen_contact_support_action">Xhumana nolungiselelo</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
 </resources>

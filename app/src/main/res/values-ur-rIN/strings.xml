@@ -6,6 +6,7 @@
     <string name="general_copy_action">کاپی کریں</string>
     <string name="general_thank_you_label">شکریہ</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
+    <string name="general_retry_action">دوبارہ کوشش کریں</string>
     <string name="common_feature_requires_pro_msg">انلاک کرنے کے لیے اپگریڈ کریں۔</string>
     <string name="common_upgrade_required_label">اپ گریڈ کی ضرورت ہے</string>
     <string name="general_donate_action">عطیہ کریں</string>

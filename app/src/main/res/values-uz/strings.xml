@@ -6,6 +6,7 @@
     <string name="general_copy_action">Nusxalash</string>
     <string name="general_thank_you_label">Rahmat</string>
     <string name="general_upgrade_action">Yangilash</string>
+    <string name="general_retry_action">Qayta urinib ko\'ring</string>
     <string name="common_feature_requires_pro_msg">Qulfni ochish uchun yangilang.</string>
     <string name="common_upgrade_required_label">Yangilash talab qilinadi</string>
     <string name="general_donate_action">Xayriya qilish</string>

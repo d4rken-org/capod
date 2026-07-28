@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">آپ کی خریداری کی تصدیق ہو رہی ہے</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلے نے ابھی تک آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے — کسی اقدام کی ضرورت نہیں۔</string>
     <string name="upgrade_screen_grace_body">گوگل پلے نے کافی عرصے سے آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے۔ یقینی بنائیں کہ آپ آن لائن ہیں اور وہی گوگل اکاؤنٹ سے سائن ان ہیں جو خریداری کے لیے استعمال ہوا تھا، پھر بحال کرنے کی کوشش کریں۔</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">اپ گریڈ کے اختیارات</string>
+    <string name="upgrade_screen_offers_or">یا</string>
+    <string name="upgrade_screen_offers_body">ایک جیسی خصوصیات، صرف مختلف قیمتوں کے ماڈل۔</string>
+    <string name="upgrade_screen_offers_unavailable_title">قیمتیں دستیاب نہیں</string>
+    <string name="upgrade_screen_offers_unavailable_message">گوگل پلے نے ابھی قیمتیں واپس نہیں کیں۔ اپنے اتصال کی جانچ کریں اور کچھ دیر میں دوبارہ کوشش کریں۔</string>
+    <string name="upgrade_screen_subscription_offer_title">سالانہ رکنیت</string>
+    <string name="upgrade_screen_subscription_offer_body">مفت آزمائش کے بعد سالانہ تجدید ہوتی ہے۔ گوگل پلے میں کسی بھی وقت منسوخ کریں۔</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">سالانہ تجدید ہوتی ہے۔ گوگل پلے میں کسی بھی وقت منسوخ کریں۔</string>
+    <string name="upgrade_screen_iap_offer_body">ایک ادائگی، کوئی تجدید نہیں۔</string>
+    <string name="upgrade_screen_benefits_title">اپ گریڈ کے فوائد</string>
+    <string name="upgrade_screen_restore_body">بحالی Google Play سے یہ درخواست کرتا ہے کہ موجودہ اکاؤنٹ کے لیے اس ایپ کی خریداریوں کو دوبارہ چیک کریں۔ یہ نئی خریداری شروع نہیں کرتا۔</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod نے ابھی Google Play کو چیک کیا، لیکن اس اکاؤنٹ کے لیے کوئی Pro خریداری تصدیق نہیں ہو سکی جو Google Play اس ایپ کے لیے استعمال کر رہا ہے۔</string>
+    <string name="upgrade_screen_restore_contact_hint">ابھی بھی مسائل ہیں؟ اس ای میل سے معاونت سے رابطہ کریں جو خریداری میں استعمال ہوا اور اپنا Google Play آرڈر نمبر شامل کریں۔</string>
+    <string name="upgrade_screen_contact_support_action">معاونت سے رابطہ کریں</string>
     <string name="settings_upgrade_status_label">سی اے پوڈ پرو</string>
-    <string name="settings_upgrade_status_description">آپ کا اپ گریڈ اور خریداری کی حیثیت۔</string>
+    <string name="settings_upgrade_status_description">آپ کی اپ گریڈ اور خریداری کی حالت۔</string>
 </resources>

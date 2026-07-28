@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copia</string>
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_upgrade_action">Actualitza</string>
+    <string name="general_retry_action">Reintenta</string>
     <string name="common_feature_requires_pro_msg">Milloreu per a desbloquejar.</string>
     <string name="common_upgrade_required_label">Es necessita millorar</string>
     <string name="general_donate_action">Dona</string>
@@ -205,8 +206,8 @@
         <item quantity="other">%d dispositius sense perfil coincident</item>
     </plurals>
     <plurals name="overview_unmatched_devices_description">
-        <item quantity="one">S\'ha detectat %d dispositiu proper sense un perfil coincident. Mostra\'l per veure els detalls disponibles. Si és teu, afegeix un perfil des de Dispositius per reconèixer-lo.</item>
-        <item quantity="other">S\'han detectat %d dispositius propers sense perfils coincidents. Mostra\'ls per veure els detalls disponibles. Si algun és teu, afegeix un perfil des de Dispositius per reconèixer-lo.</item>
+        <item quantity="one">S\'ha detectat %d dispositiu proper sense un perfil coincident. Mostreu-lo per veure els detalls disponibles. Si és vostre, afegiu un perfil des de Dispositius per reconèixer-lo.</item>
+        <item quantity="other">S\'han detectat %d dispositius propers sense perfils coincidents. Mostreu-los per veure els detalls disponibles. Si algun és vostre, afegiu un perfil des de Dispositius per reconèixer-lo.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dispositiu més</item>

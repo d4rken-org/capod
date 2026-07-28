@@ -6,6 +6,7 @@
     <string name="general_copy_action">Көчүрүү</string>
     <string name="general_thank_you_label">Рахмат</string>
     <string name="general_upgrade_action">Жаңыртуу</string>
+    <string name="general_retry_action">Кайтала</string>
     <string name="common_feature_requires_pro_msg">Ачуу үчүн жаңыртыңыз.</string>
     <string name="common_upgrade_required_label">Жаңыртуу талап кылынат</string>
     <string name="general_donate_action">Чыгым көрсөтүү</string>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Таны худалдан авалтыг баталгаажуулж байна</string>
     <string name="upgrade_screen_grace_body_short">Google Play таны худалдан авалтыг одоохондоо баталгаажуулаагүй байна. Pro хэвээр идэвхтэй байгаа тул юу ч хийх шаардлагагүй.</string>
     <string name="upgrade_screen_grace_body">Google Play таны худалдан авалтыг удаан хугацаанд баталгаажуулаагүй байна. Pro хэвээр идэвхтэй байна. Та онлайн байгаа эсэх, худалдан авалт хийхдээ ашигласан Google бүртгэлээр нэвтэрсэн эсэхээ шалгаад дараа нь сэргээхийг оролдоно уу.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Сайжруулалтын сонголтууд</string>
+    <string name="upgrade_screen_offers_or">эсвэл</string>
+    <string name="upgrade_screen_offers_body">Ижил функцууд, зөвхөн өөр өөр үнийн загвар.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Үнэ боломжгүй</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play одоо үнийг өгөөгүй байна. Холболтоо шалгаад хэсэг хугацааны дараа дахин оролдоно уу.</string>
+    <string name="upgrade_screen_subscription_offer_title">Жилийн захиалга</string>
+    <string name="upgrade_screen_subscription_offer_body">Үнэгүй туршилтын дараа жил бүр сунгана. Google Play-д ямар ч цагт цуцалж болно.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Жил бүр сунгана. Google Play-д ямар ч цагт цуцалж болно.</string>
+    <string name="upgrade_screen_iap_offer_body">Нэг удаагийн төлбөр, шинэчлэлгүй.</string>
+    <string name="upgrade_screen_benefits_title">Шинэчлэлийн давуу талууд</string>
+    <string name="upgrade_screen_restore_body">Сэргээх нь Google Play-д энэ програмын одоогийн акаунтын худалдан авалтыг дахин шалгахыг хүсэх явдал юм. Энэ нь шинэ худалдан авалт эхлүүлдэггүй.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod саяхан Google Play-г шалгасан боловч энэ програмын хувьд Google Play ашигладаг акаунтын Pro худалдан авалтыг баталгаажуулах боломжгүй байв.</string>
+    <string name="upgrade_screen_restore_contact_hint">Хоцорч байна уу? Худалдан авалт хийсэн имэйл хаягаас дэмжлэг авахыг хүсээд Google Play захиалгын дугаарыг оруулна уу.</string>
+    <string name="upgrade_screen_contact_support_action">Дэмжлэгтэй холбоо барих</string>
     <string name="settings_upgrade_status_label">CAPod Про</string>
-    <string name="settings_upgrade_status_description">Таны шинэчлэлт болон худалдан авалтын төлөв.</string>
+    <string name="settings_upgrade_status_description">Таны шинэчлэл ба худалдан авалтын статус.</string>
 </resources>

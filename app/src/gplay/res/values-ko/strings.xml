@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">구매 확인 중</string>
     <string name="upgrade_screen_grace_body_short">Google Play에서 아직 구매를 확인하지 않았습니다. Pro는 계속 활성 상태이며 별도 조치가 필요하지 않습니다.</string>
     <string name="upgrade_screen_grace_body">Google Play에서 한동안 구매를 확인하지 않았습니다. Pro는 계속 활성 상태입니다. 온라인 상태인지, 구매에 사용한 Google 계정으로 로그인되어 있는지 확인한 다음 복원을 시도해 보세요.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">업그레이드 옵션</string>
+    <string name="upgrade_screen_offers_or">또는</string>
+    <string name="upgrade_screen_offers_body">동일한 기능, 가격 책정 모델만 다릅니다.</string>
+    <string name="upgrade_screen_offers_unavailable_title">가격을 확인할 수 없음</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play에서 지금 가격을 불러올 수 없습니다. 연결을 확인하고 잠시 후 다시 시도하세요.</string>
+    <string name="upgrade_screen_subscription_offer_title">연간 구독</string>
+    <string name="upgrade_screen_subscription_offer_body">무료 체험 후 매년 갱신됩니다. Google Play에서 언제든지 취소할 수 있습니다.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">매년 갱신됩니다. Google Play에서 언제든지 취소할 수 있습니다.</string>
+    <string name="upgrade_screen_iap_offer_body">한 번의 결제, 자동 갱신 없음</string>
+    <string name="upgrade_screen_benefits_title">업그레이드 혜택</string>
+    <string name="upgrade_screen_restore_body">복구하면 Google Play에서 현재 계정의 이 앱 구매를 다시 확인하도록 요청합니다. 새로운 구매를 시작하지 않습니다.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod가 Google Play를 확인했지만 이 앱이 사용 중인 계정의 Pro 구매를 확인할 수 없습니다.</string>
+    <string name="upgrade_screen_restore_contact_hint">계속 문제가 있으신가요? 구매를 한 이메일에서 지원팀에 문의하고 Google Play 주문 번호를 포함하세요.</string>
+    <string name="upgrade_screen_contact_support_action">지원팀 문의</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">업그레이드 및 구매 상태입니다.</string>
+    <string name="settings_upgrade_status_description">업그레이드 및 구매 상태</string>
 </resources>

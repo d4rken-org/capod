@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Kinukumpirma ang iyong pagbili</string>
     <string name="upgrade_screen_grace_body_short">Hindi pa nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro — walang kailangang gawin.</string>
     <string name="upgrade_screen_grace_body">Matagal nang hindi nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro. Siguraduhing online ka at naka-sign in sa Google account na ginamit sa pagbili, pagkatapos ay subukang i-restore.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Mga opsyon sa upgrade</string>
+    <string name="upgrade_screen_offers_or">o</string>
+    <string name="upgrade_screen_offers_body">Parehong mga feature, iba lang ang presyo.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Hindi available ang mga presyo</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ang Google Play ay hindi nagbigay ng mga presyo ngayon. Tingnan ang iyong koneksyon at subukan ulit sa loob ng ilang sandali.</string>
+    <string name="upgrade_screen_subscription_offer_title">Taunang subscription</string>
+    <string name="upgrade_screen_subscription_offer_body">Nag-renew bawat taon pagkatapos ng libreng pagsubok. Maaaring kanselahin anumang oras sa Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Nag-renew bawat taon. Maaaring kanselahin anumang oras sa Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Isang pagbabayad lamang, walang pag-renew.</string>
+    <string name="upgrade_screen_benefits_title">Mga benepisyo ng pag-upgrade</string>
+    <string name="upgrade_screen_restore_body">Ang pag-restore ay humihiling sa Google Play na i-check muli ang mga pagbili ng app na ito para sa kasalukuyang account. Hindi ito nagsisimula ng bagong pagbili.</string>
+    <string name="upgrade_screen_restore_checked_message">Ang CAPod ay nag-check sa Google Play, ngunit walang Pro purchase na nahanap para sa account na ginagamit ng Google Play para sa app na ito.</string>
+    <string name="upgrade_screen_restore_contact_hint">Nandito pa rin? Makipag-ugnayan sa suporta gamit ang email na ginamit sa pagbili at isama ang iyong Google Play order number.</string>
+    <string name="upgrade_screen_contact_support_action">Makipag-ugnayan sa suporta</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Ang katayuan ng iyong pag-upgrade at pagbili.</string>
+    <string name="settings_upgrade_status_description">Ang status ng iyong upgrade at pagbili.</string>
 </resources>

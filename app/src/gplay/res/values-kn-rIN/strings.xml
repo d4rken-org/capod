@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ಇನ್ನೂ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ — ಯಾವುದೇ ಕ್ರಮದ ಅಗತ್ಯವಿಲ್ಲ.</string>
     <string name="upgrade_screen_grace_body">Google Play ಸ್ವಲ್ಪ ಸಮಯದಿಂದ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ. ನೀವು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ ಮತ್ತು ಖರೀದಿಗೆ ಬಳಸಿದ Google ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಂಡು, ನಂತರ ಮರುಸ್ಥಾಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">ಅಪ್‌ಗ್ರೇಡ್ ಆಯ್ಕೆಗಳು</string>
+    <string name="upgrade_screen_offers_or">ಅಥವಾ</string>
+    <string name="upgrade_screen_offers_body">ಅದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ಕೇವಲ ವಿವಿಧ ಬೆಲೆ ಮಾದರಿಗಳು.</string>
+    <string name="upgrade_screen_offers_unavailable_title">ಬೆಲೆಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ಈ ಸಮಯದಲ್ಲಿ ಬೆಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="upgrade_screen_subscription_offer_title">ವಾರ್ಷಿಕ ಸದಸ್ಯತೆ</string>
+    <string name="upgrade_screen_subscription_offer_body">ಉಚಿತ ಪ್ರಯೋಗದ ನಂತರ ವಾರ್ಷಿಕವಾಗಿ ನವೀಕರಣವಾಗುತ್ತದೆ. Google Play ನಲ್ಲಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದು ಮಾಡಿ.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ವಾರ್ಷಿಕವಾಗಿ ನವೀಕರಣವಾಗುತ್ತದೆ. Google Play ನಲ್ಲಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದು ಮಾಡಿ.</string>
+    <string name="upgrade_screen_iap_offer_body">ಒಂದು ಪಾವತಿ, ಯಾವುದೇ ನವೀಕರಣವಿಲ್ಲ.</string>
+    <string name="upgrade_screen_benefits_title">ಅಪ್‍ಗ್ರೇಡ್ ಪ್ರಯೋಜನಗಳು</string>
+    <string name="upgrade_screen_restore_body">ಪುನರುದ್ಧಾರ ಗೂಗಲ್ ಪ್ಲೇಗೆ ಈ ಅ್ಯಾಪ್‍ನ ಕ್ರಯಗಳನ್ನು ಪ್ರಸ್ತುತ ಖಾತೆಗೆ ಮರುಪರಿಶೀಲನೆ ಮಾಡಲು ಕೇಳುತ್ತದೆ. ಇದು ಹೊಸ ಕ್ರಯವನ್ನು ಪ್ರಾರಂಭಿಸುವುದಿಲ್ಲ.</string>
+    <string name="upgrade_screen_restore_checked_message">ಸಿಎಪಿಒಡ್ ಇತ್ತೀಚೆಗೆ ಗೂಗಲ್ ಪ್ಲೇಯನ್ನು ಪರಿಶೀಲಿಸಿದೆ, ಆದರೆ ಗೂಗಲ್ ಪ್ಲೇ ಈ ಅ್ಯಾಪ್‍ಗೆ ಬಳಸುತ್ತಿರುವ ಖಾತೆಗೆ ಯಾವುದೇ ಪ್ರೊ ಕ್ರಯವನ್ನು ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ.</string>
+    <string name="upgrade_screen_restore_contact_hint">ಇನ್ನೂ ಸಿಕ್ಕಿಬಿದ್ದಿರಾ? ಕ್ರಯವನ್ನು ಮಾಡಿದ ಇಮೇಲ್‍ನಿಂದ ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಗೂಗಲ್ ಪ್ಲೇ ಆದೇಶ ಸಂಖ್ಯೆ ಸೇರಿಸಿ.</string>
+    <string name="upgrade_screen_contact_support_action">ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಅಪ್‌ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
+    <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಅಪ್‍ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
 </resources>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">正在確認你的購買</string>
     <string name="upgrade_screen_grace_body_short">Google Play 尚未確認你的購買。Pro 仍然有效——無需任何操作。</string>
     <string name="upgrade_screen_grace_body">Google Play 已有一段時間未有確認你的購買。Pro 仍然有效。請確保你已連接網絡，並使用購買時所用的 Google 帳戶登入，然後嘗試還原。</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">升級選項</string>
+    <string name="upgrade_screen_offers_or">或</string>
+    <string name="upgrade_screen_offers_body">相同功能,只是定價模式不同。</string>
+    <string name="upgrade_screen_offers_unavailable_title">價格暫時無法取得</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play 目前未能提供價格。檢查您的連線,稍後再試。</string>
+    <string name="upgrade_screen_subscription_offer_title">年度訂閱</string>
+    <string name="upgrade_screen_subscription_offer_body">免費試用後按年續訂。可隨時在 Google Play 中取消。</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">按年續訂。可隨時在 Google Play 中取消。</string>
+    <string name="upgrade_screen_iap_offer_body">一次性付款,無需續訂。</string>
+    <string name="upgrade_screen_benefits_title">升級權益</string>
+    <string name="upgrade_screen_restore_body">還原會要求 Google Play 重新檢查此應用對目前帳戶的購買紀錄。這不會開始新的購買。</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod 已檢查 Google Play,但無法確認此帳戶的專業版購買紀錄。</string>
+    <string name="upgrade_screen_restore_contact_hint">仍有問題？請使用進行購買的電郵聯絡支援，並提供您的 Google Play 訂單編號。</string>
+    <string name="upgrade_screen_contact_support_action">聯絡支援</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">你的升級和購買狀態。</string>
+    <string name="settings_upgrade_status_description">您的升級和購買狀態。</string>
 </resources>

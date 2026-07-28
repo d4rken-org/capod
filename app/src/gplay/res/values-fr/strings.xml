@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Confirmation de votre achat</string>
     <string name="upgrade_screen_grace_body_short">Google Play n’a pas encore confirmé votre achat. Pro reste actif — aucune action requise.</string>
     <string name="upgrade_screen_grace_body">Google Play n’a pas confirmé votre achat depuis un moment. Pro reste actif. Assurez-vous d’être connecté à Internet et au compte Google utilisé pour l’achat, puis essayez de restaurer.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Options de mise à niveau</string>
+    <string name="upgrade_screen_offers_or">ou</string>
+    <string name="upgrade_screen_offers_body">Mêmes fonctionnalités, tarification différente.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Tarifs indisponibles</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play n’a pas retourné les tarifs pour le moment. Vérifiez votre connexion et réessayez dans un instant.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abonnement annuel</string>
+    <string name="upgrade_screen_subscription_offer_body">Se renouvelle annuellement après la période d’essai gratuite. Annulable à tout moment sur Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Se renouvelle annuellement. Annulable à tout moment sur Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Un paiement unique, pas de renouvellement.</string>
+    <string name="upgrade_screen_benefits_title">Avantages de la mise à niveau</string>
+    <string name="upgrade_screen_restore_body">La restauration demande à Google Play de revérifier les achats de cette appli pour le compte actuel. Cela ne lance pas un nouvel achat.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod vient de vérifier Google Play, mais aucun achat Pro n’a pu être confirmé pour le compte que Google Play utilise pour cette appli.</string>
+    <string name="upgrade_screen_restore_contact_hint">Toujours du mal ? Contactez le support depuis l’adresse e-mail qui a effectué l’achat et incluez votre numéro de commande Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Contacter le support</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Votre statut de mise à niveau et d’achat.</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">Sao chép</string>
     <string name="general_thank_you_label">Cảm ơn</string>
     <string name="general_upgrade_action">Nâng cấp</string>
+    <string name="general_retry_action">Thử lại</string>
     <string name="common_feature_requires_pro_msg">Nâng cấp để mở khóa.</string>
     <string name="common_upgrade_required_label">Yêu cầu nâng cấp</string>
     <string name="general_donate_action">Quyên góp</string>

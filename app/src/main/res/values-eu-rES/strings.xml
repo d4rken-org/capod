@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiatu</string>
     <string name="general_thank_you_label">Eskerrik asko</string>
     <string name="general_upgrade_action">Bertsio-berritu</string>
+    <string name="general_retry_action">Berriro saiatu</string>
     <string name="common_feature_requires_pro_msg">Berritu desblokeatzeko.</string>
     <string name="common_upgrade_required_label">Berritzea beharrezkoa</string>
     <string name="general_donate_action">Dohaintza egin</string>

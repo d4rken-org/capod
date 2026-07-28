@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopioi</string>
     <string name="general_thank_you_label">Kiitos</string>
     <string name="general_upgrade_action">Päivitä</string>
+    <string name="general_retry_action">Yritä uudelleen</string>
     <string name="common_feature_requires_pro_msg">Päivitä avataksesi.</string>
     <string name="common_upgrade_required_label">Vaatii päivityksen</string>
     <string name="general_donate_action">Lahjoita</string>

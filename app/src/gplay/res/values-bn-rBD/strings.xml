@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">আপনার কেনাকাটা নিশ্চিত করা হচ্ছে</string>
     <string name="upgrade_screen_grace_body_short">Google Play এখনও আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে — কোনো পদক্ষেপের প্রয়োজন নেই।</string>
     <string name="upgrade_screen_grace_body">Google Play অনেকক্ষণ ধরে আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে। আপনি অনলাইনে আছেন এবং কেনাকাটার জন্য ব্যবহৃত Google অ্যাকাউন্ট দিয়ে সাইন ইন করা আছেন কিনা তা নিশ্চিত করুন, তারপর পুনরুদ্ধার করার চেষ্টা করুন।</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">আপগ্রেড বিকল্প</string>
+    <string name="upgrade_screen_offers_or">বা</string>
+    <string name="upgrade_screen_offers_body">একই ফিচার, শুধু বিভিন্ন মূল্য মডেল।</string>
+    <string name="upgrade_screen_offers_unavailable_title">মূল্য অনুপলব্ধ</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play এখন মূল্য দেখাতে পারেনি। আপনার সংযোগ পরীক্ষা করুন এবং একটু পরে আবার চেষ্টা করুন।</string>
+    <string name="upgrade_screen_subscription_offer_title">বার্ষিক সাবস্ক্রিপশন</string>
+    <string name="upgrade_screen_subscription_offer_body">বিনামূল্যে ট্রায়ালের পরে বার্ষিক নবায়ন হয়। Google Play-এ যেকোনো সময় বাতিল করুন।</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">বার্ষিক নবায়ন হয়। Google Play-এ যেকোনো সময় বাতিল করুন।</string>
+    <string name="upgrade_screen_iap_offer_body">একটি পেমেন্ট, কোনো নবায়ন নেই।</string>
+    <string name="upgrade_screen_benefits_title">আপগ্রেড সুবিধা</string>
+    <string name="upgrade_screen_restore_body">পুনরুদ্ধার করার সময় গুগল প্লেকে এই অ্যাপের বর্তমান অ্যাকাউন্টের ক্রয়গুলি পুনরায় পরীক্ষা করতে বলে। এটি কোনো নতুন ক্রয় শুরু করে না।</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod সবেমাত্র গুগল প্লে চেক করেছে, কিন্তু এই অ্যাপের জন্য গুগল প্লে যে অ্যাকাউন্ট ব্যবহার করছে তার জন্য কোনো প্রো ক্রয় নিশ্চিত করা যায়নি।</string>
+    <string name="upgrade_screen_restore_contact_hint">এখনও সমস্যা হচ্ছে? যে ইমেল থেকে ক্রয় করেছেন সেখান থেকে সহায়তার সাথে যোগাযোগ করুন এবং আপনার গুগল প্লে অর্ডার নম্বর অন্তর্ভুক্ত করুন।</string>
+    <string name="upgrade_screen_contact_support_action">সহায়তার সাথে যোগাযোগ করুন</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">আপনার আপগ্রেড এবং কেনাকাটার স্থিতি।</string>
+    <string name="settings_upgrade_status_description">আপনার আপগ্রেড এবং ক্রয় স্থিতি।</string>
 </resources>

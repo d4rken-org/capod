@@ -6,6 +6,7 @@
     <string name="general_copy_action">Másolás</string>
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_upgrade_action">Frissítés</string>
+    <string name="general_retry_action">Újra próbálkozás</string>
     <string name="common_feature_requires_pro_msg">Frissítés a feloldáshoz.</string>
     <string name="common_upgrade_required_label">Frissítés szükséges</string>
     <string name="general_donate_action">Adományozás</string>

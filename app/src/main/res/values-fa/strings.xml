@@ -6,6 +6,7 @@
     <string name="general_copy_action">کپی</string>
     <string name="general_thank_you_label">متشکرم</string>
     <string name="general_upgrade_action">ارتقا</string>
+    <string name="general_retry_action">تلاش مجدد</string>
     <string name="common_feature_requires_pro_msg">برای باز کردن قفل، ارتقا دهید.</string>
     <string name="common_upgrade_required_label">نیاز به ارتقاء دارد</string>
     <string name="general_donate_action">کمک مالی</string>

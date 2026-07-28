@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
+    <string name="general_retry_action">Subukan ulit</string>
     <string name="common_feature_requires_pro_msg">Mag-upgrade para ma-unlock.</string>
     <string name="common_upgrade_required_label">Nangangailangan ng upgrade</string>
     <string name="general_donate_action">Mag-donate</string>

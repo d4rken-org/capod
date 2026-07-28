@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopier</string>
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_upgrade_action">Oppgrader</string>
+    <string name="general_retry_action">Prøv igjen</string>
     <string name="common_feature_requires_pro_msg">Oppgrader for å låse opp.</string>
     <string name="common_upgrade_required_label">Krever oppgradering</string>
     <string name="general_donate_action">Doner</string>

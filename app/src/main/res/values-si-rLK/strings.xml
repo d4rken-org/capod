@@ -6,6 +6,7 @@
     <string name="general_copy_action">පිටපත් කරන්න</string>
     <string name="general_thank_you_label">ඔබට ස්තූතියි</string>
     <string name="general_upgrade_action">යාවත්කාලීන කරන්න</string>
+    <string name="general_retry_action">නැවතත්</string>
     <string name="common_feature_requires_pro_msg">අගුළු ඇරීමට උත්සාහ කරන්න.</string>
     <string name="common_upgrade_required_label">උත්ශ්‍රේණිගත කිරීම අවශ්‍යයි</string>
     <string name="general_donate_action">පරිත්‍යාග කරන්න</string>

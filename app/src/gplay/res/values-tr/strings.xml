@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Satın alman onaylanıyor</string>
     <string name="upgrade_screen_grace_body_short">Google Play satın almanı henüz onaylamadı. Pro hâlâ aktif — herhangi bir işlem yapmana gerek yok.</string>
     <string name="upgrade_screen_grace_body">Google Play satın almanı bir süredir onaylamadı. Pro hâlâ aktif. Çevrimiçi olduğundan ve satın alma için kullanılan Google hesabıyla oturum açtığından emin ol, ardından geri yüklemeyi dene.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Yükseltme Seçenekleri</string>
+    <string name="upgrade_screen_offers_or">veya</string>
+    <string name="upgrade_screen_offers_body">Aynı özellikler, sadece farklı fiyatlandırma modelleri.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Fiyatlar Kullanılamıyor</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play şu anda fiyatları döndürmedi. Bağlantınızı kontrol edin ve bir süre sonra tekrar deneyin.</string>
+    <string name="upgrade_screen_subscription_offer_title">Yıllık Abonelik</string>
+    <string name="upgrade_screen_subscription_offer_body">Ücretsiz deneme sonrasında yıllık olarak yenilenir. Google Play\'de istediğiniz zaman iptal edebilirsiniz.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Yıllık olarak yenilenir. Google Play\'de istediğiniz zaman iptal edebilirsiniz.</string>
+    <string name="upgrade_screen_iap_offer_body">Bir kez ödeme, yenileme yok.</string>
+    <string name="upgrade_screen_benefits_title">Yükseltme avantajları</string>
+    <string name="upgrade_screen_restore_body">Geri yükleme, Google Play\'den bu uygulamanın mevcut hesap için satın almalarını yeniden kontrol etmesini ister. Yeni bir satın alma başlatmaz.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod Google Play\'i kontrol etti, ancak Google Play\'in bu uygulama için kullandığı hesapta Pro satın alması doğrulanmadı.</string>
+    <string name="upgrade_screen_restore_contact_hint">Hâlâ sorun mu yaşıyorsunuz? Satın almayı yapan e-posta adresinden desteğe başvurun ve Google Play sipariş numaranızı ekleyin.</string>
+    <string name="upgrade_screen_contact_support_action">Desteğe başvur</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Yükseltme ve satın alma durumun.</string>
+    <string name="settings_upgrade_status_description">Yükseltme ve satın alma durumunuz.</string>
 </resources>

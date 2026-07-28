@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiuj</string>
     <string name="general_thank_you_label">Dziękuję ci</string>
     <string name="general_upgrade_action">Uaktualnij</string>
+    <string name="general_retry_action">Ponów</string>
     <string name="common_feature_requires_pro_msg">Uaktualnij, aby odblokować.</string>
     <string name="common_upgrade_required_label">Wymaga uaktualnienia</string>
     <string name="general_donate_action">Wesprzyj</string>
@@ -184,7 +185,7 @@ K4r0lSz;</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="app_name_foss">CAPod Foss</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_error_label">Błąd</string>
     <string name="general_grant_permission_action">Udziel uprawnień</string>
@@ -209,10 +210,10 @@ K4r0lSz;</string>
         <item quantity="other">%d urządzeń bez pasującego profilu</item>
     </plurals>
     <plurals name="overview_unmatched_devices_description">
-        <item quantity="one">Wykryto %d pobliskie urządzenie bez pasującego profilu. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
-        <item quantity="few">Wykryto %d pobliskie urządzenia bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
-        <item quantity="many">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
-        <item quantity="other">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest Twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="one">Wykryto %d pobliskie urządzenie bez pasującego profilu. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jest twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="few">Wykryto %d pobliskie urządzenia bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="many">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
+        <item quantity="other">Wykryto %d pobliskich urządzeń bez pasujących profili. Pokaż je, aby zobaczyć dostępne szczegóły. Jeśli jedno z nich jest twoje, dodaj profil w Urządzeniach, aby je rozpoznać.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d dodatkowe urządzenie</item>

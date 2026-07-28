@@ -6,6 +6,7 @@
     <string name="general_copy_action">複製</string>
     <string name="general_thank_you_label">感謝你們</string>
     <string name="general_upgrade_action">升級</string>
+    <string name="general_retry_action">重試</string>
     <string name="common_feature_requires_pro_msg">升級以解鎖。</string>
     <string name="common_upgrade_required_label">需要升級</string>
     <string name="general_donate_action">捐贈</string>

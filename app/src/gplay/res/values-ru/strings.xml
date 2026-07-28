@@ -7,7 +7,7 @@
     <string name="upgrades_gplay_billing_result_error_label">Ошибка оплаты Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Произошла ошибка при запросе Google Play о деталях Вашей покупки. Очистите кэш Google Play и перезагрузите телефон.\n\nОшибка %s</string>
     <string name="upgrades_gplay_already_owned_label">Уже приобретено?</string>
-    <string name="upgrades_gplay_already_owned_description">Google Play сообщает, что вы уже владеете этим обновлением, но его не удалось восстановить. Убедитесь, что вы используете тот аккаунт Google, с которого была совершена покупка. Синхронизация Play Store может занять некоторое время — попробуйте перезагрузить устройство, очистить кэш Google Play или просто подождать.</string>
+    <string name="upgrades_gplay_already_owned_description">Google Play сообщает, что Вы купили это обновление, но его не удалось восстановить. Убедитесь, что Вы используете тот же аккаунт Google, с которого была совершена покупка. Синхронизация Play Store может занять некоторое время — попробуйте перезагрузить устройство, очистить кэш Google Play или просто подождать.</string>
     <string name="upgrade_restore_action">Восстановить покупку</string>
     <string name="upgrade_badge_label">Pro</string>
     <string name="upgrade_preamble">CAPod разработан одним человеком. Обновление открывает дополнительные функции и помогает поддерживать приложение.</string>
@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Подтверждение покупки</string>
     <string name="upgrade_screen_grace_body_short">Google Play ещё не подтвердил вашу покупку. Pro всё ещё активен — никаких действий не требуется.</string>
     <string name="upgrade_screen_grace_body">Google Play уже некоторое время не подтверждает вашу покупку. Pro всё ещё активен. Убедитесь, что вы в сети и вошли в тот аккаунт Google, с которого была совершена покупка, а затем попробуйте восстановить покупку.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Варианты обновления</string>
+    <string name="upgrade_screen_offers_or">или</string>
+    <string name="upgrade_screen_offers_body">Те же функции, просто разные модели ценообразования.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Цены недоступны</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play не определил цены. Проверьте соединение и попробуйте снова через некоторое время.</string>
+    <string name="upgrade_screen_subscription_offer_title">Годовая подписка</string>
+    <string name="upgrade_screen_subscription_offer_body">Возобновляется ежегодно после пробного периода. Отменить можно в любой момент в Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Возобновляется ежегодно. Отменить можно в любой момент в Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Одноразовый платеж без возобновлений.</string>
+    <string name="upgrade_screen_benefits_title">Преимущества обновления</string>
+    <string name="upgrade_screen_restore_body">Восстановление просит Google Play повторно проверить покупки этого приложения для текущего аккаунта. Это не запускает новую покупку.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod только что проверил Google Play, но для аккаунта, используемого этим приложением, не удалось подтвердить покупку Pro.</string>
+    <string name="upgrade_screen_restore_contact_hint">Всё ещё не получается? Свяжитесь с поддержкой с адреса электронной почты, который произвёл покупку, и укажите номер заказа Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Связаться с поддержкой</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ваш статус обновления и покупки.</string>
 </resources>

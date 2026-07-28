@@ -6,6 +6,7 @@
     <string name="general_copy_action">कॉपी करें</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_upgrade_action">अपग्रेड करें</string>
+    <string name="general_retry_action">पुनः प्रयास करें</string>
     <string name="common_feature_requires_pro_msg">अनलॉक करने के लिए अपग्रेड करें।</string>
     <string name="common_upgrade_required_label">अपग्रेड की आवश्यकता है</string>
     <string name="general_donate_action">दान करें</string>

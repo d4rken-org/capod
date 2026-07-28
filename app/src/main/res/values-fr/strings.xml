@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copier</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_upgrade_action">Passer Pro</string>
+    <string name="general_retry_action">Réessayer</string>
     <string name="common_feature_requires_pro_msg">Passez à la version Pro pour débloquer l’option.</string>
     <string name="common_upgrade_required_label">Nécessite une mise à niveau</string>
     <string name="general_donate_action">Faire un don</string>
