@@ -53,6 +53,7 @@ Loaded on demand, when a matching file is read (`paths:` frontmatter):
 
 | Rule | Loads for |
 |------|-----------|
+| `.claude/rules/code-style.md` | Kotlin/Compose sources in `main/`, `foss/`, `gplay/`, `debug/` |
 | `.claude/rules/testing.md` | `app/src/test/`, `testFoss/`, `testGplay/` |
 | `.claude/rules/localization.md` | `**/res/values/strings.xml` (base locale) |
 | `.claude/rules/screenshots.md` | Screenshot composables, `screenshotTest/`, fastlane scripts |
