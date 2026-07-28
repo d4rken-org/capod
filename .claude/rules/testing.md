@@ -48,3 +48,31 @@ Each task compiles and runs only its own flavor — running the wrong one silent
 
 CI runs both. Flavor-specific tests are for code that only exists in that flavor — billing in
 `gplay`, the sponsor-based upgrade flow in `foss`.
+
+## Helpers that already exist
+
+- `runTest2(autoCancel, context, expectedError, testBody)` in `testhelpers/coroutine/TestExtensions.kt` —
+  use `expectedError = SomeException::class` instead of hand-rolling a throws-assertion around `runTest`
+- `FakeDataStoreValue<T>(initial)` in `testhelpers/datastore/` — a working fake with a real backing
+  `MutableStateFlow`; read/write it through `.value` and pass `.mock` to the code under test
+
+## Mocking `DataStoreValue`
+
+`DataStoreValue.value()` and `.value(T)` are **extension functions** (`DataStoreValue.kt:54,56`), not
+members, so MockK cannot stub them. They delegate to `flow.first()` and `update { }` — stub those:
+
+```kotlin
+every { someSetting.flow } returns flowOf(value)   // covers .value() reads
+coVerify { someSetting.update(any()) }             // verifies .value(x) writes
+```
+
+`UpgradeRepoGplayTest` uses this shape. Prefer `FakeDataStoreValue` when you need reads and writes to
+actually round-trip.
+
+## Reading ViewModel state
+
+`ViewModel2.asLiveState()` is `stateIn(..., initialValue = null).filterNotNull()` with
+`SharingStarted.WhileSubscribed(5_000)` — so `vm.state` is a `Flow`, not a `StateFlow`, and has no
+`.value` to read. Collect it: `vm.state.first()` is the established pattern across the existing
+ViewModel tests. Because the upstream only runs while subscribed, a test that never collects sees
+nothing happen at all.

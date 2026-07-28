@@ -47,6 +47,18 @@ Cover only what the diff can't show:
 **Review checklist** — `- [ ]` items, only when there are several non-trivial things to verify.
 A single tricky point stays a Technical Context bullet.
 
+## Labels
+
+Apply labels that match the change. Run `gh label list` to confirm what exists — do not invent new
+ones. Skip labels that don't fit; no labels beats wrong labels.
+
+- **Type**: `bug` for fixes, `enhancement` for new features or improvements
+- **Transport**: `coms/AAP` when the change touches the L2CAP session path, `coms/BLE` when it
+  touches advertisement parsing. Both if it spans the merge in `DeviceMonitor`
+- **Scope**: `device support` for new or fixed pod models, `Translations` for string/locale work,
+  `Build/Deploy` for CI, Gradle, and release tooling
+- `Needs Info/Repro` is a triage label for issues — not for your own PRs
+
 ## Conventions
 
 - Link issues with "Closes #123" / "Fixes #123" / "Resolves #123"
