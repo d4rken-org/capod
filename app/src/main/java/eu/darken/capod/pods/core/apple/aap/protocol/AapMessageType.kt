@@ -14,6 +14,16 @@ package eu.darken.capod.pods.core.apple.aap.protocol
  * logging still reports a named opcode instead of a bare int.
  */
 enum class AapMessageType(val value: Int, val wiresharkName: String) {
+    /**
+     * Handshake-phase only — **never send this on an established session.**
+     *
+     * Verified on Pro 3 (fw `81.2675000075000000.6503`): sending `04 00 04 00 01 00` mid-session
+     * makes the device close the L2CAP stream ("Stream closed by remote"), forcing a reconnect.
+     *
+     * It looks like a cheap "re-read settings" probe, but AAP has no read-setting primitive at all —
+     * settings are push-only (on connect, on external change, or never). Use optimistic state plus
+     * profile-learned persistence instead, and let reconnects refresh.
+     */
     CAPABILITIES_REQUEST(0x0001, "Capabilities Request"),
     CAPABILITIES(0x0002, "Capabilities"),
     BATTERY_INFO_REQUEST(0x0003, "Battery Info Request"),
