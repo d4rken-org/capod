@@ -99,6 +99,8 @@ class MonitorService : Service() {
     private var foregroundStartFailed = false
     private var injectionComplete = false
 
+    @Volatile private var lastNotification: Notification? = null
+
     @Volatile
     private var latestNotificationSettings: NotificationSettings =
         NotificationSettings(useExtraNotification = false, keepAfterDisconnect = false)
@@ -128,6 +130,15 @@ class MonitorService : Service() {
             log(TAG, WARN) { "Foreground service start denied (security): ${e.message}" }
             false
         }
+    }
+
+    /**
+     * Posts the primary monitor notification and remembers it, so a later [onStartCommand] can
+     * re-satisfy the foreground obligation with the notification the user is currently seeing.
+     */
+    internal fun postPrimaryNotification(notification: Notification) {
+        lastNotification = notification
+        notificationManager.notify(MonitorNotifications.NOTIFICATION_ID, notification)
     }
 
     override fun onCreate() {
@@ -160,10 +171,19 @@ class MonitorService : Service() {
 
         // Replace early notification with the full one from injected MonitorNotifications.
         // Failure here is non-fatal — the service is already foreground from the early call.
-        promoteToForeground(notifications.getStartupNotification())
+        val startupNotification = notifications.getStartupNotification()
+        lastNotification = startupNotification
+        promoteToForeground(startupNotification)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Every startForegroundService() re-arms the startForeground() obligation,
+        // so every onStartCommand has to satisfy it again, no matter how it exits.
+        if (!promoteToForeground(lastNotification ?: MonitorNotifications.createEarlyNotification(this))) {
+            stopSelf(startId)
+            return START_NOT_STICKY
+        }
+
         log(TAG, VERBOSE) { "onStartCommand(intent=$intent, flags=$flags, startId=$startId)" }
 
         if (foregroundStartFailed) {
@@ -250,13 +270,12 @@ class MonitorService : Service() {
             .onEach { (currentDevice, settings, estimate) ->
                 latestNotificationSettings = settings
 
-                notificationManager.notify(
-                    MonitorNotifications.NOTIFICATION_ID,
+                postPrimaryNotification(
                     notifications.getNotification(
                         currentDevice,
                         estimate = estimate,
                         showHint = settings.useExtraNotification,
-                    ),
+                    )
                 )
 
                 when (val action = decideExtraNotificationAction(currentDevice, settings)) {
