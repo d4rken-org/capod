@@ -3,7 +3,9 @@ package eu.darken.capod.common
 import android.media.AudioManager
 import android.media.AudioPlaybackConfiguration
 import android.os.Build
+import android.os.Handler
 import android.view.KeyEvent
+import eu.darken.capod.common.dagger.AudioCallbackHandler
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -16,6 +18,7 @@ import javax.inject.Singleton
 class MediaControl @Inject constructor(
     private val audioManager: AudioManager,
     private val timeSource: TimeSource,
+    @AudioCallbackHandler private val audioCallbackHandler: Handler,
 ) {
     /**
      * Set when [sendPause] dispatches a pause we expect to take effect, cleared when [sendPlay]
@@ -43,10 +46,25 @@ class MediaControl @Inject constructor(
     }
 
     init {
-        // Seed the active flag from current state so we won't miss the next inactive→active
-        // transition if music is already playing when MediaControl is constructed.
-        lastKnownMusicActive = audioManager.isMusicActive
-        audioManager.registerAudioPlaybackCallback(playbackCallback, null)
+        // Both calls below are binder transactions into AudioService. On the main thread they sat on
+        // the cold-start critical path (MediaControl is constructed during App.onCreate via Hilt) and
+        // produced ANRs.
+        //
+        // Register BEFORE seeding: both run on this handler's Looper, so any playback callback that
+        // fires during registration is queued behind this runnable and cannot execute until the seed
+        // is done. Seeding first would instead leave a gap in which a transition is neither delivered
+        // (not yet registered) nor reflected in the seed.
+        //
+        // Residual window: between construction and this runnable draining, no callback is live. That
+        // is one runnable-drain on an empty queue. If an auto-pause armed capPaused and the user
+        // manually resumed inside it, the inactive→active edge is missed and capPaused stays stale,
+        // costing one redundant (idempotent) MEDIA_PLAY on a later pod-in. Accepted deliberately;
+        // gating reactions on a readiness latch would risk auto-play/pause failing silently instead.
+        audioCallbackHandler.post {
+            audioManager.registerAudioPlaybackCallback(playbackCallback, audioCallbackHandler)
+            lastKnownMusicActive = audioManager.isMusicActive
+            log(TAG, INFO) { "Playback callback registered on ${Thread.currentThread().name}" }
+        }
     }
 
     val isPlaying: Boolean

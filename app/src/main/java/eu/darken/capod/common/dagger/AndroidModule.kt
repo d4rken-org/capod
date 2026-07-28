@@ -5,10 +5,13 @@ import android.app.NotificationManager
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.media.AudioManager
+import android.os.Handler
+import android.os.HandlerThread
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -34,4 +37,15 @@ class AndroidModule {
     fun audioManager(context: Context): AudioManager =
         context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
+    @Provides
+    @Singleton
+    @AudioCallbackHandler
+    fun audioCallbackHandler(): Handler =
+        Handler(HandlerThread("CAPod-MediaControl").apply { start() }.looper)
+
 }
+
+@Qualifier
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
+annotation class AudioCallbackHandler
