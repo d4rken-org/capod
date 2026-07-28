@@ -1,7 +1,5 @@
 ---
 description: Git commit message format and conventions
-globs:
-  - "**"
 ---
 
 # Commit Guidelines

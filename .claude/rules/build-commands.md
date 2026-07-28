@@ -1,71 +1,55 @@
 ---
-description: Build, test, lint, and release commands for Gradle
-globs:
-  - "**/*.gradle.kts"
-  - "**/*.gradle"
-  - "gradle/**"
+description: Gradle build, test, and lint commands, and what CI actually gates
 ---
 
 # Build Commands
 
-## Build
+## Quick local check
 
 ```bash
-# Build debug version
-./gradlew assembleDebug
-
-# Build all variants (FOSS and Google Play flavors)
-./gradlew assemble
-
-# Build specific flavor and type
-./gradlew assembleFossDebug
-./gradlew assembleGplayRelease
-
-# Build app bundles for Play Store
-./gradlew bundleGplayRelease
+./gradlew assembleFossDebug testFossDebugUnitTest
 ```
 
-## Testing
+`assembleFossDebug` is the fastest variant — use it for iteration.
+
+## What CI gates
+
+`.github/workflows/code-checks.yml`, on every PR. Core Gradle gates:
 
 ```bash
-# Run all unit tests
-./gradlew test
+# Lint vitals — flavor x variant matrix. Note: Beta/Release only, never Debug.
+./gradlew lintVitalFossBeta lintVitalFossRelease lintVitalGplayBeta lintVitalGplayRelease
 
-# Run unit tests for specific variant
-./gradlew testFossDebugUnitTest
+# Builds — Debug only
+./gradlew app:assembleFossDebug app:assembleGplayDebug
 
-# Run instrumentation tests (requires connected device/emulator)
-./gradlew connectedAndroidTest
-./gradlew connectedFossDebugAndroidTest
-
-# Run all checks (lint + tests)
-./gradlew check
+# Unit tests — both flavors
+./gradlew testFossDebugUnitTest testGplayDebugUnitTest
 ```
 
-## Code Quality
+Four non-Gradle checks also run, **unconditionally** — there is no path filter, so they gate your PR
+even if you didn't touch those areas:
 
 ```bash
-# Run lint for all variants
-./gradlew lint
-
-# Run lint for specific variant
-./gradlew lintFossDebug
-
-# Auto-fix lint issues where possible
-./gradlew lintFix
-
-# Update lint baseline
-./gradlew updateLintBaseline
+bash fastlane/check_metadata_length.sh    # Play Store metadata length limits
+shellcheck tools/release/bump.sh
+bats tools/release/bump.bats
+./tools/release/bump.sh --mode=check      # version.properties + VERSION consistency
 ```
 
-## Release
+Reproducing those locally is usually only worth it when you changed fastlane metadata or release
+tooling, but a failure there blocks the PR regardless.
+
+**Do not run `./gradlew check` as a pre-submit gate.** It runs the full non-vital `lint` task, which
+is already failing on `main` for reasons unrelated to your change — you'll burn time chasing
+pre-existing findings that CI never looks at. CI gates `lintVital*`, not `lint`.
+
+## Other commands
 
 ```bash
-./gradlew assembleFossRelease assembleGplayRelease
+./gradlew assembleGplayRelease            # release build
+./gradlew bundleGplayRelease              # Play Store bundle
+./gradlew connectedFossDebugAndroidTest   # instrumentation, needs a device/emulator
+./gradlew lintFix                         # auto-fix where possible
+./gradlew updateLintBaseline              # refresh the baseline
 ```
-
-## Notes
-
-- Use `assembleFossDebug` as the default quick-check build (fastest variant)
-- Run `./gradlew check` before submitting changes to catch lint and test issues
-- Instrumentation tests require a connected device or running emulator

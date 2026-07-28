@@ -1,7 +1,7 @@
 ---
 description: Guidelines for adding and naming Android string resources
-globs:
-  - "**/res/values*/strings.xml"
+paths:
+  - "**/res/values/strings.xml"
 ---
 
 # Localization Guidelines

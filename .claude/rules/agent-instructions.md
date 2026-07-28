@@ -1,39 +1,32 @@
 ---
-description: Instructions for Claude Code sub-agents and task delegation
-globs:
-  - "**"
+description: Sub-agent delegation limits and implementation scope for this project
 ---
 
 # Agent Instructions
 
-## Critical Thinking
+## Delegation
 
-- Do not blindly accept information at face value
-- Verify assumptions against actual code before proceeding
-- When encountering unexpected behavior, investigate root causes rather than applying workarounds
-- If something seems wrong, it probably is — dig deeper
+Delegation adds coordination overhead and multiplies token cost, so it has to earn its place through
+genuine independence and parallel speedup.
 
-## Explore vs. Implement
+- Delegate only for large, genuinely independent work that parallelizes — a wide multi-file
+  investigation across unrelated areas, for example
+- Don't delegate what you'd finish yourself in a handful of tool calls
+- Don't spawn a sub-agent to verify or double-check your own work
+- If one sub-agent can do it, use one rather than several
+- Sub-agents don't inherit your conversation — state the full task, the relevant paths, and
+  whether you want research only or research plus implementation
+- `Explore` is the right type for read-only codebase investigation
 
-- **Explore first**: Before making changes, understand the existing code structure and patterns
-- **Read before writing**: Always read relevant files before modifying them
-- **Follow existing patterns**: Match the code style and architecture already in use
-- **Minimal changes**: Only change what's necessary to accomplish the task
+Running Gradle through the build-runner agent is a separate standing rule in the user's global
+CLAUDE.md; it is context isolation, not delegation, and this file does not restate it.
 
-## Sub-Agent Delegation
+## Implementation scope
 
-When using Task tool to spawn sub-agents:
-
-- Provide complete context — sub-agents don't share your conversation history unless noted
-- Be specific about what you need: research only, or research + implementation
-- Use `Explore` agent type for codebase investigation
-- Use `Bash` agent type for running builds and tests
-- Parallelize independent sub-agent tasks for efficiency
-
-## Common Pitfalls
-
-- Don't create new files when editing existing ones would suffice
-- Don't add features beyond what was requested
-- Don't refactor surrounding code when fixing a bug
-- Don't add comments or documentation to code you didn't change
-- Don't guess at file paths — use Glob/Grep to find them
+- Follow existing patterns — match the code style and architecture already in use
+- Change only what the task needs
+- When behavior is unexpected, fix the root cause rather than working around it
+- Don't create new files when editing an existing one would do
+- Don't refactor surrounding code while fixing a bug
+- Don't add comments or docs to code you didn't change
+- Don't guess at file paths — use Glob/Grep

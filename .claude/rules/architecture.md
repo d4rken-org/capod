@@ -1,123 +1,61 @@
 ---
-description: Architecture overview, module structure, key components, data flow, and dependencies
-globs:
-  - "app/**/*.kt"
-  - "**/*.gradle.kts"
+description: Load-bearing architectural invariants that are not obvious from reading the code
 ---
 
 # Architecture
 
-## Single-Module Structure
+Invariants worth knowing before you touch device state, the AAP stack, or the upgrade flow. Class
+inventories and source-set layout are omitted deliberately — read the tree for those.
 
-One Gradle module: `app/`. Source sets:
+## BLE vs AAP
 
-- `main` — shared code (Compose UI, services, monitor, bluetooth, AAP protocol, widgets)
-- `foss` / `gplay` — flavor-specific code (e.g. upgrade/billing implementations)
-- `debug` — debug-only code including screenshot content composables
-- `test` / `testFoss` / `testGplay` — unit tests
-- `screenshotTest` — Compose Preview Screenshot tests for Play Store assets
-
-A previous `app-common/` module was merged into `app/` (commit `be8f4919`).
-
-## Core Patterns
-
-- **MVVM**: ViewModels with LiveData/StateFlow for UI state management
-- **Dependency Injection**: Hilt/Dagger for dependency management
-- **Coroutines**: Kotlin coroutines for async operations
-- **Repository Pattern**: Data layer abstraction for monitoring and settings
-
-## Key Components
-
-### Device Monitoring
-
-`monitor/core/` is split into two data-source siblings that `DeviceMonitor` merges:
-
-- `monitor/core/ble/BlePodMonitor` — passive BLE scanning; reads Apple advertisement beacons (battery, case state, in-ear, etc.). Works for any pod in range; no pairing required
-- `monitor/core/aap/` — AAP connection lifecycle layer on top of `AapConnectionManager`:
-  - `AapLifecycleManager` — starts/stops the AAP subsystem
-  - `AapAutoConnect` — auto-opens AAP sessions for bonded/known devices
-  - `AapKeyPersister`, `AapLearnedSettingsPersister` — persist session keys and learned pod settings across app restarts
-  - `StemConfigSender`, `StemPressReaction`, `AncGestureResolver` — push config and react to stem/HID events
-- `monitor/core/cache/DeviceStateCache` — persisted last-known state so profiles still show data when a device is out of range
-- `DeviceMonitor` — singleton that `combine`s `BlePodMonitor.devices + AapConnectionManager.allStates + DeviceStateCache + profiles` into unified `PodDevice` objects. ViewModels observe `DeviceMonitor.devices`; they do **not** reach into `BlePodMonitor` or the AAP layer directly
-- `MonitorControl` / `MonitorService` — foreground service lifecycle holding the scan awake
-- `BluetoothEventReceiver`, `BootCompletedReceiver` — system triggers that wake the service
-
-**BLE vs AAP — what each path gives you:**
+Two independent data paths. Which one a feature can use decides whether it is even possible.
 
 | | BLE (advertisements) | AAP (L2CAP session) |
 |---|---|---|
 | Direction | Read-only, passive | Bidirectional commands + events |
-| Prerequisite | Bluetooth on | Bonded + `BLUETOOTH_CONNECT` + active L2CAP socket |
-| Data | Battery, case open, in-ear, pod model | Settings, ANC mode control, press controls, stem events, device info |
+| Prerequisite | `BLUETOOTH_SCAN` on Android 12+, Bluetooth/location permissions below | Bonded + `BLUETOOTH_CONNECT` + active L2CAP socket |
+| Data | Battery, case open, in-ear, pod model | Settings, ANC control, press controls, stem events, device info |
 | Availability | Any pod in range | Only your own paired pods |
 
-### Reaction System
+A figure BLE never advertises cannot be obtained without a bonded AAP session, and anything
+requiring a write is AAP-only.
 
-- `ReactionsCard`: Compose UI for reaction settings, embedded in the device settings screen
-- `PopUpWindow`: Displays AirPods status when case is opened
-- `PopUpContent`: Compose pod rendering — model-specific UI branches inline, no factory class
+## `DeviceMonitor` is the state merge boundary
 
-### Widget System (Glance)
+`DeviceMonitor` (singleton) `combine`s four live sources — `BlePodMonitor.devices`,
+`AapConnectionManager.allStates`, `BluetoothManager2.connectedDevices` (supplies `isSystemConnected`),
+and `DeviceProfilesRepo.profiles` — then merges `DeviceStateCache` on top, deliberately after the
+combine so cache writes don't feed back into it.
 
-- `BatteryGlanceWidget`, `AncGlanceWidget`: Jetpack Glance-based home-screen widgets
-- `WidgetConfigurationActivity`: Configuration UI launched on widget placement
-- Lives under `app/src/main/java/eu/darken/capod/main/ui/widget/`
+The invariant is about **state**, not about the whole AAP layer:
 
-### Upgrade / Pro Features
+- Unified device state comes from `DeviceMonitor.devices` — don't assemble your own from `BlePodMonitor`
+- Commands go **through** `AapConnectionManager.sendCommand(...)`. ViewModels legitimately inject it
+  (`OverviewViewModel`, `DeviceSettingsViewModel`, `PressControlsViewModel` all do)
+- Nothing outside the AAP engine touches `AapConnection` (the L2CAP socket wrapper) directly
+- `TroubleShooterViewModel` reaching into `BlePodMonitor` for raw diagnostic scans is an intentional
+  exception, not a pattern to copy
 
-- `UpgradeRepo` interface with two flavor implementations:
-  - `UpgradeRepoGplay` — billing-client backed, includes grace-period handling for interrupted purchases
-  - `UpgradeControlFoss` — cache/sponsor-backed; users are `isPro = false` until they call `upgrade()`, after which the pro flag is persisted via DataStore
-- FOSS is **not** "always pro" — it's opt-in via a local sponsor flow
+Because the cache is merged in, a `PodDevice` may carry data while the device is out of range —
+presence in the flow does not imply a live connection.
 
-### AAP (Apple Accessory Protocol) Stack
+## `AapConnectionManager` owns sessions
 
-Three-layer structure under `pods/core/apple/aap/`:
+It holds every open AAP session keyed by `BluetoothAddress`. Consumers call `sendCommand(...)` and
+observe `allStates`.
 
-- **`protocol/`** — pure data: `AapMessage`, `AapCommand`, `AapSetting`, `AapDeviceProfile`, `AapDeviceInfo`, `StemPressEvent`, `KeyExchangeResult`. Plus `DefaultAapDeviceProfile` and `Model.Features` capturing per-model capability
-- **`engine/`** — session state machine for one connection:
-  - `AapConnection` — the L2CAP socket wrapper
-  - `AapSessionEngine` — drives the session lifecycle; tested in `AapSessionEngineTest`
-  - `AapInboundInterpreter` / `AapOutboundController` — decode incoming messages, encode outgoing
-  - `AapSettingsCoordinator`, `AapAncController`, `HidTracker`, `AapDeviceInfoDiagnostics` — feature-specific coordinators that sit on top of the session
-- **`AapConnectionManager`** (singleton) — owns all open AAP sessions keyed by `BluetoothAddress`, uses `L2capSocketFactory` to create sockets. Consumers don't touch `AapConnection` directly — they call `sendCommand(...)` and observe `allStates`
+The stack under `pods/core/apple/aap/` splits into `protocol/` (pure data) and `engine/` (per-connection
+state machine). The glue in `monitor/core/aap/` wires it into the foreground service and persists
+learned settings and session keys across restarts.
 
-The monitor-layer glue (`monitor/core/aap/`) described above wires this stack into the foreground service and persists its learned state.
+## FOSS is not "always pro"
 
-### Common Utilities
+`UpgradeRepo` has two flavor implementations. `UpgradeControlFoss` starts users at `isPro = false`
+and only persists the pro flag after `upgrade()` is called via the local sponsor flow. Do not assume
+the FOSS flavor bypasses pro gating.
 
-- `common/compose/InsetsExtensions.kt`: `PaddingValues.plus` operator and `systemBarsAndCutoutInsets` for laying out non-Scaffold screens edge-to-edge
+## Navigation is mid-migration
 
-## Build Configuration
-
-### Flavors
-
-- **FOSS**: Open-source version without Google Play dependencies
-- **Google Play (gplay)**: Version with billing client for in-app purchases
-
-### Build Types
-
-- **debug**: Unobfuscated, full logging, no minification
-- **beta**: Obfuscated, production-ready with strict lint checks
-- **release**: Fully optimized for production distribution
-
-## Data Flow
-
-1. `BluetoothEventReceiver` / `BootCompletedReceiver` wake `MonitorService` (foreground)
-2. `MonitorService` keeps `BlePodMonitor` scanning (passive advertisements) and `AapLifecycleManager` running (active L2CAP sessions via `AapConnectionManager`)
-3. `DeviceMonitor` merges BLE + AAP + cached state + profiles into `PodDevice` objects
-4. ViewModels (`OverviewViewModel`, `DeviceSettingsViewModel`, `PressControlsViewModel`, widget view models) observe `DeviceMonitor.devices`; settings/command changes are sent back through `AapConnectionManager.sendCommand(...)`
-5. Reaction triggers (case-open popup, auto-play, notifications) and widget state updates react to the merged flow
-
-## Testing Strategy
-
-- **Unit Tests**: `app/src/test/` (shared), `app/src/testFoss/`, `app/src/testGplay/` (flavor-specific — e.g. `UpgradeRepoGplayTest`, `FossUpgradeSerializationTest`)
-- **Screenshot Tests**: `app/src/screenshotTest/` — Compose Preview Screenshot Testing, powers the Play Store screenshot pipeline
-
-## Key Dependencies
-
-- **Hilt**: Dependency injection framework
-- **Navigation**: Navigation3 (`addNavigation3()`) drives current Compose screen routing. Some legacy `androidx.navigation` helpers still exist (`NavDirectionsExtensions`, `ViewModel3`) — don't assume SafeArgs is fully gone
-- **kotlinx.serialization**: JSON serialization for configuration and caching
-- **Material Design 3**: Compose Material3 UI components
+Navigation3 (`addNavigation3()`) drives current Compose routing, but legacy `androidx.navigation`
+helpers still exist (`NavDirectionsExtensions`, `ViewModel3`). Don't assume SafeArgs is fully gone.
