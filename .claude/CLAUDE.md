@@ -53,6 +53,7 @@ Loaded on demand, when a matching file is read (`paths:` frontmatter):
 
 | Rule | Loads for |
 |------|-----------|
+| `.claude/rules/architecture-aap-protocol.md` | `**/aap/**`, conversation reaction |
 | `.claude/rules/code-style.md` | Kotlin/Compose sources in `main/`, `foss/`, `gplay/`, `debug/` |
 | `.claude/rules/testing.md` | `app/src/test/`, `testFoss/`, `testGplay/` |
 | `.claude/rules/localization.md` | `**/res/values/strings.xml` (base locale) |
@@ -63,3 +64,9 @@ Skills, invoked by name:
 | Skill | Purpose |
 |-------|---------|
 | `/release` | Release workflow dispatch, inputs, channel mapping, rollback |
+
+## Scratch space
+
+`.claude/tmp/` is gitignored. Put plans, repro screenshots, throwaway scripts, and captured logs
+there rather than in `/tmp` — they stay greppable and survive across sessions without being
+committed.
