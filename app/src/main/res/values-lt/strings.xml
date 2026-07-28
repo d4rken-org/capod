@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopijuoti</string>
     <string name="general_thank_you_label">Ačiū</string>
     <string name="general_upgrade_action">Naujinti</string>
+    <string name="general_retry_action">Bandyti iš naujo</string>
     <string name="common_feature_requires_pro_msg">Atnaujinkite, kad atrakintumėte.</string>
     <string name="common_upgrade_required_label">Reikalingas atnaujinimas</string>
     <string name="general_donate_action">Paremti</string>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Se confirmă achiziția ta</string>
     <string name="upgrade_screen_grace_body_short">Google Play nu ți-a confirmat încă achiziția. Pro este încă activ — nu este nevoie de nicio acțiune.</string>
     <string name="upgrade_screen_grace_body">Google Play nu a confirmat achiziția ta de ceva vreme. Pro este încă activ. Asigură-te că ești conectat la internet și autentificat cu contul Google folosit pentru achiziție, apoi încearcă să restaurezi.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Opțiuni de upgrade</string>
+    <string name="upgrade_screen_offers_or">sau</string>
+    <string name="upgrade_screen_offers_body">Aceleași caracteristici, doar modele de preț diferite.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prețuri indisponibile</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play nu a putut furniza prețurile. Verifică conexiunea și încearcă din nou în curând.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abonament anual</string>
+    <string name="upgrade_screen_subscription_offer_body">Se reînnoiește anual după perioada de probă gratuită. Anulează oricând în Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Se reînnoiește anual. Anulează oricând în Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">O singură plată, fără reînnoiri.</string>
+    <string name="upgrade_screen_benefits_title">Avantajele actualizării</string>
+    <string name="upgrade_screen_restore_body">Restaurarea cere Google Play să verifice din nou achizițiile acestei aplicații pentru contul actual. Nu pornește o nouă achiziție.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod tocmai a verificat Google Play, dar nu a putut confirma nicio achiziție Pro pentru contul pe care Google Play îl folosește pentru această aplicație.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ești încă blocat? Contactează suportul din email-ul care a făcut achiziția și include numărul comenzii Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Contactează suportul</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Starea achiziției și a upgrade-ului tău.</string>
+    <string name="settings_upgrade_status_description">Statusul tău de actualizare și achiziție.</string>
 </resources>

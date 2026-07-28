@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Đang xác nhận giao dịch mua của bạn</string>
     <string name="upgrade_screen_grace_body_short">Google Play chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động — không cần thực hiện gì thêm.</string>
     <string name="upgrade_screen_grace_body">Google Play đã một thời gian chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động. Hãy đảm bảo bạn đang trực tuyến và đã đăng nhập bằng tài khoản Google đã dùng để mua, sau đó thử khôi phục.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Các tùy chọn nâng cấp</string>
+    <string name="upgrade_screen_offers_or">hoặc</string>
+    <string name="upgrade_screen_offers_body">Cùng các tính năng, chỉ khác nhau về mô hình giá cả.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Giá không có sẵn</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play hiện không trả về giá cả. Kiểm tra kết nối của bạn và thử lại sau.</string>
+    <string name="upgrade_screen_subscription_offer_title">Gói đăng ký hàng năm</string>
+    <string name="upgrade_screen_subscription_offer_body">Gia hạn hàng năm sau dùng thử miễn phí. Hủy bất cứ lúc nào trong Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Gia hạn hàng năm. Hủy bất cứ lúc nào trong Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Thanh toán một lần, không gia hạn.</string>
+    <string name="upgrade_screen_benefits_title">Lợi ích nâng cấp</string>
+    <string name="upgrade_screen_restore_body">Khôi phục yêu cầu Google Play kiểm tra lại các mua hàng của ứng dụng này cho tài khoản hiện tại. Nó không tạo lần mua mới.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod vừa kiểm tra Google Play, nhưng không thể xác nhận mua hàng Pro nào cho tài khoản mà Google Play sử dụng cho ứng dụng này.</string>
+    <string name="upgrade_screen_restore_contact_hint">Vẫn gặp vấn đề? Vui lòng liên hệ bộ phận hỗ trợ từ email đã thực hiện mua hàng và cung cấp số đơn hàng Google Play của bạn.</string>
+    <string name="upgrade_screen_contact_support_action">Liên hệ hỗ trợ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Trạng thái nâng cấp và mua hàng của bạn.</string>
 </resources>

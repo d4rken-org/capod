@@ -6,6 +6,7 @@
     <string name="general_copy_action">Αντιγραφή</string>
     <string name="general_thank_you_label">Ευχαριστώ</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
+    <string name="general_retry_action">Δοκιμάστε ξανά</string>
     <string name="common_feature_requires_pro_msg">Αναβάθμιση για ξεκλείδωμα.</string>
     <string name="common_upgrade_required_label">Απαιτείται αναβάθμιση</string>
     <string name="general_donate_action">Δωρεά</string>

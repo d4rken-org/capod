@@ -6,6 +6,7 @@
     <string name="general_copy_action">ನಕಲಿಸಿ</string>
     <string name="general_thank_you_label">ಧನ್ಯವಾದಗಳು</string>
     <string name="general_upgrade_action">ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
+    <string name="general_retry_action">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
     <string name="common_feature_requires_pro_msg">ಅನ್ಲಾಕ್ ಮಾಡಲು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.</string>
     <string name="common_upgrade_required_label">ಅಪ್‌ಗ್ರೇಡ್ ಅಗತ್ಯವಿದೆ</string>
     <string name="general_donate_action">ದಾನ ಮಾಡಿ</string>

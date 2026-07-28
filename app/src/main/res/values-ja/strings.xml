@@ -6,6 +6,7 @@
     <string name="general_copy_action">コピー</string>
     <string name="general_thank_you_label">ありがとう</string>
     <string name="general_upgrade_action">アップグレード</string>
+    <string name="general_retry_action">再試行</string>
     <string name="common_feature_requires_pro_msg">アップグレードしてロックを解除。</string>
     <string name="common_upgrade_required_label">アップグレードが必要です</string>
     <string name="general_donate_action">寄付</string>

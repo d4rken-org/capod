@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopieren</string>
     <string name="general_thank_you_label">Danke</string>
     <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_retry_action">Erneut versuchen</string>
     <string name="common_feature_requires_pro_msg">Upgrade zum Freischalten.</string>
     <string name="common_upgrade_required_label">Upgrade erforderlich</string>
     <string name="general_donate_action">Spenden</string>
@@ -124,7 +125,7 @@
     <string name="help_translate_label">Übersetzung</string>
     <string name="help_translate_description">Hilf mit die App in deine Lieblingssprache zu übersetzen.</string>
     <string name="translators_thanks_title">Übersetzer</string>
-    <string name="translators_thanks_description">Gamechanger181</string>
+    <string name="translators_thanks_description">Gamechanger8i</string>
     <string name="widget_description">Ein Widget, das den letzten bekannten Gerätestatus anzeigt.</string>
     <string name="anc_widget_description">Steuere ANC-Modi direkt vom Startbildschirm aus.</string>
     <string name="anc_widget_config_aap_required_hint">Dieses Widget erfordert eine direkte Verbindung (AAP) zu deinem Gerät. Stelle sicher, dass dein Gerät in der App gekoppelt und verbunden ist, bevor du dieses Widget verwendest.</string>
@@ -205,8 +206,8 @@
         <item quantity="other">%d Geräte ohne passendes Profil</item>
     </plurals>
     <plurals name="overview_unmatched_devices_description">
-        <item quantity="one">In der Nähe wurde %d Gerät ohne passendes Profil erkannt. Zeig es an, um verfügbare Details zu sehen. Wenn es dir gehört, füge unter Geräte ein Profil hinzu, um es zu erkennen.</item>
-        <item quantity="other">In der Nähe wurden %d Geräte ohne passende Profile erkannt. Zeig sie an, um verfügbare Details zu sehen. Wenn eines dir gehört, füge unter Geräte ein Profil hinzu, um es zu erkennen.</item>
+        <item quantity="one">%d nahegelegenes Gerät wurde ohne passendes Profil erkannt. Tippe darauf für verfügbare Details. Wenn es dir gehört, füge unter „Geräte“ ein Profil hinzu, um es zu erkennen.</item>
+        <item quantity="other">%d nahegelegene Geräte wurden ohne passende Profile erkannt. Tippe darauf für verfügbare Details. Wenn eines davon dir gehört, füge unter „Geräte“ ein Profil hinzu, um es zu erkennen.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d weiteres Gerät</item>

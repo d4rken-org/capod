@@ -6,6 +6,7 @@
     <string name="general_copy_action">คัดลอก</string>
     <string name="general_thank_you_label">ขอบคุณ</string>
     <string name="general_upgrade_action">อัปเกรด</string>
+    <string name="general_retry_action">ลองใหม่</string>
     <string name="common_feature_requires_pro_msg">อัปเกรดเพื่อปลดล็อก</string>
     <string name="common_upgrade_required_label">ต้องอัปเกรด</string>
     <string name="general_donate_action">บริจาค</string>

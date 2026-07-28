@@ -6,6 +6,7 @@
     <string name="general_copy_action">Ievietot starpliktuvē</string>
     <string name="general_thank_you_label">Paldies</string>
     <string name="general_upgrade_action">Uzlabot</string>
+    <string name="general_retry_action">Mēģināt vēlreiz</string>
     <string name="common_feature_requires_pro_msg">Jāuzlabo, lai atslēgtu.</string>
     <string name="common_upgrade_required_label">Nepieciešama uzlabošana</string>
     <string name="general_donate_action">Ziedot</string>

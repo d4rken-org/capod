@@ -3,14 +3,14 @@
     <string name="foss_upgrade_donate_label">Wesprzyj</string>
     <string name="foss_upgrade_alreadydonated_label">Już wsparłem</string>
     <string name="foss_upgrade_no_money_label">Wydałem wszystkie pieniądze na AirPods</string>
-    <string name="upgrade_foss_preamble">CAPod FOSS jest bezpłatny i otwartoźródłowy. Jeśli uważasz go za użyteczny, rozważ sponsorowanie rozwoju, aby pomóc kontynuować projekt.</string>
+    <string name="upgrade_foss_preamble">CAPod Foss jest bezpłatny i otwarto-źródłowy. Jeśli uważasz go za użyteczny, rozważ sponsorowanie rozwoju, aby pomóc kontynuować projekt.</string>
     <string name="upgrade_foss_sponsor_action">Wesprzyj rozwój</string>
     <string name="upgrade_foss_sponsor_subtitle">Bez reklam. Bez śledzenia. Bez uzależnienia od Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Już wróciłeś? Twoje wsparcie utrzymuje CAPod przy życiu.</string>
-    <string name="upgrade_badge_label">FOSS</string>
+    <string name="upgrade_badge_label">Foss</string>
     <string name="upgrade_foss_supporter_since">Wspierający od %s</string>
-    <string name="upgrade_foss_supporter_thanks">Dziękujemy za wsparcie rozwoju CAPod!</string>
-    <string name="upgrade_foss_sponsor_again_action">Otwórz stronę sponsora</string>
+    <string name="upgrade_foss_supporter_thanks">Dziękuję za wsparcie rozwoju CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Otwórz stronę wspierającego</string>
     <string name="settings_upgrade_status_label">Sponsoruj CAPod</string>
-    <string name="settings_upgrade_status_description">Status Twojego wsparcia.</string>
+    <string name="settings_upgrade_status_description">Status twojego wsparcia.</string>
 </resources>

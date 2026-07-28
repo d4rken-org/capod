@@ -49,6 +49,20 @@
     <string name="upgrade_screen_grace_title">Confirmaziun da tia cumpra</string>
     <string name="upgrade_screen_grace_body_short">Google Play n\'ha anc betg confirmà tia cumpra. Pro resta activ — nagina acziun necessaria.</string>
     <string name="upgrade_screen_grace_body">Google Play n\'ha betg confirmà tia cumpra dapi in tschert temp. Pro resta activ. Controllescha che ti sajas online e annunzià cun il conto Google duvrà per la cumpra, ed emprova lura da restaurar.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Opziuns d\'upgrade</string>
+    <string name="upgrade_screen_offers_or">u</string>
+    <string name="upgrade_screen_offers_body">Medemas caracteristicas, suleta en models da preziun differentas.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Preziuns betg disponiblas</string>
+    <string name="upgrade_screen_subscription_offer_title">Abbunament annual</string>
+    <string name="upgrade_screen_subscription_offer_body">Renova mintgamai tut l\'onn suenter la prova gratuita. Annullescha mintga temp en Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Renova mintgamai tut l\'onn. Annullescha mintga temp en Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Ina sola pagada, senza renovaziuns.</string>
+    <string name="upgrade_screen_benefits_title">Avantogis dal upgrade</string>
+    <string name="upgrade_screen_restore_body">Restaurar dumonda a Google Play da verificar da nov las acquistas da questa app per il cunt actual. Il na scomenza ina nova acquista.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ha controlà Google Play, ma nagina acquista Pro n\'ha pudi vegnir confermada per il cunt chi Google Play utilisescha per questa app.</string>
+    <string name="upgrade_screen_restore_contact_hint">Anc incordat? Contactescha il support cun l\'email che ha fatg l\'acquista ed includ il numer dal comonda da Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Contactar il support</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Tes status d\'upgrade e da cumpra.</string>
+    <string name="settings_upgrade_status_description">Tes status dal upgrade e da l\'acquista.</string>
 </resources>

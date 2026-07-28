@@ -6,6 +6,7 @@
     <string name="general_copy_action">Պատճենել</string>
     <string name="general_thank_you_label">Շնորհակալություն</string>
     <string name="general_upgrade_action">Թարմացնել</string>
+    <string name="general_retry_action">Կրկնել</string>
     <string name="common_feature_requires_pro_msg">Բարելավե՛ք՝ ապակողպելու համար:</string>
     <string name="common_upgrade_required_label">Պահանջում է թարմացում</string>
     <string name="general_donate_action">Նվիրաբերել</string>

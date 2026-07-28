@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">உங்கள் கொள்முதலை உறுதிப்படுத்துகிறது</string>
     <string name="upgrade_screen_grace_body_short">Google Play இன்னும் உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது — எந்த நடவடிக்கையும் தேவையில்லை.</string>
     <string name="upgrade_screen_grace_body">Google Play சிறிது காலமாக உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது. நீங்கள் ஆன்லைனில் இருப்பதையும், கொள்முதலுக்குப் பயன்படுத்திய Google கணக்கில் உள்நுழைந்திருப்பதையும் உறுதிப்படுத்திக் கொண்டு, பின்னர் மீட்டெடுக்க முயற்சிக்கவும்.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">மேம்பாட்டு தேர்வுகள்</string>
+    <string name="upgrade_screen_offers_or">அல்லது</string>
+    <string name="upgrade_screen_offers_body">அதே வசதிகள், வெறுமே வெவ்வேறு விலை திட்டங்கள்.</string>
+    <string name="upgrade_screen_offers_unavailable_title">விலைகள் கிடைக்கவில்லை</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play தற்போது விலைகளைக் கொடுக்கவில்லை. உங்கள் இணைப்பைச் சரிபார்த்து சிறிது நேரத்தில் மீண்டும் முயற்சி செய்யவும்.</string>
+    <string name="upgrade_screen_subscription_offer_title">வருடாந்திர சந்தா</string>
+    <string name="upgrade_screen_subscription_offer_body">இலவச சோதனையின் பிறகு ஆண்டுக்கு ஒரு முறை புதுப்பிக்கப்படும். Google Play இல் எப்போதும் ரத்து செய்யலாம்.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ஆண்டுக்கு ஒரு முறை புதுப்பிக்கப்படும். Google Play இல் எப்போதும் ரத்து செய்யலாம்.</string>
+    <string name="upgrade_screen_iap_offer_body">ஒரு முறை பணம் செலுத்தவும், புதுப்பிப்பு இல்லை.</string>
+    <string name="upgrade_screen_benefits_title">மேம்பாடு சலுகைகள்</string>
+    <string name="upgrade_screen_restore_body">புனருத்தாரம் Google Play ஐ இந்த பயன்பாட்டின் வாங்குதல்களை தற்போதைய கணக்குக் மீண்டும் சரிபார்க்க கேட்கிறது. இது புதிய வாங்குதலைத் தொடங்கவில்லை.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod இப்போது Google Play ஐ சரிபார்த்தது, ஆனால் Google Play இந்த பயன்பாட்டிற்குப் பயன்படுத்தும் கணக்குக் Pro வாங்குதல் உறுதிப்படுத்தப்படவில்லை.</string>
+    <string name="upgrade_screen_restore_contact_hint">இன்னும் சிக்கலாக உள்ளதா? வாங்குதல் செய்த மின்னஞ்சலிலிருந்து ஆதரவைத் தொடர்பு கொள்ளவும் மற்றும் உங்கள் Google Play ஆணை எண்ணைச் சேர்க்கவும்.</string>
+    <string name="upgrade_screen_contact_support_action">ஆதரவைத் தொடர்பு கொள்ளவும்</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">உங்கள் மேம்படுத்தல் மற்றும் கொள்முதல் நிலை.</string>
+    <string name="settings_upgrade_status_description">உங்கள் மேம்பாடு மற்றும் வாங்குதல் நிலை.</string>
 </resources>

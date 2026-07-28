@@ -6,6 +6,7 @@
     <string name="general_copy_action">പകർത്തുക</string>
     <string name="general_thank_you_label">നന്ദി</string>
     <string name="general_upgrade_action">അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
+    <string name="general_retry_action">വീണ്ടും ശ്രമിക്കുക</string>
     <string name="common_feature_requires_pro_msg">അൺലോക്ക് ചെയ്യാൻ അപ്‌ഗ്രേഡ് ചെയ്യുക.</string>
     <string name="common_upgrade_required_label">അപ്‌ഗ്രേഡ് ആവശ്യമാണ്</string>
     <string name="general_donate_action">സംഭാവനചെയ്യുക</string>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Satınalmanız təsdiqlənir</string>
     <string name="upgrade_screen_grace_body_short">Google Play hələ satınalmanızı təsdiqləməyib. Pro hələ də aktivdir — heç bir əməliyyat lazım deyil.</string>
     <string name="upgrade_screen_grace_body">Google Play bir müddətdir satınalmanızı təsdiqləməyib. Pro hələ də aktivdir. Onlayn olduğunuzdan və satınalma üçün istifadə edilən Google hesabı ilə daxil olduğunuzdan əmin olun, sonra bərpa etməyi sınayın.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Yüksəltmə seçimləri</string>
+    <string name="upgrade_screen_offers_or">və ya</string>
+    <string name="upgrade_screen_offers_body">Eyni xüsusiyyətlər, sadəcə fərqli qiymət modelləri.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Qiymətlər əlçatan deyil</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play hazırda qiymətləri qaytarmadı. Əlaqənizi yoxlayın və bir anlıq sonra yenidən sınayın.</string>
+    <string name="upgrade_screen_subscription_offer_title">İllik abonəlik</string>
+    <string name="upgrade_screen_subscription_offer_body">Pulsuz sınaq müddətindən sonra hər il yenilənir. Google Play-də istənilən zaman ləğv edin.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Hər il yenilənir. Google Play-də istənilən zaman ləğv edin.</string>
+    <string name="upgrade_screen_iap_offer_body">Bir ödəniş, yenilənmə yoxdur.</string>
+    <string name="upgrade_screen_benefits_title">Yüksəltmə üstünlükləri</string>
+    <string name="upgrade_screen_restore_body">Bərpa etmə Google Play-dən bu tətbiqin cari hesab üçün alışlarını yenidən yoxlamasını istəyir. Yeni bir alış başlatmır.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod yeni Google Play-i yoxladı, lakin bu tətbiq üçün Google Play istifadə etdiyi hesab üçün heç bir Pro alışı təsdiq edilə bilmədi.</string>
+    <string name="upgrade_screen_restore_contact_hint">Hələ də sıkışmısınız? Alışı edən e-poçtdan dəstək xidmətinə müraciət edin və Google Play sifariş nömrənizi daxil edin.</string>
+    <string name="upgrade_screen_contact_support_action">Dəstək xidmətinə müraciət edin</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Yüksəltmə və satınalma statusunuz.</string>
+    <string name="settings_upgrade_status_description">Sizin yüksəltmə və alış statusu.</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">복사</string>
     <string name="general_thank_you_label">감사합니다</string>
     <string name="general_upgrade_action">업그레이드</string>
+    <string name="general_retry_action">재시도</string>
     <string name="common_feature_requires_pro_msg">잠금 해제하려면 업그레이드하세요.</string>
     <string name="common_upgrade_required_label">업그레이드 필요</string>
     <string name="general_donate_action">후원하기</string>

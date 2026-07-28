@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopeeri</string>
     <string name="general_thank_you_label">Tänan</string>
     <string name="general_upgrade_action">Uuenda</string>
+    <string name="general_retry_action">Proovi uuesti</string>
     <string name="common_feature_requires_pro_msg">Uuenda, et eemaldada piirang.</string>
     <string name="common_upgrade_required_label">Vajab uuendust</string>
     <string name="general_donate_action">Anneta</string>
@@ -197,16 +198,16 @@
     <string name="overview_monitoring_active_label">Seadmete jälgimine</string>
     <string name="overview_monitoring_active_description">Veenduge, et seade oleks läheduses ja kasutusel.</string>
     <string name="overview_troubleshoot_suggestion_label">Ühendatud, kuid andmeid pole</string>
-    <string name="overview_troubleshoot_suggestion_description">Seade on ühendatud, kuid CAPod ei saa sellelt otseandmeid. Telefon vajab tõenäoliselt ühilduvuse valikut — trikijär kontrollib, kas suudab selle automaatselt leida.</string>
-    <string name="overview_troubleshoot_suggestion_action">Käivita trikijär</string>
+    <string name="overview_troubleshoot_suggestion_description">Seade on ühendatud, kuid CAPod ei saa sellelt otseandmeid. Telefon vajab tõenäoliselt ühilduvuse valikut — abistaja kontrollib, kas suudab selle ise leida.</string>
+    <string name="overview_troubleshoot_suggestion_action">Käivita abistaja</string>
     <string name="overview_unmatched_devices_label">Omavahel sobimatud seadmed</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d seade ei kattu profiiliga</item>
         <item quantity="other">%d seadet ei kattu profiiliga</item>
     </plurals>
     <plurals name="overview_unmatched_devices_description">
-        <item quantity="one">Tuvastati %d lähedalasuv seade, millel puudub sobiv profiil. Kuva üksikasjad. Kui see on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
-        <item quantity="other">Tuvastati %d lähedalasuvat seadet, millel puudub sobiv profiil. Kuva üksikasjad. Kui mõni neist on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
+        <item quantity="one">Tuvastati %d lähedalasuv seade, millel puudub sobiv profiil. Kuva andmed. Kui see on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
+        <item quantity="other">Tuvastati %d lähedalasuvat seadet, millel puudub sobiv profiil. Kuva andmed. Kui mõni neist on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">%d seade veel</item>

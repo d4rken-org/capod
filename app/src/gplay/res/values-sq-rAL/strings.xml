@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Duke konfirmuar blerjen tuaj</string>
     <string name="upgrade_screen_grace_body_short">Google Play ende nuk e ka konfirmuar blerjen tuaj. Pro është ende aktiv — nuk kërkohet asnjë veprim.</string>
     <string name="upgrade_screen_grace_body">Google Play nuk e ka konfirmuar blerjen tuaj prej njëfarë kohe. Pro është ende aktiv. Sigurohuni që jeni online dhe të kyçur me llogarinë Google të përdorur për blerjen, pastaj provoni ta rikthyeni.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Opsionet e përmirësimit</string>
+    <string name="upgrade_screen_offers_or">ose</string>
+    <string name="upgrade_screen_offers_body">Të njëjtat veçori, vetëm modele çmimesh të ndryshme.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Çmimet nuk janë të disponueshme</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play nuk ktheu çmimet tani. Kontrolloni lidhjen tuaj dhe provoni përsëri në një moment.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abonim vjetor</string>
+    <string name="upgrade_screen_subscription_offer_body">Rinovohet çdo vit pas periudhës falas. Anuloni në çdo kohë në Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Rinovohet çdo vit. Anuloni në çdo kohë në Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Një pagesë, pa rinovime.</string>
+    <string name="upgrade_screen_benefits_title">Përfitimet e përmirësimit</string>
+    <string name="upgrade_screen_restore_body">Restaurimi kërkon nga Google Play të ri-kontrollojë blerjet e këtij aplikacioni për konten aktuale. Ai nuk fillon një blerje të re.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod sapo kontrolloi Google Play, por asnjë blerje Pro nuk mund të konfirmohej për konten që Google Play po përdor për këtë aplikacion.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ende i bllokuar? Kontaktoni mbështetjen nga emaili që ka bërë blerjen dhe përfshini numërin e porosës tuaj Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontaktoni mbështetjen</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Statusi juaj i përmirësimit dhe blerjes.</string>
 </resources>

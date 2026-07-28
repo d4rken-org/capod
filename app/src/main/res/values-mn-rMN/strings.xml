@@ -6,6 +6,7 @@
     <string name="general_copy_action">Хуулах</string>
     <string name="general_thank_you_label">Баярлалаа</string>
     <string name="general_upgrade_action">Шинэчлэх</string>
+    <string name="general_retry_action">Дахин оролдох</string>
     <string name="common_feature_requires_pro_msg">Нээхийн тулд шинэчлэх.</string>
     <string name="common_upgrade_required_label">Шинэчлэл шаардлагатай</string>
     <string name="general_donate_action">Хандив өгөх</string>

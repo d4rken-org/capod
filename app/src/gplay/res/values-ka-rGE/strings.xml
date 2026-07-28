@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">თქვენი შესყიდვის დადასტურება</string>
     <string name="upgrade_screen_grace_body_short">Google Play-მ ჯერ არ დაადასტურა თქვენი შესყიდვა. Pro კვლავ აქტიურია — არანაირი მოქმედება არ არის საჭირო.</string>
     <string name="upgrade_screen_grace_body">Google Play-მ დიდი ხანია არ დაუდასტურებია თქვენი შესყიდვა. Pro კვლავ აქტიურია. დარწმუნდით, რომ ხართ ონლაინ და შესული ხართ იმ Google ანგარიშით, რომლითაც შესყიდვა განახორციელეთ, შემდეგ სცადეთ აღდგენა.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">განახლების ვარიანტები</string>
+    <string name="upgrade_screen_offers_or">ან</string>
+    <string name="upgrade_screen_offers_body">იგივე ფუნქციები, მხოლოდ სხვადსხვა ფასის მოდელი.</string>
+    <string name="upgrade_screen_offers_unavailable_title">ფასები მიუწვდომელია</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ახლა ფასებს არ აბრუნებს. შეამოწმეთ თქვენი კავშირი და მცირე ხნის შემდეგ ხელახლა სცადეთ.</string>
+    <string name="upgrade_screen_subscription_offer_title">წლიური გამოწერა</string>
+    <string name="upgrade_screen_subscription_offer_body">განახლდება ყოველწლიურად უფასო საცდელი პერიოდის შემდეგ. გაუქმება შესაძლებელია ნებისმიერ დროს Google Play-ში.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">განახლდება ყოველწლიურად. გაუქმება შესაძლებელია ნებისმიერ დროს Google Play-ში.</string>
+    <string name="upgrade_screen_iap_offer_body">ერთი გადახდა, განახლებების გარეშე.</string>
+    <string name="upgrade_screen_benefits_title">განახლების უპირატესობები</string>
+    <string name="upgrade_screen_restore_body">აღდგენა ითხოვს Google Play-ს, რომ ხელახლა შეამოწმოს ამ ანგარიშის აპლიკაციის ყიდვები. ეს ახალ ყიდვას არ იწყებს.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ახლახან შეამოწმა Google Play-ს, მაგრამ Pro ყიდვა ვერ დადასტურდა იმ ანგარიშისთვის, რომელსაც Google Play იყენებს ამ აპლიკაციისთვის.</string>
+    <string name="upgrade_screen_restore_contact_hint">ჯერ კიდევ დაჭერილი? დაუკავშირდით მხარდამჭერს იმ ელფოსტიდან, რომელმაც შეიძინა და მიუთითეთ თქვენი Google Play შეკვეთის ნომერი.</string>
+    <string name="upgrade_screen_contact_support_action">მხარდამჭერთან დაკავშირება</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">თქვენი განახლებისა და შესყიდვის სტატუსი.</string>
+    <string name="settings_upgrade_status_description">თქვენი განახლებისა და ყიდვის მდგომარეობა.</string>
 </resources>

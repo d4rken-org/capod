@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Inathibitisha ununuzi wako</string>
     <string name="upgrade_screen_grace_body_short">Google Play bado haijathibitisha ununuzi wako. Pro bado inatumika — hakuna hatua inayohitajika.</string>
     <string name="upgrade_screen_grace_body">Google Play haijathibitisha ununuzi wako kwa muda. Pro bado inatumika. Hakikisha uko mtandaoni na umeingia na akaunti ya Google iliyotumika kununua, kisha jaribu kurejesha.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Chaguo za Kuboreshwa</string>
+    <string name="upgrade_screen_offers_or">au</string>
+    <string name="upgrade_screen_offers_body">Vipengele sawa, tu mifano ya bei tofauti.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Bei haipatikani</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play haikurudi bei kwa sasa. Angalia muunganisho wako na jaribu tena baada ya dakika kadhaa.</string>
+    <string name="upgrade_screen_subscription_offer_title">Usajili wa Kila Mwaka</string>
+    <string name="upgrade_screen_subscription_offer_body">Inafanya upya kila mwaka baada ya jaribio la bure. Ghairi wakati wowote katika Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Inafanya upya kila mwaka. Ghairi wakati wowote katika Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Malipo moja, hakuna upya.</string>
+    <string name="upgrade_screen_benefits_title">Faida za Upgrade</string>
+    <string name="upgrade_screen_restore_body">Kusahamaisha ununuzi kunomba Google Play kusahih upya ununuzi wa programu hii kwa akaunti ya sasa. Haitumishi kuanza ununuzi mpya.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod imekagua Google Play tu, lakini hakuna ununuzi wa Pro unaoweza kuthibitishwa kwa akaunti ambayo Google Play inatumia kwa programu hii.</string>
+    <string name="upgrade_screen_restore_contact_hint">Bado una tatizo? Wasiliana na msaada kutoka kwa barua pepe ambayo ilifanya ununuzi na jumuisha namba yako ya agizo la Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Wasiliana na msaada</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Hali ya uboreshaji na ununuzi wako.</string>
+    <string name="settings_upgrade_status_description">Hali yako ya Upgrade na Ununuzi.</string>
 </resources>

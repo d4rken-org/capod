@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">आपकी खरीदारी की पुष्टि की जा रही है</string>
     <string name="upgrade_screen_grace_body_short">Google Play ने अभी तक आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है — कोई कार्रवाई जरूरी नहीं।</string>
     <string name="upgrade_screen_grace_body">Google Play ने काफ़ी समय से आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है। सुनिश्चित करें कि आप ऑनलाइन हैं और उसी Google खाते से साइन इन हैं जिससे खरीदारी की गई थी, फिर पुनर्स्थापित करने का प्रयास करें।</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">अपग्रेड विकल्प</string>
+    <string name="upgrade_screen_offers_or">या</string>
+    <string name="upgrade_screen_offers_body">समान विशेषताएं, केवल अलग मूल्य निर्धारण मॉडल।</string>
+    <string name="upgrade_screen_offers_unavailable_title">कीमतें अनुपलब्ध हैं</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ने अभी कीमतें नहीं दीं। अपना कनेक्शन जांचें और एक पल में फिर से कोशिश करें।</string>
+    <string name="upgrade_screen_subscription_offer_title">वार्षिक सदस्यता</string>
+    <string name="upgrade_screen_subscription_offer_body">मुफ्त परीक्षण के बाद वार्षिक नवीनीकरण। Google Play में किसी भी समय रद्द करें।</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">वार्षिक नवीनीकरण। Google Play में किसी भी समय रद्द करें।</string>
+    <string name="upgrade_screen_iap_offer_body">एक भुगतान, कोई नवीकरण नहीं।</string>
+    <string name="upgrade_screen_benefits_title">अपग्रेड लाभ</string>
+    <string name="upgrade_screen_restore_body">पुनः प्राप्त करना Google Play से इस ऐप के क्रय को वर्तमान खाते के लिए फिर से जांचने के लिए कहता है। यह नई खरीद शुरू नहीं करता।</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ने अभी Google Play से जांच की है, लेकिन इस ऐप के लिए Google Play द्वारा उपयोग किए जा रहे खाते के लिए कोई Pro खरीद की पुष्टि नहीं की जा सकी।</string>
+    <string name="upgrade_screen_restore_contact_hint">अभी भी फंसे हुए हैं? उस ईमेल से सहायता संपर्क करें जिसने खरीद की थी और अपना Google Play ऑर्डर नंबर शामिल करें।</string>
+    <string name="upgrade_screen_contact_support_action">सहायता से संपर्क करें</string>
     <string name="settings_upgrade_status_label">कैपोड प्रो</string>
     <string name="settings_upgrade_status_description">आपकी अपग्रेड और खरीद स्थिति।</string>
 </resources>

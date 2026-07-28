@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Zure erosketa berresten</string>
     <string name="upgrade_screen_grace_body_short">Google Playk oraindik ez du zure erosketa berretsi. Pro aktibo dago oraindik — ez da ekintzarik behar.</string>
     <string name="upgrade_screen_grace_body">Google Playk denbora luzez ez du zure erosketa berretsi. Pro aktibo dago oraindik. Ziurtatu konektatuta zaudela eta erosketa egiteko erabilitako Google kontuarekin saioa hasita duzula, eta gero saiatu leheneratzen.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Bertsio hobetzeko aukerak</string>
+    <string name="upgrade_screen_offers_or">edo</string>
+    <string name="upgrade_screen_offers_body">Ezaugarri berdineak, prezioen eredu desberdina baino ez.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prezioak ez daude erabilgarri</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play-k prezioak ez ditu itzuli orain. Egiaztatu zure konexioa eta berriro saiatu beranduago.</string>
+    <string name="upgrade_screen_subscription_offer_title">Urteko harpidetza</string>
+    <string name="upgrade_screen_subscription_offer_body">Urtean behin berrituko da doan saiakera bukatu ondoren. Edozein unetan utzi dezakezu Google Play-n.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Urtean behin berrituko da. Edozein unetan utzi dezakezu Google Play-n.</string>
+    <string name="upgrade_screen_iap_offer_body">Ordainketa bakarra, ez da berrituko.</string>
+    <string name="upgrade_screen_benefits_title">Bertsio hobetzeko onurak</string>
+    <string name="upgrade_screen_restore_body">Berrezartzeak Google Play-ri aplikazio honen erosketen berriro egiaztatzeko eskatzen dio kontu baterako. Ez du erosketa berri bat hasten.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod-ek Google Play begiratu du, baina ez da Pro erosketaren bat baieztatu ahal izan kontu honetarako.</string>
+    <string name="upgrade_screen_restore_contact_hint">Oraino traba? Laguntzarekin jarri harremanetan erosketaren e-maila erabilita eta zure Google Play eskaera zenbakia gehitu.</string>
+    <string name="upgrade_screen_contact_support_action">Laguntzarekin jarri harremanetan</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Zure eguneratze- eta erosketa-egoera.</string>
+    <string name="settings_upgrade_status_description">Zure bertsio hobetzea eta erosketaren egoera.</string>
 </resources>

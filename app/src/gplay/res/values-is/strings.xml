@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Staðfesti kaupin þín</string>
     <string name="upgrade_screen_grace_body_short">Google Play hefur ekki staðfest kaupin þín ennþá. Pro er áfram virkt — engra aðgerða er þörf.</string>
     <string name="upgrade_screen_grace_body">Google Play hefur ekki staðfest kaupin þín um nokkurt skeið. Pro er áfram virkt. Gakktu úr skugga um að þú sért nettengd(ur) og skráð(ur) inn með Google reikningnum sem notaður var við kaupin, og reyndu svo að endurheimta.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Uppfærsluvalkostir</string>
+    <string name="upgrade_screen_offers_or">eða</string>
+    <string name="upgrade_screen_offers_body">Sömu eiginleikar, bara mismunandi verðlagnarvalkostir.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Verð ekki tiltækt</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play skilaði ekki verðum núna. Athugaðu tenginguna þína og reyndu aftur í augnabliki.</string>
+    <string name="upgrade_screen_subscription_offer_title">Árleg áskrift</string>
+    <string name="upgrade_screen_subscription_offer_body">Endurnýjast árlega eftir ókeypis prufu. Hætta hvenær sem er í Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Endurnýjast árlega. Hætta hvenær sem er í Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Ein greiðsla, engar endurnýjanir.</string>
+    <string name="upgrade_screen_benefits_title">Kostir uppfærslu</string>
+    <string name="upgrade_screen_restore_body">Endurreisn biður Google Play að endurstaðfesta kaup þessa forrits fyrir núverandi reikning. Það byrjar ekki ný kaup.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod athugaði nýlega hjá Google Play, en engin Pro kaup gætu verið staðfest fyrir reikninginn sem Google Play notar fyrir þessa forrit.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ennþá fastur? Hafðu samband við stuðning frá tölvupósti sem gerði kaupin og tiltaktu Google Play pöntunarnúmeri þinn.</string>
+    <string name="upgrade_screen_contact_support_action">Hafðu samband við stuðning</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Staða uppfærslu þinnar og kaupa.</string>
+    <string name="settings_upgrade_status_description">Staða þinnar uppfærslu og kaupa</string>
 </resources>

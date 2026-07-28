@@ -6,6 +6,7 @@
     <string name="general_copy_action">კოპირება</string>
     <string name="general_thank_you_label">გმადლობთ</string>
     <string name="general_upgrade_action">განახლება</string>
+    <string name="general_retry_action">ხელახლა</string>
     <string name="common_feature_requires_pro_msg">განბლოკვისთვის განაახლეთ.</string>
     <string name="common_upgrade_required_label">საჭიროებს განახლებას</string>
     <string name="general_donate_action">შემოწირულება</string>

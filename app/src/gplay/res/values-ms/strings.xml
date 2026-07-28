@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Mengesahkan pembelian anda</string>
     <string name="upgrade_screen_grace_body_short">Google Play belum mengesahkan pembelian anda lagi. Pro masih aktif — tiada tindakan diperlukan.</string>
     <string name="upgrade_screen_grace_body">Google Play belum mengesahkan pembelian anda buat seketika. Pro masih aktif. Pastikan anda dalam talian dan log masuk dengan akaun Google yang digunakan untuk pembelian, kemudian cuba pulihkan.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Pilihan peningkatan</string>
+    <string name="upgrade_screen_offers_or">atau</string>
+    <string name="upgrade_screen_offers_body">Ciri-ciri yang sama, hanya model harga yang berbeza.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Harga tidak tersedia</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play tidak mengembalikan harga buat masa ini. Semak sambungan anda dan cuba lagi sebentar lagi.</string>
+    <string name="upgrade_screen_subscription_offer_title">Langganan tahunan</string>
+    <string name="upgrade_screen_subscription_offer_body">Diperbaharui setiap tahun selepas percubaan percuma. Batalkan bila-bila masa di Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Diperbaharui setiap tahun. Batalkan bila-bila masa di Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Satu pembayaran, tiada pembaruan.</string>
+    <string name="upgrade_screen_benefits_title">Faedah Peningkatan</string>
+    <string name="upgrade_screen_restore_body">Pemulihan meminta Google Play untuk menyemak semula pembelian aplikasi ini untuk akaun semasa. Ia tidak memulakan pembelian baharu.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod baru sahaja menyemak Google Play, tetapi tiada pembelian Pro dapat disahkan untuk akaun yang Google Play gunakan untuk aplikasi ini.</string>
+    <string name="upgrade_screen_restore_contact_hint">Masih tersekat? Hubungi sokongan daripada e-mel yang membuat pembelian dan sertakan nombor pesanan Google Play anda.</string>
+    <string name="upgrade_screen_contact_support_action">Hubungi Sokongan</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Status peningkatan dan pembelian anda.</string>
 </resources>

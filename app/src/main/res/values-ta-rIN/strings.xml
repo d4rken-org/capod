@@ -6,6 +6,7 @@
     <string name="general_copy_action">நகலெடு</string>
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
+    <string name="general_retry_action">மீண்டும் முயல்</string>
     <string name="common_feature_requires_pro_msg">திறக்க மேம்படுத்தவும்.</string>
     <string name="common_upgrade_required_label">மேம்படுத்தல் தேவை</string>
     <string name="general_donate_action">நன்கொடை</string>

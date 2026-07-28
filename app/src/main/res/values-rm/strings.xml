@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Engraziel</string>
     <string name="general_upgrade_action">Actualisar</string>
+    <string name="general_retry_action">Reprovescha</string>
     <string name="common_feature_requires_pro_msg">Actualisar per sbluccar.</string>
     <string name="common_upgrade_required_label">Necessita in aggiornamento</string>
     <string name="general_donate_action">Donaziun</string>

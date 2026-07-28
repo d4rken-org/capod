@@ -6,6 +6,7 @@
     <string name="general_copy_action">Afrita</string>
     <string name="general_thank_you_label">Þakka þér fyrir</string>
     <string name="general_upgrade_action">Uppfæra</string>
+    <string name="general_retry_action">Reyndu aftur</string>
     <string name="common_feature_requires_pro_msg">Uppfærðu til að opna.</string>
     <string name="common_upgrade_required_label">Krefst uppfærslu</string>
     <string name="general_donate_action">Gefa</string>

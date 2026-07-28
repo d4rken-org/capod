@@ -6,6 +6,7 @@
     <string name="general_copy_action">ቅዳ</string>
     <string name="general_thank_you_label">አመሰግናለሁ</string>
     <string name="general_upgrade_action">አሻሽል</string>
+    <string name="general_retry_action">ድጋሚ ሞክር</string>
     <string name="common_feature_requires_pro_msg">ለማስከፈቻ አሻሽል።</string>
     <string name="common_upgrade_required_label">ማሻሻያ ያስፈልጋል</string>
     <string name="general_donate_action">ይለግሱ</string>

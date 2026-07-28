@@ -6,6 +6,7 @@
     <string name="general_copy_action">ကူးယူရန်</string>
     <string name="general_thank_you_label">ကျေးဇူးတင်ပါတယ်</string>
     <string name="general_upgrade_action">အဆင့်မြှင့်တင်ရန်</string>
+    <string name="general_retry_action">ထပ်မံစမ်းပါ</string>
     <string name="common_feature_requires_pro_msg">သော့ဖွင့်ရန် အဆင့်မြှင့်ပါ။</string>
     <string name="common_upgrade_required_label">အဆင့်မြှင့်တင်ရန် လိုအပ်သည်</string>
     <string name="general_donate_action">လှူဒါန်းပါ</string>

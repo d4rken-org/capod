@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopieer</string>
     <string name="general_thank_you_label">Dankie</string>
     <string name="general_upgrade_action">Opgradeer</string>
+    <string name="general_retry_action">Probeer weer</string>
     <string name="common_feature_requires_pro_msg">Gradeer op om te ontsluit.</string>
     <string name="common_upgrade_required_label">Opgradering benodig</string>
     <string name="general_donate_action">Skenk</string>

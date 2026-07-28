@@ -48,7 +48,23 @@
     <string name="upgrade_screen_sub_check_failed_message">Google Play-യിൽ നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ നില പരിശോധിക്കാൻ കഴിഞ്ഞില്ല. ഇരട്ട വാങ്ങൽ ഒഴിവാക്കാൻ അൽപ്പം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_grace_title">നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിക്കുന്നു</string>
     <string name="upgrade_screen_grace_body_short">Google Play ഇതുവരെ നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ് — ഒരു നടപടിയും ആവശ്യമില്ല.</string>
-    <string name="upgrade_screen_grace_body">കുറച്ച് സമയമായി Google Play നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ്. നിങ്ങൾ ഓൺലൈനിലാണെന്നും വാങ്ങലിനായി ഉപയോഗിച്ച Google അക്കൗണ്ട് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്നും ഉറപ്പാക്കുക, എന്നിട്ട് പുനഃസ്ഥാപിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="upgrade_screen_grace_body">കുറച്ച് സമയമായി Google Play നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ്. നിങ്ങൾ ഓൺലൈനിലാണെന്നും വാങ്ങലിനായി ഉപയോഗിച്ച 
+ Google അക്കൗണ്ട് ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്നും ഉറപ്പാക്കുക, എന്നിട്ട് പുനഃസ്ഥാപിക്കാൻ ശ്രമിക്കുക.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">അപ്‌ഗ്രേഡ് ഓപ്ഷനുകൾ</string>
+    <string name="upgrade_screen_offers_or">അല്ലെങ്കിൽ</string>
+    <string name="upgrade_screen_offers_body">ഒരേ സവിശേഷതകൾ, വെറും വ്യത്യസ്ത വിലനിര്ണ്ണയ മാതൃകകൾ.</string>
+    <string name="upgrade_screen_offers_unavailable_title">വിലകൾ ലഭ്യമല്ല</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ഇപ്പോൾ വിലകൾ നൽകിയിട്ടില്ല. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിച്ച് കുറച്ച് നേരത്തിനുശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="upgrade_screen_subscription_offer_title">വാർഷിക സബ്‌സ്‌ക്രിപ്ഷൻ</string>
+    <string name="upgrade_screen_subscription_offer_body">സ്വതന്ത്ര പരീക്ഷണത്തിനുശേഷം വാർഷികമായി പുതുക്കുന്നു. Google Play-ൽ ഏത് സമയത്തും റദ്ദ് ചെയ്യാം.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">വാർഷികമായി പുതുക്കുന്നു. Google Play-ൽ ഏത് സമയത്തും റദ്ദ് ചെയ്യാം.</string>
+    <string name="upgrade_screen_iap_offer_body">ഒരു പേയ്‌മെന്റ്, പുതുക്കലില്ല.</string>
+    <string name="upgrade_screen_benefits_title">അപ്ഗ്രേഡ് ഗുണങ്ങൾ</string>
+    <string name="upgrade_screen_restore_body">പുനരുദ്ധാരണ Google Play നെ ഈ ആപ്ലിക്കേഷന്റെ വാങ്ങലുകൾ നിലവിലെ അക്കൗണ്ടിനായി വീണ്ടും പരിശോധിക്കാൻ ആവശ്യപ്പെടുന്നു. ഇത് ഒരു പുതിയ വാങ്ങൽ ആരംഭിക്കുന്നില്ല.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ഇപ്പോൾ Google Play പരിശോധിച്ചു, എന്നാൽ ഈ ആപ്ലിക്കേഷനിനായി Google Play ഉപയോഗിക്കുന്ന അക്കൗണ്ടിനായി Pro വാങ്ങൽ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="upgrade_screen_restore_contact_hint">ഇനിയും കുടുങ്ങിയിരിക്കുന്നുണ്ടോ? വാങ്ങൽ നടത്തിയ ഇമെയിൽ വിലാസത്തിൽ നിന്ന് പിന്തുണയ്ക്കായി ബന്ധപ്പെടുക കൂടാതെ നിങ്ങളുടെ Google Play ഓർഡർ നമ്പർ ചേർക്കുക.</string>
+    <string name="upgrade_screen_contact_support_action">പിന്തുണയ്ക്കായി ബന്ധപ്പെടുക</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും നില.</string>
+    <string name="settings_upgrade_status_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും സ്ഥിതി.</string>
 </resources>

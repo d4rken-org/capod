@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Հաստատում ենք ձեր գնումը</string>
     <string name="upgrade_screen_grace_body_short">Google Play-ը դեռ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է․ գործողություն պահանջվող չէ:</string>
     <string name="upgrade_screen_grace_body">Google Play-ը որոշ ժամանակ է, ինչ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է: Համոզվեք, որ առցանց եք և մուտք գործած այն Google հաշվով, որով կատարվել է գնումը, ապա փորձեք վերականգնել:</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Թարմացման ընտրանքներ</string>
+    <string name="upgrade_screen_offers_or">կամ</string>
+    <string name="upgrade_screen_offers_body">Նույն հատկանիշները, պարզապես տարբեր գինային մոդելներ:</string>
+    <string name="upgrade_screen_offers_unavailable_title">Գները հասանելի չեն</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play-ը այս պահին գինը չի վերադարձրել: Ստուգեք ձեր կապը և մի պահ հետո նորից փորձեք:</string>
+    <string name="upgrade_screen_subscription_offer_title">Տարեկան բաժանորդություն</string>
+    <string name="upgrade_screen_subscription_offer_body">Վերականգնվում է տարեկան անվճար փորձից հետո: Google Play-ում ցանկացած ժամանակ կարելի է չեղարկել:</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Վերականգնվում է տարեկան: Google Play-ում ցանկացած ժամանակ կարելի է չեղարկել:</string>
+    <string name="upgrade_screen_iap_offer_body">Մեկ անգամ վճար, վերականգնացում չկա:</string>
+    <string name="upgrade_screen_benefits_title">Թարմացման առավելությունները</string>
+    <string name="upgrade_screen_restore_body">Վերականգնումը Google Play-ին խնդրում է կրկին ստուգել այս հավելվածի գնումները ընթացիկ հաշվի համար: Այն նոր գնում չի սկսում:</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod-ը պարզապես ստուգեց Google Play-ը, բայց այս հավելվածի համար օգտագործվող Google Play հաշվում Pro գնում հաստատել չեղավ:</string>
+    <string name="upgrade_screen_restore_contact_hint">Դեռ շարունակումներ՞ Աջակցության հետ կապ հաստատեք այն էմեյլից, որից կատարվել է գնումը, և ներառեք Google Play պատվերի համարը:</string>
+    <string name="upgrade_screen_contact_support_action">Աջակցության հետ կապ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Ձեր արդիացման և գնման կարգավիճակը:</string>
+    <string name="settings_upgrade_status_description">Ձեր թարմացման և գնման վիճակը:</string>
 </resources>

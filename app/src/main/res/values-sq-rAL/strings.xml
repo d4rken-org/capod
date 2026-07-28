@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopjo</string>
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_upgrade_action">Përmirëso</string>
+    <string name="general_retry_action">Provo përsëri</string>
     <string name="common_feature_requires_pro_msg">Përmirëso për të zhbllokuar.</string>
     <string name="common_upgrade_required_label">Kërkon përmirësim</string>
     <string name="general_donate_action">Dhuroni</string>

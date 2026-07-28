@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopyala</string>
     <string name="general_thank_you_label">Təşəkkür edirik</string>
     <string name="general_upgrade_action">Yenilə</string>
+    <string name="general_retry_action">Yenidən cəhd edin</string>
     <string name="common_feature_requires_pro_msg">Kiliddən açmaq üçün yüksəldin.</string>
     <string name="common_upgrade_required_label">Yükseltmə tələb olunur</string>
     <string name="general_donate_action">İanə verin</string>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">तपाईंको खरिद पुष्टि गर्दै</string>
     <string name="upgrade_screen_grace_body_short">Google Play ले तपाईंको खरिद अझै पुष्टि गरेको छैन। Pro अझै सक्रिय छ — कुनै कार्य आवश्यक छैन।</string>
     <string name="upgrade_screen_grace_body">Google Play ले तपाईंको खरिद धेरै समयदेखि पुष्टि गरेको छैन। Pro अझै सक्रिय छ। तपाईं अनलाइन हुनुहुन्छ र खरिदको लागि प्रयोग गरिएको Google खातामा साइन इन गर्नुभएको सुनिश्चित गर्नुहोस्, त्यसपछि पुनर्स्थापना गर्ने प्रयास गर्नुहोस्।</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">अपग्रेड विकल्पहरू</string>
+    <string name="upgrade_screen_offers_or">वा</string>
+    <string name="upgrade_screen_offers_body">समान सुविधाहरू, केवल फरक मूल्य निर्धारण मडेलहरू।</string>
+    <string name="upgrade_screen_offers_unavailable_title">मूल्यहरू उपलब्ध छैनन्</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ले अहिले मूल्यहरू फिर्ता गरेन। आफ्नो जडान जाँच गर्नुहोस् र केही समयमा पुनः प्रयास गर्नुहोस्।</string>
+    <string name="upgrade_screen_subscription_offer_title">वार्षिक सदस्यता</string>
+    <string name="upgrade_screen_subscription_offer_body">नि:शुल्क परीक्षणपछि वार्षिक नवीकरण हुन्छ। Google Play मा कहिले पनि रद्द गर्न सक्नुहुन्छ।</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">वार्षिक नवीकरण हुन्छ। Google Play मा कहिले पनि रद्द गर्न सक्नुहुन्छ।</string>
+    <string name="upgrade_screen_iap_offer_body">एक भुक्तानी, कुनै नवीकरण छैन।</string>
+    <string name="upgrade_screen_benefits_title">अपग्रेड लाभहरू</string>
+    <string name="upgrade_screen_restore_body">पुनर्स्थापनले Google Play लाई यो अनुप्रयोगको वर्तमान खाताको लागि खरिदहरू पुनः जाँच गर्न माग गर्छ। यसले नयाँ खरिद सुरु गर्दैन।</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ले भर्खर Google Play जाँच गरेको छ, तर यो अनुप्रयोगको लागि Google Play द्वारा प्रयोग गरिएको खाताको लागि कुनै Pro खरिद पुष्टि गर्न सकिएन।</string>
+    <string name="upgrade_screen_restore_contact_hint">अझै पनि समस्या छ? खरिद गरेको इमेलबाट समर्थन सम्पर्क गर्नुहोस् र आफ्नो Google Play अर्डर नम्बर समावेश गर्नुहोस्।</string>
+    <string name="upgrade_screen_contact_support_action">समर्थन सम्पर्क गर्नुहोस्</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">तपाईंको अपग्रेड र खरिद स्थिति।</string>
+    <string name="settings_upgrade_status_description">आफ्नो अपग्रेड र खरिद स्थिति।</string>
 </resources>

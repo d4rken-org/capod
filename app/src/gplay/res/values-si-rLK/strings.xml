@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">ඔබේ මිලදී ගැනීම තහවුරු කරමින්</string>
     <string name="upgrade_screen_grace_body_short">Google Play තවම ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි — කිසිදු ක්‍රියාමාර්ගයක් අවශ්‍ය නොවේ.</string>
     <string name="upgrade_screen_grace_body">Google Play ටික කලක් තිස්සේ ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි. ඔබ අන්තර්ජාලයට සම්බන්ධව සිටින බවත්, මිලදී ගැනීම සඳහා භාවිත කළ Google ගිණුමෙන් පුරන්ව ඇති බවත් තහවුරු කරගෙන, පසුව ප්‍රතිසාධනය කිරීමට උත්සාහ කරන්න.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">උසස් කිරීමේ විකල්‍ප</string>
+    <string name="upgrade_screen_offers_or">හෝ</string>
+    <string name="upgrade_screen_offers_body">එකම විශේෂාංග, හුදෙක් වෙනස් මිල සැලසුම්.</string>
+    <string name="upgrade_screen_offers_unavailable_title">මිල ලබා ගත නොහැක</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play දැනට මිල ලබා දුන්නේ නැත. ඔබගේ සම්බන්ධතා පරීක්ෂා කරන්න සහ අවස්ථාවකින් නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrade_screen_subscription_offer_title">වාර්ෂික දිගු කිරීම</string>
+    <string name="upgrade_screen_subscription_offer_body">නිදහස් පරීක්ෂණ පසු වසරකට පුනරුවර්තනය. Google Play හි ඕනෑම කාලයක අවලංගු කරන්න.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">වසරකට පුනරුවර්තනය. Google Play හි ඕනෑම කාලයක අවලංගු කරන්න.</string>
+    <string name="upgrade_screen_iap_offer_body">එක ගෙවීම, පුනරුවර්තනයි නැත.</string>
+    <string name="upgrade_screen_benefits_title">වැඩිදුම් ප්‍රයෝජන</string>
+    <string name="upgrade_screen_restore_body">ප්‍රතිසම්පාදනය Google Play ට ඉල්ලයි මෙම යෙදුමේ ගිණුම් වර්තමාන ගිණුම සඩහා නැවත පරීක්ෂා කිරීමට. එය නව ගිණුමක් ආරම්භ නොකරයි.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod ඉකමණින් Google Play පරීක්ෂා කර ඇත, නමුත් Google Play මෙම යෙදුම සඩහා භාවිතා කරන ගිණුම සඩහා Pro ගිණුමක් තහවුරු කරිය නොහැකි විය.</string>
+    <string name="upgrade_screen_restore_contact_hint">තවමත් විළවටිර්නෙද? ගිණුම සිදු කරන ලද ඊමේල්වලින් සහාය සම්බන්ධ කරන්න සහ ඔබේ Google Play ඇණවුම් අංකය ඇතුළත් කරන්න.</string>
+    <string name="upgrade_screen_contact_support_action">සහාය සම්බන්ධ කරන්න</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">ඔබේ උසස් කිරීම සහ මිලදී ගැනීමේ තත්ත්වය.</string>
+    <string name="settings_upgrade_status_description">ඔබේ වැඩිදුම් සහ ගිණුම් තත්‍වය.</string>
 </resources>

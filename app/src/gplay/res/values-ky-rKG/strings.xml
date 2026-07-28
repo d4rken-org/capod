@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Сатып алууңуз ырасталууда</string>
     <string name="upgrade_screen_grace_body_short">Google Play сатып алууңузду азырынча ырастаган жок. Pro дагы эле активдүү — эч нерсе кылуунун кереги жок.</string>
     <string name="upgrade_screen_grace_body">Google Play сатып алууңузду бир далай убакыттан бери ырастаган жок. Pro дагы эле активдүү. Онлайн экениңизди жана сатып алуу үчүн колдонулган Google каттоо эсеби менен кирип турганыңызды текшериңиз, андан кийин калыбына келтирип көрүңүз.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Жогорулатуу варианттары</string>
+    <string name="upgrade_screen_offers_or">же</string>
+    <string name="upgrade_screen_offers_body">Бирдей функциялар, жөн гана башка баа модельдери.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Баалар жеткиликсиз</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play баалар жүктөй албады. Интернет байланышын текшерип, азыр сынап көрүңүз.</string>
+    <string name="upgrade_screen_subscription_offer_title">Жылдык жазылуу</string>
+    <string name="upgrade_screen_subscription_offer_body">Акысыз сынообуну аяктагандан кийин жыл сайын жаңыланат. Каалаган убакта Google Play-де жокко чыгара аласыз.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Жыл сайын жаңыланат. Каалаган убакта Google Play-де жокко чыгара аласыз.</string>
+    <string name="upgrade_screen_iap_offer_body">Бир төлөм, жаңылоо жок.</string>
+    <string name="upgrade_screen_benefits_title">Жакштыруунун артыкчылыктары</string>
+    <string name="upgrade_screen_restore_body">Калыбына келтирүү Google Play-ден бул колдонмонун сатып алуулары азыркы аккаунт үчүн кайра текшерүүсүн сурайт. Ал жаңы сатып алуу башталтпайт.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod жаңы эле Google Play текшерди, бирок бул колдонмо үчүн Google Play колдонулган аккаунт үчүн Pro сатып алуусу ырастаналган жок.</string>
+    <string name="upgrade_screen_restore_contact_hint">Дагы эле мүмкүн эмес беле? Сатып алуу жасаган электронды почтадан колдоо менен байланышын жана Google Play заказынын номерин коюңуз.</string>
+    <string name="upgrade_screen_contact_support_action">Колдоо менен байланышуу</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Жаңыртуу жана сатып алуу статусуңуз.</string>
+    <string name="settings_upgrade_status_description">Жакштыруу жана сатып алуу абалы</string>
 </resources>

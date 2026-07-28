@@ -6,6 +6,7 @@
     <string name="general_copy_action">Капіяваць</string>
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_upgrade_action">Абнавіць</string>
+    <string name="general_retry_action">Паўтарыць</string>
     <string name="common_feature_requires_pro_msg">Абнавіцеся, каб разблакаваць.</string>
     <string name="common_upgrade_required_label">Патрабуецца абнаўленне</string>
     <string name="general_donate_action">Ахвяраваць</string>

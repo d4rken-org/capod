@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_upgrade_action">Atualizar</string>
+    <string name="general_retry_action">Tentar novamente</string>
     <string name="common_feature_requires_pro_msg">Atualizar para desbloquear.</string>
     <string name="common_upgrade_required_label">Requer atualização</string>
     <string name="general_donate_action">Doar</string>

@@ -12,5 +12,5 @@
     <string name="upgrade_foss_supporter_thanks">از حمایت شما از توسعه CAPod سپاسگزاریم!</string>
     <string name="upgrade_foss_sponsor_again_action">باز کردن صفحه حمایت مالی</string>
     <string name="settings_upgrade_status_label">حمایت از CAPod</string>
-    <string name="settings_upgrade_status_description">وضعیت حمایت شما.</string>
+    <string name="settings_upgrade_status_description">وضعیت حمایتی شما.</string>
 </resources>

@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Vahvistetaan ostostasi</string>
     <string name="upgrade_screen_grace_body_short">Google Play ei ole vielä vahvistanut ostostasi. Pro on yhä aktiivinen — mitään ei tarvitse tehdä.</string>
     <string name="upgrade_screen_grace_body">Google Play ei ole vahvistanut ostostasi hetkeen. Pro on yhä aktiivinen. Varmista, että olet verkossa ja kirjautuneena sillä Google-tilillä, jolla teit ostoksen, ja yritä sitten palauttaa se.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Päivitysvaihtoehdot</string>
+    <string name="upgrade_screen_offers_or">tai</string>
+    <string name="upgrade_screen_offers_body">Samat ominaisuudet, vain eri hinnoittelumallit.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Hinnat eivät ole saatavilla</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play ei palauttanut hintoja juuri nyt. Tarkista yhteytesi ja yritä uudelleen hetken kuluttua.</string>
+    <string name="upgrade_screen_subscription_offer_title">Vuosittainen tilaus</string>
+    <string name="upgrade_screen_subscription_offer_body">Uusiutuu vuosittain ilmaisen kokeilujakson jälkeen. Voit peruuttaa milloin tahansa Google Playssa.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Uusiutuu vuosittain. Voit peruuttaa milloin tahansa Google Playssa.</string>
+    <string name="upgrade_screen_iap_offer_body">Yksi maksu, ei uusintoja.</string>
+    <string name="upgrade_screen_benefits_title">Päivityksen edut</string>
+    <string name="upgrade_screen_restore_body">Palautus pyytää Google Playä tarkistamaan tämän sovelluksen ostokset nykyiselle tilille. Se ei aloita uutta ostoa.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod tarkisti juuri Google Playä, mutta Pro-ostoa ei voitu vahvistaa tälle sovellukselle käytettävällä tilillä.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ongelma jatkuu? Ota yhteyttä tukeen sähköpostiosoitteesta, jolla teit oston, ja sisällytä Google Play -tilausnumerosi.</string>
+    <string name="upgrade_screen_contact_support_action">Ota yhteyttä tukeen</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Päivitys- ja ostotilasi.</string>
+    <string name="settings_upgrade_status_description">Päivityksen ja ostojen tila</string>
 </resources>

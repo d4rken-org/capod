@@ -6,6 +6,7 @@
     <string name="general_copy_action">Nakili</string>
     <string name="general_thank_you_label">Asante</string>
     <string name="general_upgrade_action">Boresha</string>
+    <string name="general_retry_action">Jaribu Tena</string>
     <string name="common_feature_requires_pro_msg">Boresha ili kufungua.</string>
     <string name="common_upgrade_required_label">Inahitaji uboreshaji</string>
     <string name="general_donate_action">Changia</string>

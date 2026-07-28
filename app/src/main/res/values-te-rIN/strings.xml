@@ -6,6 +6,7 @@
     <string name="general_copy_action">కాపీ చేయి</string>
     <string name="general_thank_you_label">ధన్యవాదాలు</string>
     <string name="general_upgrade_action">నవీకరించు</string>
+    <string name="general_retry_action">రిట్రై</string>
     <string name="common_feature_requires_pro_msg">అన్‌లాక్ చేయడానికి అప్‌గ్రేడ్ చేయండి.</string>
     <string name="common_upgrade_required_label">అప్‌గ్రేడ్ అవసరం</string>
     <string name="general_donate_action">దానం చేయండి</string>

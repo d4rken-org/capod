@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Επιβεβαίωση της αγοράς σας</string>
     <string name="upgrade_screen_grace_body_short">Το Google Play δεν έχει επιβεβαιώσει ακόμα την αγορά σας. Το Pro παραμένει ενεργό — δεν απαιτείται καμία ενέργεια.</string>
     <string name="upgrade_screen_grace_body">Το Google Play δεν έχει επιβεβαιώσει την αγορά σας εδώ και καιρό. Το Pro παραμένει ενεργό. Βεβαιωθείτε ότι είστε συνδεδεμένοι στο διαδίκτυο και συνδεδεμένοι με τον λογαριασμό Google που χρησιμοποιήσατε για την αγορά, και μετά δοκιμάστε να την επαναφέρετε.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Επιλογές αναβάθμισης</string>
+    <string name="upgrade_screen_offers_or">ή</string>
+    <string name="upgrade_screen_offers_body">Τα ίδια χαρακτηριστικά, απλώς διαφορετικά μοντέλα τιμολόγησης.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Τιμές μη διαθέσιμες</string>
+    <string name="upgrade_screen_offers_unavailable_message">Το Google Play δεν επέστρεψε τιμές τώρα. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά σε λίγο.</string>
+    <string name="upgrade_screen_subscription_offer_title">Ετήσια συνδρομή</string>
+    <string name="upgrade_screen_subscription_offer_body">Ανανεώνεται ετησίως μετά τη δωρεάν δοκιμή. Ακύρωση ανά πάσα στιγμή στο Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Ανανεώνεται ετησίως. Ακύρωση ανά πάσα στιγμή στο Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Μία πληρωμή, χωρίς ανανέωση.</string>
+    <string name="upgrade_screen_benefits_title">Πλεονεκτήματα αναβάθμισης</string>
+    <string name="upgrade_screen_restore_body">Η επαναφορά ζητά από το Google Play να επανελέγξει τις αγορές αυτής της εφαρμογής για τον τρέχοντα λογαριασμό. Δεν ξεκινά μια νέα αγορά.</string>
+    <string name="upgrade_screen_restore_checked_message">Το CAPod έλεγξε μόλις το Google Play, αλλά δεν ήταν δυνατή η επιβεβαίωση κάποιας αγοράς Pro για τον λογαριασμό που χρησιμοποιεί το Google Play γι\' αυτήν την εφαρμογή.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ακόμα έχετε πρόβλημα; Επικοινωνήστε με την υποστήριξη από το email που έκανε την αγορά και συμπεριλάβετε τον αριθμό παραγγελίας Google Play σας.</string>
+    <string name="upgrade_screen_contact_support_action">Επικοινωνήστε με την υποστήριξη</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
 </resources>

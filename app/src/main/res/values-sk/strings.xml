@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopírovať</string>
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_upgrade_action">Inovovať</string>
+    <string name="general_retry_action">Skúsiť znova</string>
     <string name="common_feature_requires_pro_msg">Aktualizujte pre odomknutie.</string>
     <string name="common_upgrade_required_label">Vyžaduje upgrade</string>
     <string name="general_donate_action">Prispieť</string>

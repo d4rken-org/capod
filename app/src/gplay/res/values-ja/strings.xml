@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">購入を確認中</string>
     <string name="upgrade_screen_grace_body_short">Google Playがまだ購入を確認していません。Proは引き続き有効です。特に操作は必要ありません。</string>
     <string name="upgrade_screen_grace_body">Google Playがしばらく購入を確認していません。Proは引き続き有効です。オンラインになっていること、購入時に使用したGoogleアカウントでサインインしていることを確認してから、復元をお試しください。</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">アップグレードオプション</string>
+    <string name="upgrade_screen_offers_or">または</string>
+    <string name="upgrade_screen_offers_body">同じ機能で、価格モデルが異なるだけです。</string>
+    <string name="upgrade_screen_offers_unavailable_title">価格が利用できません</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play が現在価格を返していません。接続を確認して、しばらくしてからもう一度お試しください。</string>
+    <string name="upgrade_screen_subscription_offer_title">年間サブスクリプション</string>
+    <string name="upgrade_screen_subscription_offer_body">無料トライアル後、毎年更新されます。Google Play でいつでもキャンセルできます。</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">毎年更新されます。Google Play でいつでもキャンセルできます。</string>
+    <string name="upgrade_screen_iap_offer_body">1回の支払い、更新なし。</string>
+    <string name="upgrade_screen_benefits_title">アップグレード特典</string>
+    <string name="upgrade_screen_restore_body">復元により、Google Play にこのアプリの購入を現在のアカウント用に再確認するよう依頼します。新しい購入は開始されません。</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod が Google Play を確認しましたが、このアプリが使用しているアカウントの Pro 購入を確認できませんでした。</string>
+    <string name="upgrade_screen_restore_contact_hint">まだ問題がありますか?購入を行ったメールアドレスからサポートに連絡し、Google Play の注文番号を含めてください。</string>
+    <string name="upgrade_screen_contact_support_action">サポートに連絡</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">アップグレードと購入状況</string>
+    <string name="settings_upgrade_status_description">アップグレードと購入ステータス。</string>
 </resources>

@@ -49,6 +49,17 @@
     <string name="upgrade_screen_grace_title">Cunfirmande su cùmperu tuo</string>
     <string name="upgrade_screen_grace_body_short">Google Play no at ancora cunfirmadu su cùmperu tuo. Pro est galu atívu — no b\'at bisòngiu de fàghere nudda.</string>
     <string name="upgrade_screen_grace_body">Google Play no at cunfirmadu su cùmperu tuo dae unu pagu de tempus. Pro est galu atívu. Assegura·ti de èssere in lìnia e de àere fatu s\'aciesu cun su contu Google impreadu pro su cùmperu, e a pustis proa a ripristinare.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Opzionis de avanzu</string>
+    <string name="upgrade_screen_offers_or">o</string>
+    <string name="upgrade_screen_offers_body">Istessas features, ma modelos de prezu differentis.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prezu non disponìbile</string>
+    <string name="upgrade_screen_subscription_offer_body">Si renovet anu po anu dopo sa proba libera. Podes cantzellare in cuale mumentu in Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Si renovet anu po anu. Podes cantzellare in cuale mumentu in Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Unu pagamentu, sena renovatziones.</string>
+    <string name="upgrade_screen_benefits_title">Beneficios de s\'agiornamentu</string>
+    <string name="upgrade_screen_restore_contact_hint">Ancora blocau? Cunta sos suportu dae s\'email chi at fetu sa compra e inclui su numeru de s\'ordine Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Cunta sos suportu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">S\'istadu de su megioramentu e de sa comporadura tua.</string>
 </resources>

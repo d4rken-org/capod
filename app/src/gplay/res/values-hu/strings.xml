@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">A vásárlásod megerősítése</string>
     <string name="upgrade_screen_grace_body_short">A Google Play még nem erősítette meg a vásárlásodat. A Pro továbbra is aktív – nincs teendő.</string>
     <string name="upgrade_screen_grace_body">A Google Play egy ideje nem erősítette meg a vásárlásodat. A Pro továbbra is aktív. Győződj meg róla, hogy online vagy, és be vagy jelentkezve a vásárláshoz használt Google-fiókkal, majd próbáld meg visszaállítani.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Frissítési lehetőségek</string>
+    <string name="upgrade_screen_offers_or">vagy</string>
+    <string name="upgrade_screen_offers_body">Azonos funkciók, csak különböző árképzési modellek.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Az árak nem érhetők el</string>
+    <string name="upgrade_screen_offers_unavailable_message">A Google Play most nem adta vissza az árakat. Ellenőrizze az internetkapcsolatot, és próbálja újra később.</string>
+    <string name="upgrade_screen_subscription_offer_title">Éves előfizetés</string>
+    <string name="upgrade_screen_subscription_offer_body">Az ingyenes próbaidőszak után éves alapon megújul. Bármikor lemondható a Google Play-ben.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Éves alapon megújul. Bármikor lemondható a Google Play-ben.</string>
+    <string name="upgrade_screen_iap_offer_body">Egy fizetés, nincs megújítás.</string>
+    <string name="upgrade_screen_benefits_title">Frissítés előnyei</string>
+    <string name="upgrade_screen_restore_body">A helyreállítás megkéri a Google Play-t, hogy újra ellenőrizze az alkalmazás vásárlásait az aktuális fiók esetén. Nem kezdeményez új vásárlást.</string>
+    <string name="upgrade_screen_restore_checked_message">A CAPod éppen ellenőrizte a Google Play-t, de nem lehetett megerősíteni a Pro vásárlást az olyan fiók esetén, amelyet a Google Play használ ehhez az alkalmazáshoz.</string>
+    <string name="upgrade_screen_restore_contact_hint">Még mindig nem működik? Vegye fel a kapcsolatot az ügyfélszolgálattal abból az e-mail-fiókból, amely a vásárlást végezte, és adja meg Google Play rendelésszámát.</string>
+    <string name="upgrade_screen_contact_support_action">Lépjen kapcsolatba az ügyfélszolgálattal</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Az előfizetésed és vásárlásod állapota.</string>
+    <string name="settings_upgrade_status_description">Az Ön frissítésének és vásárlásának állapota.</string>
 </resources>

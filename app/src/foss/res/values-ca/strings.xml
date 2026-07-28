@@ -9,8 +9,8 @@
     <string name="upgrade_foss_sponsor_returned_early">Ja heu tornat? El vostre suport manté viu el CAPod.</string>
     <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrade_foss_supporter_since">Col·laborador des de %s</string>
-    <string name="upgrade_foss_supporter_thanks">Gràcies per donar suport al desenvolupament de CAPod!</string>
-    <string name="upgrade_foss_sponsor_again_action">Obre la pàgina de patrocini</string>
-    <string name="settings_upgrade_status_label">Patrocina CAPod</string>
-    <string name="settings_upgrade_status_description">El teu estat de col·laborador.</string>
+    <string name="upgrade_foss_supporter_thanks">Gràcies per donar suport al desenvolupament del CAPod!</string>
+    <string name="upgrade_foss_sponsor_again_action">Obre la pàgina del patrocinador</string>
+    <string name="settings_upgrade_status_label">Patrocineu el CAPod</string>
+    <string name="settings_upgrade_status_description">El vostre estat de col·laborador.</string>
 </resources>

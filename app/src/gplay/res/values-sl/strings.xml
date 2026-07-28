@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">Potrjevanje vašega nakupa</string>
     <string name="upgrade_screen_grace_body_short">Google Play še ni potrdil vašega nakupa. Pro je še vedno aktiven — ni potreben noben ukrep.</string>
     <string name="upgrade_screen_grace_body">Google Play že nekaj časa ni potrdil vašega nakupa. Pro je še vedno aktiven. Prepričajte se, da ste povezani v splet in prijavljeni z Google računom, uporabljenim za nakup, nato poskusite obnoviti nakup.</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">Možnosti nadgradnje</string>
+    <string name="upgrade_screen_offers_or">ali</string>
+    <string name="upgrade_screen_offers_body">Iste funkcije, samo drugačni modeli plačevanja.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Cene niso na voljo</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play trenutno ne vrača cen. Preverite svojo povezavo in poskusite znova čez trenutek.</string>
+    <string name="upgrade_screen_subscription_offer_title">Letna naročnina</string>
+    <string name="upgrade_screen_subscription_offer_body">Se obnavlja letno po brezplačnem preizkusu. Prekličite kadar koli v Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Se obnavlja letno. Prekličite kadar koli v Google Play.</string>
+    <string name="upgrade_screen_iap_offer_body">Enkratno plačilo, brez obnovitev.</string>
+    <string name="upgrade_screen_benefits_title">Prednosti nadgradnje</string>
+    <string name="upgrade_screen_restore_body">Obnavljanje prosi Google Play, da ponovno preveri nakupe te aplikacije za trenutni račun. Ne začne novega nakupa.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod je pravkar preveril Google Play, vendar Pro nakupa ni bilo mogoče potrditi za račun, ki ga Google Play uporablja za to aplikacijo.</string>
+    <string name="upgrade_screen_restore_contact_hint">Še vedno zaglavljen? Kontaktiraj podporo z e-poštnega naslova, s katerim si naredil nakup, in vključi svojo številko naročila Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontaktiraj podporo</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">Vaš status nadgradnje in nakupa.</string>
+    <string name="settings_upgrade_status_description">Tvoj status nadgradnje in nakupa.</string>
 </resources>

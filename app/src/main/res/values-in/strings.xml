@@ -6,6 +6,7 @@
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Tingkatkan</string>
+    <string name="general_retry_action">Coba Lagi</string>
     <string name="common_feature_requires_pro_msg">Tingkatkan untuk membuka.</string>
     <string name="common_upgrade_required_label">Memerlukan peningkatan</string>
     <string name="general_donate_action">Donasi</string>

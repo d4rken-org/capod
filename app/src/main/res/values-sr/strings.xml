@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копирај</string>
     <string name="general_thank_you_label">Хвала</string>
     <string name="general_upgrade_action">Надогради</string>
+    <string name="general_retry_action">Покушај</string>
     <string name="common_feature_requires_pro_msg">Надоградите да бисте откључали.</string>
     <string name="common_upgrade_required_label">Потребна надоградња</string>
     <string name="general_donate_action">Донирај</string>

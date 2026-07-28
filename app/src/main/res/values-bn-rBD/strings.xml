@@ -6,6 +6,7 @@
     <string name="general_copy_action">কপি করুন</string>
     <string name="general_thank_you_label">ধন্যবাদ</string>
     <string name="general_upgrade_action">আপগ্রেড করুন</string>
+    <string name="general_retry_action">আবার চেষ্টা করুন</string>
     <string name="common_feature_requires_pro_msg">আনলক করতে আপগ্রেড করুন।</string>
     <string name="common_upgrade_required_label">আপগ্রেড প্রয়োজন</string>
     <string name="general_donate_action">অনুদান দিন</string>

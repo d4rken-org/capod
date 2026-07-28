@@ -49,6 +49,21 @@
     <string name="upgrade_screen_grace_title">ግዢዎን በማረጋገጥ ላይ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ግዢዎን እስካሁን አላረጋገጠም። Pro አሁንም ንቁ ነው — ምንም እርምጃ አያስፈልግም።</string>
     <string name="upgrade_screen_grace_body">Google Play ለተወሰነ ጊዜ ግዢዎን አላረጋገጠም። Pro አሁንም ንቁ ነው። መስመር ላይ መሆንዎን እና ለግዢው ጥቅም ላይ በዋለው የGoogle መለያ መግባትዎን ያረጋግጡ፣ ከዚያ ወደነበረበት ለመመለስ ይሞክሩ።</string>
+    <!-- Offercard layout -->
+    <string name="upgrade_screen_offers_title">የማሻሻያ አማራጮች</string>
+    <string name="upgrade_screen_offers_or">ወይም</string>
+    <string name="upgrade_screen_offers_body">ተመሳሳይ ባህሪዎች፣ ነገር ግን የተለያዩ ዋጋ ሞዴሎች።</string>
+    <string name="upgrade_screen_offers_unavailable_title">ዋጋዎች አልተገኙም</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play አሁን ዋጋዎችን አላመለሰም። ግንኙነትዎን ይፈትሹ እና በቅርቡ ድጋሚ ሞክሩ።</string>
+    <string name="upgrade_screen_subscription_offer_title">ዓመታዊ ምዝገባ</string>
+    <string name="upgrade_screen_subscription_offer_body">ነፃ ሙከራ ከተጠናቀቀ በኋላ በዓመቱ ታደስ። በGoogle Play ውስጥ በማንኛውም ጊዜ ሰርዝ።</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">በዓመቱ ታደስ። በGoogle Play ውስጥ በማንኛውም ጊዜ ሰርዝ።</string>
+    <string name="upgrade_screen_iap_offer_body">አንድ ክፍያ፣ ሌላ ክፍያ የለም።</string>
+    <string name="upgrade_screen_benefits_title">ዝመና ጥቅሞች</string>
+    <string name="upgrade_screen_restore_body">ማደስ Google Play ን የዚህ መተግበሪያ ግዢዎችን ለአሁኑ መለያ እንደገና ለመረጋገጥ ይጠይቃል። አዲስ ግዢ አይጀምርም።</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod አሁን Google Play አረጋገጠ፣ ነገር ግን Google Play ለዚህ መተግበሪያ ጥቅም ላይ ስለሚውለው መለያ Pro ግዢ ማረጋገጥ አልተቻለም።</string>
+    <string name="upgrade_screen_restore_contact_hint">አሁንም ችግር ካጋጠመዎት? ግዢውን ያደረገው ኢሜይል በመጠቀም ድጋፍ ያግኙ እና Google Play ትዕዛዝ ቁጥርዎን ያካትቱ።</string>
+    <string name="upgrade_screen_contact_support_action">ድጋፍ ለማነጋገር</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
-    <string name="settings_upgrade_status_description">የማሻሻያ እና የግዢ ሁኔታዎ።</string>
+    <string name="settings_upgrade_status_description">የእርስዎ ማሻሻያ እና ግዢ ሁኔታ።</string>
 </resources>
