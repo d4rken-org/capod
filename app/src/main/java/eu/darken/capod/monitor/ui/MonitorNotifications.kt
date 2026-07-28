@@ -170,6 +170,7 @@ class MonitorNotifications @Inject constructor(
                 setContentIntent(openPi)
                 setSmallIcon(R.drawable.device_earbuds_generic_both)
                 setContentTitle(context.getString(R.string.app_name))
+                setContentText(context.getString(R.string.monitor_notification_starting))
                 setPriority(NotificationCompat.PRIORITY_LOW)
                 setOngoing(true)
             }.build()
