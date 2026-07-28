@@ -75,7 +75,10 @@ fun SettingsScreen(
 ) { ... }
 ```
 
-- `modifier: Modifier = Modifier` goes **last**, after required params — not first
+- `modifier: Modifier = Modifier` goes after the required parameters — i.e. it is the first
+  *optional* one, per the Compose API guidelines. capod is not fully consistent here (roughly 10
+  composables put it after required params, 3 put it genuinely first); match the file you're in
+  rather than reformatting neighbours
 - The Host null-guards state; `collectAsStateWithLifecycle(initialValue = null)` is the usual shape
 - Wrap previews in `PreviewWrapper` (`common/compose/PreviewWrapper.kt`), which applies `CapodTheme`
   plus a background `Surface`
