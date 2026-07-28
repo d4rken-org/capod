@@ -242,9 +242,14 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
-    fun `playback callback is registered on the injected background handler, not the main looper`() {
+    fun `playback callback is registered with the injected handler rather than null`() {
         // Regression for the ANR cluster in onPlaybackConfigChanged: passing `null` here binds
         // callback delivery to the main looper, and the callback body does a binder call.
+        // Scope of this assertion: it only proves the injected handler is forwarded, not which
+        // Looper that handler is bound to — a JVM unit test cannot inspect a Looper here (this
+        // module does not use Robolectric). The Looper identity is covered instead by
+        // `AndroidModule.audioCallbackHandler()`, which is the single place that constructs it,
+        // and by the runtime QA check asserting the registration logs thread `CAPod-MediaControl`.
         verify { audioManager.registerAudioPlaybackCallback(any(), handler) }
     }
 
