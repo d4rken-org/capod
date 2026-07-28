@@ -1,16 +1,50 @@
+---
+description: Cut a capod release via the "Release prepare" workflow — dispatch inputs, channel mapping, rollback, and auth setup.
+disable-model-invocation: true
+argument-hint: "[bump_kind] [version_type|version_override]"
+---
+
 # Release Process
 
 Releases are cut via the **Release prepare** workflow (`.github/workflows/release-prepare.yml`). It bumps `version.properties` and `VERSION`, commits to `main`, tags `v<version>`, pushes atomically, and dispatches `release-tag.yml` which builds, signs, and uploads.
 
+## Required order
+
+A real cut pushes a commit and a tag to `main` and is public the moment it lands. Do not skip ahead.
+
+1. Run the dry run first and read its summary — never dispatch `dry_run=false` blind.
+2. Report the planned version and `versionCode` back to the user.
+3. Get explicit confirmation for that specific version before dispatching `dry_run=false`.
+4. If the user named `bump_kind`/`version_type`/`version_override`, use exactly those. If the request
+   is ambiguous about which field moves, ask rather than assuming `build`.
+
 ## Dispatch
 
+`gh workflow run` only fires the dispatch — it returns nothing about the result. The summary is
+written asynchronously, so you have to go fetch it.
+
 ```bash
-# Plan only — no commit, no tag, no push.
+# Step 1 — plan only. No commit, no tag, no push. Always run this first.
 gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=true
 
-# Real cut.
+# Step 2 — find the run just dispatched and wait for it.
+gh run list --workflow=release-prepare.yml --limit 1     # note the run id
+gh run watch <run-id> --exit-status
+
+# Step 3 — read the computed plan (version + versionCode) before going further.
+gh run view <run-id> --log | tail -40
+```
+
+Report the planned version and `versionCode`, get explicit confirmation, then:
+
+```bash
+# Step 4 — real cut. Repeat the dry run's inputs EXACTLY; change only dry_run.
 gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=false
 ```
+
+The `bump_kind=build` above is only an example. If the confirmed plan came from a `patch`/`minor`/
+`major` bump, a `version_type` switch, or a `version_override`, Step 4 must carry those same flags —
+otherwise you cut a different version than the one that was approved.
 
 After `dry_run=false`: Job 1 computes + writes the summary, then Job 2 immediately commits/tags/pushes (no env gate — cancel the run between Job 1 and Job 2 if the summary looks wrong; you have ~seconds). The tag push naturally triggers `release-tag.yml` (the App-token push fires `on: push:` workflows; only `GITHUB_TOKEN`-pushes are suppressed). `release-tag.yml` then runs `validate-tag` and the existing `release-github` (`foss-production` approval) + `release-gplay` (`gplay-production` approval) jobs — those are the two human checkpoints, matching the pre-migration UX.
 
@@ -39,7 +73,10 @@ bats tools/release/bump.bats
 | Tag suffix | FOSS APK | GitHub release | Fastlane lane | Play track | Rollout |
 |---|---|---|---|---|---|
 | `-beta*` | `assembleFossBeta` | pre-release | `beta` | `beta` | 10% |
-| `-rc*` (or anything else) | `assembleFossRelease` | full release | `production` | **`beta`** | 10% |
+| `-rc*` | `assembleFossRelease` | full release | `production` | **`beta`** | 10% |
+
+`release-tag.yml` accepts only `v<M.m.p>-rcN` or `v<M.m.p>-betaN` — any other suffix fails
+`validate-tag` before a build starts. There is no third channel.
 
 `lane :production` in `Fastfile` uploads to Play's **beta** track at 10% — manually promoted to production via Play Console.
 

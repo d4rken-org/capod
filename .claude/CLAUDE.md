@@ -29,18 +29,35 @@ Quick build check: `./gradlew assembleFossDebug`
 
 - Use `assembleFossDebug` as the fastest build variant for iteration
 - Follow existing patterns — the codebase uses MVVM + Hilt + Coroutines
-- Always use string resources for user-facing text (see localization rules)
+- Always use string resources for user-facing text
 - Check `git log --oneline -20` for commit message style before committing
+- Ordinary unit tests use JUnit 5 + kotest assertions + mockk and extend `testhelpers.BaseTest` — not
+  the Android defaults. `testFossDebugUnitTest` does not run `testGplay` tests
+- Changing a production screen that backs a `@PreviewTest` entry in `PlayStoreScreenshots.kt` means
+  regenerating the smoke screenshot set
 
 ## Rules Reference
 
-Detailed guidelines are in `.claude/rules/`:
+Always loaded:
 
-- `architecture.md` — Module structure, key components, data flow, dependencies
-- `build-commands.md` — Build, test, lint, and release commands
-- `localization.md` — String resource naming conventions
-- `commit-guidelines.md` — Commit message format and prefixes
-- `pull-requests.md` — PR title and description conventions
-- `agent-instructions.md` — Sub-agent delegation and critical thinking
-- `screenshots.md` — Play Store screenshot pipeline, commands, adding new screens
-- `release.md` — Release workflow (`Release prepare` dispatch), inputs, channel mapping, rollback
+| Rule | Covers |
+|------|--------|
+| `.claude/rules/architecture.md` | BLE vs AAP paths, `DeviceMonitor` merge boundary, FOSS pro gating |
+| `.claude/rules/build-commands.md` | Gradle commands and what CI actually gates |
+| `.claude/rules/commit-guidelines.md` | Commit message format and prefixes |
+| `.claude/rules/pull-requests.md` | PR title and description conventions |
+| `.claude/rules/agent-instructions.md` | Delegation limits and implementation scope |
+
+Loaded on demand, when a matching file is read (`paths:` frontmatter):
+
+| Rule | Loads for |
+|------|-----------|
+| `.claude/rules/testing.md` | `app/src/test/`, `testFoss/`, `testGplay/` |
+| `.claude/rules/localization.md` | `**/res/values/strings.xml` (base locale) |
+| `.claude/rules/screenshots.md` | Screenshot composables, `screenshotTest/`, fastlane scripts |
+
+Skills, invoked by name:
+
+| Skill | Purpose |
+|-------|---------|
+| `/release` | Release workflow dispatch, inputs, channel mapping, rollback |
