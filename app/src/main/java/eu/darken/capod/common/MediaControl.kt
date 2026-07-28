@@ -10,7 +10,11 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -32,9 +36,28 @@ class MediaControl @Inject constructor(
     @Volatile private var capPaused: Boolean = false
     @Volatile private var lastKnownMusicActive: Boolean = false
 
+    /**
+     * The compound isMusicActive-check → key dispatch → [capPaused] transition must not interleave
+     * across concurrent callers: the `delay(100)` suspension inside [sendKey] is the window in which
+     * a second sender could observe stale state and lose the other's flag update (issue #647).
+     * Callers genuinely race — stem presses run on the app scope, ear/sleep/conversation reactions
+     * on the monitor scope.
+     */
+    private val dispatchLock = Mutex()
+
     private val playbackCallback = object : AudioManager.AudioPlaybackCallback() {
         override fun onPlaybackConfigChanged(configs: List<AudioPlaybackConfiguration>) {
-            val nowActive = audioManager.isMusicActive
+            // The edge is derived from this delivery's own snapshot, not a live isMusicActive read:
+            // per-invocation snapshots preserve the sequence when deliveries queue up behind the
+            // handler (a live read makes every queued delivery see the newest state, so an
+            // inactive→active edge in the middle of the queue is never observed). It also keeps a
+            // binder call out of the callback body.
+            //
+            // Residual: API 36+ may replace a pending config message with the newest one, delivering
+            // a single callback for two transitions. A state that is never delivered is unrecoverable
+            // at the receiver; when that happens capPaused stays stale and costs one redundant
+            // (idempotent) MEDIA_PLAY on a later pod-in — the same cost as before, just rarer.
+            val nowActive = configs.any { it.isMusicStream() }
             if (!lastKnownMusicActive && nowActive) {
                 // Music started by some source (could be us via sendPlay or someone else).
                 // Either way, our pause memory is stale — drop it so a future pod-in doesn't
@@ -43,6 +66,18 @@ class MediaControl @Inject constructor(
             }
             lastKnownMusicActive = nowActive
         }
+    }
+
+    /**
+     * Parity with what [AudioManager.isMusicActive] counts (active STREAM_MUSIC players), using the
+     * platform's own attribute→stream mapping (flags and OEM strategies included) instead of a
+     * hand-rolled usage set. Ambiguous or exceptional configs count as not-music: that errs toward a
+     * missed clear (one redundant, idempotent MEDIA_PLAY) rather than a false clear (lost auto-resume).
+     */
+    private fun AudioPlaybackConfiguration.isMusicStream(): Boolean = try {
+        audioAttributes.volumeControlStream == AudioManager.STREAM_MUSIC
+    } catch (e: IllegalArgumentException) {
+        false
     }
 
     init {
@@ -73,14 +108,20 @@ class MediaControl @Inject constructor(
     val wasRecentlyPausedByCap: Boolean
         get() = capPaused
 
-    suspend fun sendPlay() {
+    suspend fun sendPlay() = dispatchLock.withLock { sendPlayLocked() }
+
+    private suspend fun sendPlayLocked() {
         log(TAG, INFO) { "sendPlay()" }
         if (audioManager.isMusicActive && !capPaused) {
             log(TAG, INFO) { "Music is already playing, not sending play" }
             return
         }
-        sendKey(KeyEvent.KEYCODE_MEDIA_PLAY)
+        // Cleared before the first suspension: sendKey's delay is a cancellation point (the key pair
+        // itself completes under NonCancellable, but the caller can still be cancelled at the lock
+        // boundaries), so clearing first means a cancelled resume can never strand a stale armed
+        // flag. Under the mutex the ordering no longer matters for racing senders.
         capPaused = false
+        sendKey(KeyEvent.KEYCODE_MEDIA_PLAY)
     }
 
     /**
@@ -102,7 +143,11 @@ class MediaControl @Inject constructor(
      * on the return value rather than checking [isPlaying] themselves to avoid a
      * check-then-act race with the audio system.
      */
-    suspend fun sendPause(rememberForResume: Boolean = false): Boolean {
+    suspend fun sendPause(rememberForResume: Boolean = false): Boolean = dispatchLock.withLock {
+        sendPauseLocked(rememberForResume)
+    }
+
+    private suspend fun sendPauseLocked(rememberForResume: Boolean): Boolean {
         log(TAG, INFO) { "sendPause(rememberForResume=$rememberForResume)" }
         if (!audioManager.isMusicActive) {
             log(TAG, INFO) { "Music is not playing, not sending pause" }
@@ -115,6 +160,11 @@ class MediaControl @Inject constructor(
         // This single explicit assignment also covers the contract that an explicit user
         // pause cancels a pending auto-resume.
         capPaused = rememberForResume
+        // The live active-check we just passed is itself an observation of music activity. Recording
+        // it stops a music-start snapshot that was still queued on the handler when this pause armed
+        // capPaused from draining afterwards and reading as a fresh inactive→active edge that would
+        // wrongly clear the new arm.
+        lastKnownMusicActive = true
         sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
         return true
     }
@@ -123,26 +173,31 @@ class MediaControl @Inject constructor(
      * Dispatches MEDIA_STOP and clears any pending auto-resume — Stop is an explicit user
      * "stay stopped" action, so a later pod-in must not auto-resume from a prior auto-pause.
      */
-    suspend fun sendStop() {
+    suspend fun sendStop() = dispatchLock.withLock {
         log(TAG, INFO) { "sendStop()" }
         capPaused = false
         sendKey(KeyEvent.KEYCODE_MEDIA_STOP)
     }
 
     suspend fun sendPlayPause() {
-        log(TAG) { "sendPlayPause()" }
-        if (capPaused) {
-            sendPlay()
-            return
-        }
-        if (audioManager.isMusicActive) {
-            sendPause()
-        } else {
-            sendPlay()
+        dispatchLock.withLock {
+            log(TAG) { "sendPlayPause()" }
+            if (capPaused) {
+                sendPlayLocked()
+                return@withLock
+            }
+            if (audioManager.isMusicActive) {
+                sendPauseLocked(rememberForResume = false)
+            } else {
+                sendPlayLocked()
+            }
         }
     }
 
-    internal suspend fun sendKey(keyCode: Int) {
+    internal suspend fun sendKey(keyCode: Int) = withContext(NonCancellable) {
+        // DOWN and UP must always be dispatched as a pair: once DOWN is out, cancellation may not
+        // strand it unpaired or the media session keeps seeing a held key. Bounded — this defers
+        // cancellation by at most the 100ms delay below.
         log(TAG) { "Sending up+down KeyEvent: $keyCode" }
         val eventTime = timeSource.uptimeMillis()
         audioManager.dispatchMediaKeyEvent(KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, keyCode, 0))
