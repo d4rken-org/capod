@@ -1,6 +1,7 @@
 package eu.darken.capod.common
 
 import android.media.AudioManager
+import android.os.Handler
 import io.mockk.CapturingSlot
 import io.mockk.Runs
 import io.mockk.clearMocks
@@ -9,6 +10,7 @@ import io.mockk.just
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import io.mockk.verifyOrder
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -22,7 +24,9 @@ class MediaControlTest : BaseTest() {
     private lateinit var audioManager: AudioManager
     private lateinit var mediaControl: MediaControl
     private lateinit var timeSource: TestTimeSource
+    private lateinit var handler: Handler
     private lateinit var playbackCallbackSlot: CapturingSlot<AudioManager.AudioPlaybackCallback>
+    private lateinit var initRunnableSlot: CapturingSlot<Runnable>
 
     @BeforeEach
     fun setup() {
@@ -35,7 +39,15 @@ class MediaControlTest : BaseTest() {
         every { audioManager.isMusicActive } returns false
         playbackCallbackSlot = slot()
         every { audioManager.registerAudioPlaybackCallback(capture(playbackCallbackSlot), any()) } just Runs
-        mediaControl = MediaControl(audioManager, timeSource)
+        // The handler is captured, not inlined: registration and seeding now happen on a posted
+        // runnable, and an unconditionally-inline post would hide the window that exists between
+        // construction and that runnable draining.
+        handler = mockk()
+        initRunnableSlot = slot()
+        every { handler.post(capture(initRunnableSlot)) } returns true
+        mediaControl = MediaControl(audioManager, timeSource, handler)
+        // Drain the init runnable so `playbackCallbackSlot` is populated for `fireCallback()`.
+        initRunnableSlot.captured.run()
     }
 
     private fun fireCallback() {
@@ -227,5 +239,73 @@ class MediaControlTest : BaseTest() {
         // so the inactive→active reset clears the sticky flag — that's the correct outcome:
         // we don't want to claim our pause "stuck" when audio is playing.
         assertFalse(mediaControl.wasRecentlyPausedByCap)
+    }
+
+    @Test
+    fun `playback callback is registered on the injected background handler, not the main looper`() {
+        // Regression for the ANR cluster in onPlaybackConfigChanged: passing `null` here binds
+        // callback delivery to the main looper, and the callback body does a binder call.
+        verify { audioManager.registerAudioPlaybackCallback(any(), handler) }
+    }
+
+    @Test
+    fun `construction does no binder work on the calling thread`() {
+        // Regression for the ANR cluster in MediaControl's constructor: it runs during
+        // App.onCreate via Hilt, so nothing here may touch AudioService inline.
+        val freshAudioManager = mockk<AudioManager>(relaxed = true)
+        val freshHandler = mockk<Handler>()
+        every { freshHandler.post(any()) } returns true
+
+        MediaControl(freshAudioManager, timeSource, freshHandler)
+
+        verify(exactly = 0) { freshAudioManager.isMusicActive }
+        verify(exactly = 0) { freshAudioManager.registerAudioPlaybackCallback(any(), any()) }
+        verify(exactly = 1) { freshHandler.post(any()) }
+    }
+
+    @Test
+    fun `init registers the callback before seeding the active flag`() {
+        // Seeding first would leave a gap in which a transition is neither delivered (not yet
+        // registered) nor reflected in the seed.
+        val freshAudioManager = mockk<AudioManager>(relaxed = true)
+        every { freshAudioManager.isMusicActive } returns false
+        every { freshAudioManager.registerAudioPlaybackCallback(any(), any()) } just Runs
+        val freshHandler = mockk<Handler>()
+        val runnableSlot = slot<Runnable>()
+        every { freshHandler.post(capture(runnableSlot)) } returns true
+
+        MediaControl(freshAudioManager, timeSource, freshHandler)
+        runnableSlot.captured.run()
+
+        verifyOrder {
+            freshAudioManager.registerAudioPlaybackCallback(any(), freshHandler)
+            freshAudioManager.isMusicActive
+        }
+    }
+
+    @Test
+    fun `media control still works before the init runnable has drained`() = runTest {
+        // The window between construction and the posted runnable running: no callback is live
+        // yet, but the key-dispatch paths must behave normally.
+        val freshAudioManager = mockk<AudioManager>(relaxed = true)
+        every { freshAudioManager.isMusicActive } returns true
+        every { freshAudioManager.dispatchMediaKeyEvent(any()) } just Runs
+        every { freshAudioManager.registerAudioPlaybackCallback(any(), any()) } just Runs
+        val freshHandler = mockk<Handler>()
+        every { freshHandler.post(any()) } returns true
+
+        val undrained = MediaControl(freshAudioManager, timeSource, freshHandler)
+
+        assertFalse(undrained.wasRecentlyPausedByCap)
+
+        assertTrue(undrained.sendPause(rememberForResume = true))
+        assertTrue(undrained.wasRecentlyPausedByCap)
+        verify(exactly = 2) { freshAudioManager.dispatchMediaKeyEvent(any()) }
+
+        clearMocks(freshAudioManager, answers = false, recordedCalls = true)
+
+        undrained.sendPlay()
+        assertFalse(undrained.wasRecentlyPausedByCap)
+        verify(exactly = 2) { freshAudioManager.dispatchMediaKeyEvent(any()) }
     }
 }
