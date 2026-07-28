@@ -47,6 +47,7 @@ Always loaded:
 | `.claude/rules/commit-guidelines.md` | Commit message format and prefixes |
 | `.claude/rules/pull-requests.md` | PR title and description conventions |
 | `.claude/rules/agent-instructions.md` | Delegation limits and implementation scope |
+| `.claude/rules/release.md` | Release guardrails — never hand-edit versions or tags |
 
 Loaded on demand, when a matching file is read (`paths:` frontmatter):
 
