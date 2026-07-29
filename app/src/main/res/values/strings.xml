@@ -610,4 +610,6 @@
     <string name="press_controls_reset_confirm_message">Reset all press mappings to defaults?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Open Press Controls</string>
 
+    <string name="general_navigate_up_action">Navigate up</string>
+    <string name="general_progress_loading">Loading</string>
 </resources>

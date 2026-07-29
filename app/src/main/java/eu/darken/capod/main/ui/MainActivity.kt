@@ -133,6 +133,14 @@ class MainActivity : Activity2() {
         super.onResume()
         popUpWindow.isMainActivityVisible = true
         popUpWindow.close()
+        // Per-resume, unthrottled entitlement reconciliation. This is what heals a renewal state
+        // that changed while the user was away (e.g. cancelling the subscription in Google Play's
+        // management page — returning to the app resumes this activity). refresh() is bounded and
+        // swallows its own failures.
+        lifecycleScope.launch {
+            log(TAG) { "onResume(): refreshing upgrade info" }
+            upgradeRepo.refresh()
+        }
     }
 
     override fun onPause() {

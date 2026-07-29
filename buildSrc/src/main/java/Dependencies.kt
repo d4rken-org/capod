@@ -147,8 +147,8 @@ fun DependencyHandlerScope.addTesting() {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
-    testImplementation("io.mockk:mockk:1.12.4")
-    androidTestImplementation("io.mockk:mockk-android:1.12.4")
+    testImplementation("io.mockk:mockk:1.14.9")
+    androidTestImplementation("io.mockk:mockk-android:1.14.9")
 
     testImplementation("io.kotest:kotest-runner-junit5:4.6.4")
     testImplementation("io.kotest:kotest-assertions-core-jvm:4.6.4")

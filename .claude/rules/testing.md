@@ -32,9 +32,10 @@ Extend `testhelpers.BaseTest`, or the applicable specialized base that already e
 `BaseTest` installs a `JUnitLogger` and calls `unmockkAll()` in `@AfterAll`. Skipping it can leave
 global mockk and logging state behind for later test classes.
 
-The only exceptions are the two Robolectric-backed Compose UI tests
-(`UpgradeScreenFossComposeTest`, `UpgradeScreenComposeTest`), which use JUnit 4 `@RunWith`/`@Rule`
-via `junit-vintage-engine`. Don't copy that pattern for a plain unit test.
+The only exceptions are the Robolectric-backed tests (Compose UI via
+`testhelpers.compose.BaseComposeRobolectricTest`, and the few DataStore-backed ones such as
+`CurriculumVitaeProHistoryTest`), which use JUnit 4 `@RunWith`/`@Rule` via `junit-vintage-engine`.
+Don't copy that pattern for a plain unit test.
 
 ## Source sets and Gradle tasks
 
