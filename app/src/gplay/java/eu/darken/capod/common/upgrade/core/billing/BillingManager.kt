@@ -381,7 +381,7 @@ class BillingManager @Inject constructor(
     private fun reportPermanentAckFailure(purchase: Purchase, error: Exception) {
         if (reportedAckFailures.add(purchase.purchaseToken)) {
             log(TAG, ERROR) { "Permanent ack failure for ${purchase.redacted()}:\n${error.asLog()}" }
-            Bugs.report(TAG, "Failed to acknowledge purchase", error)
+            Bugs.report(TAG, "Failed to acknowledge purchase", RuntimeException("Failed to acknowledge purchase", error))
         } else {
             log(TAG, WARN) { "Permanent ack failure (already reported) for ${purchase.redacted()}" }
         }
@@ -461,10 +461,10 @@ class BillingManager @Inject constructor(
             )
             when {
                 e !is BillingException -> {
-                    Bugs.report(TAG, "State exception for $sku, U", e)
+                    Bugs.report(TAG, "State exception for $sku, U", RuntimeException("State exception for $sku, U", e))
                 }
                 e is BillingClientException && !e.result.responseCode.let { ignoredCodes.contains(it) } -> {
-                    Bugs.report(TAG, "Client exception for $sku", e)
+                    Bugs.report(TAG, "Client exception for $sku", RuntimeException("Client exception for $sku", e))
                 }
             }
 

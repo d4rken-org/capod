@@ -149,6 +149,32 @@ class WidgetConfigurationViewModelTest : BaseTest() {
         outcome.await() shouldBe WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired
     }
 
+    /**
+     * The activity's upgrade-return callback re-asks [WidgetConfigurationViewModel.decideConfirm]
+     * instead of trusting the upgrade activity's result code, so both return-path outcomes are the
+     * same decision the confirm tap makes.
+     */
+    @Test
+    fun `returning from the upgrade flow confirms once the entitlement arrived`() = runVmTest {
+        upgradeInfoFlow.value = info(isPro = false)
+        val vm = createViewModel()
+        vm.decideConfirm() shouldBe WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired
+
+        upgradeInfoFlow.value = info(isPro = true)
+
+        vm.decideConfirm() shouldBe WidgetConfigurationViewModel.ConfirmOutcome.Confirmed
+    }
+
+    @Test
+    fun `returning from the upgrade flow still free stays in the configuration`() = runVmTest {
+        upgradeInfoFlow.value = info(isPro = false)
+        val vm = createViewModel()
+        vm.decideConfirm() shouldBe WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired
+
+        // The upgrade activity returned, but no entitlement materialized: never RESULT_OK.
+        vm.decideConfirm() shouldBe WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired
+    }
+
     @Test
     fun `an invalid widget id is never confirmable`() = runVmTest {
         upgradeInfoFlow.value = info(isPro = true)
