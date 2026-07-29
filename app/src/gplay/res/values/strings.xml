@@ -66,4 +66,12 @@
     <string name="upgrade_screen_contact_support_action">Contact support</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Your upgrade and purchase status.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod can\'t connect to Google Play. Is Google Play installed and up to date? Is your Google Account logged in? Try clearing the cache of the Google Play app and rebooting your device.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play error</string>
+    <string name="upgrades_gplay_internal_error_description">An internal Google Play error occurred. Please try the following:\n\n• Restart your device\n• Clear Google Play Store cache\n• Try again later</string>
+    <string name="upgrades_gplay_network_error_title">Connection error</string>
+    <string name="upgrades_gplay_network_error_description">Unable to connect to Google Play. Please check your internet connection and try again.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Offer unavailable</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play is currently not offering this upgrade option. Please try again later or check the Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">The check with Google Play didn\'t finish in time, so your purchase status is still unknown. Nothing has changed on your account.</string>
 </resources>

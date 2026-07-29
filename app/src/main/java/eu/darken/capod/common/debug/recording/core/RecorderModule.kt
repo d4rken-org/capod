@@ -17,7 +17,11 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.flow.DynamicStateFlow
+import eu.darken.capod.common.upgrade.UpgradeDiagnostics
+import eu.darken.capod.main.core.CurriculumVitae
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
@@ -36,6 +40,8 @@ class RecorderModule @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val installId: InstallId,
     private val timeSource: TimeSource,
+    private val curriculumVitae: CurriculumVitae,
+    private val upgradeDiagnostics: UpgradeDiagnostics,
 ) {
 
     @Volatile
@@ -83,8 +89,7 @@ class RecorderModule @Inject constructor(
                         if (!isResume) {
                             val startTime = timeSource.currentTimeMillis()
                             writeTriggerFile(sessionDir, startTime)
-                            log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
-                            log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+                            logRecordingHeader()
 
                             this@RecorderModule.currentLogDir = sessionDir
 
@@ -95,8 +100,7 @@ class RecorderModule @Inject constructor(
                                 persistedLogDir = null,
                             )
                         } else {
-                            log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
-                            log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+                            logRecordingHeader()
 
                             this@RecorderModule.currentLogDir = sessionDir
 
@@ -131,6 +135,36 @@ class RecorderModule @Inject constructor(
         internalState.flow
             .onEach { Bugs.isDebug.value = it.isRecording }
             .launchIn(appScope)
+    }
+
+    // Header lines written into a freshly started recording. Runs AFTER the recorder is live, so
+    // every read here is diagnostics-only and must never propagate: a failure would abort the state
+    // update and leave a RUNNING recorder that the module no longer knows about.
+    private suspend fun logRecordingHeader() {
+        log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
+        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+
+        try {
+            // Billing complaints usually arrive as debug logs: having the lifetime grace/Pro-loss
+            // history in the header saves a support round-trip.
+            log(TAG, INFO) { "Pro history: ${curriculumVitae.proHistory()}" }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Diagnostics only — a broken history read must not stop the recorder from starting.
+            log(TAG, WARN) { "Pro history unavailable: ${e.asLog()}" }
+        }
+
+        // Separate boundary from the block above on purpose: these read different DataStores, and
+        // the counters above only cover installs new enough to have them. A failure to read one
+        // must not suppress the other's independent evidence.
+        try {
+            upgradeDiagnostics.debugInfo()?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Upgrade diagnostics unavailable: ${e.asLog()}" }
+        }
     }
 
     private fun createSessionDir(): File {
