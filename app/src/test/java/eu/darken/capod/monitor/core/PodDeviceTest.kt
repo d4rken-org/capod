@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
@@ -97,6 +98,57 @@ class PodDeviceTest : BaseTest() {
         val device = PodDevice(profileId = null, ble = null, aap = null)
         device.model shouldBe PodModel.UNKNOWN
     }
+
+    /**
+     * A profile's model defaults to UNKNOWN and is never null, so treating it as an answer would
+     * let a profile that never learned a model shadow the cache for the whole device's lifetime.
+     */
+    @Test
+    fun `UNKNOWN profile model falls through to the cache`() {
+        val device = PodDevice(
+            profileId = "a",
+            ble = null,
+            aap = null,
+            profileModel = PodModel.UNKNOWN,
+            cached = cachedState(model = PodModel.AIRPODS_PRO2_USBC),
+        )
+        device.model shouldBe PodModel.AIRPODS_PRO2_USBC
+    }
+
+    @Test
+    fun `known profile model wins over the cache`() {
+        val device = PodDevice(
+            profileId = "a",
+            ble = null,
+            aap = null,
+            profileModel = PodModel.AIRPODS_PRO3,
+            cached = cachedState(model = PodModel.AIRPODS_PRO2_USBC),
+        )
+        device.model shouldBe PodModel.AIRPODS_PRO3
+    }
+
+    /**
+     * An UNKNOWN from a live snapshot is a real decoder verdict on an unrecognised model, not a
+     * missing answer — overriding it would pair a known-model layout with "Unknown device" as the
+     * label, since getLabel() keeps preferring the BLE snapshot.
+     */
+    @Test
+    fun `live UNKNOWN model is not overridden by profile or cache`() {
+        val device = PodDevice(
+            profileId = "a",
+            ble = mockk(relaxed = true) { every { model } returns PodModel.UNKNOWN },
+            aap = null,
+            profileModel = PodModel.AIRPODS_PRO3,
+            cached = cachedState(model = PodModel.AIRPODS_PRO2_USBC),
+        )
+        device.model shouldBe PodModel.UNKNOWN
+    }
+
+    private fun cachedState(model: PodModel) = CachedDeviceState(
+        profileId = "a",
+        model = model,
+        lastSeenAt = Instant.EPOCH,
+    )
 
     @Test
     fun `identifier delegates to BLE`() {

@@ -6,9 +6,12 @@ import android.app.NotificationManager
 import android.app.Service
 import androidx.core.app.NotificationCompat
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.kotest.matchers.types.shouldNotBeSameInstanceAs
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Job
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,6 +38,9 @@ class MonitorServiceTest {
     private fun MonitorService.setField(name: String, value: Any?) {
         MonitorService::class.java.getDeclaredField(name).apply { isAccessible = true }.set(this, value)
     }
+
+    private fun MonitorService.getField(name: String): Any? =
+        MonitorService::class.java.getDeclaredField(name).apply { isAccessible = true }.get(this)
 
     private fun notification(title: String): Notification =
         NotificationCompat.Builder(context, MonitorNotifications.NOTIFICATION_CHANNEL_ID)
@@ -117,5 +123,55 @@ class MonitorServiceTest {
 
         shadowOf(service).lastForegroundNotification shouldBeSameInstanceAs dynamic
         shadowOf(service).lastForegroundNotificationId shouldBe MonitorNotifications.NOTIFICATION_ID
+    }
+
+    /**
+     * The FGS notification can outlive `stopSelf()`. Leaving it up strands whatever content was last
+     * posted — including the unknown-device placeholder built before the first BLE scan batch landed.
+     *
+     * Asserted as an interaction, not as shadow end-state: Robolectric's `ShadowService.onDestroy()`
+     * tears the foreground notification down by itself, so an end-state check passes either way.
+     */
+    @Test
+    fun `onDestroy retracts the monitor notification`() {
+        val service = createService()
+        service.readyForMonitoring()
+        val manager = mockk<NotificationManager>(relaxed = true)
+        service.notificationManager = manager
+
+        service.onDestroy()
+
+        verify { manager.cancel(MonitorNotifications.NOTIFICATION_ID) }
+    }
+
+    /**
+     * Scope cancellation doesn't await the collectors, so one already past its suspension point can
+     * still post — re-creating the very notification onDestroy just took down.
+     */
+    @Test
+    fun `a post that lands after onDestroy is dropped`() {
+        val service = createService()
+        service.readyForMonitoring()
+        service.onDestroy()
+
+        val manager = mockk<NotificationManager>(relaxed = true)
+        service.notificationManager = manager
+
+        service.postPrimaryNotification(notification("late"))
+
+        verify(exactly = 0) { manager.notify(any<Int>(), any()) }
+        service.getField("lastNotification").shouldBeNull()
+    }
+
+    @Test
+    fun `onDestroy skips notification cleanup when injection never completed`() {
+        val service = createService()
+        service.setField("injectionComplete", false)
+        val manager = mockk<NotificationManager>(relaxed = true)
+        service.notificationManager = manager
+
+        service.onDestroy()
+
+        verify(exactly = 0) { manager.cancel(any<Int>()) }
     }
 }

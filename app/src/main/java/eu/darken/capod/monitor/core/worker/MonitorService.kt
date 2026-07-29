@@ -98,6 +98,7 @@ class MonitorService : Service() {
     @Volatile private var monitorGeneration = 0
     private var foregroundStartFailed = false
     private var injectionComplete = false
+    @Volatile private var destroyed = false
 
     @Volatile private var lastNotification: Notification? = null
 
@@ -137,6 +138,10 @@ class MonitorService : Service() {
      * re-satisfy the foreground obligation with the notification the user is currently seeing.
      */
     internal fun postPrimaryNotification(notification: Notification) {
+        if (destroyed) {
+            log(TAG, VERBOSE) { "Skipping notification post, service is being destroyed." }
+            return
+        }
         lastNotification = notification
         notificationManager.notify(MonitorNotifications.NOTIFICATION_ID, notification)
     }
@@ -412,6 +417,10 @@ class MonitorService : Service() {
 
     override fun onDestroy() {
         log(TAG, VERBOSE) { "onDestroy()" }
+        // Set before cancelling: cancellation doesn't await the collectors, so one already past its
+        // suspension point can still reach postPrimaryNotification() and re-post what we just took
+        // down. The flag makes that post a no-op instead.
+        destroyed = true
         monitorScope.cancel("Service destroyed")
 
         if (injectionComplete) {
@@ -427,6 +436,15 @@ class MonitorService : Service() {
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to cancel connected notification: ${e.message}" }
                 }
+            }
+            // The FGS notification can outlive stopSelf(), leaving whatever content was last posted
+            // stuck in the shade. notificationManager.cancel() alone is not enough while the
+            // notification is still bound to the foreground service, so detach it first.
+            try {
+                stopForeground(Service.STOP_FOREGROUND_REMOVE)
+                notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to cancel monitor notification: ${e.message}" }
             }
         } else {
             log(TAG, WARN) { "onDestroy: Skipping notification cleanup, injection was incomplete." }
