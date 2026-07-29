@@ -372,6 +372,8 @@ private data class MockUpgradeInfo(
     override val isPro: Boolean,
     override val upgradedAt: Instant? = null,
     override val error: Throwable? = null,
+    // Previews render the definitive state, never the cold-start seed.
+    override val isSettled: Boolean = true,
 ) : UpgradeRepo.Info
 
 private class MockDualBlePodSnapshot(

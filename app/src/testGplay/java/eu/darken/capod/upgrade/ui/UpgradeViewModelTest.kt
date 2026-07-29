@@ -5,6 +5,7 @@ import com.android.billingclient.api.Purchase
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavEvent
+import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.core.CapodSku
 import eu.darken.capod.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.capod.common.upgrade.core.client.UserCanceledBillingException
@@ -54,14 +55,18 @@ class UpgradeViewModelTest : BaseTest() {
         return UpgradeRepoGplay.Info(
             billingData = BillingData(purchases.toList()),
             upgrades = purchased,
+            isSettled = true,
         )
     }
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
-        every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(billingData = null))
+        // Settledness rides the Info now: a hot flow whose emission is already settled, so the
+        // purchase actions aren't gated behind the bounded settle fallback.
+        every { upgradeInfo } returns MutableStateFlow(
+            UpgradeRepoGplay.Info(billingData = null, isSettled = true)
+        )
         every { wasEverPro } returns MutableStateFlow(false)
         every { proUnconfirmedSince } returns MutableStateFlow(0L)
-        every { isSettled } returns MutableStateFlow(true)
         // A relaxed mock returns a Flow that never emits — the effectiveRestore combine would
         // starve and the state flow would never leave Loading.
         every { autoRestoreBusy } returns MutableStateFlow(false)
@@ -130,7 +135,7 @@ class UpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(UpgradeViewModel.RESTORE_TIMEOUT_MS * 2)
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         }
         val vm = createVm(repo)
 
@@ -185,7 +190,7 @@ class UpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(5_000)
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         }
         val vm = createVm(repo)
 
@@ -347,7 +352,7 @@ class UpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(5_000)
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         }
         val vm = createVm(repo)
 
@@ -398,7 +403,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `the sales route closes once the user is pro`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         val vm = createVm(repo, manage = null)
 
@@ -413,7 +418,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `the manage route never auto-closes`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         val vm = createVm(repo, manage = true)
 
@@ -430,7 +435,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `no auto-close before the route is bound`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         val vm = createVm(repo, manage = null)
 
@@ -480,7 +485,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `grace users see the quiet hint before the diagnostics threshold`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         every { repo.proUnconfirmedSince } returns MutableStateFlow(now() - Duration.ofHours(1).toMillis())
         val vm = createVm(repo)
@@ -495,7 +500,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `grace escalates to diagnostics after the threshold`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         every { repo.proUnconfirmedSince } returns MutableStateFlow(now() - Duration.ofHours(25).toMillis())
         val vm = createVm(repo)
@@ -510,7 +515,7 @@ class UpgradeViewModelTest : BaseTest() {
     fun `the grace tick re-evaluates when the episode crosses the threshold`() = runTest2 {
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         // 2 minutes before the diagnostics threshold.
         every { repo.proUnconfirmedSince } returns MutableStateFlow(
@@ -567,7 +572,7 @@ class UpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         every { repo.wasEverPro } returns MutableStateFlow(true)
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         val vm = createVm(repo)
 
@@ -579,8 +584,10 @@ class UpgradeViewModelTest : BaseTest() {
     @Test
     fun `purchase buttons stay disabled until billing has settled`() = runTest2 {
         val repo = mockRepo()
-        val settledFlow = MutableStateFlow(false)
-        every { repo.isSettled } returns settledFlow
+        val infoFlow = MutableStateFlow<UpgradeRepo.Info>(
+            UpgradeRepoGplay.Info(billingData = null, isSettled = false)
+        )
+        every { repo.upgradeInfo } returns infoFlow
         val vm = createVm(repo)
 
         val states = mutableListOf<UpgradeUiState>()
@@ -592,7 +599,7 @@ class UpgradeViewModelTest : BaseTest() {
         (states.last() as UpgradeUiState.Loaded).iapEnabled shouldBe false
         (states.last() as UpgradeUiState.Loaded).subscriptionEnabled shouldBe false
 
-        settledFlow.value = true
+        infoFlow.value = UpgradeRepoGplay.Info(billingData = null, isSettled = true)
         testScheduler.runCurrent()
 
         (states.last() as UpgradeUiState.Loaded).iapEnabled shouldBe true
@@ -710,7 +717,7 @@ class UpgradeViewModelTest : BaseTest() {
         // Retry must be disabled then so repeated taps can't thrash the query flow.
         val repo = mockRepo()
         every { repo.upgradeInfo } returns MutableStateFlow(
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         )
         every { repo.proUnconfirmedSince } returns MutableStateFlow(now() - Duration.ofHours(25).toMillis())
         coEvery { repo.querySkus(any()) } coAnswers { awaitCancellation() }

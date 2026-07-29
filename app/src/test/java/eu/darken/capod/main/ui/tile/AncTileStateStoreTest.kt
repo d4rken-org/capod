@@ -192,6 +192,7 @@ class AncTileStateStoreTest : BaseTest() {
     private fun upgradeInfo(isPro: Boolean) = object : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
         override val isPro: Boolean = isPro
+        override val isSettled: Boolean = true
         override val upgradedAt: Instant? = null
         override val error: Throwable? = null
     }

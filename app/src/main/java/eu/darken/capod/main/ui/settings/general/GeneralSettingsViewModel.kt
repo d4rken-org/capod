@@ -12,10 +12,10 @@ import eu.darken.capod.common.theming.ThemeState
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.isProForUi
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.themeState
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import eu.darken.capod.common.datastore.valueBlocking
@@ -28,7 +28,13 @@ class GeneralSettingsViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider) {
 
     data class State(
-        val isPro: Boolean,
+        /**
+         * True only when billing settled without an error and reports no entitlement — the
+         * presentation mirror of what [isProForUi] would deny. While billing is still connecting
+         * (GPlay cold-start seed) a paying user keeps the real controls instead of being shown the
+         * upgrade branch; the setters re-check via [isProForUi] before writing.
+         */
+        val isUpgradeLocked: Boolean,
         val showConnectedNotification: Boolean,
         val keepNotificationAfterDisconnect: Boolean,
         val isOffloadedFilteringDisabled: Boolean,
@@ -38,7 +44,11 @@ class GeneralSettingsViewModel @Inject constructor(
         val themeState: ThemeState,
     )
 
-    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.asLiveState()
+    // Hard-locked = settled, error-free and no entitlement. Anything else (unsettled seed, error)
+    // keeps the pro presentation, so the cold-start race can't route a paying user to upgrade.
+    private val isUpgradeLocked = upgradeRepo.upgradeInfo
+        .map { it.error == null && it.isSettled && !it.isPro }
+        .asLiveState()
 
     val state = combine(
         combine(
@@ -57,11 +67,11 @@ class GeneralSettingsViewModel @Inject constructor(
             arrayOf<Any>(filtering as Any, batching as Any, indirect as Any)
         },
         generalSettings.themeState,
-        isPro,
+        isUpgradeLocked,
         generalSettings.hideUnmatchedDevices.flow,
-    ) { general, compat, themeState, isPro, hideUnmatched ->
+    ) { general, compat, themeState, upgradeLocked, hideUnmatched ->
         State(
-            isPro = isPro,
+            isUpgradeLocked = upgradeLocked,
             showConnectedNotification = general[0] as Boolean,
             keepNotificationAfterDisconnect = general[1] as Boolean,
             isOffloadedFilteringDisabled = compat[0] as Boolean,
@@ -104,7 +114,7 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeMode(mode: ThemeMode) = launch {
         log(TAG, INFO) { "setThemeMode($mode)" }
-        if (isPro.first()) {
+        if (upgradeRepo.isProForUi()) {
             generalSettings.themeMode.valueBlocking = mode
         } else {
             navTo(Nav.Main.Upgrade())
@@ -113,7 +123,7 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeStyle(style: ThemeStyle) = launch {
         log(TAG, INFO) { "setThemeStyle($style)" }
-        if (isPro.first()) {
+        if (upgradeRepo.isProForUi()) {
             generalSettings.themeStyle.valueBlocking = style
         } else {
             navTo(Nav.Main.Upgrade())
@@ -122,7 +132,7 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeColor(color: ThemeColor) = launch {
         log(TAG, INFO) { "setThemeColor($color)" }
-        if (isPro.first()) {
+        if (upgradeRepo.isProForUi()) {
             generalSettings.themeColor.valueBlocking = color
         } else {
             navTo(Nav.Main.Upgrade())

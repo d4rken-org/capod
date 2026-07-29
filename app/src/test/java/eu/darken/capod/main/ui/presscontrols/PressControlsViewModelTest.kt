@@ -70,6 +70,10 @@ class PressControlsViewModelTest : BaseTest() {
         aapManager = mockk(relaxed = true)
         upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true).also {
             every { it.isPro } returns false
+            // Hot flow + settled + no error: isProForUi resolves immediately. A finite flowOf or an
+            // unsettled Info would send every gate through the fail-open timeout path instead.
+            every { it.isSettled } returns true
+            every { it.error } returns null
         })
         upgradeRepo = mockk {
             every { upgradeInfo } returns upgradeInfoFlow

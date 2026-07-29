@@ -17,7 +17,7 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.isPro
+import eu.darken.capod.common.upgrade.isProForUi
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
@@ -280,7 +280,7 @@ class DeviceSettingsViewModel @Inject constructor(
     }
 
     private fun sendProGated(command: AapCommand) = launch {
-        if (upgradeRepo.isPro()) {
+        if (upgradeRepo.isProForUi()) {
             sendInternal(command)
         } else {
             navTo(Nav.Main.Upgrade())
@@ -310,7 +310,7 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setListeningModeCycle(modeMask: Int) = sendProGated(AapCommand.SetListeningModeCycle(modeMask))
 
     fun setAllowOffOption(enabled: Boolean) = launch {
-        if (!upgradeRepo.isPro()) {
+        if (!upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -333,7 +333,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setSleepDetection(enabled: Boolean) = launch {
         log(TAG, INFO) { "setSleepDetection($enabled)" }
-        if (enabled && !upgradeRepo.isPro()) {
+        if (enabled && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -385,7 +385,7 @@ class DeviceSettingsViewModel @Inject constructor(
         transform: (AppleDeviceProfile) -> AppleDeviceProfile,
     ) = launch {
         // Disabling never requires pro; enabling does.
-        if (enabled && !upgradeRepo.isPro()) {
+        if (enabled && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -401,7 +401,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setAutoPlay(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPlay($enabled)" }
-        if (enabled && !upgradeRepo.isPro()) {
+        if (enabled && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -411,7 +411,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setAutoPause(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPause($enabled)" }
-        if (enabled && !upgradeRepo.isPro()) {
+        if (enabled && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -421,7 +421,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setStartMusicOnWear(enabled: Boolean) = launch {
         log(TAG, INFO) { "setStartMusicOnWear($enabled)" }
-        if (enabled && !upgradeRepo.isPro()) {
+        if (enabled && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
@@ -490,7 +490,7 @@ class DeviceSettingsViewModel @Inject constructor(
         log(TAG, INFO) { "setConversationAction($action)" }
         // The action picker is only shown while Conversation Awareness is already enabled (the pod
         // emits no speaking frames otherwise), so no need to auto-enable it here.
-        if (action != ConversationAction.NOTHING && !upgradeRepo.isPro()) {
+        if (action != ConversationAction.NOTHING && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }
