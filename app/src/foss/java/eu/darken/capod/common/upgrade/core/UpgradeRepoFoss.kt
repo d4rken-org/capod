@@ -88,7 +88,7 @@ class UpgradeRepoFoss @Inject constructor(
     companion object {
         private const val STORE_SITE = "https://github.com/d4rken-org/capod/releases"
         private const val UPGRADE_SITE = "https://github.com/sponsors/d4rken"
-        private const val BETA_SITE = "https://play.google.com/apps/testing/eu.darken.capod"
+        private const val BETA_SITE = "https://github.com/d4rken-org/capod/releases"
         private val TAG = logTag("Upgrade", "Foss", "Repo")
     }
 }

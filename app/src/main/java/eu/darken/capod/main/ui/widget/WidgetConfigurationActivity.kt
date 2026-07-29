@@ -23,6 +23,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
+import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
@@ -37,6 +38,7 @@ class WidgetConfigurationActivity : Activity2() {
     private val vm: WidgetConfigurationViewModel by viewModels()
 
     @Inject lateinit var generalSettings: GeneralSettings
+    @Inject lateinit var upgradeRepo: UpgradeRepo
     @ApplicationContext @Inject lateinit var appContext: Context
 
     private var widgetId: Int = AppWidgetManager.INVALID_APPWIDGET_ID
@@ -48,14 +50,21 @@ class WidgetConfigurationActivity : Activity2() {
             log(TAG) { "Upgrade flow canceled or incomplete (resultCode=${result.resultCode})" }
             return@registerForActivityResult
         }
+        // Same gate as the confirm tap: the return path re-asks the ViewModel instead of trusting
+        // the upgrade activity's result code, so RESULT_OK is only ever set for an entitled, valid
+        // configuration.
         lifecycleScope.launch {
-            val currentState = vm.state.first()
-            if (!currentState.canConfirm) {
-                log(TAG) { "Upgrade completed, but widget config is not valid, staying in config" }
-                return@launch
+            when (vm.decideConfirm()) {
+                WidgetConfigurationViewModel.ConfirmOutcome.Confirmed -> {
+                    log(TAG) { "Upgrade completed, auto-confirming widget selection" }
+                    confirmSelection(vm.state.first().isAncWidget)
+                }
+
+                WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired,
+                WidgetConfigurationViewModel.ConfirmOutcome.Invalid -> {
+                    log(TAG) { "Upgrade returned, but confirming is not possible, staying in config" }
+                }
             }
-            log(TAG) { "Upgrade completed, auto-confirming widget selection" }
-            confirmSelection(currentState.isAncWidget)
         }
     }
 
@@ -134,6 +143,17 @@ class WidgetConfigurationActivity : Activity2() {
                     )
                 }
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Per-resume, unthrottled entitlement reconciliation. This activity is a second launcher
+        // entry point (the widget picker starts it directly), so it can't rely on MainActivity
+        // having reconciled: it needs its own. refresh() is bounded and swallows its own failures.
+        lifecycleScope.launch {
+            log(TAG) { "onResume(): refreshing upgrade info" }
+            upgradeRepo.refresh()
         }
     }
 

@@ -89,7 +89,16 @@ class RecorderModule @Inject constructor(
                         if (!isResume) {
                             val startTime = timeSource.currentTimeMillis()
                             writeTriggerFile(sessionDir, startTime)
-                            logRecordingHeader()
+                            // The recorder is already live but not yet committed to the state: a
+                            // cancellation escaping the header would abandon it where stopRecorder()
+                            // can't reach it.
+                            try {
+                                logRecordingHeader()
+                            } catch (e: CancellationException) {
+                                newRecorder.stop()
+                                this@RecorderModule.currentLogDir = null
+                                throw e
+                            }
 
                             this@RecorderModule.currentLogDir = sessionDir
 
@@ -100,7 +109,13 @@ class RecorderModule @Inject constructor(
                                 persistedLogDir = null,
                             )
                         } else {
-                            logRecordingHeader()
+                            try {
+                                logRecordingHeader()
+                            } catch (e: CancellationException) {
+                                newRecorder.stop()
+                                this@RecorderModule.currentLogDir = null
+                                throw e
+                            }
 
                             this@RecorderModule.currentLogDir = sessionDir
 
