@@ -26,7 +26,12 @@ class SettingsViewModel @Inject constructor(
         .map {
             State(
                 isPro = it.isPro,
-                sponsorUrl = upgradeRepo.getSponsorUrl(),
+                // Only the FOSS flavor has a sponsor flow (its upgrade site IS the sponsor page),
+                // on GPlay the entitlement is bought in the app and the heart icon stays hidden.
+                sponsorUrl = when (it.type) {
+                    UpgradeRepo.Type.FOSS -> upgradeRepo.upgradeSite
+                    UpgradeRepo.Type.GPLAY -> null
+                },
             )
         }
         .asLiveState()

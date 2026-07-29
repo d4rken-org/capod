@@ -10,7 +10,7 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.isPro
+import eu.darken.capod.common.upgrade.isProForUi
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -143,7 +143,7 @@ class PressControlsViewModel @Inject constructor(
         if (action == current) return@launch
         // 2. Free-clear allowance — always allow clearing to None.
         // 3. Otherwise Pro is required.
-        if (action != StemAction.None && !upgradeRepo.isPro()) {
+        if (action != StemAction.None && !upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
             return@launch
         }

@@ -56,6 +56,10 @@ class UpgradeRepoGplay @Inject constructor(
     private val timeSource: TimeSource,
 ) : UpgradeRepo {
 
+    override val storeSite: String = STORE_SITE
+    override val upgradeSite: String = UPGRADE_SITE
+    override val betaSite: String = BETA_SITE
+
     // Serializes the sticky check-then-write anchor logic: concurrent fresh observations (init
     // collector, direct restores, failure events) must not interleave between reading the current
     // anchor and stamping the new one.
@@ -157,9 +161,11 @@ class UpgradeRepoGplay @Inject constructor(
     // Reactive fallback when the upgradeInfo mapping throws (only local DataStore reads can fail here
     // now — the connection loop retries billing errors itself): keep a recently-Pro user in grace,
     // otherwise surface the error. Never throws — a second cache failure resolves to the error Info.
+    // Settled: a local storage failure is a definitive best-knowledge outcome, gates must resolve
+    // now instead of stalling out a 30s+ retry backoff.
     private suspend fun graceOrError(error: Throwable): Info =
-        if (isRecentlyPro()) Info(gracePeriod = true, billingData = null)
-        else Info(billingData = null, error = error)
+        if (isRecentlyPro()) Info(gracePeriod = true, billingData = null, isSettled = true)
+        else Info(billingData = null, error = error, isSettled = true)
 
     private fun String.isIapSku(): Boolean =
         CapodSku.PRO_SKUS.singleOrNull { it.id == this }?.type == Sku.Type.IAP
@@ -196,13 +202,24 @@ class UpgradeRepoGplay @Inject constructor(
             true
         }
 
+    // True once any fresh billing observation arrived this process. The pre-reconciliation empty
+    // purchase state must not enable purchase actions — an owner on a fresh install would briefly
+    // look free and could buy the other product on top of what they already own. Combined INTO
+    // each Info below (UpgradeRepo.Info.isSettled) instead of being exposed as a parallel flow, so
+    // settledness can never be observed out of step with the ownership data it describes.
+    private val settledSignal: Flow<Boolean> = billingDataRepo.freshBillingData
+        .map { true }
+        .onStart { emit(false) }
+        .distinctUntilChanged()
+
     override val upgradeInfo: Flow<UpgradeRepo.Info> = combine(
         billingDataRepo.billingData
             .map<BillingData, BillingData?> { it }
             .onStart { emit(null) },
         graceDeadlineTick,
-    ) { data, _ -> data }
-        .map { data -> data.toUpgradeInfo() }
+        settledSignal,
+    ) { data, _, settled -> data to settled }
+        .map { (data, settled) -> data.toUpgradeInfo(settled = settled) }
         .retryWhen { error, attempt ->
             // Defensive backstop: toUpgradeInfo() now routes its cache access through the
             // guarded+bounded isRecentlyPro() and so never throws for a failing/hung DataStore, and
@@ -246,17 +263,26 @@ class UpgradeRepoGplay @Inject constructor(
             true
         }
 
-    // True once any fresh billing observation arrived this process. The pre-reconciliation empty
-    // purchase state must not enable purchase actions — an owner on a fresh install would briefly
-    // look free and could buy the other product on top of what they already own.
-    val isSettled: Flow<Boolean> = billingDataRepo.freshBillingData
-        .map { true }
-        .onStart { emit(false) }
-        .distinctUntilChanged()
-
     // Strict SUBS-only ownership check for the switch-to-IAP gate. Errors propagate — a
     // subscriber whose renewal state can't be verified must not be allowed to double-buy.
     suspend fun queryCurrentSubscriptions(): Collection<Purchase> = billingDataRepo.querySubscriptions()
+
+    override suspend fun refresh() {
+        log(TAG) { "refresh()" }
+        try {
+            // Bounded: with unbounded connection retry, an unavailable Play would otherwise keep
+            // background callers suspended indefinitely. Grace stamping happens via the
+            // freshBillingData collector, not here.
+            val fresh = withTimeoutOrNull(REFRESH_TIMEOUT_MS) { billingDataRepo.refresh() }
+            if (fresh == null) log(TAG, WARN) { "Background refresh timed out" }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Background refresh: swallow-and-log so callers aren't affected. The explicit restore
+            // path uses restorePurchaseNow(), which surfaces errors.
+            log(TAG, WARN) { "Background refresh failed: ${e.asLog()}" }
+        }
+    }
 
     // Explicit "Restore purchase": query Play now and evaluate Pro from the returned data in the
     // same coroutine (real happens-before), so we never read a stale upgradeInfo replay. Billing
@@ -276,7 +302,8 @@ class UpgradeRepoGplay @Inject constructor(
             } catch (e: Exception) {
                 log(TAG, WARN) { "restore: failed to record pro state: ${e.asLog()}" }
             }
-            fresh.data.toUpgradeInfo()
+            // A completed Play round-trip is settled knowledge by definition.
+            fresh.data.toUpgradeInfo(settled = true)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -287,7 +314,7 @@ class UpgradeRepoGplay @Inject constructor(
             // the original error" rather than escaping with the probe's exception.
             if (isRecentlyPro()) {
                 log(TAG, VERBOSE) { "Restore hit an error but we were Pro recently -> grace" }
-                Info(gracePeriod = true, billingData = null)
+                Info(gracePeriod = true, billingData = null, isSettled = true)
             } else {
                 throw e
             }
@@ -303,8 +330,15 @@ class UpgradeRepoGplay @Inject constructor(
     // local storage is unreadable (mapped-first return, no DataStore access), and a purchase list
     // containing only products this app doesn't know maps to zero upgrades and correctly falls
     // through to the grace check instead of masquerading as a confirmed purchase.
-    private suspend fun BillingData?.toUpgradeInfo(): Info {
-        val mapped = Info(billingData = this, upgrades = this?.getProSkus() ?: emptyList())
+    //
+    // settled comes from the caller, never from billingData nullness: the grace branch returns an
+    // Info with billingData = null that may well be settled (built from a real empty snapshot).
+    private suspend fun BillingData?.toUpgradeInfo(settled: Boolean): Info {
+        val mapped = Info(
+            billingData = this,
+            upgrades = this?.getProSkus() ?: emptyList(),
+            isSettled = settled,
+        )
         if (mapped.upgrades.isNotEmpty()) return mapped
 
         // No confirmed purchase (incl. the null pre-data placeholder the combine seeds): fall back to
@@ -315,7 +349,7 @@ class UpgradeRepoGplay @Inject constructor(
         // purchase that arrives behind it in the sequential map.
         return if (isRecentlyPro()) {
             log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
-            Info(gracePeriod = true, billingData = null)
+            Info(gracePeriod = true, billingData = null, isSettled = settled)
         } else {
             mapped
         }
@@ -357,6 +391,9 @@ class UpgradeRepoGplay @Inject constructor(
         private val billingData: BillingData?,
         val upgrades: Collection<PurchasedSku> = emptyList(),
         override val error: Throwable? = null,
+        // Default false is the fail-safe direction: a forgotten stamp shows up as "never settles"
+        // (loud), never as a settled pre-reconciliation flash.
+        override val isSettled: Boolean = false,
     ) : UpgradeRepo.Info {
 
         override val type: UpgradeRepo.Type
@@ -439,6 +476,13 @@ class UpgradeRepoGplay @Inject constructor(
         private const val GRACE_PROBE_TIMEOUT_MS = 2_000L
 
         private const val RESTORE_ON_OWNED_TIMEOUT_MS = 15_000L
+
+        // Bounds "connection wait + Play round-trip" for the background refresh.
+        private const val REFRESH_TIMEOUT_MS = 30_000L
+
+        private const val STORE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.capod"
+        private const val UPGRADE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.capod"
+        private const val BETA_SITE = "https://play.google.com/apps/testing/eu.darken.capod"
 
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }

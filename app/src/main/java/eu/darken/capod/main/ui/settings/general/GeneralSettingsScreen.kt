@@ -114,7 +114,7 @@ fun GeneralSettingsScreen(
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
             }
             item {
-                if (state.isPro) {
+                if (!state.isUpgradeLocked) {
                     SettingsListPreferenceItem(
                         icon = Icons.TwoTone.DarkMode,
                         title = stringResource(R.string.ui_theme_mode_label),
@@ -134,7 +134,7 @@ fun GeneralSettingsScreen(
                 }
             }
             item {
-                if (state.isPro) {
+                if (!state.isUpgradeLocked) {
                     SettingsListPreferenceItem(
                         icon = Icons.TwoTone.Contrast,
                         title = stringResource(R.string.ui_theme_style_label),
@@ -163,10 +163,10 @@ fun GeneralSettingsScreen(
                     },
                     icon = Icons.TwoTone.Palette,
                     onClick = {
-                        if (!state.isPro) onUpgrade() else showColorDialog = true
+                        if (state.isUpgradeLocked) onUpgrade() else showColorDialog = true
                     },
                     enabled = !isMaterialYouActive,
-                    requiresUpgrade = !state.isPro && !isMaterialYouActive,
+                    requiresUpgrade = state.isUpgradeLocked && !isMaterialYouActive,
                 )
             }
             item {
@@ -283,7 +283,7 @@ fun GeneralSettingsScreen(
 }
 
 private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State(
-    isPro = isPro,
+    isUpgradeLocked = !isPro,
     showConnectedNotification = true,
     keepNotificationAfterDisconnect = false,
     isOffloadedFilteringDisabled = false,

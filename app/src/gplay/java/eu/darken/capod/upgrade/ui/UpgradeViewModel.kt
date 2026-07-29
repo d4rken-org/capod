@@ -34,6 +34,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
@@ -82,7 +83,7 @@ class UpgradeViewModel @Inject constructor(
     // bounded fallback so a Play outage can't brick the buttons): the initially-empty purchase
     // state must not let an owner on a fresh install double-buy.
     private val settled: StateFlow<Boolean> = merge(
-        upgradeRepo.isSettled.filter { it },
+        upgradeRepo.upgradeInfo.map { it.isSettled }.filter { it },
         flow {
             delay(SETTLE_FALLBACK_MS)
             emit(true)

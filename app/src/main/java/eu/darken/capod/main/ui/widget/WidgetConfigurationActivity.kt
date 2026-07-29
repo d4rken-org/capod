@@ -104,15 +104,30 @@ class WidgetConfigurationActivity : Activity2() {
                         onSetShowDeviceLabel = { show -> vm.setShowDeviceLabel(show) },
                         onReset = { vm.resetToDefaults() },
                         onConfirm = {
-                            if (currentState.isPro) {
-                                confirmSelection(currentState.isAncWidget)
-                            } else {
-                                upgradeLauncher.launch(
-                                    Intent(this@WidgetConfigurationActivity, MainActivity::class.java).apply {
-                                        putExtra(MainActivity.EXTRA_NAVIGATE_TO_UPGRADE, true)
-                                        putExtra(MainActivity.EXTRA_UPGRADE_FOR_RESULT, true)
+                            // The decision is made in the ViewModel (suspending entitlement gate),
+                            // so RESULT_OK is only ever set for an entitled, valid configuration.
+                            lifecycleScope.launch {
+                                when (vm.decideConfirm()) {
+                                    WidgetConfigurationViewModel.ConfirmOutcome.Confirmed -> {
+                                        confirmSelection(currentState.isAncWidget)
                                     }
-                                )
+
+                                    WidgetConfigurationViewModel.ConfirmOutcome.UpgradeRequired -> {
+                                        upgradeLauncher.launch(
+                                            Intent(
+                                                this@WidgetConfigurationActivity,
+                                                MainActivity::class.java
+                                            ).apply {
+                                                putExtra(MainActivity.EXTRA_NAVIGATE_TO_UPGRADE, true)
+                                                putExtra(MainActivity.EXTRA_UPGRADE_FOR_RESULT, true)
+                                            }
+                                        )
+                                    }
+
+                                    WidgetConfigurationViewModel.ConfirmOutcome.Invalid -> {
+                                        log(TAG) { "Confirm rejected, staying in config" }
+                                    }
+                                }
                             }
                         },
                         onCancel = { finish() },

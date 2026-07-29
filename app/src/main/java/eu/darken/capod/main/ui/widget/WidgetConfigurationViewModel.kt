@@ -13,10 +13,12 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.uix.ViewModel2
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.isProForUi
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -151,6 +153,41 @@ class WidgetConfigurationViewModel @Inject constructor(
         log(TAG, INFO) { "resetToDefaults()" }
         forceCustomMode.value = false
         currentTheme.value = WidgetTheme.DEFAULT
+    }
+
+    /** Decision for the confirm action, so the host can't return RESULT_OK without an entitlement. */
+    sealed interface ConfirmOutcome {
+        /** Entitled and the configuration is valid — save it and return RESULT_OK. */
+        data object Confirmed : ConfirmOutcome
+
+        /** Valid configuration, but no entitlement — route to the upgrade flow. */
+        data object UpgradeRequired : ConfirmOutcome
+
+        /** No widget or no usable profile selected — stay in the configuration. */
+        data object Invalid : ConfirmOutcome
+    }
+
+    /**
+     * Validity first, entitlement second: an invalid configuration must not send the user shopping.
+     * The gate is [isProForUi] rather than the state's cached isPro, so a paying user tapping
+     * confirm during the GPlay cold-start seed waits for the entitlement instead of being bounced
+     * into the upgrade flow.
+     */
+    suspend fun decideConfirm(): ConfirmOutcome {
+        if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+            log(TAG, INFO) { "decideConfirm(): invalid widget ID" }
+            return ConfirmOutcome.Invalid
+        }
+        if (!state.first().canConfirm) {
+            log(TAG, INFO) { "decideConfirm(): configuration is not confirmable" }
+            return ConfirmOutcome.Invalid
+        }
+        return if (upgradeRepo.isProForUi()) {
+            ConfirmOutcome.Confirmed
+        } else {
+            log(TAG, INFO) { "decideConfirm(): upgrade required" }
+            ConfirmOutcome.UpgradeRequired
+        }
     }
 
     fun confirmSelection() {

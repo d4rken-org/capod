@@ -82,7 +82,10 @@ class OverviewViewModelTest : BaseTest() {
         isBluetoothEnabledFlow = MutableStateFlow(true)
         profilesFlow = MutableStateFlow(emptyList())
         hadLegacyReactionDataFlow = MutableStateFlow(false)
-        upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
+        upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true).also {
+            every { it.isSettled } returns true
+            every { it.error } returns null
+        })
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
         fakeHideUnmatchedDevices = FakeDataStoreValue(false)
@@ -244,6 +247,8 @@ class OverviewViewModelTest : BaseTest() {
         fun `free user with no profiled devices - visible empty, hidden 0`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
                 every { isPro } returns false
+                every { isSettled } returns true
+                every { error } returns null
                 every { type } returns UpgradeRepo.Type.GPLAY
             }
             val state = OverviewViewModel.State(
@@ -265,6 +270,8 @@ class OverviewViewModelTest : BaseTest() {
         fun `free user with 1 profiled device - visible 1, hidden 0`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
                 every { isPro } returns false
+                every { isSettled } returns true
+                every { error } returns null
                 every { type } returns UpgradeRepo.Type.GPLAY
             }
             val profiled = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
@@ -287,6 +294,8 @@ class OverviewViewModelTest : BaseTest() {
         fun `free user with 3 profiled devices - visible 1, hidden 2`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
                 every { isPro } returns false
+                every { isSettled } returns true
+                every { error } returns null
                 every { type } returns UpgradeRepo.Type.GPLAY
             }
             val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
@@ -311,6 +320,8 @@ class OverviewViewModelTest : BaseTest() {
         fun `pro user with multiple profiled devices - all visible, hidden 0`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
                 every { isPro } returns true
+                every { isSettled } returns true
+                every { error } returns null
                 every { type } returns UpgradeRepo.Type.GPLAY
             }
             val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
@@ -332,9 +343,65 @@ class OverviewViewModelTest : BaseTest() {
         }
 
         @Test
+        fun `unsettled cold start does not truncate a paying users device list`() {
+            // GPlay seed before the first billing result: non-Pro AND unsettled. Truncating here
+            // would make a paying user's devices vanish and reappear on every launch.
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { isSettled } returns false
+                every { error } returns null
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val device2 = PodDevice(profileId = "id-2", ble = mockk(relaxed = true), aap = null)
+            val device3 = PodDevice(profileId = "id-3", ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(device1, device2, device3),
+                isDebug = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(device1, device2, device3)
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
+        fun `a settled error state does not truncate the device list`() {
+            // Billing settled into an error: ownership is unknown, so fail open like the gates do.
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { isSettled } returns true
+                every { error } returns IllegalStateException("billing broke")
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val device2 = PodDevice(profileId = "id-2", ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(device1, device2),
+                isDebug = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(device1, device2)
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
         fun `unmatched devices unchanged regardless of pro status`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
                 every { isPro } returns false
+                every { isSettled } returns true
+                every { error } returns null
                 every { type } returns UpgradeRepo.Type.GPLAY
             }
             val profiled1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)

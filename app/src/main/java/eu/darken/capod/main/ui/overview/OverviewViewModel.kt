@@ -262,8 +262,19 @@ class OverviewViewModel @Inject constructor(
             )
         }
 
+        /**
+         * Truncate to the free limit ONLY when the entitlement is hard-locked: billing settled,
+         * error-free and reporting no purchase. During the GPlay cold-start seed (unsettled, and
+         * non-Pro even for paying users) or an error state the full list stays visible — a paying
+         * user's devices must not disappear and reappear on every launch.
+         *
+         * Predicate inlined on purpose: `UpgradeRepoExtensions` stays byte-identical to canonical.
+         */
         val visibleProfiledDevices: List<PodDevice>
-            get() = if (upgradeInfo.isPro) profiledDevices else profiledDevices.take(FREE_DEVICE_LIMIT)
+            get() {
+                val hardLocked = upgradeInfo.error == null && upgradeInfo.isSettled && !upgradeInfo.isPro
+                return if (hardLocked) profiledDevices.take(FREE_DEVICE_LIMIT) else profiledDevices
+            }
         val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
 
