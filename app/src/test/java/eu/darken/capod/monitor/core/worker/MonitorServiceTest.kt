@@ -126,6 +126,28 @@ class MonitorServiceTest {
     }
 
     /**
+     * A built Notification's `when` is frozen, so re-promoting the previous session's last frame to
+     * open a new one re-posts stale content under its original timestamp — the way an "unknown
+     * device" placeholder survives a teardown/restart cycle.
+     */
+    @Test
+    fun `a start with no live monitor does not reuse the previous notification`() {
+        val service = createService()
+        service.readyForMonitoring()
+
+        val stale = notification("stale")
+        service.postPrimaryNotification(stale)
+
+        // Monitor session has ended — the cached frame no longer reflects anything current.
+        service.setField("monitoringJob", null)
+
+        service.onStartCommand(MonitorService.intent(context), 0, 1) shouldBe Service.START_STICKY
+
+        shadowOf(service).lastForegroundNotification shouldNotBeSameInstanceAs stale
+        service.getField("lastNotification") shouldNotBeSameInstanceAs stale
+    }
+
+    /**
      * The FGS notification can outlive `stopSelf()`. Leaving it up strands whatever content was last
      * posted — including the unknown-device placeholder built before the first BLE scan batch landed.
      *

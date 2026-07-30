@@ -184,7 +184,15 @@ class MonitorService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Every startForegroundService() re-arms the startForeground() obligation,
         // so every onStartCommand has to satisfy it again, no matter how it exits.
-        if (!promoteToForeground(lastNotification ?: MonitorNotifications.createEarlyNotification(this))) {
+        //
+        // Only reuse the cached notification while a monitor session is actually live. It is a fully
+        // built object whose `when` is frozen at build time, so re-promoting it to open a NEW session
+        // would re-post the previous session's last content under its original timestamp — which is
+        // how a stale "unknown device" frame survives a teardown/restart cycle. Rebuilding is not an
+        // option here: this has to stay cheap enough to satisfy the obligation before DI is ready.
+        val reusable = lastNotification?.takeIf { monitoringJob?.isActive == true }
+        if (reusable == null) lastNotification = null
+        if (!promoteToForeground(reusable ?: MonitorNotifications.createEarlyNotification(this))) {
             stopSelf(startId)
             return START_NOT_STICKY
         }
