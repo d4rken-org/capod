@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,20 +44,34 @@ class UpgradeViewModel @Inject constructor(
     // gets a status view first; the pitch only appears once a free user asks for the upgrade
     // options. Upgrading wins over that choice — completing the sponsor flow from the pitch must
     // land on the upgraded status, not back on the ask. null until the route is bound.
-    internal val state: StateFlow<FossUpgradeView?> = combine(
+    internal val state: StateFlow<State?> = combine(
         routeFlow,
         upgradeRepo.upgradeInfo,
         handle.getStateFlow(KEY_SHOW_UPGRADE_OPTIONS, false),
     ) { route, info, showOptions ->
-        when {
+        val view = when {
             route == null -> null
             route.manage && info.isPro -> FossUpgradeView.STATUS_UPGRADED
             route.manage && !showOptions -> FossUpgradeView.STATUS_FREE
             else -> FossUpgradeView.PITCH
         }
+        // Derived in the same emission as the view on purpose: a sibling flow would let the
+        // upgraded status render for a frame without the date it is supposed to carry.
+        view?.let {
+            State(
+                view = it,
+                supporterSince = info.upgradedAt.takeIf { _ -> it == FossUpgradeView.STATUS_UPGRADED },
+            )
+        }
     }.safeStateIn(
         initialValue = null,
-        onError = { FossUpgradeView.PITCH },
+        onError = { State(view = FossUpgradeView.PITCH) },
+    )
+
+    // internal like FossUpgradeView: the view enum is a screen-local presentation detail.
+    internal data class State(
+        val view: FossUpgradeView,
+        val supporterSince: Instant? = null,
     )
 
     init {
@@ -97,20 +112,32 @@ class UpgradeViewModel @Inject constructor(
         upgradeRepo.openGithubSponsorsPage()
     }
 
+    /**
+     * Whether a sponsor-page launch is still awaiting its return.
+     *
+     * Handle-backed, so it survives process recreation while the browser is in front — the screen's
+     * in-memory return tracker does not, and gating on that alone drops the first return after a
+     * recreation.
+     */
+    fun hasPendingSponsorLaunch(): Boolean = handle.contains(KEY_SPONSOR_PRESSED_AT)
+
     fun checkSponsorReturn() = launch {
         val pressedAt = handle.remove<Long>(KEY_SPONSOR_PRESSED_AT) ?: return@launch
+
+        // Evaluated before the duration: an already upgraded supporter (recurring donation button)
+        // has nothing left to unlock, and persisting again would rewrite their upgradedAt — visibly
+        // resetting the "supporter since" date the status screen shows them.
+        if (upgradeRepo.upgradeInfo.first().isPro) {
+            log(TAG) { "checkSponsorReturn(): Already upgraded, staying quiet" }
+            return@launch
+        }
+
         val elapsed = SystemClock.elapsedRealtime() - pressedAt
         log(TAG) { "checkSponsorReturn(): elapsed=${elapsed}ms" }
 
         if (elapsed < SPONSOR_DELAY_MS) {
-            // The nudge belongs to the unlock heuristic. An already upgraded user (recurring
-            // donation button) has nothing to unlock — peeking at the page needs no feedback.
-            if (upgradeRepo.upgradeInfo.first().isPro) {
-                log(TAG) { "checkSponsorReturn(): Too quick, but already upgraded, staying quiet" }
-            } else {
-                log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
-                snackbarEvents.tryEmit(R.string.upgrade_foss_sponsor_returned_early)
-            }
+            log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
+            snackbarEvents.tryEmit(R.string.upgrade_foss_sponsor_returned_early)
         } else {
             log(TAG) { "checkSponsorReturn(): Delay passed, persisting upgrade" }
             upgradeRepo.persistUpgrade()

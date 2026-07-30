@@ -85,10 +85,14 @@ internal object UpgradeScreenTags {
 // Composed app title with the flavor postfix highlighted in the upgraded color while Pro is
 // active — the same treatment the dashboard title card uses.
 @Composable
-internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString {
+internal fun upgradeScreenTitle(
+    upgraded: Boolean,
+    @StringRes nameRes: Int = R.string.app_name_pro,
+): AnnotatedString {
     // capod ships the composed "CAPod Pro" as one translatable string so translations can reorder
-    // the words; the postfix is the trailing part and gets the upgraded highlight.
-    val parts = stringResource(R.string.app_name_pro).split(" ").filter { it.isNotEmpty() }
+    // the words; the postfix is the trailing part and gets the upgraded highlight. FOSS passes its
+    // own "CAPod FOSS" instead — the flavor name is the brand there, Pro is not a thing.
+    val parts = stringResource(nameRes).split(" ").filter { it.isNotEmpty() }
     val highlight = colorResource(R.color.brand_tertiary)
     return buildAnnotatedString {
         if (parts.size == 2) {
@@ -97,7 +101,7 @@ internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString {
             append(parts[1])
             if (upgraded) pop()
         } else {
-            append(stringResource(R.string.app_name_pro))
+            append(stringResource(nameRes))
         }
     }
 }

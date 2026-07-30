@@ -76,37 +76,55 @@ class FossUpgradeViewModelTest : BaseTest() {
     fun `manage route shows the free status to non-upgraded users`() = runTest2(context = testDispatcher) {
         val vm = buildVm()
 
-        val view = async { vm.state.first { it != null } }
+        val view = async { vm.state.first { it != null }!! }
         vm.bindRoute(Nav.Main.Upgrade(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.STATUS_FREE
+        view.await().view shouldBe FossUpgradeView.STATUS_FREE
+        // Only supporters have a supporter-since date.
+        view.await().supporterSince shouldBe null
     }
 
     @Test
     fun `manage route shows the upgraded status to supporters`() = runTest2(context = testDispatcher) {
         val vm = buildVm(repo = mockRepo(MutableStateFlow(upgradedInfo())))
 
-        val view = async { vm.state.first { it != null } }
+        val view = async { vm.state.first { it != null }!! }
         vm.bindRoute(Nav.Main.Upgrade(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.STATUS_UPGRADED
+        view.await().view shouldBe FossUpgradeView.STATUS_UPGRADED
+    }
+
+    @Test
+    fun `supporterSince reflects the repo's upgradedAt`() = runTest2(context = testDispatcher) {
+        // Derived in the same emission as the view: the upgraded status must never render a frame
+        // without the date it is supposed to carry.
+        val vm = buildVm(repo = mockRepo(MutableStateFlow(upgradedInfo())))
+
+        val state = async { vm.state.first { it != null }!! }
+        vm.bindRoute(Nav.Main.Upgrade(manage = true))
+        advanceUntilIdle()
+
+        state.await() shouldBe UpgradeViewModel.State(
+            view = FossUpgradeView.STATUS_UPGRADED,
+            supporterSince = Instant.EPOCH,
+        )
     }
 
     @Test
     fun `default and forced routes show the pitch`() = runTest2(context = testDispatcher) {
         val defaultVm = buildVm()
-        val defaultView = async { defaultVm.state.first { it != null } }
+        val defaultView = async { defaultVm.state.first { it != null }!! }
         defaultVm.bindRoute(Nav.Main.Upgrade())
 
         val forcedVm = buildVm()
-        val forcedView = async { forcedVm.state.first { it != null } }
+        val forcedView = async { forcedVm.state.first { it != null }!! }
         forcedVm.bindRoute(Nav.Main.Upgrade(forced = true))
         advanceUntilIdle()
 
-        defaultView.await() shouldBe FossUpgradeView.PITCH
-        forcedView.await() shouldBe FossUpgradeView.PITCH
+        defaultView.await().view shouldBe FossUpgradeView.PITCH
+        forcedView.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -114,15 +132,15 @@ class FossUpgradeViewModelTest : BaseTest() {
         val vm = buildVm()
         vm.bindRoute(Nav.Main.Upgrade(manage = true))
 
-        val freeView = async { vm.state.first { it != null } }
+        val freeView = async { vm.state.first { it != null }!! }
         advanceUntilIdle()
-        freeView.await() shouldBe FossUpgradeView.STATUS_FREE
+        freeView.await().view shouldBe FossUpgradeView.STATUS_FREE
 
-        val pitchView = async { vm.state.first { it == FossUpgradeView.PITCH } }
+        val pitchView = async { vm.state.first { it?.view == FossUpgradeView.PITCH }!! }
         vm.onShowUpgradeOptions()
         advanceUntilIdle()
 
-        pitchView.await() shouldBe FossUpgradeView.PITCH
+        pitchView.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -135,11 +153,11 @@ class FossUpgradeViewModelTest : BaseTest() {
 
         // Same handle, fresh ViewModel — as after the process was killed on the pitch.
         val recreatedVm = buildVm(handle = handle)
-        val view = async { recreatedVm.state.first { it != null } }
+        val view = async { recreatedVm.state.first { it != null }!! }
         recreatedVm.bindRoute(Nav.Main.Upgrade(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.PITCH
+        view.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -151,15 +169,15 @@ class FossUpgradeViewModelTest : BaseTest() {
         vm.bindRoute(Nav.Main.Upgrade(manage = true))
         vm.onShowUpgradeOptions()
 
-        val pitchView = async { vm.state.first { it != null } }
+        val pitchView = async { vm.state.first { it != null }!! }
         advanceUntilIdle()
-        pitchView.await() shouldBe FossUpgradeView.PITCH
+        pitchView.await().view shouldBe FossUpgradeView.PITCH
 
-        val upgradedView = async { vm.state.first { it == FossUpgradeView.STATUS_UPGRADED } }
+        val upgradedView = async { vm.state.first { it?.view == FossUpgradeView.STATUS_UPGRADED }!! }
         info.value = upgradedInfo()
         advanceUntilIdle()
 
-        upgradedView.await() shouldBe FossUpgradeView.STATUS_UPGRADED
+        upgradedView.await().view shouldBe FossUpgradeView.STATUS_UPGRADED
     }
 
     @Test
@@ -236,5 +254,59 @@ class FossUpgradeViewModelTest : BaseTest() {
 
         thanks.await() shouldBe R.string.upgrade_foss_supporter_thanks
         coVerify(exactly = 1) { repo.persistUpgrade() }
+    }
+
+    @Test
+    fun `a recurring donation from the upgraded status keeps the supporter date`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The upgraded status screen's donate-again button runs the very same sponsor flow. A
+        // return past the delay must NOT persist again -- that would rewrite upgradedAt and
+        // visibly reset the "supporter since" date the screen shows.
+        val repo = mockRepo(MutableStateFlow(upgradedInfo()))
+        val vm = buildVm(repo = repo)
+
+        val before = async { vm.state.first { it != null }!! }
+        vm.bindRoute(Nav.Main.Upgrade(manage = true))
+        advanceUntilIdle()
+        before.await().supporterSince shouldBe Instant.EPOCH
+
+        vm.goGithubSponsors()
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+        vm.state.value!!.supporterSince shouldBe Instant.EPOCH
+    }
+
+    /**
+     * Process death between the sponsor launch and the return: the screen's in-memory return
+     * tracker is gone, so the handle-backed pending launch has to carry the state across. Without
+     * it the very first return after a recreation is dropped and the supporter never gets unlocked.
+     */
+    @Test
+    fun `a sponsor return after process recreation still persists the upgrade`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val handle = SavedStateHandle()
+        val firstVm = buildVm(handle = handle)
+        firstVm.goGithubSponsors()
+        advanceUntilIdle()
+
+        // Same handle, fresh ViewModel — as after the process was killed while the browser was up.
+        val repo = mockRepo()
+        val recreatedVm = buildVm(repo = repo, handle = handle)
+        recreatedVm.hasPendingSponsorLaunch() shouldBe true
+
+        val thanks = async { recreatedVm.toastEvents.first() }
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        recreatedVm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        thanks.await() shouldBe R.string.upgrade_foss_supporter_thanks
+        coVerify(exactly = 1) { repo.persistUpgrade() }
+        // Consumed: a later resume must not re-run the unlock.
+        recreatedVm.hasPendingSponsorLaunch() shouldBe false
     }
 }

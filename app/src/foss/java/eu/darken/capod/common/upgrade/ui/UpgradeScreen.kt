@@ -34,6 +34,10 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.navigation.Nav
 import androidx.compose.ui.unit.dp
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 // Which presentation the FOSS upgrade screen shows: the classic support pitch, or one of the
 // status views behind the settings "upgrade status" entry.
@@ -54,7 +58,12 @@ fun UpgradeScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val sponsorReturnTracker = remember { SponsorReturnTracker() }
+    // Seeded from the ViewModel's handle-backed pending launch: after a process death while the
+    // sponsor page was open, a blank tracker would swallow the very first return. The handle is the
+    // authority on whether a return is still expected, so it reconstructs the tracker's state.
+    val sponsorReturnTracker = remember(vm) {
+        SponsorReturnTracker(wentToBackground = vm.hasPendingSponsorLaunch())
+    }
 
     LaunchedEffect(Unit) {
         vm.snackbarEvents.collect { stringRes ->
@@ -77,12 +86,13 @@ fun UpgradeScreenHost(
         }
     }
 
-    val view by vm.state.collectAsStateWithLifecycle()
+    val state by vm.state.collectAsStateWithLifecycle()
 
     UpgradeScreen(
         // Until the route binding lands (one frame): the default route keeps rendering the pitch
         // exactly as before, only the manage route waits for the status decision.
-        view = view ?: FossUpgradeView.PITCH.takeIf { !route.manage },
+        view = state?.view ?: FossUpgradeView.PITCH.takeIf { !route.manage },
+        supporterSince = state?.supporterSince,
         snackbarHostState = snackbarHostState,
         onGithubSponsors = vm::goGithubSponsors,
         onShowUpgradeOptions = vm::onShowUpgradeOptions,
@@ -93,6 +103,7 @@ fun UpgradeScreenHost(
 @Composable
 internal fun UpgradeScreen(
     view: FossUpgradeView? = FossUpgradeView.PITCH,
+    supporterSince: Instant? = null,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onGithubSponsors: () -> Unit = {},
     onShowUpgradeOptions: () -> Unit = {},
@@ -104,7 +115,12 @@ internal fun UpgradeScreen(
         title = if (view == FossUpgradeView.PITCH) {
             AnnotatedString(stringResource(R.string.settings_upgrade_status_label))
         } else {
-            upgradeScreenTitle(upgraded = view == FossUpgradeView.STATUS_UPGRADED)
+            // "CAPod FOSS", not "CAPod Pro": on FOSS the flavor name IS the brand. The upgraded
+            // gate keeps the highlight for supporters only.
+            upgradeScreenTitle(
+                upgraded = view == FossUpgradeView.STATUS_UPGRADED,
+                nameRes = R.string.app_name_foss,
+            )
         },
         onNavigateUp = onNavigateUp,
         snackbarHostState = snackbarHostState,
@@ -123,6 +139,7 @@ internal fun UpgradeScreen(
 
             FossUpgradeView.STATUS_UPGRADED -> UpgradeStatusUpgradedContent(
                 paddingValues = paddingValues,
+                supporterSince = supporterSince,
                 onGithubSponsors = onGithubSponsors,
             )
         }
@@ -216,6 +233,7 @@ private fun UpgradeStatusFreeContent(
 @Composable
 private fun UpgradeStatusUpgradedContent(
     paddingValues: PaddingValues,
+    supporterSince: Instant? = null,
     onGithubSponsors: () -> Unit,
 ) {
     UpgradeScreenContent(
@@ -238,6 +256,15 @@ private fun UpgradeStatusUpgradedContent(
                 text = stringResource(R.string.upgrade_foss_supporter_thanks),
                 style = MaterialTheme.typography.bodyMedium,
             )
+            supporterSince?.let { since ->
+                val formatter = remember {
+                    DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneId.systemDefault())
+                }
+                Text(
+                    text = stringResource(R.string.upgrade_foss_supporter_since, formatter.format(since)),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
         }
 
         UpgradeSectionCard(
@@ -257,8 +284,9 @@ private fun UpgradeStatusUpgradedContent(
     }
 }
 
-internal class SponsorReturnTracker {
-    private var wentToBackground = false
+internal class SponsorReturnTracker(
+    private var wentToBackground: Boolean = false,
+) {
 
     fun onStop() {
         wentToBackground = true
@@ -294,6 +322,9 @@ private fun UpgradeScreenStatusFreePreview() {
 @Composable
 private fun UpgradeScreenStatusUpgradedPreview() {
     PreviewWrapper {
-        UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED)
+        UpgradeScreen(
+            view = FossUpgradeView.STATUS_UPGRADED,
+            supporterSince = Instant.ofEpochMilli(1_700_000_000_000L),
+        )
     }
 }
