@@ -26,7 +26,7 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.battery.estimateFor
-import eu.darken.capod.monitor.core.tierRank
+import eu.darken.capod.monitor.core.podDeviceTierComparator
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -256,10 +256,7 @@ class OverviewViewModel @Inject constructor(
         }
 
         val profiledDevices: List<PodDevice> by lazy {
-            devices.filter { it.profileId != null }.sortedWith(
-                compareBy<PodDevice> { it.tierRank() }
-                    .thenBy { profileOrder[it.profileId] ?: Int.MAX_VALUE }
-            )
+            devices.filter { it.profileId != null }.sortedWith(podDeviceTierComparator(profileOrder))
         }
 
         /**

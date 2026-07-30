@@ -12,6 +12,7 @@ class PodDeviceTierTest : BaseTest() {
         profileId: String?,
         isSystemConnected: Boolean = false,
         isLive: Boolean = false,
+        profileModel: PodModel = PodModel.AIRPODS_PRO,
     ): PodDevice {
         // isLive is derived from ble != null || aap != null. Use a minimal AapPodState so we
         // don't need to fabricate a BLE snapshot for the live case.
@@ -20,7 +21,7 @@ class PodDeviceTierTest : BaseTest() {
             profileId = profileId,
             ble = null,
             aap = aap,
-            profileModel = PodModel.AIRPODS_PRO,
+            profileModel = profileModel,
             isSystemConnected = isSystemConnected,
         )
     }
@@ -80,5 +81,17 @@ class PodDeviceTierTest : BaseTest() {
         val withoutOrder = device(profileId = "z", isLive = true)
         val devices = listOf(withoutOrder, withOrder)
         devices.primaryByTier(profileOrder = mapOf("a" to 0)) shouldBe withOrder
+    }
+
+    /**
+     * `profiles_priority_hint` promises profile order is authoritative once tier is equal — no
+     * model- or data-based reordering may creep in ahead of it.
+     */
+    @Test
+    fun `primaryByTier keeps profile order for a device with no known model`() {
+        val blankButFirst = device(profileId = "a", profileModel = PodModel.UNKNOWN)
+        val known = device(profileId = "b")
+        val devices = listOf(known, blankButFirst)
+        devices.primaryByTier(profileOrder = mapOf("a" to 0, "b" to 1)) shouldBe blankButFirst
     }
 }

@@ -20,12 +20,19 @@ fun PodDevice.tierRank(): Int = when {
 }
 
 /**
- * Picks the user-perceived primary profiled device: lowest [tierRank], with
- * the user's profile-list order as the tiebreaker.
+ * Sort order for the user-perceived primary profiled device: lowest [tierRank] first, then the
+ * user's profile-list order, which `profiles_priority_hint` promises is authoritative.
+ *
+ * Shared by [primaryByTier] and the dashboard's device list so the notification, the popup, the
+ * quick-settings tile and the dashboard card can never disagree about which device is primary.
+ */
+fun podDeviceTierComparator(profileOrder: Map<String, Int>): Comparator<PodDevice> =
+    compareBy<PodDevice> { it.tierRank() }
+        .thenBy { profileOrder[it.profileId] ?: Int.MAX_VALUE }
+
+/**
+ * Picks the user-perceived primary profiled device, per [podDeviceTierComparator].
  */
 fun List<PodDevice>.primaryByTier(profileOrder: Map<String, Int>): PodDevice? =
     filter { it.profileId != null }
-        .minWithOrNull(
-            compareBy<PodDevice> { it.tierRank() }
-                .thenBy { profileOrder[it.profileId] ?: Int.MAX_VALUE }
-        )
+        .minWithOrNull(podDeviceTierComparator(profileOrder))

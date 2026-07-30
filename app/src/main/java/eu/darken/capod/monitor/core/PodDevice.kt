@@ -65,7 +65,22 @@ data class PodDevice(
     /** True when the profile's BR/EDR address is in the system's connected Bluetooth devices. */
     val isSystemConnected: Boolean = false,
 ) {
-    val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
+    /**
+     * A profile's model is never null — it defaults to [PodModel.UNKNOWN] — so a profile that never
+     * learned a model would otherwise mask a perfectly good model sitting in the cache, and
+     * everything downstream ([hasCase], [hasDualPods], [hasEarDetection], the notification layout,
+     * the widget) would degrade to the unknown-device shape for the device's whole lifetime.
+     *
+     * Only the profile step skips UNKNOWN. A live snapshot reporting UNKNOWN is a real decoder
+     * result for an unrecognised model, not a missing answer, and must stay authoritative — its
+     * label says "Unknown device", so overriding it with a stale profile/cache model would pair a
+     * known-model layout with an unknown-model label.
+     */
+    val model: PodModel
+        get() = ble?.model
+            ?: profileModel?.takeUnless { it == PodModel.UNKNOWN }
+            ?: cached?.model
+            ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */
     val address: BluetoothAddress? get() = ble?.meta?.profile?.address ?: profileAddress ?: cached?.address
     /**
