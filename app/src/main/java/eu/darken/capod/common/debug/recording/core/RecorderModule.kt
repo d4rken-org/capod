@@ -20,15 +20,16 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.upgrade.UpgradeDiagnostics
-import eu.darken.capod.main.core.CurriculumVitae
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -40,7 +41,6 @@ class RecorderModule @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val installId: InstallId,
     private val timeSource: TimeSource,
-    private val curriculumVitae: CurriculumVitae,
     private val upgradeDiagnostics: UpgradeDiagnostics,
 ) {
 
@@ -86,46 +86,38 @@ class RecorderModule @Inject constructor(
                         val newRecorder = Recorder(timeSource)
                         newRecorder.start(logFile)
 
-                        if (!isResume) {
-                            val startTime = timeSource.currentTimeMillis()
-                            writeTriggerFile(sessionDir, startTime)
-                            // The recorder is already live but not yet committed to the state: a
-                            // cancellation escaping the header would abandon it where stopRecorder()
-                            // can't reach it.
-                            try {
-                                logRecordingHeader()
-                            } catch (e: CancellationException) {
-                                newRecorder.stop()
-                                this@RecorderModule.currentLogDir = null
-                                throw e
-                            }
-
-                            this@RecorderModule.currentLogDir = sessionDir
-
-                            copy(
-                                recorder = newRecorder,
-                                currentLogDir = sessionDir,
-                                recordingStartedAt = startTime,
-                                persistedLogDir = null,
-                            )
-                        } else {
-                            try {
-                                logRecordingHeader()
-                            } catch (e: CancellationException) {
-                                newRecorder.stop()
-                                this@RecorderModule.currentLogDir = null
-                                throw e
-                            }
-
-                            this@RecorderModule.currentLogDir = sessionDir
-
-                            copy(
-                                recorder = newRecorder,
-                                currentLogDir = sessionDir,
-                                recordingStartedAt = if (recordingStartedAt > 0L) recordingStartedAt else timeSource.currentTimeMillis(),
-                                persistedLogDir = null,
-                            )
+                        val startTime = when {
+                            !isResume -> timeSource.currentTimeMillis()
+                            recordingStartedAt > 0L -> recordingStartedAt
+                            else -> timeSource.currentTimeMillis()
                         }
+
+                        try {
+                            if (!isResume) writeTriggerFile(sessionDir, startTime)
+
+                            logRecordingHeader()
+                        } catch (e: Exception) {
+                            // The recorder is already live but not yet committed to the state: an exception
+                            // escaping the header would abandon it where stopRecorder() can't reach it.
+                            withContext(NonCancellable) {
+                                try {
+                                    newRecorder.stop()
+                                } catch (stopError: Exception) {
+                                    e.addSuppressed(stopError)
+                                }
+                                this@RecorderModule.currentLogDir = null
+                            }
+                            throw e
+                        }
+
+                        this@RecorderModule.currentLogDir = sessionDir
+
+                        copy(
+                            recorder = newRecorder,
+                            currentLogDir = sessionDir,
+                            recordingStartedAt = startTime,
+                            persistedLogDir = null,
+                        )
                     } else if (!shouldRecord && isRecording) {
                         requireNotNull(recorder) { "Recorder is null despite isRecording" }.stop()
 
@@ -160,20 +152,7 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
 
         try {
-            // Billing complaints usually arrive as debug logs: having the lifetime grace/Pro-loss
-            // history in the header saves a support round-trip.
-            log(TAG, INFO) { "Pro history: ${curriculumVitae.proHistory()}" }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            // Diagnostics only — a broken history read must not stop the recorder from starting.
-            log(TAG, WARN) { "Pro history unavailable: ${e.asLog()}" }
-        }
-
-        // Separate boundary from the block above on purpose: these read different DataStores, and
-        // the counters above only cover installs new enough to have them. A failure to read one
-        // must not suppress the other's independent evidence.
-        try {
+            // Diagnostics only — a broken read must not stop the recorder from starting.
             upgradeDiagnostics.debugInfo()?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
         } catch (e: CancellationException) {
             throw e
