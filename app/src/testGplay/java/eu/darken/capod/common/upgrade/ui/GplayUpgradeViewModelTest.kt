@@ -139,6 +139,50 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `onResume retries the query after a failure`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // MainActivity's per-resume refresh only covers the entitlement -- coming back to the screen
+        // after a Play outage has to re-run the screen-local SKU query too.
+        val repo = mockRepo()
+        coEvery { repo.querySkus(any()) } throws GplayServiceUnavailableException(RuntimeException("Play hiccup"))
+        val vm = buildVm(repo)
+
+        val unavailable = async { vm.state.first { it is GplayUpgradeUiState.Unavailable } }
+        advanceUntilIdle()
+
+        unavailable.await().shouldBeInstanceOf<GplayUpgradeUiState.Unavailable>()
+        coVerify(exactly = 1) { repo.querySkus(OurSku.Iap.PRO_UPGRADE) }
+        coVerify(exactly = 1) { repo.querySkus(OurSku.Sub.PRO_UPGRADE) }
+
+        vm.onResume()
+        advanceUntilIdle()
+
+        coVerify(exactly = 2) { repo.querySkus(OurSku.Iap.PRO_UPGRADE) }
+        coVerify(exactly = 2) { repo.querySkus(OurSku.Sub.PRO_UPGRADE) }
+    }
+
+    @Test
+    fun `onResume does not re-query when offers are already loaded`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val loaded = async { vm.state.first { it is GplayUpgradeUiState.Loaded } }
+        advanceUntilIdle()
+
+        loaded.await().shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        coVerify(exactly = 2) { repo.querySkus(any()) }
+
+        vm.onResume()
+        advanceUntilIdle()
+
+        coVerify(exactly = 2) { repo.querySkus(any()) }
+    }
+
+    @Test
     fun `a single failed product type keeps the screen loaded and surfaces the error once`() = runTest2(
         context = testDispatcher,
     ) {
