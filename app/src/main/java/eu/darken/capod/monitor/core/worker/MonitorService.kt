@@ -190,8 +190,11 @@ class MonitorService : Service() {
         // would re-post the previous session's last content under its original timestamp — which is
         // how a stale "unknown device" frame survives a teardown/restart cycle. Rebuilding is not an
         // option here: this has to stay cheap enough to satisfy the obligation before DI is ready.
+        //
+        // Deliberately does NOT clear the cache here: a collector on Dispatchers.Default can post
+        // between the read below and any write, so clearing would discard a frame that is actually
+        // current. Invalidation happens where a new session is launched instead.
         val reusable = lastNotification?.takeIf { monitoringJob?.isActive == true }
-        if (reusable == null) lastNotification = null
         if (!promoteToForeground(reusable ?: MonitorNotifications.createEarlyNotification(this))) {
             stopSelf(startId)
             return START_NOT_STICKY
@@ -214,6 +217,10 @@ class MonitorService : Service() {
 
         val generation = ++monitorGeneration
         monitorScope.coroutineContext.cancelChildren()
+        // A new session starts here, so the previous session's last frame must not be re-promoted
+        // into it. Safe at this point: the old collectors are cancelled and the new ones haven't run,
+        // so there is no current notification to discard.
+        lastNotification = null
 
         monitoringJob = monitorScope.launch {
             try {
@@ -445,9 +452,11 @@ class MonitorService : Service() {
                     log(TAG, WARN) { "Failed to cancel connected notification: ${e.message}" }
                 }
             }
-            // The FGS notification can outlive stopSelf(), leaving whatever content was last posted
-            // stuck in the shade. notificationManager.cancel() alone is not enough while the
-            // notification is still bound to the foreground service, so detach it first.
+            // Defence in depth: AOSP reaps the FGS notification on destroy by itself (verified on
+            // API 36), but reports of a stuck ongoing notification on Samsung suggest that is not
+            // universal. Retract it explicitly. cancel() alone is not the foreground-service
+            // lifecycle operation and can be ignored while the notification is still bound, so
+            // detach first. Both calls are idempotent.
             try {
                 stopForeground(Service.STOP_FOREGROUND_REMOVE)
                 notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID)

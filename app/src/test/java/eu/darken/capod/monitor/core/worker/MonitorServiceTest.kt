@@ -138,13 +138,32 @@ class MonitorServiceTest {
         val stale = notification("stale")
         service.postPrimaryNotification(stale)
 
-        // Monitor session has ended — the cached frame no longer reflects anything current.
-        service.setField("monitoringJob", null)
+        // Monitor session has ended. Production never nulls monitoringJob, it leaves the completed
+        // job in place, so a finished Job is the faithful state here.
+        service.setField("monitoringJob", Job().apply { complete() })
 
         service.onStartCommand(MonitorService.intent(context), 0, 1) shouldBe Service.START_STICKY
 
         shadowOf(service).lastForegroundNotification shouldNotBeSameInstanceAs stale
         service.getField("lastNotification") shouldNotBeSameInstanceAs stale
+    }
+
+    /**
+     * Invalidation is deliberately at session launch, not next to the promote: a collector on
+     * Dispatchers.Default can post between the read and a write there, so clearing at promote time
+     * could discard a frame that is genuinely current.
+     */
+    @Test
+    fun `launching a new session drops the previous session's notification`() {
+        val service = createService()
+        service.readyForMonitoring()
+        service.postPrimaryNotification(notification("previous"))
+
+        // forceStart bypasses the "already monitoring" early return, so a new session is launched.
+        service.onStartCommand(MonitorService.intent(context, forceStart = true), 0, 1) shouldBe
+            Service.START_STICKY
+
+        service.getField("lastNotification").shouldBeNull()
     }
 
     /**
