@@ -2,7 +2,7 @@ package eu.darken.capod.common.upgrade.core
 
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.datastore.value
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -58,14 +58,35 @@ class UpgradeRepoFoss @Inject constructor(
     // Writes capod's RETAINED persistence schema: existing supporter records are serialized with
     // `reason` (foss.upgrade.reason.*). Adopting canonical's `upgradeType` schema would decode
     // every stored record as null and strip those supporters' entitlement.
-    internal suspend fun persistUpgrade() {
+    /**
+     * Create-only-if-absent inside the store transaction: an existing record (and its upgradedAt —
+     * the user-visible "supporter since" date) is never replaced. The VM-level isPro guard alone is
+     * not race-free: it reads a shareIn replay that can be stale. Note the kept record is still
+     * re-encoded through the current schema — decoded fields are preserved exactly.
+     *
+     * Caveat from [FossCache]'s `onErrorFallbackToDefault = true`: a stored record that fails to
+     * decode reads as null and therefore counts as ABSENT to this transaction, i.e. it gets
+     * replaced. That matches the pre-existing read behaviour — such a record already presents the
+     * user as free — and re-creating it on the next successful sponsor visit is the recovery path.
+     *
+     * @return true if a new record was created, false if an existing record was kept.
+     */
+    internal suspend fun persistUpgrade(): Boolean {
         log(TAG) { "persistUpgrade()" }
-        fossCache.upgrade.value(
-            FossUpgrade(
+        val updated = fossCache.upgrade.update { existing ->
+            existing ?: FossUpgrade(
                 upgradedAt = Instant.now(),
                 reason = FossUpgrade.Reason.DONATED,
             )
-        )
+        }
+        return if (updated.old == null) {
+            true
+        } else {
+            log(TAG, WARN) {
+                "persistUpgrade(): Record already exists (upgradedAt=${updated.old.upgradedAt}), keeping it"
+            }
+            false
+        }
     }
 
     override suspend fun refresh() {
