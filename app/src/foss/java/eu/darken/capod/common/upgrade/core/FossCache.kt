@@ -12,18 +12,25 @@ import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
+// Retained legacy migration: installs that predate the DataStore move still carry their upgrade
+// state in the "settings_foss" SharedPreferences file.
+private val Context.fossCacheDataStore by preferencesDataStore(
+    name = "settings_foss",
+    produceMigrations = { ctx -> listOf(SharedPreferencesMigration(ctx, "settings_foss")) },
+)
+
 @Singleton
-class FossCache @Inject constructor(
-    @ApplicationContext context: Context,
-    @SerializationCapod json: Json,
+class FossCache internal constructor(
+    // Test seam: the store is handed in so a test can supply its own DataStore instead of the
+    // Context-bound production delegate. Same pattern as BillingCache.
+    private val dataStore: DataStore<Preferences>,
+    json: Json,
 ) {
 
-    private val Context.dataStore by preferencesDataStore(
-        name = "settings_foss",
-        produceMigrations = { ctx -> listOf(SharedPreferencesMigration(ctx, "settings_foss")) }
-    )
-
-    private val dataStore: DataStore<Preferences> = context.dataStore
+    @Inject constructor(
+        @ApplicationContext context: Context,
+        @SerializationCapod json: Json,
+    ) : this(context.fossCacheDataStore, json)
 
     val upgrade = dataStore.createValue<FossUpgrade?>(
         key = "foss.upgrade",
