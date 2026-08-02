@@ -39,6 +39,7 @@ import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
 import testhelpers.coroutine.TestDispatcherProvider
+import java.io.File
 import java.util.concurrent.CopyOnWriteArrayList
 import kotlin.system.measureTimeMillis
 
@@ -95,12 +96,25 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
         block: suspend (RecorderModule) -> Unit,
     ) {
         val moduleScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+        val fileLoggersBefore = Logging.loggers.filterIsInstance<FileLogger>()
+        var module: RecorderModule? = null
         try {
-            val module = buildModule(moduleScope, upgradeDiagnostics, TestDispatcherProvider(Dispatchers.IO))
-            module.headerReadTimeoutMs = headerTimeoutMs
-            runBlocking { block(module) }
+            try {
+                module = buildModule(moduleScope, upgradeDiagnostics, TestDispatcherProvider(Dispatchers.IO))
+                    .apply { headerReadTimeoutMs = headerTimeoutMs }
+                runBlocking { block(module) }
+            } finally {
+                // Stop before cancelling: scope cancellation does NOT uninstall a running
+                // recorder's global FileLogger.
+                module?.let { runBlocking { it.stopRecorder() } }
+            }
         } finally {
             moduleScope.cancel()
+            // A leaked logger must fail THIS test, not poison later ones. Remove stragglers after
+            // asserting so one failure can't cascade.
+            val leaked = Logging.loggers.filterIsInstance<FileLogger>() - fileLoggersBefore.toSet()
+            leaked.forEach { Logging.remove(it) }
+            leaked shouldBe emptyList<FileLogger>()
         }
     }
 
@@ -111,11 +125,17 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
 
         val module = buildModule(backgroundScope, diagnostics)
 
-        val logDir = module.startRecorder()
-        logDir.exists() shouldBe true
-        module.state.first { it.isRecording }.currentLogDir shouldBe logDir
-
-        module.stopRecorder().shouldNotBeNull()
+        // Stopped in a finally: an assertion failing mid-test must not leave a live recorder whose
+        // globally installed FileLogger then writes into every later test.
+        var stopped: File? = null
+        try {
+            val logDir = module.startRecorder()
+            logDir.exists() shouldBe true
+            module.state.first { it.isRecording }.currentLogDir shouldBe logDir
+        } finally {
+            stopped = module.stopRecorder()
+        }
+        stopped.shouldNotBeNull()
     }
 
     /**
