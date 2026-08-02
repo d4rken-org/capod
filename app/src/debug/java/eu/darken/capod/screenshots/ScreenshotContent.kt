@@ -19,6 +19,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MOCK_NOW
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
+import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.overview.OverviewScreen
 import eu.darken.capod.main.ui.overview.OverviewViewModel
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
@@ -85,6 +86,7 @@ internal fun DashboardContent(showAap: Boolean = false) = PreviewWrapper {
             devices = devices,
             isDebug = false,
             isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.AUTOMATIC,
             profiles = listOf(
                 MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
                 MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),

@@ -225,6 +225,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="overview_monitoring_active_label">Monitoring for devices</string>
     <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
+    <string name="overview_monitoring_off_label">Background monitoring is off</string>
+    <string name="overview_monitoring_off_description">No profile has a paired Bluetooth device, so CAPod only updates while the app is open. Select one to enable background monitoring, the ongoing notification and reactions.</string>
+    <string name="overview_monitoring_off_action">Select paired device</string>
     <string name="overview_troubleshoot_suggestion_label">Connected, but no data</string>
     <string name="overview_troubleshoot_suggestion_description">Your device is connected, but CAPod isn\'t receiving any live data from it. Your phone may need a compatibility option — the troubleshooter can try to find one automatically.</string>
     <string name="overview_troubleshoot_suggestion_action">Run troubleshooter</string>
@@ -527,6 +530,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double press to end call</string>
     <string name="device_settings_open_cd">Open device settings</string>
     <string name="overview_card_missing_paired_device">This profile has no paired Bluetooth device.</string>
+    <string name="overview_card_missing_paired_device_consequence">Without one, device settings and auto-connect aren\'t available.</string>
     <string name="overview_reactions_hint_title">Reactions are per device</string>
     <string name="overview_reactions_hint_body">Auto-play, auto-pause and pop-ups are now configured per device. Tap the settings icon on a card while your headphones are connected.</string>
 
