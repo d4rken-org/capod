@@ -121,6 +121,7 @@ class RecorderModule @Inject constructor(
                             recorder = newRecorder,
                             currentLogDir = sessionDir,
                             recordingStartedAt = startTime,
+                            recordingStartedAtMonotonic = if (isResume) 0L else timeSource.elapsedRealtime(),
                             persistedLogDir = null,
                         )
                     } else if (!shouldRecord && isRecording) {
@@ -237,8 +238,17 @@ class RecorderModule @Inject constructor(
         if (!currentState.isRecording) return StopResult.NotRecording
 
         val logDir = currentState.currentLogDir ?: return StopResult.NotRecording
-        val elapsed = timeSource.currentTimeMillis() - currentState.recordingStartedAt
-        if (elapsed < MIN_RECORDING_MS) return StopResult.TooShort
+        val elapsed = if (currentState.recordingStartedAtMonotonic > 0L) {
+            // Live session: monotonic, immune to wall-clock adjustments mid-recording.
+            timeSource.elapsedRealtime() - currentState.recordingStartedAtMonotonic
+        } else {
+            // Resumed session: the trigger file persists wall time only — it has to survive reboots,
+            // which monotonic time does not.
+            timeSource.currentTimeMillis() - currentState.recordingStartedAt
+        }
+        // Negative = the wall clock moved backward across a resume; fail open (no warning) rather
+        // than trap the user in TooShort.
+        if (elapsed in 0 until MIN_RECORDING_MS) return StopResult.TooShort
 
         stopRecorder()
         val sessionId = DebugSessionManager.deriveSessionId(logDir)
@@ -256,6 +266,10 @@ class RecorderModule @Inject constructor(
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
         val recordingStartedAt: Long = 0L,
+        // Monotonic base for the duration heuristic, 0L when there is none: a resumed session's
+        // only start time is the persisted wall clock, and a monotonic value from a previous
+        // process or boot is meaningless.
+        val recordingStartedAtMonotonic: Long = 0L,
         internal val persistedLogDir: File? = null,
     ) {
         val isRecording: Boolean
@@ -288,7 +302,17 @@ class RecorderModule @Inject constructor(
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "capod_force_debug_run"
-        private const val MIN_RECORDING_MS = 5_000L
+
+        /**
+         * Duration heuristic for "did you forget to reproduce the issue?". A recording stopped
+         * this quickly usually contains nothing but the recorder starting and stopping, which
+         * costs a support round-trip to re-request.
+         *
+         * It stays a prompt because short recordings can be perfectly valid: a crash is logged
+         * and flushed immediately, so the reproduction is already on disk. "Stop anyway" works —
+         * the [StopResult.TooShort] consumers stop via [stopRecorder], which has no duration check.
+         */
+        private const val MIN_RECORDING_MS = 10_000L
 
         // Budget for the header's diagnostics read.
         private const val HEADER_READ_TIMEOUT_MS = 5_000L
