@@ -183,7 +183,6 @@
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod version libre</string>
     <string name="general_value_not_available_label">N.D.</string>
     <string name="general_error_label">Erreur</string>
     <string name="general_grant_permission_action">Accorder l’autorisation</string>
