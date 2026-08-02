@@ -15,14 +15,18 @@ class WebpageTool @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
-    fun open(address: String) {
+    // Returns whether an activity was actually started, so callers that gate behaviour on the page
+    // having opened (e.g. the FOSS sponsor unlock heuristic) don't fire when no browser handled it.
+    fun open(address: String): Boolean {
         val intent = Intent(Intent.ACTION_VIEW, address.toUri()).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-        try {
+        return try {
             context.startActivity(intent)
+            true
         } catch (e: Exception) {
             log(ERROR) { "Failed to launch: ${e.asLog()}" }
+            false
         }
     }
 

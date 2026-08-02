@@ -12,6 +12,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.compose.ui.semantics.SemanticsActions
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
@@ -127,9 +128,16 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
     @Test
     fun `recurring donation button invokes the sponsors callback`() {
         var clicked = false
+        // The armed pitch callback must stay untouched here: a supporter donating again has nothing
+        // left to unlock, so the donate button goes through the unarmed callback.
+        var armed = false
 
         composeRule.setUpgradeContent {
-            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED, onGithubSponsors = { clicked = true })
+            UpgradeScreen(
+                view = FossUpgradeView.STATUS_UPGRADED,
+                onGithubSponsors = { armed = true },
+                onOpenSponsors = { clicked = true },
+            )
         }
 
         composeRule.onNodeWithTag(UpgradeScreenTags.FOSS_DONATE)
@@ -137,6 +145,7 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.runOnIdle {
             assertTrue(clicked)
+            assertFalse(armed)
         }
     }
 }
