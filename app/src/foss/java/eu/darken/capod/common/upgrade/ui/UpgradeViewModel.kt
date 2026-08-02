@@ -106,9 +106,28 @@ class UpgradeViewModel @Inject constructor(
         handle[KEY_SHOW_UPGRADE_OPTIONS] = true
     }
 
+    /** Armed variant: the pitch's sponsor button, which starts the return-after-5s unlock heuristic. */
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
+        if (hasPendingSponsorLaunch()) {
+            log(TAG) { "A sponsor launch is already awaiting its return" }
+            return
+        }
+        // Only arm the heuristic if the page actually opened; otherwise an unrelated later
+        // background/foreground round-trip would grant supporter status with no page ever shown.
+        if (!upgradeRepo.openGithubSponsorsPage()) {
+            log(TAG) { "Sponsor page didn't open; not arming the unlock heuristic" }
+            return
+        }
         handle[KEY_SPONSOR_PRESSED_AT] = SystemClock.elapsedRealtime()
+    }
+
+    /**
+     * Unarmed variant: the status view's donate button. An existing supporter re-visiting the page
+     * must not re-arm the unlock heuristic — there is nothing left to unlock.
+     */
+    fun openSponsors() {
+        log(TAG) { "openSponsors()" }
         upgradeRepo.openGithubSponsorsPage()
     }
 
