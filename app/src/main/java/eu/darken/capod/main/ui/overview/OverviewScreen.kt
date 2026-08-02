@@ -53,6 +53,8 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.main.ui.overview.cards.BackgroundMonitoringOffCard
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledCard
 import eu.darken.capod.main.ui.overview.cards.DeviceLimitUpgradeCard
 import eu.darken.capod.main.ui.overview.cards.DualPodsCard
@@ -186,6 +188,9 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onToggleDeviceExpansion = { device ->
             device.profileId?.let { vm.toggleDeviceExpansion(it) }
         },
+        onSetupPairedDevice = {
+            currentState.soleProfileId?.let { vm.goToEditProfile(it) } ?: vm.goToDeviceManager()
+        },
     )
 }
 
@@ -204,6 +209,7 @@ fun OverviewScreen(
     onDeviceSettings: (PodDevice) -> Unit = {},
     onEditProfile: (PodDevice) -> Unit = {},
     onToggleDeviceExpansion: (PodDevice) -> Unit = {},
+    onSetupPairedDevice: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -308,6 +314,12 @@ fun OverviewScreen(
 
             // 4. Profiled device cards (limited to 1 for free users)
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
+                if (state.monitoringStatus == OverviewViewModel.MonitoringStatus.BACKGROUND_OFF) {
+                    item(key = "monitoring_off") {
+                        BackgroundMonitoringOffCard(onSetupPairedDevice = onSetupPairedDevice)
+                    }
+                }
+
                 if (state.showReactionsHint && state.visibleProfiledDevices.isNotEmpty()) {
                     item(key = "reactions_hint") {
                         ReactionsMovedHintCard()
@@ -362,7 +374,7 @@ fun OverviewScreen(
                 }
 
                 // 5. Monitoring active card
-                if (state.profiles.isNotEmpty() && state.profiledDevices.isEmpty() && !state.shouldShowUnmatchedSection) {
+                if (state.monitoringStatus == OverviewViewModel.MonitoringStatus.SEARCHING) {
                     item(key = "monitoring_active") {
                         MonitoringActiveCard()
                     }
@@ -453,6 +465,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             ),
             isDebug = false,
             isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.AUTOMATIC,
             profiles = listOf(
                 MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
                 MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
@@ -490,6 +503,7 @@ private fun OverviewScreenEmptyPreview() = PreviewWrapper {
             devices = emptyList(),
             isDebug = false,
             isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.AUTOMATIC,
             profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
@@ -513,6 +527,7 @@ private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
             devices = emptyList(),
             isDebug = false,
             isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.MANUAL,
             profiles = emptyList(),
             upgradeInfo = MockPodDataProvider.gplayInfo(),
             showUnmatchedDevices = false,
@@ -536,8 +551,35 @@ private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
             devices = emptyList(),
             isDebug = false,
             isBluetoothEnabled = false,
+            effectiveMode = MonitorMode.AUTOMATIC,
             profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(isPro = true),
+            showUnmatchedDevices = false,
+        ),
+        onRequestPermission = {},
+        onBluetoothSettings = {},
+        onManageDevices = {},
+        onSettings = {},
+        onUpgrade = {},
+        onToggleUnmatched = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun OverviewScreenMonitoringOffPreview() = PreviewWrapper {
+    OverviewScreen(
+        state = OverviewViewModel.State(
+            now = SystemTimeSource.now(),
+            permissions = emptySet(),
+            devices = emptyList(),
+            isDebug = false,
+            isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.MANUAL,
+            profiles = listOf(
+                MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2, address = null),
+            ),
+            upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},

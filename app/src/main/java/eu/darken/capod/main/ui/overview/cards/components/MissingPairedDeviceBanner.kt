@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview.cards.components
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -46,12 +47,20 @@ fun MissingPairedDeviceBanner(
                     .padding(end = 10.dp)
                     .size(20.dp),
             )
-            Text(
-                text = stringResource(R.string.overview_card_missing_paired_device),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
+            Column(
                 modifier = Modifier.weight(1f),
-            )
+            ) {
+                Text(
+                    text = stringResource(R.string.overview_card_missing_paired_device),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
+                )
+                Text(
+                    text = stringResource(R.string.overview_card_missing_paired_device_consequence),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                )
+            }
         }
     }
 }

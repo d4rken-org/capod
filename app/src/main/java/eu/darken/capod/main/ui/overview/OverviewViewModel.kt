@@ -33,6 +33,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.ProfileId
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
@@ -90,6 +91,7 @@ class OverviewViewModel @Inject constructor(
         val hideUnmatchedDevices: Boolean,
         val showTroubleshootSuggestion: Boolean,
         val batteryEstimates: Map<String, BatteryEstimate>,
+        val effectiveMode: MonitorMode,
     )
 
     /**
@@ -126,12 +128,14 @@ class OverviewViewModel @Inject constructor(
         generalSettings.hideUnmatchedDevices.flow,
         troubleshootSuggestion,
         batteryEstimator.estimates,
-    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates ->
+        monitorModeResolver.effectiveMode,
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates, effectiveMode ->
         OverviewUiSettings(
             reactionsHintDismissed = reactionsHintDismissed,
             hideUnmatchedDevices = hideUnmatched,
             showTroubleshootSuggestion = showTroubleshootSuggestion,
             batteryEstimates = batteryEstimates,
+            effectiveMode = effectiveMode,
         )
     }
 
@@ -214,6 +218,7 @@ class OverviewViewModel @Inject constructor(
             devices = devices,
             isDebug = isDebug,
             isBluetoothEnabled = isBluetoothEnabled,
+            effectiveMode = uiSettings.effectiveMode,
             profiles = profiles,
             upgradeInfo = upgradeInfo,
             showUnmatchedDevices = showUnmatched,
@@ -227,12 +232,15 @@ class OverviewViewModel @Inject constructor(
 
     enum class BluetoothIconState { HIDDEN, DISABLED, NEARBY, CONNECTED }
 
+    enum class MonitoringStatus { HIDDEN, SEARCHING, BACKGROUND_OFF }
+
     data class State(
         val now: Instant,
         val permissions: Set<Permission>,
         val devices: List<PodDevice>,
         val isDebug: Boolean,
         val isBluetoothEnabled: Boolean,
+        val effectiveMode: MonitorMode,
         val profiles: List<DeviceProfile>,
         val upgradeInfo: UpgradeRepo.Info,
         val showUnmatchedDevices: Boolean,
@@ -290,6 +298,22 @@ class OverviewViewModel @Inject constructor(
                 else -> BluetoothIconState.HIDDEN
             }
 
+        /**
+         * [MonitoringStatus.BACKGROUND_OFF] is deliberately not conditioned on the absence of device
+         * cards: an address-less wildcard profile can still match an unrecognised Apple payload, and
+         * the resulting card carries neither the missing-paired-device banner nor an edit action.
+         */
+        val monitoringStatus: MonitoringStatus
+            get() = when {
+                isScanBlocked || !isBluetoothEnabled -> MonitoringStatus.HIDDEN
+                profiles.isEmpty() -> MonitoringStatus.HIDDEN
+                effectiveMode == MonitorMode.MANUAL -> MonitoringStatus.BACKGROUND_OFF
+                profiledDevices.isEmpty() && !shouldShowUnmatchedSection -> MonitoringStatus.SEARCHING
+                else -> MonitoringStatus.HIDDEN
+            }
+
+        val soleProfileId: ProfileId? get() = profiles.singleOrNull()?.id
+
         fun isPinned(device: PodDevice, index: Int): Boolean =
             device.isSystemConnected || index == 0
 
@@ -336,6 +360,10 @@ class OverviewViewModel @Inject constructor(
 
     fun goToEditProfile(device: PodDevice) {
         val profileId = device.profileId ?: return
+        goToEditProfile(profileId)
+    }
+
+    fun goToEditProfile(profileId: ProfileId) {
         log(TAG, INFO) { "goToEditProfile(profileId=$profileId)" }
         navTo(Nav.Main.DeviceProfileCreation(profileId = profileId))
     }

@@ -149,9 +149,14 @@ object MockPodDataProvider {
 
     // --- Profile helpers ---
 
-    fun profile(label: String, model: PodModel): AppleDeviceProfile = AppleDeviceProfile(
+    fun profile(
+        label: String,
+        model: PodModel,
+        address: String? = "AA:BB:CC:DD:EE:FF",
+    ): AppleDeviceProfile = AppleDeviceProfile(
         label = label,
         model = model,
+        address = address,
     )
 
     // --- Dual pod with Apple keys ---
