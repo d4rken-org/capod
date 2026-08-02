@@ -16,6 +16,7 @@ import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -208,6 +209,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(profiled, unmatched),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
                 showUnmatchedDevices = false,
@@ -235,6 +237,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(profiled, unmatched),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
                 showUnmatchedDevices = false,
@@ -257,6 +260,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = emptyList(),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -281,6 +285,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(profiled),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -307,6 +312,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(device1, device2, device3),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -333,6 +339,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(device1, device2, device3),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -361,6 +368,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(device1, device2, device3),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -387,6 +395,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(device1, device2),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -413,6 +422,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(profiled1, profiled2, unmatched),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
                 showUnmatchedDevices = false,
@@ -450,6 +460,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(unmatched),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
                 showUnmatchedDevices = false,
@@ -475,6 +486,7 @@ class OverviewViewModelTest : BaseTest() {
                 devices = listOf(unmatched),
                 isDebug = false,
                 isBluetoothEnabled = true,
+                effectiveMode = MonitorMode.AUTOMATIC,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
                 showUnmatchedDevices = false,
@@ -483,6 +495,127 @@ class OverviewViewModelTest : BaseTest() {
 
             state.profiledDevices shouldBe emptyList()
             state.shouldShowUnmatchedSection shouldBe false
+        }
+    }
+
+    @Nested
+    inner class MonitoringStatusTests {
+
+        private fun addressLessProfile(): DeviceProfile = AppleDeviceProfile(
+            label = "My Headphones",
+            model = PodModel.UNKNOWN,
+        )
+
+        private fun addressedProfile(): DeviceProfile = AppleDeviceProfile(
+            label = "My AirPods",
+            model = PodModel.AIRPODS_PRO2,
+            address = "AA:BB:CC:DD:EE:FF",
+        )
+
+        private fun monitoringState(
+            effectiveMode: MonitorMode,
+            profiles: List<DeviceProfile>,
+            devices: List<PodDevice> = emptyList(),
+            permissions: Set<Permission> = emptySet(),
+            isBluetoothEnabled: Boolean = true,
+        ) = OverviewViewModel.State(
+            now = java.time.Instant.now(),
+            permissions = permissions,
+            devices = devices,
+            isDebug = false,
+            isBluetoothEnabled = isBluetoothEnabled,
+            effectiveMode = effectiveMode,
+            profiles = profiles,
+            upgradeInfo = mockk(relaxed = true),
+            showUnmatchedDevices = false,
+        )
+
+        @Test
+        fun `MANUAL with an address-less profile reports background monitoring off`() {
+            val state = monitoringState(
+                effectiveMode = MonitorMode.MANUAL,
+                profiles = listOf(addressLessProfile()),
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.BACKGROUND_OFF
+        }
+
+        @Test
+        fun `MANUAL still reports background monitoring off while an unknown device card shows`() {
+            // The auto-created wildcard profile can match an unrecognised Apple payload, and that
+            // card carries neither the missing-paired-device banner nor an edit action.
+            val unknownDevice = PodDevice(
+                profileId = "auto-created",
+                ble = mockk<BlePodSnapshot>(relaxed = true) {
+                    every { model } returns PodModel.UNKNOWN
+                },
+                aap = null,
+            )
+            val state = monitoringState(
+                effectiveMode = MonitorMode.MANUAL,
+                profiles = listOf(addressLessProfile()),
+                devices = listOf(unknownDevice),
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.BACKGROUND_OFF
+        }
+
+        @Test
+        fun `AUTOMATIC without devices reports searching`() {
+            val state = monitoringState(
+                effectiveMode = MonitorMode.AUTOMATIC,
+                profiles = listOf(addressedProfile()),
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.SEARCHING
+        }
+
+        @Test
+        fun `hidden while a scan-blocking permission is missing`() {
+            val state = monitoringState(
+                effectiveMode = MonitorMode.MANUAL,
+                profiles = listOf(addressLessProfile()),
+                permissions = setOf(Permission.BLUETOOTH_SCAN),
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.HIDDEN
+        }
+
+        @Test
+        fun `hidden while bluetooth is disabled`() {
+            val state = monitoringState(
+                effectiveMode = MonitorMode.MANUAL,
+                profiles = listOf(addressLessProfile()),
+                isBluetoothEnabled = false,
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.HIDDEN
+        }
+
+        @Test
+        fun `hidden when there are no profiles at all`() {
+            val state = monitoringState(
+                effectiveMode = MonitorMode.MANUAL,
+                profiles = emptyList(),
+            )
+
+            state.monitoringStatus shouldBe OverviewViewModel.MonitoringStatus.HIDDEN
+        }
+
+        @Test
+        fun `effectiveMode tracks the resolver`() = runTest(testDispatcher) {
+            effectiveModeFlow.value = MonitorMode.MANUAL
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(1_000)
+            latest!!.effectiveMode shouldBe MonitorMode.MANUAL
+
+            effectiveModeFlow.value = MonitorMode.ALWAYS
+
+            advanceTimeBy(1_000)
+            latest!!.effectiveMode shouldBe MonitorMode.ALWAYS
         }
     }
 
@@ -751,6 +884,7 @@ class OverviewViewModelTest : BaseTest() {
             devices = listOf(device),
             isDebug = false,
             isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.AUTOMATIC,
             profiles = emptyList(),
             upgradeInfo = mockk(relaxed = true),
             showUnmatchedDevices = false,
