@@ -7,7 +7,6 @@
     <string name="upgrade_foss_sponsor_action">دعم التطوير</string>
     <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبع. لا قيود من جوجل بلاي.</string>
     <string name="upgrade_foss_sponsor_returned_early">هل عدت بالفعل؟ دعمك يبقي كابود حيًّا.</string>
-    <string name="upgrade_badge_label">البرمجيات الحرة والمفتوحة المصدر</string>
     <string name="upgrade_foss_supporter_since">داعم منذ %s</string>
     <string name="upgrade_foss_supporter_thanks">شكرًا لدعمك تطوير CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">فتح صفحة الرعاية</string>

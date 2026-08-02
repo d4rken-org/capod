@@ -209,7 +209,7 @@
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="app_name_foss" translatable="false">CAPod FOSS</string>
 
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Error</string>

@@ -7,7 +7,6 @@
     <string name="upgrade_foss_sponsor_action">Patrocina el desenvolupament</string>
     <string name="upgrade_foss_sponsor_subtitle">Sense anuncis. Sense seguiment. Sense dependència del Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Ja heu tornat? El vostre suport manté viu el CAPod.</string>
-    <string name="upgrade_badge_label">FOSS</string>
     <string name="upgrade_foss_supporter_since">Col·laborador des de %s</string>
     <string name="upgrade_foss_supporter_thanks">Gràcies per donar suport al desenvolupament del CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Obre la pàgina del patrocinador</string>
