@@ -1,5 +1,6 @@
 package eu.darken.capod.common.upgrade.ui
 
+import android.os.SystemClock
 import androidx.lifecycle.SavedStateHandle
 import eu.darken.capod.R
 import eu.darken.capod.common.navigation.NavEvent
@@ -14,6 +15,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -404,6 +406,47 @@ class FossUpgradeViewModelTest : BaseTest() {
         errors.single().shouldBeInstanceOf<IOException>()
 
         toastCollector.cancel()
+        errorCollector.cancel()
+    }
+
+    @Test
+    fun `a newer sponsor launch survives a failed older attempt`() = runTest2(context = testDispatcher) {
+        // The restore must not clobber a launch armed while the old attempt was still suspended:
+        // the newer visit is the one the user is actually waiting on.
+        val repo = mockRepo()
+        val gate = CompletableDeferred<Unit>()
+        coEvery { repo.persistUpgrade() } coAnswers {
+            gate.await()
+            throw IOException("write failed")
+        }
+        val handle = SavedStateHandle()
+        val vm = buildVm(repo = repo, handle = handle)
+
+        val errors = mutableListOf<Throwable>()
+        val errorCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.errorEvents.collect { errors.add(it) } }
+
+        vm.goGithubSponsors()
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+        // Consumed and parked in the write.
+        vm.hasPendingSponsorLaunch() shouldBe false
+
+        // A second sponsor visit while the first attempt is still hanging.
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(30))
+        val newerPressedAt = SystemClock.elapsedRealtime()
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+
+        gate.complete(Unit)
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe true
+        // Mirrors the ViewModel's private KEY_SPONSOR_PRESSED_AT: the newer timestamp must still be
+        // the one stored, the failed older attempt must not have written its own back over it.
+        handle.get<Long>("sponsor_pressed_at") shouldBe newerPressedAt
+        errors.single().shouldBeInstanceOf<IOException>()
+
         errorCollector.cancel()
     }
 
