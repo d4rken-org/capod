@@ -1,5 +1,6 @@
 package eu.darken.capod.common.error
 
+import android.app.Activity
 import android.content.Context
 import eu.darken.capod.R
 
@@ -10,7 +11,9 @@ interface HasLocalizedError {
 data class LocalizedError(
     val throwable: Throwable,
     val label: String,
-    val description: String
+    val description: String,
+    val fixActionLabel: String? = null,
+    val fixAction: ((Activity) -> Unit)? = null,
 ) {
     fun asText() = "$label:\n$description"
 }
