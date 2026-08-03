@@ -41,6 +41,11 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_benefit_themes)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_foss_sponsor_subtitle)).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(1)
+        // The pitch's mascot lives inside the hero card next to the preamble. Exactly one of each:
+        // the standalone header this view used to have must not survive alongside it.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -72,6 +77,11 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_foss_preamble)).assertCountEquals(0)
+        // No preamble here, so there is nothing to pair the mascot with: no hero card, and the
+        // standalone header keeps its single cheerful mascot.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -108,6 +118,10 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_DONATE).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
+        // Status view: standalone header, no hero card.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test

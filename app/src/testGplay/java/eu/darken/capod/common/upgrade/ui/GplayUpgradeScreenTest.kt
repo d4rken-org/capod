@@ -46,6 +46,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.ACTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_preamble)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
+        // Preamble and mascot ship together in the hero card outside grace: one hero, one mascot,
+        // so a leftover standalone header next to the hero would fail here.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -158,6 +163,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrades_gplay_unavailable_error))
             .assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -428,6 +436,11 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(1)
         composeRule.onAllNodesWithText(appNameWithPostfixedHeroBody(R.string.upgrade_screen_owned_hero_sub_body))
             .assertCountEquals(0)
+        // Owners get their mascot from the congrats hero only — the acquisition hero card and its
+        // preamble must stay away entirely.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_preamble)).assertCountEquals(0)
     }
 
     @Test
@@ -467,6 +480,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_SPINNER).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
+        // No preamble during grace, so the mascot has nothing to pair with: standalone header, no
+        // hero card.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertCountEquals(0)
         // The grace card owns restore via its two-stage disclosure — the generic restore section
         // must not undercut the calm quiet stage with its own restore CTA.
@@ -518,6 +534,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE_SPINNER).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.HERO).assertCountEquals(0)
         // The aged episode is treated as likely-permanent: the offers come back so an expired
         // subscriber can switch without waiting out the full grace window. Still no sales pitch.
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(1)
