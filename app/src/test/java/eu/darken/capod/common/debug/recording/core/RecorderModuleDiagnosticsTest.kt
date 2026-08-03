@@ -23,6 +23,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
@@ -30,6 +31,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withTimeout
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -102,11 +104,23 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
             try {
                 module = buildModule(moduleScope, upgradeDiagnostics, TestDispatcherProvider(Dispatchers.IO))
                     .apply { headerReadTimeoutMs = headerTimeoutMs }
-                runBlocking { block(module) }
+                // Envelope: a regressed await must FAIL in seconds, not wedge a CI runner for 6h.
+                // That happened — the pre-fix suite hung until the GitHub job timeout. The block's
+                // real-time 300ms seam waits fit into this budget many times over.
+                runBlocking { withTimeout(BLOCK_TIMEOUT_MS) { block(module) } }
             } finally {
                 // Stop before cancelling: scope cancellation does NOT uninstall a running
-                // recorder's global FileLogger.
-                module?.let { runBlocking { it.stopRecorder() } }
+                // recorder's global FileLogger. A wedged stop must not hang cleanup either; the
+                // FileLogger assertion below then fails the test with the real signal.
+                module?.let {
+                    runBlocking {
+                        try {
+                            withTimeout(10_000) { it.stopRecorder() }
+                        } catch (e: TimeoutCancellationException) {
+                            // the leak assertion below reports it
+                        }
+                    }
+                }
             }
         } finally {
             moduleScope.cancel()
@@ -233,5 +247,9 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
             module.state.first().isRecording shouldBe true
             logLines.any { it.startsWith("Upgrade diagnostics") } shouldBe false
         }
+    }
+
+    companion object {
+        private const val BLOCK_TIMEOUT_MS = 15_000L
     }
 }
