@@ -386,26 +386,6 @@ private fun UpgradeHeroCardTintedPreview() {
 }
 
 @Composable
-internal fun UpgradePreambleCard(
-    text: String,
-    modifier: Modifier = Modifier,
-    colors: CardColors = CardDefaults.elevatedCardColors(),
-) {
-    ElevatedCard(
-        modifier = modifier.fillMaxWidth(),
-        colors = colors,
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-        )
-    }
-}
-
-@Composable
 internal fun UpgradeSectionCard(
     title: String,
     icon: ImageVector,
