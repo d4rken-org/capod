@@ -50,7 +50,7 @@ class ComposeErrorDialogTest : BaseTest() {
             }
         }
         // Buffered channel: the event survives until the handler's collector attaches.
-        source.emitBlocking(error)
+        source.errorEvents.tryEmit(error)
         composeRule.waitForIdle()
     }
 
