@@ -112,6 +112,30 @@ internal fun upgradeScreenTitle(
     }
 }
 
+// Marker char for brand-title splicing: formatted into the translated pattern via the normal
+// Android format path (so %1$s vs %s, argument reordering, and %% all behave), then replaced
+// with the styled brand. U+FFFC (object replacement) cannot occur in a real translation.
+internal const val BRAND_TITLE_MARKER = "￼"
+
+internal fun spliceBrandTitle(formatted: String, brand: AnnotatedString): AnnotatedString = buildAnnotatedString {
+    var rest = formatted
+    var found = false
+    while (true) {
+        val idx = rest.indexOf(BRAND_TITLE_MARKER)
+        if (idx < 0) break
+        found = true
+        append(rest.substring(0, idx))
+        append(brand)
+        rest = rest.substring(idx + BRAND_TITLE_MARKER.length)
+    }
+    append(rest)
+    if (!found) {
+        // Defensive: a translation that lost its placeholder still shows the brand.
+        append(" ")
+        append(brand)
+    }
+}
+
 @Composable
 internal fun UpgradeScreenScaffold(
     @StringRes titleRes: Int,
