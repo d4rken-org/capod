@@ -14,9 +14,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -69,11 +71,22 @@ class RecorderModuleDurationTest : BaseTest() {
         try {
             try {
                 module = buildModule(moduleScope, timeSource)
-                runBlocking { block(module) }
+                // Envelope: a regressed await must FAIL in seconds, not wedge a CI runner for 6h.
+                // That happened — the pre-fix suite hung until the GitHub job timeout.
+                runBlocking { withTimeout(BLOCK_TIMEOUT_MS) { block(module) } }
             } finally {
                 // Stop before cancelling: scope cancellation does NOT uninstall a running
-                // recorder's global FileLogger.
-                module?.let { runBlocking { it.stopRecorder() } }
+                // recorder's global FileLogger. A wedged stop must not hang cleanup either; the
+                // FileLogger assertion below then fails the test with the real signal.
+                module?.let {
+                    runBlocking {
+                        try {
+                            withTimeout(10_000) { it.stopRecorder() }
+                        } catch (e: TimeoutCancellationException) {
+                            // the leak assertion below reports it
+                        }
+                    }
+                }
             }
         } finally {
             moduleScope.cancel()
@@ -189,5 +202,9 @@ class RecorderModuleDurationTest : BaseTest() {
 
             module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
         }
+    }
+
+    companion object {
+        private const val BLOCK_TIMEOUT_MS = 15_000L
     }
 }
