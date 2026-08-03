@@ -11,6 +11,7 @@
     <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>
+    <string name="general_dismiss_action">Dismiss</string>
     <string name="general_edit_action">Edit</string>
     <string name="general_save_action">Save</string>
     <string name="general_guide_action">Guide</string>
