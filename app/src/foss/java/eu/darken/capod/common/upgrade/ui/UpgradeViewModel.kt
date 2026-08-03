@@ -173,10 +173,16 @@ class UpgradeViewModel @Inject constructor(
         } catch (e: Exception) {
             // The marker was consumed above; neither a failed entitlement read nor a failed write may
             // eat the user's valid sponsor visit — restore it so the next return/resume can retry the
-            // unlock. Rethrow unconditionally: cancellation is not swallowed, other errors surface via
-            // the normal error path. A restored marker after a successful persist is harmless — the
-            // next evaluation hits the quiet isPro path.
-            handle[KEY_SPONSOR_PRESSED_AT] = pressedAt
+            // unlock. Conditional: the user may have armed a NEWER launch while this attempt was
+            // suspended, and that one must survive. The contains-check has a small check-then-act
+            // window against a concurrent new arm; accepted — the create-only transaction owns data
+            // integrity, a wrong winner only changes which REAL visit's timestamp gates the unlock.
+            // Rethrow unconditionally: cancellation is not swallowed, other errors surface via the
+            // normal error path. A restored marker after a successful persist is harmless — the next
+            // evaluation hits the quiet isPro path.
+            if (!handle.contains(KEY_SPONSOR_PRESSED_AT)) {
+                handle[KEY_SPONSOR_PRESSED_AT] = pressedAt
+            }
             throw e
         }
     }

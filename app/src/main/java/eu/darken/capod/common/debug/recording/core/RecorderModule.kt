@@ -121,7 +121,7 @@ class RecorderModule @Inject constructor(
                             recorder = newRecorder,
                             currentLogDir = sessionDir,
                             recordingStartedAt = startTime,
-                            recordingStartedAtMonotonic = if (isResume) 0L else timeSource.elapsedRealtime(),
+                            recordingStartedAtMonotonic = if (isResume) null else timeSource.elapsedRealtime(),
                             persistedLogDir = null,
                         )
                     } else if (!shouldRecord && isRecording) {
@@ -137,6 +137,7 @@ class RecorderModule @Inject constructor(
                             recorder = null,
                             currentLogDir = null,
                             recordingStartedAt = 0L,
+                            recordingStartedAtMonotonic = null,
                         )
                     } else {
                         this
@@ -238,9 +239,10 @@ class RecorderModule @Inject constructor(
         if (!currentState.isRecording) return StopResult.NotRecording
 
         val logDir = currentState.currentLogDir ?: return StopResult.NotRecording
-        val elapsed = if (currentState.recordingStartedAtMonotonic > 0L) {
+        val startedAtMono = currentState.recordingStartedAtMonotonic
+        val elapsed = if (startedAtMono != null) {
             // Live session: monotonic, immune to wall-clock adjustments mid-recording.
-            timeSource.elapsedRealtime() - currentState.recordingStartedAtMonotonic
+            timeSource.elapsedRealtime() - startedAtMono
         } else {
             // Resumed session: the trigger file persists wall time only — it has to survive reboots,
             // which monotonic time does not.
@@ -266,10 +268,10 @@ class RecorderModule @Inject constructor(
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
         val recordingStartedAt: Long = 0L,
-        // Monotonic base for the duration heuristic, 0L when there is none: a resumed session's
+        // Monotonic base for the duration heuristic, null when there is none: a resumed session's
         // only start time is the persisted wall clock, and a monotonic value from a previous
         // process or boot is meaningless.
-        val recordingStartedAtMonotonic: Long = 0L,
+        internal val recordingStartedAtMonotonic: Long? = null,
         internal val persistedLogDir: File? = null,
     ) {
         val isRecording: Boolean

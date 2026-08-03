@@ -173,6 +173,53 @@ class RecorderModuleDurationTest : BaseTest() {
     }
 
     @Test
+    fun `a recording started at monotonic zero still uses the monotonic path`() {
+        // Boot-adjacent start: elapsedRealtime() is legitimately 0 right after boot. A 0L sentinel
+        // reads as "resumed" and diverts to the wall clock, so a clock correction would turn three
+        // seconds of recording into an hour and skip the prompt.
+        val timeSource = TestTimeSource(elapsedRealtimeMs = 0L)
+        withModule(timeSource) { module ->
+            module.startRecorder()
+
+            timeSource.elapsedRealtimeMs += 3_000L
+            timeSource.wallNow = timeSource.wallNow.plus(Duration.ofHours(1))
+
+            module.requestStopRecorder() shouldBe RecorderModule.StopResult.TooShort
+            module.state.first().isRecording shouldBe true
+        }
+    }
+
+    @Test
+    fun `a live session carries a monotonic base and a stop clears it`() {
+        val timeSource = TestTimeSource(elapsedRealtimeMs = 100_000L)
+        withModule(timeSource) { module ->
+            module.startRecorder()
+            module.state.first { it.isRecording }.recordingStartedAtMonotonic shouldBe 100_000L
+
+            timeSource.advanceBy(Duration.ofSeconds(10))
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+
+            // A stale base left on the stopped state would be a lie about a session that is over.
+            module.state.first { !it.isRecording }.recordingStartedAtMonotonic shouldBe null
+        }
+    }
+
+    @Test
+    fun `a resumed session carries no monotonic base`() {
+        // Nothing monotonic survives a process death or reboot, so the resumed state has no base
+        // at all — the wall-clock fallback is the only measurement it can make.
+        val timeSource = TestTimeSource(elapsedRealtimeMs = 100_000L)
+        seedTriggerFile(timeSource.currentTimeMillis() - 20_000L)
+
+        withModule(timeSource) { module ->
+            module.state.first { it.isRecording }.recordingStartedAtMonotonic shouldBe null
+
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+            module.state.first { !it.isRecording }.recordingStartedAtMonotonic shouldBe null
+        }
+    }
+
+    @Test
     fun `a resumed session measures from the persisted start time`() {
         // Resumed after a process death: there is no monotonic base to measure against, so the
         // persisted wall-clock start is all the module has.

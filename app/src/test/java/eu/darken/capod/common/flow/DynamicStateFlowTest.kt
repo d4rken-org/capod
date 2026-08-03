@@ -2,11 +2,13 @@ package eu.darken.capod.common.flow
 
 import eu.darken.capod.common.collections.mutate
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -304,8 +306,10 @@ class DynamicStateFlowTest : BaseTest() {
             // own, keeping the producer busy between the other callers' updates. The echo updates
             // are value-neutral so the final count stays exact, and capped so the echo terminates.
             val echoes = AtomicInteger(0)
+            val subscribed = CompletableDeferred<Unit>()
             scope.launch {
                 hotData.flow.collect { value ->
+                    subscribed.complete(Unit)
                     if (value % 2 == 1 && echoes.getAndIncrement() < 100) {
                         hotData.updateAsync { this + 0 }
                     }
@@ -314,6 +318,10 @@ class DynamicStateFlowTest : BaseTest() {
 
             runBlocking {
                 withTimeout(20_000) {
+                    // The contention only means anything with the reactive collector actually
+                    // attached: its first received value proves the subscription exists.
+                    subscribed.await()
+
                     val workers = (1..2).map {
                         launch(Dispatchers.IO) {
                             repeat(100) { hotData.updateBlocking { this + 1 } }
@@ -323,6 +331,9 @@ class DynamicStateFlowTest : BaseTest() {
                     workers.all { it.isCompleted } shouldBe true
 
                     hotData.flow.first() shouldBe 200
+                    // Non-vacuity: without a single echo there was no successor update to displace
+                    // an awaited State, and the test would pass for the wrong reason.
+                    echoes.get() shouldBeGreaterThan 0
                 }
             }
         } finally {
