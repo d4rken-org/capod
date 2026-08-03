@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play reports that you already own this upgrade, but it couldn\'t be restored. Make sure you are using the Google account you purchased with. Play Store synchronization may take time — try rebooting, clearing the Google Play cache or simply waiting.</string>
     <string name="upgrade_restore_action">Restore purchase</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Get %1$s</string>
     <string name="upgrade_preamble">CAPod is developed by a single person. Upgrading unlocks extra features and helps keep the app alive.</string>
     <string name="upgrade_screen_options_description">Same features, different pricing. The subscription includes a free trial and can be cancelled at any time.</string>
     <string name="upgrade_screen_options_description_no_trial">Same features, different pricing. The subscription can be cancelled at any time.</string>
