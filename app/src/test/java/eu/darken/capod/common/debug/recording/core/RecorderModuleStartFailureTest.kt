@@ -302,6 +302,38 @@ class RecorderModuleStartFailureTest : BaseTest() {
     }
 
     /**
+     * A recorder that is broken in one way throws the SAME exception instance on the start line and
+     * again when the rollback stops it — and [Throwable.addSuppressed] rejects self-suppression with
+     * an [IllegalArgumentException]. Raised inside the rollback, that would escape before the
+     * failure is ever committed: the collector dies and the module wedges, which is the very thing
+     * the rollback exists to prevent.
+     */
+    @Test
+    fun `a rollback that throws the start's own error still publishes the failure`() {
+        val wedged = IOException("log writer wedged")
+        val brokenRecorder = mockk<Recorder>(relaxed = true)
+        coEvery { brokenRecorder.start(any()) } throws wedged
+        coEvery { brokenRecorder.stop() } throws wedged
+
+        withModules { modules ->
+            val module = modules.create(recorderFactory = { brokenRecorder })
+
+            shouldThrow<IOException> { module.startRecorder() } shouldBe wedged
+
+            val state = module.state.first()
+            state.isRecording shouldBe false
+            state.shouldRecord shouldBe false
+            state.startFailure shouldBe wedged
+            state.currentLogDir.shouldBeNull()
+            module.currentLogDir.shouldBeNull()
+            triggerFile.exists() shouldBe false
+            // The rollback ran to its end rather than aborting at the suppression: the dir it
+            // created for this attempt is gone too.
+            externalLogsDir.listFiles()?.toList().orEmpty().shouldBeEmpty()
+        }
+    }
+
+    /**
      * The start is only committed into the state once the recorder is live, so for the whole window
      * before that the session dir sits on disk with nothing pointing at it: a scan sees a directory
      * with a non-empty core.log and no sibling zip, which is exactly an orphan. A live manager
