@@ -290,7 +290,7 @@ class RecorderModule @Inject constructor(
         // after a failed start, most of all — would land in one directory and interleave their logs.
         var sessionDir = File(parent, baseName)
         var collision = 1
-        while (sessionDir.exists()) {
+        while (sessionDir.isNameTaken()) {
             collision++
             sessionDir = File(parent, "${baseName}_$collision")
         }
@@ -299,6 +299,15 @@ class RecorderModule @Inject constructor(
         log(TAG) { "Created session dir: $sessionDir" }
         return sessionDir
     }
+
+    /**
+     * The session ID is derived from this name, so a sibling archive claims it just as much as a
+     * directory does: the dir of a zipped session is gone, and reusing its name would hand a new
+     * recording the identity of the archive next to it. A '.zip.tmp' is a zip still being written.
+     */
+    private fun File.isNameTaken(): Boolean = exists() ||
+        File(parentFile, "$name.zip").exists() ||
+        File(parentFile, "$name.zip.tmp").exists()
 
     internal fun getLogDirectories(): List<File> = listOfNotNull(
         try {
@@ -378,6 +387,14 @@ class RecorderModule @Inject constructor(
     ) {
         val isRecording: Boolean
             get() = recorder != null
+
+        /**
+         * A start that was requested but has not committed yet. Its session dir already exists on
+         * disk while no field here points at it, so anything reconciling the log directory against
+         * this state has to treat the window as "not settled" rather than as a stale leftover.
+         */
+        internal val isStartPending: Boolean
+            get() = shouldRecord && !isRecording
 
         val currentLogPath: File?
             get() = recorder?.path

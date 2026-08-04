@@ -12,6 +12,7 @@ import eu.darken.capod.common.upgrade.UpgradeDiagnostics
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -26,10 +27,12 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import org.junit.After
 import org.junit.Before
@@ -43,6 +46,9 @@ import testhelpers.TestTimeSource
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import java.io.IOException
+import java.util.concurrent.CopyOnWriteArrayList
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 
@@ -109,7 +115,7 @@ class RecorderModuleStartFailureTest : BaseTest() {
     }
 
     private inner class Modules(
-        private val scope: CoroutineScope,
+        val scope: CoroutineScope,
         private val timeSource: TimeSource,
         private val upgradeDiagnostics: UpgradeDiagnostics,
     ) {
@@ -126,6 +132,16 @@ class RecorderModuleStartFailureTest : BaseTest() {
             recorderFactory?.let { module.recorderFactory = it }
             created.add(module)
         }
+
+        // A REAL manager on the module's own scope: its reconciliation is a live collector reacting
+        // to every recorder state, and the window this file is about only exists while it runs.
+        // A static scan cannot show whether that collector zips a directory it should not.
+        fun createManager(module: RecorderModule, zipper: DebugLogZipper) = DebugSessionManager(
+            appScope = scope,
+            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
+            recorderModule = module,
+            debugLogZipper = zipper,
+        )
     }
 
     /**
@@ -286,31 +302,84 @@ class RecorderModuleStartFailureTest : BaseTest() {
     }
 
     /**
-     * A failure emission makes [DebugSessionManager] rescan, and an abandoned session dir would be
-     * picked up as an orphan and auto-zipped — while a retry within the same second writes into it.
-     * The dir the failed attempt created has to be gone before the failure is published.
+     * The start is only committed into the state once the recorder is live, so for the whole window
+     * before that the session dir sits on disk with nothing pointing at it: a scan sees a directory
+     * with a non-empty core.log and no sibling zip, which is exactly an orphan. A live manager
+     * scanning in that window would compress the directory the recorder is writing into, and the
+     * rollback of a failing start would then race the zipper — with a leftover archive left behind
+     * to hand the retry the very session ID that just died.
+     *
+     * The header read is blocked to hold the window open, the same seam [RecorderModuleDiagnosticsTest]
+     * uses to exercise it.
      */
     @Test
-    fun `a failed start leaves no session dir for the manager to pick up`() {
-        failTheHeaderRead()
+    fun `a live manager does not zip a session dir while its start is still in flight`() {
+        val headerBlocked = CountDownLatch(1)
+        val releaseHeader = CountDownLatch(1)
+        mockkObject(BuildConfigWrap)
+        buildConfigMocked = true
+        every { BuildConfigWrap.VERSION_DESCRIPTION } answers {
+            headerReads.incrementAndGet()
+            headerBlocked.countDown()
+            releaseHeader.await(AWAIT_TIMEOUT_MS, TimeUnit.MILLISECONDS)
+            throw IllegalStateException("build info unreadable")
+        }
 
-        withModules(timeSource = TestTimeSource(elapsedRealtimeMs = 100_000L)) { modules ->
+        val zipped = CopyOnWriteArrayList<File>()
+        val zipper = mockk<DebugLogZipper>()
+        every { zipper.zip(any()) } answers {
+            val dir = firstArg<File>()
+            zipped.add(dir)
+            // Produce the archive for real: without it the reconciliation would find the same
+            // orphan on every rescan and spin.
+            File(dir.parentFile, "${dir.name}.zip").also { it.writeText("zipped") }
+        }
+
+        withModules { modules ->
             val module = modules.create()
+            val manager = modules.createManager(module, zipper)
 
-            shouldThrow<IllegalStateException> { module.startRecorder() }
+            val start = modules.scope.async { module.startRecorder() }
+            withContext(Dispatchers.IO) { headerBlocked.await(AWAIT_TIMEOUT_MS, TimeUnit.MILLISECONDS) } shouldBe true
 
-            externalLogsDir.listFiles()?.toList().orEmpty().shouldBeEmpty()
-            DebugSessionManager.scanSessions(module.getLogDirectories()).shouldBeEmpty()
+            val inFlight = externalLogsDir.listFiles()?.toList().orEmpty().single { it.isDirectory }
+            // The recorder is already writing, so this is a Ready orphan to a scan — not a broken
+            // session it would skip anyway.
+            File(inFlight, "core.log").length() shouldBeGreaterThan 0L
 
-            repairTheHeaderRead()
+            // A finished session from before: the gate defers it too, but it is not the one at risk,
+            // so it doubles as the proof that the collector is alive and reaches the auto-zip path.
+            val bystander = File(externalLogsDir, "capod_1.0_20250101T000000Z_bystander").also { it.mkdirs() }
+            File(bystander, "core.log").writeText("an earlier session\n")
 
-            // Fixed clock: the retry hits the exact same timestamped name the dead attempt used.
-            val logDir = module.startRecorder()
-            logDir.exists() shouldBe true
+            // The delayed scan of the failure: it runs while the start is still pending, so the
+            // in-flight dir has no activeDir to match and looks like everybody else's leftovers.
+            manager.refresh()
+            val seen = withTimeout(AWAIT_TIMEOUT_MS) {
+                manager.sessions.first { scan -> scan.any { it.displayName == inFlight.name } }
+            }
+            // Non-vacuity: the manager really did scan both dirs, and in a shape its reconciliation
+            // would have zipped. The gate is what stopped it, not a scan that never happened.
+            seen shouldHaveSize 2
+            seen.forEach { it.shouldBeInstanceOf<DebugSession.Ready>() }
 
-            val sessions = DebugSessionManager.scanSessions(module.getLogDirectories(), activeDir = logDir)
-            sessions shouldHaveSize 1
-            sessions.single().shouldBeInstanceOf<DebugSession.Recording>()
+            delay(SETTLE_MS)
+            zipped.shouldBeEmpty()
+
+            releaseHeader.countDown()
+            shouldThrow<IllegalStateException> { start.await() }
+            module.state.first { it.startFailure != null }
+
+            // The rollback ran to completion, uncontested: no zipper had a claim on the directory.
+            inFlight.exists() shouldBe false
+            File(externalLogsDir, "${inFlight.name}.zip").exists() shouldBe false
+
+            // And the gate lifts with the settled state — deferred, not cancelled.
+            val bystanderZip = File(externalLogsDir, "${bystander.name}.zip")
+            withTimeout(AWAIT_TIMEOUT_MS) {
+                while (!bystanderZip.exists()) delay(POLL_MS)
+            }
+            zipped.toList() shouldBe listOf(bystander)
         }
     }
 
@@ -328,6 +397,31 @@ class RecorderModuleStartFailureTest : BaseTest() {
             second shouldNotBe first
             first.exists() shouldBe true
             second.exists() shouldBe true
+        }
+    }
+
+    /**
+     * A zipped session keeps its name as an archive after its directory is gone, and a zip still
+     * being written keeps it as a '.zip.tmp'. The session ID is derived from that name, so a retry
+     * within the same second that reused it would hand a live recording the identity of an archive
+     * that already exists — and whatever the user then shares is the wrong one.
+     */
+    @Test
+    fun `a session name left behind by an archive is not reused`() {
+        withModules(timeSource = TestTimeSource(elapsedRealtimeMs = 100_000L)) { modules ->
+            val module = modules.create()
+
+            val first = module.startRecorder()
+            module.stopRecorder() shouldBe first
+
+            first.deleteRecursively() shouldBe true
+            File(externalLogsDir, "${first.name}.zip").writeText("archived")
+            File(externalLogsDir, "${first.name}_2.zip.tmp").writeText("half an archive")
+
+            val second = module.startRecorder()
+            second.name shouldBe "${first.name}_3"
+            second.exists() shouldBe true
+            DebugSessionManager.deriveSessionId(second) shouldNotBe DebugSessionManager.deriveSessionId(first)
         }
     }
 
@@ -397,5 +491,10 @@ class RecorderModuleStartFailureTest : BaseTest() {
         // Real time, not virtual: long enough for a retry loop to show itself, short enough to stay
         // well inside the block envelope.
         private const val SETTLE_MS = 500L
+
+        // Waiting for something a live collector has to do. Bounded so a regression reports the
+        // step that never happened instead of burning the whole block envelope.
+        private const val AWAIT_TIMEOUT_MS = 5_000L
+        private const val POLL_MS = 25L
     }
 }
