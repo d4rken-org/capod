@@ -8,6 +8,7 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.FileLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.upgrade.UpgradeDiagnostics
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -154,13 +155,12 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
 
     /**
      * Cancellation is the one thing the guarded header read deliberately rethrows, so it is one of
-     * the failures that can abort the state update. The recorder is already live at that point: it
-     * has to be stopped on the way out, or it keeps writing into a session the module no longer
-     * tracks.
+     * the failures that can abort the start. The recorder is already live at that point: it has to
+     * be stopped on the way out, or it keeps writing into a session the module no longer tracks.
      *
-     * The start is launched, not awaited: an aborted update never flips isRecording, so
-     * startRecorder() stays suspended. The virtual-time delay is what lets the module's own
-     * background collectors run to completion.
+     * The cancellation is foreign — this module's own scope is alive — so it is reported to the
+     * caller as an ordinary start failure rather than rethrown. The start can therefore be awaited
+     * directly: it settles instead of suspending forever on a state nobody publishes.
      */
     @Test
     fun `a cancelled upgrade-diagnostics read stops the recorder instead of leaking it`() = runTest {
@@ -170,8 +170,7 @@ class RecorderModuleDiagnosticsTest : BaseTest() {
 
         val module = buildModule(backgroundScope, diagnostics)
 
-        backgroundScope.launch { module.startRecorder() }
-        delay(1_000)
+        shouldThrow<RecorderModule.RecordingStartFailedException> { module.startRecorder() }
 
         coVerify { diagnostics.debugInfo() }
         module.state.first().isRecording shouldBe false

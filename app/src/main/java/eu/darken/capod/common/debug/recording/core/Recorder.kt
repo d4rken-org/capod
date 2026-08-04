@@ -6,8 +6,10 @@ import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import java.io.File
 import javax.inject.Inject
 
@@ -35,12 +37,22 @@ class Recorder @Inject constructor(
     }
 
     suspend fun stop() = mutex.withLock {
-        fileLogger?.let {
-            log(TAG, INFO) { "Stopping file-logger-tree: $it" }
-            Logging.remove(it)
-            it.stop()
-            fileLogger = null
-            this.path = null
+        val logger = fileLogger ?: return@withLock
+        // A half-finished stop is worse than a failed one: the logger stays installed globally and
+        // keeps writing into a session nobody tracks any more. So cancellation cannot interrupt it,
+        // and a throw on the way out still uninstalls, closes and clears.
+        withContext(NonCancellable) {
+            try {
+                log(TAG, INFO) { "Stopping file-logger-tree: $logger" }
+                try {
+                    Logging.remove(logger)
+                } finally {
+                    logger.stop()
+                }
+            } finally {
+                fileLogger = null
+                this@Recorder.path = null
+            }
         }
     }
 
