@@ -17,32 +17,47 @@ class FileLogger(
 ) : Logging.Logger {
     private var logWriter: OutputStreamWriter? = null
 
+    /**
+     * A failure here belongs to the caller: swallowing it left an installed logger writing nowhere,
+     * so a recording looked like it had started and produced an empty log.
+     */
     @SuppressLint("SetWorldReadable")
     @Synchronized
     fun start() {
         if (logWriter != null) return
 
         logFile.parentFile!!.mkdirs()
-        if (logFile.createNewFile()) {
+        // Whether THIS attempt created the file decides what a failure below may delete: a resumed
+        // session appends to a log file that already holds the previous recording, and failing to
+        // open it must not erase that.
+        val createdNow = logFile.createNewFile()
+        if (createdNow) {
             Log.i(TAG, "File logger writing to " + logFile.path)
         }
         if (logFile.setReadable(true, false)) {
             Log.i(TAG, "Debug run log read permission set")
         }
 
+        var writer: OutputStreamWriter? = null
         try {
-            logWriter = OutputStreamWriter(FileOutputStream(logFile, true))
-            logWriter!!.write("=== BEGIN ===\n")
-            logWriter!!.write("Logfile: $logFile\n")
-            logWriter!!.flush()
-            Log.i(TAG, "File logger started.")
+            writer = OutputStreamWriter(FileOutputStream(logFile, true))
+            writer.write("=== BEGIN ===\n")
+            writer.write("Logfile: $logFile\n")
+            writer.flush()
         } catch (e: IOException) {
-            e.printStackTrace()
-
-            logFile.delete()
-            if (logWriter != null) logWriter!!.close()
+            Log.e(TAG, "File logger failed to start.", e)
+            try {
+                writer?.close()
+            } catch (ignore: IOException) {
+            }
+            if (createdNow) logFile.delete()
+            throw e
         }
 
+        // Published only once it is usable, so a failed attempt leaves nothing behind that would
+        // make a later start() a no-op.
+        logWriter = writer
+        Log.i(TAG, "File logger started.")
     }
 
     @Synchronized

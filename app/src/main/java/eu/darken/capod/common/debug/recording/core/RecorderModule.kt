@@ -137,7 +137,7 @@ class RecorderModule @Inject constructor(
                                     try {
                                         it.stop()
                                     } catch (stopError: Exception) {
-                                        e.addSuppressed(stopError)
+                                        e.recordSuppressed(stopError)
                                     }
                                 }
                                 this@RecorderModule.currentLogDir = null
@@ -257,6 +257,22 @@ class RecorderModule @Inject constructor(
     private fun asStartFailure(error: Exception): Throwable = when (error) {
         is CancellationException -> RecordingStartFailedException(error)
         else -> error
+    }
+
+    /**
+     * Attaches a rollback failure to the failure being reported. The very same throwable can come
+     * back out of the rollback — a recorder broken in one way throws it on the start line and again
+     * on the teardown line — and [Throwable.addSuppressed] rejects self-suppression with an
+     * [IllegalArgumentException], which would abort the rollback before the failure is ever
+     * published.
+     */
+    private fun Throwable.recordSuppressed(other: Throwable) {
+        if (other === this) return
+        try {
+            addSuppressed(other)
+        } catch (e: Exception) {
+            // Bookkeeping only: nothing about reporting the failure may replace the failure itself.
+        }
     }
 
     private fun deleteTriggerFile() {
