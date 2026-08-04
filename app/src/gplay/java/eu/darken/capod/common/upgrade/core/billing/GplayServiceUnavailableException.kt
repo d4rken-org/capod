@@ -1,5 +1,6 @@
 package eu.darken.capod.common.upgrade.core.billing
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -25,20 +26,27 @@ class GplayServiceUnavailableException(cause: Throwable) :
         // action is a GENERIC troubleshooting affordance (open Play's app info), not a diagnosis of
         // the cause. Harmless for a transient blip, and it matches the fleet's dialog.
         fixAction = { activity ->
-            try {
-                val intent = Intent().apply {
-                    action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                    data = Uri.fromParts("package", GPLAY_PKG, null)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
+            val intent = Intent().apply {
+                action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                data = Uri.fromParts("package", GPLAY_PKG, null)
+            }
 
+            try {
                 activity.startActivity(intent)
             } catch (e: ActivityNotFoundException) {
-                log(ERROR) { "Can't launch settings intent for Google Play: $e" }
-                Toast.makeText(activity, "Google Play is not installed", Toast.LENGTH_SHORT).show()
+                onLaunchFailed(activity, e)
+            } catch (e: SecurityException) {
+                // Play can be installed but unreachable: disabled app, work/restricted profile or a
+                // ROM that guards the settings screen. The launch is denied, not unresolvable.
+                onLaunchFailed(activity, e)
             }
         },
     )
+
+    private fun onLaunchFailed(activity: Activity, e: Exception) {
+        log(ERROR) { "Can't launch settings intent for Google Play: $e" }
+        Toast.makeText(activity, R.string.upgrades_gplay_not_installed_message, Toast.LENGTH_SHORT).show()
+    }
 
     companion object {
         private const val GPLAY_PKG = "com.android.vending"

@@ -1,6 +1,7 @@
 package eu.darken.capod.common.error
 
 import android.content.Context
+import android.content.Intent
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertCountEquals
@@ -76,6 +77,9 @@ class ComposeErrorDialogTest : BaseTest() {
         val started = shadowOf(composeRule.activity).nextStartedActivity.shouldNotBeNull()
         started.action shouldBe Settings.ACTION_APPLICATION_DETAILS_SETTINGS
         started.data.toString() shouldBe "package:com.android.vending"
+        // NEW_TASK on an activity context detaches Play's app info from our task: the user loses the
+        // back path to the screen they came from and the settings screen lingers in recents.
+        (started.flags and Intent.FLAG_ACTIVITY_NEW_TASK) shouldBe 0
         // The user acted: leaving the dialog up would greet them again on the way back.
         composeRule.onAllNodesWithText("Google Play").assertCountEquals(0)
     }
