@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
@@ -48,7 +49,18 @@ class DebugSessionManager @Inject constructor(
 
     val recorderState: Flow<RecorderModule.State> get() = recorderModule.state
 
-    val sessions: Flow<List<DebugSession>> = combine(
+    /**
+     * A scan together with the recorder state it was taken against. The two travel as one value on
+     * purpose: the reconciliation below has to know whether the snapshot it reacts to was taken
+     * mid-start, and observing the recorder state as a second flow would let a scan meet a state
+     * that is not the one it was derived from.
+     */
+    private data class Scan(
+        val sessions: List<DebugSession>,
+        val startPending: Boolean,
+    )
+
+    private val scans: Flow<Scan> = combine(
         recorderModule.state,
         zippingIds,
         failedZipIds,
@@ -59,12 +71,27 @@ class DebugSessionManager @Inject constructor(
             activeDir = recorderState.currentLogDir,
             recordingStartedAt = recorderState.recordingStartedAt,
         )
-        applyOverlays(raw, zipping, failedZips)
+        Scan(
+            sessions = applyOverlays(raw, zipping, failedZips),
+            startPending = recorderState.isStartPending,
+        )
     }.replayingShare(appScope)
 
+    val sessions: Flow<List<DebugSession>> = scans.map { it.sessions }
+
     init {
-        sessions.onEach { allSessions ->
-            val orphans = findOrphans(allSessions, zippingIds.value)
+        scans.onEach { scan ->
+            // A start publishes its session dir only once the recorder is live. Until then the dir
+            // is already on disk with no activeDir to match it, so it scans as an orphan — zipping
+            // it would compress a directory the recorder is writing into, and race the rollback
+            // that deletes it if the start then fails. Only NEW zips are held back; anything
+            // already running keeps going. Reconciliation resumes on the next emission, once the
+            // state is recording or the failure has settled.
+            if (scan.startPending) {
+                log(TAG) { "A start is in flight, deferring orphan reconciliation" }
+                return@onEach
+            }
+            val orphans = findOrphans(scan.sessions, zippingIds.value)
             orphans.forEach { (id, dir) ->
                 if (pendingAutoZips.add(id)) {
                     log(TAG, INFO) { "Orphan session detected, auto-zipping: $id" }
