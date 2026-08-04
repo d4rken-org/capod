@@ -38,5 +38,10 @@ class RecorderModuleStateTest : BaseTest() {
         fun `persistedLogDir is null`() {
             RecorderModule.State().persistedLogDir shouldBe null
         }
+
+        @Test
+        fun `startFailure is null`() {
+            RecorderModule.State().startFailure shouldBe null
+        }
     }
 }
