@@ -12,6 +12,7 @@
     <string name="general_donate_action">תרומה</string>
     <string name="general_check_action">בדיקה</string>
     <string name="general_close_action">סגור</string>
+    <string name="general_dismiss_action">דחה</string>
     <string name="general_edit_action">עריכה</string>
     <string name="general_save_action">שמור</string>
     <string name="general_guide_action">מדריך</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">מצב המכשיר</string>
     <string name="notification_channel_device_status_connected_label">מכשיר מחובר</string>
     <string name="monitor_notification_extra_enabled_hint">ניתן להשבית התראה זו בהגדרות המערכת.</string>
+    <string name="monitor_notification_starting">מתחיל…</string>
     <string name="support_debuglog_label">יומן ניפוי באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
     <string name="debug_debuglog_size_label">מידה</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth מושבת, הפעל אותו ;)</string>
     <string name="overview_monitoring_active_label">מחפש מכשירים</string>
     <string name="overview_monitoring_active_description">ודא שהמכשיר שלך בקרבת מקום ופעיל.</string>
+    <string name="overview_monitoring_off_label">ניטור הרקע כבוי</string>
+    <string name="overview_monitoring_off_description">אף פרופיל אינו כולל התקן Bluetooth משויך, כך ש-CAPod מעדכן רק כאשר האפליקציה פתוחה. בחר אחד כדי להפעיל ניטור רקע, התראה מתמשכת ותגובות.</string>
+    <string name="overview_monitoring_off_action">בחר התקן משויך</string>
     <string name="overview_troubleshoot_suggestion_label">מחובר, אך אין נתונים</string>
     <string name="overview_troubleshoot_suggestion_description">המכשיר שלך מחובר, אך CAPod אינו מקבל ממנו נתונים חיים. הטלפון שלך עשוי להזדקק לאפשרות תאימות — פותר הבעיות יכול לנסות למצוא אחת אוטומטית.</string>
     <string name="overview_troubleshoot_suggestion_action">הפעל פותר בעיות</string>
@@ -493,6 +498,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">לחיצה כפולה לסיום שיחה</string>
     <string name="device_settings_open_cd">פתח הגדרות מכשיר</string>
     <string name="overview_card_missing_paired_device">לפרופיל זה אין התקן Bluetooth מקושר.</string>
+    <string name="overview_card_missing_paired_device_consequence">ללא זה, הגדרות ההתקן והחיבור האוטומטי אינם זמינים.</string>
     <string name="overview_reactions_hint_title">התגובות הן לפי מכשיר</string>
     <string name="overview_reactions_hint_body">הפעלה אוטומטית, השהייה אוטומטית וחלונות קופצים מוגדרים כעת לפי מכשיר. הקש על סמל ההגדרות בכרטיס כאשר האוזניות שלך מחוברות.</string>
     <!-- New device settings -->
@@ -572,4 +578,6 @@
     <string name="press_controls_reset_label">אפס לברירת מחדל</string>
     <string name="press_controls_reset_confirm_message">לאפס את כל מיפויי הלחיצות לברירת מחדל?</string>
     <string name="device_settings_noise_control_open_press_controls_action">פתח בקרות לחיצה</string>
+    <string name="general_navigate_up_action">עלייה</string>
+    <string name="general_progress_loading">טוען</string>
 </resources>

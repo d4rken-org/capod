@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">לפי Google Play, כבר רכשת את השדרוג הזה, אך לא ניתן היה לשחזר אותו. ודא שאתה משתמש בחשבון Google שאיתו ביצעת את הרכישה. סנכרון Play Store עשוי לקחת זמן — נסה להפעיל מחדש את המכשיר, לנקות את מטמון Google Play או פשוט להמתין.</string>
     <string name="upgrade_restore_action">שחזור רכישה</string>
     <string name="upgrade_badge_label">פרו</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">קבל %1$s</string>
     <string name="upgrade_preamble">CAPod מפותחת על ידי אדם אחד בלבד. שדרוג פותח תכונות נוספות ועוזר לשמור על האפליקציה בחיים.</string>
     <string name="upgrade_screen_options_description">אותן תכונות, תמחור שונה. המינוי כולל ניסיון חינם וניתן לבטל אותו בכל עת.</string>
     <string name="upgrade_screen_options_description_no_trial">אותן תכונות, תמחור שונה. ניתן לבטל את המינוי בכל עת.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">צור קשר עם התמיכה</string>
     <string name="settings_upgrade_status_label">CAPod פרו</string>
     <string name="settings_upgrade_status_description">סטטוס השדרוג והרכישה שלך.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod לא יכול להתחבר ל-Google Play. האם Google Play מותקן ומעודכן? האם חשבון Google שלך מחובר? נסה לנקות את המטמון של אפליקציית Google Play ולאתחל את המכשיר שלך.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">לא היה אפשר לפתוח את Google Play. ייתכן שהוא חסר, מבוטל או מוגבל בהתקן זה.</string>
+    <string name="upgrades_gplay_internal_error_title">שגיאת Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">אירעה שגיאה פנימית ב-Google Play. אנא נסה את הפעולות הבאות:\n\n• הפעל מחדש את המכשיר שלך\n• נקה את המטמון של Google Play Store\n• נסה שוב מאוחר יותר</string>
+    <string name="upgrades_gplay_network_error_title">שגיאת חיבור</string>
+    <string name="upgrades_gplay_network_error_description">לא ניתן להתחבר ל-Google Play. אנא בדוק את החיבור לאינטרנט שלך ונסה שוב.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ההצעה אינה זמינה</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play כרגע לא מציע אפשרות שדרוג זו. אנא נסה שוב מאוחר יותר או בדוק את Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">הבדיקה עם Google Play לא הסתיימה בזמן, כך שמצב הרכישה שלך עדיין לא ידוע. שום דבר לא השתנה בחשבון שלך.</string>
 </resources>

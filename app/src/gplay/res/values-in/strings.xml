@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play melaporkan bahwa Anda sudah memiliki peningkatan ini, tetapi tidak dapat dipulihkan. Pastikan Anda menggunakan akun Google yang sama dengan yang digunakan untuk membeli. Sinkronisasi Play Store mungkin memerlukan waktu — coba mulai ulang perangkat, hapus cache Google Play, atau tunggu sebentar.</string>
     <string name="upgrade_restore_action">Pulihkan pembelian</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_preamble">CAPod dikembangkan oleh satu orang. Melakukan peningkatan membuka fitur tambahan dan membantu menjaga aplikasi ini tetap ada.</string>
     <string name="upgrade_screen_options_description">Fitur yang sama, harga yang berbeda. Langganan ini mencakup masa uji coba gratis dan dapat dibatalkan kapan saja.</string>
     <string name="upgrade_screen_options_description_no_trial">Fitur yang sama, harga yang berbeda. Langganan dapat dibatalkan kapan saja.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Hubungi dukungan</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Status upgrade dan pembelian Anda.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod tidak dapat terhubung ke Google Play. Apakah Google Play sudah terpasang dan diperbarui? Apakah Akun Google Anda sudah masuk? Coba hapus cache aplikasi Google Play dan mulai ulang perangkat Anda.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Tidak dapat membuka Google Play. Mungkin tidak terinstal, dinonaktifkan, atau dibatasi di perangkat ini.</string>
+    <string name="upgrades_gplay_internal_error_title">Kesalahan Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Terjadi kesalahan internal Google Play. Silakan coba hal berikut:\n\n• Mulai ulang perangkat Anda\n• Hapus cache Google Play Store\n• Coba lagi nanti</string>
+    <string name="upgrades_gplay_network_error_title">Kesalahan koneksi</string>
+    <string name="upgrades_gplay_network_error_description">Tidak dapat terhubung ke Google Play. Silakan periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Penawaran tidak tersedia</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play saat ini tidak menawarkan opsi upgrade ini. Silakan coba lagi nanti atau periksa Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pemeriksaan dengan Google Play tidak selesai tepat waktu, jadi status pembelian Anda masih belum diketahui. Tidak ada yang berubah di akun Anda.</string>
 </resources>

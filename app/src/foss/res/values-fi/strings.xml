@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Avaa sponsorisivu</string>
     <string name="settings_upgrade_status_label">Tue CAPodia</string>
     <string name="settings_upgrade_status_description">Kannattajantila</string>
+    <string name="upgrade_screen_why_title">Päivityksen edut</string>
+    <string name="upgrade_screen_how_title">Kuinka auttaa</string>
+    <string name="upgrade_screen_how_body">Ryhdy tukijaksi ja sponsoroi kehitystä! Napauta alla olevaa painiketta aktivoidaksesi kaikki lisäominaisuudet ja avataksesi GitHub Sponsors -profiilini.</string>
+    <string name="upgrade_screen_status_free_title">Ilmainen versio</string>
+    <string name="upgrade_screen_status_free_body">Käytät CAPodin ilmaista versiota. Lisäominaisuudet voidaan avata tukemalla kehitystä.</string>
+    <string name="upgrade_screen_status_free_action">Katso päivitysvaihtoehdot</string>
+    <string name="upgrade_screen_status_upgraded_title">Päivitys aktiivinen</string>
+    <string name="upgrade_screen_recurring_title">Pidä se käynnissä</string>
+    <string name="upgrade_screen_recurring_body">CAPod kehittyy jatkuvasti päivitysten ja korjausten kautta. Jos haluat tukea sitä, harkitse toistuvaa lahjoitusta GitHub Sponsorien kautta.</string>
 </resources>

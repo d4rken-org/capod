@@ -12,6 +12,7 @@
     <string name="general_donate_action">Donasi</string>
     <string name="general_check_action">Periksa</string>
     <string name="general_close_action">Tutup</string>
+    <string name="general_dismiss_action">Tutup</string>
     <string name="general_edit_action">Ubah</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_guide_action">Panduan</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Status perangkat</string>
     <string name="notification_channel_device_status_connected_label">Perangkat terhubung</string>
     <string name="monitor_notification_extra_enabled_hint">Anda dapat menonaktifkan notifikasi ini di pengaturan sistem.</string>
+    <string name="monitor_notification_starting">Memulai...</string>
     <string name="support_debuglog_label">Log debug</string>
     <string name="support_debuglog_desc">Rekam semua yang dilakukan aplikasi dalam file teks yang dapat Anda bagikan.</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth dinonaktifkan, aktifkan ;)</string>
     <string name="overview_monitoring_active_label">Memantau perangkat</string>
     <string name="overview_monitoring_active_description">Pastikan perangkat Anda berada di dekat dan aktif.</string>
+    <string name="overview_monitoring_off_label">Pemantauan latar belakang dimatikan</string>
+    <string name="overview_monitoring_off_description">Tidak ada profil yang memiliki Perangkat Bluetooth berpasangan, jadi CAPod hanya diperbarui saat aplikasi terbuka. Pilih satu untuk mengaktifkan pemantauan latar belakang, pemberitahuan berkelanjutan, dan reaksi.</string>
+    <string name="overview_monitoring_off_action">Pilih perangkat berpasangan</string>
     <string name="overview_troubleshoot_suggestion_label">Terhubung, tetapi tidak ada data</string>
     <string name="overview_troubleshoot_suggestion_description">Perangkat terhubung, tetapi CAPod tidak menerima data langsung darinya. Ponsel mungkin memerlukan opsi kompatibilitas — pemecah masalah dapat mencoba menemukannya secara otomatis.</string>
     <string name="overview_troubleshoot_suggestion_action">Jalankan pemecah masalah</string>
@@ -475,6 +480,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tekan dua kali untuk mengakhiri panggilan</string>
     <string name="device_settings_open_cd">Buka pengaturan perangkat</string>
     <string name="overview_card_missing_paired_device">Profil ini tidak memiliki Perangkat Bluetooth yang dipasangkan.</string>
+    <string name="overview_card_missing_paired_device_consequence">Tanpa satu, pengaturan perangkat dan koneksi otomatis tidak tersedia.</string>
     <string name="overview_reactions_hint_title">Reaksi berlaku per perangkat</string>
     <string name="overview_reactions_hint_body">Putar otomatis, jeda otomatis, dan pop-up kini dikonfigurasi per perangkat. Ketuk ikon pengaturan pada kartu saat headphone Anda terhubung.</string>
     <!-- New device settings -->
@@ -554,4 +560,6 @@
     <string name="press_controls_reset_label">Reset ke default</string>
     <string name="press_controls_reset_confirm_message">Reset semua pemetaan tekanan ke default?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Buka Kontrol Tekanan</string>
+    <string name="general_navigate_up_action">Navigasi ke atas</string>
+    <string name="general_progress_loading">Memuat</string>
 </resources>

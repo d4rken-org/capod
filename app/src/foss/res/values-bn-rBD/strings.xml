@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">স্পনসর পৃষ্ঠা খুলুন</string>
     <string name="settings_upgrade_status_label">CAPod-কে স্পন্সর করুন</string>
     <string name="settings_upgrade_status_description">আপনার সমর্থক স্থিতি।</string>
+    <string name="upgrade_screen_why_title">আপগ্রেড সুবিধা</string>
+    <string name="upgrade_screen_how_title">কিভাবে সাহায্য করতে পারি</string>
+    <string name="upgrade_screen_how_body">একটি পৃষ্ঠপোষক এবং স্পনসর উন্নয়ন হয়ে! সমস্ত অতিরিক্ত বৈশিষ্ট্য সক্রিয় করতে নীচের বোতামটি আলতো চাপুন এবং আমার GitHub স্পনসর প্রোফাইল খুলুন।</string>
+    <string name="upgrade_screen_status_free_title">বিনামূল্যে সংস্করণ</string>
+    <string name="upgrade_screen_status_free_body">আপনি CAPod এর বিনামূল্যে সংস্করণ ব্যবহার করছেন। উন্নয়ন সমর্থন করে অতিরিক্ত বৈশিষ্ট্য আনলক করা যায়।</string>
+    <string name="upgrade_screen_status_free_action">আপগ্রেড বিকল্পগুলি দেখুন</string>
+    <string name="upgrade_screen_status_upgraded_title">আপগ্রেড সক্রিয়</string>
+    <string name="upgrade_screen_recurring_title">এটি চালু রাখুন</string>
+    <string name="upgrade_screen_recurring_body">CAPod আপডেট এবং সংশোধনের মাধ্যমে ক্রমাগত উন্নত হচ্ছে। আপনি যদি তা বজায় রাখতে চান তবে GitHub Sponsors এর মাধ্যমে নিয়মিত দান বিবেচনা করুন।</string>
 </resources>

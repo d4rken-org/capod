@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play იტყობინება, რომ ეს განახლება უკვე შეძენილი გაქვთ, მაგრამ მისი აღდგენა ვერ მოხერხდა. დარწმუნდით, რომ იყენებთ იმ Google ანგარიშს, რომლითაც შეიძინეთ. Play Store-ის სინქრონიზაციას შეიძლება დრო დასჭირდეს — სცადეთ გადატვირთვა, Google Play-ის ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>
     <string name="upgrade_restore_action">შეძენის აღდგენა</string>
     <string name="upgrade_badge_label">პრო</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">მიიღეთ %1$s</string>
     <string name="upgrade_preamble">CAPod-ს ერთი ადამიანი ავითარებს. განახლება ხსნის დამატებით ფუნქციებს და ეხმარება აპლიკაციის ცოცხლად შენარჩუნებაში.</string>
     <string name="upgrade_screen_options_description">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერა მოიცავს უფასო საცდელ პერიოდს და მისი გაუქმება შესაძლებელია ნებისმიერ დროს.</string>
     <string name="upgrade_screen_options_description_no_trial">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერის გაუქმება შესაძლებელია ნებისმიერ დროს.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">მხარდამჭერთან დაკავშირება</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">თქვენი განახლებისა და ყიდვის მდგომარეობა.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ვერ უკავშირდება Google Play-ს. დაინსტალირებულია და განახლებულია Google Play? შესულია თქვენი Google ანგარიში? სცადეთ Google Play აპლიკაციის ქეშის გასუფთავება და თქვენი მოწყობილობის გადატვირთვა.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play-ი ვერ გაიხსნა. ის შეიძლება დაყენებული არ იყოს, გამორთული იყოს ან შეზღუდული იყოს ამ მოწყობილობაზე.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play შეცდომა</string>
+    <string name="upgrades_gplay_internal_error_description">მოხდა Google Play-ის შიდა შეცდომა. გთხოვთ, სცადოთ შემდეგი:\n\n• გადატვირთეთ თქვენი მოწყობილობა\n• გაასუფთავეთ Google Play Store-ის ქეში\n• კვლავ სცადეთ მოგვიანებით</string>
+    <string name="upgrades_gplay_network_error_title">კავშირის შეცდომა</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-სთან კავშირი შეუძლებელია. გთხოვთ, შეამოწმოთ თქვენი ინტერნეტ კავშირი და კვლავ სცადეთ.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">შეთავაზება მიუწვდომელია</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ამ დროს ამ განახლების ვარიანტს არ სთავაზობს. გთხოვთ, მოგვიანებით კვლავ სცადეთ ან Google Play Store-ის შემოწმება.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-სთან შემოწმება დროზე არ დასრულდა, ამიტომ თქვენი ყიდვის სტატუსი ჯერ კიდევ უცნობია. თქვენს ანგარიშზე არაფერი შეიცვალა.</string>
 </resources>

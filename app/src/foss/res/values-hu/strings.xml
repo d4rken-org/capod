@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Támogatói oldal megnyitása</string>
     <string name="settings_upgrade_status_label">Támogasson CAPod-ot</string>
     <string name="settings_upgrade_status_description">Az Ön támogató státusza.</string>
+    <string name="upgrade_screen_why_title">Frissítési előnyök</string>
+    <string name="upgrade_screen_how_title">Hogyan lehet segíteni</string>
+    <string name="upgrade_screen_how_body">Legyen patron támogató és szponzorálja a fejlesztést! Kattintson az alábbi gombra az összes extra funkció aktiválásához és a GitHub Sponsors profilom megnyitásához.</string>
+    <string name="upgrade_screen_status_free_title">Ingyenes verzió</string>
+    <string name="upgrade_screen_status_free_body">A CAPod ingyenes verzióját használod. A további funkciókat a fejlesztés támogatásával feloldhatod.</string>
+    <string name="upgrade_screen_status_free_action">Frissítési lehetőségek</string>
+    <string name="upgrade_screen_status_upgraded_title">Frissítés aktív</string>
+    <string name="upgrade_screen_recurring_title">Folytasd a támogatást</string>
+    <string name="upgrade_screen_recurring_body">A CAPod folyamatosan fejlődik frissítéseken és hibajavításokon keresztül. Ha szeretnéd ezt fenntartani, fontold meg az ismétlődő adományt a GitHub Sponsors-on.</string>
 </resources>

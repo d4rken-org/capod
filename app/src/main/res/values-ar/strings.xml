@@ -12,6 +12,7 @@
     <string name="general_donate_action">تبرع</string>
     <string name="general_check_action">فحص</string>
     <string name="general_close_action">إغلاق</string>
+    <string name="general_dismiss_action">تجاهُل</string>
     <string name="general_edit_action">تعديل</string>
     <string name="general_save_action">حفظ</string>
     <string name="general_guide_action">الدليل</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">حالة الجهاز</string>
     <string name="notification_channel_device_status_connected_label">جهاز متصل</string>
     <string name="monitor_notification_extra_enabled_hint">يمكنك تعطيل هذا الإشعار في إعدادات النظام.</string>
+    <string name="monitor_notification_starting">البدء جارٍ…</string>
     <string name="support_debuglog_label">سجل تصحيح الأخطاء</string>
     <string name="support_debuglog_desc">تسجيل كل ما يفعله التطبيق في ملف نصي يمكنك مشاركته.</string>
     <string name="debug_debuglog_size_label">الحجم</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">البلوتوث معطل، قم بتمكينه ;)</string>
     <string name="overview_monitoring_active_label">جارٍ مراقبة الأجهزة</string>
     <string name="overview_monitoring_active_description">تأكد من أن جهازك قريب ونشط.</string>
+    <string name="overview_monitoring_off_label">المراقبة الخلفية موقفة</string>
+    <string name="overview_monitoring_off_description">لا يوجد جهاز بلوتوث مقترن بأي ملف تعريف، لذا يتم تحديث CAPod فقط في أثناء فتح التطبيق. اختر جهازًا واحدًا لتمكين المراقبة الخلفية والإشعارات والتفاعلات المستمرّة.</string>
+    <string name="overview_monitoring_off_action">حدد الجهاز المقترِن</string>
     <string name="overview_troubleshoot_suggestion_label">متصل، ولكن لا توجد بيانات</string>
     <string name="overview_troubleshoot_suggestion_description">جهازك متصل، لكن تطبيق CAPod لا يستقبل أي بيانات مباشرة منه. قد يحتاج هاتفك إلى خيار توافق - يمكن لمُستكشف الأخطاء ومُصلحها محاولة إيجاد واحد تلقائيًّا.</string>
     <string name="overview_troubleshoot_suggestion_action">تشغيل مُستكشف الأخطاء ومُصلحها</string>
@@ -505,6 +510,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ضغطة مزدوجة لإنهاء المكالمة</string>
     <string name="device_settings_open_cd">فتح إعدادات الجهاز</string>
     <string name="overview_card_missing_paired_device">هذا الملف الشخصي لا يحتوي على جهاز بلوتوث مقترن.</string>
+    <string name="overview_card_missing_paired_device_consequence">دونها، لن تتوفر إعدادات الجهاز والاتصال التلقائي.</string>
     <string name="overview_reactions_hint_title">ردود الفعل خاصة بكل جهاز</string>
     <string name="overview_reactions_hint_body">يتم الآن تهيئة التشغيل التلقائي والإيقاف التلقائي والنوافذ المنبثقة لكل جهاز على حدة. انقر على أيقونة الإعدادات على البطاقة أثناء توصيل سماعاتك.</string>
     <!-- New device settings -->
@@ -584,4 +590,6 @@
     <string name="press_controls_reset_label">إعادة تعيين للافتراضيات</string>
     <string name="press_controls_reset_confirm_message">إعادة تعيين جميع تعيينات الضغط للافتراضيات؟</string>
     <string name="device_settings_noise_control_open_press_controls_action">فتح عناصر التحكم بالضغط</string>
+    <string name="general_navigate_up_action">الانتقال للأعلى</string>
+    <string name="general_progress_loading">التحميل جارٍ</string>
 </resources>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play нь та энэ шинэчлэлтийг аль хэдийн эзэмшиж байгааг мэдээлж байгаа ч сэргээх боломжгүй байна. Худалдан авахдаа ашигласан Google бүртгэлээ ашиглаж байгаа эсэхээ шалгана уу. Play Store-ын синхрончлол хугацаа шаардаж болзошгүй тул дахин асаах, Google Play-ийн кэшийг цэвэрлэх эсвэл хэсэг хугацаа хүлээж үзнэ үү.</string>
     <string name="upgrade_restore_action">Худалдан авалтыг сэргээх</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s авах</string>
     <string name="upgrade_preamble">CAPod-ыг ганц хүн хөгжүүлдэг. Шинэчлэл хийснээр нэмэлт боломжууд нээгдэж, аппликейшнийг тогтвортой ажиллуулахад тусална.</string>
     <string name="upgrade_screen_options_description">Ижил боломжууд, өөр өөр үнэ. Захиалга нь үнэгүй туршилтын хугацаатай бөгөөд хэдийд ч цуцлах боломжтой.</string>
     <string name="upgrade_screen_options_description_no_trial">Ижил боломжууд, өөр өөр үнэ. Захиалгыг хэдийд ч цуцлах боломжтой.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Дэмжлэгтэй холбоо барих</string>
     <string name="settings_upgrade_status_label">CAPod Про</string>
     <string name="settings_upgrade_status_description">Таны шинэчлэл ба худалдан авалтын статус.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play-тэй холбогдож чадахгүй байна. Google Play суулгасан бөгөөд шинэчлэгдсэн үү? Таны Google бүртгэл нэвтэрсэн үү? Google Play аппын кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play-ийг нээж чадсангүй. Энэ төхөөрөмжид суулгагдаагүй, идэвхгүй болсон эсвэл хязгаарлагдсан байж болна.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play алдаа</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-д дотоод алдаа гарсан. Дараахийг оролдоно уу:\n\n• Төхөөрөмжөө дахин эхлүүлэх\n• Google Play Store кэшийг цэвэрлэх\n• Дараа нь дахин оролдох</string>
+    <string name="upgrades_gplay_network_error_title">Холболтын алдаа</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-тэй холбогдох боломжгүй байна. Интернет холболтоо шалгаж, дахин оролдоно уу.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Санал боломжгүй</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play одоогоор энэ сонголтыг санал болгохгүй байна. Дараа нь дахин оролдох эсвэл Google Play Store-ыг шалгаана уу.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-тай шалгалт хугацаанд дуусахгүй байсан тул таны худалдан авалтын төлөв тодорхойгүй хэвээр байна. Таны бүртгэлд ямар ч өөрчлөлт гараагүй.</string>
 </resources>

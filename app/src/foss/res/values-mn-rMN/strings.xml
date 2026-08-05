@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Дэмжигчийн хуудсыг нээх</string>
     <string name="settings_upgrade_status_label">CAPod-ыг спонсорлох</string>
     <string name="settings_upgrade_status_description">Таны дэмжигч статус.</string>
+    <string name="upgrade_screen_why_title">Давуу талууд</string>
+    <string name="upgrade_screen_how_title">Хэрхэн тусламж үзүүлэх</string>
+    <string name="upgrade_screen_how_body">Ивээн тэтгэгч болж хөгжлийг дэмжээрэй! Бүх нэмэлт боломжуудыг идэвхжүүлж, миний GitHub Sponsors профайлыг нээхийн тулд доорх товчийг дарна уу.</string>
+    <string name="upgrade_screen_status_free_title">Үнэгүй хувилбар</string>
+    <string name="upgrade_screen_status_free_body">Та CAPod-ын үнэгүй хувилбарыг ашиглаж байна. Хөгжлийг дэмжих замаар нэмэлт функцийг нээх боломжтой.</string>
+    <string name="upgrade_screen_status_free_action">Сонголтыг харах</string>
+    <string name="upgrade_screen_status_upgraded_title">Идэвхтэй</string>
+    <string name="upgrade_screen_recurring_title">Үргэлжүүлэх</string>
+    <string name="upgrade_screen_recurring_body">CAPod шинэчлэлт, засварын тусламжтайгаар үргэлжлэн хөгжиж байна. Үүнийг дэмжихийг хүссэн бол GitHub Sponsors-ээр давтан төлбөрийн хандив хийхийг авч үзэхэй.</string>
 </resources>

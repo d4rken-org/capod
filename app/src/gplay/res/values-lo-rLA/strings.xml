@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ລາຍງານວ່າທ່ານເປັນເຈົ້າຂອງການອັບເກຣດນີ້ແລ້ວ, ແຕ່ບໍ່ສາມາດກູ້ຄືນໄດ້. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານກຳລັງໃຊ້ບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້. ການຊິງຄ໌ຂໍ້ມູນຂອງ Play Store ອາດຈະໃຊ້ເວລາ — ລອງຣີສະຕາດເຄື່ອງ, ລ້າງແຄດຊ໌ຂອງ Google Play ຫຼືພຽງແຕ່ລໍຖ້າ.</string>
     <string name="upgrade_restore_action">ກູ້ຄືນການຊື້</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">ຮັບ %1$s</string>
     <string name="upgrade_preamble">CAPod ຖືກພັດທະນາໂດຍຄົນຄົນດຽວ. ການອັບເກຣດຈະປົດລັອກຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ຊ່ວຍໃຫ້ແອັບຄົງຢູ່ຕໍ່ໄປ.</string>
     <string name="upgrade_screen_options_description">ຄຸນສົມບັດຄືກັນ, ລາຄາຕ່າງກັນ. ການສະໝັກສະມາຊິກມີການທົດລອງໃຊ້ຟຣີ ແລະ ສາມາດຍົກເລີກໄດ້ທຸກເວລາ.</string>
     <string name="upgrade_screen_options_description_no_trial">ຄຸນສົມບັດຄືກັນ, ລາຄາຕ່າງກັນ. ການສະໝັກສະມາຊິກສາມາດຍົກເລີກໄດ້ທຸກເວລາ.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ສະຖານະການອັບເກຣດແລະການຊື້ຂອງທ່ານ</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. Google Play ຖືກຕິດຕັ້ງ ແລະອັບເດດແລ້ວບໍ? ບັນຊີ Google ຂອງທ່ານເຂົ້າສູ່ລະບົບແລ້ວບໍ? ລອງລ້າງແຄສຂອງແອັບ Google Play ແລະຣີບູດອຸປະກອນຂອງທ່ານ.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">ບໍ່ສາມາດເປີດ Google Play ໄດ້. ມັນອາດຈະຫາຍໄປ, ປິດໄວ້ ຫຼື ຖືກຈໍາກັດໄວ້ໃນອຸປະກອນນີ້.</string>
+    <string name="upgrades_gplay_internal_error_title">ຂໍ້ຜິດພາດ Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">ເກີດຂໍ້ຜິດພາດພາຍໃນຂອງ Google Play. ກະລຸນາລອງສິ່ງຕໍ່ໄປນີ້:\n\n• ເລີ່ມຕົ້ນອຸປະກອນຂອງທ່ານໃໝ່\n• ລ້າງແຄສຂອງ Google Play Store\n• ລອງໃໝ່ຕໍ່ມາ</string>
+    <string name="upgrades_gplay_network_error_title">ຂໍ້ຜິດພາດການເຊື່ອມຕໍ່</string>
+    <string name="upgrades_gplay_network_error_description">ບໍ່ສາມາດເຊື່ອມຕໍ່ Google Play ໄດ້. ກະລຸນາກວດສອບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ ແລະລອງໃໝ່.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ຂໍ້ສະເຫນີບໍ່ສາມາດໃຊ້ໄດ້</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ບໍ່ໄດ້ສະເຫນີທາງເລືອກການອັບເກຣດນີ້ໃນປະຈຸບັນ. ກະລຸນາລອງໃໝ່ຕໍ່ມາ ຫຼື ກວດສອບ Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">ການກວດສອບກັບ Google Play ບໍ່ສິ້ນສຸດໃນເວລາ, ດັ່ງນັ້ນສະຖານະການຊື້ຂອງທ່ານຍັງບໍ່ຮູ້. ບໍ່ມີຫຍັງປ່ຽນແປງໃນບັນຊີຂອງທ່ານ.</string>
 </resources>

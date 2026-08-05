@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play съобщава, че вече притежавате тази надстройка, но тя не можа да бъде възстановена. Уверете се, че използвате акаунта в Google, с който сте направили покупката. Синхронизирането с Play Store може да отнеме време — опитайте да рестартирате устройството, да изчистите кеша на Google Play или просто изчакайте.</string>
     <string name="upgrade_restore_action">Възстановете покупката</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Получете %1$s</string>
     <string name="upgrade_preamble">CAPod се разработва от един-единствен човек. Надстройката отключва допълнителни функции и помага приложението да продължи да съществува.</string>
     <string name="upgrade_screen_options_description">Едни и същи функции, различно ценообразуване. Абонаментът включва безплатен пробен период и може да бъде отказан по всяко време.</string>
     <string name="upgrade_screen_options_description_no_trial">Едни и същи функции, различно ценообразуване. Абонаментът може да бъде отказан по всяко време.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Свържете се с поддръжката</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Вашият статус на надграждане и закупуване.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod не може да се свърже с Google Play. Инсталиран ли е Google Play и актуален ли е? Влязъл ли е вашият Google акаунт? Опитайте да изчистите кеша на приложението Google Play и да рестартирате устройството си.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Не можа да се отвори Google Play. Възможно е да липсва, да е деактивирана или ограничена на този уред.</string>
+    <string name="upgrades_gplay_internal_error_title">Грешка на Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Възникна вътрешна грешка на Google Play. Моля, опитайте следното:\n\n• Рестартирайте устройството си\n• Изчистете кеша на Google Play Store\n• Опитайте по-късно</string>
+    <string name="upgrades_gplay_network_error_title">Грешка при свързване</string>
+    <string name="upgrades_gplay_network_error_description">Не мога да се свържа с Google Play. Проверете интернет връзката си и опитайте отново.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Предложението не е налично</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play понастоящем не предлага опция за надстройка. Моля, опитайте по-късно или проверете Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Проверката с Google Play не завърши навреме, поради което статусът на вашата покупка остава неизвестен. Нищо не се е променило на вашия акаунт.</string>
 </resources>

@@ -12,6 +12,7 @@
     <string name="general_donate_action">Adományozás</string>
     <string name="general_check_action">Ellenőrzés</string>
     <string name="general_close_action">Bezár</string>
+    <string name="general_dismiss_action">Elvetés</string>
     <string name="general_edit_action">Szerkesztés</string>
     <string name="general_save_action">Mentés</string>
     <string name="general_guide_action">Útmutató</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Eszköz állapota</string>
     <string name="notification_channel_device_status_connected_label">Csatlakoztatott eszköz</string>
     <string name="monitor_notification_extra_enabled_hint">Ezt az értesítést letilthatod a rendszerbeállításokban.</string>
+    <string name="monitor_notification_starting">Indítás alatt…</string>
     <string name="support_debuglog_label">Hibakeresési napló</string>
     <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
     <string name="debug_debuglog_size_label">Méret</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">A Bluetooth le van tiltva, engedélyezze ;)</string>
     <string name="overview_monitoring_active_label">Eszközök figyelése</string>
     <string name="overview_monitoring_active_description">Győződjön meg róla, hogy az eszköze a közelben van és aktív.</string>
+    <string name="overview_monitoring_off_label">Háttér-monitorozás letiltva</string>
+    <string name="overview_monitoring_off_description">Nincs párosított Bluetooth-eszköz, így a CAPod csak az alkalmazás megnyitásakor frissül. Válassz ki egy eszközt a háttérben történő monitorozás, az értesítések és a reakciók engedélyezéséhez.</string>
+    <string name="overview_monitoring_off_action">Válassz párosított eszközt</string>
     <string name="overview_troubleshoot_suggestion_label">Csatlakoztatva, de nincs adat</string>
     <string name="overview_troubleshoot_suggestion_description">Az eszköz csatlakoztatva van, de a CAPod nem kap élő adatot tőle. Előfordulhat, hogy a telefonodnak kompatibilitási beállításra van szüksége – a hibaelőárító automatikusan megpróbálhat egyet találni.</string>
     <string name="overview_troubleshoot_suggestion_action">Hibaelőárító futtatása</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dupla nyomás a hívás befejezéséhez</string>
     <string name="device_settings_open_cd">Eszközbeállítások megnyitása</string>
     <string name="overview_card_missing_paired_device">Ehhez a profilhoz nincs párosított Bluetooth-eszköz.</string>
+    <string name="overview_card_missing_paired_device_consequence">E nélkül az eszközbeállítások és az automatikus csatlakozás nem érhetők el.</string>
     <string name="overview_reactions_hint_title">A reakciók eszközönként vannak beállítva</string>
     <string name="overview_reactions_hint_body">Az automatikus lejátszás, automatikus szünet és felugró ablakok mostantól eszközönként konfigurálhatók. Koppints a beállítások ikonra egy kártyán, miközben a fejhallgatód csatlakoztatva van.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Visszaallítás alapbértelmezettre</string>
     <string name="press_controls_reset_confirm_message">Visszaallítja az összes nyomáshozzárendelést az alapbértelmezett értékekre?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Nyomásvezérlők megnyitása</string>
+    <string name="general_navigate_up_action">Vissza</string>
+    <string name="general_progress_loading">Betöltés</string>
 </resources>

@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Atvērt sponsorēšanas lapu</string>
     <string name="settings_upgrade_status_label">Atbalstīt CAPod</string>
     <string name="settings_upgrade_status_description">Jūsu atbalstītāja statuss.</string>
+    <string name="upgrade_screen_why_title">Jaunināšanas priekšrocības</string>
+    <string name="upgrade_screen_how_title">Kā palīdzēt</string>
+    <string name="upgrade_screen_how_body">Kļūstiet par aizbildni un sponsorējiet attīstību! Pieskarieties pogas zemāk, lai aktivizētu visas papildu funkcijas un atvērtu manu GitHub Sponsors profilu.</string>
+    <string name="upgrade_screen_status_free_title">Bezmaksas versija</string>
+    <string name="upgrade_screen_status_free_body">Jūs izmantojat CAPod bezmaksas versiju. Papildu funkcijas var atbloķēt, atbalstot izstrādi.</string>
+    <string name="upgrade_screen_status_free_action">Skatīt jaunināšanas opcijas</string>
+    <string name="upgrade_screen_status_upgraded_title">Jaunināšana aktīva</string>
+    <string name="upgrade_screen_recurring_title">Turpiniet atbalstu</string>
+    <string name="upgrade_screen_recurring_body">CAPod nepārtraukti attīstās caur atjauninājumiem un labojumiem. Ja vēlaties to atbalstīt, izsveriet regulāru ziedojumu caur GitHub Sponsors.</string>
 </resources>

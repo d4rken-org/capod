@@ -12,6 +12,7 @@
     <string name="general_donate_action">സംഭാവനചെയ്യുക</string>
     <string name="general_check_action">പരിശോധിക്കുക</string>
     <string name="general_close_action">അടയ്ക്കുക</string>
+    <string name="general_dismiss_action">തള്ളിക്കളയുക</string>
     <string name="general_edit_action">തിരുത്തുക</string>
     <string name="general_save_action">സേവ് ചെയ്യുക</string>
     <string name="general_guide_action">വഴികാട്ടി</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">ഉപകരണ നില</string>
     <string name="notification_channel_device_status_connected_label">കണക്റ്റുചെയ്‌ത ഉപകരണം</string>
     <string name="monitor_notification_extra_enabled_hint">സിസ്റ്റം ക്രമീകരണങ്ങളിൽ ഈ അറിയിപ്പ് പ്രവർത്തനരഹിതമാക്കാം.</string>
+    <string name="monitor_notification_starting">ആരംഭിച്ചിരിക്കുന്നു…</string>
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
     <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്നതെല്ലാം നിങ്ങൾക്ക് പങ്കിടാൻ കഴിയുന്ന ഒരു ടെക്സ്റ്റ് ഫയലിൽ റെക്കോർഡ് ചെയ്യുക.</string>
     <string name="debug_debuglog_size_label">വലുപ്പം</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">ബ്ലൂടൂത്ത് പ്രവർത്തനരഹിതമാണ്, അത് പ്രവർത്തനക്ഷമമാക്കുക ;)</string>
     <string name="overview_monitoring_active_label">ഉപകരണങ്ങൾ നിരീക്ഷിക്കുന്നു</string>
     <string name="overview_monitoring_active_description">നിങ്ങളുടെ ഉപകരണം സമീപത്തും സജീവവുമാണെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="overview_monitoring_off_label">പശ്ചാത്തലത്തിലെ നിരീക്ഷണ ഓഫ് ആണ്</string>
+    <string name="overview_monitoring_off_description">ഒരു പ്രൊഫൈലിനും ജോഡിച്ച Bluetooth ഉപകരണം നില്കുന്നില്ല, അതിനാൽ CAPod ആപ്പ് തുറന്നിരിക്കുമ്പോൾ മാത്രം അപ്‌ഡേറ്റ് ചെയ്യുന്നു. പശ്ചാത്തലത്തിലെ നിരീക്ഷണ, നിരന്തരമായ അറിയിപ്പ്, പ്രതികരണങ്ങൾ സജ്ജമാക്കാൻ ഒന്ന് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="overview_monitoring_off_action">ജോഡിച്ച ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
     <string name="overview_troubleshoot_suggestion_label">കണക്‌റ്റ് ചെയ്‌തു, എന്നാൽ ഡേറ്റ ഇല്ല</string>
     <string name="overview_troubleshoot_suggestion_description">നിങ്ങളുടെ ഉപകരണം കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു, എന്നാൽ CAPod അതിൽ നിന്ന് തത്സമയ ഡേറ്റ സ്വീകരിക്കുന്നില്ല. നിങ്ങളുടെ ഫോണിന് ഒരു അനുയോജ്യതാ ഓപ്‌ഷൻ ആവശ്യമായി വന്നേക്കാം — ട്രബിൾഷൂട്ടറിന് ഒന്ന് സ്വയംചാലകമായി കണ്ടെത്താൻ ശ്രമിക്കാനാകും.</string>
     <string name="overview_troubleshoot_suggestion_action">ട്രബിൾഷൂട്ടർ പ്രവർത്തിപ്പിക്കുക</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">കോൾ അവസാനിപ്പിക്കാൻ ഇരട്ട അമർത്തൽ</string>
     <string name="device_settings_open_cd">ഉപകരണ ക്രമീകരണങ്ങൾ തുറക്കുക</string>
     <string name="overview_card_missing_paired_device">ഈ പ്രൊഫൈലിൽ ജോടിയാക്കിയ ബ്ലൂടൂത്ത് ഉപകരണം ഇല്ല.</string>
+    <string name="overview_card_missing_paired_device_consequence">അതില്ലാതെ, ഉപകരണ ക്രമീകരണങ്ങളും സ്വയം-കണക്ട് ലഭ്യമല്ല.</string>
     <string name="overview_reactions_hint_title">റിയാക്ഷനുകൾ ഓരോ ഉപകരണത്തിനും വ്യക്തിഗതമാണ്</string>
     <string name="overview_reactions_hint_body">ഓട്ടോ-പ്ലേ, ഓട്ടോ-പോസ്, പോപ്പ്-അപ്പുകൾ ഇപ്പോൾ ഓരോ ഉപകരണത്തിനും പ്രത്യേകം ക്രമീകരിക്കാം. നിങ്ങളുടെ ഹെഡ്ഫോൺ ബന്ധിപ്പിച്ചിരിക്കുമ്പോൾ കാർഡിലെ സെറ്റിംഗ്സ് ഐക്കൺ ടാപ്പ് ചെയ്യുക.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">ഡിഫോൾട് ആക്കുക</string>
     <string name="press_controls_reset_confirm_message">എല്ലാ പ്രെസ് മാപ്പിംഗ്സും ഡിഫോൾടാക്കാം?</string>
     <string name="device_settings_noise_control_open_press_controls_action">പ്രെസ് കണ്ട്രോർസ് തുറക്കുക</string>
+    <string name="general_navigate_up_action">മുകളിലോട്ട് നാവിഗേറ്റ് ചെയ്യുക</string>
+    <string name="general_progress_loading">ലോഡ് ചെയ്യുന്നു</string>
 </resources>

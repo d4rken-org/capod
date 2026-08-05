@@ -12,6 +12,7 @@
     <string name="general_donate_action">दान करा</string>
     <string name="general_check_action">तपासा</string>
     <string name="general_close_action">बंद करा</string>
+    <string name="general_dismiss_action">बंद करा</string>
     <string name="general_edit_action">संपादित करा</string>
     <string name="general_save_action">सेव्ह करा</string>
     <string name="general_guide_action">मार्गदर्शक</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">डिव्हाइस स्थिती</string>
     <string name="notification_channel_device_status_connected_label">कनेक्ट केलेले डिव्हाइस</string>
     <string name="monitor_notification_extra_enabled_hint">तुम्ही ही सूचना सिस्टम सेटिंग्जमध्ये अक्षम करू शकता.</string>
+    <string name="monitor_notification_starting">सुरुवात होत आहे…</string>
     <string name="support_debuglog_label">डीबग लॉग</string>
     <string name="support_debuglog_desc">अॅप करत असलेल्या प्रत्येक गोष्टीची नोंद तुम्ही शेअर करू शकता अशा टेक्स्ट फाइलमध्ये करा.</string>
     <string name="debug_debuglog_size_label">आकार</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">ब्लूटूथ अक्षम आहे, ते सक्षम करा ;)</string>
     <string name="overview_monitoring_active_label">डिव्हाइसचे निरीक्षण सुरू आहे</string>
     <string name="overview_monitoring_active_description">तुमचे डिव्हाइस जवळ आणि सक्रिय असल्याची खात्री करा.</string>
+    <string name="overview_monitoring_off_label">पार्श्वभूमी मॉनिटरिंग बंद आहे</string>
+    <string name="overview_monitoring_off_description">कोणत्याही प्रोफाइलचे पेअर केलेले Bluetooth डिव्हाइस नाही, म्हणून CAPod फक्त अ‍ॅप उघडलेले असताना अद्यतन होते. पार्श्वभूमी मॉनिटरिंग, सतत सूचना आणि प्रतिक्रिया सक्षम करण्यासाठी एक निवडा.</string>
+    <string name="overview_monitoring_off_action">जोडलेले डिव्हाइस निवडा</string>
     <string name="overview_troubleshoot_suggestion_label">जोडलेले, पण डेटा नाही</string>
     <string name="overview_troubleshoot_suggestion_description">तुमचे उपकरण जोडलेले आहे, पण CAPod त्याच्याकडून कोणताही थेट डेटा प्राप्त करत नाही. तुमच्या फोनला एका सुसंगतता पर्यायाची आवश्यकता असू शकते — समस्या निवारक आपोआप एक शोधण्याचा प्रयत्न करू शकतो.</string>
     <string name="overview_troubleshoot_suggestion_action">समस्या निवारक चालवा</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कॉल संपवण्यासाठी दोनदा दाबा</string>
     <string name="device_settings_open_cd">डिव्हाइस सेटिंग्ज उघडा</string>
     <string name="overview_card_missing_paired_device">या प्रोफाइलशी कोणतेही Bluetooth डिव्हाइस जोडलेले नाही.</string>
+    <string name="overview_card_missing_paired_device_consequence">त्याशिवाय डिव्हाइस सेटिंग्ज आणि ऑटो-कनेक्ट उपलब्ध नाहीत.</string>
     <string name="overview_reactions_hint_title">प्रतिक्रिया प्रत्येक डिव्हाइससाठी आहेत</string>
     <string name="overview_reactions_hint_body">ऑटो-प्ले, ऑटो-पॉज आणि पॉप-अप आता प्रत्येक डिव्हाइससाठी कॉन्फिगर केले आहेत. तुमचे हेडफोन कनेक्ट असताना कार्डवरील सेटिंग्ज आयकॉनवर टॅप करा.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">डीफॉल्टवर रीसेट करा</string>
     <string name="press_controls_reset_confirm_message">सर्व प्रेस मॅपिंग्ज डीफॉल्टवर रीसेट करायच्या?</string>
     <string name="device_settings_noise_control_open_press_controls_action">प्रेस नियंत्रणे उघडा</string>
+    <string name="general_navigate_up_action">वर जा</string>
+    <string name="general_progress_loading">लोड होत आहे</string>
 </resources>

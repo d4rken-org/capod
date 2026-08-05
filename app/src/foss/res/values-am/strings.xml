@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">የስፖንሰር ገጽን ክፈት</string>
     <string name="settings_upgrade_status_label">CAPod ን ደግፍ</string>
     <string name="settings_upgrade_status_description">የእርስዎ ደጋፊ ሁኔታ።</string>
+    <string name="upgrade_screen_why_title">የማሻሻል ጥቅማጥቅሞች</string>
+    <string name="upgrade_screen_how_title">እንዴት መርዳት እንደሚችሉ</string>
+    <string name="upgrade_screen_how_body">ደጋፊ ይሁኑ እና ልማትን ይደግፉ! ሁሉንም ተጨማሪ ባህሪያት ለማንቃት እና የእኔን GitHub Sponsors መገለጫ ለመክፈት ከታች ያለውን ቁልፍ ይንኩ።</string>
+    <string name="upgrade_screen_status_free_title">ነጻ ስሪት</string>
+    <string name="upgrade_screen_status_free_body">CAPod ነጻ ስሪት ይጠቀማሉ። ተጨማሪ ባህሪዎች በልማት ድጋፍ ሊከፈቱ ይችላሉ።</string>
+    <string name="upgrade_screen_status_free_action">የማሻሻል አማራጮችን ይመልከቱ</string>
+    <string name="upgrade_screen_status_upgraded_title">ማሻሻል ንቁ ነው</string>
+    <string name="upgrade_screen_recurring_title">ይህን ይቀጥሉ</string>
+    <string name="upgrade_screen_recurring_body">CAPod በዝመናዎች እና ማስተካከያዎች ሁሉ ጊዜ ይሻሻላል። ይህንን ለማቆየት ከወደዱ፣ በGitHub Sponsors ደግሞ ምስዋትን ያስቡ።</string>
 </resources>

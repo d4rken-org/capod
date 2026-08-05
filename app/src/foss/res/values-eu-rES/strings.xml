@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Ireki babesle-orria</string>
     <string name="settings_upgrade_status_label">CAPod babeslatu</string>
     <string name="settings_upgrade_status_description">Zure babesle egoera</string>
+    <string name="upgrade_screen_why_title">Hobekuntza-onurak</string>
+    <string name="upgrade_screen_how_title">Nola lagundu</string>
+    <string name="upgrade_screen_how_body">Izan babesle eta garapen babeslari! Egin klik beheko botoian eginbide gehigarri guztiak aktibatzeko eta nire GitHub Sponsors profila irekitzeko.</string>
+    <string name="upgrade_screen_status_free_title">Doako bertsioa</string>
+    <string name="upgrade_screen_status_free_body">CAPod-en doako bertsioa erabiltzen ari zara. Funtzio gehigarriak desblokeatu ditzakezu garapena lagunduz.</string>
+    <string name="upgrade_screen_status_free_action">Hobekuntza-aukerak ikusi</string>
+    <string name="upgrade_screen_status_upgraded_title">Hobekuntza aktiboa</string>
+    <string name="upgrade_screen_recurring_title">Jarraitu</string>
+    <string name="upgrade_screen_recurring_body">CAPod eguneratzen eta konpondutzen jarraitzen du. Hori mantendu nahi baduzu, dohaintza periodikoa GitHub Sponsors bidez kontuan hartu.</string>
 </resources>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Playによると、このアップグレードはすでに購入済みですが、復元できませんでした。購入時に使用したGoogleアカウントを使用していることを確認してください。Playストアの同期には時間がかかる場合があります。再起動する、Google Playのキャッシュを削除する、またはしばらく待ってみてください。</string>
     <string name="upgrade_restore_action">購入を復元</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s を入手</string>
     <string name="upgrade_preamble">CAPodは一人の個人開発者によって開発されています。アップグレードすると追加機能が使えるようになり、アプリの継続的な開発を支えることができます。</string>
     <string name="upgrade_screen_options_description">機能は同じで、料金プランが異なります。サブスクリプションには無料トライアルが含まれており、いつでも解約できます。</string>
     <string name="upgrade_screen_options_description_no_trial">機能は同じで、料金プランが異なります。サブスクリプションはいつでも解約できます。</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">サポートに連絡</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">アップグレードと購入ステータス。</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod は Google Play に接続できません。Google Play はインストールされており、最新の状態ですか？Google アカウントにログインしていますか？Google Play アプリのキャッシュをクリアしてデバイスを再起動してみてください。</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Playを開くことができませんでした。このデバイスで見つからないか、無効になっているか、制限されている可能性があります。</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play エラー</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play の内部エラーが発生しました。次のことをお試しください。\n\n• デバイスを再起動してください\n• Google Play ストアのキャッシュをクリアしてください\n• 後でもう一度試してください</string>
+    <string name="upgrades_gplay_network_error_title">接続エラー</string>
+    <string name="upgrades_gplay_network_error_description">Google Play に接続できません。インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="upgrades_gplay_offer_unavailable_title">このオファーは利用できません</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play は現在、このアップグレード オプションを提供していません。後でもう一度お試しいただくか、Google Play ストアを確認してください。</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play との確認がタイムアウトしたため、購入ステータスはまだ不明です。アカウントに変更はありません。</string>
 </resources>

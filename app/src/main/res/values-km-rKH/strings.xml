@@ -12,6 +12,7 @@
     <string name="general_donate_action">បរិច្ចាគ</string>
     <string name="general_check_action">ពិនិត្យ</string>
     <string name="general_close_action">បិទ</string>
+    <string name="general_dismiss_action">បដិសេធ</string>
     <string name="general_edit_action">កែសម្រួល</string>
     <string name="general_save_action">រក្សាទុក</string>
     <string name="general_guide_action">មគ្គុទ្ទេសក៍</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">ស្ថានភាពឧបករណ៍</string>
     <string name="notification_channel_device_status_connected_label">ឧបករណ៍បានភ្ជាប់</string>
     <string name="monitor_notification_extra_enabled_hint">អ្នកអាចបិតការជូនដំណឹងនេហនៅក្នុងការកំណតប្រព័ន្ធ។</string>
+    <string name="monitor_notification_starting">កំពុងចាប់ផ្តើម…</string>
     <string name="support_debuglog_label">កំណត់ហេតុកែកំហុស</string>
     <string name="support_debuglog_desc">កត់ត្រាអ្វីគ្រប់យ៉ាងដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារអត្ថបទដែលអ្នកអាចចែករំលែកបាន។</string>
     <string name="debug_debuglog_size_label">ទំហំ</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ត្រូវបានបិទ សូមបើកវា ;)</string>
     <string name="overview_monitoring_active_label">កំពុងតាមដានឧបករណ៍</string>
     <string name="overview_monitoring_active_description">សូមប្រាកដថាឧបករណ៍របស់អ្នកនៅជិត និងសកម្ម។</string>
+    <string name="overview_monitoring_off_label">ការត្រួតពិនិត្យក្រោយផ្ទៃបានបិទ</string>
+    <string name="overview_monitoring_off_description">គ្មានប្រវត្តិកម្មណាមួយមានឧបករណ៍ Bluetooth ដែលផ្គូផ្គងទេ ដូច្នេះ CAPod ធ្វើបច្ចុប្បន្នភាពតែនៅពេលដែលកម្មវិធីបើក។ ជ្រើសរើសមួយដើម្បីបើក ការត្រួតពិនិត្យក្រោយផ្ទៃ ការជូនដំណឹងរយៈពេលវែង និងប្រតិកម្ម។</string>
+    <string name="overview_monitoring_off_action">ជ្រើសរើសឧបករណ៍ផ្គូផ្គង</string>
     <string name="overview_troubleshoot_suggestion_label">ភ្ជាប់ហើយ តែគ្មានទិន្នន័យ</string>
     <string name="overview_troubleshoot_suggestion_description">ឧបករណ៍របស់អ្នកបានភ្ជាប់ ប៉ុន្តែ CAPod មិនទទួលបានទិន្នន័យផ្ទាល់ណាមួយពីវាទេ។ ទូរស័ព្ទរបស់អ្នកប្រហែលជាត្រូវការជម្រើសសម្រាប់ភាពឆបគ្នា — កម្មវិធីដោះស្រាយបញ្ហាអាចព្យាយាមស្វែងរកមួយដោយស្វ័យប្រវត្តិ។</string>
     <string name="overview_troubleshoot_suggestion_action">ដំណើរការកម្មវិធីដោះស្រាយបញ្ហា</string>
@@ -475,6 +480,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ចុចពីរដងដើម្បិបញ្ចប់ការហឹល</string>
     <string name="device_settings_open_cd">បើកការកំណត់ឧបករណ៍</string>
     <string name="overview_card_missing_paired_device">គម្រោងនេះមិនមានឧបករណ៍ Bluetooth ដែលបានផ្គូផ្គងទេ។</string>
+    <string name="overview_card_missing_paired_device_consequence">ដោយគ្មាននោះ ការកំណត់ឧបករណ៍ និងការភ្ជាប់ដោយស្វ័យប្រវត្តិមិនលេច។</string>
     <string name="overview_reactions_hint_title">ប្រតិកម្មគឺខុសគ្នាតាមឧបករណ៍</string>
     <string name="overview_reactions_hint_body">ការចាក់ស្វ័យប្រវត្តិ ការផ្អាកស្វ័យប្រវត្តិ និងបង្អួចលេចឡើង ឥឡូវនេះត្រូវបានកំណត់រៀងរាល់ឧបករណ៍។ ចុចលើរូបតំណាងការកំណត់នៅលើកាតខណៈពេលដែលកាស​귀​យន្ត​ស្ដាប់​របស់​អ្នក​ភ្ជាប់​។</string>
     <!-- New device settings -->
@@ -554,4 +560,6 @@
     <string name="press_controls_reset_label">កំណត់ឡើងវិញទៅជាលំនាំដើម</string>
     <string name="press_controls_reset_confirm_message">កំណត់ការផ្គូផ្គងការចុចទាំងអស់ឡើងវិញទៅជាលំនាំដើម?</string>
     <string name="device_settings_noise_control_open_press_controls_action">បើកការគ្រប់គ្រងការចុច</string>
+    <string name="general_navigate_up_action">ឡើងលើ</string>
+    <string name="general_progress_loading">កំពុងផ្ទុក</string>
 </resources>

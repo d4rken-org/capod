@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">„Google Play“ praneša, kad jau turite šį atnaujinimą, tačiau jo nepavyko atkurti. Įsitikinkite, kad naudojate tą pačią „Google“ paskyrą, su kuria atlikote pirkimą. „Play Store“ sinchronizavimas gali užtrukti — pabandykite paleisti įrenginį iš naujo, išvalyti „Google Play“ talpyklą arba tiesiog palaukite.</string>
     <string name="upgrade_restore_action">Atkurti pirkimą</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Gauti %1$s</string>
     <string name="upgrade_preamble">CAPod kuria vienas žmogus. Atnaujinimas atrakina papildomas funkcijas ir padeda išlaikyti programą gyvą.</string>
     <string name="upgrade_screen_options_description">Tos pačios funkcijos, skirtingos kainos. Prenumerata apima nemokamą bandomąjį laikotarpį ir bet kada gali būti atšaukta.</string>
     <string name="upgrade_screen_options_description_no_trial">Tos pačios funkcijos, skirtingos kainos. Prenumerata bet kada gali būti atšaukta.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Susisiekti su palaikymu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Jūsų atnaujinimo ir pirkimo būsena.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod negali prisijungti prie Google Play. Ar Google Play įdiegtas ir atnaujintas? Ar jūsų Google paskyra prisijungusi? Pabandykite išvalyti Google Play programos talpyklą ir paleisti įrenginį iš naujo.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nepavyko atidaryti „Google Play\". Gali būti, kad programėlė pašalinta, išjungta arba apribota šiame įrenginyje.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play klaida</string>
+    <string name="upgrades_gplay_internal_error_description">Įvyko vidinė Google Play klaida. Pabandykite šiuos veiksmus:\n\n• Iš naujo paleisti įrenginį\n• Išvalyti Google Play Store talpyklą\n• Pabandykite vėliau</string>
+    <string name="upgrades_gplay_network_error_title">Prisijungimo klaida</string>
+    <string name="upgrades_gplay_network_error_description">Nepavyksta prisijungti prie Google Play. Patikrinkite savo interneto ryšį ir pabandykite dar kartą.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Pasiūlymas neprieinamas</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play šiuo metu neteikia šios atnaujinimo galimybės. Pabandykite vėliau arba patikrinkite Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Patikra su Google Play nebaigta laiku, todėl jūsų nusipirkimo būsena lieka nežinoma. Jūsų paskyroje nieko nepasikeitė.</string>
 </resources>

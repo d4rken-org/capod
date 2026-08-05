@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ziņo, ka tev jau ir šis jauninājums, taču to neizdevās atjaunot. Pārliecinies, ka izmanto to pašu Google kontu, ar kuru veici pirkumu. Play veikala sinhronizācija var aizņemt laiku — mēģini restartēt ierīci, notīrīt Google Play kešatmiņu vai vienkārši uzgaidi.</string>
     <string name="upgrade_restore_action">Atjaunot pirkumu</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Iegūstiet %1$s</string>
     <string name="upgrade_preamble">CAPod izstrādā viens cilvēks. Jaunināšana atbloķē papildu funkcijas un palīdz uzturēt lietotni dzīvu.</string>
     <string name="upgrade_screen_options_description">Vienādas funkcijas, atšķirīga cenu noteikšana. Abonements ietver bezmaksas izmēģinājuma periodu, un to var atcelt jebkurā laikā.</string>
     <string name="upgrade_screen_options_description_no_trial">Vienādas funkcijas, atšķirīga cenu noteikšana. Abonementu var atcelt jebkurā laikā.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Sazinieties ar atbalstu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Jūsu jaunināšanas un pirkuma statuss.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Neizdevās atvērt Google Play. Tas var būt pazudis, atspējots vai ierobežots šajā ierīcē.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play kļūda</string>
+    <string name="upgrades_gplay_internal_error_description">Notika iekšēja Google Play kļūda. Lūdzu, mēģiniet tālāk norādīto:\n\n• Restartējiet ierīci\n• Notīriet Google Play Store kešatmiņu\n• Vēlāk mēģiniet vēlreiz</string>
+    <string name="upgrades_gplay_network_error_title">Savienojuma kļūda</string>
+    <string name="upgrades_gplay_network_error_description">Nevar izveidot savienojumu ar Google Play. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Piedāvājums nav pieejams</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play pašlaik nesniedz šo jaunināšanas opciju. Lūdzu, mēģiniet vēlāk vai pārbaudiet Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pārbaude ar Google Play nepabeigta laicīgi, tāpēc jūsu pirkuma statuss joprojām nav zināms. Jūsu kontā nekas nav mainījies.</string>
 </resources>

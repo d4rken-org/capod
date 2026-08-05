@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Abrir a páxina de patrocinio</string>
     <string name="settings_upgrade_status_label">Apoia CAPod</string>
     <string name="settings_upgrade_status_description">O teu estado de apoiador.</string>
+    <string name="upgrade_screen_why_title">Vantaxes da actualización</string>
+    <string name="upgrade_screen_how_title">Como axudar</string>
+    <string name="upgrade_screen_how_body">Convértete en mecenas e patrocina o desenvolvemento! Toca o botón de abaixo para activar todas as características extra e abrir o meu perfil de GitHub Sponsors.</string>
+    <string name="upgrade_screen_status_free_title">Versión gratuita</string>
+    <string name="upgrade_screen_status_free_body">Estás usando a versión gratuita de CAPod. As características adicionais pódense desbloquear apoiando o desenvolvemento.</string>
+    <string name="upgrade_screen_status_free_action">Ver opcións de actualización</string>
+    <string name="upgrade_screen_status_upgraded_title">Actualización activa</string>
+    <string name="upgrade_screen_recurring_title">Manténo en marcha</string>
+    <string name="upgrade_screen_recurring_body">CAPod segue evolucionando a través de actualizacións e correccións. Se queres mantelo así, considera unha doación recorrente a través de GitHub Sponsors.</string>
 </resources>

@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">ເປິດໝ້າສະໜັບສະໜູນ</string>
     <string name="settings_upgrade_status_label">ສະໜັບສະໜູນ CAPod</string>
     <string name="settings_upgrade_status_description">ສະຖານະຜູ້ສະໜັບສະໜູນຂອງທ່ານ</string>
+    <string name="upgrade_screen_why_title">ປະໂຫຍດຂອງການອັບເກຣດ</string>
+    <string name="upgrade_screen_how_title">ວິທີການຊ່ວຍເຫຼືອ</string>
+    <string name="upgrade_screen_how_body">ກາຍເປັນຜູ້ອຸປະຖໍາ ແລະ ໃຫ້ການສະໜັບສະໜູນການພັດທະນາ! ກົດປຸ່ມຂ້າງລຸ່ມເພື່ອເປີດໃຊ້ງານຄຸນສົມບັດເພີ່ມເຕີມທັງໝົດ ແລະ ເປີດໂປຣໄຟລ໌ GitHub Sponsors ຂອງຂ້ອຍ.</string>
+    <string name="upgrade_screen_status_free_title">ເວີຊັນຟຣີ</string>
+    <string name="upgrade_screen_status_free_body">ທ່ານກຳລັງໃຊ້ເວີຊັນຟຣີຂອງ CAPod. ຄຸນສົມບັດພິເສດສາມາດປົດລັອກໄດ້ໂດຍການສະຫນັບສະຫນູນການພັດທະນາ.</string>
+    <string name="upgrade_screen_status_free_action">ເບິ່ງທາງເລືອກການອັບເກຣດ</string>
+    <string name="upgrade_screen_status_upgraded_title">ອັບເກຣດເປີດໃຊ້ງານ</string>
+    <string name="upgrade_screen_recurring_title">ສືບຕໍ່ໃຫ້ໄປ</string>
+    <string name="upgrade_screen_recurring_body">CAPod ສືບຕໍ່ວິວັດທະນາການຜ່ານການອັບເດດ ແລະການແກ້ໄຂ. ຖ້າທ່ານຕ້ອງການຮັກສາສະຖານະນັ້ນ, ກະລຸນາພິຈາລະນາການບໍລິຈາກປະຈຳຜ່ານ GitHub Sponsors.</string>
 </resources>

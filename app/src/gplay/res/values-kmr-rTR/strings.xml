@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play radigihîne ku vê nûvekirinê jixwe di destê te de ye, lê ew nehat vegerandin. Piştrast bike ku tu bi hesabê Google yê ku pê kirriye têkevî. Senkronîzasyona Play Store dibe ku demê bigire — biceribîne ku cîhazê ji nû ve bidî destpêkirin, cache\'ya Google Play paqij bike an tenê bisekine.</string>
     <string name="upgrade_restore_action">Kirînê vegerîne</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Wergir %1$s</string>
     <string name="upgrade_preamble">CAPod ji aliyê kesekî yekane ve tê pêşxistin. Nûvekirin taybetmendiyên zêde vedike û dibe alîkar ku sepan berdewam bimîne.</string>
     <string name="upgrade_screen_options_description">Heman taybetmendî, buhayên cuda. Abonetî ceribandineke belaş vedihewîne û her dem dikare bê betalkirin.</string>
     <string name="upgrade_screen_options_description_no_trial">Heman taybetmendî, buhayên cuda. Abonetî her dem dikare bê betalkirin.</string>
@@ -66,4 +68,18 @@
     <string name="upgrade_screen_contact_support_action">Pîştgirê peywendî bin</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Rewşa nûvekirin û kirîna te.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod nikare bi Google Play-ê ve girêbe. Google Play sazkirî û nûve ye? Hesaba Googleya we têketî ye? Mîzgîna appê Google Play paqij bike û amûra xwe ji nû ve xebitîne.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nabe ku Google Play vebikira. Dibe ku ew tuneye, neçalak bûya an sînorkirî ye li ser vî amûrê.</string>
+    <string name="upgrades_gplay_internal_error_title">Xeletiya Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Xeletiya hundirîn ya Google Play çêbû. Ji kerema xwe vê yekê hewl bide:
+
+• Amûra xwe ji nû ve xebitîne
+• Mîzgîna Google Play Store paqij bike
+• Paşrafirî hewl bide</string>
+    <string name="upgrades_gplay_network_error_title">Xeletiya Girêdanê</string>
+    <string name="upgrades_gplay_network_error_description">Nikare bi Google Play-ê ve bê girêdandin. Ji kerema xwe girêdana înterneta xwe kontrol bike û paşrafirî hewl bide.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Pêşkêş Tune</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play vê gavê vê vebijarkê bardiya pêşkêş nade. Paşrafirî hewl bide an jî Google Play Store kontrol bike.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pişkirina bi Google Play-ê di demê têkçû de qediya nekirî, ji ber vê yekê statusê kirînê we hîn newiyana. Hiç tişt li ser hesabê we ne guherta.</string>
 </resources>

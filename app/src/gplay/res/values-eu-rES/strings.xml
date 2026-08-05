@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Playk dio dagoeneko eguneratze hau baduzula, baina ezin izan da leheneratu. Ziurtatu erosketa egiteko erabili zenuen Google kontua erabiltzen ari zarela. Play Storeren sinkronizazioak denbora har dezake — saiatu berrabiarazten, Google Play-ren katxea garbitzen edo, besterik gabe, itxaroten.</string>
     <string name="upgrade_restore_action">Berreskuratu erosketa</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Lortu %1$s</string>
     <string name="upgrade_preamble">CAPod pertsona bakar batek garatzen du. Eguneratzeak eginbide gehigarriak desblokeatzen ditu eta aplikazioa bizirik mantentzen laguntzen du.</string>
     <string name="upgrade_screen_options_description">Eginbide berdinak, prezio ezberdinak. Harpidetzak doako probaldi bat dakar eta edonoiz utz daiteke.</string>
     <string name="upgrade_screen_options_description_no_trial">Eginbide berdinak, prezio ezberdinak. Harpidetza edonoiz utz daiteke.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Laguntzarekin jarri harremanetan</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Zure bertsio hobetzea eta erosketaren egoera.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ezin da Google Playrekin konektatu. Google Play instalatuta eta eguneratuta dago? Zure Google kontua sartu da? Saiatu Google Play aplikazioaren katxea garbitzen eta zure gailua berrabiarazten.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Ezin da Google Play ireki. Baliteke desagerra, desgaituta edo mugatua izatea gailu honetan.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play errorea</string>
+    <string name="upgrades_gplay_internal_error_description">Barne-errore bat Google Play-n gertatu da. Mesedez honakoa saiatu:\n\n• Berrabiarazi zure gailua\n• Google Play Store-ko katxea garbitu\n• Beranduago saiatu</string>
+    <string name="upgrades_gplay_network_error_title">Konexio errorea</string>
+    <string name="upgrades_gplay_network_error_description">Ezin da Google Playrekin konektatu. Mesedez egiaztatu zure interneteko konexioa eta berriro saiatu.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Eskainta ez dago</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play-k ez du unean aukera hau eskaintzen. Mesedez beranduago saiatu edo Google Play Store-a egiaztatu.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-rekin egiaztatzea ez amaitu denboran, beraz erosketaren egoera oraindik ezezaguna da. Ez da ezer aldatu zure kontuan.</string>
 </resources>

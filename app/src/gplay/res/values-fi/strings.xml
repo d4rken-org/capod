@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ilmoittaa, että omistat jo tämän päivityksen, mutta sitä ei voitu palauttaa. Varmista, että käytät samaa Google-tiliä, jolla ostit sen. Play Kaupan synkronointi voi kestää hetken — kokeile laitteen uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai odota hetki.</string>
     <string name="upgrade_restore_action">Palauta ostos</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Hanki %1$s</string>
     <string name="upgrade_preamble">CAPodia kehittää yksi henkilö. Päivittäminen avaa lisäominaisuuksia ja auttaa pitämään sovelluksen elossa.</string>
     <string name="upgrade_screen_options_description">Samat ominaisuudet, eri hinnoittelu. Tilaukseen sisältyy maksuton kokeilujakso, ja sen voi peruuttaa milloin tahansa.</string>
     <string name="upgrade_screen_options_description_no_trial">Samat ominaisuudet, eri hinnoittelu. Tilauksen voi peruuttaa milloin tahansa.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Ota yhteyttä tukeen</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Päivityksen ja ostojen tila</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ei voi yhdistää Google Playhin. Onko Google Play asennettu ja ajan tasalla? Onko Google-tilisi kirjautunut sisään? Kokeile tyhjentää Google Play -sovelluksen välimuisti ja käynnistä laitteesi uudelleen.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play -sovellusta ei voitu avata. Se saattaa puuttua, olla poissa käytöstä tai rajoitettu tällä laitteella.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play -virhe</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play -sovelluksessa tapahtui sisäinen virhe. Yritä seuraavaa:\n\n• Käynnistä laitteesi uudelleen\n• Tyhjennä Google Play Storen välimuisti\n• Yritä myöhemmin uudelleen</string>
+    <string name="upgrades_gplay_network_error_title">Yhteysvirhe</string>
+    <string name="upgrades_gplay_network_error_description">Google Playhin ei saada yhteyttä. Tarkista internet-yhteytesi ja yritä uudelleen.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Tarjous ei saatavilla</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ei tällä hetkellä tarjoa tätä päivitysvaihtoehtoa. Yritä uudelleen myöhemmin tai tarkista Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Playn tarkistus ei valmistunut ajoissa, joten ostosi tila on edelleen tuntematon. Mitään ei ole muuttunut tilillä.</string>
 </resources>

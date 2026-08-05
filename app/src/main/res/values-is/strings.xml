@@ -12,6 +12,7 @@
     <string name="general_donate_action">Gefa</string>
     <string name="general_check_action">Athuga</string>
     <string name="general_close_action">Loka</string>
+    <string name="general_dismiss_action">Hafna</string>
     <string name="general_edit_action">Breyta</string>
     <string name="general_save_action">Vista</string>
     <string name="general_guide_action">Leiðbeiningar</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Staða tækis</string>
     <string name="notification_channel_device_status_connected_label">Tengt tæki</string>
     <string name="monitor_notification_extra_enabled_hint">Þú getur slökkt á þessum tilkynningum í kerfistillingum.</string>
+    <string name="monitor_notification_starting">Stofnar upp…</string>
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
     <string name="debug_debuglog_size_label">Stærð</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth er óvirkt, virkjaðu það ;)</string>
     <string name="overview_monitoring_active_label">Leitar að tækjum</string>
     <string name="overview_monitoring_active_description">Gakktu úr skugga um að tækið þitt sé nálægt og virkt.</string>
+    <string name="overview_monitoring_off_label">Bakgrunnsvöktun er slegin af</string>
+    <string name="overview_monitoring_off_description">Engin prófíll er með pöruðu Bluetooth-tæki, svo CAPod uppfærist aðeins meðan appið er opið. Veldu einn til að kveikja á bakgrunnsvöktun, áframhaldandi tilkynningum og viðbrögðum.</string>
+    <string name="overview_monitoring_off_action">Veldu pörað tæki</string>
     <string name="overview_troubleshoot_suggestion_label">Tengt, en engar gögn</string>
     <string name="overview_troubleshoot_suggestion_description">Tækið þitt er tengt, en CAPod er ekki að taka við lifandi gögnum frá því. Síminn þinn þarf kannski samhæfnismöguleika — villuleitin getur reynt að finna hann sjálfkrafa.</string>
     <string name="overview_troubleshoot_suggestion_action">Keyra villuleit</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tvöföld þrýsting til að ljúka simátali</string>
     <string name="device_settings_open_cd">Opna tæki stillingar</string>
     <string name="overview_card_missing_paired_device">Þetta snið á sér ekkert tengt Bluetooth-tæki.</string>
+    <string name="overview_card_missing_paired_device_consequence">Án þess eru tækistillingar og sjálfvirk tenging ekki tiltækar.</string>
     <string name="overview_reactions_hint_title">Viðbrögð eru per tæki</string>
     <string name="overview_reactions_hint_body">Sjálfvirk spilun, sjálfvirk pása og sprettigluggar eru nú stilltir per tæki. Ýttu á stillingatáknið á spjaldi á meðan heyrnartólið þitt er tengt.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Endurstilla á sjálfgefnar</string>
     <string name="press_controls_reset_confirm_message">Endurstilla allar þrlýstingsvarpanir á sjálfgefnar?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Opna þrlýstingastýringar</string>
+    <string name="general_navigate_up_action">Fara upp</string>
+    <string name="general_progress_loading">Hleður</string>
 </resources>

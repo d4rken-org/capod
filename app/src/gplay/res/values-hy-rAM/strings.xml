@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play-ը հայտնում է, որ դուք արդեն ունեք այս արդիացումը, բայց այն չհաջողվեց վերականգնել: Համոզվեք, որ օգտագործում եք այն Google հաշիվը, որով կատարել եք գնումը: Play Store-ի համաժամացումը կարող է ժամանակ պահանջել․ փորձեք վերագործարկել սարքը, մաքրել Google Play-ի քեշը կամ պարզապես սպասել:</string>
     <string name="upgrade_restore_action">Վերականգնել գնումը</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Ստացեք %1$s</string>
     <string name="upgrade_preamble">CAPod-ը մշակվում է մեկ մարդու կողմից: Արդիացումը բացում է լրացուցիչ գործառույթներ և օգնում է հավելվածին մնալ ակտիվ:</string>
     <string name="upgrade_screen_options_description">Նույն գործառույթները, տարբեր գնագոյացում: Բաժանորդագրությունը ներառում է անվճար փորձաշրջան և կարող է չեղարկվել ցանկացած պահի:</string>
     <string name="upgrade_screen_options_description_no_trial">Նույն գործառույթները, տարբեր գնագոյացում: Բաժանորդագրությունը կարող է չեղարկվել ցանկացած պահի:</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Աջակցության հետ կապ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ձեր թարմացման և գնման վիճակը:</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod-ը չի կարող կապվել Google Play-ի հետ: Google Play-ը տեղադրվա՞ծ է և արդիացվա՞ծ: Ձեր Google հաշիվը մուտք գործա՞ծ է: Փորձեք մաքրել Google Play հավելվածի քեշը և վերագործարկել ձեր սարքը:</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play-ը բացել չե՛ր հաջողվել: Հավանական է, որ այն բացակայում է, անջատված կամ այս սարքի վրա սահմանափակված:</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play-ի սխալ</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-ում ներքին սխալ է տեղի ունեցել: Խնդրում ենք փորձել հետևյալը.\n\n• Վերագործարկեք ձեր սարքը\n• Մաքրեք Google Play Store-ի քեշը\n• Փորձեք կրկին ավելի ուշ</string>
+    <string name="upgrades_gplay_network_error_title">Կապի սխալ</string>
+    <string name="upgrades_gplay_network_error_description">Չհաջողվեց կապվել Google Play-ի հետ: Խնդրում ենք ստուգել ինտերնետ կապը և փորձել կրկին:</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Առաջարկը հասանելի չէ</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play-ն այս պահին չի առաջարկում այս թարմացման տարբերակը: Խնդրում ենք փորձել կրկին ավելի ուշ կամ ստուգել Google Play Store-ում:</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-ի հետ ստուգումը ժամանակին չավարտվեց, ուստի ձեր գնման կարգավիճակը դեռ հայտնի չէ: Ձեր հաշվում ոչինչ չի փոխվել:</string>
 </resources>

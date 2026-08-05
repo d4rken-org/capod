@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play rapporterer, at du allerede ejer denne opgradering, men den kunne ikke gendannes. Sørg for, at du bruger den Google-konto, du købte med. Synkronisering med Play Store kan tage tid — prøv at genstarte, ryd Google Play-cachen, eller vent blot.</string>
     <string name="upgrade_restore_action">Gendan køb</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Få %1$s</string>
     <string name="upgrade_preamble">CAPod udvikles af én person. En opgradering låser ekstra funktioner op og hjælper med at holde appen i live.</string>
     <string name="upgrade_screen_options_description">Samme funktioner, forskellig prisfastsættelse. Abonnementet inkluderer en gratis prøveperiode og kan opsiges når som helst.</string>
     <string name="upgrade_screen_options_description_no_trial">Samme funktioner, forskellig prisfastsættelse. Abonnementet kan opsiges når som helst.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Kontakt support</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Din opgraderings- og købsstatus.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod kan ikke oprette forbindelse til Google Play. Er Google Play installeret og opdateret? Er din Google-konto logget ind? Prøv at rydde cachen i Google Play-appen og genstarte din enhed.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Kunne ikke åbne Google Play. Det kan være manglende, deaktiveret eller blokeret på denne enhed.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play-fejl</string>
+    <string name="upgrades_gplay_internal_error_description">Der opstod en intern Google Play-fejl. Prøv følgende:\n\n• Genstart din enhed\n• Ryd cachen i Google Play Store\n• Prøv igen senere</string>
+    <string name="upgrades_gplay_network_error_title">Forbindelsesfejl</string>
+    <string name="upgrades_gplay_network_error_description">Kan ikke oprette forbindelse til Google Play. Kontroller venligst din internetforbindelse og prøv igen.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Tilbud ikke tilgængeligt</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play tilbyder ikke denne opgraderingsmulighed i øjeblikket. Prøv igen senere eller kontroller Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Kontrollen med Google Play blev ikke færdig i tide, så din købestatus er stadig ukendt. Intet er ændret på din konto.</string>
 </resources>

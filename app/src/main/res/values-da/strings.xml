@@ -12,6 +12,7 @@
     <string name="general_donate_action">Donér</string>
     <string name="general_check_action">Kontrollér</string>
     <string name="general_close_action">Luk</string>
+    <string name="general_dismiss_action">Afvis</string>
     <string name="general_edit_action">Rediger</string>
     <string name="general_save_action">Gem</string>
     <string name="general_guide_action">Vejledning</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Enhedsstatus</string>
     <string name="notification_channel_device_status_connected_label">Tilsluttet enhed</string>
     <string name="monitor_notification_extra_enabled_hint">Du kan deaktivere denne notifikation i systemindstillinger.</string>
+    <string name="monitor_notification_starting">Starter op…</string>
     <string name="support_debuglog_label">Fejlfindingslog</string>
     <string name="support_debuglog_desc">Optag alt, hvad appen gør, i en tekstfil, som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth er deaktiveret, aktivér det ;)</string>
     <string name="overview_monitoring_active_label">Overvåger for enheder</string>
     <string name="overview_monitoring_active_description">Sørg for, at din enhed er i nærheden og aktiv.</string>
+    <string name="overview_monitoring_off_label">Baggrundsovervågning er slået fra</string>
+    <string name="overview_monitoring_off_description">Ingen profil har en parret Bluetooth-enhed, så CAPod opdateres kun mens appen er åben. Vælg en for at aktivere baggrundsovervågning, den igangværende meddelelse og reaktioner.</string>
+    <string name="overview_monitoring_off_action">Vælg parret enhed</string>
     <string name="overview_troubleshoot_suggestion_label">Forbundet, men ingen data</string>
     <string name="overview_troubleshoot_suggestion_description">Din enhed er forbundet, men CAPod modtager ikke live data fra den. Din telefon har måske brug for en kompatibilitetsindstilling — fejlfinderen kan prøve at finde en automatisk.</string>
     <string name="overview_troubleshoot_suggestion_action">Kør fejlfinder</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelt tryk for at afslutte opkald</string>
     <string name="device_settings_open_cd">Åbn enhedsindstillinger</string>
     <string name="overview_card_missing_paired_device">Denne profil har ingen parret Bluetooth-enhed.</string>
+    <string name="overview_card_missing_paired_device_consequence">Uden en kan enhedsindstillinger og automatisk forbindelse ikke være tilgængelige.</string>
     <string name="overview_reactions_hint_title">Reaktioner er per enhed</string>
     <string name="overview_reactions_hint_body">Automatisk afspilning, automatisk pause og pop-ups er nu konfigureret per enhed. Tryk på indstillingsikonet på et kort, mens dine hovedtelefoner er tilsluttet.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Nulstil til standard</string>
     <string name="press_controls_reset_confirm_message">Nulstil alle trykmappe til standard?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Åbn trykindstillinger</string>
+    <string name="general_navigate_up_action">Gå op</string>
+    <string name="general_progress_loading">Indlæser</string>
 </resources>

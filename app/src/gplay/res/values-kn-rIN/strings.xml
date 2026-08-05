@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">ನೀವು ಈ ಅಪ್‌ಗ್ರೇಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿದ್ದೀರಿ ಎಂದು Google Play ವರದಿ ಮಾಡುತ್ತದೆ, ಆದರೆ ಅದನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನೀವು ಖರೀದಿಸಿದ Google ಖಾತೆಯನ್ನೇ ಬಳಸುತ್ತಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. Play Store ಸಿಂಕ್ರೊನೈಸೇಶನ್‌ಗೆ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು — ಮರುಪ್ರಾರಂಭಿಸಲು, Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಲು ಅಥವಾ ಸ್ವಲ್ಪ ಕಾಯಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="upgrade_restore_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ಪಡೆಯಿರಿ</string>
     <string name="upgrade_preamble">CAPod ಅನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿ ಅಭಿವೃದ್ಧಿಪಡಿಸುತ್ತಾರೆ. ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದರಿಂದ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳು ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್ ಜೀವಂತವಾಗಿರಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
     <string name="upgrade_screen_options_description">ಅದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯು ಉಚಿತ ಪ್ರಯೋಗವನ್ನು ಒಳಗೊಂಡಿದೆ ಮತ್ತು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಬಹುದು.</string>
     <string name="upgrade_screen_options_description_no_trial">ಅದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯನ್ನು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಬಹುದು.</string>
@@ -66,4 +68,18 @@
     <string name="upgrade_screen_contact_support_action">ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಅಪ್‍ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
+    <string name="upgrades_gplay_unavailable_error_description">ಸಿಎಪಿಪಾಡ್ ಗೂಗಲ್ ಪ್ಲೇಗೆ ಸಂಪರ್ಕ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಗೂಗಲ್ ಪ್ಲೇ ಸ್ಥಾಪಿಸಲಾಗಿದೆಯೇ ಮತ್ತು ಇತ್ತೀಚೆಗೆ ನವೀಕರಿಸಲಾಗಿದೆಯೇ? ನಿಮ್ಮ ಗೂಗಲ್ ಖಾತೆ ಲಾಗ್ ಇನ್ ಆಗಿದೆಯೇ? ಗೂಗಲ್ ಪ್ಲೇ ಅಪ್ಲಿಕೇಶನ್‌ನ ಕ್ಯಾಶ್ ತೆರವು ಮಾಡಲು ಮತ್ತು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಬೂಟ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಇದು ಈ ಸಾಧನದಲ್ಲಿ ಕಾಣೆಯಾಗಿರಬಹುದು, ನಿಷ್ಪ್ರಭವಾಗಿರಬಹುದು ಅಥವಾ ನಿರ್ಬಂಧಿತವಾಗಿರಬಹುದು.</string>
+    <string name="upgrades_gplay_internal_error_title">ಗೂಗಲ್ ಪ್ಲೇ ದೋಷ</string>
+    <string name="upgrades_gplay_internal_error_description">ಗೂಗಲ್ ಪ್ಲೇ ಆಂತರಿಕ ದೋಷ ಸಂಭವಿಸಿದೆ. ದಯವಿಟ್ಟು ಈ ಕೆಳಗಿನವುಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿ:
+
+• ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ
+• ಗೂಗಲ್ ಪ್ಲೇ ಸ್ಟೋರ್ ಕ್ಯಾಶ್ ತೆರವು ಮಾಡಿ
+• ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="upgrades_gplay_network_error_title">ಸಂಪರ್ಕ ದೋಷ</string>
+    <string name="upgrades_gplay_network_error_description">ಗೂಗಲ್ ಪ್ಲೇಗೆ ಸಂಪರ್ಕ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ಆಫರ್ ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="upgrades_gplay_offer_unavailable_description">ಗೂಗಲ್ ಪ್ಲೇ ಪ್ರಸ್ತುತವಾಗಿ ಈ ನವೀಕರಣ ಆಯ್ಕೆಯನ್ನು ಅನುಮತಿಸುತ್ತಿಲ್ಲ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಗೂಗಲ್ ಪ್ಲೇ ಸ್ಟೋರ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">ಗೂಗಲ್ ಪ್ಲೇ ಜೊತೆಗಿನ ಪರಿಶೋಧನೆ ಸಮಯಕ್ಕೆ ಪೂರ್ಣವಾಗಿಲ್ಲ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ಖರೀದಿ ಸ್ಥಿತಿ ಇನ್ನೂ ತಿಳಿದಿರುವುದಿಲ್ಲ. ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಏನೂ ಬದಲಾಗಿಲ್ಲ.</string>
 </resources>
