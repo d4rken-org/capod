@@ -928,6 +928,16 @@ class OverviewViewModelTest : BaseTest() {
         }
 
         @Test
+        fun `suppressed by the enable-Bluetooth prompt`() = runTest(testDispatcher) {
+            quietOverview()
+            isBluetoothEnabledFlow.value = false
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe false
+        }
+
+        @Test
         fun `suppressed by the troubleshooter suggestion`() = runTest(testDispatcher) {
             quietOverview()
             // Connected via audio but no live data: the hint appears after its debounce window.

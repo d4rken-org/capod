@@ -19,11 +19,13 @@ import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
@@ -232,6 +234,32 @@ class GplayReviewToolTest : BaseTest() {
         tool().computedState().shouldAskForReview shouldBe false
 
         verify(exactly = 3) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `corrupt review settings fall back to the default state`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+        lastDismissedMock = rwSetting(null)
+        // A malformed stored timestamp throws when the DataStore flow is read.
+        reviewedAtMock = mockk<DataStoreValue<Instant?>>(relaxed = true).apply {
+            every { flow } returns flow { throw SerializationException("corrupt") }
+        }
+        every { settings.lastDismissed } returns lastDismissedMock
+        every { settings.reviewedAt } returns reviewedAtMock
+
+        val upgradeInfo = mockk<UpgradeRepo.Info>()
+        every { upgradeInfo.upgradedAt } returns Instant.now().minus(Duration.ofDays(30))
+        every { upgradeRepo.upgradeInfo } returns flowOf(upgradeInfo)
+
+        val tool = GplayReviewTool(
+            appScope = backgroundScope,
+            settings = settings,
+            manager = manager,
+            upgradeRepo = upgradeRepo,
+        )
+
+        // The failure has to be absorbed upstream of the share: on the shared coroutine it would go
+        // to AppScope (no handler, i.e. a process crash) and never reach a downstream collector.
+        tool.computedState() shouldBe ReviewTool.State()
     }
 
     @Test fun `cancellation during reviewNow is not swallowed`() = runTest2 {

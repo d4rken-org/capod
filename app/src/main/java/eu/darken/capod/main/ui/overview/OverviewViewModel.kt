@@ -332,14 +332,15 @@ class OverviewViewModel @Inject constructor(
 
         /**
          * Whether the overview is currently showing a card that outranks the review prompt: a
-         * missing permission, the troubleshooter hint, the background-monitoring-off notice or the
-         * no-profiles setup card. All of those ask the user to do something, so the review prompt
-         * stays hidden while any of them is on screen.
+         * missing permission, the troubleshooter hint, the background-monitoring-off notice, the
+         * no-profiles setup card or the enable-Bluetooth prompt. All of those ask the user to do
+         * something, so the review prompt stays hidden while any of them is on screen.
          */
         val hasHigherPriorityCard: Boolean
             get() = permissions.isNotEmpty() ||
                     showTroubleshootSuggestion ||
                     monitoringStatus == MonitoringStatus.BACKGROUND_OFF ||
+                    !isBluetoothEnabled ||
                     (profiles.isEmpty() && !isScanBlocked && isBluetoothEnabled)
 
         val soleProfileId: ProfileId? get() = profiles.singleOrNull()?.id
