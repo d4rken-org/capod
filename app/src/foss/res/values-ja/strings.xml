@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">スポンサーページを開く</string>
     <string name="settings_upgrade_status_label">CAPod をスポンサーする</string>
     <string name="settings_upgrade_status_description">サポーターステータス。</string>
+    <string name="upgrade_screen_why_title">アップグレードの特典</string>
+    <string name="upgrade_screen_how_title">協力するには</string>
+    <string name="upgrade_screen_how_body">パトロンとスポンサーの開発になりましょう！下のボタンをタップすると、すべての追加機能が有効になり、GitHub Sponsors プロファイルを開きます。</string>
+    <string name="upgrade_screen_status_free_title">無料版</string>
+    <string name="upgrade_screen_status_free_body">CAPod の無料版を使用しています。開発を支援することで、追加機能をアンロックできます。</string>
+    <string name="upgrade_screen_status_free_action">アップグレード オプションを確認</string>
+    <string name="upgrade_screen_status_upgraded_title">アップグレード有効</string>
+    <string name="upgrade_screen_recurring_title">サポート継続</string>
+    <string name="upgrade_screen_recurring_body">CAPod は更新と修正を通じて進化し続けています。サポートを続けたい場合は、GitHub Sponsors を通じて定期的な寄付を検討してください。</string>
 </resources>

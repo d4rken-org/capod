@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Το Google Play αναφέρει ότι έχετε ήδη αυτήν την αναβάθμιση, αλλά δεν ήταν δυνατή η επαναφορά της. Βεβαιωθείτε ότι χρησιμοποιείτε τον λογαριασμό Google με τον οποίο κάνατε την αγορά. Ο συγχρονισμός του Play Store ενδέχεται να χρειαστεί χρόνο — δοκιμάστε να επανεκκινήσετε, να διαγράψετε την κρυφή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_restore_action">Επαναφορά αγοράς</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Αποκτήστε %1$s</string>
     <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά να διατηρείται η εφαρμογή ζωντανή.</string>
     <string name="upgrade_screen_options_description">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή περιλαμβάνει δωρεάν δοκιμή και μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
     <string name="upgrade_screen_options_description_no_trial">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Επικοινωνήστε με την υποστήριξη</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
+    <string name="upgrades_gplay_unavailable_error_description">Το CAPod δεν μπορεί να συνδεθεί με το Google Play. Είναι το Google Play εγκατεστημένο και ενημερωμένο; Έχετε συνδεθεί με τον λογαριασμό σας Google; Δοκιμάστε να διαγράψετε την προσωρινή μνήμη της εφαρμογής Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Δεν μπορούσε να ανοίξει το Google Play. Ενδέχεται να λείπει, να είναι απενεργοποιημένο ή περιορισμένο σε αυτήν τη συσκευή.</string>
+    <string name="upgrades_gplay_internal_error_title">Σφάλμα Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Παρουσιάστηκε εσωτερικό σφάλμα του Google Play. Δοκιμάστε τα εξής:\n\n• Επανεκκινήστε τη συσκευή σας\n• Καθαρίστε την προσωρινή μνήμη του Google Play Store\n• Δοκιμάστε ξανά αργότερα</string>
+    <string name="upgrades_gplay_network_error_title">Σφάλμα σύνδεσης</string>
+    <string name="upgrades_gplay_network_error_description">Αδυναμία σύνδεσης με το Google Play. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Προσφορά μη διαθέσιμη</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Το Google Play δεν προσφέρει αυτή τη στιγμή αυτή την επιλογή αναβάθμισης. Δοκιμάστε ξανά αργότερα ή ελέγξτε το Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ο έλεγχος με το Google Play δεν ολοκληρώθηκε εγκαίρως, επομένως η κατάσταση της αγοράς σας παραμένει άγνωστη. Τίποτα δεν άλλαξε στον λογαριασμό σας.</string>
 </resources>

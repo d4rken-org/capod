@@ -12,6 +12,7 @@
     <string name="general_donate_action">Doniraj</string>
     <string name="general_check_action">Provjeri</string>
     <string name="general_close_action">Zatvori</string>
+    <string name="general_dismiss_action">Odbaci</string>
     <string name="general_edit_action">Uredi</string>
     <string name="general_save_action">Spremi</string>
     <string name="general_guide_action">Vodič</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Status uređaja</string>
     <string name="notification_channel_device_status_connected_label">Povezani uređaj</string>
     <string name="monitor_notification_extra_enabled_hint">Ovu obavijest možete onemogućiti u postavkama sustava.</string>
+    <string name="monitor_notification_starting">Pokretanje…</string>
     <string name="support_debuglog_label">Zapisnik za ispravljanje pogrešaka</string>
     <string name="support_debuglog_desc">Zabilježite sve što aplikacija radi u tekstualnu datoteku koju možete podijeliti.</string>
     <string name="debug_debuglog_size_label">Veličina</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth je onemogućen, omogućite ga ;)</string>
     <string name="overview_monitoring_active_label">Praćenje uređaja</string>
     <string name="overview_monitoring_active_description">Provjerite je li vaš uređaj u blizini i aktivan.</string>
+    <string name="overview_monitoring_off_label">Nadzor u pozadini je isključen</string>
+    <string name="overview_monitoring_off_description">Nijedan profil nema upareni Bluetooth uređaj, pa se CAPod ažurira samo dok je aplikacija otvorena. Odaberite jedan da omogućite nadzor u pozadini, trajnu obavijest i reakcije.</string>
+    <string name="overview_monitoring_off_action">Odaberite upareni uređaj</string>
     <string name="overview_troubleshoot_suggestion_label">Spojeno, ali nema podataka</string>
     <string name="overview_troubleshoot_suggestion_description">Tvoj uređaj je spojen, ali CAPod ne prima žive podatke od njega. Tvoj telefon možda treba opciju kompatibilnosti — alat za rješavanje problema može pokušati pronaći jednu automatski.</string>
     <string name="overview_troubleshoot_suggestion_action">Pokreni rješavanje problema</string>
@@ -487,6 +492,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvostruki pritisak za završetak poziva</string>
     <string name="device_settings_open_cd">Otvori postavke uređaja</string>
     <string name="overview_card_missing_paired_device">Ovaj profil nema uparenog Bluetooth uređaja.</string>
+    <string name="overview_card_missing_paired_device_consequence">Bez toga, postavke uređaja i automatsko povezivanje nisu dostupne.</string>
     <string name="overview_reactions_hint_title">Reakcije su po uređaju</string>
     <string name="overview_reactions_hint_body">Automatska reprodukcija, automatska pauza i skočni prozori sada se konfiguriraju po uređaju. Dodirnite ikonu postavki na kartici dok su vaše slušalice spojene.</string>
     <!-- New device settings -->
@@ -566,4 +572,6 @@
     <string name="press_controls_reset_label">Vrati na zadano</string>
     <string name="press_controls_reset_confirm_message">Resetirati sve dodjele pritisaka na zadano?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Otvori kontrole pritiska</string>
+    <string name="general_navigate_up_action">Idi gore</string>
+    <string name="general_progress_loading">Učitavanje</string>
 </resources>

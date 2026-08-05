@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Maak borgblad oop</string>
     <string name="settings_upgrade_status_label">Ondersteun CAPod</string>
     <string name="settings_upgrade_status_description">Jou ondersteunersstatus.</string>
+    <string name="upgrade_screen_why_title">Opgraderingsvoordele</string>
+    <string name="upgrade_screen_how_title">Hoe om te help</string>
+    <string name="upgrade_screen_how_body">Word \'n beskermheer en borg ontwikkeling! Tik die knoppie hieronder om alle ekstra funksies te aktiveer en my GitHub Sponsors profiel oop te maak.</string>
+    <string name="upgrade_screen_status_free_title">Gratis weergawe</string>
+    <string name="upgrade_screen_status_free_body">Jy gebruik die gratis weergawe van CAPod. Ekstra funksies kan ontsluit word deur die ontwikkeling te ondersteun.</string>
+    <string name="upgrade_screen_status_free_action">Sien opgraderingsopsies</string>
+    <string name="upgrade_screen_status_upgraded_title">Opgradering aktief</string>
+    <string name="upgrade_screen_recurring_title">Hou dit voort</string>
+    <string name="upgrade_screen_recurring_body">CAPod bly verbeter deur opdaterings en regstellings. As jy dit wil volhou, oorweeg \'n herhalende skenking via GitHub Sponsors.</string>
 </resources>

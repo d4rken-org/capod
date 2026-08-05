@@ -12,6 +12,7 @@
     <string name="general_donate_action">Ахвяраваць</string>
     <string name="general_check_action">Праверыць</string>
     <string name="general_close_action">Закрыць</string>
+    <string name="general_dismiss_action">Адхіліць</string>
     <string name="general_edit_action">Рэдагаваць</string>
     <string name="general_save_action">Захаваць</string>
     <string name="general_guide_action">Кіраўніцтва</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Стан прылады</string>
     <string name="notification_channel_device_status_connected_label">Падключаная прылада</string>
     <string name="monitor_notification_extra_enabled_hint">Вы можаце адключыць гэта апавяшчэнне ў сістэмных наладах.</string>
+    <string name="monitor_notification_starting">Запускаецца…</string>
     <string name="support_debuglog_label">Журнал адладкі</string>
     <string name="support_debuglog_desc">Запішыце ўсё, што робіць праграма, у тэкставы файл, якім вы можаце падзяліцца.</string>
     <string name="debug_debuglog_size_label">Памер</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth адключаны, уключыце яго ;)</string>
     <string name="overview_monitoring_active_label">Маніторынг прылад</string>
     <string name="overview_monitoring_active_description">Пераканайцеся, што ваша прылада побач і актыўная.</string>
+    <string name="overview_monitoring_off_label">Фонавы маніторынг адключаны</string>
+    <string name="overview_monitoring_off_description">Ні адзін профіль не мае спалучанай прылады Bluetooth, таму CAPod абнаўляецца толькі пакуль праграма адкрыта. Выберыце адну, каб уключыць фонавы маніторынг, бягучае апавяшчэнне і рэакцыі.</string>
+    <string name="overview_monitoring_off_action">Выберыце спалучаную прыладу</string>
     <string name="overview_troubleshoot_suggestion_label">Падлучана, але дадзеных няма</string>
     <string name="overview_troubleshoot_suggestion_description">Ваша прылада падлучана, але CAPod не атрымлівае ніякіх жывых дадзеных з яе. Вашаму тэлефону можа спатрэбіцца параметр сумяшчальнасці — ліквідатар непаладак можа паспрабаваць знайсці яго аўтаматычна.</string>
     <string name="overview_troubleshoot_suggestion_action">Запусціць ліквідатар непаладак</string>
@@ -493,6 +498,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двайны націск для завяршэння выкліку</string>
     <string name="device_settings_open_cd">Адкрыць налады прылады</string>
     <string name="overview_card_missing_paired_device">З гэтым профілем не сапалучана прылада Bluetooth.</string>
+    <string name="overview_card_missing_paired_device_consequence">Без яе налады прылады і аўтападключэнне недаступныя.</string>
     <string name="overview_reactions_hint_title">Рэакцыі ўстаноўлены для кожнай прылады</string>
     <string name="overview_reactions_hint_body">Аўтаўзнаўленне, аўтапаўза і ўсплывальныя вокны цяпер наладжваюцца для кожнай прылады. Націсніце значок налад на картцы, пакуль вашы навушнікі падключаны.</string>
     <!-- New device settings -->
@@ -572,4 +578,6 @@
     <string name="press_controls_reset_label">Скінуць да стандартных</string>
     <string name="press_controls_reset_confirm_message">Скінуць ўсе прызначэнні націскаў да стандартных?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Адкрыць кіраванне націскамі</string>
+    <string name="general_navigate_up_action">Назад</string>
+    <string name="general_progress_loading">Загрузка</string>
 </resources>

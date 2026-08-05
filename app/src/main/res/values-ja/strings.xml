@@ -78,6 +78,7 @@
     <string name="notification_channel_device_status_label">デバイスステータス</string>
     <string name="notification_channel_device_status_connected_label">接続済みデバイス</string>
     <string name="monitor_notification_extra_enabled_hint">この通知はシステム設定で無効にできます。</string>
+    <string name="monitor_notification_starting">起動中…</string>
     <string name="support_debuglog_label">デバッグログ</string>
     <string name="support_debuglog_desc">アプリが行っているすべてのことを、共有できるテキストファイルに記録します。</string>
     <string name="debug_debuglog_size_label">サイズ</string>
@@ -196,6 +197,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetoothが無効です。有効にしてください ;)</string>
     <string name="overview_monitoring_active_label">デバイスを監視中</string>
     <string name="overview_monitoring_active_description">デバイスが近くにあり、アクティブであることを確認してください。</string>
+    <string name="overview_monitoring_off_label">バックグラウンド監視がオフです</string>
+    <string name="overview_monitoring_off_description">どのプロファイルもペアリング済みの Bluetooth デバイスを持っていないため、CAPod はアプリを開いている間だけ更新されます。バックグラウンド監視、通知、反応を有効にするには、デバイスを 1 つ選択してください。</string>
+    <string name="overview_monitoring_off_action">ペアリング済みデバイスを選択</string>
     <string name="overview_troubleshoot_suggestion_label">接続済み、データなし</string>
     <string name="overview_troubleshoot_suggestion_description">デバイスは接続されていますが、CAPodはライブデータを受信していません。互換性オプションが必要な場合があります—トラブルシューターが自動的に検索を試みます。</string>
     <string name="overview_troubleshoot_suggestion_action">トラブルシューターを実行</string>
@@ -475,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ダブルプレスで通話を終了</string>
     <string name="device_settings_open_cd">デバイス設定を開く</string>
     <string name="overview_card_missing_paired_device">このプロファイルにはペアリングされたBluetoothデバイスがありません。</string>
+    <string name="overview_card_missing_paired_device_consequence">デバイスの設定と自動接続は利用できません。</string>
     <string name="overview_reactions_hint_title">リアクションはデバイスごとに設定されます</string>
     <string name="overview_reactions_hint_body">自動再生、自動一時停止、ポップアップはデバイスごとに設定できるようになりました。ヘッドフォンを接続した状態でカードの設定アイコンをタップしてください。</string>
     <!-- New device settings -->
@@ -554,4 +559,6 @@
     <string name="press_controls_reset_label">デフォルトにリセット</string>
     <string name="press_controls_reset_confirm_message">すべてのプレスマッピングをデフォルトにリセットしますか？</string>
     <string name="device_settings_noise_control_open_press_controls_action">プレスコントロールを開く</string>
+    <string name="general_navigate_up_action">上へ移動</string>
+    <string name="general_progress_loading">読み込み中</string>
 </resources>

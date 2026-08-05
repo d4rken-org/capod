@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ይህን ማሻሻያ አስቀድመው እንደያዙ ዘግቧል፣ ነገር ግን መመለስ አልተቻለም። በገዙበት የGoogle መለያ እየተጠቀሙ መሆኑን ያረጋግጡ። የPlay Store ማመሳሰል ጊዜ ሊወስድ ይችላል — እንደገና ለማስጀመር፣ የGoogle Play መሸጎጫን ለማጽዳት ወይም በቀላሉ ለመጠበቅ ይሞክሩ።</string>
     <string name="upgrade_restore_action">ግዢን ወደነበረበት መልስ</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ያግኑ</string>
     <string name="upgrade_preamble">CAPod የሚዘጋጀው በአንድ ሰው ብቻ ነው። ማሻሻል ተጨማሪ ባህሪያትን ይከፍታል እንዲሁም መተግበሪያውን ሕያው ለማድረግ ይረዳል።</string>
     <string name="upgrade_screen_options_description">ተመሳሳይ ባህሪያት፣ የተለያየ ዋጋ አሰጣጥ። ምዝገባው ነጻ የሙከራ ጊዜ ያካትታል እና በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
     <string name="upgrade_screen_options_description_no_trial">ተመሳሳይ ባህሪያት፣ የተለያየ ዋጋ አሰጣጥ። ምዝገባው በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
@@ -66,4 +68,18 @@
     <string name="upgrade_screen_contact_support_action">ድጋፍ ለማነጋገር</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">የእርስዎ ማሻሻያ እና ግዢ ሁኔታ።</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ከGoogle Play ጋር መገናኘት አይችልም። Google Play ተጭኖ እና ወቅታዊ ነው? የGoogle መለያዎ ገብቷል? የGoogle Play መተግበሪያ መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ን መክፈት ተስኖ ዋለ። በዚህ መሣሪያ ላይ ላይሆን ወይም ሰናክሌ ወይም የተገደበ ሊሆን ይችላል።</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play ስህተት</string>
+    <string name="upgrades_gplay_internal_error_description">ውስጣዊ Google Play ስህተት ተከስቷል። እባክዎ የሚከተለውን ይሞክሩ:
+
+• መሳሪያዎን እንደገና ያስጀምሩ
+• Google Play Store መሸጎጫ ማጥራት
+• ቆየት ብሎ እንደገና ይሞክሩ</string>
+    <string name="upgrades_gplay_network_error_title">ግንኙነት ስህተት</string>
+    <string name="upgrades_gplay_network_error_description">Google Play ጋር መገናኘት አልተቻለም። እባክዎ የእርስዎን ኢንተርኔት ግንኙነት ይፈትሹ እና እንደገና ይሞክሩ።</string>
+    <string name="upgrades_gplay_offer_unavailable_title">አቅርቦት አልተገኘም</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play በአሁኑ ጊዜ ይህ የማሻሻል አማራጭ አልሰጠም። እባክዎ ቆየት ብሎ እንደገና ይሞክሩ ወይም Google Play Store ይመልከቱ።</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ጋር ያለው ፍተሻ በወቅቱ አልተጠናቀቀም፣ ስለዚህ የእርስዎ የገዢ ሁኔታ አሁንም ያልታወቀ ነው። በእርስዎ ሂሳብ ላይ ምንም ሁኔታ ለውጥ አልነበረም።</string>
 </resources>

@@ -12,6 +12,7 @@
     <string name="general_donate_action">Mag-donate</string>
     <string name="general_check_action">Suriin</string>
     <string name="general_close_action">Isara</string>
+    <string name="general_dismiss_action">Huwag pansinin</string>
     <string name="general_edit_action">Baguhin</string>
     <string name="general_save_action">I-save</string>
     <string name="general_guide_action">Gabay</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Katayuan ng device</string>
     <string name="notification_channel_device_status_connected_label">Konektadong device</string>
     <string name="monitor_notification_extra_enabled_hint">Maaari mong i-disable ang notification na ito sa mga setting ng system.</string>
+    <string name="monitor_notification_starting">Nagsisimula…</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari mong ibahagi.</string>
     <string name="debug_debuglog_size_label">Sukat</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Naka-disable ang Bluetooth, i-enable ito ;)</string>
     <string name="overview_monitoring_active_label">Nagmo-monitor ng mga device</string>
     <string name="overview_monitoring_active_description">Siguraduhing malapit at aktibo ang iyong device.</string>
+    <string name="overview_monitoring_off_label">Naka-off ang background monitoring</string>
+    <string name="overview_monitoring_off_description">Walang profile na may paired Bluetooth device, kaya ang CAPod ay nag-update lamang kapag bukas ang app. Pumili ng isa upang paganahin ang background monitoring, ang ongoing notification at reactions.</string>
+    <string name="overview_monitoring_off_action">Pumili ng paired device</string>
     <string name="overview_troubleshoot_suggestion_label">Nakakonekta, ngunit walang data</string>
     <string name="overview_troubleshoot_suggestion_description">Nakakonekta ang iyong device, ngunit hindi nakakatanggap ng live data ang CAPod mula rito. Maaaring kailanganin ng iyong telepono ng opsyon sa compatibility — maaaring subukang hanapin ito nang awtomatiko ng troubleshooter.</string>
     <string name="overview_troubleshoot_suggestion_action">Patakbuhin ang troubleshooter</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dalawang pindutin para tapusin ang tawag</string>
     <string name="device_settings_open_cd">Buksan ang mga setting ng device</string>
     <string name="overview_card_missing_paired_device">Ang profile na ito ay walang naipares na Bluetooth device.</string>
+    <string name="overview_card_missing_paired_device_consequence">Kung walang isa, ang device settings at auto-connect ay hindi available.</string>
     <string name="overview_reactions_hint_title">Ang mga reaksyon ay bawat device</string>
     <string name="overview_reactions_hint_body">Ang auto-play, auto-pause at mga pop-up ay naka-configure na ngayon bawat device. I-tap ang icon ng mga setting sa isang card habang nakakonekta ang iyong mga headphone.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">I-reset sa mga default</string>
     <string name="press_controls_reset_confirm_message">I-reset ang lahat ng press mapping sa mga default?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Buksan ang Mga Kontrol sa Pagpindot</string>
+    <string name="general_navigate_up_action">Umangat</string>
+    <string name="general_progress_loading">Naglo-load</string>
 </resources>

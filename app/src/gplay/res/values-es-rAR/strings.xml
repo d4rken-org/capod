@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play informa que ya tenés esta mejora, pero no se pudo restaurar. Asegurate de usar la cuenta de Google con la que la compraste. La sincronización de Play Store puede demorar — probá reiniciar, borrar la caché de Google Play o simplemente esperar.</string>
     <string name="upgrade_restore_action">Restaurar la compra</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obtener %1$s</string>
     <string name="upgrade_preamble">CAPod es desarrollado por una sola persona. Actualizar desbloquea funciones adicionales y ayuda a mantener viva la app.</string>
     <string name="upgrade_screen_options_description">Las mismas funciones, distintos precios. La suscripción incluye una prueba gratuita y se puede cancelar en cualquier momento.</string>
     <string name="upgrade_screen_options_description_no_trial">Las mismas funciones, distintos precios. La suscripción se puede cancelar en cualquier momento.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Contactá al soporte</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Tu estado de actualización y compra.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod no puede conectarse a Google Play. ¿Está instalada y actualizada Google Play? ¿Iniciaste sesión con tu cuenta de Google? Probá a borrar la caché de la aplicación de Google Play y reiniciar tu dispositivo.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">No se pudo abrir Google Play. Es posible que esté faltando, deshabilitado o restringido en este dispositivo.</string>
+    <string name="upgrades_gplay_internal_error_title">Error de Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Ocurrió un error interno de Google Play. Probá lo siguiente:\n\n• Reiniciar tu dispositivo\n• Borrar la caché de Google Play Store\n• Intentar más tarde</string>
+    <string name="upgrades_gplay_network_error_title">Error de conexión</string>
+    <string name="upgrades_gplay_network_error_description">No se puede conectar a Google Play. Verificá tu conexión a Internet e intentá de nuevo.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta no disponible</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play actualmente no está ofreciendo esta opción de mejora. Probá más tarde o revisá Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">La verificación con Google Play no se completó a tiempo, por lo que tu estado de compra sigue siendo desconocido. No ha cambiado nada en tu cuenta.</string>
 </resources>

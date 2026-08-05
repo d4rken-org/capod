@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Iniuulat ng Google Play na nasa iyo na ang upgrade na ito, ngunit hindi ito ma-restore. Siguraduhing ginagamit mo ang Google account na ginamit mo sa pagbili. Maaaring magtagal ang pag-sync ng Play Store — subukang i-restart ang device, i-clear ang cache ng Google Play, o maghintay lang.</string>
     <string name="upgrade_restore_action">I-restore ang pagbili</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Kumuha ng %1$s</string>
     <string name="upgrade_preamble">Ginawa ang CAPod ng isang tao lang. Ang pag-upgrade ay nagbubukas ng karagdagang mga feature at tumutulong na mapanatiling buhay ang app.</string>
     <string name="upgrade_screen_options_description">Pareho ang mga feature, magkaiba ang presyo. Kasama sa subscription ang libreng trial at maaari itong kanselahin anumang oras.</string>
     <string name="upgrade_screen_options_description_no_trial">Pareho ang mga feature, magkaiba ang presyo. Maaaring kanselahin ang subscription anumang oras.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Makipag-ugnayan sa suporta</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ang status ng iyong upgrade at pagbili.</string>
+    <string name="upgrades_gplay_unavailable_error_description">Ang CAPod ay hindi maka-konekta sa Google Play. Naka-installed ba ang Google Play at na-update? Naka-logged in ba ang iyong Google Account? Subukan ang paglilinis ng cache ng Google Play app at i-reboot ang iyong aparato.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Imposibleng buksan ang Google Play. Maaaring nawawala, hindi pinagana o limitado ito sa device na ito.</string>
+    <string name="upgrades_gplay_internal_error_title">Kamalian sa Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">May internal Google Play error na nangyari. Mangyaring subukan ang sumusunod:\n\n• I-restart ang iyong device\n• Limasin ang Google Play Store cache\n• Subukan ulit mamaya</string>
+    <string name="upgrades_gplay_network_error_title">Kamalian sa koneksyon</string>
+    <string name="upgrades_gplay_network_error_description">Hindi makakagawa ng koneksyon sa Google Play. Mangyaring suriin ang iyong internet connection at subukan ulit.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Walang available na alok</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Hindi kasalukuyang nag-aalok ang Google Play ng upgrade option na ito. Mangyaring subukan ulit mamaya o suriin ang Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ang check sa Google Play ay hindi nagtapos sa tamang oras, kaya ang iyong purchase status ay hindi pa rin alam. Walang nagbago sa iyong account.</string>
 </resources>

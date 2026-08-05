@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Демөөрчүлүк баракчасын ачуу</string>
     <string name="settings_upgrade_status_label">CAPod-ды спонсорлоо</string>
     <string name="settings_upgrade_status_description">Колдоочу абалы</string>
+    <string name="upgrade_screen_why_title">Жогорулоонун пайдалары</string>
+    <string name="upgrade_screen_how_title">Жардам бергүүнүн жолу</string>
+    <string name="upgrade_screen_how_body">Демеки болуп, иштөөсүнө спонсорлик кылыңыз! Бардык кошумча өзгөчөлүктөрдүн ишке кирүүсүнө жана GitHub Sponsors профилимди ачуу үчүн төмөндөгү баскычын басыңыз.</string>
+    <string name="upgrade_screen_status_free_title">Акысыз версия</string>
+    <string name="upgrade_screen_status_free_body">CAPod программасынын акысыз версиясын колдонуп жатасыз. Иштөөнүн өнүгүүсүнө спонсорлик кылсаңыз кошумча өзгөчөлүктөрдүн ишке кирүүсүн ачуп ала аласыз.</string>
+    <string name="upgrade_screen_status_free_action">Жогорулоо вариантларын көрүңүз</string>
+    <string name="upgrade_screen_status_upgraded_title">Жогорулоо активтүү</string>
+    <string name="upgrade_screen_recurring_title">Улантуу</string>
+    <string name="upgrade_screen_recurring_body">CAPod жаңыланууларды жана оңдуулар аркылуу өнүгүп турат. Эгерде сиз муну сактоону кааласаңыз, GitHub Sponsors аркылуу спонсорлук туурасында ойлонуңүз.</string>
 </resources>

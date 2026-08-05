@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Otevřít stránku sponzora</string>
     <string name="settings_upgrade_status_label">Sponzorovat CAPod</string>
     <string name="settings_upgrade_status_description">Váš stav podporovatele.</string>
+    <string name="upgrade_screen_why_title">Výhody upgradu</string>
+    <string name="upgrade_screen_how_title">Jak pomoci</string>
+    <string name="upgrade_screen_how_body">Staňte se patronem a sponzorem vývoje! Klepnutím na tlačítko níže aktivujete všechny další funkce a otevřete můj profil sponzora na GitHubu.</string>
+    <string name="upgrade_screen_status_free_title">Bezplatná verze</string>
+    <string name="upgrade_screen_status_free_body">Používáte bezplatnou verzi CAPod. Další funkce lze odemknout podporou vývoje.</string>
+    <string name="upgrade_screen_status_free_action">Zobrazit možnosti upgradu</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade je aktivní</string>
+    <string name="upgrade_screen_recurring_title">Pokračuj v tom</string>
+    <string name="upgrade_screen_recurring_body">CAPod se neustále vyvíjí prostřednictvím aktualizací a oprav. Pokud to chcete podporovat, zvažte pravidelný příspěvek prostřednictvím GitHub sponzorů.</string>
 </resources>

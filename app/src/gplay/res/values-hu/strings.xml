@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">A Google Play szerint már megvásároltad ezt a frissítést, de nem sikerült visszaállítani. Győződj meg róla, hogy azzal a Google-fiókkal vagy bejelentkezve, amellyel a vásárlást végezted. A Play Store szinkronizálása eltarthat egy ideig – próbáld meg újraindítani a készüléket, törölni a Google Play gyorsítótárát, vagy egyszerűen várj egy kicsit.</string>
     <string name="upgrade_restore_action">Vásárlás visszaállítása</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Szerezd meg a %1$s-t</string>
     <string name="upgrade_preamble">A CAPod-ot egyetlen ember fejleszti. A frissítés extra funkciókat old fel, és segít életben tartani az alkalmazást.</string>
     <string name="upgrade_screen_options_description">Ugyanazok a funkciók, eltérő árazás. Az előfizetés ingyenes próbaidőszakot tartalmaz, és bármikor lemondható.</string>
     <string name="upgrade_screen_options_description_no_trial">Ugyanazok a funkciók, eltérő árazás. Az előfizetés bármikor lemondható.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Lépjen kapcsolatba az ügyfélszolgálattal</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Az Ön frissítésének és vásárlásának állapota.</string>
+    <string name="upgrades_gplay_unavailable_error_description">A CAPod nem tud csatlakozni a Google Playhez. Telepítve és naprakész a Google Play? Be vagy jelentkezve Google-fiókkal? Próbáld meg törölni a Google Play alkalmazás gyorsítótárát és indítsd újra az eszközt.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nem sikerült megnyitni a Google Play-t. Lehetséges, hogy hiányzik, le van tiltva vagy korlátozva van ezen az eszközön.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play hiba</string>
+    <string name="upgrades_gplay_internal_error_description">Belső Google Play hiba történt. Próbáld meg a következőket:\n\n• Indítsd újra az eszközt\n• Töröld a Google Play Store gyorsítótárát\n• Próbáld meg később</string>
+    <string name="upgrades_gplay_network_error_title">Csatlakozási hiba</string>
+    <string name="upgrades_gplay_network_error_description">Nem sikerült csatlakozni a Google Playhez. Ellenőrizd az internetkapcsolatot és próbáld meg újra.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Az ajánlat nem elérhető</string>
+    <string name="upgrades_gplay_offer_unavailable_description">A Google Play jelenleg nem kínálja ezt a frissítési lehetőséget. Próbáld meg később vagy ellenőrizd a Google Play Store-t.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">A Google Play ellenőrzése nem fejeződött be időben, így a vásárlási státuszod még ismeretlen. Semmi sem változott a fiókodban.</string>
 </resources>

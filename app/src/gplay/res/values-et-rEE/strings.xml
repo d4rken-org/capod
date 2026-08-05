@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play andmetel on see uuendus sul juba olemas, kuid seda ei õnnestunud taastada. Veendu, et kasutad sama Google\'i kontot, millega ostu tegid. Play poe sünkroonimine võib aega võtta — proovi taaskäivitada, tühjendada Google Play vahemälu või lihtsalt oodata.</string>
     <string name="upgrade_restore_action">Taasta ost</string>
     <string name="upgrade_badge_label">Tasuline</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Hangi %1$s</string>
     <string name="upgrade_preamble">CAPodi arendab üks inimene. Uuendamine avab lisavõimalused ja aitab rakendust arendada.</string>
     <string name="upgrade_screen_options_description">Samad võimalused, erinev hind. Tellimus sisaldab tasuta katseaega ja selle saab igal ajal tühistada.</string>
     <string name="upgrade_screen_options_description_no_trial">Samad võimalused, erinev hind. Tellimuse saab igal ajal tühistada.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Suhelge toega</string>
     <string name="settings_upgrade_status_label">Tasuline CAPod</string>
     <string name="settings_upgrade_status_description">Sinu täienduse ja ostu olek.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod ei suuda ühenduda Google Playga. Kas Google Play on paigaldatud ja uuendatud? Olete Google\'i kontole sisse logitud? Üritage tühjendada Google Play rakenduse vahemälu ja taaskäivitada oma seadet.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play avamine nurjus. See võib olla selles seadmes puudu, keelatud või piiratud.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play viga</string>
+    <string name="upgrades_gplay_internal_error_description">Seadmes tekkis Google Play viga. Proovige järgmist:\n\n• Seadme taaskäivitamine\n• Google Play Store vahemälu tühjendamine\n• Hiljem uuesti proovimine</string>
+    <string name="upgrades_gplay_network_error_title">Ühenduse viga</string>
+    <string name="upgrades_gplay_network_error_description">Ühendumine Google Playga nurjus. Kontrollige internetiühendust ja proovige uuesti.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Pakkumine pole saadaval</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ei paku hetkel seda uuendamist. Proovige hiljem või uudistage Google Play Store\'i.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Kontroll Google Playga aegus, seega ostu seis on teadmata. Teie konto seis on sama.</string>
 </resources>

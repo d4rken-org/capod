@@ -12,6 +12,7 @@
     <string name="general_donate_action">Anneta</string>
     <string name="general_check_action">Kontrolli</string>
     <string name="general_close_action">Sulge</string>
+    <string name="general_dismiss_action">Sulge</string>
     <string name="general_edit_action">Muuda</string>
     <string name="general_save_action">Salvesta</string>
     <string name="general_guide_action">Juhend</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Seadme olek</string>
     <string name="notification_channel_device_status_connected_label">Ühendatud seade</string>
     <string name="monitor_notification_extra_enabled_hint">Selle teatise saate keelata süsteemi seadetes.</string>
+    <string name="monitor_notification_starting">Käivitamine…</string>
     <string name="support_debuglog_label">Silumisinfo</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavasse tekstifaili.</string>
     <string name="debug_debuglog_size_label">Maht</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth on keelatud, lubage see ;)</string>
     <string name="overview_monitoring_active_label">Seadmete jälgimine</string>
     <string name="overview_monitoring_active_description">Veenduge, et seade oleks läheduses ja kasutusel.</string>
+    <string name="overview_monitoring_off_label">Taustal ei jälgita</string>
+    <string name="overview_monitoring_off_description">Mitte üheski profiilis pole ühendatud Bluetooth-seadet, seega CAPod uuendab vaid rakenduse kasutamisel. Taustal jälgimiseks, teadete ja reaktsioonide edaspidi kuvamiseks vali üks.</string>
+    <string name="overview_monitoring_off_action">Vali ühendatud seade</string>
     <string name="overview_troubleshoot_suggestion_label">Ühendatud, kuid andmeid pole</string>
     <string name="overview_troubleshoot_suggestion_description">Seade on ühendatud, kuid CAPod ei saa sellelt otseandmeid. Telefon vajab tõenäoliselt ühilduvuse valikut — abistaja kontrollib, kas suudab selle ise leida.</string>
     <string name="overview_troubleshoot_suggestion_action">Käivita abistaja</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kahe vajutusega lõpeta kõne</string>
     <string name="device_settings_open_cd">Ava seadme seaded</string>
     <string name="overview_card_missing_paired_device">Sellel profiilil puudub seotud Bluetoothi seade.</string>
+    <string name="overview_card_missing_paired_device_consequence">Vastase juhul on seadme seaded ja iseühendumine keelatud.</string>
     <string name="overview_reactions_hint_title">Reaktsioonid on seadmepõhised</string>
     <string name="overview_reactions_hint_body">Automaatne esitus, automaatne paus ja hüpikaknad on nüüd seadmepõhiselt seadistatud. Puudutage kaardi seadete ikooni, kui kõrvaklapid on ühendatud.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Taasta tavaseadistused</string>
     <string name="press_controls_reset_confirm_message">Lähestada kõik vajutuse vastendused tavaväärtustele?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Ava vajutuse juhtelemendid</string>
+    <string name="general_navigate_up_action">Liiguta üles</string>
+    <string name="general_progress_loading">Laeb</string>
 </resources>

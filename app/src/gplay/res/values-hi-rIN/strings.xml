@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play की रिपोर्ट है कि आपके पास पहले से यह अपग्रेड है, लेकिन इसे पुनर्स्थापित नहीं किया जा सका। सुनिश्चित करें कि आप उसी Google खाते का उपयोग कर रहे हैं जिससे आपने खरीदारी की थी। Play Store सिंक होने में समय लग सकता है — रीबूट करने, Google Play कैश साफ़ करने या बस थोड़ा इंतज़ार करने का प्रयास करें।</string>
     <string name="upgrade_restore_action">खरीदारी पुनर्स्थापित करें</string>
     <string name="upgrade_badge_label">प्रो</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s प्राप्त करें</string>
     <string name="upgrade_preamble">CAPod को एक ही व्यक्ति द्वारा विकसित किया गया है। अपग्रेड करने से अतिरिक्त सुविधाएँ अनलॉक होती हैं और ऐप को जीवित रखने में मदद मिलती है।</string>
     <string name="upgrade_screen_options_description">सुविधाएँ समान हैं, कीमत अलग है। सदस्यता में एक मुफ़्त ट्रायल शामिल है और इसे किसी भी समय रद्द किया जा सकता है।</string>
     <string name="upgrade_screen_options_description_no_trial">सुविधाएँ समान हैं, कीमत अलग है। सदस्यता को किसी भी समय रद्द किया जा सकता है।</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">सहायता से संपर्क करें</string>
     <string name="settings_upgrade_status_label">कैपोड प्रो</string>
     <string name="settings_upgrade_status_description">आपकी अपग्रेड और खरीद स्थिति।</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play से कनेक्ट नहीं हो सकता। क्या Google Play इंस्टॉल और अप-टू-डेट है? क्या आपका Google खाता लॉग इन है? Google Play ऐप का कैश साफ़ करने और अपने डिवाइस को रीबूट करने का प्रयास करें।</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play नहीं खोल सका. यह इस डिवाइस पर गायब, अक्षम या प्रतिबंधित हो सकता है.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play त्रुटि</string>
+    <string name="upgrades_gplay_internal_error_description">एक आंतरिक Google Play त्रुटि हुई। कृपया निम्नलिखित प्रयास करें:\n\n• अपने डिवाइस को पुनः शुरू करें\n• Google Play Store कैश साफ़ करें\n• बाद में फिर से प्रयास करें</string>
+    <string name="upgrades_gplay_network_error_title">कनेक्शन त्रुटि</string>
+    <string name="upgrades_gplay_network_error_description">Google Play से कनेक्ट करने में असमर्थ। कृपया अपने इंटरनेट कनेक्शन की जांच करें और फिर से प्रयास करें।</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ऑफ़र अनुपलब्ध</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play वर्तमान में यह अपग्रेड विकल्प नहीं दे रहा है। कृपया बाद में फिर से प्रयास करें या Google Play Store की जांच करें।</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play के साथ जांच समय पर पूरी नहीं हुई, इसलिए आपकी खरीद स्थिति अभी भी अज्ञात है। आपके खाते में कुछ भी नहीं बदला है।</string>
 </resources>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play greinir frá því að þú eigir þegar þessa uppfærslu, en ekki tókst að endurheimta hana. Gakktu úr skugga um að þú sért að nota sama Google reikning og þú keyptir með. Samstilling Play Store getur tekið tíma — reyndu að endurræsa, hreinsa skyndiminni Google Play eða bíða einfaldlega.</string>
     <string name="upgrade_restore_action">Endurheimta kaup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Fáðu %1$s</string>
     <string name="upgrade_preamble">CAPod er þróað af einum einstaklingi. Uppfærsla opnar aukamöguleika og hjálpar til við að halda forritinu á lífi.</string>
     <string name="upgrade_screen_options_description">Sömu eiginleikar, mismunandi verðlagning. Áskriftin inniheldur ókeypis prufutíma og hægt er að segja henni upp hvenær sem er.</string>
     <string name="upgrade_screen_options_description_no_trial">Sömu eiginleikar, mismunandi verðlagning. Hægt er að segja upp áskriftinni hvenær sem er.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Hafðu samband við stuðning</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Staða þinnar uppfærslu og kaupa</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod getur ekki tengst Google Play. Er Google Play uppsett og uppfært? Er Google reikningurinn þinn skráður inn? Reyndu að hreinsa skyndiminni Google Play appsins og endurræstu tækið þitt.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Gat ekki opnað Google Play. Það er hugsanlega ekki til, óvirkt eða takmarkað á þessu tæki.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play villa</string>
+    <string name="upgrades_gplay_internal_error_description">Innri Google Play villa kom upp. Reyndu eftirfarandi:\n\n• Endurræstu tækið\n• Hreinsaðu skyndiminni Google Play Store\n• Reyndu seinna</string>
+    <string name="upgrades_gplay_network_error_title">Tengingarvilla</string>
+    <string name="upgrades_gplay_network_error_description">Gat ekki tengst Google Play. Athugaðu internettengilinn þinn og reyndu aftur.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Tilboð ekki tiltækt</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play er ekki að bjóða þennan uppfærslumöguleika. Reyndu seinna eða athugaðu Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Athugun með Google Play klárðist ekki á réttum tíma, svo kaupstaða þín er enn óþekkt. Engin breyting hefur orðið á reikningnum þínum.</string>
 </resources>

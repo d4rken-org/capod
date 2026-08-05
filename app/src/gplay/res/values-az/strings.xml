@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play bu yüksəltməyə artıq sahib olduğunuzu bildirir, lakin bərpa edilə bilmədi. Satın aldığınız Google hesabından istifadə etdiyinizə əmin olun. Play Store sinxronizasiyası bir qədər vaxt apara bilər — yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
     <string name="upgrade_restore_action">Alışı bərpa et</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s əldə edin</string>
     <string name="upgrade_preamble">CAPod tək bir şəxs tərəfindən hazırlanır. Yüksəltmə əlavə funksiyaların kilidini açır və tətbiqin yaşamasına kömək edir.</string>
     <string name="upgrade_screen_options_description">Eyni funksiyalar, fərqli qiymətləndirmə. Abunəliyə pulsuz sınaq müddəti daxildir və istənilən vaxt ləğv edilə bilər.</string>
     <string name="upgrade_screen_options_description_no_trial">Eyni funksiyalar, fərqli qiymətləndirmə. Abunəlik istənilən vaxt ləğv edilə bilər.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Dəstək xidmətinə müraciət edin</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Sizin yüksəltmə və alış statusu.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play-ə qoşula bilmir. Google Play quraşdırılıb və yenilənib? Google hesabınız daxil olub? Google Play tətbiqinin keşini təmizləməyi və cihazınızı yenidən başlatmağı sınayın.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play açıla bilmədi. Bu cihazda yoxolmuş, deaktivləşdirilmiş və ya məhdudlaşdırılmış ola bilər.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play xətası</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-də daxili xəta baş verdi. Lütfən aşağıdakıları sınayın:\n\n• Cihazınızı yenidən başlatın\n• Google Play Store keşini təmizləyin\n• Daha sonra yenidən sınayın</string>
+    <string name="upgrades_gplay_network_error_title">Əlaqə xətası</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-ə qoşula bilmir. Lütfən internet bağlantınızı yoxlayın və yenidən sınayın.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Təklif əlçatan deyil</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hazırda bu yüksəltmə variantını təklif etmir. Lütfən daha sonra yenidən sınayın və ya Google Play Store-u yoxlayın.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ilə yoxlama vaxtında bitmədi, buna görə də alış statusunuz hələ də məlum deyil. Hesabınızda heç bir dəyişiklik olmamışdır.</string>
 </resources>

@@ -12,6 +12,7 @@
     <string name="general_donate_action">অনুদান দিন</string>
     <string name="general_check_action">চেক করুন</string>
     <string name="general_close_action">বন্ধ করুন</string>
+    <string name="general_dismiss_action">খারিজ করুন</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>
     <string name="general_save_action">সংরক্ষণ করুন</string>
     <string name="general_guide_action">নির্দেশিকা</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">ডিভাইস স্ট্যাটাস</string>
     <string name="notification_channel_device_status_connected_label">সংযুক্ত ডিভাইস</string>
     <string name="monitor_notification_extra_enabled_hint">আপনি সিস্টেম সেটিংসে এই বিজ্ঞপ্তি নিষ্ক্রিয় করতে পারেন।</string>
+    <string name="monitor_notification_starting">শুরু হচ্ছে…</string>
     <string name="support_debuglog_label">ডিবাগ লগ</string>
     <string name="support_debuglog_desc">অ্যাপটি যা কিছু করছে তা একটি শেয়ারযোগ্য টেক্সট ফাইলে রেকর্ড করুন।</string>
     <string name="debug_debuglog_size_label">আকার</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth নিষ্ক্রিয়, এটি সক্রিয় করুন ;)</string>
     <string name="overview_monitoring_active_label">ডিভাইসের জন্য পর্যবেক্ষণ চলছে</string>
     <string name="overview_monitoring_active_description">নিশ্চিত করুন যে আপনার ডিভাইস কাছে আছে এবং সক্রিয়।</string>
+    <string name="overview_monitoring_off_label">পটভূমি পর্যবেক্ষণ বন্ধ</string>
+    <string name="overview_monitoring_off_description">কোনো প্রোফাইলে পেয়ার করা Bluetooth ডিভাইস নেই, তাই CAPod শুধুমাত্র অ্যাপ খোলা থাকার সময় আপডেট করে। পটভূমি পর্যবেক্ষণ, চলমান বিজ্ঞপ্তি এবং প্রতিক্রিয়া সক্ষম করতে একটি বেছে নিন।</string>
+    <string name="overview_monitoring_off_action">পেয়ার করা ডিভাইস নির্বাচন করুন</string>
     <string name="overview_troubleshoot_suggestion_label">সংযুক্ত, কিন্তু কোনো ডেটা নেই</string>
     <string name="overview_troubleshoot_suggestion_description">আপনার ডিভাইসটি সংযুক্ত, কিন্তু CAPod এটি থেকে কোনো লাইভ ডেটা পাচ্ছে না। আপনার ফোনের একটি সামঞ্জস্যতা বিকল্পের প্রয়োজন হতে পারে — সমস্যা সমাধানকারী স্বয়ংক্রিয়ভাবে একটি খুঁজে পেতে চেষ্টা করতে পারে।</string>
     <string name="overview_troubleshoot_suggestion_action">সমস্যা সমাধানকারী চালান</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">কল শেষ করতে দুবার চাপুন</string>
     <string name="device_settings_open_cd">ডিভাইস সেটিংস খুলুন</string>
     <string name="overview_card_missing_paired_device">এই প্রোফাইলে কোনো পেয়ার করা ব্লুটুথ ডিভাইস নেই।</string>
+    <string name="overview_card_missing_paired_device_consequence">একটি ছাড়া, ডিভাইস সেটিংস এবং স্বয়ংক্রিয় সংযোগ উপলল্ধ নয়।</string>
     <string name="overview_reactions_hint_title">প্রতিক্রিয়াগুলি প্রতিটি ডিভাইসের জন্য আলাদা</string>
     <string name="overview_reactions_hint_body">অটো-প্লে, অটো-পজ এবং পপ-আপগুলি এখন প্রতিটি ডিভাইসের জন্য আলাদাভাবে কনফিগার করা হয়েছে। আপনার হেডফোন সংযুক্ত থাকাকালীন একটি কার্ডে সেটিংস আইকনে ট্যাপ করুন।</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">ডিফল্টে রিসেট করুন</string>
     <string name="press_controls_reset_confirm_message">সকল প্রেস ম্যাপিং ডিফল্টে রিসেট করবেন?</string>
     <string name="device_settings_noise_control_open_press_controls_action">প্রেস কন্ট্রোল খুলুন</string>
+    <string name="general_navigate_up_action">উপরে যান</string>
+    <string name="general_progress_loading">লোড হচ্ছে</string>
 </resources>

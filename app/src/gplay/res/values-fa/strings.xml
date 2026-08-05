@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">گوگل پلی گزارش می‌دهد که شما قبلاً این ارتقا را خریداری کرده‌اید، اما بازیابی آن ممکن نشد. مطمئن شوید که از همان حساب گوگلی که با آن خرید کرده‌اید استفاده می‌کنید. همگام‌سازی Play Store ممکن است زمان‌بر باشد — راه‌اندازی مجدد دستگاه، پاک کردن حافظه پنهان گوگل پلی یا کمی صبر کردن را امتحان کنید.</string>
     <string name="upgrade_restore_action">بازیابی خرید</string>
     <string name="upgrade_badge_label">حرفه‌ای</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">دریافت %1$s</string>
     <string name="upgrade_preamble">CAPod توسط یک نفر توسعه داده می‌شود. ارتقا امکانات اضافی را باز می‌کند و به زنده نگه داشتن این برنامه کمک می‌کند.</string>
     <string name="upgrade_screen_options_description">امکانات یکسان، قیمت‌گذاری متفاوت. اشتراک شامل یک دوره آزمایشی رایگان است و در هر زمان قابل لغو است.</string>
     <string name="upgrade_screen_options_description_no_trial">امکانات یکسان، قیمت‌گذاری متفاوت. اشتراک در هر زمان قابل لغو است.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">تماس با پشتیبانی</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">وضعیت ارتقاء و خرید شما.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod نمی‌تواند به Google Play متصل شود. آیا Google Play نصب شده و به‌روز است؟ آیا حساب Google شما وارد شده است؟ سعی کنید کش برنامه Google Play را پاک کنید و دستگاه خود را مجدداً راه‌اندازی کنید.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">نتوانست Google Play را باز کند. ممکن است این برنامه روی این دستگاه گمشده، غیرفعال یا محدود باشد.</string>
+    <string name="upgrades_gplay_internal_error_title">خطای Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">یک خطای داخلی Google Play رخ داده است. لطفاً موارد زیر را امتحان کنید:\n\n• دستگاه خود را دوباره راه‌اندازی کنید\n• کش Google Play Store را پاک کنید\n• بعداً دوباره امتحان کنید</string>
+    <string name="upgrades_gplay_network_error_title">خطای اتصال</string>
+    <string name="upgrades_gplay_network_error_description">نمی‌توان به Google Play متصل شد. لطفاً اتصال اینترنت خود را بررسی کنید و دوباره امتحان کنید.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">پیشنهاد در دسترس نیست</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play در حال حاضر این گزینه ارتقا را ارائه نمی‌دهد. لطفاً بعداً دوباره امتحان کنید یا Google Play Store را بررسی کنید.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">بررسی با Google Play به‌موقع تکمیل نشد، بنابراین وضعیت خریدتان هنوز نامعلوم است. هیچ چیزی در حساب شما تغییر نکرده است.</string>
 </resources>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">നിങ്ങൾ ഇതിനകം ഈ അപ്ഗ്രേഡ് സ്വന്തമാക്കിയിട്ടുണ്ടെന്ന് Google Play റിപ്പോർട്ട് ചെയ്യുന്നു, പക്ഷേ അത് പുനഃസ്ഥാപിക്കാൻ കഴിഞ്ഞില്ല. നിങ്ങൾ വാങ്ങിയ Google അക്കൗണ്ട് ഉപയോഗിക്കുന്നുണ്ടെന്ന് ഉറപ്പാക്കുക. Play Store സമന്വയത്തിന് സമയമെടുത്തേക്കാം — റീബൂട്ട് ചെയ്യാൻ ശ്രമിക്കുക, Google Play കാഷെ ക്ലിയർ ചെയ്യുക അല്ലെങ്കിൽ അൽപ്പം കാത്തിരിക്കുക.</string>
     <string name="upgrade_restore_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
     <string name="upgrade_badge_label">പ്രോ</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s നേടുക</string>
     <string name="upgrade_preamble">CAPod ഒരൊറ്റ വ്യക്തിയാണ് വികസിപ്പിക്കുന്നത്. അപ്ഗ്രേഡ് ചെയ്യുന്നത് അധിക ഫീച്ചറുകൾ അൺലോക്ക് ചെയ്യുകയും ആപ്പ് സജീവമായി നിലനിർത്താൻ സഹായിക്കുകയും ചെയ്യുന്നു.</string>
     <string name="upgrade_screen_options_description">അതേ ഫീച്ചറുകൾ, വ്യത്യസ്ത വിലനിർണ്ണയം. സബ്സ്ക്രിപ്ഷനിൽ ഒരു സൗജന്യ ട്രയൽ ഉൾപ്പെടുന്നു, എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാവുന്നതുമാണ്.</string>
     <string name="upgrade_screen_options_description_no_trial">അതേ ഫീച്ചറുകൾ, വ്യത്യസ്ത വിലനിർണ്ണയം. സബ്സ്ക്രിപ്ഷൻ എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാവുന്നതാണ്.</string>
@@ -67,4 +69,14 @@
     <string name="upgrade_screen_contact_support_action">പിന്തുണയ്ക്കായി ബന്ധപ്പെടുക</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">നിങ്ങളുടെ അപ്ഗ്രേഡിന്റെയും വാങ്ങലിന്റെയും സ്ഥിതി.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod-നിന് Google Play-യുമായി കണക്റ്റുചെയ്യാൻ കഴിയുന്നില്ല. Google Play ഇൻസ്റ്റാൾ ചെയ്‌ത് അപ്‌ഡേറ്റ് ചെയ്‌തിട്ടുണ്ടോ? നിങ്ങളുടെ Google അക്കൗണ്ട് ലോഗിൻ ചെയ്‌തിട്ടുണ്ടോ? Google Play ആപ്പിന്റെ കാഷെ മായ്‌ക്കാനും നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യാനും ശ്രമിക്കുക.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play തുറക്കാൻ കഴിഞ്ഞില്ല. ഇത് നഷ്ടപ്പെട്ടിരിക്കാം, പ്രവർത്തനരഹിതമാക്കപ്പെട്ടിരിക്കാം അല്ലെങ്കിൽ ഈ ഉപകരണത്തിൽ നിയന്ത്രിതമാക്കപ്പെട്ടിരിക്കാം.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play പിശക്</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-ൽ ഉള്ളിലെ പിശക് സംഭവിച്ചു. ദയവായി ഇനിപ്പറയുന്നത് ശ്രമിക്കുക:\n\n• നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിക്കുക\n• Google Play സ്റ്റോർ കാഷെ മായ്‌ക്കുക\n• പിന്നീട് വീണ്ടും ശ്രമിക്കുക</string>
+    <string name="upgrades_gplay_network_error_title">കണക്ഷൻ പിശക്</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-യുമായി കണക്റ്റുചെയ്യാൻ കഴിയുന്നില്ല. നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുകയും വീണ്ടും ശ്രമിക്കുകയും ചെയ്യുക.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ഓഫർ ലഭ്യമല്ല</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play നിലവിൽ ഈ അപ്‌ഗ്രേഡ് ഓപ്ഷൻ നൽകുന്നില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുകയോ Google Play സ്റ്റോർ പരിശോധിക്കുകയോ ചെയ്യുക.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-യുമായുള്ള പരിശോധനയ്ക്ക് സമയത്തിൽ പൂർത്തിയാകിയില്ല, അതിനാൽ നിങ്ങളുടെ ക്രയ അവസ്ഥ ഇപ്പോഴും അജ്ഞാതമാണ്. നിങ്ങളുടെ അക്കൗണ്ടിൽ ഒന്നും മാറിയിട്ടില്ല.</string>
 </resources>

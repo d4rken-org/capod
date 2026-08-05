@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play नुसार तुमच्याकडे आधीच हे अपग्रेड आहे, परंतु ते पुनर्संचयित करता आले नाही. तुम्ही ज्या Google खात्याने खरेदी केली आहे तेच वापरत असल्याची खात्री करा. Play Store समक्रमणास वेळ लागू शकतो — रीबूट करून पहा, Google Play कॅशे साफ करा किंवा फक्त थोडी प्रतीक्षा करा.</string>
     <string name="upgrade_restore_action">खरेदी पुनर्संचयित करा</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s मिळवा</string>
     <string name="upgrade_preamble">CAPod एका व्यक्तीने विकसित केले आहे. अपग्रेड केल्याने अतिरिक्त वैशिष्ट्ये अनलॉक होतात आणि अॅप सुरू ठेवण्यास मदत होते.</string>
     <string name="upgrade_screen_options_description">तीच वैशिष्ट्ये, वेगळी किंमत. सदस्यत्वामध्ये मोफत चाचणी समाविष्ट आहे आणि ते कधीही रद्द करता येते.</string>
     <string name="upgrade_screen_options_description_no_trial">तीच वैशिष्ट्ये, वेगळी किंमत. सदस्यत्व कधीही रद्द करता येते.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">समर्थन संपर्क करा</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">आपल्या अपग्रेड आणि खरेदी स्थिती.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play ला कनेक्ट होऊ शकत नाही. Google Play इंस्टॉल केलेले आहे आणि अद्ययावत आहे का? आपले Google Account लॉग इन केलेले आहे का? Google Play अ‍ॅप्लिकेशनचे कॅश साफ करण्याचा प्रयत्न करा आणि आपले डिव्हाइस रीबूट करा.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play उघडता आला नाही। ते या डिव्हाइसवर हरवलेले, अक्षम किंवा प्रतिबंधित असू शकते।</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play त्रुटी</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play मध्ये अंतर्गत त्रुटी आली. कृपया खालील प्रयत्न करा:\n\n• आपले डिव्हाइस पुन्हा सुरू करा\n• Google Play Store कॅश साफ करा\n• नंतर पुन्हा प्रयत्न करा</string>
+    <string name="upgrades_gplay_network_error_title">कनेक्शन त्रुटी</string>
+    <string name="upgrades_gplay_network_error_description">Google Play ला कनेक्ट होऊ शकत नाही. कृपया आपले इंटरनेट कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ऑफर उपलब्ध नाही</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play सध्या हा अपग्रेड पर्याय देत नाही. कृपया नंतर पुन्हा प्रयत्न करा किंवा Google Play Store तपासा.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play सह तपास वेळेत पूर्ण झाला नाही, म्हणून आपले खरेदी स्थिति अजूनही अज्ञात आहे. आपल्या खात्यावर काहीही बदल झाले नाही.</string>
 </resources>

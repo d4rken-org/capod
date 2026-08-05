@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Rûpela piştgiriyê veke</string>
     <string name="settings_upgrade_status_label">CAPod-ê piştgirî bike</string>
     <string name="settings_upgrade_status_description">Rewşa piştgiriya te.</string>
+    <string name="upgrade_screen_why_title">Feydeyên Bardiyê</string>
+    <string name="upgrade_screen_how_title">Çawa Alîkarî Bike</string>
+    <string name="upgrade_screen_how_body">Bibin patronê û pîşesaziyê xwehûnand bikin! Bişka jêrîn dakirin da ku hemî taybetiyên zêde çalak bikin û profîla GitHub Sponsors-a min vekirin.</string>
+    <string name="upgrade_screen_status_free_title">Guhertoya Belaş</string>
+    <string name="upgrade_screen_status_free_body">Hûn guhertoya belaş ya CAPod bikar tîne. Taybetiyên zêde dikarin bê pîşesaziyê xwehûnandê tê de vebirîn.</string>
+    <string name="upgrade_screen_status_free_action">Vebijarkên Bardiya Bibînin</string>
+    <string name="upgrade_screen_status_upgraded_title">Bardiya Çalak e</string>
+    <string name="upgrade_screen_recurring_title">Berdewam Bike</string>
+    <string name="upgrade_screen_recurring_body">CAPod di navberê nûkariyan û raskariyan de cardin pêşve diçe. Ger hûn dixwazin vê berdewam bikin, hemî kirînên danûstî di riya GitHub Sponsors-a de bifikirin.</string>
 </resources>

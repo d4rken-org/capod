@@ -12,6 +12,7 @@
     <string name="general_donate_action">ದಾನ ಮಾಡಿ</string>
     <string name="general_check_action">ಪರಿಶೀಲಿಸಿ</string>
     <string name="general_close_action">ಮುಚ್ಚಿ</string>
+    <string name="general_dismiss_action">ತಿರಸ್ಕರಿಸಿ</string>
     <string name="general_edit_action">ಸಂಪಾದಿಸಿ</string>
     <string name="general_save_action">ಉಳಿಸಿ</string>
     <string name="general_guide_action">ಮಾರ್ಗದರ್ಶಿ</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">ಸಾಧನದ ಸ್ಥಿತಿ</string>
     <string name="notification_channel_device_status_connected_label">ಸಂಪರ್ಕಿತ ಸಾಧನ</string>
     <string name="monitor_notification_extra_enabled_hint">ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಈ ಅಧಿಸೂಚನೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
+    <string name="monitor_notification_starting">ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…</string>
     <string name="support_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
     <string name="support_debuglog_desc">ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಪಠ್ಯ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
     <string name="debug_debuglog_size_label">ಗಾತ್ರ</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ, ಅದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ;)</string>
     <string name="overview_monitoring_active_label">ಸಾಧನಗಳಿಗಾಗಿ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="overview_monitoring_active_description">ನಿಮ್ಮ ಸಾಧನವು ಹತ್ತಿರದಲ್ಲಿದೆ ಮತ್ತು ಸಕ್ರಿಯವಾಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
+    <string name="overview_monitoring_off_label">ಹಿನ್ನೆಲೆ ಮೇಲ್ವಿಚಾರಣೆ ಆಫ್ ಆಗಿದೆ</string>
+    <string name="overview_monitoring_off_description">ಯಾವುದೇ ಪ್ರೋಫೈಲ್ ಜೋಡಿಸಲಾದ ಬ್ಲೂಟೂತ್ ಸಾಧನವನ್ನು ಹೊಂದಿಲ್ಲ, ಆದ್ದರಿಂದ ಸಿಎಪಿಪಾಡ್ ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಿರುವಾಗ ಮಾತ್ರ ನವೀಕರಣ ಮಾಡುತ್ತದೆ. ಹಿನ್ನೆಲೆ ಮೇಲ್ವಿಚಾರಣೆ, ನಿರಂತರ ಅಧಿಸೂಚನೆ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಒಂದನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</string>
+    <string name="overview_monitoring_off_action">ಜೋಡಿಸಲಾದ ಸಾಧನವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</string>
     <string name="overview_troubleshoot_suggestion_label">ಸಂಪರ್ಕಿಸಲಾಗಿದೆ, ಆದರೆ ಡೇಟಾ ಇಲ್ಲ</string>
     <string name="overview_troubleshoot_suggestion_description">ನಿಮ್ಮ ಸಾಧನ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ, ಆದರೆ CAPod ಅದರಿಂದ ಯಾವುದೇ ಲೈವ್ ಡೇಟಾ ಸ್ವೀಕರಿಸುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಯ ಅಗತ್ಯವಿರಬಹುದು — ಸಮಸ್ಯೆ ನಿವಾರಕ ಒಂದನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹುಡುಕಲು ಪ್ರಯತ್ನಿಸಬಹುದು.</string>
     <string name="overview_troubleshoot_suggestion_action">ಸಮಸ್ಯೆ ನಿವಾರಕ ರನ್ ಮಾಡಿ</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ಕರೆ ಮುಗಿಸಲು ಎರಡು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_open_cd">ಸಾಧನ ಸೆಟ್ಟಿಂಗ್ಸ್ ತೆರೆಯಿರಿ</string>
     <string name="overview_card_missing_paired_device">ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಯಾವುದೇ ಜೋಡಿಸಲಾದ ಬ್ಲೂಟೂತ್ ಸಾಧನವಿಲ್ಲ.</string>
+    <string name="overview_card_missing_paired_device_consequence">ಅದು ಇಲ್ಲದೆ, ಸಾಧನ ಸೆಟ್ಟಿಂಗುಗಳು ಮತ್ತು ಸ್ವಯಂ-ಸಂಪರ್ಕ ಲಭ್ಯವಿಲ್ಲ.</string>
     <string name="overview_reactions_hint_title">ಪ್ರತಿಕ್ರಿಯೆಗಳು ಪ್ರತಿ ಸಾಧನಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತವೆ</string>
     <string name="overview_reactions_hint_body">ಆಟೋ-ಪ್ಲೇ, ಆಟೋ-ಪಾಸ್ ಮತ್ತು ಪಾಪ್-ಅಪ್‌ಗಳನ್ನು ಈಗ ಪ್ರತಿ ಸಾಧನಕ್ಕೆ ಪ್ರತ್ಯೇಕವಾಗಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿದೆ. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳು ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ ಕಾರ್ಡ್‌ನಲ್ಲಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಐಕಾನ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">ಡಿಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಿ</string>
     <string name="press_controls_reset_confirm_message">ಎಲ್ಲಾ ಪ್ರೆಸ್ ಮ್ಯಾಪಿಂಗ್‌ಗಳನ್ನು ಡಿಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸುವುದೇ?</string>
     <string name="device_settings_noise_control_open_press_controls_action">ಪ್ರೆಸ್ ನಿಯಂತ್ರಣಗಳನ್ನು ತೆರೆಯಿರಿ</string>
+    <string name="general_navigate_up_action">ಮೇಲಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ</string>
+    <string name="general_progress_loading">ಲೋಡ್ ಆಗುತ್ತಿದೆ</string>
 </resources>

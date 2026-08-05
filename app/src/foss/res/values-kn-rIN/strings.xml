@@ -12,4 +12,12 @@
     <string name="upgrade_foss_sponsor_again_action">ಪ್ರಾಯೋಜಕ ಪುಟ ತೆರೆಯಿರಿ</string>
     <string name="settings_upgrade_status_label">CAPod ಬೆಂಬಲಿಸಿ</string>
     <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಬೆಂಬಲಕಾರ ಸ್ಥಿತಿ.</string>
+    <string name="upgrade_screen_why_title">ನವೀಕರಣ ಪ್ರಯೋಜನಗಳು</string>
+    <string name="upgrade_screen_how_title">ಸಹಾಯ ಮಾಡುವುದು ಹೇಗೆ</string>
+    <string name="upgrade_screen_how_body">ಆಶ್ರಯದಾತ ಮತ್ತು ಅಭಿವೃದ್ಧಿ ಸ್ಪನ್ಸರ್ ಆಗಿ ಮಾರ್ಪಡಿ! ಎಲ್ಲಾ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಮತ್ತು ನನ್ನ ಗಿಟ್‌ಹಬ್ ಸ್ಪನ್ಸರ್‌ಗಳ ಪ್ರೊಫೈಲ್ ತೆರೆಯಲು ಕೆಳಗಿನ ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="upgrade_screen_status_free_title">ಉಚಿತ ಆವೃತ್ತಿ</string>
+    <string name="upgrade_screen_status_free_body">ನೀವು ಸಿಎಪಿಪಾಡ್‌ನ ಉಚಿತ ಆವೃತ್ತಿಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಿ. ಅಭಿವೃದ್ಧಿಯನ್ನು ಬೆಂಬಲಿಸುವ ಮೂಲಕ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಬಹುದು.</string>
+    <string name="upgrade_screen_status_free_action">ನವೀಕರಣ ಆಯ್ಕೆಗಳನ್ನು ನೋಡಿ</string>
+    <string name="upgrade_screen_status_upgraded_title">ನವೀಕರಣ ಕ್ರಿಯಾಶೀಲ</string>
+    <string name="upgrade_screen_recurring_title">ಅದನ್ನು ಮುಂದುವರಿಸಿ</string>
 </resources>

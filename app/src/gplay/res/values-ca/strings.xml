@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">El Google Play informa que ja teniu aquesta actualització, però no s\'ha pogut restaurar. Assegureu-vos que feu servir el compte de Google amb què vau comprar-la. La sincronització del Play Store pot trigar una mica: proveu de reiniciar, esborreu la memòria cau del Google Play o simplement espereu.</string>
     <string name="upgrade_restore_action">Restaura la compra</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obtingueu %1$s</string>
     <string name="upgrade_preamble">El CAPod està desenvolupat per una sola persona. La millora desbloqueja funcions addicionals i ajuda a mantenir l\'aplicació activa.</string>
     <string name="upgrade_screen_options_description">Les mateixes funcions, preus diferents. La subscripció inclou una prova gratuïta i es pot cancel·lar en qualsevol moment.</string>
     <string name="upgrade_screen_options_description_no_trial">Les mateixes funcions, preus diferents. La subscripció es pot cancel·lar en qualsevol moment.</string>
@@ -52,18 +54,28 @@
     <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">Opcions de millora</string>
     <string name="upgrade_screen_offers_or">o</string>
-    <string name="upgrade_screen_offers_body">Les mateixes funcionalitats, només amb diferents models de preus.</string>
+    <string name="upgrade_screen_offers_body">Les mateixes funcions, només models de preus diferents.</string>
     <string name="upgrade_screen_offers_unavailable_title">Preus no disponibles</string>
-    <string name="upgrade_screen_offers_unavailable_message">Google Play no ha retornat els preus en aquest moment. Comprova la connexió i torna a intentar en un instant.</string>
+    <string name="upgrade_screen_offers_unavailable_message">El Google Play no ha retornat els preus en aquest moment. Comproveu la connexió i torneu-ho a provar en un moment.</string>
     <string name="upgrade_screen_subscription_offer_title">Subscripció anual</string>
-    <string name="upgrade_screen_subscription_offer_body">Es renova anualment després de la prova gratuïta. Pot cancel·lar en qualsevol moment a Google Play.</string>
-    <string name="upgrade_screen_subscription_offer_body_no_trial">Es renova anualment. Pot cancel·lar en qualsevol moment a Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body">Es renova anualment després del període de prova gratuït. Cancel·leu en qualsevol moment al Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Es renova anualment. Cancel·leu en qualsevol moment al Google Play.</string>
     <string name="upgrade_screen_iap_offer_body">Un pagament, sense renovacions.</string>
-    <string name="upgrade_screen_benefits_title">Beneficis de l’actualització</string>
-    <string name="upgrade_screen_restore_body">Restaurar demana a Google Play que comprovi de nou les compres d\'aquesta aplicació per al compte actual. No inicia cap compra nova.</string>
-    <string name="upgrade_screen_restore_checked_message">CAPod acaba de comprovar Google Play, però no s\'ha pogut confirmar cap compra Pro per al compte que Google Play utilitza per a aquesta aplicació.</string>
-    <string name="upgrade_screen_restore_contact_hint">Segueix encallat? Contacta amb el suport des del correu que va fer la compra i inclou el número de comanda de Google Play.</string>
+    <string name="upgrade_screen_benefits_title">Beneficis de la millora</string>
+    <string name="upgrade_screen_restore_body">La restauració sol·licita al Google Play que comprovi de nou les compres d\'aquesta aplicació per al compte actual. No inicia cap compra nova.</string>
+    <string name="upgrade_screen_restore_checked_message">El CAPod acaba de comprovar el Google Play, però no s\'ha pogut confirmar cap compra Pro per al compte que Google Play utilitza per a aquesta aplicació.</string>
+    <string name="upgrade_screen_restore_contact_hint">Encara teniu problemes? Contacteu amb l\'assistència des del correu amb què heu fet la compra i incloeu el número de comanda del Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Contacta amb el suport</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Estat de la vostra actualització i compra.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod no es pot connectar al Google Play. El Google Play està instal·lat i actualitzat? Heu iniciat sessió amb el vostre compte de Google? Proveu d\'esborrar la memòria cau de l\'aplicació Google Play i reinicieu el dispositiu.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">No s\'ha pogut obrir Google Play. Pot ser que no estigui instal·lat, desactivat o restringit en aquest dispositiu.</string>
+    <string name="upgrades_gplay_internal_error_title">Error del Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">S\'ha produït un error intern del Google Play. Proveu el següent:\n\n• Reinicieu el dispositiu\n• Esborreu la memòria cau del Google Play Store\n• Torneu-ho a provar més tard</string>
+    <string name="upgrades_gplay_network_error_title">Error de connexió</string>
+    <string name="upgrades_gplay_network_error_description">No es pot connectar al Google Play. Comproveu la connexió a Internet i torneu-ho a provar.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta no disponible</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play actualment no ofereix aquesta opció de millora. Si us plau, proveu més tard o consulteu la Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">La comprovació amb Google Play no s\'ha acabat a temps, per tant l\'estat de la vostra compra segueix sent desconegut. No ha canviat res en el vostre compte.</string>
 </resources>

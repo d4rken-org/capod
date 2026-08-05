@@ -12,6 +12,7 @@
     <string name="general_donate_action">کمک مالی</string>
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
+    <string name="general_dismiss_action">نادیده گرفتن</string>
     <string name="general_edit_action">ویرایش</string>
     <string name="general_save_action">ذخیره</string>
     <string name="general_guide_action">راهنما</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">وضعیت دستگاه</string>
     <string name="notification_channel_device_status_connected_label">دستگاه متصل</string>
     <string name="monitor_notification_extra_enabled_hint">می‌توانید این اعلان را در تنظیمات سیستم غیرفعال کنید.</string>
+    <string name="monitor_notification_starting">درحال راه‌اندازی…</string>
     <string name="support_debuglog_label">گزارش اشکال‌زدایی</string>
     <string name="support_debuglog_desc">تمام کارهایی که برنامه انجام می‌دهد را در یک فایل متنی که می‌توانید به اشتراک بگذارید، ضبط کنید.</string>
     <string name="debug_debuglog_size_label">اندازه</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">بلوتوث غیرفعال است، آن را فعال کنید ;)</string>
     <string name="overview_monitoring_active_label">نظارت بر دستگاه‌ها</string>
     <string name="overview_monitoring_active_description">مطمئن شوید دستگاه شما نزدیک و فعال است.</string>
+    <string name="overview_monitoring_off_label">نظارت پس‌زمینه خاموش است</string>
+    <string name="overview_monitoring_off_description">هیچ پروفایلی دستگاه Bluetooth جفت‌شده‌ای ندارد، بنابراین CAPod فقط وقتی برنامه باز است بروزرسانی می‌شود. یکی را برای فعال‌کردن نظارت پس‌زمینه، اطلاع مستمر و واکنش‌ها انتخاب کنید.</string>
+    <string name="overview_monitoring_off_action">انتخاب دستگاه جفت‌شده</string>
     <string name="overview_troubleshoot_suggestion_label">متصل است، اما داده‌ای وجود ندارد</string>
     <string name="overview_troubleshoot_suggestion_description">دستگاه شما متصل است، اما CAPod هیچ داده زنده‌ای از آن دریافت نمی‌کند. ممکن است تلفن شما به یک گزینه سازگاری نیاز داشته باشد — عیب‌یاب می‌تواند به‌طور خودکار تلاش کند آن را پیدا کند.</string>
     <string name="overview_troubleshoot_suggestion_action">اجرای عیب‌یاب</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">دوبار فشار برای پایان دادن تماس</string>
     <string name="device_settings_open_cd">باز کردن تنظیمات دستگاه</string>
     <string name="overview_card_missing_paired_device">این پروفایل هیچ دستگاه بلوتوثی جفت‌شده‌ای ندارد.</string>
+    <string name="overview_card_missing_paired_device_consequence">بدون آن، تنظیمات دستگاه و اتصال خودکار در دسترس نیستند.</string>
     <string name="overview_reactions_hint_title">واکنش‌ها برای هر دستگاه جداگانه هستند</string>
     <string name="overview_reactions_hint_body">پخش خودکار، توقف خودکار و پنجره‌های بازشو اکنون برای هر دستگاه پیکربندی می‌شوند. در حالی که هدفون‌های شما متصل هستند، روی آیکون تنظیمات روی یک کارت ضربه بزنید.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">بازنشانی به پیش‌فرض‌ها</string>
     <string name="press_controls_reset_confirm_message">همه نگاشت‌های فشار به پیش‌فرض بازنشانی شوند؟</string>
     <string name="device_settings_noise_control_open_press_controls_action">باز کردن کنترل‌های فشار</string>
+    <string name="general_navigate_up_action">بالا رفتن</string>
+    <string name="general_progress_loading">بارگذاری</string>
 </resources>

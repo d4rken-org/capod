@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Ava sponsorlehekülg</string>
     <string name="settings_upgrade_status_label">Rahasta CAPodi</string>
     <string name="settings_upgrade_status_description">Sinu toetaja staatus.</string>
+    <string name="upgrade_screen_why_title">Uuendamise eelised</string>
+    <string name="upgrade_screen_how_title">Kuidas aidata?</string>
+    <string name="upgrade_screen_how_body">Hakake toetajaks ja rahastage arendamist. Kõikide lisavõimaluste kasutamiseks ja minu GitHub Sponsors profiili avamiseks puudutage alumist nuppu.</string>
+    <string name="upgrade_screen_status_free_title">Tasuta versioon</string>
+    <string name="upgrade_screen_status_free_body">Kasutate CAPodi tasuta versiooni. Lisavõimaluste kasutamiseks toetage arendust.</string>
+    <string name="upgrade_screen_status_free_action">Vaadake täiendamise valikuid</string>
+    <string name="upgrade_screen_status_upgraded_title">Uuendus kasutatav</string>
+    <string name="upgrade_screen_recurring_title">Jätkake nii</string>
+    <string name="upgrade_screen_recurring_body">CAPod areneb pidevalt värskenduste ja paranduste kaudu. Kui soovite seda toetada, kaaluge korduvat annetust GitHub Sponsorsi kaudu.</string>
 </resources>

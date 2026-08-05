@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Atidaryti rėmėjo puslapį</string>
     <string name="settings_upgrade_status_label">Remti CAPod</string>
     <string name="settings_upgrade_status_description">Jūsų rėmėjo statusas.</string>
+    <string name="upgrade_screen_why_title">Atnaujinimo privalumai</string>
+    <string name="upgrade_screen_how_title">Kaip padėti</string>
+    <string name="upgrade_screen_how_body">Tapkite globėju ir rėmėju plėtros! Palieskite žemiau esantį mygtuką, kad suaktyvintumėte visas papildomas funkcijas ir atidarytumėte mano GitHub Sponsors profilį.</string>
+    <string name="upgrade_screen_status_free_title">Nemokama versija</string>
+    <string name="upgrade_screen_status_free_body">Jūs naudojate nemokamą CAPod versiją. Papildomos funkcijos gali būti atblokuotos palaikant kūrimą.</string>
+    <string name="upgrade_screen_status_free_action">Žiūrėti atnaujinimo galimybes</string>
+    <string name="upgrade_screen_status_upgraded_title">Atnaujinimas aktyvus</string>
+    <string name="upgrade_screen_recurring_title">Tęskime toliau</string>
+    <string name="upgrade_screen_recurring_body">CAPod nuolat tobulėja per atnaujinimus ir pataisas. Jei norite tai palaikyti, apsvarstyti pasikartojančią donaciją per GitHub Sponsors.</string>
 </resources>

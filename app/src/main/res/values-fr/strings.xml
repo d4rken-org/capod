@@ -12,6 +12,7 @@
     <string name="general_donate_action">Faire un don</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_close_action">Fermer</string>
+    <string name="general_dismiss_action">Fermer</string>
     <string name="general_edit_action">Modifier</string>
     <string name="general_save_action">Enregistrer</string>
     <string name="general_guide_action">Guide</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">État de l’appareil</string>
     <string name="notification_channel_device_status_connected_label">L’appareil est connecté</string>
     <string name="monitor_notification_extra_enabled_hint">Vous pouvez désactiver cette notification dans les paramètres système.</string>
+    <string name="monitor_notification_starting">Démarrage en cours…</string>
     <string name="support_debuglog_label">Journal de débogage</string>
     <string name="support_debuglog_desc">Enregistrez les actions de l\'appli dans un fichier texte que vous pouvez partager.</string>
     <string name="debug_debuglog_size_label">Taille</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth est désactivé, activez-le ;)</string>
     <string name="overview_monitoring_active_label">Surveillance des appareils</string>
     <string name="overview_monitoring_active_description">Assurez-vous que votre appareil est proche et actif.</string>
+    <string name="overview_monitoring_off_label">La surveillance en arrière-plan est désactivée</string>
+    <string name="overview_monitoring_off_description">Aucun profil n\'a d\'appareil Bluetooth appairé, donc CAPod ne se met à jour que lorsque l\'appli est ouverte. Sélectionnez-en un pour activer la surveillance en arrière-plan, la notification persistante et les réactions.</string>
+    <string name="overview_monitoring_off_action">Sélectionner un appareil appairé</string>
     <string name="overview_troubleshoot_suggestion_label">Connecté, mais aucune donnée</string>
     <string name="overview_troubleshoot_suggestion_description">Votre appareil est connecté, mais CAPod ne reçoit aucune donnée en direct de sa part. Votre téléphone a peut-être besoin d’une option de compatibilité — le dépannage peut essayer d’en trouver une automatiquement.</string>
     <string name="overview_troubleshoot_suggestion_action">Lancer le dépannage</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double appui pour terminer l’appel</string>
     <string name="device_settings_open_cd">Ouvrir les paramètres de l’appareil</string>
     <string name="overview_card_missing_paired_device">Ce profil n\'a aucun appareil Bluetooth associé.</string>
+    <string name="overview_card_missing_paired_device_consequence">Sans cela, les paramètres de l\'appareil et la connexion automatique ne sont pas disponibles.</string>
     <string name="overview_reactions_hint_title">Les réactions sont par appareil</string>
     <string name="overview_reactions_hint_body">La lecture automatique, la pause automatique et les fenêtres contextuelles sont désormais configurées par appareil. Appuyez sur l’icône des paramètres d’une carte lorsque vos écouteurs sont connectés.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Rétablir les valeurs par défaut</string>
     <string name="press_controls_reset_confirm_message">Réinitialiser toutes les associations de pressions par défaut ?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Ouvrir les commandes de pression</string>
+    <string name="general_navigate_up_action">Retour</string>
+    <string name="general_progress_loading">Chargement</string>
 </resources>

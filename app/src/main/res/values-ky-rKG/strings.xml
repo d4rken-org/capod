@@ -12,6 +12,7 @@
     <string name="general_donate_action">Чыгым көрсөтүү</string>
     <string name="general_check_action">Текшерүү</string>
     <string name="general_close_action">Жабуу</string>
+    <string name="general_dismiss_action">Жабуу</string>
     <string name="general_edit_action">Өзгөртүү</string>
     <string name="general_save_action">Сактоо</string>
     <string name="general_guide_action">Колдонмо</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Түзмөктүн абалы</string>
     <string name="notification_channel_device_status_connected_label">Туташкан түзмөк</string>
     <string name="monitor_notification_extra_enabled_hint">Бул эскертмени тутум жөндөөлөрүнөн өчүрүүгө болот.</string>
+    <string name="monitor_notification_starting">Баштоодо…</string>
     <string name="support_debuglog_label">Мүчүлүштүктөрдү оңдоо журналы</string>
     <string name="support_debuglog_desc">Колдонмо жасап жаткан бардык нерсени бөлүшө турган текст файлына жазыңыз.</string>
     <string name="debug_debuglog_size_label">Өлчөмү</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth өчүрүлгөн, аны күйгүзүңүз ;)</string>
     <string name="overview_monitoring_active_label">Түзмөктөрдү издөөдө</string>
     <string name="overview_monitoring_active_description">Түзмөгүңүз жакын жана активдүү экенин текшериңиз.</string>
+    <string name="overview_monitoring_off_label">Фондо мониторинг өчүк</string>
+    <string name="overview_monitoring_off_description">Профильдер туташтырылган Bluetooth түзмөгүнө ээ эмес, ошондуктан CAPod гана приложениелер ачык болгондо жаңыланат. Фондо мониторинг, туруктуу эскертмелер жана реакциялар жүргүзүү үчүн бирөөнү тандаңыз.</string>
+    <string name="overview_monitoring_off_action">Туташтырылган түзмөгүнү тандаңыз</string>
     <string name="overview_troubleshoot_suggestion_label">Туташтырылган, бирок маалымат жок</string>
     <string name="overview_troubleshoot_suggestion_description">Түзмөгүңүз туташтырылган, бирок CAPod андан жандуу маалымат алып жаткан жок. Телефонуңузга шайкештик параметри керек болушу мүмкүн — кыйынчылыктарды аныктагыч аны автоматтык түрдө тапкыла кыла алат.</string>
     <string name="overview_troubleshoot_suggestion_action">Кыйынчылыктарды аныктагычты иштетүү</string>
@@ -481,6 +486,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Чалууну аяктоо үчүн эки жолу басыңыз</string>
     <string name="device_settings_open_cd">Түзмөк жөндөөлөрүн ачуу</string>
     <string name="overview_card_missing_paired_device">Бул профилде жупталган Bluetooth түзмөгү жок.</string>
+    <string name="overview_card_missing_paired_device_consequence">Бирөөнү тандабасаңыз, түзмөк орнотуулары жана автоматтык туташтыруу жеткиликсиз.</string>
     <string name="overview_reactions_hint_title">Реакциялар ар бир түзмөк үчүн жеке</string>
     <string name="overview_reactions_hint_body">Авто-ойноо, авто-тындыруу жана калкып чыгуучу терезелер азыр ар бир түзмөк үчүн жеке конфигурацияланган. Каргоочуларыңыз туташып турганда картадагы жөндөөлөр сүрөтчөсүнө тийиңиз.</string>
     <!-- New device settings -->
@@ -560,4 +566,6 @@
     <string name="press_controls_reset_label">Адаттан калгандайга кайтаруу</string>
     <string name="press_controls_reset_confirm_message">Бардык басуу бәлүмдөрүн адаттан калгандайга кайтаруу?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Басуу Башкарууну ачуу</string>
+    <string name="general_navigate_up_action">Жогору өтүү</string>
+    <string name="general_progress_loading">Жүктөлүүдө</string>
 </resources>
