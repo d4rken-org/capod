@@ -70,7 +70,7 @@
     <string name="settings_upgrade_status_description">Your upgrade and purchase status.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod can\'t connect to Google Play. Is Google Play installed and up to date? Is your Google Account logged in? Try clearing the cache of the Google Play app and rebooting your device.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
-    <string name="upgrades_gplay_not_installed_message">Google Play is not installed.</string>
+    <string name="upgrades_gplay_not_installed_message">Couldn\'t open Google Play. It may be missing, disabled or restricted on this device.</string>
     <string name="upgrades_gplay_internal_error_title">Google Play error</string>
     <string name="upgrades_gplay_internal_error_description">An internal Google Play error occurred. Please try the following:\n\n• Restart your device\n• Clear Google Play Store cache\n• Try again later</string>
     <string name="upgrades_gplay_network_error_title">Connection error</string>
