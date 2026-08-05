@@ -534,6 +534,9 @@
     <string name="overview_card_missing_paired_device_consequence">Without one, device settings and auto-connect aren\'t available.</string>
     <string name="overview_reactions_hint_title">Reactions are per device</string>
     <string name="overview_reactions_hint_body">Auto-play, auto-pause and pop-ups are now configured per device. Tap the settings icon on a card while your headphones are connected.</string>
+    <string name="review_app_review_action">Review</string>
+    <string name="review_app_dismiss_action">Maybe later</string>
+    <string name="review_app_body">Would you like to leave CAPod a review? ❤️</string>
 
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>

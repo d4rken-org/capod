@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview
 
+import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothManager2
@@ -15,6 +16,7 @@ import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.permissions.Permission
+import eu.darken.capod.common.review.ReviewTool
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -65,6 +67,7 @@ class OverviewViewModel @Inject constructor(
     private val monitorModeResolver: MonitorModeResolver,
     private val batteryEstimator: BatteryEstimator,
     private val timeSource: TimeSource,
+    private val reviewTool: ReviewTool,
 ) : ViewModel4(dispatcherProvider) {
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
@@ -92,6 +95,7 @@ class OverviewViewModel @Inject constructor(
         val showTroubleshootSuggestion: Boolean,
         val batteryEstimates: Map<String, BatteryEstimate>,
         val effectiveMode: MonitorMode,
+        val reviewState: ReviewTool.State,
     )
 
     /**
@@ -123,19 +127,23 @@ class OverviewViewModel @Inject constructor(
         .onStart { emit(false) }
         .distinctUntilChanged()
 
-    private val overviewUiSettings = combineFlows(
+    private val overviewUiSettings = combine(
         generalSettings.reactionsHintDismissed.flow,
         generalSettings.hideUnmatchedDevices.flow,
         troubleshootSuggestion,
         batteryEstimator.estimates,
         monitorModeResolver.effectiveMode,
-    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates, effectiveMode ->
+        // The review prompt is a nice-to-have: a failing review backend must never take the whole
+        // overview down with it, so it falls back to "don't ask".
+        reviewTool.state.catch { emit(ReviewTool.State()) },
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates, effectiveMode, reviewState ->
         OverviewUiSettings(
             reactionsHintDismissed = reactionsHintDismissed,
             hideUnmatchedDevices = hideUnmatched,
             showTroubleshootSuggestion = showTroubleshootSuggestion,
             batteryEstimates = batteryEstimates,
             effectiveMode = effectiveMode,
+            reviewState = reviewState,
         )
     }
 
@@ -212,7 +220,7 @@ class OverviewViewModel @Inject constructor(
         val currentProfileIds = profiles.map { it.id }.toSet()
         val prunedExpandedIds = expandedIds.filter { it in currentProfileIds }.toSet()
 
-        State(
+        val state = State(
             now = timeSource.now(),
             permissions = permissions,
             devices = devices,
@@ -228,6 +236,15 @@ class OverviewViewModel @Inject constructor(
             showTroubleshootSuggestion = uiSettings.showTroubleshootSuggestion,
             batteryEstimates = uiSettings.batteryEstimates,
         )
+
+        // Asking for a review is the lowest priority thing the overview can say: it only appears on
+        // an otherwise quiet screen, never stacked on top of something the user has to act on.
+        val showReviewCard = uiSettings.reviewState.shouldAskForReview && !state.hasHigherPriorityCard
+        if (uiSettings.reviewState.shouldAskForReview && !showReviewCard) {
+            log(TAG) { "Could show review card but higher priority cards are currently being shown" }
+        }
+
+        state.copy(showReviewCard = showReviewCard)
     }.asLiveState()
 
     enum class BluetoothIconState { HIDDEN, DISABLED, NEARBY, CONNECTED }
@@ -249,6 +266,7 @@ class OverviewViewModel @Inject constructor(
         val hideUnmatchedDevices: Boolean = false,
         val showTroubleshootSuggestion: Boolean = false,
         val batteryEstimates: Map<String, BatteryEstimate> = emptyMap(),
+        val showReviewCard: Boolean = false,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
 
@@ -311,6 +329,18 @@ class OverviewViewModel @Inject constructor(
                 profiledDevices.isEmpty() && !shouldShowUnmatchedSection -> MonitoringStatus.SEARCHING
                 else -> MonitoringStatus.HIDDEN
             }
+
+        /**
+         * Whether the overview is currently showing a card that outranks the review prompt: a
+         * missing permission, the troubleshooter hint, the background-monitoring-off notice or the
+         * no-profiles setup card. All of those ask the user to do something, so the review prompt
+         * stays hidden while any of them is on screen.
+         */
+        val hasHigherPriorityCard: Boolean
+            get() = permissions.isNotEmpty() ||
+                    showTroubleshootSuggestion ||
+                    monitoringStatus == MonitoringStatus.BACKGROUND_OFF ||
+                    (profiles.isEmpty() && !isScanBlocked && isBluetoothEnabled)
 
         val soleProfileId: ProfileId? get() = profiles.singleOrNull()?.id
 
@@ -390,6 +420,16 @@ class OverviewViewModel @Inject constructor(
         launch {
             generalSettings.reactionsHintDismissed.value(true)
         }
+    }
+
+    fun reviewNow(activity: Activity) {
+        log(TAG, INFO) { "reviewNow($activity)" }
+        launch { reviewTool.reviewNow(activity) }
+    }
+
+    fun reviewDismiss() {
+        log(TAG, INFO) { "reviewDismiss()" }
+        launch { reviewTool.dismiss() }
     }
 
     fun requestPermission(permission: Permission) {
