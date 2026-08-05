@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview
 
+import android.app.Activity
 import android.content.Intent
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -62,6 +63,7 @@ import eu.darken.capod.main.ui.overview.cards.MonitoringActiveCard
 import eu.darken.capod.main.ui.overview.cards.NoProfilesCard
 import eu.darken.capod.main.ui.overview.cards.PermissionCard
 import eu.darken.capod.main.ui.overview.cards.ReactionsMovedHintCard
+import eu.darken.capod.main.ui.overview.cards.ReviewCard
 import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.TroubleshootSuggestionCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
@@ -163,6 +165,10 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val currentState = state ?: return
 
+    // Play's in-app review flow needs a hosting Activity. Without one the card still renders, but
+    // with its review action disabled instead of silently doing nothing.
+    val activity = context as? Activity
+
     OverviewScreen(
         state = currentState,
         snackbarHostState = snackbarHostState,
@@ -191,6 +197,8 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onSetupPairedDevice = {
             currentState.soleProfileId?.let { vm.goToEditProfile(it) } ?: vm.goToDeviceManager()
         },
+        onReviewNow = activity?.let { host -> { vm.reviewNow(host) } },
+        onReviewDismiss = { vm.reviewDismiss() },
     )
 }
 
@@ -210,6 +218,8 @@ fun OverviewScreen(
     onEditProfile: (PodDevice) -> Unit = {},
     onToggleDeviceExpansion: (PodDevice) -> Unit = {},
     onSetupPairedDevice: () -> Unit = {},
+    onReviewNow: (() -> Unit)? = null,
+    onReviewDismiss: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -309,6 +319,16 @@ fun OverviewScreen(
             if (state.profiles.isEmpty() && !state.isScanBlocked && state.isBluetoothEnabled) {
                 item(key = "no_profiles") {
                     NoProfilesCard(onManageDevices = onManageDevices)
+                }
+            }
+
+            // 3b. Review prompt, only shown while no higher priority card is on screen
+            if (state.showReviewCard) {
+                item(key = "review") {
+                    ReviewCard(
+                        onReview = onReviewNow,
+                        onDismiss = onReviewDismiss,
+                    )
                 }
             }
 
