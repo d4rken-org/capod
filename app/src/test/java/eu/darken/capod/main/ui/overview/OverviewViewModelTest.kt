@@ -5,6 +5,7 @@ import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.permissions.Permission
+import eu.darken.capod.common.review.ReviewTool
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
@@ -60,6 +61,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var monitorModeResolver: MonitorModeResolver
     private lateinit var batteryEstimator: BatteryEstimator
+    private lateinit var reviewTool: ReviewTool
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
@@ -70,6 +72,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var hadLegacyReactionDataFlow: MutableStateFlow<Boolean>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
+    private lateinit var reviewStateFlow: MutableStateFlow<ReviewTool.State>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
     private lateinit var fakeHideUnmatchedDevices: FakeDataStoreValue<Boolean>
 
@@ -88,6 +91,7 @@ class OverviewViewModelTest : BaseTest() {
             every { it.error } returns null
         })
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
+        reviewStateFlow = MutableStateFlow(ReviewTool.State())
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
         fakeHideUnmatchedDevices = FakeDataStoreValue(false)
         Bugs.isDebug.value = false
@@ -131,6 +135,12 @@ class OverviewViewModelTest : BaseTest() {
             every { it.profiles } returns profilesFlow
             every { it.hadLegacyReactionData } returns hadLegacyReactionDataFlow
         }
+
+        // Explicitly stubbed, never relaxed: a relaxed mock hands back a flow that never emits,
+        // which would starve the combine backing `state` and hang every test in this class.
+        reviewTool = mockk<ReviewTool>().also {
+            every { it.state } returns reviewStateFlow
+        }
     }
 
     @AfterEach
@@ -152,6 +162,7 @@ class OverviewViewModelTest : BaseTest() {
         monitorModeResolver = monitorModeResolver,
         batteryEstimator = batteryEstimator,
         timeSource = timeSource,
+        reviewTool = reviewTool,
     )
 
     @Nested
@@ -845,6 +856,94 @@ class OverviewViewModelTest : BaseTest() {
             devicesFlow.value = listOf(PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null))
             advanceTimeBy(10_000)
             latest!!.showTroubleshootSuggestion shouldBe false
+        }
+    }
+
+    @Nested
+    inner class ReviewCardTests {
+
+        private val connectedAddress = "AA:BB:CC:DD:EE:FF"
+
+        private fun profile(): DeviceProfile = AppleDeviceProfile(
+            label = "Test",
+            model = PodModel.AIRPODS_PRO2,
+            address = connectedAddress,
+        )
+
+        /** Quiet overview: a set up profile, no missing permissions, nothing else to act on. */
+        private fun quietOverview() {
+            profilesFlow.value = listOf(profile())
+            missingPermissionsFlow.value = emptySet()
+            effectiveModeFlow.value = MonitorMode.AUTOMATIC
+            reviewStateFlow.value = ReviewTool.State(shouldAskForReview = true)
+        }
+
+        @Test
+        fun `shown on a quiet overview when the tool asks for it`() = runTest(testDispatcher) {
+            quietOverview()
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe true
+        }
+
+        @Test
+        fun `not shown while the tool does not ask for it`() = runTest(testDispatcher) {
+            quietOverview()
+            reviewStateFlow.value = ReviewTool.State(shouldAskForReview = false)
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe false
+        }
+
+        @Test
+        fun `suppressed by a missing permission`() = runTest(testDispatcher) {
+            quietOverview()
+            missingPermissionsFlow.value = setOf(Permission.BLUETOOTH_SCAN)
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe false
+        }
+
+        @Test
+        fun `suppressed by the no-profiles setup card`() = runTest(testDispatcher) {
+            quietOverview()
+            profilesFlow.value = emptyList()
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe false
+        }
+
+        @Test
+        fun `suppressed by the background-monitoring-off card`() = runTest(testDispatcher) {
+            quietOverview()
+            effectiveModeFlow.value = MonitorMode.MANUAL
+
+            val vm = createViewModel()
+
+            vm.state.first().showReviewCard shouldBe false
+        }
+
+        @Test
+        fun `suppressed by the troubleshooter suggestion`() = runTest(testDispatcher) {
+            quietOverview()
+            // Connected via audio but no live data: the hint appears after its debounce window.
+            connectedDevicesFlow.value = listOf(
+                mockk<BluetoothDevice2>(relaxed = true) { every { address } returns connectedAddress }
+            )
+            devicesFlow.value = emptyList()
+
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(20_000)
+
+            latest!!.showTroubleshootSuggestion shouldBe true
+            latest!!.showReviewCard shouldBe false
         }
     }
 
