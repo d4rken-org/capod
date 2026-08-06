@@ -501,6 +501,9 @@
     <string name="overview_card_missing_paired_device_consequence">Be jo, įrenginio nustatymai ir automatinis prisijungimas nėra pasiekiami.</string>
     <string name="overview_reactions_hint_title">Reakcijos nustatomos kiekvienam įrenginiui</string>
     <string name="overview_reactions_hint_body">Automatinis paleidimas, automatinis pristabdymas ir iššokantys langai dabar konfigūruojami kiekvienam įrenginiui. Bakstelėkite nustatymų piktogramą kortelėje, kol jūsų ausinės yra prijungtos.</string>
+    <string name="review_app_review_action">Recenzija</string>
+    <string name="review_app_dismiss_action">Galbūt vėliau</string>
+    <string name="review_app_body">Ar norėtumėte palikti CAPod recenziją? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Bendrieji</string>
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>

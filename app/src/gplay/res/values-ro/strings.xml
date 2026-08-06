@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play raportează că deții deja acest upgrade, dar nu a putut fi restaurat. Asigură-te că folosești contul Google cu care ai făcut achiziția. Sincronizarea Play Store poate dura ceva timp — încearcă să repornești telefonul, să ștergi memoria cache a Google Play sau pur și simplu așteaptă.</string>
     <string name="upgrade_restore_action">Restabiliți achiziția</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obține %1$s</string>
     <string name="upgrade_preamble">CAPod este dezvoltat de o singură persoană. Upgrade-ul deblochează funcții suplimentare și ajută la menținerea aplicației în viață.</string>
     <string name="upgrade_screen_options_description">Aceleași funcții, prețuri diferite. Abonamentul include o perioadă de probă gratuită și poate fi anulat oricând.</string>
     <string name="upgrade_screen_options_description_no_trial">Aceleași funcții, prețuri diferite. Abonamentul poate fi anulat oricând.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Contactează suportul</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Statusul tău de actualizare și achiziție.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod nu se poate conecta la Google Play. Este Google Play instalat și actualizat? Contul tău Google este conectat? Încearcă să ștergi memoria cache a aplicației Google Play și să repornești dispozitivul.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nu s-a putut deschide Google Play. Este posibil să lipsească, să fie dezactivat sau restricționat pe acest dispozitiv.</string>
+    <string name="upgrades_gplay_internal_error_title">Eroare Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">A apărut o eroare internă din Google Play. Te rugăm să încerci următoarele:\n\n• Repornește dispozitivul\n• Șterge memoria cache Google Play Store\n• Încearcă din nou mai târziu</string>
+    <string name="upgrades_gplay_network_error_title">Eroare de conectare</string>
+    <string name="upgrades_gplay_network_error_description">Nu se poate conecta la Google Play. Te rugăm să verifici conexiunea ta la internet și să încerci din nou.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ofertă indisponibilă</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play nu oferă în prezent această opțiune de upgrade. Te rugăm să încerci din nou mai târziu sau să verifici Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Verificarea cu Google Play nu s-a încheiat la timp, deci statutul achiziției tale rămâne necunoscut. Nimic nu s-a schimbat pe contul tău.</string>
 </resources>

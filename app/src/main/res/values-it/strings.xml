@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Senza uno, le impostazioni del dispositivo e la connessione automatica non sono disponibili.</string>
     <string name="overview_reactions_hint_title">Le reazioni sono per dispositivo</string>
     <string name="overview_reactions_hint_body">Riproduzione automatica, pausa automatica e pop-up sono ora configurati per dispositivo. Tocca l\'icona delle impostazioni su una scheda mentre le cuffie sono collegate.</string>
+    <string name="review_app_review_action">Recensione</string>
+    <string name="review_app_dismiss_action">Forse più tardi</string>
+    <string name="review_app_body">Vuoi lasciare una recensione su CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfono</string>

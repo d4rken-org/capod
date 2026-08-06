@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Avrir la pagina da sponsurisaziun</string>
     <string name="settings_upgrade_status_label">Sponsurar CAPod</string>
     <string name="settings_upgrade_status_description">Tes status da supporter.</string>
+    <string name="upgrade_screen_why_title">Bials da l\'upgrade</string>
+    <string name="upgrade_screen_how_title">Sco gidar</string>
+    <string name="upgrade_screen_how_body">Vign patrun e sustegna l\'svilup! Tucha il buttun sut per activar tut las funcziuns extrasas e per avrir miu profil da GitHub Sponsors.</string>
+    <string name="upgrade_screen_status_free_title">Versiun gratuitusa</string>
+    <string name="upgrade_screen_status_free_body">Tu utilizzas la versiun gratuitusa da CAPod. Funcziuns extrasas pon vegnir deblochadas cun sustegnair l\'svilup.</string>
+    <string name="upgrade_screen_status_free_action">Vesair las opcziuns da upgrade</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade activà</string>
+    <string name="upgrade_screen_recurring_title">Mantegnair d\'en viva</string>
+    <string name="upgrade_screen_recurring_body">CAPod continua a sa sviluppar tras actualizaziuns e reparas. Sche ti vuls sustegnair quai, cunsiglia ina donazziun ricorrent via GitHub Sponsors.</string>
 </resources>

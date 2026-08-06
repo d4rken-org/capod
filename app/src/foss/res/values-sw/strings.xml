@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Fungua ukurasa wa udhamini</string>
     <string name="settings_upgrade_status_label">Kuunga mkono CAPod</string>
     <string name="settings_upgrade_status_description">Hali yako ya kuunga mkono.</string>
+    <string name="upgrade_screen_why_title">Faida za kuboreshwa</string>
+    <string name="upgrade_screen_how_title">Jinsi ya kusaidia</string>
+    <string name="upgrade_screen_how_body">Kuwa mfumo na mfadhili wa maendeleo! Gusa kitufe kilicho hapa chini ili kuwezesha vipengele vyote vya ziada na kufungua wasifu wangu wa GitHub Sponsors.</string>
+    <string name="upgrade_screen_status_free_title">Toleo la bure</string>
+    <string name="upgrade_screen_status_free_body">Unatumia toleo la bure la CAPod. Huduma za ziada zinaweza kufunguliwa kwa kusaidia maendeleo.</string>
+    <string name="upgrade_screen_status_free_action">Tazama chaguo za kuboreshwa</string>
+    <string name="upgrade_screen_status_upgraded_title">Kuboreshwa kimefanya kazi</string>
+    <string name="upgrade_screen_recurring_title">Endelea na hilo</string>
+    <string name="upgrade_screen_recurring_body">CAPod inaendelea kupitia sasisho na marekebisho. Ikiwa ungependa kusaidia, fikiria kumfanya mchango wa mara kwa mara kupitia GitHub Sponsors.</string>
 </resources>

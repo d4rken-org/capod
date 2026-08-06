@@ -199,6 +199,8 @@
     <string name="overview_monitoring_active_label">Παρακολούθηση συσκευών</string>
     <string name="overview_monitoring_active_description">Βεβαιωθείτε ότι η συσκευή σας είναι κοντά και ενεργή.</string>
     <string name="overview_monitoring_off_label">Η παρακολούθηση υποβάθρου είναι απενεργοποιημένη</string>
+    <string name="overview_monitoring_off_description">Κανένα προφίλ δεν διαθέτει μια συνδεδεμένη συσκευή Bluetooth, οπότε το CAPod ενημερώνεται μόνο όταν η εφαρμογή είναι ανοιχτή. Επιλέξτε ένα για να ενεργοποιήσετε την παρακολούθηση υποβάθρου, τη συνεχή ειδοποίηση και τις αντιδράσεις.</string>
+    <string name="overview_monitoring_off_action">Επιλέξτε συνδεμένη συσκευή</string>
     <string name="overview_troubleshoot_suggestion_label">Συνδέθηκε, αλλά χωρίς δεδομένα</string>
     <string name="overview_troubleshoot_suggestion_description">Η συσκευή σου είναι συνδεδεμένη, αλλά το CAPod δεν λαμβάνει ζωντανά δεδομένα από αυτήν. Το τηλέφωνό σου μπορεί να χρειαστεί μια επιλογή συμβατότητας — ο εντοπισμός προβλημάτων μπορεί να προσπαθήσει να βρει μία αυτόματα.</string>
     <string name="overview_troubleshoot_suggestion_action">Εκτέλεση εντοπισμού προβλημάτων</string>
@@ -487,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Χωρίς αυτό, οι ρυθμίσεις συσκευής και η αυτόματη σύνδεση δεν είναι διαθέσιμες.</string>
     <string name="overview_reactions_hint_title">Οι αντιδράσεις είναι ανά συσκευή</string>
     <string name="overview_reactions_hint_body">Η αυτόματη αναπαραγωγή, η αυτόματη παύση και τα αναδυόμενα παράθυρα διαμορφώνονται πλέον ανά συσκευή. Πατήστε το εικονίδιο ρυθμίσεων σε μια κάρτα ενώ τα ακουστικά σας είναι συνδεδεμένα.</string>
+    <string name="review_app_review_action">Αξιολόγηση</string>
+    <string name="review_app_dismiss_action">Ίσως αργότερα</string>
+    <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το CAPod; ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Γενικά</string>
     <string name="device_settings_microphone_mode_label">Μικρόφωνο</string>

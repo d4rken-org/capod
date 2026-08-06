@@ -12,6 +12,7 @@
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Fechar</string>
+    <string name="general_dismiss_action">Dispensar</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_save_action">Salvar</string>
     <string name="general_guide_action">Guia</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Status do dispositivo</string>
     <string name="notification_channel_device_status_connected_label">Dispositivo conectado</string>
     <string name="monitor_notification_extra_enabled_hint">Você pode desativar esta notificação nas configurações do sistema.</string>
+    <string name="monitor_notification_starting">Iniciando…</string>
     <string name="support_debuglog_label">Log de depuração</string>
     <string name="support_debuglog_desc">Registre tudo o que o aplicativo faz em um arquivo de texto que você pode compartilhar.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">O Bluetooth está desativado, ative-o ;)</string>
     <string name="overview_monitoring_active_label">Monitorando dispositivos</string>
     <string name="overview_monitoring_active_description">Certifique-se de que seu dispositivo está próximo e ativo.</string>
+    <string name="overview_monitoring_off_label">Monitoramento em segundo plano está desativado</string>
+    <string name="overview_monitoring_off_description">Nenhum perfil tem um dispositivo Bluetooth pareado, portanto CAPod apenas atualiza enquanto o app está aberto. Selecione um para ativar o monitoramento em segundo plano, a notificação contínua e as reações.</string>
+    <string name="overview_monitoring_off_action">Selecione dispositivo pareado</string>
     <string name="overview_troubleshoot_suggestion_label">Conectado, mas sem dados</string>
     <string name="overview_troubleshoot_suggestion_description">Seu dispositivo está conectado, mas o CAPod não está recebendo dados em tempo real dele. Seu telefone pode precisar de uma opção de compatibilidade — o solucionador de problemas pode tentar encontrar uma automaticamente.</string>
     <string name="overview_troubleshoot_suggestion_action">Executar solucionador de problemas</string>
@@ -481,8 +486,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Pressionar duas vezes para encerrar a chamada</string>
     <string name="device_settings_open_cd">Abrir configurações do dispositivo</string>
     <string name="overview_card_missing_paired_device">Este perfil não tem nenhum dispositivo Bluetooth pareado.</string>
+    <string name="overview_card_missing_paired_device_consequence">Sem um, as configurações do dispositivo e a conexão automática não estão disponíveis.</string>
     <string name="overview_reactions_hint_title">As reações são por dispositivo</string>
     <string name="overview_reactions_hint_body">Reprodução automática, pausa automática e pop-ups agora são configurados por dispositivo. Toque no ícone de configurações em um cartão enquanto seus fones de ouvido estiverem conectados.</string>
+    <string name="review_app_review_action">Avaliar</string>
+    <string name="review_app_dismiss_action">Talvez depois</string>
+    <string name="review_app_body">Você gostaria de deixar uma avaliação do CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gerais</string>
     <string name="device_settings_microphone_mode_label">Microfone</string>
@@ -560,4 +569,6 @@
     <string name="press_controls_reset_label">Redefinir para padrões</string>
     <string name="press_controls_reset_confirm_message">Redefinir todos os mapeamentos de pressão para os padrões?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Abrir controles de pressão</string>
+    <string name="general_navigate_up_action">Navegar para cima</string>
+    <string name="general_progress_loading">Carregando</string>
 </resources>

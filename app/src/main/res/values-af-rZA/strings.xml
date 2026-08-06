@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Sonder een is toestelinstellings en outo-verbinding nie beskikbaar nie.</string>
     <string name="overview_reactions_hint_title">Reaksies is per toestel</string>
     <string name="overview_reactions_hint_body">Outo-speel, outo-pouse en opspringers word nou per toestel gekonfigureer. Tik op die instellings-ikoon op \'n kaart terwyl jou kopfone verbind is.</string>
+    <string name="review_app_review_action">Hersien</string>
+    <string name="review_app_dismiss_action">Miskien later</string>
+    <string name="review_app_body">Wil jy graag vir CAPod \'n hersiening los? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Algemeen</string>
     <string name="device_settings_microphone_mode_label">Mikrofoon</string>

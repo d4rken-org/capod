@@ -495,6 +495,9 @@
     <string name="overview_card_missing_paired_device_consequence">Bez vienas, ierīces iestatījumi un automātiskais savienojums nav pieejami.</string>
     <string name="overview_reactions_hint_title">Reakcijas ir katrai ierīcei</string>
     <string name="overview_reactions_hint_body">Automātiskā atskaņošana, automātiskā pauzēšana un uznirstošie logi tagad tiek konfigurēti katrai ierīcei. Pieskarieties iestatījumu ikonai kartē, kamēr austiņas ir pievienotas.</string>
+    <string name="review_app_review_action">Atsauksme</string>
+    <string name="review_app_dismiss_action">Varbūt vēlāk</string>
+    <string name="review_app_body">Vai vēlies atstāt CAPod atsauksmi? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Vispārīgi</string>
     <string name="device_settings_microphone_mode_label">Mikrofons</string>

@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Бирөөнү тандабасаңыз, түзмөк орнотуулары жана автоматтык туташтыруу жеткиликсиз.</string>
     <string name="overview_reactions_hint_title">Реакциялар ар бир түзмөк үчүн жеке</string>
     <string name="overview_reactions_hint_body">Авто-ойноо, авто-тындыруу жана калкып чыгуучу терезелер азыр ар бир түзмөк үчүн жеке конфигурацияланган. Каргоочуларыңыз туташып турганда картадагы жөндөөлөр сүрөтчөсүнө тийиңиз.</string>
+    <string name="review_app_review_action">Баалоо</string>
+    <string name="review_app_dismiss_action">Кийин</string>
+    <string name="review_app_body">CAPod үчүн баалоо берүүнү каалайсызбы? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Жалпы</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

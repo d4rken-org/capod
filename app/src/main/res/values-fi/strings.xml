@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Ilman sitä laitteen asetukset ja automaattinen yhteys eivät ole käytettävissä.</string>
     <string name="overview_reactions_hint_title">Reaktiot ovat laitekohtaisia</string>
     <string name="overview_reactions_hint_body">Automaattinen toisto, automaattinen tauko ja ponnahdusikkunat on nyt määritetty laitekohtaisesti. Napauta kortissa olevaa asetuskuvaketta, kun kuulokkeet ovat yhdistettynä.</string>
+    <string name="review_app_review_action">Arvostele</string>
+    <string name="review_app_dismiss_action">Ehkä myöhemmin</string>
+    <string name="review_app_body">Haluaisitko jättää CAPodille arvostelun? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Yleiset</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>

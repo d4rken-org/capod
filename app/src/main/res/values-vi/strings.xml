@@ -12,6 +12,7 @@
     <string name="general_donate_action">Quyên góp</string>
     <string name="general_check_action">Kiểm tra</string>
     <string name="general_close_action">Đóng</string>
+    <string name="general_dismiss_action">Bỏ qua</string>
     <string name="general_edit_action">Sửa</string>
     <string name="general_save_action">Lưu</string>
     <string name="general_guide_action">Hướng dẫn</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Trạng thái thiết bị</string>
     <string name="notification_channel_device_status_connected_label">Thiết bị đã kết nối</string>
     <string name="monitor_notification_extra_enabled_hint">Bạn có thể tắt thông báo này trong cài đặt hệ thống.</string>
+    <string name="monitor_notification_starting">Khởi động...</string>
     <string name="support_debuglog_label">Nhật ký gỡ lỗi</string>
     <string name="support_debuglog_desc">Ghi lại mọi thứ ứng dụng đang làm vào một tệp văn bản mà bạn có thể chia sẻ.</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth đang tắt, hãy bật lên ;)</string>
     <string name="overview_monitoring_active_label">Đang giám sát thiết bị</string>
     <string name="overview_monitoring_active_description">Đảm bảo thiết bị của bạn ở gần và đang hoạt động.</string>
+    <string name="overview_monitoring_off_label">Theo dõi nền bị tắt</string>
+    <string name="overview_monitoring_off_description">Không có hồ sơ nào có thiết bị Bluetooth được ghép nối, vì vậy CAPod chỉ cập nhật khi ứng dụng mở. Chọn một để bật theo dõi nền, thông báo liên tục và phản ứng.</string>
+    <string name="overview_monitoring_off_action">Chọn thiết bị được ghép nối</string>
     <string name="overview_troubleshoot_suggestion_label">Đã kết nối, nhưng không có dữ liệu</string>
     <string name="overview_troubleshoot_suggestion_description">Thiết bị của bạn đã kết nối, nhưng CAPod không nhận được dữ liệu trực tiếp từ nó. Điện thoại của bạn có thể cần tùy chọn tương thích — trình khắc phục sự cố có thể tự động tìm một tùy chọn.</string>
     <string name="overview_troubleshoot_suggestion_action">Chạy trình khắc phục sự cố</string>
@@ -475,8 +480,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Nhấn hai lần để kết thúc cuộc gọi</string>
     <string name="device_settings_open_cd">Mở cài đặt thiết bị</string>
     <string name="overview_card_missing_paired_device">Hồ sơ này không có thiết bị Bluetooth nào được ghép nối.</string>
+    <string name="overview_card_missing_paired_device_consequence">Không có nó, cài đặt thiết bị và kết nối tự động không khả dụng.</string>
     <string name="overview_reactions_hint_title">Các phản ứng được thiết lập theo từng thiết bị</string>
     <string name="overview_reactions_hint_body">Tự động phát, tự động tạm dừng và cửa sổ bật lên hiện được cấu hình theo từng thiết bị. Nhấn vào biểu tượng cài đặt trên thẻ khi tai nghe của bạn đang kết nối.</string>
+    <string name="review_app_review_action">Đánh giá</string>
+    <string name="review_app_dismiss_action">Để sau</string>
+    <string name="review_app_body">Bạn có muốn để lại đánh giá cho CAPod không? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Chung</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
@@ -554,4 +563,6 @@
     <string name="press_controls_reset_label">Đặt lại mặc định</string>
     <string name="press_controls_reset_confirm_message">Đặt lại tất cả ánh xạ nhấn về mặc định?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Mở Điều khiển nhấn</string>
+    <string name="general_navigate_up_action">Quay lại</string>
+    <string name="general_progress_loading">Đang tải</string>
 </resources>

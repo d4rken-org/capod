@@ -198,6 +198,7 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth neçalak e, wê çalak bikin ;)</string>
     <string name="overview_monitoring_active_label">Amûr tên şopandin</string>
     <string name="overview_monitoring_active_description">Bawer bin ku amûra we nêzîk û çalak e.</string>
+    <string name="overview_monitoring_off_label">Nîgartin di paşplanê de neçalak e</string>
     <string name="overview_monitoring_off_description">Profîl neke xwe girêdanî amûra Bluetooth heye, ji ber vê yekê CAPod tenê gava sepana vebûk e nûkari dike. Ya yekê hilbijêrin da ku cûvandina paşplan, nîşayana berdewam û bersivên xwendinê çalak bikin.</string>
     <string name="overview_monitoring_off_action">Amûra Girêdanî Hilbijêrin</string>
     <string name="overview_troubleshoot_suggestion_label">Girêdayî, lê daneya tune</string>
@@ -488,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Bê yekê, sazkirî û girêdanê xwehûnandî heyî naçûk in.</string>
     <string name="overview_reactions_hint_title">Reaksyon ji bo her amûrê ne</string>
     <string name="overview_reactions_hint_body">Otomatîk-lêdan, otomatîk-rawestandin û pencereyên derkevtinê niha ji bo her amûrê hatine mîheng kirin. Li ser îkonê mîhengan li ser qertek bikirtînin dema guhdarvanên we ve girêdayî ne.</string>
+    <string name="review_app_review_action">Nirx</string>
+    <string name="review_app_dismiss_action">Belkî paşê</string>
+    <string name="review_app_body">Dixwazî tu CAPod nirx bikî? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Giştî</string>
     <string name="device_settings_microphone_mode_label">Mîkrofon</string>

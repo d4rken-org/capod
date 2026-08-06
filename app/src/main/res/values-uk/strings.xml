@@ -12,6 +12,7 @@
     <string name="general_donate_action">Пожертвувати</string>
     <string name="general_check_action">Перевірити</string>
     <string name="general_close_action">Закрити</string>
+    <string name="general_dismiss_action">Відхилити</string>
     <string name="general_edit_action">Редагувати</string>
     <string name="general_save_action">Зберегти</string>
     <string name="general_guide_action">Посібник</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Статус пристрою</string>
     <string name="notification_channel_device_status_connected_label">Підключений пристрій</string>
     <string name="monitor_notification_extra_enabled_hint">Ви можете вимкнути це сповіщення в системних налаштуваннях.</string>
+    <string name="monitor_notification_starting">Запуск…</string>
     <string name="support_debuglog_label">Журнал налагодження</string>
     <string name="support_debuglog_desc">Запис всього, що робить програма, у текстовий файл, яким можна поділитися.</string>
     <string name="debug_debuglog_size_label">Розмір</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth вимкнено, увімкніть його ;)</string>
     <string name="overview_monitoring_active_label">Пошук пристроїв</string>
     <string name="overview_monitoring_active_description">Переконайтеся, що ваш пристрій поблизу та активний.</string>
+    <string name="overview_monitoring_off_label">Моніторинг у фоні вимкнено</string>
+    <string name="overview_monitoring_off_description">Жоден профіль не має пов\'язаного Bluetooth-пристрою, тому CAPod оновлюється лише при відкритому застосунку. Виберіть один, щоб увімкнути моніторинг у фоні, постійне сповіщення та реакції.</string>
+    <string name="overview_monitoring_off_action">Виберіть пов\'язаний пристрій</string>
     <string name="overview_troubleshoot_suggestion_label">Підключено, але немає даних</string>
     <string name="overview_troubleshoot_suggestion_description">Пристрій підключено, але CAPod не отримує від нього жодних актуальних даних. Вашому телефону може знадобитися параметр сумісності — засіб усунення несправностей спробує знайти його автоматично.</string>
     <string name="overview_troubleshoot_suggestion_action">Запустити засіб усунення несправностей</string>
@@ -493,8 +498,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Подвійне натискання для завершення дзвінка</string>
     <string name="device_settings_open_cd">Відкрити налаштування пристрою</string>
     <string name="overview_card_missing_paired_device">До цього профілю не підключено жодного Bluetooth-пристрою.</string>
+    <string name="overview_card_missing_paired_device_consequence">Без нього параметри пристрою та автоматичне підключення недоступні.</string>
     <string name="overview_reactions_hint_title">Реакції налаштовуються окремо для кожного пристрою</string>
     <string name="overview_reactions_hint_body">Автовідтворення, автопауза та спливаючі вікна тепер налаштовуються окремо для кожного пристрою. Торкніться значка налаштувань на картці, поки підключені навушники.</string>
+    <string name="review_app_review_action">Огляд</string>
+    <string name="review_app_dismiss_action">Можливо пізніше</string>
+    <string name="review_app_body">Бажаєш залишити відгук про CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Загальні</string>
     <string name="device_settings_microphone_mode_label">Мікрофон</string>
@@ -572,4 +581,6 @@
     <string name="press_controls_reset_label">Скинути до типових</string>
     <string name="press_controls_reset_confirm_message">Скинути всі призначення натискань до типових?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Відкрити керування натисканнями</string>
+    <string name="general_navigate_up_action">Перейти вгору</string>
+    <string name="general_progress_loading">Завантаження</string>
 </resources>

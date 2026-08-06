@@ -12,4 +12,12 @@
     <string name="upgrade_foss_sponsor_again_action">Deschide pagina de sponsorizare</string>
     <string name="settings_upgrade_status_label">Sponsorizează CAPod</string>
     <string name="settings_upgrade_status_description">Statusul tău de susținător.</string>
+    <string name="upgrade_screen_why_title">Beneficiile upgrade-ului</string>
+    <string name="upgrade_screen_how_title">Cum să ajuți</string>
+    <string name="upgrade_screen_status_free_title">Versiune gratuită</string>
+    <string name="upgrade_screen_status_free_body">Folosești versiunea gratuită a CAPod. Poți debloca funcții suplimentare susținând dezvoltarea.</string>
+    <string name="upgrade_screen_status_free_action">Vezi opțiunile de upgrade</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade activ</string>
+    <string name="upgrade_screen_recurring_title">Ține-o în viață</string>
+    <string name="upgrade_screen_recurring_body">CAPod continuă să evolueze prin actualizări și corecturi. Dacă ai dori să susții asta, ia în considerare o donație recurentă prin GitHub Sponsors.</string>
 </resources>

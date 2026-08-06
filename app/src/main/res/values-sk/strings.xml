@@ -12,6 +12,7 @@
     <string name="general_donate_action">Prispieť</string>
     <string name="general_check_action">Overiť</string>
     <string name="general_close_action">Zavrieť</string>
+    <string name="general_dismiss_action">Odmietnuť</string>
     <string name="general_edit_action">Upraviť</string>
     <string name="general_save_action">Uložiť</string>
     <string name="general_guide_action">Sprievodca</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Stav zariadenia</string>
     <string name="notification_channel_device_status_connected_label">Pripojené zariadenie</string>
     <string name="monitor_notification_extra_enabled_hint">Túto notifikáciu môžete vypnúť v systémových nastaveníach.</string>
+    <string name="monitor_notification_starting">Spúšťanie…</string>
     <string name="support_debuglog_label">Ladiaci log</string>
     <string name="support_debuglog_desc">Zaznamenajte všetko, čo aplikácia robí do textového súboru, ktorý môžete zdieľať.</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth je vypnutý, zapnite ho ;)</string>
     <string name="overview_monitoring_active_label">Monitorovanie zariadení</string>
     <string name="overview_monitoring_active_description">Uistite sa, že vaše zariadenie je v blízkosti a je aktívne.</string>
+    <string name="overview_monitoring_off_label">Monitorovanie na pozadí je vypnuté</string>
+    <string name="overview_monitoring_off_description">Žiadny profíl nemá spárované zariadenie Bluetooth, takže CAPod sa aktualizuje iba keď je aplikácia otvorená. Vyberte jeden na povolenie monitorovania na pozadí, trvalého oznámenia a reakcií.</string>
+    <string name="overview_monitoring_off_action">Vyberte spárované zariadenie</string>
     <string name="overview_troubleshoot_suggestion_label">Pripojené, ale žiadne dáta</string>
     <string name="overview_troubleshoot_suggestion_description">Tvoje zariadenie je pripojené, ale CAPod z neho neprijíma žiadne živé dáta. Tvoj telefón môže potrebovať možnosť kompatibility — nástroj na riešenie problémov sa ju môže pokúsiť nájsť automaticky.</string>
     <string name="overview_troubleshoot_suggestion_action">Spustiť riešenie problémov</string>
@@ -493,8 +498,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojité stlačenie na ukončenie hovoru</string>
     <string name="device_settings_open_cd">Otvoriť nastavenia zariadenia</string>
     <string name="overview_card_missing_paired_device">Tento profil nemá spárované Bluetooth zariadenie.</string>
+    <string name="overview_card_missing_paired_device_consequence">Bez neho nie sú k dispozícii nastavenia zariadenia a automatické pripojenie.</string>
     <string name="overview_reactions_hint_title">Reakcie sú nastavené pre každé zariadenie</string>
     <string name="overview_reactions_hint_body">Automatické prehrávanie, automatické pozastavenie a kontextové okná sú teraz nakonfigurované pre každé zariadenie. Klepnite na ikonu nastavení na karte, keď sú vaše slúchadlá pripojené.</string>
+    <string name="review_app_review_action">Ohodnotiť</string>
+    <string name="review_app_dismiss_action">Možno pozdejšie</string>
+    <string name="review_app_body">Chceli by ste zanechať recenziu CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Všeobecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofón</string>
@@ -572,4 +581,6 @@
     <string name="press_controls_reset_label">Obnoviť predvolené nastavenia</string>
     <string name="press_controls_reset_confirm_message">Obnoviť všetky mapovania stlačenia na predvolené nastavenia?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Otvoriť ovládanie stlačením</string>
+    <string name="general_navigate_up_action">Prejsť vyššie</string>
+    <string name="general_progress_loading">Načítava</string>
 </resources>

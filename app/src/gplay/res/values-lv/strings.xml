@@ -70,7 +70,7 @@
     <string name="settings_upgrade_status_description">Jūsu jaunināšanas un pirkuma statuss.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
-    <string name="upgrades_gplay_not_installed_message">Neizdevās atvērt Google Play. Tas var būt pazudis, atspējots vai ierobežots šajā ierīcē.</string>
+    <string name="upgrades_gplay_not_installed_message">Nevarēja atvērt Google Play. Tā šajā ierīcē var nebūt, tas var būt atspējots vai ierobežots.</string>
     <string name="upgrades_gplay_internal_error_title">Google Play kļūda</string>
     <string name="upgrades_gplay_internal_error_description">Notika iekšēja Google Play kļūda. Lūdzu, mēģiniet tālāk norādīto:\n\n• Restartējiet ierīci\n• Notīriet Google Play Store kešatmiņu\n• Vēlāk mēģiniet vēlreiz</string>
     <string name="upgrades_gplay_network_error_title">Savienojuma kļūda</string>

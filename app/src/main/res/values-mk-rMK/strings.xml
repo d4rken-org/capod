@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Без него, поставките на уредот и автоматското поврзување не се достапни.</string>
     <string name="overview_reactions_hint_title">Реакциите се по уред</string>
     <string name="overview_reactions_hint_body">Автоматското пуштање, паузирање и скокачките прозорци сега се конфигурирани по уред. Допрете ја иконата за поставки на картичката додека слушалките се поврзани.</string>
+    <string name="review_app_review_action">Рецензија</string>
+    <string name="review_app_dismiss_action">Можеби подоцна</string>
+    <string name="review_app_body">Дали сакаш да оставиш рецензија за CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Генерално</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

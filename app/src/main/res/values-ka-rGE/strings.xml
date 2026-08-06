@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">მის გარეშე, მოწყობილობის პარამეტრები და ავტომატური კავშირი არ არის ხელმისაწვდომი.</string>
     <string name="overview_reactions_hint_title">რეაქციები განსაზღვრულია თითოეული მოწყობილობისთვის</string>
     <string name="overview_reactions_hint_body">ავტომატური დაკვრა, ავტომატური პაუზა და ამომხტარი ფანჯრები ახლა კონფიგურირებულია თითოეული მოწყობილობისთვის. შეეხეთ პარამეტრების ხატულას ბარათზე, სანამ თქვენი ყურსასმენები დაკავშირებულია.</string>
+    <string name="review_app_review_action">მიმოხილვა</string>
+    <string name="review_app_dismiss_action">შესაძლოა მოგვიანებით</string>
+    <string name="review_app_body">გნებავთ დატოვოთ CAPod-ს მიმოხილვა? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ზოგადი</string>
     <string name="device_settings_microphone_mode_label">მიკროფონი</string>

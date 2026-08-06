@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play informat chi tenes giai custu megioramentu, ma no est istadu possìbile lu ripristinare. Assegura·ti de impreare su contu Google chi as impreadu pro comporare. Sa sincronizatzione de su Play Store podet leare tempus — proa a torrare a allutu su dispositivu, a bogare sa memoria cache de Google Play o solu a aspetare.</string>
     <string name="upgrade_restore_action">Recùpera su cùmperu</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Otine %1$s</string>
     <string name="upgrade_preamble">CAPod est isvilupada de una persona sola. Su megioramentu isblocat funtziones in prus e agiudat a mantènnere s\'aplicatzione bia.</string>
     <string name="upgrade_screen_options_description">Matessi funtziones, prètzios diferentes. S\'abbonamentu includet una proa gratùita e podet èssere cantzelladu in cale si siat momentu.</string>
     <string name="upgrade_screen_options_description_no_trial">Matessi funtziones, prètzios diferentes. S\'abbonamentu podet èssere cantzelladu in cale si siat momentu.</string>
@@ -58,8 +60,19 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Si renovet anu po anu. Podes cantzellare in cuale mumentu in Google Play.</string>
     <string name="upgrade_screen_iap_offer_body">Unu pagamentu, sena renovatziones.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de s\'agiornamentu</string>
+    <string name="upgrade_screen_restore_body">Su ristoru domanda a Google Play de verificà de noe sos compronius de sa aplicatzione pro s\'acontu in usu. No iniciat ungha noa compra.</string>
     <string name="upgrade_screen_restore_contact_hint">Ancora blocau? Cunta sos suportu dae s\'email chi at fetu sa compra e inclui su numeru de s\'ordine Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Cunta sos suportu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">S\'istadu de su megioramentu e de sa comporadura tua.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod non podet si connètere a Google Play. Google Play est installadu e agiornadu? Su contu Google tuo est intradu? Proa a limpiare sa cache de s\'aplicatzione Google Play e a torrare a allùghere su dispositivu tuo.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">No s\'at pòdidhu abèrere Google Play. Podet esse mancante, disabilitadu o ristrettu in custu dispositibu.</string>
+    <string name="upgrades_gplay_internal_error_title">Errore de Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Unu errore intèrnu de Google Play est acabuddu. Proa sa seguiente:\n\n• Torrare a allùghere su dispositivu tuo\n• Limpiare sa cache de Google Play Store\n• Proare prus tardu</string>
+    <string name="upgrades_gplay_network_error_title">Errore de sa connessione</string>
+    <string name="upgrades_gplay_network_error_description">Non potzo mi connectere a Google Play. Cuntrolla sa connessione a internet tua e proare de nòu.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Offerta non disponìbile</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play no est presentende est\'optzione de agiornamentu in custu momentu. Proare de nòu prus tardu o cuntrolla Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Sa controlli cun Google Play non est acabbudda in tempus, ita ca su stadu de sa compra tua est aìnda non notu. Nulla est cambiadu in su contu tuo.</string>
 </resources>

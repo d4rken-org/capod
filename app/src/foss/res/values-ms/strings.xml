@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Buka halaman penaja</string>
     <string name="settings_upgrade_status_label">Menajakan CAPod</string>
     <string name="settings_upgrade_status_description">Status penyokong anda.</string>
+    <string name="upgrade_screen_why_title">Manfaat peningkatan</string>
+    <string name="upgrade_screen_how_title">Bagaimana untuk membantu</string>
+    <string name="upgrade_screen_how_body">Menjadi penaung dan penaja pembangunan! Ketik butang di bawah untuk mengaktifkan semua ciri tambahan dan buka profil Penaja GitHub saya.</string>
+    <string name="upgrade_screen_status_free_title">Versi percuma</string>
+    <string name="upgrade_screen_status_free_body">Anda menggunakan versi percuma CAPod. Ciri-ciri tambahan boleh dibuka kunci dengan menyokong pembangunan.</string>
+    <string name="upgrade_screen_status_free_action">Lihat pilihan peningkatan</string>
+    <string name="upgrade_screen_status_upgraded_title">Peningkatan aktif</string>
+    <string name="upgrade_screen_recurring_title">Teruskan</string>
+    <string name="upgrade_screen_recurring_body">CAPod terus berkembang melalui kemas kini dan pembetulan. Jika anda ingin menopang itu, pertimbangkan sumbangan berulang melalui GitHub Sponsors.</string>
 </resources>

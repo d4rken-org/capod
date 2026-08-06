@@ -501,6 +501,9 @@
     <string name="overview_card_missing_paired_device_consequence">Bez něj nejsou dostupná nastavení zařízení a automatické připojení.</string>
     <string name="overview_reactions_hint_title">Reakce jsou nastaveny pro každé zařízení</string>
     <string name="overview_reactions_hint_body">Automatické přehrávání, automatické pozastavení a vyskakovací okna se nyní nastavují pro každé zařízení zvlášť. Klepněte na ikonu nastavení na kartě, když máte připojená sluchátka.</string>
+    <string name="review_app_review_action">Posoudit</string>
+    <string name="review_app_dismiss_action">Možná později</string>
+    <string name="review_app_body">Chceš ohodnotit CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Obecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

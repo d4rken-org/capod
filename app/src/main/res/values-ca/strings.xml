@@ -27,7 +27,8 @@
     <string name="upgrade_benefit_popups">Finestra emergent en obrir la funda i en connectar</string>
     <string name="upgrade_benefit_widgets">Ginys de la pantalla d\'inici</string>
     <string name="upgrade_benefit_device_settings">Configuració avançada del dispositiu</string>
-    <string name="upgrade_benefit_device_controls">Controls del dispositiu: soroll, pliques i més</string>
+    <string name="upgrade_benefit_device_controls">Controls del dispositiu: soroll, pliques i més
+</string>
     <string name="upgrade_benefit_support">Doneu suport al desenvolupador</string>
     <string name="upgrade_benefit_disclaimer">La disponibilitat de les funcions depèn dels auriculars i del dispositiu.</string>
     <string name="settings_monitor_connected_notification_label">Notificació addicional</string>
@@ -489,6 +490,9 @@
     <string name="overview_card_missing_paired_device_consequence">Sense un, la configuració del dispositiu i la connexió automàtica no estan disponibles.</string>
     <string name="overview_reactions_hint_title">Les reaccions són per dispositiu</string>
     <string name="overview_reactions_hint_body">La reproducció automàtica, la pausa automàtica i les finestres emergents ara es configuren per dispositiu. Toqueu la icona de configuració d\'una targeta mentre els vostres auriculars estan connectats.</string>
+    <string name="review_app_review_action">Revisió</string>
+    <string name="review_app_dismiss_action">Potser més tard</string>
+    <string name="review_app_body">Vols deixar una ressenya del CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micròfon</string>

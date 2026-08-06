@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play 回報您已擁有此升級項目，但無法還原。請確認您使用的是購買時所用的 Google 帳戶。Play 商店同步可能需要一些時間 — 請嘗試重新啟動裝置、清除 Google Play 快取或稍候片刻。</string>
     <string name="upgrade_restore_action">還原購買</string>
     <string name="upgrade_badge_label">專業版</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">取得 %1$s</string>
     <string name="upgrade_preamble">CAPod 由一人獨立開發。升級可解鎖額外功能，並協助維持應用程式的運作。</string>
     <string name="upgrade_screen_options_description">功能相同，價格不同。訂閱方案包含免費試用，且可隨時取消。</string>
     <string name="upgrade_screen_options_description_no_trial">功能相同，價格不同。訂閱方案可隨時取消。</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">聯絡支援</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">您的升級和購買狀態。</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod 無法連接到 Google Play。Google Play 是否已安裝且為最新版本？您的 Google 帳戶是否已登入？請嘗試清除 Google Play 應用程式的快取並重新啟動您的裝置。</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">無法開啟 Google Play。它可能在此裝置上遺失、已停用或受限。</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play 錯誤</string>
+    <string name="upgrades_gplay_internal_error_description">發生 Google Play 內部錯誤。請嘗試以下方法：\n\n• 重新啟動您的裝置\n• 清除 Google Play Store 快取\n• 稍後再試</string>
+    <string name="upgrades_gplay_network_error_title">連接錯誤</string>
+    <string name="upgrades_gplay_network_error_description">無法連接到 Google Play。請檢查您的網際網路連線並再試一次。</string>
+    <string name="upgrades_gplay_offer_unavailable_title">無法使用此優惠</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play 目前未提供此升級選項。請稍後再試或檢查 Google Play Store。</string>
+    <string name="upgrade_screen_restore_inconclusive_message">與 Google Play 的檢查未能及時完成，因此您的購買狀態仍不確定。您的帳戶未發生任何更改。</string>
 </resources>

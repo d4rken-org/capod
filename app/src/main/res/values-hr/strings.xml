@@ -495,6 +495,9 @@
     <string name="overview_card_missing_paired_device_consequence">Bez toga, postavke uređaja i automatsko povezivanje nisu dostupne.</string>
     <string name="overview_reactions_hint_title">Reakcije su po uređaju</string>
     <string name="overview_reactions_hint_body">Automatska reprodukcija, automatska pauza i skočni prozori sada se konfiguriraju po uređaju. Dodirnite ikonu postavki na kartici dok su vaše slušalice spojene.</string>
+    <string name="review_app_review_action">Ocijeni</string>
+    <string name="review_app_dismiss_action">Možda kasnije</string>
+    <string name="review_app_body">Želiš li ostaviti recenziju za CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Općenito</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

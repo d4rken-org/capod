@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ushbu yangilanishga allaqachon ega ekanligingizni bildiradi, ammo uni tiklab bo\'lmadi. Xarid qilgan Google hisobingizdan foydalanayotganingizga ishonch hosil qiling. Play Store sinxronizatsiyasi vaqt olishi mumkin — qurilmani qayta ishga tushirib ko\'ring, Google Play keshini tozalang yoki shunchaki kuting.</string>
     <string name="upgrade_restore_action">Xaridni tiklash</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s-ni oling</string>
     <string name="upgrade_preamble">CAPod yagona shaxs tomonidan ishlab chiqilmoqda. Yangilash qo\'shimcha funksiyalarni ochadi va ilovani tirik saqlashga yordam beradi.</string>
     <string name="upgrade_screen_options_description">Xususiyatlar bir xil, narxlar boshqacha. Obuna bepul sinov muddatini o\'z ichiga oladi va istalgan vaqtda bekor qilinishi mumkin.</string>
     <string name="upgrade_screen_options_description_no_trial">Xususiyatlar bir xil, narxlar boshqacha. Obunani istalgan vaqtda bekor qilish mumkin.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Qo\'llab-quvvatlash</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Sizning yangilash va sotib olish holati.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play-ga ulanib bo\'lmaydi. Google Play o\'rnatilgan va yangilanganmi? Google hisobingiz tizimga kirilganmi? Google Play ilovasining keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ochilmadi. U bu qurilmada boʻlmasligi, nofaol boʻlishi yoki cheklangan boʻlishi mumkin.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play xatosi</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play-da ichki xato yuz berdi. Iltimos, quyidagilarni sinab ko\'ring:\n\n• Qurilmangizni qayta ishga tushiring\n• Google Play Store keshini tozalang\n• Keyinroq qayta sinab ko\'ring</string>
+    <string name="upgrades_gplay_network_error_title">Ulanish xatosi</string>
+    <string name="upgrades_gplay_network_error_description">Google Play-ga ulanib bo\'lmadi. Iltimos, internet ulanishingizni tekshiring va qayta sinab ko\'ring.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Taklif mavjud emas</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hozir bu yangilash variantini taklif qilmayapti. Iltimos, keyinroq qayta sinab ko\'ring yoki Google Play Store-ni tekshiring.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play bilan tekshirish vaqtida tugamadi, shuning uchun sizning sotib olish holati hali ham noma\'lum. Hisobingizda hech narsa o\'zgarmagani yo\'q.</string>
 </resources>

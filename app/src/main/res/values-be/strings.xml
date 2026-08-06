@@ -501,6 +501,9 @@
     <string name="overview_card_missing_paired_device_consequence">Без яе налады прылады і аўтападключэнне недаступныя.</string>
     <string name="overview_reactions_hint_title">Рэакцыі ўстаноўлены для кожнай прылады</string>
     <string name="overview_reactions_hint_body">Аўтаўзнаўленне, аўтапаўза і ўсплывальныя вокны цяпер наладжваюцца для кожнай прылады. Націсніце значок налад на картцы, пакуль вашы навушнікі падключаны.</string>
+    <string name="review_app_review_action">Водгук</string>
+    <string name="review_app_dismiss_action">Магчыма пазней</string>
+    <string name="review_app_body">Ці ты хочаш пакінуць водгук на CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Агульныя</string>
     <string name="device_settings_microphone_mode_label">Мікрафон</string>

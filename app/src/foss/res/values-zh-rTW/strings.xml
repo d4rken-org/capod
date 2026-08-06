@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">開啟贊助頁面</string>
     <string name="settings_upgrade_status_label">贊助 CAPod</string>
     <string name="settings_upgrade_status_description">您的贊助狀態。</string>
+    <string name="upgrade_screen_why_title">升級優勢</string>
+    <string name="upgrade_screen_how_title">如何協助</string>
+    <string name="upgrade_screen_how_body">成為贊助者並贊助開發！輕觸下面的按鈕，啟用所有額外功能，並開啟我的 Github 贊助者設定檔。</string>
+    <string name="upgrade_screen_status_free_title">免費版本</string>
+    <string name="upgrade_screen_status_free_body">您正在使用 CAPod 的免費版本。透過支持開發可解鎖額外功能。</string>
+    <string name="upgrade_screen_status_free_action">查看升級選項</string>
+    <string name="upgrade_screen_status_upgraded_title">升級已啟用</string>
+    <string name="upgrade_screen_recurring_title">繼續支持</string>
+    <string name="upgrade_screen_recurring_body">CAPod 透過不斷更新與修復不斷進步。如果您希望支持這項發展，請考慮透過 GitHub Sponsors 進行定期捐款。</string>
 </resources>

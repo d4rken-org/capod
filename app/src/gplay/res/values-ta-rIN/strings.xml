@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">இந்த மேம்படுத்தலை நீங்கள் ஏற்கனவே வைத்திருப்பதாக Google Play தெரிவிக்கிறது, ஆனால் அதை மீட்டெடுக்க முடியவில்லை. நீங்கள் வாங்கிய Google கணக்கைப் பயன்படுத்துகிறீர்களா எனச் சரிபார்க்கவும். Play Store ஒத்திசைவு சிறிது நேரம் எடுக்கலாம் — மறுதொடக்கம் செய்யவும், Google Play தேக்ககத்தை அழிக்கவும் அல்லது சிறிது காத்திருக்கவும்.</string>
     <string name="upgrade_restore_action">வாங்குதலை மீட்டமை</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ஐப் பெறுக</string>
     <string name="upgrade_preamble">CAPod ஒரே ஒரு நபரால் உருவாக்கப்படுகிறது. மேம்படுத்துவது கூடுதல் அம்சங்களைத் திறக்கும் மற்றும் ஆப்பை உயிருடன் வைத்திருக்க உதவும்.</string>
     <string name="upgrade_screen_options_description">அதே அம்சங்கள், வேறு விலை. சந்தா இலவச சோதனைக் காலத்தை உள்ளடக்கியது மற்றும் எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்.</string>
     <string name="upgrade_screen_options_description_no_trial">அதே அம்சங்கள், வேறு விலை. சந்தாவை எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">ஆதரவைத் தொடர்பு கொள்ளவும்</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">உங்கள் மேம்பாடு மற்றும் வாங்குதல் நிலை.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play உடன் இணைக்க முடியவில்லை. Google Play நிறுவப்பட்டு புதுப்பிக்கப்பட்டுள்ளதா? உங்கள் Google கணக்கு உள்நுழைந்துள்ளதா? Google Play ஆப்பின் தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ஐ திறக்க முடியவில்லை. இது சாதனத்தில் கிடைக்கவில்லை, முடக்கப்பட்டிருக்கலாம் அல்லது வரையறுக்கப்பட்டிருக்கலாம்.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play பிழை</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play இல் உள் பிழை ஏற்பட்டுள்ளது. தயவுசெய்து பின்வருவனவற்றை முயற்சிக்கவும்:\n\n• உங்கள் சாதனத்தை மறுதொடக்கம் செய்க\n• Google Play Store தற்காலிக சேமிப்பை அழிக்கவும்\n• பின்னர் மீண்டும் முயற்சிக்கவும்</string>
+    <string name="upgrades_gplay_network_error_title">இணைப்பு பிழை</string>
+    <string name="upgrades_gplay_network_error_description">Google Play உடன் இணைக்க முடியவில்லை. உங்கள் இணைய இணைப்பைச் சரிபார்க்கவும் மற்றும் மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">வழங்கல் கிடைக்கவில்லை</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play தற்போது இந்த மேம்படுத்தல் விருப்பத்தை வழங்கவில்லை. பின்னர் மீண்டும் முயற்சிக்கவும் அல்லது Google Play Store ஐச் சரிபார்க்கவும்.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play உடனான சரிபார்ப்பு சரியான நேரத்தில் முடியவில்லை, எனவே உங்கள் வாங்குதல் நிலை இன்னும் தெரியவில்லை. உங்கள் கணக்கில் எதுவும் மாறவில்லை.</string>
 </resources>

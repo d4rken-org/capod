@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Vula ikhasi lomxhasi</string>
     <string name="settings_upgrade_status_label">Uxhasa i-CAPod</string>
     <string name="settings_upgrade_status_description">Isimo sakho sokusekela.</string>
+    <string name="upgrade_screen_why_title">Imikhulu yokuphucula</string>
+    <string name="upgrade_screen_how_title">Indlela yokusiza</string>
+    <string name="upgrade_screen_how_body">Yiba ngumnikazi futhi uxhase ukuthuthukiswa! Thepha inkinobho engezansi ukuze unike amandla zonke izici ezengeziwe futhi uvule iphrofayili yami ye-GitHub Sponsors.</string>
+    <string name="upgrade_screen_status_free_title">Inguqulo yamahhala</string>
+    <string name="upgrade_screen_status_free_body">Usebenzisa inguqulo yamahhala ye-CAPod. Izinto ezongeziwe zingavulwa ngokusekela ukuthuthukiswa kwe-app.</string>
+    <string name="upgrade_screen_status_free_action">Bheka opsyon yokuphucula</string>
+    <string name="upgrade_screen_status_upgraded_title">I-upgrade iyagcinwa</string>
+    <string name="upgrade_screen_recurring_title">Qhubeka ngokwenza kunjalo</string>
+    <string name="upgrade_screen_recurring_body">I-CAPod iqhubeka nokuthuthuka ne-update kanye ne-fix. Uma uthanda ukugcina lokho, cabangela ukunikeza ngamashora okuthutha ngokuchubo nge-GitHub Sponsors.</string>
 </resources>

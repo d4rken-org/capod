@@ -483,6 +483,9 @@
     <string name="overview_card_missing_paired_device_consequence">ໂດຍບໍ່ມີນັ້ນ, ການຕັ້ງຄ່າອຸປະກອນ ແລະການເຊື່ອມຕໍ່ອັດຕະໂນມັດບໍ່ມີ.</string>
     <string name="overview_reactions_hint_title">ການຕອບສະໜອງແມ່ນຕໍ່ອຸປະກອນ</string>
     <string name="overview_reactions_hint_body">ການຫຼິ້ນອັດຕະໂນມັດ, ການຢຸດອັດຕະໂນມັດ ແລະປ໊ອບອັບໄດ້ຖືກຕັ້ງຄ່າຕໍ່ອຸປະກອນແລ້ວ. ແຕະໄອຄອນການຕັ້ງຄ່າໃນບັດຂະນະທີ່ຫູຟັງຂອງທ່ານເຊື່ອມຕໍ່ຢູ່.</string>
+    <string name="review_app_review_action">ຣີວິວ</string>
+    <string name="review_app_dismiss_action">ບາງທີພາຍຫຼັງ</string>
+    <string name="review_app_body">ທ່ານຢາກໃຫ້ CAPod ຣີວິວບໍ? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ທົ່ວໄປ</string>
     <string name="device_settings_microphone_mode_label">ໄມໂຄຣໂຟນ</string>

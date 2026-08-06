@@ -12,6 +12,7 @@
     <string name="general_donate_action">Changia</string>
     <string name="general_check_action">Angalia</string>
     <string name="general_close_action">Funga</string>
+    <string name="general_dismiss_action">Ondoa</string>
     <string name="general_edit_action">Hariri</string>
     <string name="general_save_action">Hifadhi</string>
     <string name="general_guide_action">Mwongozo</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Hali ya kifaa</string>
     <string name="notification_channel_device_status_connected_label">Kifaa kimeunganishwa</string>
     <string name="monitor_notification_extra_enabled_hint">Unaweza kuzima arifa hii katika mipangilio ya mfumo.</string>
+    <string name="monitor_notification_starting">Inaanza...</string>
     <string name="support_debuglog_label">Kumbukumbu ya utatuzi</string>
     <string name="support_debuglog_desc">Rekodi kila kitu ambacho programu inafanya kwenye faili ya maandishi unayoweza kushiriki.</string>
     <string name="debug_debuglog_size_label">Ukubwa</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth imezimwa, iwashe ;)</string>
     <string name="overview_monitoring_active_label">Inafuatilia vifaa</string>
     <string name="overview_monitoring_active_description">Hakikisha kifaa chako kiko karibu na kinatumika.</string>
+    <string name="overview_monitoring_off_label">Ufuatiliaji wa nyuma umezimwa</string>
+    <string name="overview_monitoring_off_description">Hakuna profaili yenye kifaa kilichofungwa cha Bluetooth, kwa hivyo CAPod inasasisha tu wakati programu iko wazi. Chagua moja ili kuwezesha ufuatiliaji wa nyuma, ilani endelevu na matendo.</string>
+    <string name="overview_monitoring_off_action">Chagua kifaa kilichofungwa</string>
     <string name="overview_troubleshoot_suggestion_label">Imeunganishwa, lakini hakuna data</string>
     <string name="overview_troubleshoot_suggestion_description">Kifaa chako kimeunganishwa, lakini CAPod haipokei data yoyote ya moja kwa moja kutoka kwake. Simu yako inaweza kuhitaji chaguo la uoanifu — kitatuzi cha matatizo kinaweza kujaribu kupata moja kiotomatiki.</string>
     <string name="overview_troubleshoot_suggestion_action">Endesha kitatuzi cha matatizo</string>
@@ -481,8 +486,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Bonyeza mara mbili kumaliza simu</string>
     <string name="device_settings_open_cd">Fungua mipangilio ya kifaa</string>
     <string name="overview_card_missing_paired_device">Wasifu huu hauna kifaa cha Bluetooth kilichounganishwa.</string>
+    <string name="overview_card_missing_paired_device_consequence">Bila moja, mipangilio ya kifaa na kuunganisha kiotomatiki hayapatikani.</string>
     <string name="overview_reactions_hint_title">Mwitikio ni kwa kila kifaa</string>
     <string name="overview_reactions_hint_body">Kucheza kiotomatiki, kusimamisha kiotomatiki na madirisha ibukizi sasa yanaweza kusanidiwa kwa kila kifaa. Gonga ikoni ya mipangilio kwenye kadi wakati vifaa vyako vya kusikiliza vimeunganishwa.</string>
+    <string name="review_app_review_action">Mapitio</string>
+    <string name="review_app_dismiss_action">Labda baadaye</string>
+    <string name="review_app_body">Je, ungependa kuacha mapitio ya CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Jumla</string>
     <string name="device_settings_microphone_mode_label">Maikrofoni</string>

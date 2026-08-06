@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">අනුග්‍රාහක පිටුව විවෘත කරන්න</string>
     <string name="settings_upgrade_status_label">CAPod සඳහා අනුග්‍රහක්</string>
     <string name="settings_upgrade_status_description">ඔබේ සහයෝගිතා තත්‍වය.</string>
+    <string name="upgrade_screen_why_title">උඩ්ග්‍රේඩ් ප්‍රතිලාභ</string>
+    <string name="upgrade_screen_how_title">උදව් කරන්නේ කෙසේද</string>
+    <string name="upgrade_screen_how_body">අනුග්‍රාහකයෙකු වී සංවර්ධනයට අනුග්‍රහ කරන්න! සියලු අමතර විශේෂාංග සක්‍රිය කර මගේ GitHub Sponsors පැතිකඩ විවෘත කිරීමට පහත බොත්තම ස්පර්ශ කරන්න.</string>
+    <string name="upgrade_screen_status_free_title">නිදහස් සංස්කරණය</string>
+    <string name="upgrade_screen_status_free_body">ඔබ CAPod හි නිදහස් සංස්කරණය භාවිතා කරමින් පවතී. අතිරේක විශේෂාංග සංවර්ධනයට සහයෝගය දීමෙන් අඩුවිය හැක.</string>
+    <string name="upgrade_screen_status_free_action">උඩ්ග්‍රේඩ් විකල්ප බලන්න</string>
+    <string name="upgrade_screen_status_upgraded_title">උඩ්ග්‍රේඩ් සක්‍රිය</string>
+    <string name="upgrade_screen_recurring_title">එයින් දිගටම</string>
+    <string name="upgrade_screen_recurring_body">CAPod දිගටම සංවර්ධනය වෙමින් පවතී යාවත්කාලීනයන් සහ නිවැරදි කිරීම් මගින්. ඔබ එය පවතින්නට කිරීමට අවශ්‍ය නම්, GitHub Sponsors හරහා පුනරාවර්තක පරිත්‍යාගයක් සලකා බලන්න.</string>
 </resources>

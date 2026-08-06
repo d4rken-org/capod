@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Vastase juhul on seadme seaded ja iseühendumine keelatud.</string>
     <string name="overview_reactions_hint_title">Reaktsioonid on seadmepõhised</string>
     <string name="overview_reactions_hint_body">Automaatne esitus, automaatne paus ja hüpikaknad on nüüd seadmepõhiselt seadistatud. Puudutage kaardi seadete ikooni, kui kõrvaklapid on ühendatud.</string>
+    <string name="review_app_review_action">Arvustus</string>
+    <string name="review_app_dismiss_action">Võib-olla hiljem</string>
+    <string name="review_app_body">Kas soovid kommenteerida CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

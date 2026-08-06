@@ -488,6 +488,9 @@
     <string name="overview_card_missing_paired_device">ይህ መገለጫ የጋራ ብሉቱዝ መሳሪያ የለውም።</string>
     <string name="overview_reactions_hint_title">ምላሾች በእያንዳንዱ መሳሪያ ናቸው</string>
     <string name="overview_reactions_hint_body">የራስ-ማጫወት፣ የራስ-ማቆም እና ብቅ-ባይ መስኮቶች አሁን በእያንዳንዱ መሳሪያ ይዋቀራሉ። ጆሮ ማዳመጫዎ ሲገናኙ ካርዱ ላይ ያለውን የቅንብሮች አዶ መታ ያድርጉ።</string>
+    <string name="review_app_review_action">ግምገማ</string>
+    <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
+    <string name="review_app_body">ለCAPod ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">አጠቃላይ</string>
     <string name="device_settings_microphone_mode_label">ማይክሮፎን</string>

@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Без такова, настройките на устройството и автоматичното свързване не са налични.</string>
     <string name="overview_reactions_hint_title">Реакциите са за всяко устройство поотделно</string>
     <string name="overview_reactions_hint_body">Автоматичното възпроизвеждане, паузирането и изскачащите прозорци вече се конфигурират за всяко устройство поотделно. Натиснете иконата с настройки на картата, докато слушалките ви са свързани.</string>
+    <string name="review_app_review_action">Преглед</string>
+    <string name="review_app_dismiss_action">Може би по-късно</string>
+    <string name="review_app_body">Бихте ли искали да оставите на CAPod оценка? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общи</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

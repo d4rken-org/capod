@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Sklep Google Play zgłasza, że już posiadasz tę aktualizację, ale nie udało się jej przywrócić. Upewnij się, że używasz konta Google, na które dokonano zakupu. Synchronizacja Sklepu Google Play może chwilę potrwać — spróbuj zrestartować urządzenie, wyczyścić pamięć podręczną Sklepu Google Play lub po prostu poczekaj.</string>
     <string name="upgrade_restore_action">Przywróć zakup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Uzyskaj %1$s</string>
     <string name="upgrade_preamble">CAPod jest rozwijany przez jedną osobę. Aktualizacja odblokowuje dodatkowe funkcje i pomaga utrzymać aplikację przy życiu.</string>
     <string name="upgrade_screen_options_description">Te same funkcje, różne ceny. Subskrypcja obejmuje bezpłatny okres próbny i może zostać anulowana w dowolnym momencie.</string>
     <string name="upgrade_screen_options_description_no_trial">Te same funkcje, inna cena. Subskrypcję możesz anulować w dowolnym momencie.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Skontaktuj się z pomocą techniczną</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Stan twojego zakupu i aktualizacji.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod nie może połączyć się z Sklepem Google Play. Czy Sklep Google Play jest zainstalowany i aktualny? Czy jesteś zalogowany na koncie Google? Spróbuj wyczyścić pamięć podręczną aplikacji Sklepu Google Play i zrestartuj urządzenie.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nie można otworzyć Sklepu Google Play. Usługa może być niedostępna, wyłączona lub ograniczona na tym urządzeniu.</string>
+    <string name="upgrades_gplay_internal_error_title">Błąd Sklepu Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Wystąpił wewnętrzny błąd Google Play. Spróbuj najpierw:\n\n• Uruchomić ponownie urządzenie\n• Wyczyść pamięć podręczną sklepu Google Play\n• Spróbuj ponownie później</string>
+    <string name="upgrades_gplay_network_error_title">Błąd połączenia</string>
+    <string name="upgrades_gplay_network_error_description">Nie udało się połączyć się z Google Play. Sprawdź swoje połączenie internetowe i spróbuj ponownie.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta niedostępna</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Sklep Google Play obecnie nie oferuje tej opcji aktualizacji. Spróbuj ponownie później lub sprawdź w Sklepie Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Weryfikacja w Sklepie Google Play nie zakończyła się na czas, więc status twojego zakupu jest nadal nieznany. Na twoim koncie nic się nie zmieniło.</string>
 </resources>
