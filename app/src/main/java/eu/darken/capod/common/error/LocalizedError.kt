@@ -14,6 +14,8 @@ data class LocalizedError(
     val description: String,
     val fixActionLabel: String? = null,
     val fixAction: ((Activity) -> Unit)? = null,
+    /** Shown inline in the error dialog if the fix action fails, instead of a length-capped toast. */
+    val fixActionErrorMessage: String? = null,
 ) {
     fun asText() = "$label:\n$description"
 }
