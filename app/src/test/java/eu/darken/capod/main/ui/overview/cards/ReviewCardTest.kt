@@ -1,6 +1,8 @@
 package eu.darken.capod.main.ui.overview.cards
 
 import android.content.Context
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
@@ -124,6 +126,41 @@ class ReviewCardTest : BaseComposeRobolectricTest() {
             reviews shouldBe 2
             dismisses shouldBe 0
         }
+    }
+
+    @Test
+    fun `a card that left the list comes back unlatched`() {
+        val visible = mutableStateOf(true)
+        composeRule.setContent {
+            PreviewWrapper {
+                // Mirrors OverviewScreen: the card is a keyed item in a lazy list, which keeps the
+                // saveable state of removed items around and hands it back when they return.
+                LazyColumn {
+                    if (visible.value) {
+                        item(key = "review") {
+                            ReviewCard(
+                                onReview = { reviews++ },
+                                onDismiss = { dismisses++ },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        composeRule.onNode(reviewButton).performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { reviews shouldBe 1 }
+        composeRule.onNodeWithText(dismissLabel).assertIsNotEnabled()
+
+        // A higher priority card takes the slot and gives it back, e.g. Bluetooth flipping off
+        composeRule.runOnIdle { visible.value = false }
+        composeRule.waitForIdle()
+        composeRule.runOnIdle { visible.value = true }
+        composeRule.waitForIdle()
+
+        // The latch only guards the taps on one showing of the card, it must not outlive it
+        composeRule.onNode(reviewButton).assertIsEnabled()
+        composeRule.onNodeWithText(dismissLabel).assertIsEnabled()
     }
 
     @Test
