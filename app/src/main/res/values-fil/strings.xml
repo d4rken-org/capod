@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Kung walang isa, ang device settings at auto-connect ay hindi available.</string>
     <string name="overview_reactions_hint_title">Ang mga reaksyon ay bawat device</string>
     <string name="overview_reactions_hint_body">Ang auto-play, auto-pause at mga pop-up ay naka-configure na ngayon bawat device. I-tap ang icon ng mga setting sa isang card habang nakakonekta ang iyong mga headphone.</string>
+    <string name="review_app_review_action">Pagsusuri</string>
+    <string name="review_app_dismiss_action">Siguro mamaya</string>
+    <string name="review_app_body">Gusto ba ninyong mag-iwan ng pagsusuri para sa CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play rapporta che ti possedas gia quest upgrade, ma el n\'ha betg pudì vegnir restaurà. Controllescha che ti utiliseschias il conto Google cun il qual ti has cumprà. La sincronisaziun da Play Store po durar in pau temp — emprova da reaviar il apparat, svidar la cache da Google Play u simplamain spetgar.</string>
     <string name="upgrade_restore_action">Restaurar la cumpra</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obtegnair %1$s</string>
     <string name="upgrade_preamble">CAPod vegn sviluppà da ina persuna suletta. In upgrade sblochescha funcziuns supplementaras ed ajuda a mantegnair l\'app en vita.</string>
     <string name="upgrade_screen_options_description">Medemas funcziuns, autra tarifa. L\'abunament includa in emprova gratuita e po vegnir annullà da tut temp.</string>
     <string name="upgrade_screen_options_description_no_trial">Medemas funcziuns, autra tarifa. L\'abunament po vegnir annullà da tut temp.</string>
@@ -65,4 +67,14 @@
     <string name="upgrade_screen_contact_support_action">Contactar il support</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Tes status dal upgrade e da l\'acquista.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod n\'uschia connectar a Google Play. Es Google Play installà e actualizà? Es tia conta Google connectada? Emprova a svida il cache da l\'app Google Play e a restartar tes apparat.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Na pud avrir Google Play. El po esser gliensch, deactivad ubain retrett sin quest apparat.</string>
+    <string name="upgrades_gplay_internal_error_title">Errur Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">In errur intern da Google Play è succidìda. Emprova sco suondas:\n\n• Restartar tes apparat\n• Svida il cache dal Google Play Store\n• Prova pli tard</string>
+    <string name="upgrades_gplay_network_error_title">Errur da connexiun</string>
+    <string name="upgrades_gplay_network_error_description">N\'uschia connectar a Google Play. Controlla tia connexiun da internet e prova anc ina giada.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Offerta n\'è betg disponibla</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play n\'offra actualmain betg questa opziun da upgrade. Prova pli tard u controlla il Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Il control cun Google Play n\'ha betg finì a temp, perquai che tes status d\'aquista è anc ignot. Nagin che ha sa midà en tia conta.</string>
 </resources>

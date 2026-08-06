@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play sporoča, da to nadgradnjo že imate, vendar je ni bilo mogoče obnoviti. Prepričajte se, da uporabljate Google račun, s katerim ste opravili nakup. Sinhronizacija Trgovine Play lahko traja nekaj časa — poskusite znova zagnati napravo, počistiti predpomnilnik Google Play ali preprosto počakajte.</string>
     <string name="upgrade_restore_action">Obnovi nakup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Pridobite %1$s</string>
     <string name="upgrade_preamble">CAPod razvija ena sama oseba. Nadgradnja odklene dodatne funkcije in pomaga ohranjati aplikacijo pri življenju.</string>
     <string name="upgrade_screen_options_description">Enake funkcije, različno oblikovanje cen. Naročnina vključuje brezplačno preizkusno obdobje in jo je mogoče kadarkoli preklicati.</string>
     <string name="upgrade_screen_options_description_no_trial">Enake funkcije, različno oblikovanje cen. Naročnino je mogoče kadarkoli preklicati.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Kontaktiraj podporo</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Tvoj status nadgradnje in nakupa.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod se ne more povezati z Googlom Play. Ali je nameščen in posodobljen? Ali ste prijavljeni v Googlov račun? Poizkusite počistiti predpomnilnik programa Google Play in napravo ponovno zagnati.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Ni bilo mogoče odpreti Google Play. Morda je aplikacija manjkajoča, onemogočena ali omejena na tej napravi.</string>
+    <string name="upgrades_gplay_internal_error_title">Težava z Googlom Play</string>
+    <string name="upgrades_gplay_internal_error_description">Prišlo je do notranje napake v Googlu Play. Prosimo, poskusite naslednje:\n\n• Ponovno zaženite napravo\n• Počistite predpomnilnik trgovine Google Play\n• Poskusite ponovno pozneje</string>
+    <string name="upgrades_gplay_network_error_title">Napaka pri povezavi</string>
+    <string name="upgrades_gplay_network_error_description">Ne morem se povezati z Googlom Play. Preverite internetno povezavo in poskusite ponovno.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ponudba ni na voljo</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play trenutno ne nudi te možnosti nadgradnje. Poskusite ponovno pozneje ali preverite trgovino Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Preverjanje z Googlom Play se ni zaključilo pravočasno, zato je vaš status nakupa še vedno neznan. Nič se ni spremenilo na vašem računu.</string>
 </resources>

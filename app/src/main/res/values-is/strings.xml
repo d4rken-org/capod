@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Án þess eru tækistillingar og sjálfvirk tenging ekki tiltækar.</string>
     <string name="overview_reactions_hint_title">Viðbrögð eru per tæki</string>
     <string name="overview_reactions_hint_body">Sjálfvirk spilun, sjálfvirk pása og sprettigluggar eru nú stilltir per tæki. Ýttu á stillingatáknið á spjaldi á meðan heyrnartólið þitt er tengt.</string>
+    <string name="review_app_review_action">Umsögn</string>
+    <string name="review_app_dismiss_action">Kannski síðar</string>
+    <string name="review_app_body">Viltu skilja eftir umsögn um CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Álmennt</string>
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>

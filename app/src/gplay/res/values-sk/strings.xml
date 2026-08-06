@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play hlási, že tento upgrade už vlastníte, no nepodarilo sa ho obnoviť. Uistite sa, že používate rovnaký účet Google, s ktorým ste nákup uskutočnili. Synchronizácia Play Store môže chvíľu trvať — skúste reštartovať zariadenie, vymazať vyrovnávaciu pamäť Google Play alebo jednoducho počkať.</string>
     <string name="upgrade_restore_action">Obnoviť nákup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Získať %1$s</string>
     <string name="upgrade_preamble">CAPod vyvíja jedna osoba. Upgradom odomknete ďalšie funkcie a pomôžete udržať aplikáciu nažive.</string>
     <string name="upgrade_screen_options_description">Rovnaké funkcie, odlišná cena. Predplatné zahŕňa bezplatnú skúšobnú verziu a možno ho kedykoľvek zrušiť.</string>
     <string name="upgrade_screen_options_description_no_trial">Rovnaké funkcie, odlišná cena. Predplatné možno kedykoľvek zrušiť.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Kontaktovať podporu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Váš stav upgradu a nákupu.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod sa nemôže pripojiť k službe Google Play. Je Google Play nainštalovaný a aktuálny? Je váš účet Google prihlásený? Skúste vymazať vyrovnávaciu pamäť aplikácie Google Play a reštartujte zariadenie.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nepodarilo sa otvoriť Google Play. Môže byť chýbajúci, zakázaný alebo obmedzený na tomto zariadení.</string>
+    <string name="upgrades_gplay_internal_error_title">Chyba Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Vyskytla sa interná chyba Google Play. Skúste nasledovné:\n\n• Reštartujte zariadenie\n• Vymažte vyrovnávaciu pamäť Google Play Store\n• Skúste neskôr</string>
+    <string name="upgrades_gplay_network_error_title">Chyba pripojenia</string>
+    <string name="upgrades_gplay_network_error_description">Nie je možné pripojiť sa k službe Google Play. Skontrolujte internetové pripojenie a skúste znova.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ponuka nie je dostupná</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Služba Google Play v súčasnosti neposkytuje túto možnosť upgradu. Skúste neskôr alebo skontrolujte Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Kontrola so službou Google Play sa nestihla dokončiť v čase, takže váš stav nákupu je stále neznámy. Na vašom účte sa nič nezmenilo.</string>
 </resources>

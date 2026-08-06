@@ -14,6 +14,7 @@
     <string name="settings_upgrade_status_description">Votre statut de supporter.</string>
     <string name="upgrade_screen_why_title">Avantages de la mise à niveau</string>
     <string name="upgrade_screen_how_title">Comment aider</string>
+    <string name="upgrade_screen_how_body">Devenez mécène et soutenez le développement. Touchez le bouton ci-dessous pour activer toutes les fonctions supplémentaires et ouvrir mon profil GitHub Sponsors.</string>
     <string name="upgrade_screen_status_free_title">Version gratuite</string>
     <string name="upgrade_screen_status_free_body">Vous utilisez la version gratuite de CAPod. Des fonctionnalités supplémentaires peuvent être déverrouillées en soutenant le développement.</string>
     <string name="upgrade_screen_status_free_action">Voir les options de mise à niveau</string>

@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play meldt dat je deze upgrade al bezit, maar deze kon niet worden hersteld. Zorg ervoor dat je het Google-account gebruikt waarmee je hebt gekocht. Synchronisatie van de Play Store kan tijd kosten — probeer opnieuw op te starten, de cache van Google Play te wissen of gewoon te wachten.</string>
     <string name="upgrade_restore_action">Herstel aankoop</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Haal %1$s</string>
     <string name="upgrade_preamble">CAPod wordt ontwikkeld door één persoon. Upgraden ontgrendelt extra functies en helpt de app in leven te houden.</string>
     <string name="upgrade_screen_options_description">Dezelfde functies, verschillende prijzen. Het abonnement bevat een gratis proefperiode en kan op elk moment worden opgezegd.</string>
     <string name="upgrade_screen_options_description_no_trial">Dezelfde functies, andere prijzen. Het abonnement kan op elk moment worden opgezegd.</string>
@@ -45,7 +47,7 @@
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement nog steeds actief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Je abonnement wordt automatisch verlengd. Annuleer het eerst in Google Play en schakel daarna over naar de eenmalige aankoop. Net geannuleerd? Geef Google Play even de tijd en probeer het opnieuw.</string>
     <string name="upgrade_screen_sub_check_failed_title">Controle van abonnement mislukt</string>
-    <string name="upgrade_screen_sub_check_failed_message">Kon je abonnementsstatus niet controleren bij Google Play. Probeer het straks opnieuw om een dubbele aankoop te voorkomen.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Je abonnementsstatus kon niet worden gecontroleerd bij Google Play. Om een ​​dubbele aankoop te voorkomen, probeer het over een moment opnieuw.</string>
     <string name="upgrade_screen_grace_title">Je aankoop wordt bevestigd</string>
     <string name="upgrade_screen_grace_body_short">Google Play heeft je aankoop nog niet bevestigd. Pro is nog steeds actief — geen actie nodig.</string>
     <string name="upgrade_screen_grace_body">Google Play heeft je aankoop al een tijdje niet bevestigd. Pro is nog steeds actief. Zorg ervoor dat je online bent en bent ingelogd met het Google-account dat je voor de aankoop hebt gebruikt, en probeer het dan opnieuw te herstellen.</string>
@@ -60,10 +62,20 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Wordt jaarlijks vernieuwd. Annuleer op elk moment in Google Play.</string>
     <string name="upgrade_screen_iap_offer_body">Eenmalige betaling, geen vernieuwingen.</string>
     <string name="upgrade_screen_benefits_title">Voordelen van de upgrade</string>
-    <string name="upgrade_screen_restore_body">Bij het herstellen van een app vraagt Google Play om de aankopen van deze app voor het huidige account opnieuw te controleren. Er wordt geen nieuwe aankoop gestart.</string>
+    <string name="upgrade_screen_restore_body">Bij het herstellen van een app vraagt ​​Google Play om de aankopen van deze app voor het huidige account opnieuw te controleren. Er wordt geen nieuwe aankoop gestart.</string>
     <string name="upgrade_screen_restore_checked_message">CAPod heeft zojuist Google Play gecontroleerd, maar er kon geen Pro-aankoop worden bevestigd voor het Google Play-account dat voor deze app wordt gebruikt.</string>
     <string name="upgrade_screen_restore_contact_hint">Zit je nog steeds vast? Neem dan contact op met de klantenservice via het e-mailadres waarmee je de aankoop hebt gedaan en vermeld je Google Play-bestelnummer.</string>
     <string name="upgrade_screen_contact_support_action">Neem contact op met ondersteuning</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Je upgrade- en aankoopstatus.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod kan geen verbinding maken met Google Play. Is Google Play geïnstalleerd en up-to-date? Ben je ingelogd met je Google-account? Probeer de cache van de Google Play-app te wissen en je apparaat opnieuw op te starten.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Kon Google Play niet openen. Het kan ontbreken, uitgeschakeld of beperkt zijn op dit apparaat.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play-fout</string>
+    <string name="upgrades_gplay_internal_error_description">Er is een interne Google Play-fout opgetreden. Probeer het volgende:\n\n• Herstart je apparaat\n• Wis de cache van de Google Play Store\n• Probeer het later opnieuw</string>
+    <string name="upgrades_gplay_network_error_title">Verbindingsfout</string>
+    <string name="upgrades_gplay_network_error_description">Kan geen verbinding maken met Google Play. Controleer je internetverbinding en probeer het opnieuw.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Aanbieding niet beschikbaar</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play biedt deze upgrade-optie momenteel niet aan. Probeer het later opnieuw of raadpleeg de Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">De controle bij Google Play is niet op tijd voltooid, waardoor de status van je aankoop nog steeds onbekend is. Er is niets gewijzigd in je account.</string>
 </resources>

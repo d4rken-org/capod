@@ -78,6 +78,7 @@
     <string name="notification_channel_device_status_label">آلہ کی حیثیت</string>
     <string name="notification_channel_device_status_connected_label">منسلک آلہ</string>
     <string name="monitor_notification_extra_enabled_hint">آپ اس اطلاع کو سسٹم سیٹنگز میں غیر فعال کر سکتے ہیں۔</string>
+    <string name="monitor_notification_starting">شروع ہو رہا ہے…</string>
     <string name="support_debuglog_label">ڈیبگ لاگ</string>
     <string name="support_debuglog_desc">ایپ جو کچھ بھی کر رہی ہے اسے ایک ٹیکسٹ فائل میں ریکارڈ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
     <string name="debug_debuglog_size_label">سائز</string>
@@ -196,6 +197,9 @@
     <string name="overview_bluetooth_disabled_description">بلوٹوتھ غیر فعال ہے، اسے فعال کریں ؛)</string>
     <string name="overview_monitoring_active_label">آلات کی نگرانی ہو رہی ہے</string>
     <string name="overview_monitoring_active_description">یقینی بنائیں کہ آپ کا آلہ قریب اور فعال ہے۔</string>
+    <string name="overview_monitoring_off_label">پس منظر کی نگرانی بند ہے</string>
+    <string name="overview_monitoring_off_description">کوئی بھی پروفائل جوڑے ہوئے Bluetooth ڈیوائس کے ساتھ نہیں ہے، اس لیے CAPod صرف اس وقت اپ ڈیٹ ہوتا ہے جب ایپ کھلی ہو۔ پس منظر کی نگرانی، مسلسل اطلاع اور رد عمل کو فعال کرنے کے لیے ایک کو منتخب کریں۔</string>
+    <string name="overview_monitoring_off_action">جوڑا ہوا ڈیوائس منتخب کریں</string>
     <string name="overview_troubleshoot_suggestion_label">متصل، لیکن کوئی ڈیٹا نہیں</string>
     <string name="overview_troubleshoot_suggestion_description">آپ کا آلہ متصل ہے، لیکن CAPod اس سے کوئی براہ راست ڈیٹا وصول نہیں کر رہا۔ آپ کے فون کو ایک مطابقت کے آپشن کی ضرورت ہو سکتی ہے — مسئلہ حل کرنے والا خود بخود ایک تلاش کرنے کی کوشش کر سکتا ہے۔</string>
     <string name="overview_troubleshoot_suggestion_action">مسئلہ حل کرنے والا چلائیں</string>
@@ -481,8 +485,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">کال ختم کرنے کے لیے دو بار دبائیں</string>
     <string name="device_settings_open_cd">ڈیوائس کی ترتیبات کھولیں</string>
     <string name="overview_card_missing_paired_device">اس پروفائل میں کوئی جوڑا بلوٹوتھ ڈیوائس نہیں ہے۔</string>
+    <string name="overview_card_missing_paired_device_consequence">اس کے بغیر، ڈیوائس کی ترتیبات اور خود کار رابطہ دستیاب نہیں ہیں۔</string>
     <string name="overview_reactions_hint_title">ردعمل فی آلہ ہیں</string>
     <string name="overview_reactions_hint_body">آٹو پلے، آٹو پاز اور پاپ اپس کو اب ہر آلے کے لیے الگ سے ترتیب دیا گیا ہے۔ اپنے ہیڈفون کو منسلک رکھتے ہوئے کسی کارڈ پر سیٹنگز کا آئیکن تھپتھپائیں۔</string>
+    <string name="review_app_review_action">ریویو</string>
+    <string name="review_app_dismiss_action">شاید بعد میں</string>
+    <string name="review_app_body">کیا آپ CAPod کے لیے ریویو چھوڑنا چاہیں گے؟ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>
@@ -560,4 +568,6 @@
     <string name="press_controls_reset_label">ڈیفالٹس پر ریسیٹ کریں</string>
     <string name="press_controls_reset_confirm_message">تمام پریس میپنگز ڈیفالٹس پر ریسیٹ کریں؟</string>
     <string name="device_settings_noise_control_open_press_controls_action">پریس کنٹرولز کھولیں</string>
+    <string name="general_navigate_up_action">اوپر جائیں</string>
+    <string name="general_progress_loading">لوڈ کر رہا ہے</string>
 </resources>

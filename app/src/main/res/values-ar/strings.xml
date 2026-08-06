@@ -513,6 +513,9 @@
     <string name="overview_card_missing_paired_device_consequence">دونها، لن تتوفر إعدادات الجهاز والاتصال التلقائي.</string>
     <string name="overview_reactions_hint_title">ردود الفعل خاصة بكل جهاز</string>
     <string name="overview_reactions_hint_body">يتم الآن تهيئة التشغيل التلقائي والإيقاف التلقائي والنوافذ المنبثقة لكل جهاز على حدة. انقر على أيقونة الإعدادات على البطاقة أثناء توصيل سماعاتك.</string>
+    <string name="review_app_review_action">مراجعة</string>
+    <string name="review_app_dismiss_action">ربما لاحقًا</string>
+    <string name="review_app_body">هل ترغب في ترك تعليق لـ CAPod؟ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عام</string>
     <string name="device_settings_microphone_mode_label">ميكروفون</string>

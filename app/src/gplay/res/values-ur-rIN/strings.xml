@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">گوگل پلے کے مطابق آپ پہلے ہی یہ اپ گریڈ خرید چکے ہیں، لیکن اسے بحال نہیں کیا جا سکا۔ یقینی بنائیں کہ آپ وہی گوگل اکاؤنٹ استعمال کر رہے ہیں جس سے آپ نے خریداری کی تھی۔ پلے سٹور کی ہم آہنگی میں وقت لگ سکتا ہے — دوبارہ شروع کرنے، گوگل پلے کیشے صاف کرنے یا محض انتظار کرنے کی کوشش کریں۔</string>
     <string name="upgrade_restore_action">خریداری بحال کریں</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s حاصل کریں</string>
     <string name="upgrade_preamble">CAPod ایک ہی شخص کی طرف سے تیار کیا گیا ہے۔ اپ گریڈ کرنے سے اضافی خصوصیات کھلتی ہیں اور ایپ کو زندہ رکھنے میں مدد ملتی ہے۔</string>
     <string name="upgrade_screen_options_description">وہی خصوصیات، مختلف قیمتیں۔ سبسکرپشن میں مفت ٹرائل شامل ہے اور اسے کسی بھی وقت منسوخ کیا جا سکتا ہے۔</string>
     <string name="upgrade_screen_options_description_no_trial">وہی خصوصیات، مختلف قیمتیں۔ سبسکرپشن کو کسی بھی وقت منسوخ کیا جا سکتا ہے۔</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">معاونت سے رابطہ کریں</string>
     <string name="settings_upgrade_status_label">سی اے پوڈ پرو</string>
     <string name="settings_upgrade_status_description">آپ کی اپ گریڈ اور خریداری کی حالت۔</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play سے رابطہ نہیں کر سکتا۔ کیا Google Play انسٹال اور اپ ڈیٹ ہے؟ کیا آپ کا Google اکاؤنٹ لاگ ان ہے؟ Google Play ایپ کی کیش صاف کرنے اور اپنا ڈیوائس دوبارہ شروع کرنے کی کوشش کریں۔</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play کھل نہیں سکا۔ ہو سکتا ہے کہ یہ اس ڈیوائس پر موجود نہ ہو، غیر فعال ہو یا محدود ہو۔</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play میں خرابی</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play میں ایک داخلی خرابی پیش آئی۔ براہ کرم درج ذیل کو آزمائیں:\n\n• اپنے ڈیوائس کو دوبارہ شروع کریں\n• Google Play Store کی کیش صاف کریں\n• بعد میں دوبارہ کوشش کریں</string>
+    <string name="upgrades_gplay_network_error_title">رابطے میں خرابی</string>
+    <string name="upgrades_gplay_network_error_description">Google Play سے رابطہ کرنے میں ناکام۔ براہ کرم اپنے انٹرنیٹ کنکشن کو چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="upgrades_gplay_offer_unavailable_title">آفر دستیاب نہیں</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play فی الوقت یہ اپ گریڈ آپشن پیش نہیں کر رہا۔ براہ کرم بعد میں دوبارہ کوشش کریں یا Google Play Store کو چیک کریں۔</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play کے ساتھ چیک وقت سے پہلے ختم نہیں ہو سکی، اس لیے آپ کی خریداری کی حالت ابھی نامعلوم ہے۔ آپ کے اکاؤنٹ میں کوئی تبدیلی نہیں ہوئی۔</string>
 </resources>

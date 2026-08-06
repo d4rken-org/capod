@@ -12,6 +12,7 @@
     <string name="general_donate_action">පරිත්‍යාග කරන්න</string>
     <string name="general_check_action">පරීක්ෂා කරන්න</string>
     <string name="general_close_action">වසන්න</string>
+    <string name="general_dismiss_action">ඉවතලන්න</string>
     <string name="general_edit_action">සංස්කරණය කරන්න</string>
     <string name="general_save_action">සුරකින්න</string>
     <string name="general_guide_action">මාර්ගෝපදේශය</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">උපාංගයේ තත්ත්වය</string>
     <string name="notification_channel_device_status_connected_label">සම්බන්ධිත උපාංගය</string>
     <string name="monitor_notification_extra_enabled_hint">ඔබට පද්ධති සැකසීම් හි මෙම දැනුම්දීම අබල කළ හැකිය.</string>
+    <string name="monitor_notification_starting">ආරම්භ කරමින් පවතී…</string>
     <string name="support_debuglog_label">දෝෂහරණ ලොගය</string>
     <string name="support_debuglog_desc">යෙදුම කරන සෑම දෙයක්ම ඔබට බෙදාගත හැකි පෙළ ගොනුවක සටහන් කරන්න.</string>
     <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth අක්‍රීයයි, එය සක්‍රීය කරන්න ;)</string>
     <string name="overview_monitoring_active_label">උපාංග සඳහා නිරීක්ෂණය කරමින්</string>
     <string name="overview_monitoring_active_description">ඔබගේ උපාංගය ළඟ සහ ක්‍රියාකාරී බව සහතික කරන්න.</string>
+    <string name="overview_monitoring_off_label">පසුබිම් නිරීක්ෂණය වසා ඇත</string>
+    <string name="overview_monitoring_off_description">කිසිසේත් ප්‍රොෆයිල් සම්බන්ධිත බ්ලූටූත් උපාංගයක් නොමැත, එබැවින් CAPod යෙදුම විවෘතව පවතින විට පමණක් යාවත්කාලීන කරයි. පසුබිම් නිරීක්ෂණ, ක්‍රියාත්මක දැනුම්දීම් සහ ප්‍රතිකර්ම සක්‍රිය කිරීමට එකක් තෝරන්න.</string>
+    <string name="overview_monitoring_off_action">සම්බන්ධිත උපාංගය තෝරන්න</string>
     <string name="overview_troubleshoot_suggestion_label">සම්බන්ද වී ඇත, නමුත් දත් නොමැත</string>
     <string name="overview_troubleshoot_suggestion_description">ඔබේ උපාංගය සම්බන්ද වී ඇත, නමුත් CAPod එයින් ජීවිත දත් ලබා ගනිමින් නොමැත. ඔබේ දුරකතනයට අනුකූලතා ළිකල්පයක් අවශ්‍ය ළිය හැක — දෝෂ නිරාකරණකය ස්වයංක්‍රීයව එකක් සොයා ගැනීමට උත්සාහ කළ හැක.</string>
     <string name="overview_troubleshoot_suggestion_action">දෝෂ නිරාකරණකය ධාවනය කරන්න</string>
@@ -481,8 +486,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ඇමතුම අවසන් කිරීමට දෙවරක් එබන්න</string>
     <string name="device_settings_open_cd">උපාංග සැකසීම් විවර්ත කරන්න</string>
     <string name="overview_card_missing_paired_device">මෙම පැතිකඩට යුගල කළ Bluetooth උපකරණයක් නොමැත.</string>
+    <string name="overview_card_missing_paired_device_consequence">එකක් නොමැතිව, උපාංග සැකසුම් සහ ස්ව-සම්බන්ධතා ලබා ගත් නොහැක.</string>
     <string name="overview_reactions_hint_title">ප්‍රතික්‍රියා උපාංගය අනුව වෙනස් වේ</string>
     <string name="overview_reactions_hint_body">ස්වයංක්‍රීය වාදනය, ස්වයංක්‍රීය විරාමය සහ පොප්-අප් දැන් සෑම උපාංගයක් සඳහාම වින්‍යාස කර ඇත. ඔබගේ ශිරස්ත්‍රාණ සම්බන්ධිත අතරතුර කාඩ්පතක් මත සැකසුම් නිරූපකය තට්ටු කරන්න.</string>
+    <string name="review_app_review_action">සමාලෝචනය</string>
+    <string name="review_app_dismiss_action">පසුව සමහර විට</string>
+    <string name="review_app_body">ඔබ CAPod සඳහා සමාලෝචනයක් ලිවීමට කැමතිද? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>
@@ -560,4 +569,6 @@
     <string name="press_controls_reset_label">පේරනිමි අගයන්ට යශි සකස් කරන්න</string>
     <string name="press_controls_reset_confirm_message">සියලු ඔබීම් සිතියම්ගත කිරීම් පේරනිමි අගයන්ට යශි සකස් කරන්නද?</string>
     <string name="device_settings_noise_control_open_press_controls_action">ඔබීමේ පාලන විවෘත කරන්න</string>
+    <string name="general_navigate_up_action">ඉහළට ගමන් කරන්න</string>
+    <string name="general_progress_loading">පූරණය කරමින්</string>
 </resources>

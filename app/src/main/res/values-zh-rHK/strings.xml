@@ -12,6 +12,7 @@
     <string name="general_donate_action">捐贈</string>
     <string name="general_check_action">檢查</string>
     <string name="general_close_action">關閉</string>
+    <string name="general_dismiss_action">關閉</string>
     <string name="general_edit_action">編輯</string>
     <string name="general_save_action">儲存</string>
     <string name="general_guide_action">指南</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">裝置狀態</string>
     <string name="notification_channel_device_status_connected_label">已連接裝置</string>
     <string name="monitor_notification_extra_enabled_hint">您可以在系統設定中停用此通知。</string>
+    <string name="monitor_notification_starting">正在啟動…</string>
     <string name="support_debuglog_label">偵錯記錄</string>
     <string name="support_debuglog_desc">將應用程式執行的所有動作記錄到您可以分享的文字檔案中。</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">藍牙已停用，請啟用 ;)</string>
     <string name="overview_monitoring_active_label">正在監測裝置</string>
     <string name="overview_monitoring_active_description">請確保您的裝置在附近並處於啟用狀態。</string>
+    <string name="overview_monitoring_off_label">背景監控已關閉</string>
+    <string name="overview_monitoring_off_description">沒有任何設定檔配對藍牙裝置，因此 CAPod 只在應用程式開啟時更新。選擇其中一個以啟用背景監控、持續通知和反應。</string>
+    <string name="overview_monitoring_off_action">選擇配對裝置</string>
     <string name="overview_troubleshoot_suggestion_label">已連接，但無資料</string>
     <string name="overview_troubleshoot_suggestion_description">您的裝置已連接，但 CAPod 未從中接收任何即時資料。您的手機可能需要相容性選項——疑難排解員可嘗試自動找到一個。</string>
     <string name="overview_troubleshoot_suggestion_action">執行疑難排解員</string>
@@ -475,8 +480,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">雙擊結束通話</string>
     <string name="device_settings_open_cd">開啟裝置設定</string>
     <string name="overview_card_missing_paired_device">此設定檔沒有已配對的藍牙裝置。</string>
+    <string name="overview_card_missing_paired_device_consequence">沒有配對裝置，無法使用裝置設定和自動連線。</string>
     <string name="overview_reactions_hint_title">反應功能因裝置而異</string>
     <string name="overview_reactions_hint_body">自動播放、自動暫停及彈出視窗現在可以為每部裝置分別設定。在耳機連接時，輕按卡片上的設定圖示即可。</string>
+    <string name="review_app_review_action">評論</string>
+    <string name="review_app_dismiss_action">稍後再說</string>
+    <string name="review_app_body">你想為 CAPod 留下評論嗎？ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">麥克風</string>
@@ -554,4 +563,6 @@
     <string name="press_controls_reset_label">重設為預設</string>
     <string name="press_controls_reset_confirm_message">將所有按壓對應重設為預設？</string>
     <string name="device_settings_noise_control_open_press_controls_action">開啟按壓控制</string>
+    <string name="general_navigate_up_action">向上導航</string>
+    <string name="general_progress_loading">正在載入</string>
 </resources>

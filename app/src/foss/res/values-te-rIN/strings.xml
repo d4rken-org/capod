@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">స్పాన్సర్ పేజీని తెరవండి</string>
     <string name="settings_upgrade_status_label">CAPodకు స్పాన్సర్ చేయండి</string>
     <string name="settings_upgrade_status_description">మీ సపోర్టర్ స్థితి.</string>
+    <string name="upgrade_screen_why_title">అప్‌గ్రేడ్ ప్రయోజనాలు</string>
+    <string name="upgrade_screen_how_title">ఎలా సహాయం చేయాలి</string>
+    <string name="upgrade_screen_how_body">పేట్రన్ అవ్వండి మరియు అభివృద్ధిని స్పాన్సర్ చేయండి! అన్ని అదనపు ఫీచర్లను యాక్టివేట్ చేయడానికి మరియు నా GitHub Sponsors ప్రొఫైల్‌ను తెరవడానికి దిగువ బటన్‌ను నొక్కండి.</string>
+    <string name="upgrade_screen_status_free_title">ఉచిత సంస్కరణ</string>
+    <string name="upgrade_screen_status_free_body">మీరు CAPod యొక్క ఉచిత సంస్కరణని ఉపయోగిస్తున్నారు. అభివృద్ధిని సపోర్ట్ చేయడం ద్వారా అతిరిక్త ఫీచర్‌లను అన్‌లాక్ చేయవచ్చు.</string>
+    <string name="upgrade_screen_status_free_action">అప్‌గ్రేడ్ ఎంపికలను చూడండి</string>
+    <string name="upgrade_screen_status_upgraded_title">అప్‌గ్రేడ్ క్రియాశీలమైనది</string>
+    <string name="upgrade_screen_recurring_title">దీన్నిని కొనసాగించండి</string>
+    <string name="upgrade_screen_recurring_body">CAPod నవీకరణలు మరియు సరిదిద్దుకుల ద్వారా వికసిస్తూ ఉంది. మీరు దీన్నిని కొనసాగించాలనుకుంటే, GitHub Sponsors ద్వారా పునరావృత దానం గురించి ఆలోచించండి.</string>
 </resources>

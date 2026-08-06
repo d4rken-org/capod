@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play inaripoti kuwa tayari unamiliki uboreshaji huu, lakini haukuweza kurejeshwa. Hakikisha unatumia akaunti ya Google uliyotumia kununua. Usawazishaji wa Play Store unaweza kuchukua muda — jaribu kuwasha upya kifaa, kufuta hifadhi ya Google Play au kusubiri tu.</string>
     <string name="upgrade_restore_action">Rejesha ununuzi</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Pata %1$s</string>
     <string name="upgrade_preamble">CAPod inatengenezwa na mtu mmoja tu. Kuboresha kunafungua vipengele vya ziada na kusaidia kuendeleza programu hii.</string>
     <string name="upgrade_screen_options_description">Vipengele sawa, bei tofauti. Usajili unajumuisha jaribio la bure na unaweza kughairiwa wakati wowote.</string>
     <string name="upgrade_screen_options_description_no_trial">Vipengele sawa, bei tofauti. Usajili unaweza kughairiwa wakati wowote.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">Wasiliana na msaada</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Hali yako ya Upgrade na Ununuzi.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod haiwezi kuunganisha na Google Play. Je, Google Play imesakinishwa na imesasishwa? Je, akaunti yako ya Google imeingia? Jaribu kusafisha akiba ya programu ya Google Play na uanzishe upya kifaa chako.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Hakuweza kufungua Google Play. Huenda haipo, imelemazwa au imezuiliwa kwenye kifaa hiki.</string>
+    <string name="upgrades_gplay_internal_error_title">Hitilafu ya Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Hitilafu ya ndani ya Google Play ilitokea. Tafadhali jaribu zifuatazo:\n\n• Anzisha upya kifaa chako\n• Safisha hifadhi ya Google Play Store\n• Jaribu tena baadaye</string>
+    <string name="upgrades_gplay_network_error_title">Hitilafu ya kuunganisha</string>
+    <string name="upgrades_gplay_network_error_description">Haiwezi kuunganisha na Google Play. Tafadhali angalia muunganisho wako wa mtandao na jaribu tena.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ofa haipatikani</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Chaguo hili la kuboreshwa haipatikani kwenye Google Play sasa hivi. Tafadhali jaribu tena baadaye au angalia Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Angalia kwa Google Play haikumalizia kwa wakati, kwa hivyo hali ya ununuzi wako bado haijulikani. Hakuna jambo lililobadilika kwenye akaunti yako.</string>
 </resources>

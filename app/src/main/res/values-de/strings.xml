@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Ohne ein solches sind die Geräteeinstellungen und das automatische Verbinden nicht verfügbar.</string>
     <string name="overview_reactions_hint_title">Reaktionen sind gerätespezifisch</string>
     <string name="overview_reactions_hint_body">Auto-Play, Auto-Pause und Pop-ups werden jetzt pro Gerät konfiguriert. Tippe auf das Einstellungssymbol einer Karte, während deine Kopfhörer verbunden sind.</string>
+    <string name="review_app_review_action">Bewerten</string>
+    <string name="review_app_dismiss_action">Vielleicht später</string>
+    <string name="review_app_body">Möchtest du CAPod bewerten? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -529,7 +532,7 @@
     <string name="device_settings_anc_off_rejected_message">Der Aus-Modus ist auf diesem Gerät nicht aktiviert. Aktiviere „Aus-Modus erlauben“ unter Geräuschsteuerung.</string>
     <string name="device_settings_category_battery_label">Akku</string>
     <string name="device_settings_charge_cap_label">Optimiertes Ladelimit</string>
-    <string name="device_settings_charge_cap_description">Lernt deine Routine und pausiert das Laden bei ca. 80%%, um die Akkulebensdauer zu verlängern, und lädt die Pods vor der wahrscheinlichen Nutzung voll auf.</string>
+    <string name="device_settings_charge_cap_description">Lerne dein Nutzungsverhalten kennen und pausiere das Laden bei etwa 80 %%, um die Akkulaufzeit zu verlängern. Die Earbuds werden erst kurz vor der voraussichtlichen Nutzung vollständig geladen.</string>
     <string name="device_settings_charge_cap_rejected_message">Das optimierte Ladelimit konnte nicht geändert werden. Dies ist eine experimentelle Funktion – bitte melde es, wenn es weiterhin fehlschlägt.</string>
     <string name="device_settings_category_connections_label">Verbundene Geräte</string>
     <string name="device_settings_connected_devices_description">Andere Geräte, die derzeit mit diesen AirPods verbunden sind</string>

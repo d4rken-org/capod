@@ -483,6 +483,9 @@
     <string name="overview_card_missing_paired_device_consequence">ដោយគ្មាននោះ ការកំណត់ឧបករណ៍ និងការភ្ជាប់ដោយស្វ័យប្រវត្តិមិនលេច។</string>
     <string name="overview_reactions_hint_title">ប្រតិកម្មគឺខុសគ្នាតាមឧបករណ៍</string>
     <string name="overview_reactions_hint_body">ការចាក់ស្វ័យប្រវត្តិ ការផ្អាកស្វ័យប្រវត្តិ និងបង្អួចលេចឡើង ឥឡូវនេះត្រូវបានកំណត់រៀងរាល់ឧបករណ៍។ ចុចលើរូបតំណាងការកំណត់នៅលើកាតខណៈពេលដែលកាស​귀​យន្ត​ស្ដាប់​របស់​អ្នក​ភ្ជាប់​។</string>
+    <string name="review_app_review_action">ពិនិត្យឡើងវិញ</string>
+    <string name="review_app_dismiss_action">ប្រហែលពេលក្រោយ</string>
+    <string name="review_app_body">តើអ្នកចង់ដាក់ពិនិត្យលើ CAPod ដែរឬទេ? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ជាទូទៅ</string>
     <string name="device_settings_microphone_mode_label">មីក្រូហ្វូន</string>

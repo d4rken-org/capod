@@ -12,6 +12,7 @@
     <string name="general_donate_action">Donează</string>
     <string name="general_check_action">Verifică</string>
     <string name="general_close_action">Închide</string>
+    <string name="general_dismiss_action">Respinge</string>
     <string name="general_edit_action">Editează</string>
     <string name="general_save_action">Salvare</string>
     <string name="general_guide_action">Ghid</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Starea dispozitivului</string>
     <string name="notification_channel_device_status_connected_label">Dispozitiv conectat</string>
     <string name="monitor_notification_extra_enabled_hint">Puteți dezactiva această notificare în setările sistemului.</string>
+    <string name="monitor_notification_starting">Se inițiază…</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
     <string name="support_debuglog_desc">Înregistrați tot ce face aplicația într-un fișier text pe care îl puteți partaja.</string>
     <string name="debug_debuglog_size_label">Dimensiune</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth este dezactivat, activați-l ;)</string>
     <string name="overview_monitoring_active_label">Monitorizare dispozitive</string>
     <string name="overview_monitoring_active_description">Asigurați-vă că dispozitivul este în apropiere și activ.</string>
+    <string name="overview_monitoring_off_label">Monitorizarea de fundal este oprită</string>
+    <string name="overview_monitoring_off_description">Niciun profil nu are un dispozitiv Bluetooth asociat, deci CAPod se actualizează doar cât timp aplicația este deschisă. Selectează unul pentru a activa monitorizarea de fundal, notificarea continuă și reacțiile.</string>
+    <string name="overview_monitoring_off_action">Selectează dispozitivul asociat</string>
     <string name="overview_troubleshoot_suggestion_label">Conectat, dar fără date</string>
     <string name="overview_troubleshoot_suggestion_description">Dispozitivul tău este conectat, dar CAPod nu primește date în timp real de la acesta. Este posibil ca telefonul tău să aibă nevoie de o opțiune de compatibilitate — depuratorul poate încerca să găsească una automat.</string>
     <string name="overview_troubleshoot_suggestion_action">Rulează depuratorul</string>
@@ -487,8 +492,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dublă apăsare pentru a încheia apelul</string>
     <string name="device_settings_open_cd">Deschide setările dispozitivului</string>
     <string name="overview_card_missing_paired_device">Acest profil nu are niciun dispozitiv Bluetooth asociat.</string>
+    <string name="overview_card_missing_paired_device_consequence">Fără unul, setările dispozitivului și conectarea automată nu sunt disponibile.</string>
     <string name="overview_reactions_hint_title">Reacțiile sunt per dispozitiv</string>
     <string name="overview_reactions_hint_body">Redarea automată, pauza automată și ferestrele pop-up sunt acum configurate per dispozitiv. Apasă pictograma de setări de pe un card în timp ce căștile tale sunt conectate.</string>
+    <string name="review_app_review_action">Revizuire</string>
+    <string name="review_app_dismiss_action">Poate mai târziu</string>
+    <string name="review_app_body">Ți-ar plăcea să lași o recenzie pentru CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
@@ -566,4 +575,6 @@
     <string name="press_controls_reset_label">Resetare la valori implicite</string>
     <string name="press_controls_reset_confirm_message">Resetare toate mapările apăsărilor la valori implicite?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Deschide controalele apăsării</string>
+    <string name="general_navigate_up_action">Navigare în sus</string>
+    <string name="general_progress_loading">Se încarcă</string>
 </resources>

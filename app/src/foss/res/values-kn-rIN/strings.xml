@@ -20,4 +20,5 @@
     <string name="upgrade_screen_status_free_action">ನವೀಕರಣ ಆಯ್ಕೆಗಳನ್ನು ನೋಡಿ</string>
     <string name="upgrade_screen_status_upgraded_title">ನವೀಕರಣ ಕ್ರಿಯಾಶೀಲ</string>
     <string name="upgrade_screen_recurring_title">ಅದನ್ನು ಮುಂದುವರಿಸಿ</string>
+    <string name="upgrade_screen_recurring_body">CAPod ನವೀಕರಣ ಮತ್ತು ಸುಧಾರೆಗಳ ಮೂಲಕ ನಿರಂತರವಾಗಿ ಅಭಿವೃದ್ಧಿ ಆಗುತ್ತಿದೆ. ನೀವು ಇದನ್ನು ಮುಂದುವರಿಸಲು ಬಯಸಿದರೆ, GitHub Sponsors ಮೂಲಕ ನಿಯಮಿತ ದಾನವನ್ನು ಪರಿಗಣಿಸಿ.</string>
 </resources>

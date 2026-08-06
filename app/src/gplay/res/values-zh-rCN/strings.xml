@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play 显示您已拥有此升级,但无法恢复。请确保您使用的是购买时所用的 Google 账号。Play 商店同步可能需要一些时间——请尝试重启设备、清除 Google Play 缓存,或耐心等待。</string>
     <string name="upgrade_restore_action">恢复购买</string>
     <string name="upgrade_badge_label">专业版</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">获取 %1$s</string>
     <string name="upgrade_preamble">CAPod 由一个人独立开发。升级可解锁更多功能,并帮助这款应用持续维护下去。</string>
     <string name="upgrade_screen_options_description">功能相同,价格不同。订阅包含免费试用,并可随时取消。</string>
     <string name="upgrade_screen_options_description_no_trial">功能相同,价格不同。订阅可随时取消。</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">联系支持</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">您的升级和购买状态。</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod 无法连接到 Google Play。Google Play 是否已安装并更新至最新版本？您的 Google 账户是否已登录？请尝试清除 Google Play 应用的缓存，然后重启您的设备。</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">无法打开 Google Play。它可能未安装、已禁用或在此设备上受限。</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play 错误</string>
+    <string name="upgrades_gplay_internal_error_description">发生了 Google Play 内部错误。请尝试以下操作：\n\n• 重启您的设备\n• 清除 Google Play 商店缓存\n• 稍后再试</string>
+    <string name="upgrades_gplay_network_error_title">连接错误</string>
+    <string name="upgrades_gplay_network_error_description">无法连接到 Google Play。请检查您的互联网连接，然后重试。</string>
+    <string name="upgrades_gplay_offer_unavailable_title">优惠不可用</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play 目前不提供此升级选项。请稍后重试或检查 Google Play 商店。</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play 检查未能按时完成，因此您的购买状态仍然未知。您的账户没有任何更改。</string>
 </resources>

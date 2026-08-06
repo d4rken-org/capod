@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play melaporkan bahawa anda sudah memiliki peningkatan ini, tetapi ia tidak dapat dipulihkan. Pastikan anda menggunakan akaun Google yang digunakan semasa pembelian. Penyegerakan Play Store mungkin mengambil masa — cuba mulakan semula peranti, kosongkan cache Google Play atau tunggu sebentar.</string>
     <string name="upgrade_restore_action">Pulihkan pembelian</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_preamble">CAPod dibangunkan oleh seorang individu. Peningkatan membuka kunci ciri tambahan dan membantu mengekalkan aplikasi ini.</string>
     <string name="upgrade_screen_options_description">Ciri yang sama, harga yang berbeza. Langganan termasuk percubaan percuma dan boleh dibatalkan pada bila-bila masa.</string>
     <string name="upgrade_screen_options_description_no_trial">Ciri yang sama, harga yang berbeza. Langganan boleh dibatalkan pada bila-bila masa.</string>
@@ -66,4 +68,12 @@
     <string name="upgrade_screen_contact_support_action">Hubungi Sokongan</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Status peningkatan dan pembelian anda.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod tidak dapat menyambung ke Google Play. Adakah Google Play dipasang dan dikemaskini? Adakah Akaun Google anda log masuk? Cuba kosongkan cache aplikasi Google Play dan but semula peranti anda.</string>
+    <string name="upgrades_gplay_internal_error_title">Ralat Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Ralat dalaman Google Play telah berlaku. Sila cuba perkara berikut:\n\n• But semula peranti anda\n• Kosongkan cache Google Play Store\n• Cuba lagi nanti</string>
+    <string name="upgrades_gplay_network_error_title">Ralat sambungan</string>
+    <string name="upgrades_gplay_network_error_description">Tidak dapat menyambung ke Google Play. Sila periksa sambungan internet anda dan cuba lagi.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Penawaran tidak tersedia</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play tidak menawarkan pilihan peningkatan ini pada masa ini. Sila cuba lagi nanti atau periksa Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pemeriksaan dengan Google Play tidak selesai dalam masa, jadi status pembelian anda masih tidak diketahui. Tiada apa-apa yang telah berubah pada akaun anda.</string>
 </resources>

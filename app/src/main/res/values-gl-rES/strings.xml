@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Sen un, a configuración do dispositivo e a conexión automática non están dispoñibles.</string>
     <string name="overview_reactions_hint_title">As reaccións son por dispositivo</string>
     <string name="overview_reactions_hint_body">A reprodución automática, a pausa automática e as ventás emerxentes agora configúranse por dispositivo. Toca a icona de axustes nunha tarxeta mentres os teus auriculares estean conectados.</string>
+    <string name="review_app_review_action">Valorar</string>
+    <string name="review_app_dismiss_action">Quizais máis tarde</string>
+    <string name="review_app_body">Gustaríalle deixar unha valoración para CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Xeral</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>

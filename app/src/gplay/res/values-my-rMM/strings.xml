@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">Google Play က ဤအဆင့်မြှင့်တင်မှုကို သင်ပိုင်ဆိုင်ပြီးသားဖြစ်ကြောင်း သတင်းပို့ခဲ့သော်လည်း ၎င်းကို ပြန်လည်ရယူ၍မရနိုင်ခဲ့ပါ။ သင်ဝယ်ယူခဲ့သည့် Google အကောင့်ကို အသုံးပြုနေကြောင်း သေချာပါစေ။ Play Store ထပ်တူပြုမှုသည် အချိန်အနည်းငယ်ကြာနိုင်ပါသည် — ပြန်လည်စတင်ကြည့်ပါ၊ Google Play ကက်ရှ်ကို ရှင်းလင်းကြည့်ပါ (သို့) စောင့်ဆိုင်းကြည့်ပါ။</string>
     <string name="upgrade_restore_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ကို ရယူပါ</string>
     <string name="upgrade_preamble">CAPod ကို လူတစ်ဦးတည်းက ဖန်တီးထားခြင်းဖြစ်သည်။ အဆင့်မြှင့်တင်ခြင်းက ထပ်ဆောင်းအင်္ဂါရပ်များကို ဖွင့်ပေးပြီး အက်ပ်ကို ဆက်လက်တည်ရှိစေရန် ကူညီပေးပါသည်။</string>
     <string name="upgrade_screen_options_description">အင်္ဂါရပ်များ တူညီပြီး စျေးနှုန်းသာ ကွာခြားပါသည်။ စာရင်းသွင်းမှုတွင် အခမဲ့စမ်းသပ်ကာလ ပါဝင်ပြီး အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။</string>
     <string name="upgrade_screen_options_description_no_trial">အင်္ဂါရပ်များ တူညီပြီး စျေးနှုန်းသာ ကွာခြားပါသည်။ စာရင်းသွင်းမှုကို အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">အကူအညီ ဆက်သွယ်ပါ</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">သင်၏ အဆင့်မြင့်တင်ခြင်း နှင့် ဝယ်ယူမှု အခြေအနေ။</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod သည် Google Play နှင့် ချိတ်ဆက်၍မရပါ။ Google Play ကို ထည့်သွင်းပြီး အပ်ဒိတ်လုပ်ထားပါသလား။ သင့် Google အကောင့် ဝင်ရောက်ထားပါသလား။ Google Play အက်ပ်၏ cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ကိုဖွင့်လို့မရခဲ့ပါ။ ၎င်းသည်ပျောက်နိုင်သည်၊ ပိတ်ထားနိုင်သည် သို့မဟုတ် ဤစက်ပစ္စည်းတွင် ကန့်သတ်ထားနိုင်သည်။</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play အမှားအယွင်း</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play အတွင်းပိုင်း အမှားအယွင်း ကျေးဇူးပြု၍ အောက်ပါတို့ကို ကြိုးစားကြည့်ပါ:\n\n• သင့်စက်ကို ပြန်လည်စတင်ပါ\n• Google Play Store cache ကို ရှင်းလင်းပါ\n• နောက်မှ ထပ်မံ ကြိုးစားကြည့်ပါ</string>
+    <string name="upgrades_gplay_network_error_title">ချိတ်ဆက်မှု အမှားအယွင်း</string>
+    <string name="upgrades_gplay_network_error_description">Google Play နှင့် ချိတ်ဆက်၍ မရပါ။ သင့် အင်တာနက် ချိတ်ဆက်မှု စစ်ဆေးပြီး ထပ်မံ ကြိုးစားကြည့်ပါ။</string>
+    <string name="upgrades_gplay_offer_unavailable_title">အဆိုအဖြေ မရှိပါ</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play သည် လက်ရှိ ဤအဆင့်မြှင့်တင်မှု ရွေးချယ်စရာ ကို အဆိုအဖြေ မပေးနေပါ။ နောက်မှ ထပ်မံ ကြိုးစားကြည့်ပါ သို့မဟုတ် Google Play Store ကို စစ်ဆေးကြည့်ပါ။</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ကို စစ်ဆေးမှု အချိန်မီ အပြီးမျှသွားမရသဖြင့် သင့် ဝယ်ယူမှု အခြေအနေ သည် မသိရှိရသေးပါ။ သင့် အကောင့်တွင် မည်သည့်အရာမျှ မပြောင်းလဲသွားပါ။</string>
 </resources>

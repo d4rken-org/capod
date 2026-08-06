@@ -16,7 +16,9 @@
     <string name="upgrade_screen_how_title">របៀបជួយ</string>
     <string name="upgrade_screen_how_body">ក្លាយជាអ្នកឧបត្ថម្ភ និងឧបត្ថម្ភការអភិវឌ្ឍន៍! ចុចប៊ូតុងខាងក្រោមដើម្បីធ្វើឱ្យមុខងារបន្ថែមទាំងអស់សកម្ម និងបើកប្រវត្តិរូប GitHub Sponsors របស់ខ្ញុំ។</string>
     <string name="upgrade_screen_status_free_title">កំណែឥតគិតថ្លៃ</string>
+    <string name="upgrade_screen_status_free_body">អ្នកកំពុងប្រើប្រាស់កំណែឥតគិតថ្លៃរបស់ CAPod។ មុខងារលម្អិតបន្ថែមលេចឡើងដោយការគាំទ័របង្កើនលេខ។</string>
     <string name="upgrade_screen_status_free_action">មើលជម្រើសលើកកម្ពស់</string>
     <string name="upgrade_screen_status_upgraded_title">លើកកម្ពស់សកម្ម</string>
     <string name="upgrade_screen_recurring_title">បន្តដង្ហើម</string>
+    <string name="upgrade_screen_recurring_body">CAPod បន្តលូតលាស់តាមរយៈការធ្វើឱ្យថ្មីនិងការកែប្រែ។ ប្រសិនបើអ្នកចង់រក្សាវាឱ្យរស់រាន, ពិចារណាការរួមចំណែកម្តងម្កាលរបស់អ្នកតាមរយៈ GitHub Sponsors។</string>
 </resources>

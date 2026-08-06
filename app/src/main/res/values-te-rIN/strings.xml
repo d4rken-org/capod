@@ -12,6 +12,7 @@
     <string name="general_donate_action">దానం చేయండి</string>
     <string name="general_check_action">తనిఖీ చేయి</string>
     <string name="general_close_action">మూసివేయి</string>
+    <string name="general_dismiss_action">తీసివేయండి</string>
     <string name="general_edit_action">సవరించండి</string>
     <string name="general_save_action">సేవ్ చేయి</string>
     <string name="general_guide_action">మార్గదర్శి</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">పరికర స్థితి</string>
     <string name="notification_channel_device_status_connected_label">కనెక్ట్ చేయబడిన పరికరం</string>
     <string name="monitor_notification_extra_enabled_hint">సిస్టమ్ సెట్టింగ్‌లలో ఈ నోటిఫికేషన్‌ను నిలిపివేయవచ్చు.</string>
+    <string name="monitor_notification_starting">ప్రారంభిస్తోంది…</string>
     <string name="support_debuglog_label">డీబగ్ లాగ్</string>
     <string name="support_debuglog_desc">యాప్ చేస్తున్న ప్రతిదాన్ని మీరు షేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రికార్డ్ చేయండి.</string>
     <string name="debug_debuglog_size_label">పరిమాణం</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">బ్లూటూత్ నిలిపివేయబడింది, దాన్ని ఎనేబుల్ చేయండి ;)</string>
     <string name="overview_monitoring_active_label">పరికరాలను మానిటర్ చేస్తోంది</string>
     <string name="overview_monitoring_active_description">మీ పరికరం సమీపంలో మరియు యాక్టివ్‌గా ఉందని నిర్ధారించుకోండి.</string>
+    <string name="overview_monitoring_off_label">నేపథ్య పర్యవేక్షణ ఆఫ్‌లో ఉంది</string>
+    <string name="overview_monitoring_off_description">ఏ ప్రొఫైల్‌కు జత చేయబడిన Bluetooth పరికరం లేనందువల్ల, CAPod కేవలం యాప్ తెరిచి ఉన్నప్పుడు మాత్రమే నవీకరించుకుంటుంది. నేపథ్య పర్యవేక్షణ, కొనసాగుతున్న నోటిఫికేషన్ మరియు ప్రతిచర్యలను ప్రారంభించడానికి ఒకటిని ఎంచుకోండి.</string>
+    <string name="overview_monitoring_off_action">జత చేయబడిన పరికరాన్ని ఎంచుకోండి</string>
     <string name="overview_troubleshoot_suggestion_label">కనెక్ట్ అయింది, కానీ డేటా లేదు</string>
     <string name="overview_troubleshoot_suggestion_description">మీ పరికరం కనెక్ట్ అయింది, కానీ CAPod దాని నుండి ఏ లైవ్ డేటాను అందుకోవడం లేదు. మీ ఫోన్‌కు ఒక అనుకూలత ఎంపిక అవసరం కావచ్చు — ట్రబుల్షూటర్ స్వయంచాలకంగా ఒకటి కనుగొనడానికి ప్రయత్నించగలదు.</string>
     <string name="overview_troubleshoot_suggestion_action">ట్రబుల్షూటర్ అమలు చేయి</string>
@@ -481,8 +486,11 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">కాల్ ముగించడానికి రెండుసార్లు నొక్కండి</string>
     <string name="device_settings_open_cd">పరికర సెట్టింగ్‌లు తెరవండి</string>
     <string name="overview_card_missing_paired_device">ఈ ప్రొఫైల్‌కు పెయిర్ చేయబడిన Bluetooth పరికరం లేదు.</string>
+    <string name="overview_card_missing_paired_device_consequence">దీన్ని లేకుండా, పరికర సెట్టింగ్‌లు మరియు ఆటో-కనెక్ట్ అందుబాటులో లేనివి.</string>
     <string name="overview_reactions_hint_title">రియాక్షన్లు పరికరానికి నిర్దిష్టంగా ఉంటాయి</string>
     <string name="overview_reactions_hint_body">ఆటో-ప్లే, ఆటో-పాజ్ మరియు పాప్-అప్‌లు ఇప్పుడు పరికరానికి నిర్దిష్టంగా కాన్ఫిగర్ చేయబడ్డాయి. మీ హెడ్‌ఫోన్‌లు కనెక్ట్ అయి ఉన్నప్పుడు కార్డ్‌పై సెట్టింగ్‌ల చిహ్నాన్ని నొక్కండి.</string>
+    <string name="review_app_review_action">సమీక్ష</string>
+    <string name="review_app_body">మీరు CAPod కోసం సమీక్ష వ్రాయాలనుకుంటారా? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>
@@ -560,4 +568,6 @@
     <string name="press_controls_reset_label">డిఫాల్ట్‌లకు రిసెట్</string>
     <string name="press_controls_reset_confirm_message">అన్ని ప్రెస్ మ్యాపింగ్‌లను డిఫాల్ట్‌లకు రిసెట్ చేయాలా?</string>
     <string name="device_settings_noise_control_open_press_controls_action">ప్రెస్ కంట్రోల్‌స్ తెరవండి</string>
+    <string name="general_navigate_up_action">పైకి నావిగేట్ చేయండి</string>
+    <string name="general_progress_loading">లోడ్ చేస్తుంది</string>
 </resources>

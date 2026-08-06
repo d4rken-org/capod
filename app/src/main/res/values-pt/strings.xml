@@ -12,6 +12,7 @@
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Fechar</string>
+    <string name="general_dismiss_action">Dispensar</string>
     <string name="general_edit_action">Editar</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_guide_action">Guia</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">Estado do dispositivo</string>
     <string name="notification_channel_device_status_connected_label">Dispositivo ligado</string>
     <string name="monitor_notification_extra_enabled_hint">Pode desativar esta notificação nas definições do sistema.</string>
+    <string name="monitor_notification_starting">Iniciando…</string>
     <string name="support_debuglog_label">Registo de depuração</string>
     <string name="support_debuglog_desc">Registe tudo o que a aplicação faz num ficheiro de texto que pode partilhar.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">O Bluetooth está desativado, ative-o ;)</string>
     <string name="overview_monitoring_active_label">A monitorizar dispositivos</string>
     <string name="overview_monitoring_active_description">Certifique-se de que o seu dispositivo está perto e ativo.</string>
+    <string name="overview_monitoring_off_label">Monitorização em segundo plano desativada</string>
+    <string name="overview_monitoring_off_description">Nenhum perfil tem um dispositivo Bluetooth emparelhado, portanto o CAPod apenas atualiza enquanto a aplicação está aberta. Selecione um para ativar a monitorização em segundo plano, a notificação persistente e as reações.</string>
+    <string name="overview_monitoring_off_action">Selecione um dispositivo emparelhado</string>
     <string name="overview_troubleshoot_suggestion_label">Ligado, mas sem dados</string>
     <string name="overview_troubleshoot_suggestion_description">O teu dispositivo está ligado, mas o CAPod não está a receber dados em tempo real. O teu telefone pode precisar de uma opção de compatibilidade — o solucionador de problemas pode tentar encontrar uma automaticamente.</string>
     <string name="overview_troubleshoot_suggestion_action">Executar solucionador de problemas</string>
@@ -481,8 +486,12 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Pressão dupla para terminar chamada</string>
     <string name="device_settings_open_cd">Abrir definições do dispositivo</string>
     <string name="overview_card_missing_paired_device">Este perfil não tem nenhum dispositivo Bluetooth emparelhado.</string>
+    <string name="overview_card_missing_paired_device_consequence">Sem um, as definições do dispositivo e a autoligação não estão disponíveis.</string>
     <string name="overview_reactions_hint_title">As reações são por dispositivo</string>
     <string name="overview_reactions_hint_body">A reprodução automática, a pausa automática e os pop-ups são agora configurados por dispositivo. Toque no ícone de definições num cartão enquanto os seus auscultadores estão ligados.</string>
+    <string name="review_app_review_action">Avaliar</string>
+    <string name="review_app_dismiss_action">Talvez mais tarde</string>
+    <string name="review_app_body">Gostaria de avaliar o CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Geral</string>
     <string name="device_settings_microphone_mode_label">Microfone</string>
@@ -560,4 +569,6 @@
     <string name="press_controls_reset_label">Repor para os padrões</string>
     <string name="press_controls_reset_confirm_message">Repor todos os mapeamentos de pressão para os padrões?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Abrir Controlos de Pressão</string>
+    <string name="general_navigate_up_action">Navegar para cima</string>
+    <string name="general_progress_loading">A carregar</string>
 </resources>

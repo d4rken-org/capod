@@ -57,9 +57,15 @@
     <string name="upgrade_screen_offers_body">លក្ខណៈដូចគ្នា តែម៉ូដែលតម្លៃខុសៗគ្នា។</string>
     <string name="upgrade_screen_offers_unavailable_title">តម្លៃមិនលេច</string>
     <string name="upgrade_screen_offers_unavailable_message">Google Play មិនបានផ្ដល់តម្លៃឥឡូវនេះទេ។ ពិនិត្យការតភ្ជាប់របស់អ្នក ហើយព្យាយាមម្តងទៀត។</string>
+    <string name="upgrade_screen_subscription_offer_title">ការផ្នូល​ប្រចាំឆ្នាំ</string>
+    <string name="upgrade_screen_subscription_offer_body">រលាប់ឡើងវិញរៀងរាល់ឆ្នាំបន្ទាប់ពីការសាកល្បងឥតគិតថ្លៃ។ អាចលុបចោលនៅពេលណាក៏បាននៅក្នុង Google Play។</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">រលាប់ឡើងវិញរៀងរាល់ឆ្នាំ។ អាចលុបចោលនៅពេលណាក៏បាននៅក្នុង Google Play។</string>
+    <string name="upgrade_screen_iap_offer_body">ការបង់ប្រាក់តែម្តងប៉ុណ្ណោះ គ្មានការរលាប់ឡើងវិញ។</string>
     <string name="upgrade_screen_benefits_title">អត្ថប្រយោជន៍នៃការឡើងកម្រិត</string>
     <string name="upgrade_screen_restore_body">ការស្ដារឡើងវិញនឹងស្នើឱ្យ Google Play ពិនិត្យឡើងវិញលើការទិញនៃកម្មវិធីនេះសម្រាប់គណនីបច្ចុប្បន្ន។ វាមិនបង្កើតការទិញថ្មីទេ។</string>
     <string name="upgrade_screen_restore_checked_message">CAPod ទើបតែពិនិត្យ Google Play ប៉ុណ្ណោះ ប៉ុន្ដែ មិនមានការទិញ Pro ដែលអាចបញ្ជាក់បានសម្រាប់គណនីដែល Google Play ប្រើប្រាស់សម្រាប់កម្មវិធីនេះទេ។</string>
+    <string name="upgrade_screen_restore_contact_hint">នៅតែមាន​បញ្ហា? ទាក់ទងក្រុមគាំទ័របន្ថែមដោយប្រើលិខិតអ៊ីមែលដែលបានប្រើក្នុងការទិញ ហើយរួមបញ្ចូលលេខលំដាប់របស់អ្នក Google Play។</string>
+    <string name="upgrade_screen_contact_support_action">ទាក់ទងក្រុមគាំទ័របន្ថែម</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ស្ថានភាពនៃការឡើងកម្រិត និងការទិញរបស់អ្នក។</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod មិនអាចភ្ជាប់ទៅ Google Play បានទេ។ តើ Google Play បានដំឡើង និងធ្វើបច្ចុប្បន្នភាពឬទេ? តើគណនី Google របស់អ្នកបានចូលហើយឬនៅ? សាកល្បងសម្អាតឃ្លាំងសម្ងាត់កម្មវិធី Google Play និងចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។</string>

@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Uden en kan enhedsindstillinger og automatisk forbindelse ikke være tilgængelige.</string>
     <string name="overview_reactions_hint_title">Reaktioner er per enhed</string>
     <string name="overview_reactions_hint_body">Automatisk afspilning, automatisk pause og pop-ups er nu konfigureret per enhed. Tryk på indstillingsikonet på et kort, mens dine hovedtelefoner er tilsluttet.</string>
+    <string name="review_app_review_action">Bedøm</string>
+    <string name="review_app_dismiss_action">Måske senere</string>
+    <string name="review_app_body">Har du lyst til at give CAPod en anmeldelse? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

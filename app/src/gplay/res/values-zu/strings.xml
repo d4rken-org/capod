@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">I-Google Play ibika ukuthi usuvele unalolu shintsho olusheshisiwe, kodwa alukwazanga ukubuyiselwa. Qinisekisa ukuthi usebenzisa i-akhawunti ye-Google owathenga ngayo. Ukuvumelanisa kwe-Play Store kungase kuthathe isikhathi — zama ukuqala kabusha idivayisi, ukususa i-cache ye-Google Play noma ulinde nje.</string>
     <string name="upgrade_restore_action">Buyisela ukuthenga</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Thola %1$s</string>
     <string name="upgrade_preamble">I-CAPod yenziwe umuntu oyedwa. Ukuthuthukisa kuvula izici ezengeziwe futhi kusize ukugcina uhlelo lokusebenza luphila.</string>
     <string name="upgrade_screen_options_description">Izici ezifanayo, amanani ahlukene. Ukubhalisa kufaka ukuzama kwamahhala futhi kungakhanselwa noma nini.</string>
     <string name="upgrade_screen_options_description_no_trial">Izici ezifanayo, amanani ahlukene. Ukubhalisa kungakhanselwa noma nini.</string>
@@ -59,4 +61,13 @@
     <string name="upgrade_screen_contact_support_action">Xhumana nolungiselelo</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
+    <string name="upgrades_gplay_unavailable_error_description">I-CAPod ayikwazi ukuxhuma ku-Google Play. Ingabe Google Play ifakiwe futhi isesikhathini? Ingabe i-akhawunti yakho ye-Google ingene? Zama ukusula i-cache yohlelo lokusebenza lwe-Google Play futhi uphinde uqalise idivayisi yakho.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Ayikho ukuvula Google Play. Ingabe ayikho, ikungena noma kuthintwa ku-divayisi yakho.</string>
+    <string name="upgrades_gplay_internal_error_title">Iphutha lika-Google Play</string>
+    <string name="upgrades_gplay_internal_error_description">Kwenzeke iphutha elingaphakathi lika-Google Play. Ngiyakucela uzame lokhu okulandelayo:\n\n• Qalise kabusha idivayisi yakho\n• Sula i-cache ye-Google Play Store\n• Zama kamuva</string>
+    <string name="upgrades_gplay_network_error_title">Iphutha lokuxhuma</string>
+    <string name="upgrades_gplay_network_error_description">Ayikwazi ukuxhuma ku-Google Play. Ngiyakucela uhlole uxhumano lwakho i-inthanethi futhi uzame kabusha.</string>
+    <string name="upgrades_gplay_offer_unavailable_description">I-Google Play ayikaseli le-opsyon yokuphucula. Ngiyakucela uzame kamuva noma uhlole i-Google Play Store.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ukuhloliswa okwakuthi ne-Google Play akuqedele ngesikhathi, ngakho isimo sokuthengi sakho sihlulekile ukwaziwa. Akukho okuthile okuthuthele ku-akhawunti yakho.</string>
 </resources>

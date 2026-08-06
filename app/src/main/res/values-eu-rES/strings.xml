@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">Bat gabe, gailuaren ezarpenak eta auto-konexioa ez daude eskuragarri.</string>
     <string name="overview_reactions_hint_title">Erreakzioak gailuka konfiguratuta daude</string>
     <string name="overview_reactions_hint_body">Erreprodukzio automatikoa, geldialdia automatikoa eta laster-leihoak orain gailuka konfiguratzen dira. Sakatu txarteleko ezarpenak ikonoa aurikularrak konektatuta dituzun bitartean.</string>
+    <string name="review_app_review_action">Berrikuspen</string>
+    <string name="review_app_dismiss_action">Agian geroago</string>
+    <string name="review_app_body">CAPod-i berrikuspen bat utzi nahi diozu? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Orokorra</string>
     <string name="device_settings_microphone_mode_label">Mikrofonoa</string>

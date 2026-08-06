@@ -501,6 +501,9 @@
     <string name="overview_card_missing_paired_device_consequence">ללא זה, הגדרות ההתקן והחיבור האוטומטי אינם זמינים.</string>
     <string name="overview_reactions_hint_title">התגובות הן לפי מכשיר</string>
     <string name="overview_reactions_hint_body">הפעלה אוטומטית, השהייה אוטומטית וחלונות קופצים מוגדרים כעת לפי מכשיר. הקש על סמל ההגדרות בכרטיס כאשר האוזניות שלך מחוברות.</string>
+    <string name="review_app_review_action">סקירה</string>
+    <string name="review_app_dismiss_action">אולי מאוחר יותר</string>
+    <string name="review_app_body">להשאיר ביקורת ל-CAPod? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">כללי</string>
     <string name="device_settings_microphone_mode_label">מיקרופון</string>

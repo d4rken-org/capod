@@ -12,6 +12,7 @@
     <string name="general_donate_action">寄付</string>
     <string name="general_check_action">確認</string>
     <string name="general_close_action">閉じる</string>
+    <string name="general_dismiss_action">閉じる</string>
     <string name="general_edit_action">編集</string>
     <string name="general_save_action">保存</string>
     <string name="general_guide_action">ガイド</string>
@@ -482,6 +483,9 @@
     <string name="overview_card_missing_paired_device_consequence">デバイスの設定と自動接続は利用できません。</string>
     <string name="overview_reactions_hint_title">リアクションはデバイスごとに設定されます</string>
     <string name="overview_reactions_hint_body">自動再生、自動一時停止、ポップアップはデバイスごとに設定できるようになりました。ヘッドフォンを接続した状態でカードの設定アイコンをタップしてください。</string>
+    <string name="review_app_review_action">レビュー</string>
+    <string name="review_app_dismiss_action">また後で</string>
+    <string name="review_app_body">CAPodをレビューしませんか？ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>

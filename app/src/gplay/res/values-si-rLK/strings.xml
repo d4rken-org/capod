@@ -10,6 +10,8 @@
     <string name="upgrades_gplay_already_owned_description">ඔබ දැනටමත් මෙම උසස් කිරීම හිමිකරගෙන ඇති බව Google Play වාර්තා කරයි, නමුත් එය ප්‍රතිසාධනය කළ නොහැකි විය. ඔබ මිලදී ගැනීමට භාවිත කළ Google ගිණුමම භාවිත කරන බව තහවුරු කරගන්න. Play Store සමමුහුර්තකරණයට කාලය ගත විය හැක — නැවත ආරම්භ කිරීම, Google Play කෑෂය හිස් කිරීම, හෝ මදක් රැඳී සිටීම උත්සාහ කරන්න.</string>
     <string name="upgrade_restore_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ලබා ගන්න</string>
     <string name="upgrade_preamble">CAPod සංවර්ධනය කරනු ලබන්නේ එක් පුද්ගලයෙකු විසිනි. උසස් කිරීම අමතර විශේෂාංග අගුළු හරින අතර යෙදුම ක්‍රියාත්මකව තබා ගැනීමට උපකාරී වේ.</string>
     <string name="upgrade_screen_options_description">විශේෂාංග එකම ය, මිල ගණන් වෙනස් ය. දායකත්වයට නොමිලේ අත්හදා බැලීමක් ඇතුළත් වන අතර ඕනෑම වේලාවක එය අවලංගු කළ හැක.</string>
     <string name="upgrade_screen_options_description_no_trial">විශේෂාංග එකම ය, මිල ගණන් වෙනස් ය. දායකත්වය ඕනෑම වේලාවක අවලංගු කළ හැක.</string>
@@ -66,4 +68,14 @@
     <string name="upgrade_screen_contact_support_action">සහාය සම්බන්ධ කරන්න</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ඔබේ වැඩිදුම් සහ ගිණුම් තත්‍වය.</string>
+    <string name="upgrades_gplay_unavailable_error_description">CAPod හට Google Play වෙත සම්බන්ධ විය නොහැක. Google Play ස්ථාපනය කර යාවත්කාලීන කර තිබේද? ඔබගේ Google ගිණුම පුරනය වී තිබේද? Google Play යෙදුමේ හැඹිලිය මකා ඔබගේ උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play විවෘත කළ නොහැකි විය. එය මෙම උපකරණයේ නැතිවිය, අක්‍රිය කර ඇත හෝ සීමාබද්ධ විය හැකිය.</string>
+    <string name="upgrades_gplay_internal_error_title">Google Play දෝෂය</string>
+    <string name="upgrades_gplay_internal_error_description">Google Play හි අභ්‍යන්තර දෝෂයක් ඇතිවිය. කරුණාකර පහත සැලසුම් උත්සාහ කරන්න:\n\n• ඔබගේ උපාංගය නැවත ආරම්භ කරන්න\n• Google Play Store හැඹිලිය මකන්න\n• පසුව නැවත උත්සාහ කරන්න</string>
+    <string name="upgrades_gplay_network_error_title">සම්බන්ධතා දෝෂය</string>
+    <string name="upgrades_gplay_network_error_description">Google Play වෙත සම්බන්ධ විය නොහැක. කරුණාකර ඔබගේ අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ඉදිරිපත් කිරීම නොමැත</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play දැනට මෙම උඩ්ග්‍රේඩ් විකල්ප ඉදිරිපත් නොකරයි. කරුණාකර පසුව නැවත උත්සාහ කරන්න හෝ Google Play Store පරීක්ෂා කරන්න.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play සමඟ පරීක්ෂාව කාලීනව සම්පූර්ණ වුණේ නැත, එබැවින් ඔබගේ ගැනුම් තත්ත්‍වය තවමත් නොදන්නා සේ ඉතුරු ඇත. ඔබගේ ගිණුමට කිසිවක් වෙනස් වී නැත.</string>
 </resources>

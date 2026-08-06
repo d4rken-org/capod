@@ -12,4 +12,13 @@
     <string name="upgrade_foss_sponsor_again_action">Odpri stran za sponzorstvo</string>
     <string name="settings_upgrade_status_label">Podpri CAPod</string>
     <string name="settings_upgrade_status_description">Tvoj status podpornika.</string>
+    <string name="upgrade_screen_why_title">Prednosti nadgradnje</string>
+    <string name="upgrade_screen_how_title">Kako pomagati.</string>
+    <string name="upgrade_screen_how_body">Postanite pokrovitelj in prispevajte k razvoju!  Dotaknite se spodnjega gumba, da omogočite dodatne funkcije in odprete moj pokroviteljski profil na GitHubu.</string>
+    <string name="upgrade_screen_status_free_title">Brezplačna različica</string>
+    <string name="upgrade_screen_status_free_body">Uporabljate brezplačno različico CAPoda. Dodatne funkcionalnosti se odklenejo s podporo razvoju.</string>
+    <string name="upgrade_screen_status_free_action">Prikaži možnosti nadgradnje</string>
+    <string name="upgrade_screen_status_upgraded_title">Nadgradnja je aktivna</string>
+    <string name="upgrade_screen_recurring_title">Nadaljuj s tem</string>
+    <string name="upgrade_screen_recurring_body">CAPod se stalno razvija z posodobitvami in popravki. Če želite to podpreti, razmislite o ponavljajočem se prispevku prek GitHub Sponsors.</string>
 </resources>

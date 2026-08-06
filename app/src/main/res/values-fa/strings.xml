@@ -489,6 +489,9 @@
     <string name="overview_card_missing_paired_device_consequence">بدون آن، تنظیمات دستگاه و اتصال خودکار در دسترس نیستند.</string>
     <string name="overview_reactions_hint_title">واکنش‌ها برای هر دستگاه جداگانه هستند</string>
     <string name="overview_reactions_hint_body">پخش خودکار، توقف خودکار و پنجره‌های بازشو اکنون برای هر دستگاه پیکربندی می‌شوند. در حالی که هدفون‌های شما متصل هستند، روی آیکون تنظیمات روی یک کارت ضربه بزنید.</string>
+    <string name="review_app_review_action">مرور</string>
+    <string name="review_app_dismiss_action">شاید بعداً</string>
+    <string name="review_app_body">آیا می خواهید نظری برای CAPod بگذارید؟ ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">میکروفون</string>

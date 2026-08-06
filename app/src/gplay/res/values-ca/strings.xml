@@ -70,7 +70,7 @@
     <string name="settings_upgrade_status_description">Estat de la vostra actualització i compra.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod no es pot connectar al Google Play. El Google Play està instal·lat i actualitzat? Heu iniciat sessió amb el vostre compte de Google? Proveu d\'esborrar la memòria cau de l\'aplicació Google Play i reinicieu el dispositiu.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
-    <string name="upgrades_gplay_not_installed_message">No s\'ha pogut obrir Google Play. Pot ser que no estigui instal·lat, desactivat o restringit en aquest dispositiu.</string>
+    <string name="upgrades_gplay_not_installed_message">No s\'ha pogut obrir Google Play. Pot ser que no estigui disponible, estigui desactivat o restringit en aquest dispositiu.</string>
     <string name="upgrades_gplay_internal_error_title">Error del Google Play</string>
     <string name="upgrades_gplay_internal_error_description">S\'ha produït un error intern del Google Play. Proveu el següent:\n\n• Reinicieu el dispositiu\n• Esborreu la memòria cau del Google Play Store\n• Torneu-ho a provar més tard</string>
     <string name="upgrades_gplay_network_error_title">Error de connexió</string>

@@ -12,6 +12,7 @@
     <string name="general_donate_action">நன்கொடை</string>
     <string name="general_check_action">சரிபார்</string>
     <string name="general_close_action">மூடு</string>
+    <string name="general_dismiss_action">நிராகரி</string>
     <string name="general_edit_action">திருத்து</string>
     <string name="general_save_action">சேமி</string>
     <string name="general_guide_action">வழிகாட்டி</string>
@@ -78,6 +79,7 @@
     <string name="notification_channel_device_status_label">சாதன நிலை</string>
     <string name="notification_channel_device_status_connected_label">இணைக்கப்பட்ட சாதனம்</string>
     <string name="monitor_notification_extra_enabled_hint">கணினி அமைப்புகளில் இந்த அறிவிப்பை முடக்கலாம்.</string>
+    <string name="monitor_notification_starting">தொடங்குகிறது…</string>
     <string name="support_debuglog_label">பிழைத்திருத்த பதிவு</string>
     <string name="support_debuglog_desc">ஆப்ஸ் செய்யும் அனைத்தையும் நீங்கள் பகிரக்கூடிய ஒரு உரைக் கோப்பில் பதிவுசெய்க.</string>
     <string name="debug_debuglog_size_label">அளவு</string>
@@ -196,6 +198,9 @@
     <string name="overview_bluetooth_disabled_description">புளூடூத் முடக்கப்பட்டுள்ளது, இயக்கவும் ;)</string>
     <string name="overview_monitoring_active_label">சாதனங்களைக் கண்காணிக்கிறது</string>
     <string name="overview_monitoring_active_description">உங்கள் சாதனம் அருகில் மற்றும் செயலில் இருப்பதை உறுதிசெய்யவும்.</string>
+    <string name="overview_monitoring_off_label">பின்னணி கண்காணிப்பு அணைக்கப்பட்டுள்ளது</string>
+    <string name="overview_monitoring_off_description">எந்தவொரு சுயவிவரமும் இணைக்கப்பட்ட ப்லூடூத் சாதனத்தைக் கொண்டிருக்கவில்லை, எனவே CAPod ஆப்பு திறந்திருக்கும் போது மட்டுமே புதுப்பிக்கிறது. பின்னணி கண்காணிப்பு, நடந்துகொண்டிருக்கும் அறிவிப்பு மற்றும் எதிர்வினைகளை இயக்க ஒன்றைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="overview_monitoring_off_action">இணைக்கப்பட்ட சாதனத்தைத் தேர்ந்தெடுக்கவும்</string>
     <string name="overview_troubleshoot_suggestion_label">இணைக்கப்பட்டது, ஆனால் தரவு இல்லை</string>
     <string name="overview_troubleshoot_suggestion_description">உங்கள் சாதனம் இணைக்கப்பட்டுள்ளது, ஆனால் CAPod அதிலிருந்து நேரடி தரவு எதுவும் பெறவில்லை. உங்கள் தொலைபேசிக்கு இணக்கத்தன்மை விருப்பம் தேவைப்படலாம் — சிக்கல் தீர்ப்பான் தானாக ஒன்றை கண்டுபிடிக்க முயற்சிக்கும்.</string>
     <string name="overview_troubleshoot_suggestion_action">சிக்கல் தீர்ப்பானை இயக்கு</string>
@@ -481,8 +486,11 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">அழைப்பை முடிக்க இரண்டு முறை அழுத்தவும்</string>
     <string name="device_settings_open_cd">சாதன அமைப்புகளைத் திறக்கவும்</string>
     <string name="overview_card_missing_paired_device">இந்த சுயவிவரத்தில் இணைக்கப்பட்ட Bluetooth சாதனம் இல்லை.</string>
+    <string name="overview_card_missing_paired_device_consequence">அது இல்லாமல், சாதன அமைப்புகள் மற்றும் தானியங்கி இணைப்பு கிடைக்கவில்லை.</string>
     <string name="overview_reactions_hint_title">எதிர்வினைகள் சாதனத்திற்கு தனித்தனியாக உள்ளன</string>
     <string name="overview_reactions_hint_body">தானியங்கி இயக்கம், தானியங்கி இடைநிறுத்தம் மற்றும் பாப்-அப்கள் இப்போது சாதனத்திற்கு தனித்தனியாக அமைக்கப்படுகின்றன. உங்கள் ஹெட்ஃபோன்கள் இணைக்கப்பட்டிருக்கும்போது ஒரு கார்டில் உள்ள அமைப்புகள் ஐகானை தட்டவும்.</string>
+    <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
+    <string name="review_app_body">நீங்கள் CAPod க்கு மதிப்புரை வழங்க விரும்புகிறீர்களா? ❤️</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>
@@ -560,4 +568,6 @@
     <string name="press_controls_reset_label">இயல்புகளுக்கு மீட்டமை</string>
     <string name="press_controls_reset_confirm_message">அனைத்து அழுத்த வரைபடங்களையும் இயல்புகளுக்கு மீட்டமைக்கவா?</string>
     <string name="device_settings_noise_control_open_press_controls_action">அழுத்த கட்டுப்பாடுகளை திறக்கவும்</string>
+    <string name="general_navigate_up_action">மேல்நோக்கி செல்க</string>
+    <string name="general_progress_loading">ஏற்றுகிறது</string>
 </resources>
