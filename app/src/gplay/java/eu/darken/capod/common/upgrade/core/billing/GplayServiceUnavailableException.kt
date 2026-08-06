@@ -1,12 +1,10 @@
 package eu.darken.capod.common.upgrade.core.billing
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import android.widget.Toast
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.log
@@ -34,18 +32,23 @@ class GplayServiceUnavailableException(cause: Throwable) :
             try {
                 activity.startActivity(intent)
             } catch (e: ActivityNotFoundException) {
-                onLaunchFailed(activity, e)
+                onLaunchFailed(e)
+                throw e
             } catch (e: SecurityException) {
                 // Play can be installed but unreachable: disabled app, work/restricted profile or a
                 // ROM that guards the settings screen. The launch is denied, not unresolvable.
-                onLaunchFailed(activity, e)
+                onLaunchFailed(e)
+                throw e
             }
         },
+        // The failure is not presented here: it propagates to the dialog, which renders this inline.
+        // A Toast caps at 2 lines and clipped this message (in French mid-word, dropping a whole
+        // condition), so the container was the defect, not the wording.
+        fixActionErrorMessage = context.getString(R.string.upgrades_gplay_not_installed_message),
     )
 
-    private fun onLaunchFailed(activity: Activity, e: Exception) {
+    private fun onLaunchFailed(e: Exception) {
         log(ERROR) { "Can't launch settings intent for Google Play: $e" }
-        Toast.makeText(activity, R.string.upgrades_gplay_not_installed_message, Toast.LENGTH_SHORT).show()
     }
 
     companion object {
