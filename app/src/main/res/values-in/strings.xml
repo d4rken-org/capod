@@ -483,6 +483,7 @@
     <string name="overview_card_missing_paired_device_consequence">Tanpa satu, pengaturan perangkat dan koneksi otomatis tidak tersedia.</string>
     <string name="overview_reactions_hint_title">Reaksi berlaku per perangkat</string>
     <string name="overview_reactions_hint_body">Putar otomatis, jeda otomatis, dan pop-up kini dikonfigurasi per perangkat. Ketuk ikon pengaturan pada kartu saat headphone Anda terhubung.</string>
+    <string name="review_app_review_action">Ulasan</string>
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Mau menulis ulasan untuk CAPod? ❤️</string>
     <!-- New device settings -->

@@ -489,6 +489,7 @@
     <string name="overview_card_missing_paired_device_consequence">அது இல்லாமல், சாதன அமைப்புகள் மற்றும் தானியங்கி இணைப்பு கிடைக்கவில்லை.</string>
     <string name="overview_reactions_hint_title">எதிர்வினைகள் சாதனத்திற்கு தனித்தனியாக உள்ளன</string>
     <string name="overview_reactions_hint_body">தானியங்கி இயக்கம், தானியங்கி இடைநிறுத்தம் மற்றும் பாப்-அப்கள் இப்போது சாதனத்திற்கு தனித்தனியாக அமைக்கப்படுகின்றன. உங்கள் ஹெட்ஃபோன்கள் இணைக்கப்பட்டிருக்கும்போது ஒரு கார்டில் உள்ள அமைப்புகள் ஐகானை தட்டவும்.</string>
+    <string name="review_app_review_action">மதிப்பாய்வு</string>
     <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
     <string name="review_app_body">நீங்கள் CAPod க்கு மதிப்புரை வழங்க விரும்புகிறீர்களா? ❤️</string>
     <!-- New device settings -->

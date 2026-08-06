@@ -569,4 +569,6 @@
     <string name="press_controls_reset_label">Rudisha chaguo-msingi</string>
     <string name="press_controls_reset_confirm_message">Rudisha ramani zote za kubonyeza kwa chaguo-msingi?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Fungua Udhibiti wa Kubonyeza</string>
+    <string name="general_navigate_up_action">Nenda juu</string>
+    <string name="general_progress_loading">Kupakia</string>
 </resources>

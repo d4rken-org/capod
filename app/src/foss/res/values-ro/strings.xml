@@ -14,6 +14,7 @@
     <string name="settings_upgrade_status_description">Statusul tău de susținător.</string>
     <string name="upgrade_screen_why_title">Beneficiile upgrade-ului</string>
     <string name="upgrade_screen_how_title">Cum să ajuți</string>
+    <string name="upgrade_screen_how_body">Devino susținător și sponsorizează dezvoltarea! Apasă butonul de mai jos pentru a activa toate funcțiile suplimentare și a deschide profilul meu GitHub Sponsors.</string>
     <string name="upgrade_screen_status_free_title">Versiune gratuită</string>
     <string name="upgrade_screen_status_free_body">Folosești versiunea gratuită a CAPod. Poți debloca funcții suplimentare susținând dezvoltarea.</string>
     <string name="upgrade_screen_status_free_action">Vezi opțiunile de upgrade</string>

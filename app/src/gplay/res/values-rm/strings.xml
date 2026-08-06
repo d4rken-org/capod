@@ -56,6 +56,7 @@
     <string name="upgrade_screen_offers_or">u</string>
     <string name="upgrade_screen_offers_body">Medemas caracteristicas, suleta en models da preziun differentas.</string>
     <string name="upgrade_screen_offers_unavailable_title">Preziuns betg disponiblas</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play n\'ha betg inditgà ils pretschs actualmain. Controllescha tia connexiun ed emprova anc\'ina giada in mument pli tard.</string>
     <string name="upgrade_screen_subscription_offer_title">Abbunament annual</string>
     <string name="upgrade_screen_subscription_offer_body">Renova mintgamai tut l\'onn suenter la prova gratuita. Annullescha mintga temp en Google Play.</string>
     <string name="upgrade_screen_subscription_offer_body_no_trial">Renova mintgamai tut l\'onn. Annullescha mintga temp en Google Play.</string>

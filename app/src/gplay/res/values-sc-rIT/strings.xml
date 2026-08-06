@@ -56,11 +56,14 @@
     <string name="upgrade_screen_offers_or">o</string>
     <string name="upgrade_screen_offers_body">Istessas features, ma modelos de prezu differentis.</string>
     <string name="upgrade_screen_offers_unavailable_title">Prezu non disponìbile</string>
+    <string name="upgrade_screen_offers_unavailable_message">Google Play no at torradu is prètzios como. Controlla sa connessione tua e torra a proare intre pagu tempus.</string>
+    <string name="upgrade_screen_subscription_offer_title">Abbonamentu annuale</string>
     <string name="upgrade_screen_subscription_offer_body">Si renovet anu po anu dopo sa proba libera. Podes cantzellare in cuale mumentu in Google Play.</string>
     <string name="upgrade_screen_subscription_offer_body_no_trial">Si renovet anu po anu. Podes cantzellare in cuale mumentu in Google Play.</string>
     <string name="upgrade_screen_iap_offer_body">Unu pagamentu, sena renovatziones.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de s\'agiornamentu</string>
     <string name="upgrade_screen_restore_body">Su ristoru domanda a Google Play de verificà de noe sos compronius de sa aplicatzione pro s\'acontu in usu. No iniciat ungha noa compra.</string>
+    <string name="upgrade_screen_restore_checked_message">CAPod at pena controlladu Google Play, ma perunu comporu Pro at pòtzidu èssere cunfirmadu pro su contu chi Google Play est impreende pro custa aplicatzione.</string>
     <string name="upgrade_screen_restore_contact_hint">Ancora blocau? Cunta sos suportu dae s\'email chi at fetu sa compra e inclui su numeru de s\'ordine Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Cunta sos suportu</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>

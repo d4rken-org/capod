@@ -12,6 +12,7 @@
     <string name="general_donate_action">عطیہ کریں</string>
     <string name="general_check_action">چیک کریں</string>
     <string name="general_close_action">بند کریں</string>
+    <string name="general_dismiss_action">مسترد کریں</string>
     <string name="general_edit_action">تبدیلی کریں</string>
     <string name="general_save_action">محفوظ کریں</string>
     <string name="general_guide_action">رہنما</string>
