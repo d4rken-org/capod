@@ -54,10 +54,17 @@
     <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">Izinketho zokuthuthukiso</string>
     <string name="upgrade_screen_offers_or">noma</string>
+    <string name="upgrade_screen_offers_body">Izici ezifanayo, kuphela amanani ahlukene.</string>
     <string name="upgrade_screen_offers_unavailable_title">Izintengo azitholakali</string>
     <string name="upgrade_screen_offers_unavailable_message">I-Google Play ayibuyiseli izintengo ngalesi sikhathi. Hlola ikhonneksheni yakho ubuyele zama futhi kamuva nje.</string>
+    <string name="upgrade_screen_subscription_offer_title">Ukubhalisa kwaminyaka yonke</string>
+    <string name="upgrade_screen_subscription_offer_body">Kuvuselelwa minyaka yonke ngemva kokuzama kwamahhala. Khansela noma nini ku-Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Kuvuselelwa minyaka yonke. Khansela noma nini ku-Google Play.</string>
     <string name="upgrade_screen_iap_offer_body">Inkokhelo eyodwa, akukho okuphinda.</string>
     <string name="upgrade_screen_benefits_title">Izinzuzo zokuthuthukisa</string>
+    <string name="upgrade_screen_restore_body">Ukubuyisela kucela i-Google Play ukuthi iphinde ihlole ukuthenga kwalolu hlelo lokusebenza kule akhawunti okuyiyo manje. Akuqalisi ukuthenga okusha.</string>
+    <string name="upgrade_screen_restore_checked_message">I-CAPod isanda kuhlola i-Google Play, kodwa akukho kuthenga kwe-Pro okuqinisekiswe kule akhawunti i-Google Play eyisebenzisayo kulolu hlelo lokusebenza.</string>
+    <string name="upgrade_screen_restore_contact_hint">Usabambeke? Xhumana nosizo usuka ku-imeyili eyenza ukuthenga futhi ufake inombolo ye-oda ye-Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Xhumana nolungiselelo</string>
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
@@ -68,6 +75,7 @@
     <string name="upgrades_gplay_internal_error_description">Kwenzeke iphutha elingaphakathi lika-Google Play. Ngiyakucela uzame lokhu okulandelayo:\n\n• Qalise kabusha idivayisi yakho\n• Sula i-cache ye-Google Play Store\n• Zama kamuva</string>
     <string name="upgrades_gplay_network_error_title">Iphutha lokuxhuma</string>
     <string name="upgrades_gplay_network_error_description">Ayikwazi ukuxhuma ku-Google Play. Ngiyakucela uhlole uxhumano lwakho i-inthanethi futhi uzame kabusha.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Opsyoni ayitholakali</string>
     <string name="upgrades_gplay_offer_unavailable_description">I-Google Play ayikaseli le-opsyon yokuphucula. Ngiyakucela uzame kamuva noma uhlole i-Google Play Store.</string>
     <string name="upgrade_screen_restore_inconclusive_message">Ukuhloliswa okwakuthi ne-Google Play akuqedele ngesikhathi, ngakho isimo sokuthengi sakho sihlulekile ukwaziwa. Akukho okuthile okuthuthele ku-akhawunti yakho.</string>
 </resources>

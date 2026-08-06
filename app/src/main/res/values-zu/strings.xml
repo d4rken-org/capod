@@ -198,6 +198,8 @@
     <string name="overview_bluetooth_disabled_description">I-Bluetooth ikhutshaziwe, yenze isebenze ;)</string>
     <string name="overview_monitoring_active_label">Kuqashwe amadivayisi</string>
     <string name="overview_monitoring_active_description">Qinisekisa ukuthi idivayisi yakho iseduze futhi iyasebenza.</string>
+    <string name="overview_monitoring_off_label">Ukuqapha kwangemuva kuvaliwe.</string>
+    <string name="overview_monitoring_off_description">Akukho phrofayela enedivayisi ye-Bluetooth ehlangene, ngakho i-CAPod ibuyekeza kuphela ngenkathi uhlelo lokusebenza luvuliwe. Khetha eyodwa ukuze uvumele ukuqapha kwangemuva, isaziso esiqhubekayo nezenzo.</string>
     <string name="overview_monitoring_off_action">Khetha idivayisi eyotshwa</string>
     <string name="overview_troubleshoot_suggestion_label">Kuxhunyiwe, kodwa awekho idatha</string>
     <string name="overview_troubleshoot_suggestion_description">Idivayisi yakho ixhunyiwe, kodwa i-CAPod ayamukeli idatha ephilayo evela kuyona. Ifoni yakho ingadinga inketho yokufanelana — isixazululi sezinkinga singazama ukuthola enye ngokuzenzakalela.</string>

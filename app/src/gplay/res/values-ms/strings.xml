@@ -69,6 +69,8 @@
     <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Status peningkatan dan pembelian anda.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod tidak dapat menyambung ke Google Play. Adakah Google Play dipasang dan dikemaskini? Adakah Akaun Google anda log masuk? Cuba kosongkan cache aplikasi Google Play dan but semula peranti anda.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Tidak dapat membuka Google Play. Ia mungkin tiada, dilumpuhkan atau disekat pada peranti ini.</string>
     <string name="upgrades_gplay_internal_error_title">Ralat Google Play</string>
     <string name="upgrades_gplay_internal_error_description">Ralat dalaman Google Play telah berlaku. Sila cuba perkara berikut:\n\n• But semula peranti anda\n• Kosongkan cache Google Play Store\n• Cuba lagi nanti</string>
     <string name="upgrades_gplay_network_error_title">Ralat sambungan</string>
