@@ -63,16 +63,26 @@ class BrandTitleTemplateLocalesTest {
         locales shouldHaveAtLeastSize 60
     }
 
+    // Asserted against the FORMATTER'S OUTPUT rather than against the template text, because the
+    // format grammar is bigger than it looks: `%1$s %2$s %<s` reuses the previous argument and so
+    // emits the qualifier twice, which no reasonable "does it contain %1$s and %2$s" check spots.
+    // Each marker landing exactly once is precisely the condition spliceTitleTemplate requires, so
+    // checking it here is both stronger and simpler than modelling the grammar.
     @Test
-    fun `every locale template declares exactly the two title placeholders`() {
+    fun `every locale template places each slot exactly once when formatted`() {
         val offenders = locales.mapNotNull { tag ->
-            val template = localized(tag).getString(R.string.app_name_upgraded_template)
-            val specifiers = FORMAT_SPECIFIER
-                .findAll(template.replace("%%", ""))
-                .map { it.value }
-                .sorted()
-                .toList()
-            if (specifiers == listOf("%1\$s", "%2\$s")) null else "$tag -> $template"
+            val formatted = localized(tag).getString(
+                R.string.app_name_upgraded_template,
+                BRAND_TITLE_MARKER,
+                BRAND_QUALIFIER_MARKER,
+            )
+            val names = formatted.split(BRAND_TITLE_MARKER).size - 1
+            val qualifiers = formatted.split(BRAND_QUALIFIER_MARKER).size - 1
+            if (names == 1 && qualifiers == 1) {
+                null
+            } else {
+                "$tag -> name x$names, qualifier x$qualifiers in '$formatted'"
+            }
         }
 
         offenders shouldBe emptyList()
@@ -89,11 +99,17 @@ class BrandTitleTemplateLocalesTest {
             val result = compose(ctx)
 
             val span = result.spanStyles.singleOrNull()
+            // What Android itself produces for this template. Comparing against it is what proves
+            // the splice REPRODUCED the translator's arrangement rather than quietly discarding a
+            // damaged template and rebuilding the default — a fallback renders a plausible title
+            // with exactly one correctly-styled qualifier, so every other assertion here passes
+            // straight through it.
+            val expected = ctx.getString(R.string.app_name_upgraded_template, name, qualifier)
             when {
                 name.isBlank() || qualifier.isBlank() -> "$tag -> blank part"
                 result.text.contains(BRAND_TITLE_MARKER) -> "$tag -> name marker leaked"
                 result.text.contains(BRAND_QUALIFIER_MARKER) -> "$tag -> qualifier marker leaked"
-                !result.text.contains(name) -> "$tag -> name missing from '${result.text}'"
+                result.text != expected -> "$tag -> rendered '${result.text}', formatter says '$expected'"
                 span == null -> "$tag -> expected one span, got ${result.spanStyles.size}"
                 result.text.substring(span.start, span.end) != qualifier ->
                     "$tag -> span covers '${result.text.substring(span.start, span.end)}', want '$qualifier'"
@@ -103,9 +119,5 @@ class BrandTitleTemplateLocalesTest {
         }
 
         offenders shouldBe emptyList()
-    }
-
-    companion object {
-        private val FORMAT_SPECIFIER = Regex("""%(\d+\$)?[a-zA-Z]""")
     }
 }

@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.ui
 
 import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.capod.R
@@ -72,6 +73,31 @@ class BrandTitleTest : BaseComposeRobolectricTest() {
         // Not just "a span exists" — the bug class this replaces put the highlight on the app name
         // while rendering perfectly correct text.
         result.text.substring(span.start, span.end) shouldBe qualifier
+    }
+
+    @Test
+    fun `the highlight defaults to the upgraded brand color`() {
+        val result = capture { brandTitle(includeQualifier = true, highlightQualifier = true) }
+
+        result.spanStyles.single().item.color shouldBe Color(context.getColor(R.color.brand_tertiary))
+    }
+
+    // The toolbar tints by flavor — FOSS on brand_secondary, Pro on brand_tertiary — so the color
+    // is a parameter rather than a constant. Without this, hardcoding the default back into
+    // brandTitle would keep every other assertion green while the FOSS toolbar lost its tint.
+    @Test
+    fun `a caller-supplied highlight color is the one applied`() {
+        val custom = Color(context.getColor(R.color.brand_secondary))
+
+        val result = capture {
+            brandTitle(includeQualifier = true, highlightQualifier = true, highlightColor = custom)
+        }
+
+        result.spanStyles.single().item.color shouldBe custom
+        result.text.substring(
+            result.spanStyles.single().start,
+            result.spanStyles.single().end,
+        ) shouldBe qualifier
     }
 
     // The markers are injected as format arguments, so a template or formatter that mangled them
