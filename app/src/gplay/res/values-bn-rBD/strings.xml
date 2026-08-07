@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play রিপোর্ট করছে যে আপনি ইতিমধ্যে এই আপগ্রেডের মালিক, কিন্তু এটি পুনরুদ্ধার করা যায়নি। আপনি যে Google অ্যাকাউন্ট দিয়ে কিনেছিলেন সেটিই ব্যবহার করছেন কিনা তা নিশ্চিত করুন। Play Store সিঙ্ক্রোনাইজেশনে সময় লাগতে পারে — রিবুট করা, Google Play ক্যাশে সাফ করা বা কিছুক্ষণ অপেক্ষা করার চেষ্টা করুন।</string>
     <string name="upgrade_restore_action">ক্রয় পুনরুদ্ধার</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s পান</string>
     <string name="upgrade_preamble">CAPod একজন মাত্র ব্যক্তি দ্বারা তৈরি। আপগ্রেড করলে অতিরিক্ত ফিচার আনলক হয় এবং অ্যাপটি সচল রাখতে সাহায্য করে।</string>

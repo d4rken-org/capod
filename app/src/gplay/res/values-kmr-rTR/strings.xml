@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play radigihîne ku vê nûvekirinê jixwe di destê te de ye, lê ew nehat vegerandin. Piştrast bike ku tu bi hesabê Google yê ku pê kirriye têkevî. Senkronîzasyona Play Store dibe ku demê bigire — biceribîne ku cîhazê ji nû ve bidî destpêkirin, cache\'ya Google Play paqij bike an tenê bisekine.</string>
     <string name="upgrade_restore_action">Kirînê vegerîne</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Wergir %1$s</string>
     <string name="upgrade_preamble">CAPod ji aliyê kesekî yekane ve tê pêşxistin. Nûvekirin taybetmendiyên zêde vedike û dibe alîkar ku sepan berdewam bimîne.</string>

@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play की रिपोर्ट है कि आपके पास पहले से यह अपग्रेड है, लेकिन इसे पुनर्स्थापित नहीं किया जा सका। सुनिश्चित करें कि आप उसी Google खाते का उपयोग कर रहे हैं जिससे आपने खरीदारी की थी। Play Store सिंक होने में समय लग सकता है — रीबूट करने, Google Play कैश साफ़ करने या बस थोड़ा इंतज़ार करने का प्रयास करें।</string>
     <string name="upgrade_restore_action">खरीदारी पुनर्स्थापित करें</string>
     <string name="upgrade_badge_label">प्रो</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s प्राप्त करें</string>
     <string name="upgrade_preamble">CAPod को एक ही व्यक्ति द्वारा विकसित किया गया है। अपग्रेड करने से अतिरिक्त सुविधाएँ अनलॉक होती हैं और ऐप को जीवित रखने में मदद मिलती है।</string>

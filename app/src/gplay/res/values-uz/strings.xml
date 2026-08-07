@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ushbu yangilanishga allaqachon ega ekanligingizni bildiradi, ammo uni tiklab bo\'lmadi. Xarid qilgan Google hisobingizdan foydalanayotganingizga ishonch hosil qiling. Play Store sinxronizatsiyasi vaqt olishi mumkin — qurilmani qayta ishga tushirib ko\'ring, Google Play keshini tozalang yoki shunchaki kuting.</string>
     <string name="upgrade_restore_action">Xaridni tiklash</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s-ni oling</string>
     <string name="upgrade_preamble">CAPod yagona shaxs tomonidan ishlab chiqilmoqda. Yangilash qo\'shimcha funksiyalarni ochadi va ilovani tirik saqlashga yordam beradi.</string>

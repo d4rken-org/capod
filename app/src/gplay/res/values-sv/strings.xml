@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play rapporterar att du redan äger den här uppgraderingen, men den kunde inte återställas. Kontrollera att du använder samma Google-konto som du köpte med. Synkroniseringen med Play Butik kan ta tid — prova att starta om, rensa cacheminnet för Google Play eller helt enkelt vänta.</string>
     <string name="upgrade_restore_action">Återställ köp</string>
     <string name="upgrade_badge_label">Expert</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Skaffa %1$s</string>
     <string name="upgrade_preamble">CAPod utvecklas av en enda person. En uppgradering låser upp extra funktioner och hjälper till att hålla appen vid liv.</string>

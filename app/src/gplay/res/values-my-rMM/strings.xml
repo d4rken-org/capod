@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play က ဤအဆင့်မြှင့်တင်မှုကို သင်ပိုင်ဆိုင်ပြီးသားဖြစ်ကြောင်း သတင်းပို့ခဲ့သော်လည်း ၎င်းကို ပြန်လည်ရယူ၍မရနိုင်ခဲ့ပါ။ သင်ဝယ်ယူခဲ့သည့် Google အကောင့်ကို အသုံးပြုနေကြောင်း သေချာပါစေ။ Play Store ထပ်တူပြုမှုသည် အချိန်အနည်းငယ်ကြာနိုင်ပါသည် — ပြန်လည်စတင်ကြည့်ပါ၊ Google Play ကက်ရှ်ကို ရှင်းလင်းကြည့်ပါ (သို့) စောင့်ဆိုင်းကြည့်ပါ။</string>
     <string name="upgrade_restore_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ကို ရယူပါ</string>
     <string name="upgrade_preamble">CAPod ကို လူတစ်ဦးတည်းက ဖန်တီးထားခြင်းဖြစ်သည်။ အဆင့်မြှင့်တင်ခြင်းက ထပ်ဆောင်းအင်္ဂါရပ်များကို ဖွင့်ပေးပြီး အက်ပ်ကို ဆက်လက်တည်ရှိစေရန် ကူညီပေးပါသည်။</string>

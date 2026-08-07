@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ይህን ማሻሻያ አስቀድመው እንደያዙ ዘግቧል፣ ነገር ግን መመለስ አልተቻለም። በገዙበት የGoogle መለያ እየተጠቀሙ መሆኑን ያረጋግጡ። የPlay Store ማመሳሰል ጊዜ ሊወስድ ይችላል — እንደገና ለማስጀመር፣ የGoogle Play መሸጎጫን ለማጽዳት ወይም በቀላሉ ለመጠበቅ ይሞክሩ።</string>
     <string name="upgrade_restore_action">ግዢን ወደነበረበት መልስ</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ያግኑ</string>
     <string name="upgrade_preamble">CAPod የሚዘጋጀው በአንድ ሰው ብቻ ነው። ማሻሻል ተጨማሪ ባህሪያትን ይከፍታል እንዲሁም መተግበሪያውን ሕያው ለማድረግ ይረዳል።</string>

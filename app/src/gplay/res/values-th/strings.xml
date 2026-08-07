@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play รายงานว่าคุณเป็นเจ้าของการอัปเกรดนี้อยู่แล้ว แต่ไม่สามารถกู้คืนได้ ตรวจสอบให้แน่ใจว่าคุณใช้บัญชี Google เดียวกับที่ใช้ซื้อ การซิงค์ข้อมูลของ Play Store อาจใช้เวลาสักครู่ — ลองรีสตาร์ทเครื่อง ล้างแคชของ Google Play หรือรอสักครู่</string>
     <string name="upgrade_restore_action">กู้คืนการซื้อ</string>
     <string name="upgrade_badge_label">โปร</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">รับ %1$s</string>
     <string name="upgrade_preamble">CAPod พัฒนาโดยคนคนเดียว การอัปเกรดจะปลดล็อกฟีเจอร์เพิ่มเติมและช่วยให้แอปนี้ยังคงอยู่ต่อไป</string>

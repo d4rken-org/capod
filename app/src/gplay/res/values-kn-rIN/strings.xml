@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">ನೀವು ಈ ಅಪ್‌ಗ್ರೇಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿದ್ದೀರಿ ಎಂದು Google Play ವರದಿ ಮಾಡುತ್ತದೆ, ಆದರೆ ಅದನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನೀವು ಖರೀದಿಸಿದ Google ಖಾತೆಯನ್ನೇ ಬಳಸುತ್ತಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. Play Store ಸಿಂಕ್ರೊನೈಸೇಶನ್‌ಗೆ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು — ಮರುಪ್ರಾರಂಭಿಸಲು, Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಲು ಅಥವಾ ಸ್ವಲ್ಪ ಕಾಯಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="upgrade_restore_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ಪಡೆಯಿರಿ</string>
     <string name="upgrade_preamble">CAPod ಅನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿ ಅಭಿವೃದ್ಧಿಪಡಿಸುತ್ತಾರೆ. ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದರಿಂದ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳು ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್ ಜೀವಂತವಾಗಿರಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>

@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play informat chi tenes giai custu megioramentu, ma no est istadu possìbile lu ripristinare. Assegura·ti de impreare su contu Google chi as impreadu pro comporare. Sa sincronizatzione de su Play Store podet leare tempus — proa a torrare a allutu su dispositivu, a bogare sa memoria cache de Google Play o solu a aspetare.</string>
     <string name="upgrade_restore_action">Recùpera su cùmperu</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Otine %1$s</string>
     <string name="upgrade_preamble">CAPod est isvilupada de una persona sola. Su megioramentu isblocat funtziones in prus e agiudat a mantènnere s\'aplicatzione bia.</string>
