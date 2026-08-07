@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">לפי Google Play, כבר רכשת את השדרוג הזה, אך לא ניתן היה לשחזר אותו. ודא שאתה משתמש בחשבון Google שאיתו ביצעת את הרכישה. סנכרון Play Store עשוי לקחת זמן — נסה להפעיל מחדש את המכשיר, לנקות את מטמון Google Play או פשוט להמתין.</string>
     <string name="upgrade_restore_action">שחזור רכישה</string>
     <string name="upgrade_badge_label">פרו</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">קבל %1$s</string>
     <string name="upgrade_preamble">CAPod מפותחת על ידי אדם אחד בלבד. שדרוג פותח תכונות נוספות ועוזר לשמור על האפליקציה בחיים.</string>

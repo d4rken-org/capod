@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play inaripoti kuwa tayari unamiliki uboreshaji huu, lakini haukuweza kurejeshwa. Hakikisha unatumia akaunti ya Google uliyotumia kununua. Usawazishaji wa Play Store unaweza kuchukua muda — jaribu kuwasha upya kifaa, kufuta hifadhi ya Google Play au kusubiri tu.</string>
     <string name="upgrade_restore_action">Rejesha ununuzi</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Pata %1$s</string>
     <string name="upgrade_preamble">CAPod inatengenezwa na mtu mmoja tu. Kuboresha kunafungua vipengele vya ziada na kusaidia kuendeleza programu hii.</string>

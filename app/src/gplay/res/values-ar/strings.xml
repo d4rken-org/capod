@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">أفادت سوق جوجل بلاي بأنّك تمتلك هذا التحديث بالفعل، ولكن تعذّر استعادته. تأكّد من استخدام حساب جوجل الذي اشتريت به التطبيق. قد تستغرق مزامنة سوق بلاي بعض الوقت — حاول إعادة تشغيل الجهاز، أو مسح ذاكرة التخزين المؤقّت لسوق جوجل بلاي، أو الانتظار ببساطة.</string>
     <string name="upgrade_restore_action">استعادة المشتريات</string>
     <string name="upgrade_badge_label">النسخة الاحترافية</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s – %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">احصل على %1$s</string>
     <string name="upgrade_preamble">تمّ تطوير كابود بواسطة شخص واحد. يتيح التحديث ميزات إضافية ويساعد في استمرار عمل التطبيق.</string>

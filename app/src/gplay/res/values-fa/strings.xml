@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">گوگل پلی گزارش می‌دهد که شما قبلاً این ارتقا را خریداری کرده‌اید، اما بازیابی آن ممکن نشد. مطمئن شوید که از همان حساب گوگلی که با آن خرید کرده‌اید استفاده می‌کنید. همگام‌سازی Play Store ممکن است زمان‌بر باشد — راه‌اندازی مجدد دستگاه، پاک کردن حافظه پنهان گوگل پلی یا کمی صبر کردن را امتحان کنید.</string>
     <string name="upgrade_restore_action">بازیابی خرید</string>
     <string name="upgrade_badge_label">حرفه‌ای</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">دریافت %1$s</string>
     <string name="upgrade_preamble">CAPod توسط یک نفر توسعه داده می‌شود. ارتقا امکانات اضافی را باز می‌کند و به زنده نگه داشتن این برنامه کمک می‌کند.</string>

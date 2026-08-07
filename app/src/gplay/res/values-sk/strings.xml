@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play hlási, že tento upgrade už vlastníte, no nepodarilo sa ho obnoviť. Uistite sa, že používate rovnaký účet Google, s ktorým ste nákup uskutočnili. Synchronizácia Play Store môže chvíľu trvať — skúste reštartovať zariadenie, vymazať vyrovnávaciu pamäť Google Play alebo jednoducho počkať.</string>
     <string name="upgrade_restore_action">Obnoviť nákup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Získať %1$s</string>
     <string name="upgrade_preamble">CAPod vyvíja jedna osoba. Upgradom odomknete ďalšie funkcie a pomôžete udržať aplikáciu nažive.</string>

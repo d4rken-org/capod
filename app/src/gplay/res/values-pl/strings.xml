@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Sklep Google Play zgłasza, że już posiadasz tę aktualizację, ale nie udało się jej przywrócić. Upewnij się, że używasz konta Google, na które dokonano zakupu. Synchronizacja Sklepu Google Play może chwilę potrwać — spróbuj zrestartować urządzenie, wyczyścić pamięć podręczną Sklepu Google Play lub po prostu poczekaj.</string>
     <string name="upgrade_restore_action">Przywróć zakup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Uzyskaj %1$s</string>
     <string name="upgrade_preamble">CAPod jest rozwijany przez jedną osobę. Aktualizacja odblokowuje dodatkowe funkcje i pomaga utrzymać aplikację przy życiu.</string>

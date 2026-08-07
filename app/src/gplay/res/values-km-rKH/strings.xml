@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play រាយការណ៍ថាអ្នកបានទទួលកម្មសិទ្ធិការដំឡើងកម្រិតនេះរួចហើយ ប៉ុន្តែមិនអាចស្ដារវាឡើងវិញបានទេ។ សូមប្រាកដថាអ្នកកំពុងប្រើគណនី Google ដែលអ្នកបានទិញជាមួយ។ ការធ្វើសមកាលកម្ម Play Store អាចត្រូវការពេលវេលា — សូមសាកល្បងចាប់ផ្ដើមឧបករណ៍ឡើងវិញ សម្អាតឃ្លាំងសម្ងាត់ Google Play ឬគ្រាន់តែរង់ចាំ។</string>
     <string name="upgrade_restore_action">ស្តារការជាវមកវិញ</string>
     <string name="upgrade_badge_label">ប្រូ</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">ទទួលបាន %1$s</string>
     <string name="upgrade_preamble">CAPod ត្រូវបានបង្កើតឡើងដោយមនុស្សតែម្នាក់។ ការដំឡើងកម្រិតដោះសោលក្ខណៈពិសេសបន្ថែម និងជួយរក្សាកម្មវិធីនេះឲ្យបន្តដំណើរការ។</string>

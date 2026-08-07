@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play meld dat jy reeds hierdie opgradering besit, maar dit kon nie herstel word nie. Maak seker jy gebruik die Google-rekening waarmee jy gekoop het. Play Store-sinkronisasie kan tyd neem — probeer herbegin, maak die Google Play-kas skoon, of wag eenvoudig \'n rukkie.</string>
     <string name="upgrade_restore_action">Herstel aankoop</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Kry %1$s</string>
     <string name="upgrade_preamble">CAPod word deur een persoon ontwikkel. Opgradering ontsluit ekstra kenmerke en help om die toepassing lewend te hou.</string>
