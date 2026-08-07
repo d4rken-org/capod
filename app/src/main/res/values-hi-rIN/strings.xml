@@ -184,6 +184,9 @@
     <string name="onboarding_body4">अतिरिक्त सुविधाएँ प्राप्त करने और विकास का समर्थन करने के लिए आप CAPod Pro में अपग्रेड कर सकते हैं।</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">उपलब्ध नहीं</string>
     <string name="general_error_label">त्रुटि</string>
     <string name="general_grant_permission_action">अनुमति दें</string>
