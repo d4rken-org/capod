@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Можете да надградите на CAPod Pro за да добиете дополнителни функции и да го поддржите развојот.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Н/Д</string>
     <string name="general_error_label">Грешка</string>
     <string name="general_grant_permission_action">Дозволи дозвола</string>

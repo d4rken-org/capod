@@ -184,7 +184,6 @@
     <string name="onboarding_body4">အပိုအင်္ဂါရပ်များရယူရန်နှင့် ဖွံ့ဖြိုးတိုးတက်မှုကိုထောက်ပံ့ရန် သင် CAPod Pro သို့ အဆင့်မြှင့်နိုင်သည်။</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">အမှား</string>
     <string name="general_grant_permission_action">ခွင့်ပြုချက်ပေးရန်</string>

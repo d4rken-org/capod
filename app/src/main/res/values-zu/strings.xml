@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Ungathuthukela ku-CAPod Pro ukuze uthole izici ezengeziwe futhi usekele ukuthuthukiswa.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Ayitholakali</string>
     <string name="general_error_label">Iphutha</string>
     <string name="general_grant_permission_action">Nika imvume</string>

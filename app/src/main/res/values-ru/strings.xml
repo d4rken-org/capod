@@ -185,7 +185,6 @@ AL_Cool_T</string>
     <string name="onboarding_body4">Вы можете обновиться до CAPod Pro для дополнительных функций и поддержки разработки.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Недоступно</string>
     <string name="general_error_label">Ошибка</string>
     <string name="general_grant_permission_action">Предоставить разрешение</string>

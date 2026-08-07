@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Du kannst auf CAPod Pro upgraden, um zusätzliche Funktionen zu erhalten und die Entwicklung zu unterstützen.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">K.A.</string>
     <string name="general_error_label">Fehler</string>
     <string name="general_grant_permission_action">Berechtigungen erteilen</string>

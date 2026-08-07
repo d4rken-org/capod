@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Môžete upgradovať na CAPod Pro, aby ste získali ďalšie funkcie a podporili vývoj.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Nedostupné</string>
     <string name="general_error_label">Chyba</string>
     <string name="general_grant_permission_action">Udeliť povolenie</string>

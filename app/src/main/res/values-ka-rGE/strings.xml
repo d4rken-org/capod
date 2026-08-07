@@ -184,7 +184,6 @@
     <string name="onboarding_body4">შეგიძლიათ განაახლოთ CAPod Pro-ზე დამატებითი ფუნქციების მისაღებად და განვითარების მხარდასაჭერად.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">მიუწვდომელი</string>
     <string name="general_error_label">შეცდომა</string>
     <string name="general_grant_permission_action">ნებართვის მინიჭება</string>
