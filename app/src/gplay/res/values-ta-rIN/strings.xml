@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">இந்த மேம்படுத்தலை நீங்கள் ஏற்கனவே வைத்திருப்பதாக Google Play தெரிவிக்கிறது, ஆனால் அதை மீட்டெடுக்க முடியவில்லை. நீங்கள் வாங்கிய Google கணக்கைப் பயன்படுத்துகிறீர்களா எனச் சரிபார்க்கவும். Play Store ஒத்திசைவு சிறிது நேரம் எடுக்கலாம் — மறுதொடக்கம் செய்யவும், Google Play தேக்ககத்தை அழிக்கவும் அல்லது சிறிது காத்திருக்கவும்.</string>
     <string name="upgrade_restore_action">வாங்குதலை மீட்டமை</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ஐப் பெறுக</string>
     <string name="upgrade_preamble">CAPod ஒரே ஒரு நபரால் உருவாக்கப்படுகிறது. மேம்படுத்துவது கூடுதல் அம்சங்களைத் திறக்கும் மற்றும் ஆப்பை உயிருடன் வைத்திருக்க உதவும்.</string>

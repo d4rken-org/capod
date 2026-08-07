@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">మీరు ఇప్పటికే ఈ అప్‌గ్రేడ్‌ను కలిగి ఉన్నారని Google Play నివేదిస్తోంది, కానీ దాన్ని పునరుద్ధరించడం సాధ్యం కాలేదు. మీరు కొనుగోలు చేసిన అదే Google ఖాతాను ఉపయోగిస్తున్నారని నిర్ధారించుకోండి. Play Store సమకాలీకరణకు సమయం పట్టవచ్చు — పునఃప్రారంభించడం, Google Play కాష్‌ను క్లియర్ చేయడం లేదా కొంత సమయం వేచి ఉండటం ప్రయత్నించండి.</string>
     <string name="upgrade_restore_action">కొనుగోలును పునరుద్ధరించండి</string>
     <string name="upgrade_badge_label">ప్రొ</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">పొందండి %1$s</string>
     <string name="upgrade_preamble">CAPodని ఒకే వ్యక్తి అభివృద్ధి చేస్తున్నారు. అప్‌గ్రేడ్ చేయడం అదనపు ఫీచర్లను అన్‌లాక్ చేస్తుంది మరియు యాప్‌ను సజీవంగా ఉంచడంలో సహాయపడుతుంది.</string>

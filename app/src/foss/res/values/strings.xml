@@ -8,9 +8,6 @@
     <string name="upgrade_foss_sponsor_subtitle">No ads. No tracking. No Google Play lock-in.</string>
     <string name="upgrade_foss_sponsor_returned_early">Back already? Your support keeps CAPod alive.</string>
     <string name="upgrade_badge_label" translatable="false">FOSS</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("FOSS"). Not translated:
-         the FOSS flavor pins its qualifier, so the default order is the only one it ever needs. -->
-    <string name="app_name_upgraded_template" translatable="false">%1$s %2$s</string>
     <string name="upgrade_foss_supporter_since">Supporter since %s</string>
     <string name="upgrade_foss_supporter_thanks">Thank you for supporting CAPod\'s development!</string>
     <string name="upgrade_foss_sponsor_again_action">Open sponsor page</string>

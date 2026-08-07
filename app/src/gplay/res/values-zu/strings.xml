@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">I-Google Play ibika ukuthi usuvele unalolu shintsho olusheshisiwe, kodwa alukwazanga ukubuyiselwa. Qinisekisa ukuthi usebenzisa i-akhawunti ye-Google owathenga ngayo. Ukuvumelanisa kwe-Play Store kungase kuthathe isikhathi — zama ukuqala kabusha idivayisi, ukususa i-cache ye-Google Play noma ulinde nje.</string>
     <string name="upgrade_restore_action">Buyisela ukuthenga</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Thola %1$s</string>
     <string name="upgrade_preamble">I-CAPod yenziwe umuntu oyedwa. Ukuthuthukisa kuvula izici ezengeziwe futhi kusize ukugcina uhlelo lokusebenza luphila.</string>

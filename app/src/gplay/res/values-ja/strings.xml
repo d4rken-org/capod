@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Playによると、このアップグレードはすでに購入済みですが、復元できませんでした。購入時に使用したGoogleアカウントを使用していることを確認してください。Playストアの同期には時間がかかる場合があります。再起動する、Google Playのキャッシュを削除する、またはしばらく待ってみてください。</string>
     <string name="upgrade_restore_action">購入を復元</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s を入手</string>
     <string name="upgrade_preamble">CAPodは一人の個人開発者によって開発されています。アップグレードすると追加機能が使えるようになり、アプリの継続的な開発を支えることができます。</string>

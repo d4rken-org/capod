@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Google Play rapporta che ti possedas gia quest upgrade, ma el n\'ha betg pudì vegnir restaurà. Controllescha che ti utiliseschias il conto Google cun il qual ti has cumprà. La sincronisaziun da Play Store po durar in pau temp — emprova da reaviar il apparat, svidar la cache da Google Play u simplamain spetgar.</string>
     <string name="upgrade_restore_action">Restaurar la cumpra</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obtegnair %1$s</string>
     <string name="upgrade_preamble">CAPod vegn sviluppà da ina persuna suletta. In upgrade sblochescha funcziuns supplementaras ed ajuda a mantegnair l\'app en vita.</string>

@@ -10,9 +10,6 @@
     <string name="upgrades_gplay_already_owned_description">Το Google Play αναφέρει ότι έχετε ήδη αυτήν την αναβάθμιση, αλλά δεν ήταν δυνατή η επαναφορά της. Βεβαιωθείτε ότι χρησιμοποιείτε τον λογαριασμό Google με τον οποίο κάνατε την αγορά. Ο συγχρονισμός του Play Store ενδέχεται να χρειαστεί χρόνο — δοκιμάστε να επανεκκινήσετε, να διαγράψετε την κρυφή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_restore_action">Επαναφορά αγοράς</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Αποκτήστε %1$s</string>
     <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά να διατηρείται η εφαρμογή ζωντανή.</string>
