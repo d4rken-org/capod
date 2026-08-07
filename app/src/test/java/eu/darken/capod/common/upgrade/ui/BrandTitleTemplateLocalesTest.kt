@@ -23,6 +23,10 @@ import java.util.Locale
  * A translated template is code the formatter executes, not inert text: a stray `%`, a `%3$s` or a
  * `%1$d` throws inside `getString` *before* the splice fallback can run, so no amount of defensive
  * splicing protects against it. This is the only place that failure mode is caught.
+ *
+ * Shared rather than gplay-only because the template now lives in `main`: both flavours resolve the
+ * same per-language arrangement, so FOSS composes reordered titles too (Estonian puts the qualifier
+ * first, giving "FOSS CAPod"). Each variant runs this against its own qualifier resource.
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
