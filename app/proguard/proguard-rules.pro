@@ -6,3 +6,5 @@
 # Keep all constructors in the work package. Remove when Glance upgrades to work-runtime 2.10+.
 # See: https://issuetracker.google.com/issues/243257364
 -keep class androidx.work.** { <init>(...); }
+# Play Core KTX references this compile-time-only GMS annotation not on the runtime classpath
+-dontwarn com.google.android.gms.common.annotation.NoNullnessRewrite
