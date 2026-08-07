@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Atbalstītājs kopš %s</string>
     <string name="upgrade_foss_supporter_thanks">Paldies, ka atbalsti CAPod izstrādi!</string>
     <string name="upgrade_foss_sponsor_again_action">Atvērt sponsorēšanas lapu</string>
-    <string name="settings_upgrade_status_label">Atbalstīt CAPod</string>
+    <string name="upgrade_foss_sponsor_label">Atbalstīt CAPod</string>
     <string name="settings_upgrade_status_description">Jūsu atbalstītāja statuss.</string>
     <string name="upgrade_screen_why_title">Jaunināšanas priekšrocības</string>
     <string name="upgrade_screen_how_title">Kā palīdzēt</string>

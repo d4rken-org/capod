@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">%s tarixindən bəri dəstəkçi</string>
     <string name="upgrade_foss_supporter_thanks">CAPod-un inkişafını dəstəklədiyiniz üçün təşəkkürlər!</string>
     <string name="upgrade_foss_sponsor_again_action">Sponsor səhifəsini aç</string>
-    <string name="settings_upgrade_status_label">CAPod-u sponsorlaşdırın</string>
+    <string name="upgrade_foss_sponsor_label">CAPod-u sponsorlaşdırın</string>
     <string name="settings_upgrade_status_description">Sizin tərəfdar statusu.</string>
     <string name="upgrade_screen_why_title">Yüksəltmə üstünləri</string>
     <string name="upgrade_screen_how_title">Necə kömək etmək</string>

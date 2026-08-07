@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Հովանավոր է %s-ից</string>
     <string name="upgrade_foss_supporter_thanks">Շնորհակալություն CAPod-ի զարգացումն աջակցելու համար!</string>
     <string name="upgrade_foss_sponsor_again_action">Բացել հովանավորության էջը</string>
-    <string name="settings_upgrade_status_label">Աջակեք CAPod-ին</string>
+    <string name="upgrade_foss_sponsor_label">Աջակեք CAPod-ին</string>
     <string name="settings_upgrade_status_description">Ձեր աջակցողի վիճակը:</string>
     <string name="upgrade_screen_why_title">Թարմացման առավելությունները</string>
     <string name="upgrade_screen_how_title">Ինչպես օգնել</string>

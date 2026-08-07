@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod at pena controlladu Google Play, ma perunu comporu Pro at pòtzidu èssere cunfirmadu pro su contu chi Google Play est impreende pro custa aplicatzione.</string>
     <string name="upgrade_screen_restore_contact_hint">Ancora blocau? Cunta sos suportu dae s\'email chi at fetu sa compra e inclui su numeru de s\'ordine Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Cunta sos suportu</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">S\'istadu de su megioramentu e de sa comporadura tua.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod non podet si connètere a Google Play. Google Play est installadu e agiornadu? Su contu Google tuo est intradu? Proa a limpiare sa cache de s\'aplicatzione Google Play e a torrare a allùghere su dispositivu tuo.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

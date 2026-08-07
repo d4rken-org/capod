@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod sapo kontrolloi Google Play, por asnjë blerje Pro nuk mund të konfirmohej për konten që Google Play po përdor për këtë aplikacion.</string>
     <string name="upgrade_screen_restore_contact_hint">Ende i bllokuar? Kontaktoni mbështetjen nga emaili që ka bërë blerjen dhe përfshini numërin e porosës tuaj Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Kontaktoni mbështetjen</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Statusi juaj i përmirësimit dhe blerjes.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod nuk mund të lidhet me Google Play dyqanin. A është Google Play dyqani i instaluar dhe i përditësuar? A është identifikuar llogaria juaj e Google? Provoni të pastroni cache-in e aplikacionit Google Play dhe të rindizni pajisjen tuaj.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

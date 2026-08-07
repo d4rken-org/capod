@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod ඉකමණින් Google Play පරීක්ෂා කර ඇත, නමුත් Google Play මෙම යෙදුම සඩහා භාවිතා කරන ගිණුම සඩහා Pro ගිණුමක් තහවුරු කරිය නොහැකි විය.</string>
     <string name="upgrade_screen_restore_contact_hint">තවමත් විළවටිර්නෙද? ගිණුම සිදු කරන ලද ඊමේල්වලින් සහාය සම්බන්ධ කරන්න සහ ඔබේ Google Play ඇණවුම් අංකය ඇතුළත් කරන්න.</string>
     <string name="upgrade_screen_contact_support_action">සහාය සම්බන්ධ කරන්න</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ඔබේ වැඩිදුම් සහ ගිණුම් තත්‍වය.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod හට Google Play වෙත සම්බන්ධ විය නොහැක. Google Play ස්ථාපනය කර යාවත්කාලීන කර තිබේද? ඔබගේ Google ගිණුම පුරනය වී තිබේද? Google Play යෙදුමේ හැඹිලිය මකා ඔබගේ උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

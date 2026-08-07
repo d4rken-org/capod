@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod Google Play kontrol kir, lê ji bo hesaba ku Google Play ji bo vê sepandinê bikar tîne, kiryara Pro tesdîq nebû.</string>
     <string name="upgrade_screen_restore_contact_hint">Hîn jî kelî mabû? Pîştgirê peywendî bin û e-nameya kiryara û hejmar berneya Google Play xwe tê de bîn.</string>
     <string name="upgrade_screen_contact_support_action">Pîştgirê peywendî bin</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Rewşa nûvekirin û kirîna te.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod nikare bi Google Play-ê ve girêbe. Google Play sazkirî û nûve ye? Hesaba Googleya we têketî ye? Mîzgîna appê Google Play paqij bike û amûra xwe ji nû ve xebitîne.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

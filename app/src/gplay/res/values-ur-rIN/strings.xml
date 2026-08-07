@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod نے ابھی Google Play کو چیک کیا، لیکن اس اکاؤنٹ کے لیے کوئی Pro خریداری تصدیق نہیں ہو سکی جو Google Play اس ایپ کے لیے استعمال کر رہا ہے۔</string>
     <string name="upgrade_screen_restore_contact_hint">ابھی بھی مسائل ہیں؟ اس ای میل سے معاونت سے رابطہ کریں جو خریداری میں استعمال ہوا اور اپنا Google Play آرڈر نمبر شامل کریں۔</string>
     <string name="upgrade_screen_contact_support_action">معاونت سے رابطہ کریں</string>
-    <string name="settings_upgrade_status_label">سی اے پوڈ پرو</string>
     <string name="settings_upgrade_status_description">آپ کی اپ گریڈ اور خریداری کی حالت۔</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play سے رابطہ نہیں کر سکتا۔ کیا Google Play انسٹال اور اپ ڈیٹ ہے؟ کیا آپ کا Google اکاؤنٹ لاگ ان ہے؟ Google Play ایپ کی کیش صاف کرنے اور اپنا ڈیوائس دوبارہ شروع کرنے کی کوشش کریں۔</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

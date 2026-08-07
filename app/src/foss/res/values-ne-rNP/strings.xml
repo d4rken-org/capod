@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">%s देखि समर्थक</string>
     <string name="upgrade_foss_supporter_thanks">CAPod को विकासलाई समर्थन गर्नुभएकोमा धन्यवाद!</string>
     <string name="upgrade_foss_sponsor_again_action">प्रायोजक पृष्ठ खोल्नुहोस्</string>
-    <string name="settings_upgrade_status_label">CAPod को प्रायोजन गर्नुहोस्</string>
+    <string name="upgrade_foss_sponsor_label">CAPod को प्रायोजन गर्नुहोस्</string>
     <string name="settings_upgrade_status_description">आफ्नो समर्थक स्थिति।</string>
     <string name="upgrade_screen_why_title">अपग्रेड लाभहरु</string>
     <string name="upgrade_screen_how_title">कसरी मद्दत गर्ने</string>

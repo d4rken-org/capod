@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod አሁን Google Play አረጋገጠ፣ ነገር ግን Google Play ለዚህ መተግበሪያ ጥቅም ላይ ስለሚውለው መለያ Pro ግዢ ማረጋገጥ አልተቻለም።</string>
     <string name="upgrade_screen_restore_contact_hint">አሁንም ችግር ካጋጠመዎት? ግዢውን ያደረገው ኢሜይል በመጠቀም ድጋፍ ያግኙ እና Google Play ትዕዛዝ ቁጥርዎን ያካትቱ።</string>
     <string name="upgrade_screen_contact_support_action">ድጋፍ ለማነጋገር</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">የእርስዎ ማሻሻያ እና ግዢ ሁኔታ።</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod ከGoogle Play ጋር መገናኘት አይችልም። Google Play ተጭኖ እና ወቅታዊ ነው? የGoogle መለያዎ ገብቷል? የGoogle Play መተግበሪያ መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

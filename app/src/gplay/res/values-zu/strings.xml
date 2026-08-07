@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">I-CAPod isanda kuhlola i-Google Play, kodwa akukho kuthenga kwe-Pro okuqinisekiswe kule akhawunti i-Google Play eyisebenzisayo kulolu hlelo lokusebenza.</string>
     <string name="upgrade_screen_restore_contact_hint">Usabambeke? Xhumana nosizo usuka ku-imeyili eyenza ukuthenga futhi ufake inombolo ye-oda ye-Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Xhumana nolungiselelo</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Isimo sokuthuthukiswa nokuthenga kwakho.</string>
     <string name="upgrades_gplay_unavailable_error_description">I-CAPod ayikwazi ukuxhuma ku-Google Play. Ingabe Google Play ifakiwe futhi isesikhathini? Ingabe i-akhawunti yakho ye-Google ingene? Zama ukusula i-cache yohlelo lokusebenza lwe-Google Play futhi uphinde uqalise idivayisi yakho.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

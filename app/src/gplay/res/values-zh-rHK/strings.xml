@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod 已檢查 Google Play,但無法確認此帳戶的專業版購買紀錄。</string>
     <string name="upgrade_screen_restore_contact_hint">仍有問題？請使用進行購買的電郵聯絡支援，並提供您的 Google Play 訂單編號。</string>
     <string name="upgrade_screen_contact_support_action">聯絡支援</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">您的升級和購買狀態。</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod 無法連線至 Google Play。請確認 Google Play 已安裝且為最新版本，同時確保已經登入 Google 帳戶。您可以嘗試清除 Google Play 應用程式的快取或重新啟動您的裝置以修正此問題。</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

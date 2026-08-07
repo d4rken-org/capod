@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Umsekeli kusukela ngo-%s</string>
     <string name="upgrade_foss_supporter_thanks">Ngiyabonga ngokusekela ukuthuthukiswa kwe-CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Vula ikhasi lomxhasi</string>
-    <string name="settings_upgrade_status_label">Uxhasa i-CAPod</string>
+    <string name="upgrade_foss_sponsor_label">Uxhasa i-CAPod</string>
     <string name="settings_upgrade_status_description">Isimo sakho sokusekela.</string>
     <string name="upgrade_screen_why_title">Imikhulu yokuphucula</string>
     <string name="upgrade_screen_how_title">Indlela yokusiza</string>

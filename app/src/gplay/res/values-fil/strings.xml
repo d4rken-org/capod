@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">Ang CAPod ay nag-check sa Google Play, ngunit walang Pro purchase na nahanap para sa account na ginagamit ng Google Play para sa app na ito.</string>
     <string name="upgrade_screen_restore_contact_hint">Nandito pa rin? Makipag-ugnayan sa suporta gamit ang email na ginamit sa pagbili at isama ang iyong Google Play order number.</string>
     <string name="upgrade_screen_contact_support_action">Makipag-ugnayan sa suporta</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ang status ng iyong upgrade at pagbili.</string>
     <string name="upgrades_gplay_unavailable_error_description">Ang CAPod ay hindi maka-konekta sa Google Play. Naka-installed ba ang Google Play at na-update? Naka-logged in ba ang iyong Google Account? Subukan ang paglilinis ng cache ng Google Play app at i-reboot ang iyong aparato.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

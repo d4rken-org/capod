@@ -34,6 +34,7 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.upgrade.ui.settingsUpgradeStatusTitle
 
 @Composable
 fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
@@ -129,10 +130,12 @@ fun SettingsScreen(
             }
             item {
                 // Always visible: owners need a way to check their Pro/supporter status, and
-                // non-owners get another path to the upgrade screen. The label/description
-                // resources are flavor-overridden (foss vs gplay values).
+                // non-owners get another path to the upgrade screen. settingsUpgradeStatusTitle()
+                // has a separate implementation per flavor source set, reading the same resource
+                // its own upgrade screen titles itself with — so this row can't drift from it.
+                // The subtitle resource is flavor-overridden (foss vs gplay values) directly.
                 SettingsBaseItem(
-                    title = stringResource(R.string.settings_upgrade_status_label),
+                    title = settingsUpgradeStatusTitle(),
                     subtitle = stringResource(R.string.settings_upgrade_status_description),
                     icon = Icons.TwoTone.Stars,
                     onClick = onUpgradeStatus,

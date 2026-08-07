@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod práve skontrolovala Google Play, ale nákup verzie Pro sa nepodarilo potvrdiť pre účet, ktorý Google Play používa pre túto aplikáciu.</string>
     <string name="upgrade_screen_restore_contact_hint">Stále máte problém? Kontaktujte podporu z e-mailu, ktorého ste použili na nákup, a uveďte číslo objednávky Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Kontaktovať podporu</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Váš stav upgradu a nákupu.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod sa nemôže pripojiť k službe Google Play. Je Google Play nainštalovaný a aktuálny? Je váš účet Google prihlásený? Skúste vymazať vyrovnávaciu pamäť aplikácie Google Play a reštartujte zariadenie.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

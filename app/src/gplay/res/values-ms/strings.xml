@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod baru sahaja menyemak Google Play, tetapi tiada pembelian Pro dapat disahkan untuk akaun yang Google Play gunakan untuk aplikasi ini.</string>
     <string name="upgrade_screen_restore_contact_hint">Masih tersekat? Hubungi sokongan daripada e-mel yang membuat pembelian dan sertakan nombor pesanan Google Play anda.</string>
     <string name="upgrade_screen_contact_support_action">Hubungi Sokongan</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Status peningkatan dan pembelian anda.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod tidak dapat menyambung ke Google Play. Adakah Google Play dipasang dan dikemaskini? Adakah Akaun Google anda log masuk? Cuba kosongkan cache aplikasi Google Play dan but semula peranti anda.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

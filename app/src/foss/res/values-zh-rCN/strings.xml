@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">自 %s 起成为支持者</string>
     <string name="upgrade_foss_supporter_thanks">感谢您支持 CAPod 的开发!</string>
     <string name="upgrade_foss_sponsor_again_action">打开赞助页面</string>
-    <string name="settings_upgrade_status_label">赞助 CAPod</string>
+    <string name="upgrade_foss_sponsor_label">赞助 CAPod</string>
     <string name="settings_upgrade_status_description">您的赞助者身份。</string>
     <string name="upgrade_screen_why_title">升级优势</string>
     <string name="upgrade_screen_how_title">如何帮助我们</string>

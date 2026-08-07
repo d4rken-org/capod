@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">تحقَّق كابود من جوجل بلاي، ولكن لم يتمّ تأكيد أيّ عملية اشتراء للنسخة الاحترافية للحساب الذي يستخدمه جوجل بلاي لهذا التطبيق.</string>
     <string name="upgrade_screen_restore_contact_hint">هل ما زلت تواجه مشكلة؟ تواصل مع الدعم من خلال البريد الإلكتروني الذي استخدمته لإتمام عملية الشراء، وضمّن رقم طلبك من سوق جوجل بلاي.</string>
     <string name="upgrade_screen_contact_support_action">التواصُل مع الدعم</string>
-    <string name="settings_upgrade_status_label">النسخة الاحترافية من كابود</string>
     <string name="settings_upgrade_status_description">حالة الترقية والاشتراء الخاصّة بك.</string>
     <string name="upgrades_gplay_unavailable_error_description">لا يمكن لكابود الاتّصال بسوق جوجل بلاي. هل سوق جوجل بلاي مُثبَّتة ومُحدَّثة؟ هل حساب جوجل الخاصّ بك مُسجَّل الدخول؟ حاول مسح ذاكرة التخزين المؤقّت لتطبيق جوجل بلاي وإعادة تشغيل جهازك.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod-ը պարզապես ստուգեց Google Play-ը, բայց այս հավելվածի համար օգտագործվող Google Play հաշվում Pro գնում հաստատել չեղավ:</string>
     <string name="upgrade_screen_restore_contact_hint">Դեռ շարունակումներ՞ Աջակցության հետ կապ հաստատեք այն էմեյլից, որից կատարվել է գնումը, և ներառեք Google Play պատվերի համարը:</string>
     <string name="upgrade_screen_contact_support_action">Աջակցության հետ կապ</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ձեր թարմացման և գնման վիճակը:</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod-ը չի կարող կապվել Google Play-ի հետ: Google Play-ը տեղադրվա՞ծ է և արդիացվա՞ծ: Ձեր Google հաշիվը մուտք գործա՞ծ է: Փորձեք մաքրել Google Play հավելվածի քեշը և վերագործարկել ձեր սարքը:</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

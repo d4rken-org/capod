@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod саяхан Google Play-г шалгасан боловч энэ програмын хувьд Google Play ашигладаг акаунтын Pro худалдан авалтыг баталгаажуулах боломжгүй байв.</string>
     <string name="upgrade_screen_restore_contact_hint">Хоцорч байна уу? Худалдан авалт хийсэн имэйл хаягаас дэмжлэг авахыг хүсээд Google Play захиалгын дугаарыг оруулна уу.</string>
     <string name="upgrade_screen_contact_support_action">Дэмжлэгтэй холбоо барих</string>
-    <string name="settings_upgrade_status_label">CAPod Про</string>
     <string name="settings_upgrade_status_description">Таны шинэчлэл ба худалдан авалтын статус.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play-тэй холбогдож чадахгүй байна. Google Play суулгасан бөгөөд шинэчлэгдсэн үү? Таны Google бүртгэл нэвтэрсэн үү? Google Play аппын кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

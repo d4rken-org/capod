@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">Το CAPod έλεγξε μόλις το Google Play, αλλά δεν ήταν δυνατή η επιβεβαίωση κάποιας αγοράς Pro για τον λογαριασμό που χρησιμοποιεί το Google Play γι\' αυτήν την εφαρμογή.</string>
     <string name="upgrade_screen_restore_contact_hint">Ακόμα έχετε πρόβλημα; Επικοινωνήστε με την υποστήριξη από το email που έκανε την αγορά και συμπεριλάβετε τον αριθμό παραγγελίας Google Play σας.</string>
     <string name="upgrade_screen_contact_support_action">Επικοινωνήστε με την υποστήριξη</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Η κατάσταση αναβάθμισης και αγοράς σας.</string>
     <string name="upgrades_gplay_unavailable_error_description">Το CAPod δεν μπορεί να συνδεθεί με το Google Play. Είναι το Google Play εγκατεστημένο και ενημερωμένο; Έχετε συνδεθεί με τον λογαριασμό σας Google; Δοκιμάστε να διαγράψετε την προσωρινή μνήμη της εφαρμογής Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
