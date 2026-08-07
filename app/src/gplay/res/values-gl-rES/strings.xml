@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play indica que xa tes esta mellora, pero non se puido restaurar. Asegúrate de usar a conta de Google coa que a mercaches. A sincronización coa Play Store pode levar tempo — proba a reiniciar, borrar a caché de Google Play ou simplemente esperar.</string>
     <string name="upgrade_restore_action">Restaurar compra</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obter %1$s</string>
     <string name="upgrade_preamble">CAPod está desenvolvido por unha soa persoa. Mellorar desbloquea funcións adicionais e axuda a manter viva a aplicación.</string>

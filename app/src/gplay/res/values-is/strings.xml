@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play greinir frá því að þú eigir þegar þessa uppfærslu, en ekki tókst að endurheimta hana. Gakktu úr skugga um að þú sért að nota sama Google reikning og þú keyptir með. Samstilling Play Store getur tekið tíma — reyndu að endurræsa, hreinsa skyndiminni Google Play eða bíða einfaldlega.</string>
     <string name="upgrade_restore_action">Endurheimta kaup</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Fáðu %1$s</string>
     <string name="upgrade_preamble">CAPod er þróað af einum einstaklingi. Uppfærsla opnar aukamöguleika og hjálpar til við að halda forritinu á lífi.</string>

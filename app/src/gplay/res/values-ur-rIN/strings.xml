@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">گوگل پلے کے مطابق آپ پہلے ہی یہ اپ گریڈ خرید چکے ہیں، لیکن اسے بحال نہیں کیا جا سکا۔ یقینی بنائیں کہ آپ وہی گوگل اکاؤنٹ استعمال کر رہے ہیں جس سے آپ نے خریداری کی تھی۔ پلے سٹور کی ہم آہنگی میں وقت لگ سکتا ہے — دوبارہ شروع کرنے، گوگل پلے کیشے صاف کرنے یا محض انتظار کرنے کی کوشش کریں۔</string>
     <string name="upgrade_restore_action">خریداری بحال کریں</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s حاصل کریں</string>
     <string name="upgrade_preamble">CAPod ایک ہی شخص کی طرف سے تیار کیا گیا ہے۔ اپ گریڈ کرنے سے اضافی خصوصیات کھلتی ہیں اور ایپ کو زندہ رکھنے میں مدد ملتی ہے۔</string>

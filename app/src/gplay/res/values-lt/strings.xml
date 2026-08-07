@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">„Google Play“ praneša, kad jau turite šį atnaujinimą, tačiau jo nepavyko atkurti. Įsitikinkite, kad naudojate tą pačią „Google“ paskyrą, su kuria atlikote pirkimą. „Play Store“ sinchronizavimas gali užtrukti — pabandykite paleisti įrenginį iš naujo, išvalyti „Google Play“ talpyklą arba tiesiog palaukite.</string>
     <string name="upgrade_restore_action">Atkurti pirkimą</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Gauti %1$s</string>
     <string name="upgrade_preamble">CAPod kuria vienas žmogus. Atnaujinimas atrakina papildomas funkcijas ir padeda išlaikyti programą gyvą.</string>

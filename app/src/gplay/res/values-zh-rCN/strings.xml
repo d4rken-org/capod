@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play 显示您已拥有此升级,但无法恢复。请确保您使用的是购买时所用的 Google 账号。Play 商店同步可能需要一些时间——请尝试重启设备、清除 Google Play 缓存,或耐心等待。</string>
     <string name="upgrade_restore_action">恢复购买</string>
     <string name="upgrade_badge_label">专业版</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">获取 %1$s</string>
     <string name="upgrade_preamble">CAPod 由一个人独立开发。升级可解锁更多功能,并帮助这款应用持续维护下去。</string>

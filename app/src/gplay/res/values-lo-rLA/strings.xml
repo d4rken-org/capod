@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play ລາຍງານວ່າທ່ານເປັນເຈົ້າຂອງການອັບເກຣດນີ້ແລ້ວ, ແຕ່ບໍ່ສາມາດກູ້ຄືນໄດ້. ກະລຸນາກວດສອບໃຫ້ແນ່ໃຈວ່າທ່ານກຳລັງໃຊ້ບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້. ການຊິງຄ໌ຂໍ້ມູນຂອງ Play Store ອາດຈະໃຊ້ເວລາ — ລອງຣີສະຕາດເຄື່ອງ, ລ້າງແຄດຊ໌ຂອງ Google Play ຫຼືພຽງແຕ່ລໍຖ້າ.</string>
     <string name="upgrade_restore_action">ກູ້ຄືນການຊື້</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">ຮັບ %1$s</string>
     <string name="upgrade_preamble">CAPod ຖືກພັດທະນາໂດຍຄົນຄົນດຽວ. ການອັບເກຣດຈະປົດລັອກຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ຊ່ວຍໃຫ້ແອັບຄົງຢູ່ຕໍ່ໄປ.</string>

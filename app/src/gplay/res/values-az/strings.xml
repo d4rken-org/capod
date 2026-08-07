@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play bu yüksəltməyə artıq sahib olduğunuzu bildirir, lakin bərpa edilə bilmədi. Satın aldığınız Google hesabından istifadə etdiyinizə əmin olun. Play Store sinxronizasiyası bir qədər vaxt apara bilər — yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
     <string name="upgrade_restore_action">Alışı bərpa et</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s əldə edin</string>
     <string name="upgrade_preamble">CAPod tək bir şəxs tərəfindən hazırlanır. Yüksəltmə əlavə funksiyaların kilidini açır və tətbiqin yaşamasına kömək edir.</string>

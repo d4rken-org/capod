@@ -10,6 +10,9 @@
     <string name="upgrades_gplay_already_owned_description">Google Play cho biết bạn đã sở hữu bản nâng cấp này, nhưng không thể khôi phục. Hãy đảm bảo bạn đang sử dụng đúng tài khoản Google mà bạn đã dùng để mua. Việc đồng bộ hóa Play Store có thể mất chút thời gian — hãy thử khởi động lại thiết bị, xóa bộ nhớ đệm của Google Play hoặc đơn giản là chờ đợi.</string>
     <string name="upgrade_restore_action">Khôi phục thanh toán</string>
     <string name="upgrade_badge_label">Pro</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
+         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Nhận %1$s</string>
     <string name="upgrade_preamble">CAPod được phát triển bởi một người duy nhất. Việc nâng cấp sẽ mở khóa thêm các tính năng và giúp duy trì ứng dụng.</string>
