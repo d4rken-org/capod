@@ -35,9 +35,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -54,6 +51,7 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.ui.brandTitle
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.overview.cards.BackgroundMonitoringOffCard
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledCard
@@ -613,35 +611,18 @@ private fun OverviewScreenMonitoringOffPreview() = PreviewWrapper {
 
 @Composable
 private fun ToolbarTitle(upgradeInfo: UpgradeRepo.Info) {
-    val appName = stringResource(R.string.app_name)
-    val proName = stringResource(R.string.app_name_pro)
-    val fossName = stringResource(R.string.app_name_foss)
-
-    val titleParts = when (upgradeInfo.type) {
-        UpgradeRepo.Type.GPLAY -> {
-            if (upgradeInfo.isPro) proName else appName
-        }
-
-        UpgradeRepo.Type.FOSS -> {
-            if (upgradeInfo.isPro) fossName else appName
-        }
-    }.split(" ").filter { it.isNotEmpty() }
-
-    if (titleParts.size == 2) {
-        val suffixColor = when (upgradeInfo.type) {
-            UpgradeRepo.Type.FOSS -> colorResource(R.color.brand_secondary)
-            else -> colorResource(R.color.brand_tertiary)
-        }
-
-        Text(
-            text = buildAnnotatedString {
-                append("${titleParts[0]} ")
-                withStyle(SpanStyle(color = suffixColor)) {
-                    append(titleParts[1])
-                }
-            },
-        )
-    } else {
-        Text(text = appName)
+    // The tier word and its wording come from the flavor's own resources, so the title no longer
+    // needs a per-type string lookup — only the tint still differs between the two.
+    val highlight = when (upgradeInfo.type) {
+        UpgradeRepo.Type.FOSS -> colorResource(R.color.brand_secondary)
+        UpgradeRepo.Type.GPLAY -> colorResource(R.color.brand_tertiary)
     }
+
+    Text(
+        text = brandTitle(
+            includeQualifier = upgradeInfo.isPro,
+            highlightQualifier = upgradeInfo.isPro,
+            highlightColor = highlight,
+        ),
+    )
 }

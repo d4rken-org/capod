@@ -117,12 +117,10 @@ internal fun UpgradeScreen(
         title = if (view == FossUpgradeView.PITCH) {
             AnnotatedString(stringResource(R.string.settings_upgrade_status_label))
         } else {
-            // "CAPod FOSS", not "CAPod Pro": on FOSS the flavor name IS the brand. The upgraded
-            // gate keeps the highlight for supporters only.
-            upgradeScreenTitle(
-                upgraded = view == FossUpgradeView.STATUS_UPGRADED,
-                nameRes = R.string.app_name_foss,
-            )
+            // "CAPod FOSS", not "CAPod Pro": the FOSS flavor's own qualifier resource supplies the
+            // tier word, so the title names this build. The upgraded gate keeps the highlight for
+            // supporters only.
+            upgradeScreenTitle(upgraded = view == FossUpgradeView.STATUS_UPGRADED)
         },
         onNavigateUp = onNavigateUp,
         snackbarHostState = snackbarHostState,

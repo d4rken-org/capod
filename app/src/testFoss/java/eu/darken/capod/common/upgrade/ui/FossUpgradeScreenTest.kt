@@ -12,6 +12,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.compose.ui.semantics.SemanticsActions
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
+import io.kotest.matchers.shouldBe
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -25,6 +26,15 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
 
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()
+
+    // "CAPod FOSS" — the composed flavor title, built the way production builds it: the app name
+    // through the FOSS title template, with the flavor's own qualifier resource.
+    private val composedTitle: String
+        get() = context.getString(
+            R.string.app_name_upgraded_template,
+            context.getString(R.string.app_name),
+            context.getString(R.string.upgrade_badge_label),
+        )
 
     @Test
     fun `renders redesigned foss content without duplicated app bar title`() {
@@ -70,9 +80,10 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
             UpgradeScreen(view = FossUpgradeView.STATUS_FREE)
         }
 
-        // "CAPod FOSS", not "CAPod Pro": the status views describe a FOSS install.
-        composeRule.onAllNodesWithText(context.getString(R.string.app_name_foss)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.app_name_pro)).assertCountEquals(0)
+        // "CAPod FOSS", not "CAPod Pro": the status views describe a FOSS install, and the title
+        // takes its qualifier from the FOSS flavor's own resource.
+        composeRule.onAllNodesWithText(composedTitle).assertCountEquals(1)
+        context.getString(R.string.upgrade_badge_label) shouldBe "FOSS"
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_FREE).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
@@ -107,7 +118,7 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
             UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED, supporterSince = since)
         }
 
-        composeRule.onAllNodesWithText(context.getString(R.string.app_name_foss)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(composedTitle).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_UPGRADED).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_foss_supporter_thanks))
             .assertCountEquals(1)

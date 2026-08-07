@@ -92,34 +92,67 @@ internal object UpgradeScreenTags {
     const val HERO = "upgrade_hero"
 }
 
-// Composed app title with the flavor postfix highlighted in the upgraded color while Pro is
-// active — the same treatment the dashboard title card uses.
+// The app's brand title, composed through the flavor's title template so translators own the word
+// order and punctuation instead of the code assuming "name, space, qualifier". Replaces a split on
+// spaces that required exactly two tokens: Arabic ("كابود – النسخة الاحترافية") had four and lost
+// its branding entirely, while Estonian puts the qualifier FIRST ("Tasuline CAPod") and so passed
+// the token count while highlighting the wrong word.
+//
+// The two flags are deliberately separate. `includeQualifier` decides whether the tier word is part
+// of the title at all (the toolbar drops it while free); `highlightQualifier` only decides whether
+// it is colored.
+//
+// `highlightColor` exists because capod tints by flavor: the toolbar paints FOSS on brand_secondary
+// and Pro on brand_tertiary, so the color cannot be baked in the way the upstream app bakes it.
 @Composable
-internal fun upgradeScreenTitle(
-    upgraded: Boolean,
-    @StringRes nameRes: Int = R.string.app_name_pro,
+internal fun brandTitle(
+    includeQualifier: Boolean,
+    highlightQualifier: Boolean,
+    highlightColor: Color = colorResource(R.color.brand_tertiary),
 ): AnnotatedString {
-    // capod ships the composed "CAPod Pro" as one translatable string so translations can reorder
-    // the words; the postfix is the trailing part and gets the upgraded highlight. FOSS passes its
-    // own "CAPod FOSS" instead — the flavor name is the brand there, Pro is not a thing.
-    val parts = stringResource(nameRes).split(" ").filter { it.isNotEmpty() }
-    val highlight = colorResource(R.color.brand_tertiary)
-    return buildAnnotatedString {
-        if (parts.size == 2) {
-            append("${parts[0]} ")
-            if (upgraded) pushStyle(SpanStyle(color = highlight))
-            append(parts[1])
-            if (upgraded) pop()
-        } else {
-            append(stringResource(nameRes))
-        }
+    val name = AnnotatedString(stringResource(R.string.app_name))
+    if (!includeQualifier) return name
+
+    val qualifier = buildAnnotatedString {
+        if (highlightQualifier) pushStyle(SpanStyle(color = highlightColor))
+        append(stringResource(R.string.upgrade_badge_label))
+        if (highlightQualifier) pop()
     }
+    return spliceTitleTemplate(
+        formatted = stringResource(
+            R.string.app_name_upgraded_template,
+            BRAND_TITLE_MARKER,
+            BRAND_QUALIFIER_MARKER,
+        ),
+        name = name,
+        qualifier = qualifier,
+    )
 }
+
+// Same composition for call sites that need a plain String. Routed through brandTitle so the two
+// forms cannot drift apart.
+@Composable
+internal fun brandTitleText(includeQualifier: Boolean): String =
+    brandTitle(includeQualifier = includeQualifier, highlightQualifier = false).text
+
+// Composed app title with the flavor qualifier highlighted in the upgraded color while Pro is
+// active — the same treatment the toolbar uses.
+@Composable
+internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString = brandTitle(
+    // Unconditional: this title names the flavor even when the screen is showing the free state.
+    includeQualifier = true,
+    highlightQualifier = upgraded,
+)
 
 // Marker char for brand-title splicing: formatted into the translated pattern via the normal
 // Android format path (so %1$s vs %s, argument reordering, and %% all behave), then replaced
 // with the styled brand. U+FFFC (object replacement) cannot occur in a real translation.
 internal const val BRAND_TITLE_MARKER = "￼"
+
+// The title template's second slot. U+FFF9 (interlinear annotation anchor) is likewise absent from
+// real translations, and being distinct from BRAND_TITLE_MARKER is what lets the splice tell the
+// two slots apart after the formatter has reordered them.
+internal const val BRAND_QUALIFIER_MARKER = "￹"
 
 internal fun spliceBrandTitle(formatted: String, brand: AnnotatedString): AnnotatedString = buildAnnotatedString {
     var rest = formatted
@@ -137,6 +170,71 @@ internal fun spliceBrandTitle(formatted: String, brand: AnnotatedString): Annota
         // Defensive: a translation that lost its placeholder still shows the brand.
         append(" ")
         append(brand)
+    }
+}
+
+// Splices the two title slots into an already-formatted template. Stricter than spliceBrandTitle on
+// purpose: that one splices a brand into a *sentence*, where a repeated marker is a legitimate (if
+// odd) translation. A *title* template has exactly two slots, so anything else is damage — and once
+// a slot is missing or doubled the template can no longer tell us the intended order or
+// punctuation, which is the whole reason it exists. So a broken template is discarded whole and the
+// default title is rebuilt from the parts; patching it up piecewise would emit a title no
+// translator wrote.
+internal fun spliceTitleTemplate(
+    formatted: String,
+    name: AnnotatedString,
+    qualifier: AnnotatedString,
+): AnnotatedString {
+    val slots = listOf(
+        BRAND_TITLE_MARKER to name,
+        BRAND_QUALIFIER_MARKER to qualifier,
+    ).map { (marker, value) -> Triple(formatted.indexOf(marker), marker, value) }
+
+    val intact = slots.all { (index, marker, _) ->
+        index >= 0 && formatted.indexOf(marker, index + marker.length) < 0
+    }
+    if (!intact) {
+        return buildAnnotatedString {
+            append(name)
+            append(" ")
+            append(qualifier)
+        }
+    }
+
+    return buildAnnotatedString {
+        var cursor = 0
+        slots.sortedBy { it.first }.forEach { (index, marker, value) ->
+            append(formatted.substring(cursor, index))
+            append(value)
+            cursor = index + marker.length
+        }
+        append(formatted.substring(cursor))
+    }
+}
+
+// All three flag combinations the app actually uses, in one place — the pair (true, false) is the
+// one that reads as a mistake at a glance, so seeing it render the qualifier in plain text is what
+// documents it.
+@Preview2
+@Composable
+private fun BrandTitlePreview() {
+    PreviewWrapper {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(text = brandTitle(includeQualifier = false, highlightQualifier = false))
+            Text(text = brandTitle(includeQualifier = true, highlightQualifier = false))
+            Text(text = brandTitle(includeQualifier = true, highlightQualifier = true))
+            Text(
+                text = brandTitle(
+                    includeQualifier = true,
+                    highlightQualifier = true,
+                    highlightColor = colorResource(R.color.brand_secondary),
+                ),
+            )
+            Text(text = brandTitleText(includeQualifier = true))
+        }
     }
 }
 
