@@ -34,9 +34,15 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     // capod's hero bodies name the app inline instead of taking a format argument.
     private fun appNameWithPostfixedHeroBody(bodyRes: Int): String = context.getString(bodyRes)
 
-    // "CAPod Pro" — the composed flavor title the screen renders for owners and grace users.
+    // "CAPod Pro" — the composed flavor title the screen renders for owners and grace users, built
+    // the way production builds it: the app name through the title template, with the flavor's own
+    // qualifier resource.
     private val appNameWithPostfix: String
-        get() = context.getString(R.string.app_name_pro)
+        get() = context.getString(
+            R.string.app_name_upgraded_template,
+            context.getString(R.string.app_name),
+            context.getString(R.string.upgrade_badge_label),
+        )
 
     // What the acquisition top bar must render: the translated pitch pattern with the composed
     // brand formatted into it.
@@ -72,9 +78,9 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             .fetchSemanticsNode()
             .config[SemanticsProperties.Text]
             .single()
-        // Derived like the production title does it: the postfix is the trailing word of the
-        // composed brand.
-        val postfix = appNameWithPostfix.split(" ")[1]
+        // Read from the qualifier resource, not split back out of the composed title: the template
+        // is free to put it first or separate it with something other than a space.
+        val postfix = context.getString(R.string.upgrade_badge_label)
 
         rendered.text shouldBe acquisitionTitle
         rendered.spanStyles.size shouldBe 1
