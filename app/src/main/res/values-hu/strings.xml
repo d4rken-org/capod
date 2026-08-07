@@ -184,7 +184,6 @@
     <string name="onboarding_body4">A CAPod Pro verzióra frissítése további funkciókat adhat és támogatja a fejlesztést.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Hiba</string>
     <string name="general_grant_permission_action">Engedély megadása</string>

@@ -184,7 +184,6 @@
     <string name="onboarding_body4">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಲು ಮತ್ತು ಅಭಿವೃದ್ಧಿಯನ್ನು ಬೆಂಬಲಿಸಲು ನೀವು CAPod Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಬಹುದು.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="general_error_label">ದೋಷ</string>
     <string name="general_grant_permission_action">ಅನುಮತಿ ನೀಡಿ</string>

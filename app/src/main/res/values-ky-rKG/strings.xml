@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Сиз CAPod Pro\'го жаңыртып, кошумча функцияларды алып, иштеп чыгууну колдой аласыз.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Жок</string>
     <string name="general_error_label">Ката</string>
     <string name="general_grant_permission_action">Уруксат берүү</string>

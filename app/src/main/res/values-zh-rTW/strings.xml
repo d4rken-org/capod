@@ -184,7 +184,6 @@
     <string name="onboarding_body4">您可以升級到 CAPod Pro 以獲得額外功能並支援開發。</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">不適用</string>
     <string name="general_error_label">錯誤</string>
     <string name="general_grant_permission_action">授予權限</string>

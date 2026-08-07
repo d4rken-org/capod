@@ -184,7 +184,6 @@
     <string name="onboarding_body4">អ្នកអាចដំឡើងកំណែទៅ CAPod Pro ដើម្បីទទួលបានមុខងារបន្ថែម និងគាំទ្រការអភិវឌ្ឍន៍។</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">មិនមាន</string>
     <string name="general_error_label">កំហុស</string>
     <string name="general_grant_permission_action">ផ្តល់ការអនុញ្ញាត</string>

@@ -184,7 +184,6 @@
     <string name="onboarding_body4">थप सुविधाहरू प्राप्त गर्न र विकासलाई समर्थन गर्न तपाईं CAPod Pro मा अपग्रेड गर्न सक्नुहुन्छ।</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">उपलब्ध छैन</string>
     <string name="general_error_label">त्रुटि</string>
     <string name="general_grant_permission_action">अनुमति दिनुहोस्</string>

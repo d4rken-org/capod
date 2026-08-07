@@ -184,7 +184,6 @@
     <string name="onboarding_body4">אתה יכול לשדרג ל-CAPod Pro כדי לקבל תכונות נוספות ותמיכה בפיתוח.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">לא זמין</string>
     <string name="general_error_label">שגיאה</string>
     <string name="general_grant_permission_action">הענק הרשאה</string>

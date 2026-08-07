@@ -185,7 +185,6 @@
     <string name="onboarding_body4">Podeu actualitzar a CAPod Pro per obtenir funcions addicionals i donar suport al desenvolupament.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_error_label">Error</string>
     <string name="general_grant_permission_action">Concedeix el permís</string>

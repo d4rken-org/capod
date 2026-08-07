@@ -184,7 +184,6 @@
     <string name="onboarding_body4">يمكنك الترقية إلى النسخة الاحترافية للحصول على ميزات إضافية ودعم التطوير.</string>
     <!-- Strings from app-common -->
     <string name="app_name">كابود</string>
-    <string name="app_name_pro">كابود – النسخة الاحترافية</string>
     <string name="general_value_not_available_label">غ/م</string>
     <string name="general_error_label">خطأ</string>
     <string name="general_grant_permission_action">منح الإذن</string>

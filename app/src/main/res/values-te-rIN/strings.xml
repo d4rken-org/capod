@@ -184,7 +184,6 @@
     <string name="onboarding_body4">అదనపు ఫీచర్లను పొందడానికి మరియు అభివృద్ధికి మద్దతు ఇవ్వడానికి మీరు CAPod Proకి అప్‌గ్రేడ్ చేయవచ్చు.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">అందుబాటులో లేదు</string>
     <string name="general_error_label">లోపం</string>
     <string name="general_grant_permission_action">అనుమతి ఇవ్వు</string>

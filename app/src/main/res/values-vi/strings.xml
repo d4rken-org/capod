@@ -184,7 +184,6 @@
     <string name="onboarding_body4">Bạn có thể nâng cấp lên CAPod Pro để có thêm các tính năng và hỗ trợ phát triển.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_value_not_available_label">Không có</string>
     <string name="general_error_label">Lỗi</string>
     <string name="general_grant_permission_action">Cấp quyền</string>
