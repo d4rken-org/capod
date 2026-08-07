@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod-ek Google Play begiratu du, baina ez da Pro erosketaren bat baieztatu ahal izan kontu honetarako.</string>
     <string name="upgrade_screen_restore_contact_hint">Oraino traba? Laguntzarekin jarri harremanetan erosketaren e-maila erabilita eta zure Google Play eskaera zenbakia gehitu.</string>
     <string name="upgrade_screen_contact_support_action">Laguntzarekin jarri harremanetan</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Zure bertsio hobetzea eta erosketaren egoera.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod ezin da Google Playrekin konektatu. Google Play instalatuta eta eguneratuta dago? Zure Google kontua sartu da? Saiatu Google Play aplikazioaren katxea garbitzen eta zure gailua berrabiarazten.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

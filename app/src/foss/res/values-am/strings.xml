@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">ደጋፊ ከ%s ጀምሮ</string>
     <string name="upgrade_foss_supporter_thanks">የCAPod ልማትን ስለደገፉ እናመሰግናለን!</string>
     <string name="upgrade_foss_sponsor_again_action">የስፖንሰር ገጽን ክፈት</string>
-    <string name="settings_upgrade_status_label">CAPod ን ደግፍ</string>
+    <string name="upgrade_foss_sponsor_label">CAPod ን ደግፍ</string>
     <string name="settings_upgrade_status_description">የእርስዎ ደጋፊ ሁኔታ።</string>
     <string name="upgrade_screen_why_title">የማሻሻል ጥቅማጥቅሞች</string>
     <string name="upgrade_screen_how_title">እንዴት መርዳት እንደሚችሉ</string>

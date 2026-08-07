@@ -20,10 +20,13 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.upgrade.core.OurSku
 import eu.darken.capod.common.upgrade.core.billing.SkuDetails
+import eu.darken.capod.main.ui.settings.SettingsScreen
+import eu.darken.capod.main.ui.settings.SettingsViewModel
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Test
+import org.robolectric.annotation.Config
 import testhelpers.compose.BaseComposeRobolectricTest
 
 class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
@@ -692,6 +695,36 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText(context.getString(R.string.general_retry_action)).performClick()
         composeRule.runOnIdle { retries shouldBe 1 }
+    }
+
+    // Regression guard for retiring settings_upgrade_status_label: the Settings row and this
+    // screen's own status title both read settingsUpgradeStatusTitle()/upgradeScreenTitle() from the
+    // same brandTitle composition, so this proves the two ACTUAL screens render identical text, not
+    // just that they call the same function. The status-title half of the invariant is covered above
+    // ("renewing subscription owner..." and the grace tests already assert appNameWithPostfix).
+    // Arabic, not the default locale: the retired raw label and the composed template both said
+    // "CAPod Pro" in English, so a default-locale test would pass even with the old drift bug intact.
+    @Config(qualifiers = "ar")
+    @Test
+    fun `the settings row shows the same text as the status screen title`() {
+        composeRule.setUpgradeContent {
+            SettingsScreen(
+                state = SettingsViewModel.State(isPro = true, sponsorUrl = null),
+                onNavigateUp = {},
+                onGeneralSettings = {},
+                onDeviceManager = {},
+                onUpgradeStatus = {},
+                onSupport = {},
+                onWiki = {},
+                onChangelog = {},
+                onHelpTranslate = {},
+                onAcknowledgements = {},
+                onPrivacyPolicy = {},
+                onSponsor = {},
+            )
+        }
+
+        composeRule.onAllNodesWithText(appNameWithPostfix).assertCountEquals(1)
     }
 
     @Test

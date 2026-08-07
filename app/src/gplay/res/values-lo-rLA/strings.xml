@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod ຫາກໍ່ກວດກາ Google Play ແຕ່ບໍ່ສາມາດຢືນຢັນການຊື້ Pro ສໍາລັບບັນຊີທີ່ Google Play ໃຊ້ສໍາລັບແອັບນີ້ໄດ້.</string>
     <string name="upgrade_screen_restore_contact_hint">ຍັງມີບັນຫາຢູ່ບໍ? ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນໂດຍໃຊ້ອີເມວທີ່ໃຊ້ສໍາລັບການຊື້ ແລະລວມເອົາເລກອໍາເລີຍ Google Play ຂອງທ່ານ.</string>
     <string name="upgrade_screen_contact_support_action">ຕິດຕໍ່ຝ່າຍສະໜັບສະໜູນ</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ສະຖານະການອັບເກຣດແລະການຊື້ຂອງທ່ານ</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. Google Play ຖືກຕິດຕັ້ງ ແລະອັບເດດແລ້ວບໍ? ບັນຊີ Google ຂອງທ່ານເຂົ້າສູ່ລະບົບແລ້ວບໍ? ລອງລ້າງແຄສຂອງແອັບ Google Play ແລະຣີບູດອຸປະກອນຂອງທ່ານ.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

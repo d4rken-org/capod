@@ -47,6 +47,13 @@ internal enum class FossUpgradeView {
     STATUS_UPGRADED,
 }
 
+// The Settings row and the PITCH title both read this one resource, so they cannot name the tier
+// differently — unlike the composed brand title, this stays a support ask ("Sponsor CAPod") rather
+// than naming the flavor. gplay's counterpart in UpgradeScreen.kt composes from brandTitleText
+// instead; each flavor implementation lives only in its own source set.
+@Composable
+internal fun settingsUpgradeStatusTitle(): String = stringResource(R.string.upgrade_foss_sponsor_label)
+
 @Composable
 fun UpgradeScreenHost(
     route: Nav.Main.Upgrade = Nav.Main.Upgrade(),
@@ -115,7 +122,7 @@ internal fun UpgradeScreen(
         // Status views describe the existing install, not a support ask — they get the composed
         // flavor title, with the postfix highlighted for supporters like the dashboard does it.
         title = if (view == FossUpgradeView.PITCH) {
-            AnnotatedString(stringResource(R.string.settings_upgrade_status_label))
+            AnnotatedString(settingsUpgradeStatusTitle())
         } else {
             // "CAPod FOSS", not "CAPod Pro": the FOSS flavor's own qualifier resource supplies the
             // tier word, so the title names this build. The upgraded gate keeps the highlight for

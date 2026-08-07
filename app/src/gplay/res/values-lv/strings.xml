@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod nesen pārbaudīja Google Play, taču Pro pirkums nevar tikt apstiprināts kontam, ko Google Play izmanto šai programmai.</string>
     <string name="upgrade_screen_restore_contact_hint">Joprojām problēma? Sazinieties ar atbalstu no e-pasta, kas veica pirkumu, un iekļaujiet jūsu Google Play pasūtījuma numuru.</string>
     <string name="upgrade_screen_contact_support_action">Sazinieties ar atbalstu</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Jūsu jaunināšanas un pirkuma statuss.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod nevar izveidot savienojumu ar Google Play. Vai Google Play ir instalēts un atjaunināts? Vai jūsu Google konts ir pieteicies? Mēģiniet notīrīt Google Play lietotnes kešatmiņu un restartēt ierīci.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

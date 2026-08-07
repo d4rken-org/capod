@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod imekagua Google Play tu, lakini hakuna ununuzi wa Pro unaoweza kuthibitishwa kwa akaunti ambayo Google Play inatumia kwa programu hii.</string>
     <string name="upgrade_screen_restore_contact_hint">Bado una tatizo? Wasiliana na msaada kutoka kwa barua pepe ambayo ilifanya ununuzi na jumuisha namba yako ya agizo la Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Wasiliana na msaada</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Hali yako ya Upgrade na Ununuzi.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod haiwezi kuunganisha na Google Play. Je, Google Play imesakinishwa na imesasishwa? Je, akaunti yako ya Google imeingia? Jaribu kusafisha akiba ya programu ya Google Play na uanzishe upya kifaa chako.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

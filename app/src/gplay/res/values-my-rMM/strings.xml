@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod သည် အခုခါ Google Play ကို စစ်ဆေးခဲ့သည်သော်လည်း ဤအပ်ပလီကေးရှင်းအတွက် Google Play အသုံးပြုနေသော အကောင့်အတွက် Pro ဝယ်ယူမှုကို အတည်ပြုနိုင်ခြင်းမရှိသည်။</string>
     <string name="upgrade_screen_restore_contact_hint">အဆမပြေသေးသလား။ ဝယ်ယူမှုကိုပြုလုပ်သော အီမေးလ်မှ အကူအညီအတွက် ဆက်သွယ်ပြီး သင်၏ Google Play အမှာစာအမှတ်ကို ထည့်သွင်းပါ။</string>
     <string name="upgrade_screen_contact_support_action">အကူအညီ ဆက်သွယ်ပါ</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">သင်၏ အဆင့်မြင့်တင်ခြင်း နှင့် ဝယ်ယူမှု အခြေအနေ။</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod သည် Google Play နှင့် ချိတ်ဆက်၍မရပါ။ Google Play ကို ထည့်သွင်းပြီး အပ်ဒိတ်လုပ်ထားပါသလား။ သင့် Google အကောင့် ဝင်ရောက်ထားပါသလား။ Google Play အက်ပ်၏ cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

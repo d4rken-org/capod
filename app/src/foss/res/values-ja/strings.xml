@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">%sからのサポーター</string>
     <string name="upgrade_foss_supporter_thanks">CAPodの開発を支援していただきありがとうございます!</string>
     <string name="upgrade_foss_sponsor_again_action">スポンサーページを開く</string>
-    <string name="settings_upgrade_status_label">CAPod をスポンサーする</string>
+    <string name="upgrade_foss_sponsor_label">CAPod をスポンサーする</string>
     <string name="settings_upgrade_status_description">サポーターステータス。</string>
     <string name="upgrade_screen_why_title">アップグレードの特典</string>
     <string name="upgrade_screen_how_title">協力するには</string>

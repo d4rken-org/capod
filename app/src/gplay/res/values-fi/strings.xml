@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod tarkisti juuri Google Playä, mutta Pro-ostoa ei voitu vahvistaa tälle sovellukselle käytettävällä tilillä.</string>
     <string name="upgrade_screen_restore_contact_hint">Ongelma jatkuu? Ota yhteyttä tukeen sähköpostiosoitteesta, jolla teit oston, ja sisällytä Google Play -tilausnumerosi.</string>
     <string name="upgrade_screen_contact_support_action">Ota yhteyttä tukeen</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Päivityksen ja ostojen tila</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod ei voi yhdistää Google Playhin. Onko Google Play asennettu ja ajan tasalla? Onko Google-tilisi kirjautunut sisään? Kokeile tyhjentää Google Play -sovelluksen välimuisti ja käynnistä laitteesi uudelleen.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

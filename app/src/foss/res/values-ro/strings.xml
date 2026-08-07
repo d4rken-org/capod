@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Susținător din %s</string>
     <string name="upgrade_foss_supporter_thanks">Mulțumim că sprijini dezvoltarea CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Deschide pagina de sponsorizare</string>
-    <string name="settings_upgrade_status_label">Sponsorizează CAPod</string>
+    <string name="upgrade_foss_sponsor_label">Sponsorizează CAPod</string>
     <string name="settings_upgrade_status_description">Statusul tău de susținător.</string>
     <string name="upgrade_screen_why_title">Beneficiile upgrade-ului</string>
     <string name="upgrade_screen_how_title">Cum să ajuți</string>

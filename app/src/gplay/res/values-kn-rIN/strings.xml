@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">ಸಿಎಪಿಒಡ್ ಇತ್ತೀಚೆಗೆ ಗೂಗಲ್ ಪ್ಲೇಯನ್ನು ಪರಿಶೀಲಿಸಿದೆ, ಆದರೆ ಗೂಗಲ್ ಪ್ಲೇ ಈ ಅ್ಯಾಪ್‍ಗೆ ಬಳಸುತ್ತಿರುವ ಖಾತೆಗೆ ಯಾವುದೇ ಪ್ರೊ ಕ್ರಯವನ್ನು ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ.</string>
     <string name="upgrade_screen_restore_contact_hint">ಇನ್ನೂ ಸಿಕ್ಕಿಬಿದ್ದಿರಾ? ಕ್ರಯವನ್ನು ಮಾಡಿದ ಇಮೇಲ್‍ನಿಂದ ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಗೂಗಲ್ ಪ್ಲೇ ಆದೇಶ ಸಂಖ್ಯೆ ಸೇರಿಸಿ.</string>
     <string name="upgrade_screen_contact_support_action">ಸಹಾಯವನ್ನು ಸಂಪರ್ಕಿಸಿ</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">ನಿಮ್ಮ ಅಪ್‍ಗ್ರೇಡ್ ಮತ್ತು ಖರೀದಿ ಸ್ಥಿತಿ.</string>
     <string name="upgrades_gplay_unavailable_error_description">ಸಿಎಪಿಪಾಡ್ ಗೂಗಲ್ ಪ್ಲೇಗೆ ಸಂಪರ್ಕ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಗೂಗಲ್ ಪ್ಲೇ ಸ್ಥಾಪಿಸಲಾಗಿದೆಯೇ ಮತ್ತು ಇತ್ತೀಚೆಗೆ ನವೀಕರಿಸಲಾಗಿದೆಯೇ? ನಿಮ್ಮ ಗೂಗಲ್ ಖಾತೆ ಲಾಗ್ ಇನ್ ಆಗಿದೆಯೇ? ಗೂಗಲ್ ಪ್ಲೇ ಅಪ್ಲಿಕೇಶನ್‌ನ ಕ್ಯಾಶ್ ತೆರವು ಮಾಡಲು ಮತ್ತು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಮರುಬೂಟ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

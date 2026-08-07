@@ -42,6 +42,12 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.navigation.Nav
 
+// The Settings row reads this so it can't name the tier differently than this screen's own
+// composed title does. FOSS's counterpart in its own UpgradeScreen.kt stays a support ask instead
+// of the composed brand title; each flavor implementation lives only in its own source set.
+@Composable
+internal fun settingsUpgradeStatusTitle(): String = brandTitleText(includeQualifier = true)
+
 @Composable
 fun UpgradeScreenHost(
     route: Nav.Main.Upgrade = Nav.Main.Upgrade(),

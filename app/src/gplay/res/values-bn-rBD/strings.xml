@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod সবেমাত্র গুগল প্লে চেক করেছে, কিন্তু এই অ্যাপের জন্য গুগল প্লে যে অ্যাকাউন্ট ব্যবহার করছে তার জন্য কোনো প্রো ক্রয় নিশ্চিত করা যায়নি।</string>
     <string name="upgrade_screen_restore_contact_hint">এখনও সমস্যা হচ্ছে? যে ইমেল থেকে ক্রয় করেছেন সেখান থেকে সহায়তার সাথে যোগাযোগ করুন এবং আপনার গুগল প্লে অর্ডার নম্বর অন্তর্ভুক্ত করুন।</string>
     <string name="upgrade_screen_contact_support_action">সহায়তার সাথে যোগাযোগ করুন</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">আপনার আপগ্রেড এবং ক্রয় স্থিতি।</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod Google Play এর সাথে সংযোগ করতে পারছে না। Google Play কি ইনস্টল এবং আপ টু ডেট? আপনার Google অ্যাকাউন্ট লগ ইন আছে? Google Play অ্যাপের ক্যাশ সাফ করে এবং আপনার ডিভাইস রিবুট করে চেষ্টা করুন।</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

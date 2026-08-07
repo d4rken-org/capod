@@ -66,7 +66,6 @@
     <string name="upgrade_screen_restore_checked_message">CAPod толькі што праверыў Google Play, але Pro-пакупка не была пацверджана для акаўнта, які Google Play выкарыстоўвае для гэтай праграмы.</string>
     <string name="upgrade_screen_restore_contact_hint">Усё яшчэ ёсць праблемы? Звяжыцеся з падтрымкай з адрасу электроннай пошты, з якой была зроблена пакупка, і ўкажыце нумар заказу Google Play.</string>
     <string name="upgrade_screen_contact_support_action">Звязацца з падтрымкай</string>
-    <string name="settings_upgrade_status_label">CAPod Pro</string>
     <string name="settings_upgrade_status_description">Ваш статус абнаўлення і пакупкі.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod не можа падключыцца да Google Play. Ці ўсталяваны і абноўлены Google Play? Вы ўвайшлі ў свой уліковы запіс Google? Паспрабуйце ачысціць кэш праграмы Google Play і перазагрузіць прыладу.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->

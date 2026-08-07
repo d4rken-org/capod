@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Rėmėjas nuo %s</string>
     <string name="upgrade_foss_supporter_thanks">Ačiū, kad remiate CAPod kūrimą!</string>
     <string name="upgrade_foss_sponsor_again_action">Atidaryti rėmėjo puslapį</string>
-    <string name="settings_upgrade_status_label">Remti CAPod</string>
+    <string name="upgrade_foss_sponsor_label">Remti CAPod</string>
     <string name="settings_upgrade_status_description">Jūsų rėmėjo statusas.</string>
     <string name="upgrade_screen_why_title">Atnaujinimo privalumai</string>
     <string name="upgrade_screen_how_title">Kaip padėti</string>

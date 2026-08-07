@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">Podporovatel od %s</string>
     <string name="upgrade_foss_supporter_thanks">Děkujeme za podporu vývoje CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">Otevřít stránku sponzora</string>
-    <string name="settings_upgrade_status_label">Sponzorovat CAPod</string>
+    <string name="upgrade_foss_sponsor_label">Sponzorovat CAPod</string>
     <string name="settings_upgrade_status_description">Váš stav podporovatele.</string>
     <string name="upgrade_screen_why_title">Výhody upgradu</string>
     <string name="upgrade_screen_how_title">Jak pomoci</string>

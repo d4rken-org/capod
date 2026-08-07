@@ -10,7 +10,7 @@
     <string name="upgrade_foss_supporter_since">داعم منذ %s</string>
     <string name="upgrade_foss_supporter_thanks">شكرًا لدعمك تطوير CAPod!</string>
     <string name="upgrade_foss_sponsor_again_action">فتح صفحة الرعاية</string>
-    <string name="settings_upgrade_status_label">دعم كابود</string>
+    <string name="upgrade_foss_sponsor_label">دعم كابود</string>
     <string name="settings_upgrade_status_description">حالة دعمك.</string>
     <string name="upgrade_screen_why_title">مزايا الترقية</string>
     <string name="upgrade_screen_how_title">كيفية المساعدة</string>
