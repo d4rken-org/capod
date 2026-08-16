@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Quai è ina cumpra separada — ella n\'annulescha e n\'rimborsa betg tes abunament. Utilisescha il medem conto Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abunament anc activ</string>
     <string name="upgrade_screen_sub_still_renewing_message">Tes abunament è anc configurà per sa renovar. Annullescha el en Google Play l\'emprim, e midescha lura a la cumpra unica. Già annullà? Dai in mument a Google Play ed emprova anc ina giada.</string>
-    <string name="upgrade_screen_sub_check_failed_title">La controlla da l\'abunament n\'ha betg reussi</string>
-    <string name="upgrade_screen_sub_check_failed_message">Impussibel da controllar tes status d\'abunament tar Google Play. Per evitar ina cumpra dubla, emprova anc ina giada en in mument.</string>
     <string name="upgrade_screen_grace_title">Confirmaziun da tia cumpra</string>
     <string name="upgrade_screen_grace_body_short">Google Play n\'ha anc betg confirmà tia cumpra. Pro resta activ — nagina acziun necessaria.</string>
     <string name="upgrade_screen_grace_body">Google Play n\'ha betg confirmà tia cumpra dapi in tschert temp. Pro resta activ. Controllescha che ti sajas online e annunzià cun il conto Google duvrà per la cumpra, ed emprova lura da restaurar.</string>

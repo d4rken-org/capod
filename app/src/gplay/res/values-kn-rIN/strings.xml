@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ಇದು ಪ್ರತ್ಯೇಕ ಖರೀದಿಯಾಗಿದೆ — ಇದು ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದಿಲ್ಲ ಅಥವಾ ಮರುಪಾವತಿಸುವುದಿಲ್ಲ. ಅದೇ Google ಖಾತೆಯನ್ನು ಬಳಸಿ.</string>
     <string name="upgrade_screen_sub_still_renewing_title">ಚಂದಾದಾರಿಕೆ ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ</string>
     <string name="upgrade_screen_sub_still_renewing_message">ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಇನ್ನೂ ನವೀಕರಿಸಲು ಹೊಂದಿಸಲಾಗಿದೆ. ಮೊದಲು Google Play ನಲ್ಲಿ ಅದನ್ನು ರದ್ದುಗೊಳಿಸಿ, ನಂತರ ಒಂದು ಬಾರಿಯ ಖರೀದಿಗೆ ಬದಲಾಯಿಸಿ. ಈಗಷ್ಟೇ ರದ್ದುಗೊಳಿಸಿದ್ದೀರಾ? Google Play ಗೆ ಸ್ವಲ್ಪ ಸಮಯ ನೀಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
-    <string name="upgrade_screen_sub_check_failed_title">ಚಂದಾದಾರಿಕೆ ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play ನೊಂದಿಗೆ ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಎರಡು ಬಾರಿ ಖರೀದಿಸುವುದನ್ನು ತಪ್ಪಿಸಲು, ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="upgrade_screen_grace_title">ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ಇನ್ನೂ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ — ಯಾವುದೇ ಕ್ರಮದ ಅಗತ್ಯವಿಲ್ಲ.</string>
     <string name="upgrade_screen_grace_body">Google Play ಸ್ವಲ್ಪ ಸಮಯದಿಂದ ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ದೃಢೀಕರಿಸಿಲ್ಲ. Pro ಇನ್ನೂ ಸಕ್ರಿಯವಾಗಿದೆ. ನೀವು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ ಮತ್ತು ಖರೀದಿಗೆ ಬಳಸಿದ Google ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಂಡು, ನಂತರ ಮರುಸ್ಥಾಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>

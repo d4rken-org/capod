@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Αυτή είναι μια ξεχωριστή αγορά — δεν ακυρώνει ούτε επιστρέφει τα χρήματα της συνδρομής σας. Χρησιμοποιήστε τον ίδιο λογαριασμό Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Η συνδρομή εξακολουθεί να είναι ενεργή</string>
     <string name="upgrade_screen_sub_still_renewing_message">Η συνδρομή σας εξακολουθεί να έχει οριστεί να ανανεωθεί. Ακυρώστε την πρώτα στο Google Play και έπειτα μεταβείτε στην εφάπαξ αγορά. Μόλις ακυρώσατε; Δώστε λίγο χρόνο στο Google Play και δοκιμάστε ξανά.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Ο έλεγχος συνδρομής απέτυχε</string>
-    <string name="upgrade_screen_sub_check_failed_message">Δεν ήταν δυνατός ο έλεγχος της κατάστασης της συνδρομής σας με το Google Play. Για να αποφύγετε διπλή αγορά, δοκιμάστε ξανά σε λίγο.</string>
     <string name="upgrade_screen_grace_title">Επιβεβαίωση της αγοράς σας</string>
     <string name="upgrade_screen_grace_body_short">Το Google Play δεν έχει επιβεβαιώσει ακόμα την αγορά σας. Το Pro παραμένει ενεργό — δεν απαιτείται καμία ενέργεια.</string>
     <string name="upgrade_screen_grace_body">Το Google Play δεν έχει επιβεβαιώσει την αγορά σας εδώ και καιρό. Το Pro παραμένει ενεργό. Βεβαιωθείτε ότι είστε συνδεδεμένοι στο διαδίκτυο και συνδεδεμένοι με τον λογαριασμό Google που χρησιμοποιήσατε για την αγορά, και μετά δοκιμάστε να την επαναφέρετε.</string>

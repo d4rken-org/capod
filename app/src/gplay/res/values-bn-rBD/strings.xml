@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">এটি একটি আলাদা ক্রয় — এটি আপনার সাবস্ক্রিপশন বাতিল বা ফেরত দেয় না। একই Google অ্যাকাউন্ট ব্যবহার করুন।</string>
     <string name="upgrade_screen_sub_still_renewing_title">সাবস্ক্রিপশন এখনও সক্রিয়</string>
     <string name="upgrade_screen_sub_still_renewing_message">আপনার সাবস্ক্রিপশন এখনও নবায়ন হওয়ার জন্য সেট করা আছে। প্রথমে Google Play-তে এটি বাতিল করুন, তারপর এককালীন ক্রয়ে পরিবর্তন করুন। এইমাত্র বাতিল করেছেন? Google Play-কে কিছুটা সময় দিন এবং আবার চেষ্টা করুন।</string>
-    <string name="upgrade_screen_sub_check_failed_title">সাবস্ক্রিপশন যাচাই ব্যর্থ হয়েছে</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play-এর সাথে আপনার সাবস্ক্রিপশনের স্থিতি যাচাই করা যায়নি। দ্বিগুণ কেনাকাটা এড়াতে, একটু পরে আবার চেষ্টা করুন।</string>
     <string name="upgrade_screen_grace_title">আপনার কেনাকাটা নিশ্চিত করা হচ্ছে</string>
     <string name="upgrade_screen_grace_body_short">Google Play এখনও আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে — কোনো পদক্ষেপের প্রয়োজন নেই।</string>
     <string name="upgrade_screen_grace_body">Google Play অনেকক্ষণ ধরে আপনার কেনাকাটা নিশ্চিত করেনি। Pro এখনও সক্রিয় আছে। আপনি অনলাইনে আছেন এবং কেনাকাটার জন্য ব্যবহৃত Google অ্যাকাউন্ট দিয়ে সাইন ইন করা আছেন কিনা তা নিশ্চিত করুন, তারপর পুনরুদ্ধার করার চেষ্টা করুন।</string>

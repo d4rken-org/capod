@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Энэ бол тусдаа худалдан авалт бөгөөд таны захиалгыг цуцлахгүй, мөнгийг буцаан олгохгүй. Ижил Google бүртгэлийг ашиглана уу.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Захиалга хэвээр идэвхтэй байна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Таны захиалга шинэчлэгдэхээр тохируулагдсан хэвээр байна. Эхлээд Google Play дээр цуцалж, дараа нь нэг удаагийн худалдан авалт руу шилжинэ үү. Дөнгөж сая цуцалсан уу? Google Play-д бага зэрэг хугацаа өгөөд дахин оролдоно уу.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Захиалгын шалгалт амжилтгүй боллоо</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play дээр таны захиалгын төлөвийг шалгаж чадсангүй. Хоёр удаа төлөхөөс зайлсхийхийн тулд бага зэрэг хүлээгээд дахин оролдоно уу.</string>
     <string name="upgrade_screen_grace_title">Таны худалдан авалтыг баталгаажуулж байна</string>
     <string name="upgrade_screen_grace_body_short">Google Play таны худалдан авалтыг одоохондоо баталгаажуулаагүй байна. Pro хэвээр идэвхтэй байгаа тул юу ч хийх шаардлагагүй.</string>
     <string name="upgrade_screen_grace_body">Google Play таны худалдан авалтыг удаан хугацаанд баталгаажуулаагүй байна. Pro хэвээр идэвхтэй байна. Та онлайн байгаа эсэх, худалдан авалт хийхдээ ашигласан Google бүртгэлээр нэвтэрсэн эсэхээ шалгаад дараа нь сэргээхийг оролдоно уу.</string>

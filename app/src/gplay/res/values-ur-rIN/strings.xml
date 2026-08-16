@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">یہ ایک الگ خریداری ہے — یہ آپ کے سبسکرپشن کو منسوخ یا ریفنڈ نہیں کرتی۔ وہی گوگل اکاؤنٹ استعمال کریں۔</string>
     <string name="upgrade_screen_sub_still_renewing_title">سبسکرپشن اب بھی فعال ہے</string>
     <string name="upgrade_screen_sub_still_renewing_message">آپ کا سبسکرپشن اب بھی تجدید ہونے کے لیے طے ہے۔ پہلے اسے گوگل پلے میں منسوخ کریں، پھر ایک بار کی خریداری پر منتقل ہوں۔ ابھی منسوخ کیا؟ گوگل پلے کو تھوڑا وقت دیں اور دوبارہ کوشش کریں۔</string>
-    <string name="upgrade_screen_sub_check_failed_title">سبسکرپشن کی جانچ ناکام ہو گئی</string>
-    <string name="upgrade_screen_sub_check_failed_message">گوگل پلے کے ساتھ آپ کے سبسکرپشن کی حیثیت چیک نہیں کی جا سکی۔ دوہری خریداری سے بچنے کے لیے، تھوڑی دیر میں دوبارہ کوشش کریں۔</string>
     <string name="upgrade_screen_grace_title">آپ کی خریداری کی تصدیق ہو رہی ہے</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلے نے ابھی تک آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے — کسی اقدام کی ضرورت نہیں۔</string>
     <string name="upgrade_screen_grace_body">گوگل پلے نے کافی عرصے سے آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے۔ یقینی بنائیں کہ آپ آن لائن ہیں اور وہی گوگل اکاؤنٹ سے سائن ان ہیں جو خریداری کے لیے استعمال ہوا تھا، پھر بحال کرنے کی کوشش کریں۔</string>

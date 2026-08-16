@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Lokhu kuwukuthenga okuhlukile — akukhanseli noma akubuyiseli imali yokubhalisa kwakho. Sebenzisa i-akhawunti ye-Google efanayo.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Ukubhalisa kusasebenza</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ukubhalisa kwakho kusahlelelwe ukuvuselelwa. Kuqale ukhansele ku-Google Play, bese ushintshela ekuthengeni okwenziwa kanye. Usanda kukhansela? Nika i-Google Play isikhashana bese uzama futhi.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Ukuhlolwa kokubhalisa kuhlulekile</string>
-    <string name="upgrade_screen_sub_check_failed_message">Akukwazanga ukuhlola isimo sokubhalisa kwakho ku-Google Play. Ukuze ugweme ukuthenga kabili, zama futhi ngesikhashana.</string>
     <string name="upgrade_screen_grace_title">Kuqinisekiswa ukuthenga kwakho</string>
     <string name="upgrade_screen_grace_body_short">I-Google Play ayikaqinisekisi ukuthenga kwakho. I-Pro isasebenza — akudingeki sinyathelo.</string>
     <string name="upgrade_screen_grace_body">I-Google Play ayikaqinisekisi ukuthenga kwakho isikhathi eside. I-Pro isasebenza. Qinisekisa ukuthi ukuxhunyiwe ku-inthanethi futhi ungenile nge-akhawunti ye-Google eyasetshenziswa ekutheneni, bese uzama ukubuyisela.</string>

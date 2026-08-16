@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu ayrı bir satınalmadır — abunəliyinizi ləğv etmir və ya geri ödəmir. Eyni Google hesabından istifadə edin.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abunəlik hələ də aktivdir</string>
     <string name="upgrade_screen_sub_still_renewing_message">Abunəliyiniz hələ də yenilənməyə təyin edilib. Əvvəlcə onu Google Play-də ləğv edin, sonra birdəfəlik satınalmaya keçin. Bu yaxınlarda ləğv etmisiniz? Google Play-ə bir az vaxt verin və yenidən cəhd edin.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Abunəlik yoxlaması uğursuz oldu</string>
-    <string name="upgrade_screen_sub_check_failed_message">Abunəlik statusunuz Google Play ilə yoxlanıla bilmədi. İkiqat satınalmanın qarşısını almaq üçün bir az sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_grace_title">Satınalmanız təsdiqlənir</string>
     <string name="upgrade_screen_grace_body_short">Google Play hələ satınalmanızı təsdiqləməyib. Pro hələ də aktivdir — heç bir əməliyyat lazım deyil.</string>
     <string name="upgrade_screen_grace_body">Google Play bir müddətdir satınalmanızı təsdiqləməyib. Pro hələ də aktivdir. Onlayn olduğunuzdan və satınalma üçün istifadə edilən Google hesabı ilə daxil olduğunuzdan əmin olun, sonra bərpa etməyi sınayın.</string>

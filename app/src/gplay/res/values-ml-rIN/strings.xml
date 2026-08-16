@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ഇത് ഒരു പ്രത്യേക വാങ്ങലാണ് — ഇത് നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുകയോ റീഫണ്ട് ചെയ്യുകയോ ചെയ്യില്ല. അതേ Google അക്കൗണ്ട് ഉപയോഗിക്കുക.</string>
     <string name="upgrade_screen_sub_still_renewing_title">സബ്സ്ക്രിപ്ഷൻ ഇപ്പോഴും സജീവമാണ്</string>
     <string name="upgrade_screen_sub_still_renewing_message">നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ ഇപ്പോഴും പുതുക്കാൻ സജ്ജീകരിച്ചിരിക്കുന്നു. ആദ്യം Google Play-യിൽ അത് റദ്ദാക്കുക, എന്നിട്ട് ഒറ്റത്തവണ വാങ്ങലിലേക്ക് മാറുക. ഇപ്പോൾ റദ്ദാക്കിയോ? Google Play-ക്ക് അൽപ്പം സമയം നൽകി വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="upgrade_screen_sub_check_failed_title">സബ്സ്ക്രിപ്ഷൻ പരിശോധന പരാജയപ്പെട്ടു</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play-യിൽ നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ നില പരിശോധിക്കാൻ കഴിഞ്ഞില്ല. ഇരട്ട വാങ്ങൽ ഒഴിവാക്കാൻ അൽപ്പം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_grace_title">നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിക്കുന്നു</string>
     <string name="upgrade_screen_grace_body_short">Google Play ഇതുവരെ നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ് — ഒരു നടപടിയും ആവശ്യമില്ല.</string>
     <string name="upgrade_screen_grace_body">കുറച്ച് സമയമായി Google Play നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിച്ചിട്ടില്ല. Pro ഇപ്പോഴും സജീവമാണ്. നിങ്ങൾ ഓൺലൈനിലാണെന്നും വാങ്ങലിനായി ഉപയോഗിച്ച 

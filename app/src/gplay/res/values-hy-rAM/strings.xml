@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Սա առանձին գնում է․ այն չի չեղարկում կամ վերադարձնում ձեր բաժանորդագրության գումարը: Օգտագործեք նույն Google հաշիվը:</string>
     <string name="upgrade_screen_sub_still_renewing_title">Բաժանորդագրությունը դեռ ակտիվ է</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ձեր բաժանորդագրությունը դեռ նորոգվելու է: Նախ չեղարկեք այն Google Play-ում, ապա անցեք միանգամյա գնմանը: Հենց նոր չեղարկե՞լ եք: Տվեք Google Play-ին մի փոքր ժամանակ և կրկին փորձեք:</string>
-    <string name="upgrade_screen_sub_check_failed_title">Բաժանորդագրության ստուգումը ձախողվեց</string>
-    <string name="upgrade_screen_sub_check_failed_message">Չհաջողվեց ստուգել ձեր բաժանորդագրության կարգավիճակը Google Play-ի հետ: Կրկնակի գնմաններից խուսափելու համար կրկին փորձեք մի փոքր ուշ:</string>
     <string name="upgrade_screen_grace_title">Հաստատում ենք ձեր գնումը</string>
     <string name="upgrade_screen_grace_body_short">Google Play-ը դեռ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է․ գործողություն պահանջվող չէ:</string>
     <string name="upgrade_screen_grace_body">Google Play-ը որոշ ժամանակ է, ինչ չի հաստատել ձեր գնումը: Pro-ն դեռ ակտիվ է: Համոզվեք, որ առցանց եք և մուտք գործած այն Google հաշվով, որով կատարվել է գնումը, ապա փորձեք վերականգնել:</string>

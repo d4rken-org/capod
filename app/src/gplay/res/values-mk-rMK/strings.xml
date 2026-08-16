@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ова е одделна куповка — не ја откажува ниту ти ги враќа парите за претплатата. Користи го истиот Google профил.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Претплатата сеуште е активна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Твојата претплата сеуште е поставена да се обновува. Прво откажи ја во Google Play, па потоа премини на еднократната куповка. Штотуку ја откажа? Дај и на Google Play малку време и обиди се повторно.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Проверката на претплатата не успеа</string>
-    <string name="upgrade_screen_sub_check_failed_message">Не можеше да се провери статусот на твојата претплата со Google Play. За да избегнеш двојна куповка, обиди се повторно за момент.</string>
     <string name="upgrade_screen_grace_title">Потврдување на твојата куповка</string>
     <string name="upgrade_screen_grace_body_short">Google Play сè уште не ја потврди твојата куповка. Pro е сè уште активен — не е потребно дејство.</string>
     <string name="upgrade_screen_grace_body">Google Play веќе подолго време не ја потврдува твојата куповка. Pro е сè уште активен. Провери дали си на интернет и најавен/а со Google профилот користен за куповката, па обиди се да ја вратиш.</string>

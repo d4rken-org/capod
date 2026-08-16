@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dit is \'n aparte aankoop — dit kanselleer of vergoed nie jou intekening nie. Gebruik dieselfde Google-rekening.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Intekening steeds aktief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Jou intekening is steeds gestel om te hernu. Kanselleer dit eers in Google Play, en wissel dan na die eenmalige aankoop. Pas gekanselleer? Gee Google Play \'n oomblik en probeer weer.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Intekeningkontrole het misluk</string>
-    <string name="upgrade_screen_sub_check_failed_message">Kon nie jou intekeningstatus by Google Play nagaan nie. Probeer binnekort weer om \'n dubbele aankoop te vermy.</string>
     <string name="upgrade_screen_grace_title">Jou aankoop word bevestig</string>
     <string name="upgrade_screen_grace_body_short">Google Play het jou aankoop nog nie bevestig nie. Pro is steeds aktief — geen aksie nodig nie.</string>
     <string name="upgrade_screen_grace_body">Google Play het jou aankoop al \'n rukkie nie bevestig nie. Pro is steeds aktief. Maak seker jy is aanlyn en aangemeld met die Google-rekening wat vir die aankoop gebruik is, en probeer dan herstel.</string>

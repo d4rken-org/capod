@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Si tratta di un acquisto separato: non annulla né rimborsa il tuo abbonamento. Usa lo stesso account Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abbonamento ancora attivo</string>
     <string name="upgrade_screen_sub_still_renewing_message">Il tuo abbonamento è ancora impostato per il rinnovo. Annullalo prima su Google Play, poi passa all’acquisto una tantum. Hai appena annullato? Dai un momento a Google Play e riprova.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Verifica dell’abbonamento non riuscita</string>
-    <string name="upgrade_screen_sub_check_failed_message">Non è stato possibile verificare lo stato del tuo abbonamento con Google Play. Per evitare un doppio acquisto, riprova tra poco.</string>
     <string name="upgrade_screen_grace_title">Conferma del tuo acquisto in corso</string>
     <string name="upgrade_screen_grace_body_short">Google Play non ha ancora confermato il tuo acquisto. Pro è ancora attivo: nessuna azione necessaria.</string>
     <string name="upgrade_screen_grace_body">Google Play non ha confermato il tuo acquisto da un po’ di tempo. Pro è ancora attivo. Assicurati di essere online e di aver effettuato l’accesso con l’account Google utilizzato per l’acquisto, poi prova a ripristinare.</string>
