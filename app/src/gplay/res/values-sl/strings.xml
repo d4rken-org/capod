@@ -46,6 +46,8 @@
     <string name="upgrade_screen_owned_iap_purchase_note">To je ločen nakup — ne prekliče ali povrne stroškov vaše naročnine. Uporabite isti Google račun.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Naročnina je še vedno aktivna</string>
     <string name="upgrade_screen_sub_still_renewing_message">Vaša naročnina je še vedno nastavljena na samodejno podaljšanje. Najprej jo prekličite v Google Play, nato preklopite na enkratni nakup. Ste jo pravkar preklicali? Počakajte trenutek, da se Google Play posodobi, in poskusite znova.</string>
+    <string name="upgrade_screen_sub_check_failed_title">Preverjanje naročnine ni uspelo</string>
+    <string name="upgrade_screen_sub_check_failed_message">Stanja vaše naročnine pri Google Play ni bilo mogoče preveriti. Da se izognete dvojnemu nakupu, poskusite znova čez trenutek.</string>
     <string name="upgrade_screen_grace_title">Potrjevanje vašega nakupa</string>
     <string name="upgrade_screen_grace_body_short">Google Play še ni potrdil vašega nakupa. Pro je še vedno aktiven — ni potreben noben ukrep.</string>
     <string name="upgrade_screen_grace_body">Google Play že nekaj časa ni potrdil vašega nakupa. Pro je še vedno aktiven. Prepričajte se, da ste povezani v splet in prijavljeni z Google računom, uporabljenim za nakup, nato poskusite obnoviti nakup.</string>

@@ -200,9 +200,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is uitgeschakeld, schakel het in ;)</string>
     <string name="overview_monitoring_active_label">Monitoring voor apparaten</string>
     <string name="overview_monitoring_active_description">Zorg ervoor dat je apparaat in de buurt is en actief is.</string>
-    <string name="overview_monitoring_off_label">Achtergrondmonitoring is uit</string>
-    <string name="overview_monitoring_off_description">Geen profiel heeft een gekoppeld Bluetooth-apparaat, dus CAPod werkt alleen wanneer de app open is. Selecteer er één om achtergrondmonitoring, de doorlopende melding en reacties in te schakelen.</string>
-    <string name="overview_monitoring_off_action">Selecteer gekoppeld apparaat</string>
+    <string name="overview_monitoring_off_label">Achtergrondmonitoring is uitgeschakeld</string>
+    <string name="overview_monitoring_off_description">Geen enkel profiel heeft een gekoppeld Bluetooth-apparaat, dus CAPod wordt alleen bijgewerkt wanneer de app open is. Selecteer er een om achtergrondmonitoring, doorlopende meldingen en reacties in te schakelen.</string>
+    <string name="overview_monitoring_off_action">Selecteer het gekoppelde apparaat</string>
     <string name="overview_troubleshoot_suggestion_label">Verbonden, maar geen gegevens</string>
     <string name="overview_troubleshoot_suggestion_description">Je apparaat is verbonden, maar CAPod ontvangt geen live gegevens. Je telefoon heeft mogelijk een compatibiliteitsoptie nodig — de probleemoplosser kan er automatisch een zoeken.</string>
     <string name="overview_troubleshoot_suggestion_action">Probleemoplosser starten</string>
@@ -488,7 +488,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dubbelklik om het gesprek te beëindigen</string>
     <string name="device_settings_open_cd">Apparaatinstellingen openen</string>
     <string name="overview_card_missing_paired_device">Dit profiel heeft geen gekoppeld Bluetooth-apparaat.</string>
-    <string name="overview_card_missing_paired_device_consequence">Zonder één zijn apparaatinstellingen en automatisch verbinden niet beschikbaar.</string>
+    <string name="overview_card_missing_paired_device_consequence">Zonder een dergelijk apparaat zijn de apparaatinstellingen en de automatische verbindingsfunctie niet beschikbaar.</string>
     <string name="overview_reactions_hint_title">De reacties gelden per apparaat</string>
     <string name="overview_reactions_hint_body">Automatisch afspelen, automatisch pauzeren en pop-ups zijn nu per apparaat geconfigureerd. Tik op het instellingenpictogram op een kaart terwijl je hoofdtelefoon verbonden is.</string>
     <string name="review_app_review_action">Beoordeling</string>

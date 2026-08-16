@@ -46,6 +46,8 @@
     <string name="upgrade_screen_owned_iap_purchase_note">这是一笔独立的购买——不会取消或退款您的订阅。请使用相同的 Google 账号。</string>
     <string name="upgrade_screen_sub_still_renewing_title">订阅仍然有效</string>
     <string name="upgrade_screen_sub_still_renewing_message">您的订阅仍设置为自动续订。请先在 Google Play 中取消订阅,再切换为一次性购买。刚取消?请稍等片刻,让 Google Play 同步后再试。</string>
+    <string name="upgrade_screen_sub_check_failed_title">订阅检查失败</string>
+    <string name="upgrade_screen_sub_check_failed_message">无法通过 Google Play 检查您的订阅状态。为避免重复购买,请稍后再试。</string>
     <string name="upgrade_screen_grace_title">正在确认您的购买</string>
     <string name="upgrade_screen_grace_body_short">Google Play 尚未确认您的购买。Pro 功能仍然有效——无需任何操作。</string>
     <string name="upgrade_screen_grace_body">Google Play 已有一段时间未确认您的购买。Pro 功能仍然有效。请确保您已联网,并使用购买时的 Google 账号登录,然后尝试恢复购买。</string>
