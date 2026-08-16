@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">இது ஒரு தனி கொள்முதல் — இது உங்கள் சந்தாவை ரத்து செய்யாது அல்லது பணத்தைத் திரும்பச் செலுத்தாது. அதே Google கணக்கைப் பயன்படுத்தவும்.</string>
     <string name="upgrade_screen_sub_still_renewing_title">சந்தா இன்னும் செயலில் உள்ளது</string>
     <string name="upgrade_screen_sub_still_renewing_message">உங்கள் சந்தா இன்னும் புதுப்பிக்க அமைக்கப்பட்டுள்ளது. முதலில் Google Play-இல் அதை ரத்து செய்யவும், பின்னர் ஒரு முறை வாங்குதலுக்கு மாறவும். இப்போதுதான் ரத்து செய்தீர்களா? Google Play-க்கு சிறிது நேரம் கொடுத்து மீண்டும் முயற்சிக்கவும்.</string>
-    <string name="upgrade_screen_sub_check_failed_title">சந்தா சரிபார்ப்பு தோல்வியடைந்தது</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play உடன் உங்கள் சந்தா நிலையைச் சரிபார்க்க முடியவில்லை. இரட்டை கொள்முதலைத் தவிர்க்க, சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.</string>
     <string name="upgrade_screen_grace_title">உங்கள் கொள்முதலை உறுதிப்படுத்துகிறது</string>
     <string name="upgrade_screen_grace_body_short">Google Play இன்னும் உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது — எந்த நடவடிக்கையும் தேவையில்லை.</string>
     <string name="upgrade_screen_grace_body">Google Play சிறிது காலமாக உங்கள் கொள்முதலை உறுதிப்படுத்தவில்லை. Pro இன்னும் செயலில் உள்ளது. நீங்கள் ஆன்லைனில் இருப்பதையும், கொள்முதலுக்குப் பயன்படுத்திய Google கணக்கில் உள்நுழைந்திருப்பதையும் உறுதிப்படுத்திக் கொண்டு, பின்னர் மீட்டெடுக்க முயற்சிக்கவும்.</string>

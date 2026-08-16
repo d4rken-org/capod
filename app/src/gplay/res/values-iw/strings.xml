@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">זוהי רכישה נפרדת — היא אינה מבטלת או מזכה את המינוי שלך. השתמש באותו חשבון Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">המינוי עדיין פעיל</string>
     <string name="upgrade_screen_sub_still_renewing_message">המינוי שלך עדיין מוגדר להתחדש. בטל אותו קודם ב-Google Play, ולאחר מכן עבור לרכישה החד-פעמית. בטלת הרגע? תן ל-Google Play רגע ונסה שוב.</string>
-    <string name="upgrade_screen_sub_check_failed_title">בדיקת המינוי נכשלה</string>
-    <string name="upgrade_screen_sub_check_failed_message">לא ניתן היה לבדוק את סטטוס המינוי שלך מול Google Play. כדי להימנע מרכישה כפולה, נסה שוב בעוד רגע.</string>
     <string name="upgrade_screen_grace_title">מאשר את הרכישה שלך</string>
     <string name="upgrade_screen_grace_body_short">Google Play עדיין לא אישר את הרכישה שלך. Pro עדיין פעיל — אין צורך בפעולה.</string>
     <string name="upgrade_screen_grace_body">Google Play לא אישר את הרכישה שלך כבר זמן מה. Pro עדיין פעיל. ודא שאתה מחובר לאינטרנט ומחובר עם חשבון ה-Google שבו בוצעה הרכישה, ולאחר מכן נסה לשחזר.</string>

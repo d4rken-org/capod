@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ito ay hiwalay na pagbili — hindi nito kinakansela o nire-refund ang iyong subscription. Gamitin ang parehong Google account.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Aktibo pa rin ang subscription</string>
     <string name="upgrade_screen_sub_still_renewing_message">Nakatakda pa ring mag-renew ang iyong subscription. Kanselahin muna ito sa Google Play, pagkatapos ay lumipat sa one-time na pagbili. Bagong-kansela lang? Bigyan ng oras ang Google Play at subukan muli.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Nabigo ang pagsusuri ng subscription</string>
-    <string name="upgrade_screen_sub_check_failed_message">Hindi masuri ang katayuan ng iyong subscription gamit ang Google Play. Para maiwasan ang dobleng pagbili, subukan muli sa ilang sandali.</string>
     <string name="upgrade_screen_grace_title">Kinukumpirma ang iyong pagbili</string>
     <string name="upgrade_screen_grace_body_short">Hindi pa nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro — walang kailangang gawin.</string>
     <string name="upgrade_screen_grace_body">Matagal nang hindi nakukumpirma ng Google Play ang iyong pagbili. Aktibo pa rin ang Pro. Siguraduhing online ka at naka-sign in sa Google account na ginamit sa pagbili, pagkatapos ay subukang i-restore.</string>

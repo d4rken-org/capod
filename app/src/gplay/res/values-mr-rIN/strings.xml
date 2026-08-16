@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ही एक वेगळी खरेदी आहे — ती तुमचे सदस्यत्व रद्द किंवा परत करत नाही. तेच Google खाते वापरा.</string>
     <string name="upgrade_screen_sub_still_renewing_title">सदस्यत्व अजूनही सक्रिय आहे</string>
     <string name="upgrade_screen_sub_still_renewing_message">तुमचे सदस्यत्व अजूनही नूतनीकरणासाठी सेट केलेले आहे. आधी ते Google Play मध्ये रद्द करा, नंतर एकवेळच्या खरेदीवर स्विच करा. नुकतेच रद्द केले? Google Play ला थोडा वेळ द्या आणि पुन्हा प्रयत्न करा.</string>
-    <string name="upgrade_screen_sub_check_failed_title">सदस्यत्व तपासणी अयशस्वी झाली</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play सह तुमची सदस्यत्व स्थिती तपासता आली नाही. दुहेरी खरेदी टाळण्यासाठी, थोड्या वेळाने पुन्हा प्रयत्न करा.</string>
     <string name="upgrade_screen_grace_title">तुमची खरेदी निश्चित केली जात आहे</string>
     <string name="upgrade_screen_grace_body_short">Google Play ने अद्याप तुमची खरेदी निश्चित केलेली नाही. Pro अजूनही सक्रिय आहे — कोणतीही कारवाई आवश्यक नाही.</string>
     <string name="upgrade_screen_grace_body">Google Play ने बर्‍याच वेळेपासून तुमची खरेदी निश्चित केलेली नाही. Pro अजूनही सक्रिय आहे. तुम्ही ओनलाइन आहात आणि खरेदीसाठी वापरलेल्या Google खात्याने साइन इन केले आहे याची खात्री करा, नंतर पुनर्संचयित करण्याचा प्रयत्न करा.</string>

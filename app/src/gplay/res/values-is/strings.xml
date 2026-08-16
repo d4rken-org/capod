@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Þessi eru sérstök kaup — þau segja ekki upp áskrift þínni né endurgreiða hana. Notaðu sama Google reikning.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Áskrift enn virk</string>
     <string name="upgrade_screen_sub_still_renewing_message">Áskrift þín er enn stillt á að endurnýjast. Segðu henni fyrst upp í Google Play og skiptu svo yfir í einskiptiskaup. Nýlega sagt upp? Gefðu Google Play smástund og reyndu aftur.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Athugun á áskrift mistókst</string>
-    <string name="upgrade_screen_sub_check_failed_message">Ekki tókst að athuga stöðu áskriftar þínnar hjá Google Play. Til að forðast tvíkaup skaltu reyna aftur eftir smástund.</string>
     <string name="upgrade_screen_grace_title">Staðfesti kaupin þín</string>
     <string name="upgrade_screen_grace_body_short">Google Play hefur ekki staðfest kaupin þín ennþá. Pro er áfram virkt — engra aðgerða er þörf.</string>
     <string name="upgrade_screen_grace_body">Google Play hefur ekki staðfest kaupin þín um nokkurt skeið. Pro er áfram virkt. Gakktu úr skugga um að þú sért nettengd(ur) og skráð(ur) inn með Google reikningnum sem notaður var við kaupin, og reyndu svo að endurheimta.</string>

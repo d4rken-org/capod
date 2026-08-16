@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Kjo është një blerje e veçantë — nuk e anulon dhe nuk e rimburson abonimin tuaj. Përdorni të njëjtën llogari Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonimi ende aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Abonimi juaj është ende i caktuar për t\'u rinovuar. Anulojeni fillimisht në Google Play, pastaj kaloni në blerjen një herë. Sapo e keni anuluar? Jepini Google Play pak kohë dhe provoni përsëri.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Kontrolli i abonimit dështoi</string>
-    <string name="upgrade_screen_sub_check_failed_message">Nuk u arrit të kontrollohej statusi i abonimit tuaj me Google Play. Për të shmangur një blerje të dyfishtë, provoni përsëri pas pak.</string>
     <string name="upgrade_screen_grace_title">Duke konfirmuar blerjen tuaj</string>
     <string name="upgrade_screen_grace_body_short">Google Play ende nuk e ka konfirmuar blerjen tuaj. Pro është ende aktiv — nuk kërkohet asnjë veprim.</string>
     <string name="upgrade_screen_grace_body">Google Play nuk e ka konfirmuar blerjen tuaj prej njëfarë kohe. Pro është ende aktiv. Sigurohuni që jeni online dhe të kyçur me llogarinë Google të përdorur për blerjen, pastaj provoni ta rikthyeni.</string>

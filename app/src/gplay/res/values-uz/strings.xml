@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu alohida xarid — u obunangizni bekor qilmaydi yoki pulini qaytarmaydi. Bir xil Google hisobidan foydalaning.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Obuna hali ham faol</string>
     <string name="upgrade_screen_sub_still_renewing_message">Obunangiz hali ham yangilanishga sozlangan. Avval uni Google Play\'da bekor qiling, so\'ngra bir martalik xaridga o\'ting. Hozirgina bekor qildingizmi? Google Play\'ga biroz vaqt bering va qayta urinib ko\'ring.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Obunani tekshirish amalga oshmadi</string>
-    <string name="upgrade_screen_sub_check_failed_message">Obuna holatingizni Google Play bilan tekshirib bo\'lmadi. Ikki marta xarid qilmaslik uchun birozdan so\'ng qayta urinib ko\'ring.</string>
     <string name="upgrade_screen_grace_title">Xaridingiz tasdiqlanmoqda</string>
     <string name="upgrade_screen_grace_body_short">Google Play hali xaridingizni tasdiqlamadi. Pro hali ham faol — hech qanday amal talab qilinmaydi.</string>
     <string name="upgrade_screen_grace_body">Google Play xaridingizni ancha vaqtdan beri tasdiqlamadi. Pro hali ham faol. Onlayn ekanligingizga va xarid uchun ishlatilgan Google hisobi bilan tizimga kirganingizga ishonch hosil qiling, so\'ngra tiklashga urinib ko\'ring.</string>

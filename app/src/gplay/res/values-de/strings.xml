@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dies ist ein separater Kauf — er kündigt oder erstattet dein Abonnement nicht. Verwende dasselbe Google-Konto.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement noch aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Dein Abonnement ist weiterhin so eingestellt, dass es sich verlängert. Kündige es zuerst in Google Play und wechsle erst dann zum Einmalkauf. Gerade gekündigt? Gib Google Play einen Moment Zeit und versuche es erneut.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Abonnementprüfung fehlgeschlagen</string>
-    <string name="upgrade_screen_sub_check_failed_message">Dein Abonnementstatus konnte nicht bei Google Play überprüft werden. Um einen doppelten Kauf zu vermeiden, versuch es gleich noch einmal.</string>
     <string name="upgrade_screen_grace_title">Dein Kauf wird bestätigt</string>
     <string name="upgrade_screen_grace_body_short">Google Play hat deinen Kauf noch nicht bestätigt. Pro ist weiterhin aktiv — du musst nichts tun.</string>
     <string name="upgrade_screen_grace_body">Google Play hat deinen Kauf seit einer Weile nicht bestätigt. Pro ist weiterhin aktiv. Stelle sicher, dass du online und mit dem Google-Konto angemeldet bist, das für den Kauf verwendet wurde, und versuche dann die Wiederherstellung.</string>

@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">هذا شراء منفصل — لا يؤدي إلى إلغاء اشتراكك أو استرداد قيمته. استخدم نفس حساب Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">الاشتراك لا يزال نشطًا</string>
     <string name="upgrade_screen_sub_still_renewing_message">اشتراكك لا يزال مضبوطًا على التجديد. ألغه في Google Play أولًا، ثم بدّل إلى الشراء لمرة واحدة. هل ألغيته للتو؟ امنح Google Play بعض الوقت وحاول مرة أخرى.</string>
-    <string name="upgrade_screen_sub_check_failed_title">فشل التحقق من الاشتراك</string>
-    <string name="upgrade_screen_sub_check_failed_message">تعذّر التحقق من حالة اشتراكك لدى Google Play. لتجنب الشراء المزدوج، حاول مرة أخرى بعد قليل.</string>
     <string name="upgrade_screen_grace_title">جارٍ تأكيد عملية الشراء</string>
     <string name="upgrade_screen_grace_body_short">لم يؤكّد Google Play عملية الشراء الخاصة بك بعد. لا يزال Pro نشطًا — لا حاجة لاتخاذ أي إجراء.</string>
     <string name="upgrade_screen_grace_body">لم يؤكّد Google Play عملية الشراء الخاصة بك منذ فترة. لا يزال Pro نشطًا. تأكد من اتصالك بالإنترنت وتسجيل دخولك بحساب Google المستخدم في عملية الشراء، ثم حاول استعادة الشراء.</string>

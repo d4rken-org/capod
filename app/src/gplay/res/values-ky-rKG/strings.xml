@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Бул өзүнчө сатып алуу — ал жазылууңузду жокко чыгарбайт же акчаны кайтарбайт. Ошол эле Google каттоо эсебин колдонуңуз.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Жазылуу дагы эле активдүү</string>
     <string name="upgrade_screen_sub_still_renewing_message">Жазылууңуз дагы эле жаңылануучу кылып койулган. Адегенде аны Google Play\'де жокко чыгарыңыз, андан кийин бир жолку сатып алууга которулуңуз. Жаңы эле жокко чыгардыңызбы? Google Play\'ге бир аз убакыт бериңиз жана кайра аракет кылыңыз.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Жазылууну текшерүү ишке ашкан жок</string>
-    <string name="upgrade_screen_sub_check_failed_message">Жазылуу статусуңузду Google Play менен текшерүү мүмкүн болбоду. Эки жолу сатып алуудан качуу үчүн бир аздан кийин кайра аракет кылыңыз.</string>
     <string name="upgrade_screen_grace_title">Сатып алууңуз ырасталууда</string>
     <string name="upgrade_screen_grace_body_short">Google Play сатып алууңузду азырынча ырастаган жок. Pro дагы эле активдүү — эч нерсе кылуунун кереги жок.</string>
     <string name="upgrade_screen_grace_body">Google Play сатып алууңузду бир далай убакыттан бери ырастаган жок. Pro дагы эле активдүү. Онлайн экениңизди жана сатып алуу үчүн колдонулган Google каттоо эсеби менен кирип турганыңызды текшериңиз, андан кийин калыбына келтирип көрүңүз.</string>

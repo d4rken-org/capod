@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Detta är ett separat köp — det avbryter eller återbetalar inte din prenumeration. Använd samma Google-konto.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Prenumerationen är fortfarande aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Din prenumeration är fortfarande inställd på att förnyas. Avbryt den i Google Play först och byt sedan till engångsköpet. Precis avbrutit? Ge Google Play en stund och försök igen.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Kontroll av prenumeration misslyckades</string>
-    <string name="upgrade_screen_sub_check_failed_message">Det gick inte att kontrollera din prenumerationsstatus med Google Play. Försök igen om en stund för att undvika ett dubbelt köp.</string>
     <string name="upgrade_screen_grace_title">Bekräftar ditt köp</string>
     <string name="upgrade_screen_grace_body_short">Google Play har inte bekräftat ditt köp än. Pro är fortfarande aktivt — ingen åtgärd behövs.</string>
     <string name="upgrade_screen_grace_body">Google Play har inte bekräftat ditt köp på ett tag. Pro är fortfarande aktivt. Kontrollera att du är online och inloggad med det Google-konto som användes för köpet, och försök sedan återställa.</string>

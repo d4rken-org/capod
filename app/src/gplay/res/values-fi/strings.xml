@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Tämä on erillinen ostos — se ei peruuta eikä hyvitä tilaustasi. Käytä samaa Google-tiliä.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Tilaus on yhä aktiivinen</string>
     <string name="upgrade_screen_sub_still_renewing_message">Tilauksesi on yhä asetettu uusiutumaan. Peruuta se ensin Google Playssa ja vaihda sitten kertaostokseen. Peruitko juuri? Anna Google Playlle hetki aikaa ja yritä uudelleen.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Tilauksen tarkistus epäonnistui</string>
-    <string name="upgrade_screen_sub_check_failed_message">Tilauksesi tilaa ei voitu tarkistaa Google Playsta. Vältä kaksinkertainen ostos yrittämällä uudelleen hetken kuluttua.</string>
     <string name="upgrade_screen_grace_title">Vahvistetaan ostostasi</string>
     <string name="upgrade_screen_grace_body_short">Google Play ei ole vielä vahvistanut ostostasi. Pro on yhä aktiivinen — mitään ei tarvitse tehdä.</string>
     <string name="upgrade_screen_grace_body">Google Play ei ole vahvistanut ostostasi hetkeen. Pro on yhä aktiivinen. Varmista, että olet verkossa ja kirjautuneena sillä Google-tilillä, jolla teit ostoksen, ja yritä sitten palauttaa se.</string>

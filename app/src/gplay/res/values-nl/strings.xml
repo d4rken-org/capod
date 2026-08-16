@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dit is een aparte aankoop - je abonnement wordt hiermee niet geannuleerd en het aankoopbedrag wordt niet terugbetaald. Gebruik hetzelfde Google-account.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement nog steeds actief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Je abonnement wordt automatisch verlengd. Annuleer het eerst in Google Play en schakel daarna over naar de eenmalige aankoop. Net geannuleerd? Geef Google Play even de tijd en probeer het opnieuw.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Controle van abonnement mislukt</string>
-    <string name="upgrade_screen_sub_check_failed_message">Je abonnementsstatus kon niet worden gecontroleerd bij Google Play. Om een ​​dubbele aankoop te voorkomen, probeer het over een moment opnieuw.</string>
     <string name="upgrade_screen_grace_title">Je aankoop wordt bevestigd</string>
     <string name="upgrade_screen_grace_body_short">Google Play heeft je aankoop nog niet bevestigd. Pro is nog steeds actief — geen actie nodig.</string>
     <string name="upgrade_screen_grace_body">Google Play heeft je aankoop al een tijdje niet bevestigd. Pro is nog steeds actief. Zorg ervoor dat je online bent en bent ingelogd met het Google-account dat je voor de aankoop hebt gebruikt, en probeer het dan opnieuw te herstellen.</string>

@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Toto je samostatný nákup — nezruší ani nevrátí peníze za vaše předplatné. Použijte stejný účet Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Předplatné je stále aktivní</string>
     <string name="upgrade_screen_sub_still_renewing_message">Vaše předplatné je stále nastaveno na obnovování. Nejprve ho zrušte v Google Play a poté přejděte na jednorázový nákup. Právě jste ho zrušili? Dejte Google Play chvilku a zkuste to znovu.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Kontrola předplatného se nezdařila</string>
-    <string name="upgrade_screen_sub_check_failed_message">Nepodařilo se zkontrolovat stav vašeho předplatného u Google Play. Abyste se vyhnuli dvojímu nákupu, zkuste to za chvíli znovu.</string>
     <string name="upgrade_screen_grace_title">Potvrzování vašeho nákupu</string>
     <string name="upgrade_screen_grace_body_short">Google Play zatím nepotvrdil váš nákup. Pro je stále aktivní — není potřeba nic dělat.</string>
     <string name="upgrade_screen_grace_body">Google Play už delší dobu nepotvrdil váš nákup. Pro je stále aktivní. Ujistěte se, že jste online a přihlášeni k účtu Google použitému při nákupu, a poté zkuste nákup obnovit.</string>

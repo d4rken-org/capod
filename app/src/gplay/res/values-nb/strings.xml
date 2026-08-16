@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dette er et separat kjøp — det kansellerer eller refunderer ikke abonnementet ditt. Bruk samme Google-konto.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnementet er fortsatt aktivt</string>
     <string name="upgrade_screen_sub_still_renewing_message">Abonnementet ditt er fortsatt satt til å fornyes. Kanseller det i Google Play først, og bytt deretter til engangskjøpet. Nettopp kansellert? Gi Google Play litt tid og prøv igjen.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Kontroll av abonnement mislyktes</string>
-    <string name="upgrade_screen_sub_check_failed_message">Kunne ikke kontrollere abonnementsstatusen din med Google Play. For å unngå et dobbelt kjøp, prøv igjen om litt.</string>
     <string name="upgrade_screen_grace_title">Bekrefter kjøpet ditt</string>
     <string name="upgrade_screen_grace_body_short">Google Play har ikke bekreftet kjøpet ditt ennå. Pro er fortsatt aktivt — ingen handling nødvendig.</string>
     <string name="upgrade_screen_grace_body">Google Play har ikke bekreftet kjøpet ditt på en stund. Pro er fortsatt aktivt. Sørg for at du er tilkoblet internett og logget inn med Google-kontoen som ble brukt til kjøpet, og prøv deretter å gjenopprette.</string>

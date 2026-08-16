@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">See on eraldi ost — see ei tühista ega tagasta sinu tellimust. Kasuta sama Google\'i kontot.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Tellimus on endiselt kasutusel</string>
     <string name="upgrade_screen_sub_still_renewing_message">Tellimus uueneb ikka veel ise. Tühista see kõigepealt Google Plays ja lülitu seejärel ühekordsele ostule. Just tühistasid? Anna Google Playle hetk aega ja proovi uuesti.</string>
-    <string name="upgrade_screen_sub_check_failed_title">Tellimuse kontroll nurjus</string>
-    <string name="upgrade_screen_sub_check_failed_message">Sinu tellimuse olekut ei õnnestunud Google Playl kontrollida. Topeltostu vältimiseks proovi mõne hetke pärast uuesti.</string>
     <string name="upgrade_screen_grace_title">Ostu kinnitamine</string>
     <string name="upgrade_screen_grace_body_short">Google Play pole ostu veel kinnitanud. Pro on endiselt kasutatav — midagi ette võtta pole vaja.</string>
     <string name="upgrade_screen_grace_body">Google Play pole ostu juba mõnda aega kinnitanud. Pro on endiselt kasutatav. Veendu, et oled võrgus ja sisse logitud Google\'i kontoga, millega ostsid, ning proovi seejärel taastada.</string>

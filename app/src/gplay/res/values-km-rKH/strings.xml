@@ -46,8 +46,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">នេះជាការទិញផ្សេងដាច់ដោយឡែក — វាមិនលុបចោល ឬបង្វិលប្រាក់ការជាវរបស់អ្នកទេ។ សូមប្រើគណនី Google ដូចគ្នា។</string>
     <string name="upgrade_screen_sub_still_renewing_title">ការជាវនៅតែសកម្ម</string>
     <string name="upgrade_screen_sub_still_renewing_message">ការជាវរបស់អ្នកនៅតែត្រូវបានកំណត់ឲ្យបន្ត។ សូមលុបចោលវានៅក្នុង Google Play ជាមុនសិន រួចប្ដូរទៅការទិញតែម្ដង។ ទើបតែលុបចោលមែនទេ? សូមរង់ចាំ Google Play បន្តិច រួចសាកល្បងម្ដងទៀត។</string>
-    <string name="upgrade_screen_sub_check_failed_title">ការត្រួតពិនិត្យការជាវបានបរាជ័យ</string>
-    <string name="upgrade_screen_sub_check_failed_message">មិនអាចត្រួតពិនិត្យស្ថានភាពការជាវរបស់អ្នកជាមួយ Google Play បានទេ។ ដើម្បីជៀសវាងការទិញស្ទួន សូមសាកល្បងម្ដងទៀតបន្តិចទៀត។</string>
     <string name="upgrade_screen_grace_title">កំពុងបញ្ជាក់ការទិញរបស់អ្នក</string>
     <string name="upgrade_screen_grace_body_short">Google Play មិនទាន់បានបញ្ជាក់ការទិញរបស់អ្នកនៅឡើយទេ។ Pro នៅតែសកម្ម — មិនចាំបាច់ធ្វើសកម្មភាពអ្វីទេ។</string>
     <string name="upgrade_screen_grace_body">Google Play មិនទាន់បានបញ្ជាក់ការទិញរបស់អ្នកជាយូរមកហើយ។ Pro នៅតែសកម្ម។ សូមប្រាកដថាអ្នកកំពុងអនឡាញ និងបានចូលគណនីជាមួយគណនី Google ដែលបានប្រើសម្រាប់ការទិញ រួចសាកល្បងស្ដារឡើងវិញ។</string>
