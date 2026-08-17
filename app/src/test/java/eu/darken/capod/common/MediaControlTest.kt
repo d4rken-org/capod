@@ -5,6 +5,8 @@ import android.media.AudioManager
 import android.media.AudioPlaybackConfiguration
 import android.os.Handler
 import android.view.KeyEvent
+import io.kotest.matchers.nulls.shouldBeNull
+import io.kotest.matchers.shouldBe
 import io.mockk.CapturingSlot
 import io.mockk.Runs
 import io.mockk.clearMocks
@@ -514,5 +516,52 @@ class MediaControlTest : BaseTest() {
         undrained.sendPlay()
         assertFalse(undrained.wasRecentlyPausedByCap)
         verify(exactly = 2) { freshAudioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    /**
+     * The read-back deliberately differs from the requested target: Bluetooth absolute-volume routes
+     * quantize, and the caller has to restore against what actually landed, not what was asked for.
+     */
+    @Test
+    fun `duckMusicVolume reports the level the system actually applied`() {
+        every { audioManager.isMusicActive } returns true
+        every { audioManager.isVolumeFixed } returns false
+        every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
+        every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 22)
+
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.VolumeDuck(priorVolume = 40, appliedVolume = 22)
+
+        verify { audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 20, 0) }
+    }
+
+    /**
+     * A volume that came back *higher* (user raised it between the two reads) is not a duck either.
+     * Reporting one would have the caller later "restore" downwards, undoing the user's change.
+     */
+    @Test
+    fun `duckMusicVolume treats a raised volume as a no-op`() {
+        every { audioManager.isMusicActive } returns true
+        every { audioManager.isVolumeFixed } returns false
+        every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
+        every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 55)
+
+        mediaControl.duckMusicVolume(50).shouldBeNull()
+    }
+
+    /**
+     * ColorOS 16 accepts `setStreamVolume` from a backgrounded app, raises nothing, and leaves the
+     * volume where it was. Reporting that as a duck had the caller track a session that never
+     * attenuated anything and later restore a level that was never left.
+     */
+    @Test
+    fun `duckMusicVolume treats a silently ignored write as a no-op`() {
+        every { audioManager.isMusicActive } returns true
+        every { audioManager.isVolumeFixed } returns false
+        every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
+        every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 40)
+
+        mediaControl.duckMusicVolume(100).shouldBeNull()
+
+        verify { audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0) }
     }
 }

@@ -180,6 +180,31 @@ class ConversationReactionTest : BaseTest() {
         job.cancel()
     }
 
+    /**
+     * A duck the system refused (ColorOS 16 accepts `setStreamVolume` from a backgrounded app and
+     * leaves the volume alone) must leave no session behind: nothing to restore on the terminal, and
+     * no armed backstop that would restore a level that was never left. A repeat START retries the
+     * duck rather than treating the dead session as a keep-alive.
+     */
+    @Test
+    fun `LOWER_VOLUME refused duck arms nothing and never restores`() = runTest(UnconfinedTestDispatcher()) {
+        every { mediaControl.duckMusicVolume(any()) } returns null
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 1) { mediaControl.duckMusicVolume(50) }
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 2) { mediaControl.duckMusicVolume(50) }
+
+        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        advanceBoth(stopSettleMs + 50)
+        advanceBoth(staleTimeoutMs + 500)
+
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+        job.cancel()
+    }
+
     @Test
     fun `LOWER_VOLUME missed STOP restores via stale timeout`() = runTest(UnconfinedTestDispatcher()) {
         val job = launchReaction()

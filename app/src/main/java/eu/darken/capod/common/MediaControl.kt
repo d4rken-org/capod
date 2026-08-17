@@ -267,10 +267,11 @@ class MediaControl @Inject constructor(
      * the prior + the volume actually applied, so the caller can later restore it and detect whether
      * the user changed the volume in the meantime.
      *
-     * Returns `null` (no-op) when nothing is playing, the device has fixed volume, or the computed
-     * target wouldn't actually lower the volume. No [AudioManager.FLAG_SHOW_UI] — this fires on a
-     * frequent push event and the volume panel flashing would be noisy. The applied target is read
-     * back from the system because Bluetooth absolute-volume routes can quantize the requested value.
+     * Returns `null` (no-op) when nothing is playing, the device has fixed volume, the computed
+     * target wouldn't actually lower the volume, or the write didn't land. No
+     * [AudioManager.FLAG_SHOW_UI] — this fires on a frequent push event and the volume panel
+     * flashing would be noisy. The applied target is read back from the system because Bluetooth
+     * absolute-volume routes can quantize the requested value.
      */
     fun duckMusicVolume(reductionPercent: Int): VolumeDuck? {
         if (!audioManager.isMusicActive) {
@@ -297,8 +298,21 @@ class MediaControl @Inject constructor(
         return try {
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, target, 0)
             val applied = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-            log(TAG, INFO) { "duckMusicVolume($percent%): $prior -> $applied (requested $target)" }
-            VolumeDuck(priorVolume = prior, appliedVolume = applied)
+            if (applied >= prior) {
+                // No attenuation happened. Either the write was accepted and dropped (ColorOS 16
+                // does this while the app is in the background: no exception, volume untouched),
+                // the route quantized the target back up to where it started, or the user raised
+                // the volume in between. Reporting a duck would have the caller track a session
+                // that never attenuated anything, and later "restore" a level it never left.
+                log(TAG, WARN) {
+                    "duckMusicVolume($percent%): volume did not decrease, $prior -> $applied " +
+                            "(requested $target, min=$min, max=$max)"
+                }
+                null
+            } else {
+                log(TAG, INFO) { "duckMusicVolume($percent%): $prior -> $applied (requested $target)" }
+                VolumeDuck(priorVolume = prior, appliedVolume = applied)
+            }
         } catch (e: SecurityException) {
             // setStreamVolume throws under Do-Not-Disturb without notification policy access.
             log(TAG, WARN) { "duckMusicVolume: setStreamVolume denied: ${e.message}" }
