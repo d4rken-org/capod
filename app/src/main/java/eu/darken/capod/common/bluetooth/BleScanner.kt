@@ -79,11 +79,22 @@ class BleScanner @Inject constructor(
         }
 
         val callback = object : ScanCallback() {
-            var lastScanAt = timeSource.currentTimeMillis()
+            // Updated outside the log lambdas below: those only run while a logger is attached, so
+            // folding the bookkeeping into them made the first delay of a debug recording measure
+            // the time since the *previous* recording ended instead of the actual callback gap.
+            // Monotonic clock, so a wall-clock correction can't fabricate a gap either.
+            var lastScanAt = timeSource.elapsedRealtime()
+
+            private fun takeDelay(): Long {
+                val now = timeSource.elapsedRealtime()
+                val delay = now - lastScanAt
+                lastScanAt = now
+                return delay
+            }
+
             override fun onScanResult(callbackType: Int, result: ScanResult) {
+                val delay = takeDelay()
                 log(TAG, VERBOSE) {
-                    val delay = timeSource.currentTimeMillis() - lastScanAt
-                    lastScanAt = timeSource.currentTimeMillis()
                     "onScanResult(delay=${delay}ms, callbackType=$callbackType, ${result.logSummary()})"
                 }
 
@@ -91,11 +102,8 @@ class BleScanner @Inject constructor(
             }
 
             override fun onBatchScanResults(results: MutableList<ScanResult>) {
-                log(TAG, VERBOSE) {
-                    val delay = timeSource.currentTimeMillis() - lastScanAt
-                    lastScanAt = timeSource.currentTimeMillis()
-                    "onBatchScanResults(delay=${delay}ms, ${results.logSummary()})"
-                }
+                val delay = takeDelay()
+                log(TAG, VERBOSE) { "onBatchScanResults(delay=${delay}ms, ${results.logSummary()})" }
 
                 trySend(filterResults(results))
             }
