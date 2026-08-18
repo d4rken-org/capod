@@ -284,10 +284,10 @@ private fun ColumnScope.DualPodsCardExpanded(
     // ANC mode selector
     val ancMode = device.ancMode
     if (device.isAapConnected && device.hasAncControl && ancMode != null) {
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(12.dp))
         AncModeSelector(
             currentMode = ancMode.current,
-                    supportedModes = device.visibleAncModes,
+            supportedModes = device.visibleAncModes,
             onModeSelected = { onAncModeChange?.invoke(it) },
             pendingMode = device.pendingAncMode,
         )

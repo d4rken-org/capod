@@ -7,7 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.DoNotDisturbOn
 import androidx.compose.material.icons.twotone.Headphones
-import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.NoiseAware
 import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.capod.R
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -25,7 +25,9 @@ fun AapSetting.AncMode.Value.shortLabel(context: Context): String = context.getS
 fun AapSetting.AncMode.Value.icon(): ImageVector = when (this) {
     AapSetting.AncMode.Value.OFF -> Icons.TwoTone.DoNotDisturbOn
     AapSetting.AncMode.Value.ON -> Icons.TwoTone.Headphones
-    AapSetting.AncMode.Value.TRANSPARENCY -> Icons.TwoTone.Hearing
+    // Not Hearing: that glyph is already the "In ear" status chip, so the two looked identical
+    // sitting in the same card. NoiseAware is the purpose-built ambient/transparency icon.
+    AapSetting.AncMode.Value.TRANSPARENCY -> Icons.TwoTone.NoiseAware
     AapSetting.AncMode.Value.ADAPTIVE -> Icons.TwoTone.AutoAwesome
 }
 

@@ -335,7 +335,7 @@ private fun ColumnScope.SinglePodsCardExpanded(
         Spacer(modifier = Modifier.height(12.dp))
         AncModeSelector(
             currentMode = ancMode.current,
-                    supportedModes = device.visibleAncModes,
+            supportedModes = device.visibleAncModes,
             onModeSelected = { onAncModeChange?.invoke(it) },
             pendingMode = device.pendingAncMode,
         )
