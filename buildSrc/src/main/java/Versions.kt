@@ -9,6 +9,13 @@ object Versions {
     }
 
     object AndroidX {
+        // 1.2.0 is a floor, not a preference: androidx.hilt's 1.0.0 compiler ships only a
+        // javax.annotation.processing.Processor, no KSP SymbolProcessorProvider, so under this
+        // project's KSP setup it generates nothing at all (e.g. for @HiltWorker).
+        object Hilt {
+            const val core = "1.2.0"
+        }
+
         object Navigation {
             const val core = "2.9.3"
         }
