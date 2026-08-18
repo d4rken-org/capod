@@ -130,6 +130,22 @@ fun DependencyHandlerScope.addDataStore() {
     implementation("androidx.datastore:datastore-preferences:1.1.4")
 }
 
+fun DependencyHandlerScope.addWorkerManager() {
+    // Resolved transitively via Glance today; declared explicitly so the safety-net worker does not
+    // depend on Glance's choice. work-runtime-ktx is NOT an empty shell at this version: at 2.7.1
+    // CoroutineWorker, OperationKt.await, OneTimeWorkRequestBuilder and workDataOf all live in the
+    // ktx artifact (they only moved into work-runtime on later releases).
+    val version = "2.7.1"
+    implementation("androidx.work:work-runtime:$version")
+    implementation("androidx.work:work-runtime-ktx:$version")
+    testImplementation("androidx.work:work-testing:$version")
+
+    // androidx.hilt 1.0.0's hilt-compiler ships no KSP SymbolProcessorProvider, so @HiltWorker
+    // would silently generate nothing under this project's KSP setup.
+    implementation("androidx.hilt:hilt-work:1.2.0")
+    ksp("androidx.hilt:hilt-compiler:1.2.0")
+}
+
 fun DependencyHandlerScope.addGlance() {
     implementation("androidx.glance:glance-appwidget:${Versions.Glance.core}")
     implementation("androidx.glance:glance-material3:${Versions.Glance.core}")
