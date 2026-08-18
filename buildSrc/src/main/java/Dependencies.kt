@@ -44,13 +44,13 @@ fun DependencyHandlerScope.addBaseKotlin() {
 fun DependencyHandlerScope.addDagger() {
     implementation("com.google.dagger:dagger:${Versions.Dagger.core}")
     implementation("com.google.dagger:dagger-android:${Versions.Dagger.core}")
-    implementation("androidx.hilt:hilt-common:1.0.0")
+    implementation("androidx.hilt:hilt-common:${Versions.AndroidX.Hilt.core}")
 
     ksp("com.google.dagger:dagger-compiler:${Versions.Dagger.core}")
     ksp("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
 
     implementation("com.google.dagger:hilt-android:${Versions.Dagger.core}")
-    ksp("androidx.hilt:hilt-compiler:1.0.0")
+    ksp("androidx.hilt:hilt-compiler:${Versions.AndroidX.Hilt.core}")
     ksp("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 
     testImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
@@ -140,10 +140,8 @@ fun DependencyHandlerScope.addWorkerManager() {
     implementation("androidx.work:work-runtime-ktx:$version")
     testImplementation("androidx.work:work-testing:$version")
 
-    // androidx.hilt 1.0.0's hilt-compiler ships no KSP SymbolProcessorProvider, so @HiltWorker
-    // would silently generate nothing under this project's KSP setup.
-    implementation("androidx.hilt:hilt-work:1.2.0")
-    ksp("androidx.hilt:hilt-compiler:1.2.0")
+    // @HiltWorker is processed by the androidx.hilt compiler that addDagger() already registers.
+    implementation("androidx.hilt:hilt-work:${Versions.AndroidX.Hilt.core}")
 }
 
 fun DependencyHandlerScope.addGlance() {
