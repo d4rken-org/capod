@@ -1,7 +1,10 @@
 package eu.darken.capod
 
 import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.LogCatLogger
@@ -34,8 +37,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltAndroidApp
-open class App : Application() {
+open class App : Application(), Configuration.Provider {
 
+    @Inject lateinit var workerFactory: HiltWorkerFactory
     @Inject lateinit var autoReporting: AutomaticBugReporter
     @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var widgetManager: WidgetManager
@@ -95,6 +99,22 @@ open class App : Application() {
             }
             .launchIn(appScope)
     }
+
+    // WorkManager 2.7.1 (see Dependencies.addWorkerManager) still declares Configuration.Provider
+    // as getWorkManagerConfiguration(); the `workManagerConfiguration` property form only exists
+    // from 2.9.0 onwards.
+    override fun getWorkManagerConfiguration(): Configuration = Configuration.Builder()
+        .setMinimumLoggingLevel(
+            when {
+                BuildConfigWrap.DEBUG -> android.util.Log.VERBOSE
+                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV -> android.util.Log.DEBUG
+                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.BETA -> android.util.Log.INFO
+                BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE -> android.util.Log.WARN
+                else -> android.util.Log.VERBOSE
+            }
+        )
+        .setWorkerFactory(workerFactory)
+        .build()
 
     companion object {
         internal val TAG = logTag("CAP")

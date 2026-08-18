@@ -189,6 +189,7 @@ dependencies {
 
     addCompose()
     addGlance()
+    addWorkerManager()
     addDataStore()
     addNavigation3()
     addSerialization()
