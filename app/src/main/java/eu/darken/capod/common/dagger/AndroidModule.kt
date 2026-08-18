@@ -4,6 +4,8 @@ import android.app.Application
 import android.app.NotificationManager
 import android.bluetooth.BluetoothManager
 import android.content.Context
+import android.media.AudioAttributes
+import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.os.Handler
 import android.os.HandlerThread
@@ -11,6 +13,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import eu.darken.capod.common.MediaControl
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -42,6 +45,21 @@ class AndroidModule {
     @AudioCallbackHandler
     fun audioCallbackHandler(): Handler =
         Handler(HandlerThread("CAPod-MediaControl").apply { start() }.looper)
+
+    @Provides
+    @Singleton
+    fun duckFocusRequestFactory(): MediaControl.DuckFocusRequestFactory =
+        MediaControl.DuckFocusRequestFactory { listener ->
+            AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+                .setAudioAttributes(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ASSISTANT)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                        .build(),
+                )
+                .setOnAudioFocusChangeListener(listener)
+                .build()
+        }
 
 }
 
