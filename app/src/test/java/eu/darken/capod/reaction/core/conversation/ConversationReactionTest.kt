@@ -85,7 +85,7 @@ class ConversationReactionTest : BaseTest() {
         mediaControl = mockk(relaxed = true) {
             coEvery { sendPause(any()) } returns true
             every { isPlaying } returns false
-            every { duckMusicVolume(any()) } returns MediaControl.VolumeDuck(priorVolume = 10, appliedVolume = 5)
+            every { duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Ducked(priorVolume = 10, appliedVolume = 5)
             every { currentMusicVolume() } returns 5
         }
         timeSource = TestTimeSource()
@@ -181,14 +181,16 @@ class ConversationReactionTest : BaseTest() {
     }
 
     /**
-     * A duck the system refused (ColorOS 16 accepts `setStreamVolume` from a backgrounded app and
-     * leaves the volume alone) must leave no session behind: nothing to restore on the terminal, and
-     * no armed backstop that would restore a level that was never left. A repeat START retries the
-     * duck rather than treating the dead session as a keep-alive.
+     * A duck that never happened (nothing playing, fixed volume, no headroom, or a volume that came
+     * back higher — every reason maps to `Skipped`, pinned per reason in `MediaControlTest`) must
+     * leave no session behind: nothing to restore on the terminal, and no armed backstop that would
+     * restore a level that was never left. A repeat START retries the duck rather than treating the
+     * dead session as a keep-alive. It must also NOT reach for the audio-focus fallback — that is
+     * only for a write the ROM accepted and ignored.
      */
     @Test
-    fun `LOWER_VOLUME refused duck arms nothing and never restores`() = runTest(UnconfinedTestDispatcher()) {
-        every { mediaControl.duckMusicVolume(any()) } returns null
+    fun `LOWER_VOLUME skipped duck arms nothing and never restores`() = runTest(UnconfinedTestDispatcher()) {
+        every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Skipped
         val job = launchReaction()
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
@@ -202,8 +204,146 @@ class ConversationReactionTest : BaseTest() {
         advanceBoth(staleTimeoutMs + 500)
 
         verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+        verify(exactly = 0) { mediaControl.requestDuckFocus() }
         job.cancel()
     }
+
+    /**
+     * The whole point of the focus fallback: a working duck must never request audio focus. The
+     * [mediaControl] mock is relaxed, so an accidental request would otherwise pass silently.
+     */
+    @Test
+    fun `LOWER_VOLUME successful duck never requests audio focus`() = runTest(UnconfinedTestDispatcher()) {
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        advanceBoth(stopSettleMs + 50)
+
+        verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
+        verify(exactly = 0) { mediaControl.requestDuckFocus() }
+        verify(exactly = 0) { mediaControl.abandonDuckFocus() }
+        job.cancel()
+    }
+
+    /**
+     * ColorOS 16 accepts `setStreamVolume` from a backgrounded app and leaves the level untouched.
+     * The reaction then holds ducking audio focus for the conversation and releases it at the end.
+     */
+    @Test
+    fun `LOWER_VOLUME unchanged duck falls back to audio focus`() = runTest(UnconfinedTestDispatcher()) {
+        every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Unchanged(priorVolume = 10)
+        every { mediaControl.requestDuckFocus() } returns true
+        every { mediaControl.currentMusicVolume() } returns 10 // the write really never landed
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 1) { mediaControl.requestDuckFocus() }
+        verify(exactly = 0) { mediaControl.abandonDuckFocus() }
+
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceBoth(stopSettleMs + 50)
+
+        verify(exactly = 1) { mediaControl.abandonDuckFocus() }
+        // Nothing was ever lowered, so there is nothing to restore.
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+        job.cancel()
+    }
+
+    /**
+     * Focus denied on top of an ignored volume write: nothing was attenuated, so no session may be
+     * recorded — otherwise the next START would be a keep-alive on a dead session and the backstop
+     * would later "release" focus we never held.
+     */
+    @Test
+    fun `LOWER_VOLUME unchanged duck with denied focus arms nothing`() = runTest(UnconfinedTestDispatcher()) {
+        every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Unchanged(priorVolume = 10)
+        every { mediaControl.requestDuckFocus() } returns false
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 1) { mediaControl.requestDuckFocus() }
+
+        // Retried from scratch rather than treated as a keep-alive.
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 2) { mediaControl.duckMusicVolume(50) }
+        verify(exactly = 2) { mediaControl.requestDuckFocus() }
+
+        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        advanceBoth(stopSettleMs + 50)
+        advanceBoth(staleTimeoutMs + 500)
+
+        verify(exactly = 0) { mediaControl.abandonDuckFocus() }
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+        job.cancel()
+    }
+
+    @Test
+    fun `LOWER_VOLUME focus session releases focus when the owner disappears`() =
+        runTest(UnconfinedTestDispatcher()) {
+            every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Unchanged(priorVolume = 10)
+            every { mediaControl.requestDuckFocus() } returns true
+            every { mediaControl.currentMusicVolume() } returns 10
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            statesFlow.value = emptyMap() // device disconnected before STOP arrived
+            runCurrent()
+
+            verify(exactly = 1) { mediaControl.abandonDuckFocus() }
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+            job.cancel()
+        }
+
+    /**
+     * Late-write guard: a device may apply the volume write asynchronously, after the read-back that
+     * showed equality and sent us down the focus path. Teardown would otherwise leave the stream
+     * index permanently lowered, so a level below the pre-duck one is restored.
+     */
+    @Test
+    fun `LOWER_VOLUME focus session restores a volume write that landed late`() =
+        runTest(UnconfinedTestDispatcher()) {
+            every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Unchanged(priorVolume = 10)
+            every { mediaControl.requestDuckFocus() } returns true
+            every { mediaControl.currentMusicVolume() } returns 5 // the write landed after all
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            advanceBoth(stopSettleMs + 50)
+
+            verify(exactly = 1) { mediaControl.abandonDuckFocus() }
+            verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
+            job.cancel()
+        }
+
+    /**
+     * A permanent focus loss mid-conversation is only recoverable on a later START — every one of
+     * them is a keep-alive for the running session, so the keep-alive path has to re-request.
+     */
+    @Test
+    fun `LOWER_VOLUME keep-alive re-requests focus that was permanently lost`() =
+        runTest(UnconfinedTestDispatcher()) {
+            every { mediaControl.duckMusicVolume(any()) } returns MediaControl.DuckOutcome.Unchanged(priorVolume = 10)
+            every { mediaControl.requestDuckFocus() } returns true
+            every { mediaControl.currentMusicVolume() } returns 10
+            every { mediaControl.isDuckFocusHeld } returns true
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 1) { mediaControl.requestDuckFocus() }
+
+            // Still held → the keep-alive must not re-request.
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 1) { mediaControl.requestDuckFocus() }
+
+            every { mediaControl.isDuckFocusHeld } returns false
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 2) { mediaControl.requestDuckFocus() }
+            // Still the same session — no second duck attempt.
+            verify(exactly = 1) { mediaControl.duckMusicVolume(50) }
+            job.cancel()
+        }
 
     @Test
     fun `LOWER_VOLUME missed STOP restores via stale timeout`() = runTest(UnconfinedTestDispatcher()) {
