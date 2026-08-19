@@ -231,6 +231,9 @@ internal class AapSessionEngine(
     private fun handleInboundUpdate(update: AapInboundUpdate) {
         when (update) {
             is AapInboundUpdate.StemPress -> {
+                runtimeState = runtimeState.copy(
+                    outbound = outboundController.onExternalAncChange(runtimeState.outbound),
+                )
                 _stemPressEvents.tryEmit(update.event)
                 log(TAG) { "Stem press: ${update.event.pressType} ${update.event.bud}" }
             }
@@ -286,6 +289,13 @@ internal class AapSessionEngine(
 
     private fun handleSettingUpdate(key: KClass<out AapSetting>, value: AapSetting) {
         if (value is AapSetting.AncMode) {
+            runtimeState = runtimeState.copy(
+                outbound = outboundController.onAncReportObserved(
+                    runtimeState = runtimeState.outbound,
+                    mode = value.current,
+                    nowMs = timeSource.elapsedRealtime(),
+                ),
+            )
             val decision = ancController.onAncSetting(
                 podState = _state.value,
                 runtimeState = runtimeState.anc,
@@ -351,7 +361,7 @@ internal class AapSessionEngine(
 
             EngineTimerKey.Verification -> {
                 applyOutboundDecisionAsync(
-                    outboundController.onVerificationTimerFired(_state.value, runtimeState.outbound),
+outboundController.onVerificationTimerFired(_state.value, runtimeState.outbound),
                 )
             }
         }

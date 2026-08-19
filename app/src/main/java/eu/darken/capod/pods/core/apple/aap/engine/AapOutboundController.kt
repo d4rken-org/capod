@@ -14,6 +14,18 @@ internal data class VerificationState(
      * for non-ANC commands.
      */
     val previousAncMode: AapSetting.AncMode.Value? = null,
+    /** Monotonic-ish timestamp of the write, used to measure how long the device took to answer. */
+    val sentAtMs: Long = 0L,
+    /** The first listening mode report seen since the write, with how long it took to arrive. */
+    val observedAncEcho: AncEcho? = null,
+    /** True once another listening mode write was issued while this one was still outstanding. */
+    val superseded: Boolean = false,
+)
+
+/** A listening mode report attributed to an outstanding write. */
+internal data class AncEcho(
+    val mode: AapSetting.AncMode.Value,
+    val latencyMs: Long,
 )
 
 internal data class OutboundRuntimeState(
@@ -31,7 +43,7 @@ internal data class OutboundDecision(
 )
 
 internal class AapOutboundController(
-    timeSource: TimeSource,
+    private val timeSource: TimeSource,
 ) {
 
     private val coordinator = AapSettingsCoordinator(timeSource)
@@ -51,6 +63,14 @@ internal class AapOutboundController(
          * still costs two full deadlines before the user is told about it.
          */
         const val VERIFICATION_TIMEOUT_MS = 2000L
+
+        /**
+         * Below this, a listening mode report is a refusal rather than the result of a change.
+         *
+         * Captured refusals answer in 25-267ms; a real mode change answers in 815-1010ms. Only an
+         * answer slow enough to be a change is eligible to be read as an unusable report.
+         */
+        const val ANC_CHANGE_LATENCY_MIN_MS = 500L
     }
 
     fun onCommandRequested(
@@ -97,6 +117,11 @@ internal class AapOutboundController(
                         command = command,
                         attempt = 0,
                         previousAncMode = podState.setting<AapSetting.AncMode>()?.current,
+                        sentAtMs = timeSource.elapsedRealtime(),
+                        // A second listening mode write while one is outstanding makes the echoes
+                        // ambiguous: we can no longer say which write any given report answers.
+                        superseded = command is AapCommand.SetAncMode &&
+                                updatedRuntimeState.verification?.command is AapCommand.SetAncMode,
                     )
                 }
                     ?: updatedRuntimeState.verification,
@@ -134,6 +159,8 @@ internal class AapOutboundController(
                         command = checkNotNull(toVerify),
                         attempt = 0,
                         previousAncMode = podState.setting<AapSetting.AncMode>()?.current,
+                        sentAtMs = timeSource.elapsedRealtime(),
+                        superseded = runtimeState.verification?.command is AapCommand.SetAncMode,
                     )
                 } else {
                     runtimeState.verification
@@ -147,6 +174,43 @@ internal class AapOutboundController(
             },
             logs = listOf("Pod in ear, flushing ${result.commands.size} queued commands"),
         )
+    }
+
+    /**
+     * Attribute a listening mode report to the outstanding write and remember how long it took.
+     *
+     * Only the first report after the write is kept: that is the one the device sent in answer.
+     * Classification later uses this recorded frame rather than whatever happens to be current at
+     * the deadline, so an unrelated concurrent report cannot be mistaken for our echo.
+     */
+    fun onAncReportObserved(
+        runtimeState: OutboundRuntimeState,
+        mode: AapSetting.AncMode.Value,
+        nowMs: Long,
+    ): OutboundRuntimeState {
+        val verification = runtimeState.verification ?: return runtimeState
+        if (verification.command !is AapCommand.SetAncMode) return runtimeState
+        if (verification.observedAncEcho != null) return runtimeState
+        return runtimeState.copy(
+            verification = verification.copy(
+                observedAncEcho = AncEcho(mode = mode, latencyMs = nowMs - verification.sentAtMs),
+            ),
+        )
+    }
+
+    /**
+     * Mark an outstanding listening mode write ambiguous because the user changed the mode on the
+     * device itself. Any report arriving now could answer either, and the two cannot be told apart.
+     *
+     * This only covers changes CAPod can see. A switch made from iOS or another paired phone is
+     * invisible here, which is why a misattributed echo is only ever allowed to affect the current
+     * reading and is never learned from.
+     */
+    fun onExternalAncChange(runtimeState: OutboundRuntimeState): OutboundRuntimeState {
+        val verification = runtimeState.verification ?: return runtimeState
+        if (verification.command !is AapCommand.SetAncMode) return runtimeState
+        if (verification.superseded) return runtimeState
+        return runtimeState.copy(verification = verification.copy(superseded = true))
     }
 
     /**
@@ -211,7 +275,15 @@ internal class AapOutboundController(
         if (verification.attempt == 0) {
             return OutboundDecision(
                 podState = podState,
-                runtimeState = runtimeState.copy(verification = verification.copy(attempt = 1)),
+                runtimeState = runtimeState.copy(
+                    // A re-send is a fresh question: the previous attempt's echo and send time
+                    // must not be carried over, or the retry gets judged on stale evidence.
+                    verification = verification.copy(
+                        attempt = 1,
+                        sentAtMs = timeSource.elapsedRealtime(),
+                        observedAncEcho = null,
+                    ),
+                ),
                 commandsToSend = listOf(verification.command),
                 timerActions = listOf(EngineTimerAction.Start(EngineTimerKey.Verification, VERIFICATION_TIMEOUT_MS)),
                 logs = listOf("Divergence detected for ${verification.command::class.simpleName}, re-sending"),
@@ -229,7 +301,7 @@ internal class AapOutboundController(
     /**
      * Distinguish a refusal from a report we cannot act on.
      *
-     * A device that refuses a listening mode write echoes the mode it is staying in, and does so
+     * A device that refuses a listening mode write echoes the mode it is staying in, and answers
      * quickly (25-267ms in captures). AirPods Pro 3 have instead been seen answering an ADAPTIVE
      * write with OFF at normal change latency (815-1010ms) while audibly switching to Adaptive:
      * a third mode, neither the one requested nor the one it was in.
@@ -238,8 +310,15 @@ internal class AapOutboundController(
      * wrong. Treat the echo as noise, record the mode we asked for as current, and stop verifying.
      * The raw frame is still logged upstream; nothing is suppressed at the protocol layer.
      *
-     * Deliberately engine-local: it uses only the requested mode, the previous mode and the echo.
-     * Which modes a device permits is app-level knowledge and stays out of the session engine.
+     * Every condition below exists to keep a wrong conclusion out of the session:
+     * - the recorded echo is used, never whatever is current at the deadline, so an unrelated
+     *   concurrent report cannot be mistaken for the answer to our write
+     * - a write that was superseded by another listening mode write is never classified, because
+     *   its echoes can no longer be attributed
+     * - an answer fast enough to be a refusal is never read as a change
+     *
+     * Deliberately engine-local: it uses only the requested mode, the previous mode, and the echo
+     * we recorded. Which modes a device permits is app-level knowledge and stays out of the engine.
      */
     private fun unusableAncReport(
         podState: AapPodState,
@@ -247,10 +326,12 @@ internal class AapOutboundController(
         verification: VerificationState,
     ): OutboundDecision? {
         val command = verification.command as? AapCommand.SetAncMode ?: return null
+        if (verification.superseded) return null
         val previous = verification.previousAncMode ?: return null
+        val echo = verification.observedAncEcho ?: return null
+        if (echo.mode == command.mode || echo.mode == previous) return null
+        if (echo.latencyMs < ANC_CHANGE_LATENCY_MIN_MS) return null
         val ancMode = podState.setting<AapSetting.AncMode>() ?: return null
-        val reported = ancMode.current
-        if (reported == command.mode || reported == previous) return null
 
         return OutboundDecision(
             podState = clearPendingForCommand(
@@ -259,8 +340,8 @@ internal class AapOutboundController(
             ),
             runtimeState = runtimeState.copy(verification = null),
             logs = listOf(
-                "Unusable ANC echo for ${command.mode} (reported=$reported, was=$previous), " +
-                        "not a refusal: keeping ${command.mode}"
+                "Unusable ANC echo for ${command.mode} (reported=${echo.mode}, was=$previous, " +
+                        "after ${echo.latencyMs}ms), not a refusal: keeping ${command.mode}"
             ),
         )
     }
