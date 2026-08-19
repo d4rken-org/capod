@@ -90,6 +90,7 @@ fun DeviceSettingsScreenHost(
     var showListeningModeCycleDialog by rememberSaveable { mutableStateOf(false) }
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
+    val ancNotConfirmedMessage = stringResource(R.string.anc_mode_not_confirmed_message)
     val chargeCapRejectedMessage = stringResource(R.string.device_settings_charge_cap_rejected_message)
     val pendingInfoMessage = stringResource(R.string.device_settings_pending_info)
 
@@ -123,6 +124,10 @@ fun DeviceSettingsScreenHost(
 
                 DeviceSettingsViewModel.Event.OffModeRejectedByDevice -> {
                     snackbarHostState.showSnackbar(offRejectedMessage)
+                }
+
+                DeviceSettingsViewModel.Event.AncModeNotConfirmedByDevice -> {
+                    snackbarHostState.showSnackbar(ancNotConfirmedMessage)
                 }
 
                 DeviceSettingsViewModel.Event.DynamicEndOfChargeRejectedByDevice -> {

@@ -412,7 +412,7 @@ class AapSessionEngineTest : BaseTest() {
                 engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe AapSetting.AncMode.Value.ON
                 engine.state.value.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
 
-                advanceTimeBy(1100L)
+                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS + 100L)
 
                 sentCommands.size shouldBe 3
                 sentCommands[2] shouldBe AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)
@@ -725,6 +725,140 @@ class AapSessionEngineTest : BaseTest() {
             }
 
         @Test
+        fun `contradicting OFF report during a pending ANC request blocks AllowOff inference`() =
+            runTest(UnconfinedTestDispatcher()) {
+                val supportedModes = listOf(
+                    AapSetting.AncMode.Value.OFF,
+                    AapSetting.AncMode.Value.ON,
+                    AapSetting.AncMode.Value.ADAPTIVE,
+                )
+                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+                val profile = mockProfile {
+                    every { decodeSetting(any()) } answers { nextSetting }
+                }
+                val engine = AapSessionEngine(profile, timeSource)
+                engine.startReady(this as TestScope)
+
+                nextSetting = settingPair(
+                    AapSetting.EarDetection(
+                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    )
+                )
+                engine.processMessage(dummyMessage())
+
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { }
+
+                // AirPods Pro 3 firmware answering an ADAPTIVE write with OFF. Must not be taken as
+                // evidence that OFF is a permitted mode.
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                advanceTimeBy(1600L)
+                engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+            }
+
+        @Test
+        fun `unsolicited OFF after a contradicted one still infers AllowOffOption true`() =
+            runTest(UnconfinedTestDispatcher()) {
+                val supportedModes = listOf(
+                    AapSetting.AncMode.Value.OFF,
+                    AapSetting.AncMode.Value.ON,
+                    AapSetting.AncMode.Value.ADAPTIVE,
+                )
+                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+                val profile = mockProfile {
+                    every { decodeSetting(any()) } answers { nextSetting }
+                }
+                val engine = AapSessionEngine(profile, timeSource)
+                engine.startReady(this as TestScope)
+
+                nextSetting = settingPair(
+                    AapSetting.EarDetection(
+                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    )
+                )
+                engine.processMessage(dummyMessage())
+
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { }
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                // Let the request finish failing, so nothing of ours is outstanding any more.
+                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
+                engine.state.value.pendingAncMode.shouldBeNull()
+
+                // Now a genuine switch into OFF (stem press / another phone) must still train it.
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                advanceTimeBy(1600L)
+                engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe true
+            }
+
+        @Test
+        fun `unrelated setting report does not prematurely confirm a non-ANC command`() =
+            runTest(UnconfinedTestDispatcher()) {
+                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+                val profile = mockProfile {
+                    every { decodeSetting(any()) } answers { nextSetting }
+                }
+                val engine = AapSessionEngine(profile, timeSource)
+                engine.startReady(this as TestScope)
+
+                val rejected = mutableListOf<AapCommand>()
+                val collectJob = launch { engine.settingRejected.collect { rejected += it } }
+
+                nextSetting = settingPair(
+                    AapSetting.EarDetection(
+                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    )
+                )
+                engine.processMessage(dummyMessage())
+
+                nextSetting = settingPair(AapSetting.ConversationalAwareness(enabled = false))
+                engine.processMessage(dummyMessage())
+
+                engine.send(AapCommand.SetConversationalAwareness(true)) { }
+
+                // An unrelated frame must not settle the outstanding verification: the optimistic
+                // write already satisfies its predicate, so doing so would swallow the rejection.
+                nextSetting = settingPair(
+                    AapSetting.EarDetection(
+                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                        secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    )
+                )
+                engine.processMessage(dummyMessage())
+
+                // The device then contradicts the write.
+                nextSetting = settingPair(AapSetting.ConversationalAwareness(enabled = false))
+                engine.processMessage(dummyMessage())
+
+                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
+                rejected shouldBe listOf(AapCommand.SetConversationalAwareness(true))
+                collectJob.cancel()
+            }
+
+        @Test
         fun `rejected OFF command infers AllowOffOption false`() = runTest(UnconfinedTestDispatcher()) {
             val supportedModes = listOf(
                 AapSetting.AncMode.Value.OFF,
@@ -768,7 +902,7 @@ class AapSessionEngineTest : BaseTest() {
             )
             engine.processMessage(dummyMessage())
 
-            advanceTimeBy(2100L)
+            advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
             engine.state.value.pendingAncMode.shouldBeNull()
             engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe false
             sentCommands shouldBe listOf(
@@ -812,7 +946,7 @@ class AapSessionEngineTest : BaseTest() {
             )
             engine.processMessage(dummyMessage())
 
-            advanceTimeBy(2100L)
+            advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
             rejected.size shouldBe 1
             collectJob.cancel()
         }
@@ -852,7 +986,7 @@ class AapSessionEngineTest : BaseTest() {
             )
             engine.processMessage(dummyMessage())
 
-            advanceTimeBy(2100L)
+            advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
             rejected shouldBe emptyList()
             collectJob.cancel()
         }

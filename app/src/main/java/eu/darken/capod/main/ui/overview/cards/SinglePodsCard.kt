@@ -44,6 +44,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.monitor.core.effectiveAncMode
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.overview.cards.components.CompactBatterySummary
@@ -334,7 +335,7 @@ private fun ColumnScope.SinglePodsCardExpanded(
     if (device.isAapConnected && device.hasAncControl && ancMode != null) {
         Spacer(modifier = Modifier.height(12.dp))
         AncModeSelector(
-            currentMode = ancMode.current,
+            currentMode = device.effectiveAncMode ?: ancMode.current,
             supportedModes = device.visibleAncModes,
             onModeSelected = { onAncModeChange?.invoke(it) },
             pendingMode = device.pendingAncMode,

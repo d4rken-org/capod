@@ -74,6 +74,7 @@ class OverviewViewModel @Inject constructor(
 
     sealed interface Event {
         data object OffModeRejectedByDevice : Event
+        data object AncModeNotConfirmedByDevice : Event
     }
 
     val events = SingleEventFlow<Event>()
@@ -82,6 +83,14 @@ class OverviewViewModel @Inject constructor(
         launch {
             aapManager.offRejectedEvents.collect {
                 events.tryEmit(Event.OffModeRejectedByDevice)
+            }
+        }
+        launch {
+            // OFF has its own, more specific message via offRejectedEvents.
+            aapManager.settingRejectedEvents.collect { (_, command) ->
+                if (command is AapCommand.SetAncMode && command.mode != AapSetting.AncMode.Value.OFF) {
+                    events.tryEmit(Event.AncModeNotConfirmedByDevice)
+                }
             }
         }
     }

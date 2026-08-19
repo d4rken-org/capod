@@ -49,6 +49,7 @@ import eu.darken.capod.main.ui.devicesettings.components.SettingsCompoundHeader
 import eu.darken.capod.main.ui.devicesettings.previewFullState
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.effectiveAncMode
 import eu.darken.capod.monitor.core.resolvedAncCycleMask
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.PodModel
@@ -96,7 +97,7 @@ internal fun NoiseControlCard(
 
     SettingsSection(title = stringResource(R.string.device_settings_noise_control_label)) {
         NoiseControlCurrentModeControl(
-            currentMode = ancMode.current,
+            currentMode = device.effectiveAncMode ?: ancMode.current,
             pendingMode = device.pendingAncMode,
             supportedModes = device.visibleAncModes,
             onModeSelected = onAncModeChange,
@@ -173,7 +174,7 @@ internal fun NoiseControlCard(
                 level = adaptiveNoise.level,
                 onLevelChange = onAdaptiveAudioNoiseChange,
                 enabled = enabled,
-                isAdaptiveMode = ancMode.current == AapSetting.AncMode.Value.ADAPTIVE
+                isAdaptiveMode = device.effectiveAncMode == AapSetting.AncMode.Value.ADAPTIVE
                         || device.pendingAncMode == AapSetting.AncMode.Value.ADAPTIVE,
             )
         }

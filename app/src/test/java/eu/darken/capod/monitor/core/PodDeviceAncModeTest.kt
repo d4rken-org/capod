@@ -21,7 +21,6 @@ class PodDeviceAncModeTest : BaseTest() {
     fun `cycle mask hides OFF when OFF is not allowed`() {
         visibleAncModes(
             supportedModes = allModes,
-            currentMode = AapSetting.AncMode.Value.ON,
             cycleMask = 0x0E,
             allowOffEnabled = false,
         ) shouldContainExactly listOf(
@@ -35,27 +34,73 @@ class PodDeviceAncModeTest : BaseTest() {
     fun `allow off keeps OFF visible even when cycle mask excludes it`() {
         visibleAncModes(
             supportedModes = allModes,
-            currentMode = AapSetting.AncMode.Value.ON,
             cycleMask = 0x0E,
             allowOffEnabled = true,
         ) shouldContainExactly allModes
     }
 
     @Test
-    fun `current OFF stays visible even when OFF is otherwise hidden`() {
+    fun `current OFF is NOT re-admitted when OFF is otherwise hidden`() {
+        // Regression: a device reporting a mode outside its own cycle used to conjure an extra
+        // selector button. AirPods Pro 3 do exactly that, answering an Adaptive write with OFF.
         visibleAncModes(
             supportedModes = allModes,
-            currentMode = AapSetting.AncMode.Value.OFF,
             cycleMask = 0x0E,
             allowOffEnabled = false,
-        ) shouldContainExactly allModes
+        ) shouldContainExactly listOf(
+            AapSetting.AncMode.Value.ON,
+            AapSetting.AncMode.Value.TRANSPARENCY,
+            AapSetting.AncMode.Value.ADAPTIVE,
+        )
+    }
+
+    // -- effectiveAncMode: distrusting an impossible report while a request is in flight --
+
+    @Test
+    fun `impossible reported mode is ignored while our request is pending`() {
+        effectiveAncMode(
+            reportedMode = AapSetting.AncMode.Value.OFF,
+            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
+            cycleMask = 0x0E,
+            allowOffEnabled = false,
+        ) shouldBe AapSetting.AncMode.Value.ADAPTIVE
+    }
+
+    @Test
+    fun `permitted reported mode is adopted even while pending`() {
+        // A genuine refusal echoes the mode the device is actually in; that must win.
+        effectiveAncMode(
+            reportedMode = AapSetting.AncMode.Value.ON,
+            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
+            cycleMask = 0x0E,
+            allowOffEnabled = false,
+        ) shouldBe AapSetting.AncMode.Value.ON
+    }
+
+    @Test
+    fun `reported mode is adopted verbatim when nothing is pending`() {
+        effectiveAncMode(
+            reportedMode = AapSetting.AncMode.Value.OFF,
+            pendingMode = null,
+            cycleMask = 0x0E,
+            allowOffEnabled = false,
+        ) shouldBe AapSetting.AncMode.Value.OFF
+    }
+
+    @Test
+    fun `OFF report is adopted while pending when OFF is actually allowed`() {
+        effectiveAncMode(
+            reportedMode = AapSetting.AncMode.Value.OFF,
+            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
+            cycleMask = 0x0E,
+            allowOffEnabled = true,
+        ) shouldBe AapSetting.AncMode.Value.OFF
     }
 
     @Test
     fun `null cycle mask shows all supported modes`() {
         visibleAncModes(
             supportedModes = allModes,
-            currentMode = AapSetting.AncMode.Value.ON,
             cycleMask = null,
             allowOffEnabled = false,
         ) shouldContainExactly allModes
@@ -65,7 +110,6 @@ class PodDeviceAncModeTest : BaseTest() {
     fun `cycle mask with OFF bit set includes OFF`() {
         visibleAncModes(
             supportedModes = allModes,
-            currentMode = AapSetting.AncMode.Value.ON,
             cycleMask = 0x0F,
             allowOffEnabled = false,
         ) shouldContainExactly allModes
