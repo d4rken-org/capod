@@ -8,6 +8,12 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 internal data class VerificationState(
     val command: AapCommand,
     val attempt: Int = 0,
+    /**
+     * The listening mode the device was in when the write went out. Used to tell a refusal (the
+     * device echoes the mode it is staying in) apart from an unusable report (a third mode). Null
+     * for non-ANC commands.
+     */
+    val previousAncMode: AapSetting.AncMode.Value? = null,
 )
 
 internal data class OutboundRuntimeState(
@@ -86,7 +92,13 @@ internal class AapOutboundController(
         return OutboundDecision(
             podState = updatedPodState,
             runtimeState = updatedRuntimeState.copy(
-                verification = verificationCheck?.let { VerificationState(command = command, attempt = 0) }
+                verification = verificationCheck?.let {
+                    VerificationState(
+                        command = command,
+                        attempt = 0,
+                        previousAncMode = podState.setting<AapSetting.AncMode>()?.current,
+                    )
+                }
                     ?: updatedRuntimeState.verification,
             ),
             commandsToSend = listOf(command),
@@ -118,7 +130,11 @@ internal class AapOutboundController(
             runtimeState = runtimeState.copy(
                 pendingCommands = result.pendingCommands,
                 verification = if (verificationCheck != null) {
-                    VerificationState(command = checkNotNull(toVerify), attempt = 0)
+                    VerificationState(
+                        command = checkNotNull(toVerify),
+                        attempt = 0,
+                        previousAncMode = podState.setting<AapSetting.AncMode>()?.current,
+                    )
                 } else {
                     runtimeState.verification
                 },
@@ -179,6 +195,8 @@ internal class AapOutboundController(
             )
         }
 
+        unusableAncReport(podState, runtimeState, verification)?.let { return it }
+
         val ear = podState.setting<AapSetting.EarDetection>()
         if (ear != null && !ear.isEitherPodInEar) {
             // Drop the pending mode too: nothing is going to confirm it now, and leaving it set
@@ -205,6 +223,45 @@ internal class AapOutboundController(
             runtimeState = runtimeState.copy(verification = null),
             logs = listOf("Rejected after retry: ${verification.command::class.simpleName}"),
             rejectedCommand = verification.command,
+        )
+    }
+
+    /**
+     * Distinguish a refusal from a report we cannot act on.
+     *
+     * A device that refuses a listening mode write echoes the mode it is staying in, and does so
+     * quickly (25-267ms in captures). AirPods Pro 3 have instead been seen answering an ADAPTIVE
+     * write with OFF at normal change latency (815-1010ms) while audibly switching to Adaptive:
+     * a third mode, neither the one requested nor the one it was in.
+     *
+     * Retrying that write is pointless (it already took effect) and reporting it as rejected is
+     * wrong. Treat the echo as noise, record the mode we asked for as current, and stop verifying.
+     * The raw frame is still logged upstream; nothing is suppressed at the protocol layer.
+     *
+     * Deliberately engine-local: it uses only the requested mode, the previous mode and the echo.
+     * Which modes a device permits is app-level knowledge and stays out of the session engine.
+     */
+    private fun unusableAncReport(
+        podState: AapPodState,
+        runtimeState: OutboundRuntimeState,
+        verification: VerificationState,
+    ): OutboundDecision? {
+        val command = verification.command as? AapCommand.SetAncMode ?: return null
+        val previous = verification.previousAncMode ?: return null
+        val ancMode = podState.setting<AapSetting.AncMode>() ?: return null
+        val reported = ancMode.current
+        if (reported == command.mode || reported == previous) return null
+
+        return OutboundDecision(
+            podState = clearPendingForCommand(
+                podState.withSetting(AapSetting.AncMode::class, ancMode.copy(current = command.mode)),
+                command,
+            ),
+            runtimeState = runtimeState.copy(verification = null),
+            logs = listOf(
+                "Unusable ANC echo for ${command.mode} (reported=$reported, was=$previous), " +
+                        "not a refusal: keeping ${command.mode}"
+            ),
         )
     }
 
