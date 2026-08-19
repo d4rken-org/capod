@@ -1,11 +1,11 @@
 package eu.darken.capod.common
 
 import android.media.AudioAttributes
+import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.media.AudioPlaybackConfiguration
 import android.os.Handler
 import android.view.KeyEvent
-import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.CapturingSlot
 import io.mockk.Runs
@@ -36,6 +36,9 @@ class MediaControlTest : BaseTest() {
     private lateinit var handler: Handler
     private lateinit var playbackCallbackSlot: CapturingSlot<AudioManager.AudioPlaybackCallback>
     private lateinit var initRunnableSlot: CapturingSlot<Runnable>
+    private lateinit var focusRequest: AudioFocusRequest
+    private lateinit var focusRequestFactory: MediaControl.DuckFocusRequestFactory
+    private lateinit var focusListenerSlot: CapturingSlot<AudioManager.OnAudioFocusChangeListener>
 
     @BeforeEach
     fun setup() {
@@ -54,7 +57,13 @@ class MediaControlTest : BaseTest() {
         handler = mockk()
         initRunnableSlot = slot()
         every { handler.post(capture(initRunnableSlot)) } returns true
-        mediaControl = MediaControl(audioManager, timeSource, handler)
+        // AudioFocusRequest.Builder is an unmocked android.jar stub, so the request is handed to
+        // MediaControl through the injected factory instead of being built inside it.
+        focusRequest = mockk()
+        focusListenerSlot = slot()
+        focusRequestFactory = mockk()
+        every { focusRequestFactory.create(capture(focusListenerSlot)) } returns focusRequest
+        mediaControl = MediaControl(audioManager, timeSource, handler, focusRequestFactory)
         // Drain the init runnable so `playbackCallbackSlot` is populated for `fireCallback()`.
         initRunnableSlot.captured.run()
         // Everything posted after init (the pause arm) runs inline and synchronously, which keeps
@@ -458,7 +467,7 @@ class MediaControlTest : BaseTest() {
         val freshHandler = mockk<Handler>()
         every { freshHandler.post(any()) } returns true
 
-        MediaControl(freshAudioManager, timeSource, freshHandler)
+        MediaControl(freshAudioManager, timeSource, freshHandler, focusRequestFactory)
 
         verify(exactly = 0) { freshAudioManager.isMusicActive }
         verify(exactly = 0) { freshAudioManager.registerAudioPlaybackCallback(any(), any()) }
@@ -476,7 +485,7 @@ class MediaControlTest : BaseTest() {
         val runnableSlot = slot<Runnable>()
         every { freshHandler.post(capture(runnableSlot)) } returns true
 
-        MediaControl(freshAudioManager, timeSource, freshHandler)
+        MediaControl(freshAudioManager, timeSource, freshHandler, focusRequestFactory)
         runnableSlot.captured.run()
 
         verifyOrder {
@@ -503,7 +512,7 @@ class MediaControlTest : BaseTest() {
             true
         }
 
-        val undrained = MediaControl(freshAudioManager, timeSource, freshHandler)
+        val undrained = MediaControl(freshAudioManager, timeSource, freshHandler, focusRequestFactory)
 
         assertFalse(undrained.wasRecentlyPausedByCap)
 
@@ -529,39 +538,142 @@ class MediaControlTest : BaseTest() {
         every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
         every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 22)
 
-        mediaControl.duckMusicVolume(50) shouldBe MediaControl.VolumeDuck(priorVolume = 40, appliedVolume = 22)
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.DuckOutcome.Ducked(priorVolume = 40, appliedVolume = 22)
 
         verify { audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 20, 0) }
     }
 
     /**
-     * A volume that came back *higher* (user raised it between the two reads) is not a duck either.
-     * Reporting one would have the caller later "restore" downwards, undoing the user's change.
+     * A volume that came back *higher* (user raised it between the two reads) is not a refusal: it
+     * must map to [MediaControl.DuckOutcome.Skipped], not `Unchanged`, or the caller would chase the
+     * audio-focus fallback on a device whose volume writes work fine.
      */
     @Test
-    fun `duckMusicVolume treats a raised volume as a no-op`() {
+    fun `duckMusicVolume treats a raised volume as skipped, not a refusal`() {
         every { audioManager.isMusicActive } returns true
         every { audioManager.isVolumeFixed } returns false
         every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
         every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 55)
 
-        mediaControl.duckMusicVolume(50).shouldBeNull()
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.DuckOutcome.Skipped
     }
 
     /**
      * ColorOS 16 accepts `setStreamVolume` from a backgrounded app, raises nothing, and leaves the
-     * volume where it was. Reporting that as a duck had the caller track a session that never
-     * attenuated anything and later restore a level that was never left.
+     * volume where it was. That is the case the audio-focus fallback exists for, so it reports
+     * [MediaControl.DuckOutcome.Unchanged] rather than a duck the caller would later "restore".
      */
     @Test
-    fun `duckMusicVolume treats a silently ignored write as a no-op`() {
+    fun `duckMusicVolume reports a silently ignored write as unchanged`() {
         every { audioManager.isMusicActive } returns true
         every { audioManager.isVolumeFixed } returns false
         every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
         every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returnsMany listOf(40, 40)
 
-        mediaControl.duckMusicVolume(100).shouldBeNull()
+        mediaControl.duckMusicVolume(100) shouldBe MediaControl.DuckOutcome.Unchanged(priorVolume = 40)
 
         verify { audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0) }
+    }
+
+    @Test
+    fun `duckMusicVolume skips when nothing is playing`() {
+        every { audioManager.isMusicActive } returns false
+
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.DuckOutcome.Skipped
+
+        verify(exactly = 0) { audioManager.setStreamVolume(any(), any(), any()) }
+    }
+
+    @Test
+    fun `duckMusicVolume skips on fixed-volume devices`() {
+        every { audioManager.isMusicActive } returns true
+        every { audioManager.isVolumeFixed } returns true
+
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.DuckOutcome.Skipped
+
+        verify(exactly = 0) { audioManager.setStreamVolume(any(), any(), any()) }
+    }
+
+    @Test
+    fun `duckMusicVolume skips when the reduction leaves no headroom`() {
+        every { audioManager.isMusicActive } returns true
+        every { audioManager.isVolumeFixed } returns false
+        every { audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC) } returns 100
+        every { audioManager.getStreamVolume(AudioManager.STREAM_MUSIC) } returns 0
+
+        mediaControl.duckMusicVolume(50) shouldBe MediaControl.DuckOutcome.Skipped
+
+        verify(exactly = 0) { audioManager.setStreamVolume(any(), any(), any()) }
+    }
+
+    @Test
+    fun `requestDuckFocus reports a granted request as held`() {
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+
+        mediaControl.requestDuckFocus() shouldBe true
+        mediaControl.isDuckFocusHeld shouldBe true
+    }
+
+    @Test
+    fun `requestDuckFocus reports a denied request and retries on the next call`() {
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_FAILED
+
+        mediaControl.requestDuckFocus() shouldBe false
+        mediaControl.isDuckFocusHeld shouldBe false
+
+        // A denial leaves nothing held, so the next attempt must issue a fresh request.
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+        mediaControl.requestDuckFocus() shouldBe true
+        mediaControl.isDuckFocusHeld shouldBe true
+
+        verify(exactly = 2) { audioManager.requestAudioFocus(focusRequest) }
+    }
+
+    @Test
+    fun `requestDuckFocus is idempotent while focus is held`() {
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+
+        mediaControl.requestDuckFocus() shouldBe true
+        mediaControl.requestDuckFocus() shouldBe true
+
+        verify(exactly = 1) { audioManager.requestAudioFocus(focusRequest) }
+    }
+
+    @Test
+    fun `abandonDuckFocus only abandons what is actually held`() {
+        // Not held: abandoning must not touch the audio system at all.
+        mediaControl.abandonDuckFocus()
+        verify(exactly = 0) { audioManager.abandonAudioFocusRequest(any()) }
+
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+        mediaControl.requestDuckFocus() shouldBe true
+
+        mediaControl.abandonDuckFocus()
+        mediaControl.abandonDuckFocus()
+        mediaControl.isDuckFocusHeld shouldBe false
+        verify(exactly = 1) { audioManager.abandonAudioFocusRequest(focusRequest) }
+
+        // Re-requesting after an abandon starts a new request rather than reusing the stale state.
+        mediaControl.requestDuckFocus() shouldBe true
+        mediaControl.isDuckFocusHeld shouldBe true
+        verify(exactly = 2) { audioManager.requestAudioFocus(focusRequest) }
+    }
+
+    @Test
+    fun `the focus listener drops the held state on a permanent loss only`() {
+        every { audioManager.requestAudioFocus(focusRequest) } returns AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+        mediaControl.requestDuckFocus() shouldBe true
+        val listener = focusListenerSlot.captured
+
+        // A transient loss is temporary — the request stays valid and we still hold it.
+        listener.onAudioFocusChange(AudioManager.AUDIOFOCUS_LOSS_TRANSIENT)
+        mediaControl.isDuckFocusHeld shouldBe true
+
+        listener.onAudioFocusChange(AudioManager.AUDIOFOCUS_LOSS)
+        mediaControl.isDuckFocusHeld shouldBe false
+
+        // Nothing left to release: the system already took it.
+        mediaControl.abandonDuckFocus()
+        verify(exactly = 0) { audioManager.abandonAudioFocusRequest(any()) }
     }
 }

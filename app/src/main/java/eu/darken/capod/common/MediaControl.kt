@@ -1,5 +1,7 @@
 package eu.darken.capod.common
 
+import android.media.AudioAttributes
+import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.media.AudioPlaybackConfiguration
 import android.os.Build
@@ -25,6 +27,7 @@ class MediaControl @Inject constructor(
     private val audioManager: AudioManager,
     private val timeSource: TimeSource,
     @AudioCallbackHandler private val audioCallbackHandler: Handler,
+    private val duckFocusRequestFactory: DuckFocusRequestFactory,
 ) {
     /**
      * Set when [sendPause] dispatches a pause we expect to take effect, cleared when [sendPlay]
@@ -46,6 +49,11 @@ class MediaControl @Inject constructor(
      * on the monitor scope.
      */
     private val dispatchLock = Mutex()
+
+    /** The granted ducking focus request, or `null` when we don't hold focus. Guarded by `this`. */
+    private var duckFocusRequest: AudioFocusRequest? = null
+
+    private val duckFocusListener = AudioManager.OnAudioFocusChangeListener { change -> onDuckFocusChanged(change) }
 
     private val playbackCallback = object : AudioManager.AudioPlaybackCallback() {
         override fun onPlaybackConfigChanged(configs: List<AudioPlaybackConfiguration>) {
@@ -263,24 +271,25 @@ class MediaControl @Inject constructor(
     fun currentMusicVolume(): Int = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
     /**
-     * Lowers STREAM_MUSIC volume by [reductionPercent] (relative to the current level) and returns
-     * the prior + the volume actually applied, so the caller can later restore it and detect whether
-     * the user changed the volume in the meantime.
+     * Lowers STREAM_MUSIC volume by [reductionPercent] (relative to the current level) and classifies
+     * what actually happened, so the caller can restore the prior level later, fall back to audio
+     * focus, or do nothing at all.
      *
-     * Returns `null` (no-op) when nothing is playing, the device has fixed volume, the computed
-     * target wouldn't actually lower the volume, or the write didn't land. No
+     * Returns [DuckOutcome.Skipped] when nothing is playing, the device has fixed volume, the computed
+     * target wouldn't actually lower the volume, the level came back higher, or the write was denied.
+     * Returns [DuckOutcome.Unchanged] when the write was accepted but the level did not drop. No
      * [AudioManager.FLAG_SHOW_UI] — this fires on a frequent push event and the volume panel
      * flashing would be noisy. The applied target is read back from the system because Bluetooth
      * absolute-volume routes can quantize the requested value.
      */
-    fun duckMusicVolume(reductionPercent: Int): VolumeDuck? {
+    fun duckMusicVolume(reductionPercent: Int): DuckOutcome {
         if (!audioManager.isMusicActive) {
             log(TAG, INFO) { "duckMusicVolume: nothing playing, skipping" }
-            return null
+            return DuckOutcome.Skipped
         }
         if (audioManager.isVolumeFixed) {
             log(TAG, INFO) { "duckMusicVolume: device has fixed volume, skipping" }
-            return null
+            return DuckOutcome.Skipped
         }
         val percent = reductionPercent.coerceIn(0, 100)
         val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
@@ -293,30 +302,45 @@ class MediaControl @Inject constructor(
         val target = (prior * (100 - percent) / 100).coerceIn(min, max)
         if (target >= prior) {
             log(TAG, INFO) { "duckMusicVolume: target $target >= current $prior, skipping" }
-            return null
+            return DuckOutcome.Skipped
         }
         return try {
             audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, target, 0)
             val applied = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-            if (applied >= prior) {
-                // No attenuation happened. Either the write was accepted and dropped (ColorOS 16
-                // does this while the app is in the background: no exception, volume untouched),
-                // the route quantized the target back up to where it started, or the user raised
-                // the volume in between. Reporting a duck would have the caller track a session
-                // that never attenuated anything, and later "restore" a level it never left.
-                log(TAG, WARN) {
-                    "duckMusicVolume($percent%): volume did not decrease, $prior -> $applied " +
-                            "(requested $target, min=$min, max=$max)"
+            when {
+                applied > prior -> {
+                    // The level came back HIGHER than we found it: the user raised the volume between
+                    // the two reads. That is not the ROM refusing the write, so it must not read as
+                    // one — a fallback here would fire on a device whose volume writes work fine.
+                    log(TAG, WARN) {
+                        "duckMusicVolume($percent%): volume increased, $prior -> $applied " +
+                                "(requested $target, min=$min, max=$max)"
+                    }
+                    DuckOutcome.Skipped
                 }
-                null
-            } else {
-                log(TAG, INFO) { "duckMusicVolume($percent%): $prior -> $applied (requested $target)" }
-                VolumeDuck(priorVolume = prior, appliedVolume = applied)
+
+                applied == prior -> {
+                    // No attenuation happened even though the write was accepted: ColorOS 16 does
+                    // this while the app is in the background (no exception, volume untouched), and
+                    // a route may quantize the target back up to where it started. Reporting a duck
+                    // would have the caller track a session that never attenuated anything, and
+                    // later "restore" a level it never left.
+                    log(TAG, WARN) {
+                        "duckMusicVolume($percent%): volume did not decrease, $prior -> $applied " +
+                                "(requested $target, min=$min, max=$max)"
+                    }
+                    DuckOutcome.Unchanged(priorVolume = prior)
+                }
+
+                else -> {
+                    log(TAG, INFO) { "duckMusicVolume($percent%): $prior -> $applied (requested $target)" }
+                    DuckOutcome.Ducked(priorVolume = prior, appliedVolume = applied)
+                }
             }
         } catch (e: SecurityException) {
             // setStreamVolume throws under Do-Not-Disturb without notification policy access.
             log(TAG, WARN) { "duckMusicVolume: setStreamVolume denied: ${e.message}" }
-            null
+            DuckOutcome.Skipped
         }
     }
 
@@ -331,11 +355,73 @@ class MediaControl @Inject constructor(
         }
     }
 
-    /** Snapshot of a volume duck so the caller can restore the prior level and detect user changes. */
-    data class VolumeDuck(
-        val priorVolume: Int,
-        val appliedVolume: Int,
-    )
+    /**
+     * Requests transient ducking audio focus so the framework attenuates the other player for us.
+     * Fallback for devices where the volume write is accepted but ignored ([DuckOutcome.Unchanged]).
+     *
+     * Idempotent — returns `true` when focus is held, whether this call obtained it or an earlier one
+     * did. A grant only describes the instant of the request, so the held state is dropped again when
+     * the system takes focus away permanently.
+     */
+    @Synchronized
+    fun requestDuckFocus(): Boolean {
+        if (duckFocusRequest != null) {
+            log(TAG, INFO) { "requestDuckFocus(): already held" }
+            return true
+        }
+        val request = duckFocusRequestFactory.create(duckFocusListener)
+        val result = audioManager.requestAudioFocus(request)
+        return if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+            duckFocusRequest = request
+            log(TAG, INFO) { "requestDuckFocus(): granted" }
+            true
+        } else {
+            log(TAG, INFO) { "requestDuckFocus(): denied ($result)" }
+            false
+        }
+    }
+
+    /** Releases the ducking focus taken by [requestDuckFocus]. No-op when we don't hold it. */
+    @Synchronized
+    fun abandonDuckFocus() {
+        val request = duckFocusRequest ?: return
+        duckFocusRequest = null
+        audioManager.abandonAudioFocusRequest(request)
+        log(TAG, INFO) { "abandonDuckFocus(): focus released" }
+    }
+
+    val isDuckFocusHeld: Boolean
+        @Synchronized get() = duckFocusRequest != null
+
+    @Synchronized
+    private fun onDuckFocusChanged(change: Int) {
+        // Only a PERMANENT loss ends our request. AUDIOFOCUS_LOSS_TRANSIENT leaves it in place, so
+        // clearing on that would forget a request the system still tracks and let the next
+        // abandon/re-request pair fight the other app over a temporary interruption.
+        if (change != AudioManager.AUDIOFOCUS_LOSS) return
+        log(TAG, INFO) { "Duck focus permanently lost" }
+        duckFocusRequest = null
+    }
+
+    /** What a [duckMusicVolume] call actually achieved. */
+    sealed interface DuckOutcome {
+        /** The level dropped: [priorVolume] is what to restore, [appliedVolume] what landed. */
+        data class Ducked(val priorVolume: Int, val appliedVolume: Int) : DuckOutcome
+
+        /** The write was accepted but the level did not move — the read-back proves no attenuation. */
+        data class Unchanged(val priorVolume: Int) : DuckOutcome
+
+        /** Nothing was attempted, or the result is nothing for the caller to act on. */
+        data object Skipped : DuckOutcome
+    }
+
+    /**
+     * Test seam for building the ducking focus request: [AudioFocusRequest.Builder] and
+     * [AudioAttributes.Builder] are unmocked stubs that throw in this module's plain JVM unit tests.
+     */
+    fun interface DuckFocusRequestFactory {
+        fun create(listener: AudioManager.OnAudioFocusChangeListener): AudioFocusRequest
+    }
 
     companion object {
         private val TAG = logTag("MediaControl")

@@ -82,6 +82,14 @@ class ConversationReaction @Inject constructor(
     private sealed interface Kind {
         data object Paused : Kind
         data class Ducked(val priorVolume: Int, val appliedVolume: Int) : Kind
+
+        /**
+         * Fallback for a volume write the system accepted but ignored: we hold
+         * `AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK` and let the framework attenuate the other player.
+         * Named for what is actually true — a granted request does not prove anything was
+         * attenuated. [priorVolume] is only kept for the late-write guard at teardown.
+         */
+        data class FocusHeld(val priorVolume: Int) : Kind
     }
 
     private data class Active(
@@ -155,6 +163,13 @@ class ConversationReaction @Inject constructor(
                 // Duplicate START for the same speaker — don't re-act, just keep the session alive.
                 // A START also cancels a pending wind-down fuse / settle: the wearer is speaking again.
                 armTimer(current, TimerPhase.STALE_BACKSTOP)
+                // Exception: a focus session that lost focus permanently mid-conversation has to be
+                // re-requested here. Every later START is treated as a keep-alive, so this is the
+                // only place that recovery can happen.
+                if (current.kind is Kind.FocusHeld && !mediaControl.isDuckFocusHeld) {
+                    val regained = mediaControl.requestDuckFocus()
+                    log(TAG, INFO) { "START from $address — duck focus was lost, re-requested (granted=$regained)" }
+                }
                 log(TAG) { "START from $address — already active ($action), keep-alive" }
                 return
             }
@@ -185,20 +200,47 @@ class ConversationReaction @Inject constructor(
                             ReactionConfig.MIN_CONVERSATION_VOLUME_REDUCTION,
                             ReactionConfig.MAX_CONVERSATION_VOLUME_REDUCTION,
                         )
-                    val duck = mediaControl.duckMusicVolume(reduction)
-                    if (duck != null) {
-                        val record = Active(
-                            nextId(),
-                            address,
-                            Kind.Ducked(duck.priorVolume, duck.appliedVolume),
-                            timeSource.elapsedRealtime(),
-                        )
-                        active = record
-                        armTimer(record, TimerPhase.STALE_BACKSTOP)
-                        log(TAG, INFO) { "START on $address → ducked volume ${duck.priorVolume}→${duck.appliedVolume}" }
-                    } else {
-                        active = null
-                        log(TAG) { "START on $address → duck no-op" }
+                    when (val outcome = mediaControl.duckMusicVolume(reduction)) {
+                        is MediaControl.DuckOutcome.Ducked -> {
+                            val record = Active(
+                                nextId(),
+                                address,
+                                Kind.Ducked(outcome.priorVolume, outcome.appliedVolume),
+                                timeSource.elapsedRealtime(),
+                            )
+                            active = record
+                            armTimer(record, TimerPhase.STALE_BACKSTOP)
+                            log(TAG, INFO) {
+                                "START on $address → ducked volume ${outcome.priorVolume}→${outcome.appliedVolume}"
+                            }
+                        }
+
+                        is MediaControl.DuckOutcome.Unchanged -> {
+                            // The write was accepted but the level never moved (ColorOS 16 refuses a
+                            // backgrounded app's write). Ask the framework to duck the other player
+                            // instead. A grant does not prove anything was attenuated: a player whose
+                            // content is marked speech (podcasts) may pause instead of duck, and a
+                            // player that never requested focus need not be attenuated at all.
+                            if (mediaControl.requestDuckFocus()) {
+                                val record = Active(
+                                    nextId(),
+                                    address,
+                                    Kind.FocusHeld(outcome.priorVolume),
+                                    timeSource.elapsedRealtime(),
+                                )
+                                active = record
+                                armTimer(record, TimerPhase.STALE_BACKSTOP)
+                                log(TAG, INFO) { "START on $address → volume write ignored, holding duck focus" }
+                            } else {
+                                active = null
+                                log(TAG) { "START on $address → duck no-op" }
+                            }
+                        }
+
+                        MediaControl.DuckOutcome.Skipped -> {
+                            active = null
+                            log(TAG) { "START on $address → duck no-op" }
+                        }
                     }
                 }
 
@@ -301,6 +343,8 @@ class ConversationReaction @Inject constructor(
             }
 
             is Kind.Ducked -> revertDuck(kind, reason)
+
+            is Kind.FocusHeld -> revertFocus(kind, reason)
         }
     }
 
@@ -343,6 +387,7 @@ class ConversationReaction @Inject constructor(
     private fun revert(record: Active, reason: String) {
         when (val kind = record.kind) {
             is Kind.Ducked -> revertDuck(kind, reason)
+            is Kind.FocusHeld -> revertFocus(kind, reason)
             is Kind.Paused -> log(TAG) { "Clearing pause ($reason) — leaving playback as-is" }
         }
     }
@@ -356,6 +401,19 @@ class ConversationReaction @Inject constructor(
         // volume change (rare). Matches librepods' unconditional restore.
         log(TAG, INFO) { "Restoring volume to ${kind.priorVolume} (ducked to ${kind.appliedVolume}, now ${mediaControl.currentMusicVolume()}, $reason)" }
         mediaControl.restoreMusicVolume(kind.priorVolume)
+    }
+
+    private fun revertFocus(kind: Kind.FocusHeld, reason: String) {
+        mediaControl.abandonDuckFocus()
+        log(TAG, INFO) { "Released duck focus ($reason)" }
+        // Late-write guard: a device may apply the volume write asynchronously. The read-back showed
+        // equality, so we took the focus path — if the write landed afterwards, teardown would leave
+        // the stream index permanently lowered. Restore ONLY when the level is below what we found.
+        val current = mediaControl.currentMusicVolume()
+        if (current < kind.priorVolume) {
+            log(TAG, INFO) { "Restoring volume to ${kind.priorVolume} (late write landed at $current, $reason)" }
+            mediaControl.restoreMusicVolume(kind.priorVolume)
+        }
     }
 
     /** Must be called under [mutex]. Clears the active slot and cancels its pending timer. */
