@@ -361,7 +361,7 @@ internal class AapSessionEngine(
 
             EngineTimerKey.Verification -> {
                 applyOutboundDecisionAsync(
-outboundController.onVerificationTimerFired(_state.value, runtimeState.outbound),
+                    outboundController.onVerificationTimerFired(_state.value, runtimeState.outbound),
                 )
             }
         }

@@ -14,7 +14,6 @@ import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.first
@@ -882,16 +881,9 @@ class AapSessionEngineTest : BaseTest() {
                 engine.processMessage(dummyMessage())
                 advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
 
-                // Must not have learned ADAPTIVE -> TRANSPARENCY. A later genuine ADAPTIVE report
-                // therefore still reads as ADAPTIVE.
-                nextSetting = settingPair(
-                    AapSetting.AncMode(
-                        current = AapSetting.AncMode.Value.ADAPTIVE,
-                        supported = supportedModes,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                advanceTimeBy(1600L)
+                // Without supersession the classifier would call this ADAPTIVE report the answer to
+                // the TRANSPARENCY write and force TRANSPARENCY into state. State must instead stay
+                // on what the device actually reported.
                 engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
                         AapSetting.AncMode.Value.ADAPTIVE
             }
