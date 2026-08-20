@@ -5,7 +5,6 @@ import eu.darken.capod.R
 import eu.darken.capod.main.ui.components.iconDrawableRes
 import eu.darken.capod.main.ui.components.shortLabel
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.effectiveAncMode
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
@@ -92,7 +91,7 @@ object AncWidgetRenderStateMapper {
                     primaryText = context.getString(R.string.anc_widget_aap_connecting_label),
                 )
 
-                val currentMode = device.effectiveAncMode ?: ancMode.current
+                val currentMode = ancMode.current
                 val pendingMode = device.pendingAncMode
 
                 val filteredModes = device.visibleAncModes

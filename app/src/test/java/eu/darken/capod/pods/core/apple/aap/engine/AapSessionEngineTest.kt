@@ -31,22 +31,9 @@ import kotlin.reflect.KClass
 
 class AapSessionEngineTest : BaseTest() {
 
-    /**
-     * Wall clock the engine reads. Advanceable because classification of a listening mode echo
-     * depends on how long the device took to answer, so tests must be able to simulate a reply
-     * that is slow enough to be a real mode change rather than a refusal.
-     */
-    private var fakeNowMs = 1000L
-
     private val timeSource = mockk<TimeSource> {
-        every { now() } answers { Instant.ofEpochMilli(fakeNowMs) }
-        every { currentTimeMillis() } answers { fakeNowMs }
-        every { elapsedRealtime() } answers { fakeNowMs }
-    }
-
-    /** Simulate the device taking a realistic amount of time to answer a mode change. */
-    private fun elapseChangeLatency() {
-        fakeNowMs += AapOutboundController.ANC_CHANGE_LATENCY_MIN_MS + 400L
+        every { now() } returns Instant.ofEpochMilli(1000L)
+        every { currentTimeMillis() } returns 1000L
     }
 
     private fun dummyMessage(commandType: Int = 0x0009): AapMessage {
@@ -738,314 +725,6 @@ class AapSessionEngineTest : BaseTest() {
             }
 
         @Test
-        fun `third-mode echo is treated as an unusable report, not a refusal`() =
-            runTest(UnconfinedTestDispatcher()) {
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.TRANSPARENCY,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                val rejected = mutableListOf<AapCommand>()
-                val collectJob = launch { engine.settingRejected.collect { rejected += it } }
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                val sentCommands = mutableListOf<AapCommand>()
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { sentCommands += it }
-
-                // AirPods Pro 3 answering an ADAPTIVE write with OFF: neither the requested mode
-                // nor the one it was in. The write did take effect, so this must not be retried
-                // or reported as a rejection.
-                elapseChangeLatency()
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
-
-                sentCommands shouldBe listOf(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE))
-                rejected shouldBe emptyList()
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.ADAPTIVE
-                engine.state.value.pendingAncMode.shouldBeNull()
-                collectJob.cancel()
-            }
-
-        @Test
-        fun `a fast third-mode echo is a refusal, not an unusable report`() =
-            runTest(UnconfinedTestDispatcher()) {
-                // A refusal that settles in some third mode still answers at refusal speed. Without
-                // the latency check this was misread as a misreport and poisoned the session.
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.TRANSPARENCY,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF)) { }
-                fakeNowMs += 40L // refusal speed
-                nextSetting = settingPair(
-                    AapSetting.AncMode(
-                        current = AapSetting.AncMode.Value.TRANSPARENCY,
-                        supported = supportedModes,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
-
-                // Must NOT have rewritten state to OFF, and must NOT have learned a mapping.
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.TRANSPARENCY
-            }
-
-        @Test
-        fun `a superseded ANC write is never classified as an unusable report`() =
-            runTest(UnconfinedTestDispatcher()) {
-                // Two writes in flight make the echoes unattributable: a delayed answer to the
-                // first looks like a third mode to the second.
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.TRANSPARENCY,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { }
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.TRANSPARENCY)) { }
-
-                // Delayed answer to the FIRST write arrives while the second is outstanding.
-                elapseChangeLatency()
-                nextSetting = settingPair(
-                    AapSetting.AncMode(
-                        current = AapSetting.AncMode.Value.ADAPTIVE,
-                        supported = supportedModes,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
-
-                // Without supersession the classifier would call this ADAPTIVE report the answer to
-                // the TRANSPARENCY write and force TRANSPARENCY into state. State must instead stay
-                // on what the device actually reported.
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.ADAPTIVE
-            }
-
-        @Test
-        fun `a fast refusal on the retry is not inflated by the first attempt's timestamp`() =
-            runTest(UnconfinedTestDispatcher()) {
-                // Attempt 0 draws no answer at all. Without restamping on re-send, a quick refusal
-                // to attempt 1 measures from the original write and sails past the latency gate.
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.TRANSPARENCY,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF)) { }
-
-                // Silence through the first deadline, so a re-send goes out.
-                fakeNowMs += AapOutboundController.VERIFICATION_TIMEOUT_MS
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS + 100L)
-
-                // Refusal speed, relative to the re-send.
-                fakeNowMs += 40L
-                nextSetting = settingPair(
-                    AapSetting.AncMode(
-                        current = AapSetting.AncMode.Value.TRANSPARENCY,
-                        supported = supportedModes,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS + 100L)
-
-                // Must be read as a refusal: state stays where the device says it is.
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.TRANSPARENCY
-            }
-
-        @Test
-        fun `a stem press makes an outstanding ANC write ambiguous`() =
-            runTest(UnconfinedTestDispatcher()) {
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.TRANSPARENCY,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                var nextStemPress: StemPressEvent? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                    every { decodeStemPress(any()) } answers { nextStemPress }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { }
-
-                // The user changes the mode on the pods themselves mid-request.
-                nextSetting = null
-                nextStemPress = StemPressEvent(
-                    pressType = StemPressEvent.PressType.SINGLE,
-                    bud = StemPressEvent.Bud.LEFT,
-                )
-                engine.processMessage(dummyMessage())
-                nextStemPress = null
-
-                elapseChangeLatency()
-                nextSetting = settingPair(
-                    AapSetting.AncMode(
-                        current = AapSetting.AncMode.Value.TRANSPARENCY,
-                        supported = supportedModes,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
-
-                // Must NOT have been claimed as our own write's result.
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.TRANSPARENCY
-            }
-
-        @Test
-        fun `echo of the previous mode is still treated as a refusal`() =
-            runTest(UnconfinedTestDispatcher()) {
-                val supportedModes = listOf(
-                    AapSetting.AncMode.Value.OFF,
-                    AapSetting.AncMode.Value.ON,
-                    AapSetting.AncMode.Value.ADAPTIVE,
-                )
-                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
-                val profile = mockProfile {
-                    every { decodeSetting(any()) } answers { nextSetting }
-                }
-                val engine = AapSessionEngine(profile, timeSource)
-                engine.startReady(this as TestScope)
-
-                val rejected = mutableListOf<AapCommand>()
-                val collectJob = launch { engine.settingRejected.collect { rejected += it } }
-
-                nextSetting = settingPair(
-                    AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
-                    )
-                )
-                engine.processMessage(dummyMessage())
-
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                val sentCommands = mutableListOf<AapCommand>()
-                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF)) { sentCommands += it }
-
-                // A real refusal echoes the mode the device is staying in.
-                nextSetting = settingPair(
-                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
-                )
-                engine.processMessage(dummyMessage())
-
-                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
-
-                sentCommands.size shouldBe 2
-                rejected shouldBe listOf(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF))
-                engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe
-                        AapSetting.AncMode.Value.ON
-                collectJob.cancel()
-            }
-
-        @Test
         fun `contradicting OFF report during a pending ANC request blocks AllowOff inference`() =
             runTest(UnconfinedTestDispatcher()) {
                 val supportedModes = listOf(
@@ -1084,6 +763,54 @@ class AapSessionEngineTest : BaseTest() {
 
                 advanceTimeBy(1600L)
                 engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+            }
+
+        @Test
+        fun `unsolicited OFF after a contradicted one still infers AllowOffOption true`() =
+            runTest(UnconfinedTestDispatcher()) {
+                val supportedModes = listOf(
+                    AapSetting.AncMode.Value.OFF,
+                    AapSetting.AncMode.Value.ON,
+                    AapSetting.AncMode.Value.ADAPTIVE,
+                )
+                var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+                val profile = mockProfile {
+                    every { decodeSetting(any()) } answers { nextSetting }
+                }
+                val engine = AapSessionEngine(profile, timeSource)
+                engine.startReady(this as TestScope)
+
+                nextSetting = settingPair(
+                    AapSetting.EarDetection(
+                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                        secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    )
+                )
+                engine.processMessage(dummyMessage())
+
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.ON, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE)) { }
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                // Let the request finish failing, so nothing of ours is outstanding any more.
+                advanceTimeBy(AapOutboundController.VERIFICATION_TIMEOUT_MS * 2 + 100L)
+                engine.state.value.pendingAncMode.shouldBeNull()
+
+                // Now a genuine switch into OFF (stem press / another phone) must still train it.
+                nextSetting = settingPair(
+                    AapSetting.AncMode(current = AapSetting.AncMode.Value.OFF, supported = supportedModes)
+                )
+                engine.processMessage(dummyMessage())
+
+                advanceTimeBy(1600L)
+                engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe true
             }
 
         @Test

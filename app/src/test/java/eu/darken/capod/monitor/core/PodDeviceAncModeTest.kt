@@ -54,49 +54,6 @@ class PodDeviceAncModeTest : BaseTest() {
         )
     }
 
-    // -- effectiveAncMode: distrusting an impossible report while a request is in flight --
-
-    @Test
-    fun `impossible reported mode is ignored while our request is pending`() {
-        effectiveAncMode(
-            reportedMode = AapSetting.AncMode.Value.OFF,
-            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
-            cycleMask = 0x0E,
-            allowOffEnabled = false,
-        ) shouldBe AapSetting.AncMode.Value.ADAPTIVE
-    }
-
-    @Test
-    fun `permitted reported mode is adopted even while pending`() {
-        // A genuine refusal echoes the mode the device is actually in; that must win.
-        effectiveAncMode(
-            reportedMode = AapSetting.AncMode.Value.ON,
-            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
-            cycleMask = 0x0E,
-            allowOffEnabled = false,
-        ) shouldBe AapSetting.AncMode.Value.ON
-    }
-
-    @Test
-    fun `reported mode is adopted verbatim when nothing is pending`() {
-        effectiveAncMode(
-            reportedMode = AapSetting.AncMode.Value.OFF,
-            pendingMode = null,
-            cycleMask = 0x0E,
-            allowOffEnabled = false,
-        ) shouldBe AapSetting.AncMode.Value.OFF
-    }
-
-    @Test
-    fun `OFF report is adopted while pending when OFF is actually allowed`() {
-        effectiveAncMode(
-            reportedMode = AapSetting.AncMode.Value.OFF,
-            pendingMode = AapSetting.AncMode.Value.ADAPTIVE,
-            cycleMask = 0x0E,
-            allowOffEnabled = true,
-        ) shouldBe AapSetting.AncMode.Value.OFF
-    }
-
     @Test
     fun `null cycle mask shows all supported modes`() {
         visibleAncModes(

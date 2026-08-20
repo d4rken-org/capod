@@ -3,7 +3,6 @@ package eu.darken.capod.main.ui.tile
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.effectiveAncMode
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
@@ -37,7 +36,7 @@ object AncTileStateMapper {
         if (visible.isEmpty()) return AncTileState.Connecting
 
         return AncTileState.Active(
-            current = device.effectiveAncMode ?: ancMode.current,
+            current = ancMode.current,
             pending = device.pendingAncMode,
             visible = visible,
             deviceLabel = device.label,

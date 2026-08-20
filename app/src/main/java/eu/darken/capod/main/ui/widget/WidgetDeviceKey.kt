@@ -1,7 +1,6 @@
 package eu.darken.capod.main.ui.widget
 
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.effectiveAncMode
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -54,7 +53,7 @@ internal fun PodDevice.toWidgetKey(): WidgetDeviceKey = WidgetDeviceKey(
     isAapConnected = isAapConnected,
     isAapReady = isAapReady,
     hasBleAdvertisement = ble != null,
-    ancMode = effectiveAncMode,
+    ancMode = ancMode?.current,
     pendingAncMode = pendingAncMode,
     visibleAncModes = visibleAncModes,
 )
