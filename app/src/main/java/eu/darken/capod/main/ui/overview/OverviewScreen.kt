@@ -96,6 +96,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
+    val ancNotConfirmedMessage = stringResource(R.string.anc_mode_not_confirmed_message)
 
     // Collect workerAutolaunch passively to keep it active
     LaunchedEffect(Unit) {
@@ -107,6 +108,10 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
             when (event) {
                 OverviewViewModel.Event.OffModeRejectedByDevice -> {
                     snackbarHostState.showSnackbar(offRejectedMessage)
+                }
+
+                OverviewViewModel.Event.AncModeNotConfirmedByDevice -> {
+                    snackbarHostState.showSnackbar(ancNotConfirmedMessage)
                 }
             }
         }

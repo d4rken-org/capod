@@ -577,6 +577,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Settings</string>
     <string name="device_settings_send_failed">Could not apply setting: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off mode isn\'t enabled on this device. Enable \"Allow Off mode\" under Noise Control.</string>
+    <string name="anc_mode_not_confirmed_message">The AirPods didn\'t confirm the listening mode change.</string>
     <string name="device_settings_category_battery_label">Battery</string>
     <string name="device_settings_charge_cap_label">Optimized Charge Limit</string>
     <string name="device_settings_charge_cap_description">Learn your routine and pause charging around 80%% to extend battery life, topping the pods off before you\'re likely to use them.</string>

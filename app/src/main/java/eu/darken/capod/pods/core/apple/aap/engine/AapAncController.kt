@@ -8,6 +8,16 @@ import kotlin.reflect.KClass
 internal data class AncRuntimeState(
     val latestObservedAncMode: AapSetting.AncMode? = null,
     val pendingDebouncedAnc: PendingDebouncedAnc? = null,
+    /**
+     * Set when the device reported OFF while we had a request for a different mode outstanding.
+     *
+     * AirPods Pro 3 have been seen answering a listening mode write with OFF while actually
+     * switching to the requested mode. Such a report must not be fed to the Allow Off inference,
+     * or a single glitch permanently teaches CAPod that OFF is a permitted mode. Cleared as soon
+     * as any non-OFF mode is reported, so an unsolicited switch into OFF (stem press, another
+     * phone) still trains the inference normally.
+     */
+    val offReportContradicted: Boolean = false,
 )
 
 internal data class PendingDebouncedAnc(
@@ -34,7 +44,17 @@ internal class AapAncController {
         now: Instant,
     ): AncDecision {
         val previous = podState.settings[key]
-        val updatedRuntime = runtimeState.copy(latestObservedAncMode = value)
+        val pendingMode = podState.pendingAncMode
+        // An OFF report with no competing request of our own is taken at face value, which both
+        // clears any earlier contradiction and keeps the Allow Off self-heal working after a
+        // glitch (stem press / another phone switching the pods into OFF for real).
+        val contradicted = value.current == AapSetting.AncMode.Value.OFF &&
+                pendingMode != null &&
+                pendingMode != AapSetting.AncMode.Value.OFF
+        val updatedRuntime = runtimeState.copy(
+            latestObservedAncMode = value,
+            offReportContradicted = contradicted,
+        )
         val timerActions = mutableListOf<EngineTimerAction>()
         timerActions.plusAssign(planAllowOffInferenceTimer(podState, updatedRuntime))
 
@@ -90,6 +110,7 @@ internal class AapAncController {
         val latestEarDetection = podState.setting<AapSetting.EarDetection>()
         val latestAllowOffOption = podState.setting<AapSetting.AllowOffOption>()
         if (latestAncMode?.current == AapSetting.AncMode.Value.OFF &&
+            !runtimeState.offReportContradicted &&
             latestEarDetection?.isEitherPodInEar == true &&
             latestAllowOffOption?.enabled != true
         ) {
@@ -153,6 +174,7 @@ internal class AapAncController {
         val earDetection = podState.setting<AapSetting.EarDetection>()
         val allowOffOption = podState.setting<AapSetting.AllowOffOption>()
         return if (observedAncMode?.current == AapSetting.AncMode.Value.OFF &&
+            !runtimeState.offReportContradicted &&
             earDetection?.isEitherPodInEar == true &&
             allowOffOption?.enabled != true
         ) {

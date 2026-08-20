@@ -90,6 +90,7 @@ class DeviceSettingsViewModel @Inject constructor(
         data class SendFailed(val command: AapCommand, val message: String?) : Event
         data object SystemRenameUnavailable : Event
         data object OffModeRejectedByDevice : Event
+        data object AncModeNotConfirmedByDevice : Event
         data object DynamicEndOfChargeRejectedByDevice : Event
     }
 
@@ -109,7 +110,11 @@ class DeviceSettingsViewModel @Inject constructor(
                 when (command) {
                     is AapCommand.SetDynamicEndOfCharge ->
                         events.tryEmit(Event.DynamicEndOfChargeRejectedByDevice)
-                    else -> Unit // Other rejected commands handled elsewhere (e.g. ANC OFF)
+                    // OFF has its own, more specific message via offRejectedEvents.
+                    is AapCommand.SetAncMode -> if (command.mode != AapSetting.AncMode.Value.OFF) {
+                        events.tryEmit(Event.AncModeNotConfirmedByDevice)
+                    }
+                    else -> Unit
                 }
             }
         }

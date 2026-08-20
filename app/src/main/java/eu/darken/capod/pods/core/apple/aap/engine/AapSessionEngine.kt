@@ -295,6 +295,7 @@ internal class AapSessionEngine(
                 now = timeSource.now(),
             )
             applyAncDecision(decision)
+            reconcileVerification()
             return
         }
 
@@ -312,6 +313,8 @@ internal class AapSessionEngine(
         log(TAG) {
             "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""} [was: $previous]"
         }
+
+        reconcileVerification()
 
         if (value is AapSetting.EarDetection) {
             applyAncDecision(ancController.onEarDetectionUpdated(_state.value, runtimeState.anc))
@@ -362,6 +365,21 @@ internal class AapSessionEngine(
     }
 
     /**
+     * Settle an outstanding verification against state we just applied. Confirmations are honoured
+     * the moment the device's report lands rather than at the verification deadline, so a reply
+     * arriving close to that deadline can't be misread as a divergence.
+     */
+    private fun reconcileVerification() {
+        if (runtimeState.outbound.verification == null) return
+        val decision = outboundController.onStateObserved(_state.value, runtimeState.outbound)
+        if (decision.runtimeState.verification != null) return
+        _state.value = decision.podState
+        runtimeState = runtimeState.copy(outbound = decision.runtimeState)
+        decision.logs.forEach { log(TAG) { it } }
+        applyTimerActions(decision.timerActions)
+    }
+
+    /**
      * Apply the non-send side of a decision (state, runtime, logs) and prepare the send context.
      *
      * Returns `null` when there's nothing to send — either the decision carries no commands, or
@@ -397,6 +415,16 @@ internal class AapSessionEngine(
         runtimeState = runtimeState.copy(outbound = runtimeState.outbound.copy(verification = previousVerification))
     }
 
+    /**
+     * A send that threw never reached the device, so an optimistically stored pending ANC mode has
+     * nothing left to confirm it. Clearing it stops the UI from showing a mode we failed to request.
+     */
+    private fun clearPendingAncAfterFailedSend(commands: List<AapCommand>) {
+        val ancCommand = commands.filterIsInstance<AapCommand.SetAncMode>().lastOrNull() ?: return
+        if (_state.value.pendingAncMode != ancCommand.mode) return
+        _state.value = _state.value.copy(pendingAncMode = null)
+    }
+
     /** User-initiated send: runs in the caller's coroutine, errors propagate back to the caller. */
     private suspend fun applyOutboundDecisionInline(decision: OutboundDecision) {
         val ctx = applyDecisionStateAndPrepareSend(decision) ?: return
@@ -406,6 +434,7 @@ internal class AapSessionEngine(
             handleRejectedCommand(ctx.decision.rejectedCommand)
         } catch (e: Exception) {
             restoreVerification(ctx.previousVerification)
+            clearPendingAncAfterFailedSend(ctx.decision.commandsToSend)
             throw e
         }
     }
@@ -417,6 +446,7 @@ internal class AapSessionEngine(
         if (currentScope == null) {
             log(TAG, ERROR) { "No scope available for outbound async send" }
             restoreVerification(ctx.previousVerification)
+            clearPendingAncAfterFailedSend(ctx.decision.commandsToSend)
             return
         }
         currentScope.launch {
@@ -426,6 +456,7 @@ internal class AapSessionEngine(
                 handleRejectedCommand(ctx.decision.rejectedCommand)
             } catch (_: Exception) {
                 restoreVerification(ctx.previousVerification)
+                clearPendingAncAfterFailedSend(ctx.decision.commandsToSend)
             }
         }
     }

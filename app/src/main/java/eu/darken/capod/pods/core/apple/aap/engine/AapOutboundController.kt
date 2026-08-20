@@ -30,6 +30,23 @@ internal class AapOutboundController(
 
     private val coordinator = AapSettingsCoordinator(timeSource)
 
+    companion object {
+        /**
+         * How long to wait for the device to confirm a setting write before treating it as diverged.
+         *
+         * AirPods Pro 3 answer a listening mode write in roughly 0.8-1.1s (measured: 833ms, 887ms,
+         * 956ms, 1008ms). A 1000ms deadline sits inside that spread, so a perfectly healthy reply
+         * could land just after the timer and trigger a bogus "Divergence detected" plus a
+         * redundant re-send. The deadline is only a backstop now: [onStateObserved] resolves the
+         * verification as soon as a matching report arrives, so raising this does not slow the
+         * success path, only how long a genuinely unanswered write waits.
+         *
+         * Kept at roughly 2x the worst measured reply rather than higher, because a real rejection
+         * still costs two full deadlines before the user is told about it.
+         */
+        const val VERIFICATION_TIMEOUT_MS = 2000L
+    }
+
     fun onCommandRequested(
         podState: AapPodState,
         runtimeState: OutboundRuntimeState,
@@ -74,7 +91,7 @@ internal class AapOutboundController(
             ),
             commandsToSend = listOf(command),
             timerActions = if (verificationCheck != null) {
-                listOf(EngineTimerAction.Start(EngineTimerKey.Verification, 1000L))
+                listOf(EngineTimerAction.Start(EngineTimerKey.Verification, VERIFICATION_TIMEOUT_MS))
             } else {
                 emptyList()
             },
@@ -108,11 +125,39 @@ internal class AapOutboundController(
             ),
             commandsToSend = result.commands,
             timerActions = if (verificationCheck != null) {
-                listOf(EngineTimerAction.Start(EngineTimerKey.Verification, 1000L))
+                listOf(EngineTimerAction.Start(EngineTimerKey.Verification, VERIFICATION_TIMEOUT_MS))
             } else {
                 emptyList()
             },
             logs = listOf("Pod in ear, flushing ${result.commands.size} queued commands"),
+        )
+    }
+
+    /**
+     * Re-check the outstanding verification against freshly applied device state, so a confirmation
+     * is honoured the moment it arrives instead of waiting out [VERIFICATION_TIMEOUT_MS] and racing
+     * it.
+     *
+     * Deliberately limited to [AapCommand.SetAncMode]. Every other verified command gets an
+     * optimistic write into state when it is queued (see AapSettingsCoordinator.optimisticUpdate),
+     * which satisfies its own verification predicate straight away - only the device's contradicting
+     * echo later makes it fail. Reconciling those on arbitrary inbound frames would cancel the
+     * verification before that echo lands and silently swallow the rejection. SetAncMode is exempt
+     * from the optimistic write, so its predicate only becomes true once the device really confirms.
+     */
+    fun onStateObserved(
+        podState: AapPodState,
+        runtimeState: OutboundRuntimeState,
+    ): OutboundDecision {
+        val verification = runtimeState.verification ?: return OutboundDecision(podState, runtimeState)
+        if (verification.command !is AapCommand.SetAncMode) return OutboundDecision(podState, runtimeState)
+        val check = coordinator.verificationFor(verification.command)
+            ?: return OutboundDecision(podState, runtimeState)
+        if (!check(podState)) return OutboundDecision(podState, runtimeState)
+        return OutboundDecision(
+            podState = clearPendingForCommand(podState, verification.command),
+            runtimeState = runtimeState.copy(verification = null),
+            timerActions = listOf(EngineTimerAction.Cancel(EngineTimerKey.Verification)),
         )
     }
 
@@ -136,8 +181,10 @@ internal class AapOutboundController(
 
         val ear = podState.setting<AapSetting.EarDetection>()
         if (ear != null && !ear.isEitherPodInEar) {
+            // Drop the pending mode too: nothing is going to confirm it now, and leaving it set
+            // would keep the UI showing a mode the device never reached.
             return OutboundDecision(
-                podState = podState,
+                podState = clearPendingForCommand(podState, verification.command),
                 runtimeState = runtimeState.copy(verification = null),
                 logs = listOf("Verification aborted for ${verification.command::class.simpleName}: no pod in ear"),
             )
@@ -148,7 +195,7 @@ internal class AapOutboundController(
                 podState = podState,
                 runtimeState = runtimeState.copy(verification = verification.copy(attempt = 1)),
                 commandsToSend = listOf(verification.command),
-                timerActions = listOf(EngineTimerAction.Start(EngineTimerKey.Verification, 1000L)),
+                timerActions = listOf(EngineTimerAction.Start(EngineTimerKey.Verification, VERIFICATION_TIMEOUT_MS)),
                 logs = listOf("Divergence detected for ${verification.command::class.simpleName}, re-sending"),
             )
         }
