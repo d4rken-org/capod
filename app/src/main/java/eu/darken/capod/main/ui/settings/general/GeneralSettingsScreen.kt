@@ -220,7 +220,10 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_compatibility_options_title))
+                SettingsCategoryHeader(
+                    text = stringResource(R.string.settings_category_compatibility_options_title),
+                    subtitle = stringResource(R.string.settings_category_compatibility_options_description),
+                )
             }
             item {
                 SettingsBaseItem(
