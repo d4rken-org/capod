@@ -186,6 +186,198 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         }
     }
 
+    // ── PME Config / Headphone Accommodations (0x53) ────────
+
+    @Nested
+    inner class PmeConfigTests {
+
+        /**
+         * Build a 0x53 frame: 4 unknown header bytes, the two apply-to flags at
+         * offsets 4 and 5, then 4 × 8 little-endian Float32 band gains.
+         */
+        private fun pmeMessage(
+            applyToMediaByte: Int,
+            applyToPhoneByte: Int,
+            sets: List<List<Float>>,
+        ): AapMessage {
+            val payload = mutableListOf<Byte>(0x00, 0x00, 0x00, 0x00)
+            payload.add(applyToMediaByte.toByte())
+            payload.add(applyToPhoneByte.toByte())
+            for (set in sets) {
+                for (band in set) {
+                    val bits = band.toRawBits()
+                    for (shift in 0..3) payload.add(((bits shr (shift * 8)) and 0xFF).toByte())
+                }
+            }
+            val header = byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x53, 0x00)
+            return AapMessage.parse(header + payload.toByteArray())!!
+        }
+
+        private val zeroSets = List(4) { List(8) { 0f } }
+
+        @Test
+        fun `decode both apply-to flags set`() {
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x01, 0x01, zeroSets))
+            config.applyToMedia shouldBe true
+            config.applyToPhone shouldBe true
+        }
+
+        @Test
+        fun `decode media only`() {
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x01, 0x00, zeroSets))
+            config.applyToMedia shouldBe true
+            config.applyToPhone shouldBe false
+        }
+
+        @Test
+        fun `decode phone only`() {
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x00, 0x01, zeroSets))
+            config.applyToMedia shouldBe false
+            config.applyToPhone shouldBe true
+        }
+
+        @Test
+        fun `decode neither flag set`() {
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x00, 0x00, zeroSets))
+            config.applyToMedia shouldBe false
+            config.applyToPhone shouldBe false
+        }
+
+        @Test
+        fun `flags are plain 0x01 flags, not Apple-bool`() {
+            // Apple-bool would read 0x02 as "false" too, but so does a plain flag check —
+            // what matters is that anything other than 0x01 is false, including 0x02.
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x02, 0x02, zeroSets))
+            config.applyToMedia shouldBe false
+            config.applyToPhone shouldBe false
+        }
+
+        @Test
+        fun `band data still decodes from offset 6`() {
+            val sets = List(4) { setIndex -> List(8) { band -> (setIndex * 8 + band).toFloat() + 0.5f } }
+            val config = decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x01, 0x00, sets))
+            config.sets shouldBe sets
+            config.isAllZero shouldBe false
+        }
+
+        @Test
+        fun `all-zero band data reports isAllZero regardless of flags`() {
+            decodeSetting<AapSetting.PmeConfig>(pmeMessage(0x01, 0x01, zeroSets)).isAllZero shouldBe true
+        }
+
+        @Test
+        fun `decode rejects truncated payload`() {
+            val header = byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x53, 0x00)
+            val short = AapMessage.parse(header + ByteArray(6 + 127))!!
+            profile.decodeSetting(short).shouldBeNull()
+        }
+    }
+
+    // ── Custom EQ (0x63) ────────────────────────────────────
+
+    @Nested
+    inner class CustomEqTests {
+        @Test
+        fun `decode custom mode frame`() {
+            val eq = decodeSetting<AapSetting.CustomEq>(aapMessage("04 00 04 00 63 00 05 00 01 02 0A 32 64"))
+            eq.mode shouldBe AapSetting.CustomEq.Mode.CUSTOM
+            eq.low shouldBe 10
+            eq.mid shouldBe 50
+            eq.high shouldBe 100
+        }
+
+        @Test
+        fun `decode recommended mode frame`() {
+            val eq = decodeSetting<AapSetting.CustomEq>(aapMessage("04 00 04 00 63 00 05 00 01 01 32 32 32"))
+            eq.mode shouldBe AapSetting.CustomEq.Mode.RECOMMENDED
+            eq.low shouldBe 50
+            eq.mid shouldBe 50
+            eq.high shouldBe 50
+        }
+
+        @Test
+        fun `decode rejects wrong declared length`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 04 00 01 02 0A 32 64")).shouldBeNull()
+        }
+
+        @Test
+        fun `decode rejects unknown marker byte`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 02 02 0A 32 64")).shouldBeNull()
+        }
+
+        @Test
+        fun `decode rejects unknown mode`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 03 0A 32 64")).shouldBeNull()
+        }
+
+        @Test
+        fun `decode rejects band above 100`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 02 0A 65 64")).shouldBeNull()
+        }
+
+        @Test
+        fun `decode rejects truncated payload`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 02 0A 32")).shouldBeNull()
+        }
+
+        @Test
+        fun `decode rejects trailing extra bytes`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 02 0A 32 64 00")).shouldBeNull()
+        }
+
+        @Test
+        fun `encode locks in the full wire format`() {
+            val bytes = profile.encodeCommand(
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 10, mid = 50, high = 100),
+            )
+            val expected = byteArrayOf(
+                0x04, 0x00, 0x04, 0x00,
+                0x63, 0x00,
+                0x05, 0x00,
+                0x01,
+                0x02,
+                0x0A, 0x32, 0x64,
+            )
+            bytes shouldBe expected
+        }
+
+        @Test
+        fun `encode recommended mode`() {
+            val bytes = profile.encodeCommand(
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.RECOMMENDED, low = 0, mid = 0, high = 0),
+            )
+            bytes shouldBe byteArrayOf(
+                0x04, 0x00, 0x04, 0x00,
+                0x63, 0x00,
+                0x05, 0x00,
+                0x01,
+                0x01,
+                0x00, 0x00, 0x00,
+            )
+        }
+
+        @Test
+        fun `command rejects band below range`() {
+            assertThrows<IllegalArgumentException> {
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = -1, mid = 50, high = 50)
+            }
+        }
+
+        @Test
+        fun `command rejects band above range`() {
+            assertThrows<IllegalArgumentException> {
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 50, mid = 101, high = 50)
+            }
+        }
+
+        @Test
+        fun `command accepts range boundaries`() {
+            val command = AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 0, mid = 100, high = 0)
+            command.low shouldBe 0
+            command.mid shouldBe 100
+        }
+    }
+
     // ── Stem Press Events (0x19) ────────────────────────────
 
     @Nested

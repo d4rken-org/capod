@@ -176,6 +176,11 @@ internal class AapSettingsCoordinator(
                 AapSetting.DynamicEndOfCharge::class to AapSetting.DynamicEndOfCharge(enabled = command.enabled)
             }
 
+            // No optimistic update: an optimistic update would render the UI as though an
+            // unacknowledged write had succeeded, which would actively falsify the on-device
+            // evaluation this command exists to support.
+            is AapCommand.SetCustomEq -> return null
+
             is AapCommand.SetDeviceName -> {
                 val currentInfo = baseState.deviceInfo ?: return null
                 return baseState.copy(
@@ -211,5 +216,9 @@ internal class AapSettingsCoordinator(
         is AapCommand.SetSleepDetection -> { s -> s.setting<AapSetting.SleepDetection>()?.enabled == command.enabled }
         is AapCommand.SetDynamicEndOfCharge -> { s -> s.setting<AapSetting.DynamicEndOfCharge>()?.enabled == command.enabled }
         is AapCommand.SetDeviceName -> null
+        // Verification compares against a device-reported setting, and we have no evidence the
+        // device reports this one at all. A predicate here would manufacture spurious
+        // divergence-detected churn on every write.
+        is AapCommand.SetCustomEq -> null
     }
 }

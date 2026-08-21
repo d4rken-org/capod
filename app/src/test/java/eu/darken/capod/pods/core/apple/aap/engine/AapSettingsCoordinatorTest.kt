@@ -260,6 +260,26 @@ class AapSettingsCoordinatorTest : BaseTest() {
         }
 
         @Test
+        fun `SetCustomEq produces no optimistic update`() {
+            val coord = createCoordinator()
+            val state = stateWithSetting(
+                AapSetting.CustomEq::class to AapSetting.CustomEq(
+                    mode = AapSetting.CustomEq.Mode.RECOMMENDED,
+                    low = 50,
+                    mid = 50,
+                    high = 50,
+                ),
+            )
+
+            val result = coord.optimisticUpdate(
+                state,
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 10, mid = 20, high = 30),
+            )
+
+            result.shouldBeNull()
+        }
+
+        @Test
         fun `does not mutate input state`() {
             val coord = createCoordinator()
             val state = stateWithSetting(
@@ -279,6 +299,14 @@ class AapSettingsCoordinatorTest : BaseTest() {
         fun `verificationFor returns null for SetDeviceName`() {
             val coord = createCoordinator()
             coord.verificationFor(AapCommand.SetDeviceName("test")).shouldBeNull()
+        }
+
+        @Test
+        fun `verificationFor returns null for SetCustomEq`() {
+            val coord = createCoordinator()
+            coord.verificationFor(
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 10, mid = 20, high = 30)
+            ).shouldBeNull()
         }
 
         @Test

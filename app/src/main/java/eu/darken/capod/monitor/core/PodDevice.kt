@@ -408,6 +408,9 @@ data class PodDevice(
     val pmeConfig: AapSetting.PmeConfig?
         get() = aap?.setting()
 
+    val customEq: AapSetting.CustomEq?
+        get() = aap?.setting()
+
     val deviceInfo: AapDeviceInfo?
         get() = aap?.deviceInfo ?: cached?.deviceInfo
 

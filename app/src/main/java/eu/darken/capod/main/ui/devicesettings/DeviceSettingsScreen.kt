@@ -46,6 +46,7 @@ import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryHealthTexts
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
+import eu.darken.capod.main.ui.devicesettings.cards.CustomEqDebugCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
@@ -190,6 +191,7 @@ fun DeviceSettingsScreenHost(
         onOpenAapTracker = { vm.openAapCompatibilityTracker() },
         onBatteryEstimateEnabledChange = { vm.setBatteryEstimateEnabled(it) },
         onResetBatteryEstimate = { vm.resetBatteryEstimate() },
+        onCustomEqApply = { mode, low, mid, high -> vm.setCustomEq(mode, low, mid, high) },
     )
 }
 
@@ -235,6 +237,7 @@ fun DeviceSettingsScreen(
     onOpenAapTracker: () -> Unit = {},
     onBatteryEstimateEnabledChange: (Boolean) -> Unit = {},
     onResetBatteryEstimate: () -> Unit = {},
+    onCustomEqApply: (AapSetting.CustomEq.Mode, Int, Int, Int) -> Unit = { _, _, _, _ -> },
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -516,6 +519,20 @@ fun DeviceSettingsScreen(
                                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                             )
                         }
+                    }
+                }
+
+                // Custom EQ evaluation control (debug only, opcode 0x63). The 0x63 wire format
+                // has never been confirmed on hardware, so this exists to find out whether a real
+                // device accepts it. Deliberately ungated by capability or model — gating on an
+                // unknown capability bit would defeat the test.
+                if (eu.darken.capod.BuildConfig.DEBUG) {
+                    item("custom_eq_debug_section") {
+                        CustomEqDebugCard(
+                            device = device,
+                            enabled = enabled,
+                            onApply = onCustomEqApply,
+                        )
                     }
                 }
             }

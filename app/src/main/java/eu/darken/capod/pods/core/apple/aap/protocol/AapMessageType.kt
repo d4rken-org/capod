@@ -101,8 +101,10 @@ enum class AapMessageType(val value: Int, val wiresharkName: String) {
 
     /**
      * PME = Personal Medical Equipment (cf. PPE = Personal Protective Equipment) —
-     * hearing-aid configuration for the iOS 18.1+ hearing-aid feature on AirPods
-     * Pro 2. Decoded as 4 × 8 Float32 values (see [AapSetting.PmeConfig]); see
+     * the **Headphone Accommodations** configuration, an iOS Accessibility feature
+     * with its own "Apply To: Phone / Media" toggles, which the iOS 18.1+ hearing-aid
+     * feature reuses. Not exclusively the hearing-aid audiogram. Decoded as the two
+     * apply-to flags plus 4 × 8 Float32 band gains (see [AapSetting.PmeConfig]); see
      * that data class for the layout rationale. "PME Config" is the label the
      * Wireshark AAP dissector uses for this opcode.
      */
@@ -125,6 +127,18 @@ enum class AapMessageType(val value: Int, val wiresharkName: String) {
     UNKNOWN_0X58(0x0058, "Unknown"),
     DYNAMIC_END_OF_CHARGE(0x0059, "Dynamic End Of Charge"),
     PERSONAL_TRANSLATION(0x0060, "Personal Translation"),
+
+    /**
+     * Custom EQ — Apple's iOS 27 equalizer feature (announced WWDC 2026) for the H2 models
+     * (AirPods Pro 3, AirPods Pro 2, AirPods 4). Three bands (low / mid / high) plus a
+     * Recommended / Custom mode selector; see [AapSetting.CustomEq].
+     *
+     * The wire format is sourced from librepods commit `7341e41` and is **unverified on real
+     * hardware** — no capture from any device we own has ever carried this opcode. Both the
+     * decoder and the encoder are written to fail loudly rather than guess (see
+     * [DefaultAapDeviceProfile]).
+     */
+    CUSTOM_EQ(0x0063, "Custom EQ"),
     ;
 
     companion object {
