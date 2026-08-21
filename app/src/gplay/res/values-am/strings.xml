@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ይህ የተለየ ግዢ ነው — ምዝገባውን አይሰርዝም ወይም አይመልስም። ተመሳሳይ የGoogle መለያ ይጠቀሙ።</string>
     <string name="upgrade_screen_sub_still_renewing_title">ምዝገባ አሁነም ንቁ ነው</string>
     <string name="upgrade_screen_sub_still_renewing_message">ምዝገባዎ አሁንም ለማደስ ተዘጋጅቷል። መጀመሪያ በGoogle Play ውስጥ ይሰርዙት፣ ከዚያ ወደ አንድ ጊዜ ግዢ ይቀይሩ። አሁን ገና ሰርዘውታል? ለGoogle Play ትንሽ ጊዜ ይስጡ እና እንደገና ይሞክሩ።</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play ውስጥ የእርስዎን ግዢ ማረጋገጥ አልተቻልም። ተደገመ ግዢ ለመቆጠብ ውሌት በኋላ ሞክሩት።</string>
+    <string name="upgrade_screen_pending_card_title">ክፍያ በሂደት ላይ</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ክፍያዎን ሥራ ላይ ቀጥሏል። ክፍያው ከተጠናቀቀ በኋላ Pro ራሱ ይከፈታል። አንዳንድ ክፍያ ዘዴ ጊዜ ሊወስዱ ይችላሉ። ሌላ ምንም ሊያደርጉት የሚገቡ ነገር የለም።</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ሥራ ያለበት ክፍያ ያለበት ግዢ አገኘ እና ሥራ ላይ ይገኛል። ክፍያው ከተጠናቀቀ በኋላ Pro ራሱ ይከፈታል።</string>
     <string name="upgrade_screen_grace_title">ግዢዎን በማረጋገጥ ላይ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ግዢዎን እስካሁን አላረጋገጠም። Pro አሁንም ንቁ ነው — ምንም እርምጃ አያስፈልግም።</string>
     <string name="upgrade_screen_grace_body">Google Play ለተወሰነ ጊዜ ግዢዎን አላረጋገጠም። Pro አሁንም ንቁ ነው። መስመር ላይ መሆንዎን እና ለግዢው ጥቅም ላይ በዋለው የGoogle መለያ መግባትዎን ያረጋግጡ፣ ከዚያ ወደነበረበት ለመመለስ ይሞክሩ።</string>

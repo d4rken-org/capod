@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Dukung pengembang</string>
     <string name="upgrade_benefit_disclaimer">Ketersediaan fitur bergantung pada headphone dan perangkat Anda.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
-    <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \"Tidak ada perangkat\" dengan menonaktifkan saluran \"Status perangkat\".</string>
+    <string name="settings_monitor_connected_notification_description">Menampilkan pemberitahuan kedua yang hanya muncul saat perangkat terhubung. Dengan ini aktif, kamu dapat menyembunyikan pemberitahuan permanen \"Tidak ada perangkat\": nonaktifkan kategori \"Status perangkat\" di pengaturan pemberitahuan Android untuk CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Pertahankan notifikasi setelah terputus</string>
     <string name="settings_keep_notification_after_disconnect_description">Terus menampilkan level baterai terakhir yang diketahui bahkan setelah AirPods terputus</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
     <string name="settings_signal_minimum_description">Kualitas sinyal minimum yang harus dimiliki perangkat agar dianggap milik Anda.</string>
     <string name="settings_autoconnect_label">Sambungkan otomatis</string>
-    <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami juga dapat memintanya. Ini akan mengatur pengaturan mode monitor ke \"Selalu\".</string>
+    <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami dapat memintanya juga. Ini membuat CAPod terus memantau di latar belakang setiap saat.</string>
     <string name="settings_autoconnect_info_android12">Koneksi otomatis mengandalkan fitur sistem yang dibatasi oleh Android 12 dan yang lebih baru. Mungkin tidak berfungsi di perangkat Anda.</string>
     <string name="settings_autoconnect_condition_label">Kondisi sambung otomatis</string>
     <string name="settings_autoconnect_condition_description">Kapan kami harus mencoba menyambung ke perangkat Anda?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opsi kompatibilitas</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Nonaktifkan pemfilteran perangkat keras</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Jangan mendelegasikan pemfilteran data ke sistem, alih-alih dapatkan semua data dan filter di dalam aplikasi.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Coba ini jika AirPods kamu tidak pernah terdeteksi. Aplikasi akan memeriksa sendiri semua sinyal Bluetooth di sekitar, alih-alih membiarkan ponsel kamu memilihnya terlebih dahulu.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Nonaktifkan pengelompokan perangkat keras</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Jangan biarkan sistem mengelompokkan data BLE yang terkumpul sebelum meneruskannya kepada kami.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Coba ini jika level baterai hanya diperbarui terlambat atau secara berkelompok. Ponsel kamu akan meneruskan setiap sinyal Bluetooth segera, alih-alih mengumpulkannya terlebih dahulu.</string>
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Putar/jeda otomatis dan koneksi otomatis bereaksi terhadap satu pod saja, bukan memerlukan keduanya.</string>
     <string name="settings_popup_caseopen_label">Tampilkan pop-up casing</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Hijau</string>
     <string name="widget_config_preset_red">Merah</string>
     <string name="settings_compat_indirectcallback_title">Pengiriman data tidak langsung</string>
-    <string name="settings_compat_indirectcallback_summary">Gunakan metode alternatif untuk menerima data BLE dari sistem (siaran alih-alih panggilan balik).</string>
+    <string name="settings_compat_indirectcallback_summary">Coba ini jika opsi kompatibilitas lainnya tidak membantu. Android akan menyerahkan sinyal Bluetooth ke aplikasi di latar belakang, alih-alih aplikasi mendengarkannya secara langsung.</string>
     <string name="troubleshooter_title">Pemecah masalah</string>
     <string name="troubleshooter_summary">Diagnosis dan perbaiki masalah konektivitas Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Hemat Energi</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Pengaturan Bluetooth</string>
     <string name="device_settings_send_failed">Tidak dapat menerapkan pengaturan: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Mode Mati tidak diaktifkan di perangkat ini. Aktifkan \"Izinkan mode Mati\" di bawah Kontrol Kebisingan.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods tidak mengonfirmasi perubahan mode dengar.</string>
     <string name="device_settings_category_battery_label">Baterai</string>
     <string name="device_settings_charge_cap_label">Batas Pengisian Teroptimasi</string>
     <string name="device_settings_charge_cap_description">Mempelajari rutinitas Anda dan menjeda pengisian sekitar 80%% untuk memperpanjang masa pakai baterai, mengisi pod sebelum Anda kemungkinan menggunakannya.</string>

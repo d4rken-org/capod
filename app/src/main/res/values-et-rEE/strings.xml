@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Toeta arendajat</string>
     <string name="upgrade_benefit_disclaimer">Funktsioonide saadavus sõltub kõrvaklappidest ja seadmest.</string>
     <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
-    <string name="settings_monitor_connected_notification_description">Kuvab seadme ühendumisel lisateavituse. See peidab pidevalt nähtava „Seadmed puuduvad“ teate, selleks keelates „Seadme olek“ kanali.</string>
+    <string name="settings_monitor_connected_notification_description">Kuvab teist teatavitust, mis kuvatakse ainult siis, kui seade on ühendatud. Selle lubamisel saad peita püsivat teatavitust \"Seadmeid pole\": lülita välja kategooria \"Device status\" Androidi teatavituste seadetes CAPodi jaoks.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
     <string name="settings_keep_notification_after_disconnect_description">Jätkake viimase teadaoleva akutaseme kuvamist isegi pärast AirPodside eemaldamist</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
-    <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda taotleda. See lülitab jälgimisrežiimi sisse alatiseks.</string>
+    <string name="settings_autoconnect_description">Kui Android ei ühendu automaatselt, saame seda paluda. See hoiab CAPodi jälgimist taustal kogu aeg.</string>
     <string name="settings_autoconnect_info_android12">Iseühenduvus tugineb süsteemivõimalusele, mida Android 12 ja uuemad versioonid piiravad. See ei pruugi teie seadmel toimida.</string>
     <string name="settings_autoconnect_condition_label">Automaatse ühendamise tingimus</string>
     <string name="settings_autoconnect_condition_description">Millal võime üritada ühendada teie seadet?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Ühilduvuse valikud</string>
     <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Süsteemis andmete filtreerimise asemel saate seda teha rakenduses.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Proovi seda, kui AirPods\'i kunagi ei tuvastatakse. Rakendus uurib kõik lähedal olevad Bluetoothi signaalid ise, asemel et lasta telefonil neid enne valida.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Proovi seda, kui akuatasemed värskenduvad ainult hilja või lainete kaupa. Sinu telefon edastab iga Bluetoothi signaali rakendusele kohe, asemel et neid esmalt koguda.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
     <string name="settings_onepod_mode_description">Automaatne esitus/paus ja iseühenduvus reageerivad ühele kõrvaklapile, mitte ei nõua mõlemat.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Roheline</string>
     <string name="widget_config_preset_red">Punane</string>
     <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
-    <string name="settings_compat_indirectcallback_summary">Süsteemis vähem energiat tarbiva Bluetoothi andmete saamine muul viisil (edasta tagasi kutsumise asemel).</string>
+    <string name="settings_compat_indirectcallback_summary">Proovi seda, kui muud ühilduvuse valikud ei aidanud. Android edastab Bluetoothi signaalid rakendusele taustal, asemel et rakendus neid otse kuulata.</string>
     <string name="troubleshooter_title">Abistaja</string>
     <string name="troubleshooter_summary">Uurige ja parandage Bluetooth-ühenduse probleeme.</string>
     <string name="troubleshooter_ble_intro_title">Madalama energiatarbimisega Bluetoothi edastused</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetoothi seaded</string>
     <string name="device_settings_send_failed">Seadet ei saanud rakendada: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Väljas-režiim pole sellel seadmel lubatud. Lubage „Luba väljalülitatuse režiim“ mürakontrolli all.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ei kinnitanud kuulamisrežiimi muutust.</string>
     <string name="device_settings_category_battery_label">Aku</string>
     <string name="device_settings_charge_cap_label">Optimeeritud laadimispiirang</string>
     <string name="device_settings_charge_cap_description">Õpib kasutamisharjumusest ja peatab laadimise umbes 80%% juures, et pikendada aku kasutusiga, laadides kuularid täis enne, kui neid tõenäoliselt kasutate.</string>

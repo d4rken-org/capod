@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Ondersteun de ontwikkelaar</string>
     <string name="upgrade_benefit_disclaimer">Beschikbaarheid van functies is afhankelijk van je koptelefoon en apparaat.</string>
     <string name="settings_monitor_connected_notification_label">Extra melding</string>
-    <string name="settings_monitor_connected_notification_description">Toont een extra melding wanneer een apparaat is verbonden. Hiermee kun je de permanente melding \"Geen apparaten\" verbergen door het kanaal \"Apparaatstatus\" uit te schakelen.</string>
+    <string name="settings_monitor_connected_notification_description">Toont een tweede melding die alleen verschijnt als een apparaat verbonden is. Hiermee kun je de permanente \"Geen apparaten\"-melding verbergen: schakel de categorie \"Apparaatstatus\" uit in de notificatie-instellingen van Android voor CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Melding behouden na verbreken verbinding</string>
     <string name="settings_keep_notification_after_disconnect_description">Blijf de laatst bekende batterijniveaus weergeven, zelfs nadat je AirPods zijn losgekoppeld</string>
     <string name="settings_autopause_label">Auto pauze</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimale signaalkwaliteit</string>
     <string name="settings_signal_minimum_description">De minimale signaalkwaliteit die een apparaat nodig heeft om als je apparaat te worden beschouwd.</string>
     <string name="settings_autoconnect_label">Automatisch verbinden</string>
-    <string name="settings_autoconnect_description">Als Android niet automatisch verbinding maakt, kunnen we dat ook handmatig vragen. Hierdoor wordt de monitormodus ingesteld op \'Altijd\'.</string>
+    <string name="settings_autoconnect_description">Als Android niet automatisch verbinding maakt, kunnen we het ook vragen. Hierdoor blijft CAPod voortdurend op de achtergrond controleren.</string>
     <string name="settings_autoconnect_info_android12">Automatisch verbinden is afhankelijk van een systeemfunctie die beperkt wordt door Android 12 en nieuwer. Het werkt mogelijk niet op je apparaat.</string>
     <string name="settings_autoconnect_condition_label">Auto verbindingsvoorwaarde</string>
     <string name="settings_autoconnect_condition_description">Wanneer moeten we proberen verbinding te maken met je apparaat?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Compatibiliteitsopties</string>
     <string name="settings_category_compatibility_options_description">Niet aanraken als alles werkt ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Hardware filtering uitzetten</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Laat het filteren van gegevens niet aan het systeem over, maar verzamel alle gegevens en filter ze binnen de app.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Probeer dit als je AirPods nooit worden gedetecteerd. De app zal alle nabije Bluetooth-signalen zelf doornemen, in plaats van je telefoon deze vooraf te laten selecteren.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Schakel hardwarebatchverwerking uit.</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Laat de systeemgroep geen BLE-gegevens verzamelen voordat deze naar ons wordt doorgestuurd.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Probeer dit als batterijniveaus alleen laat of in golven worden bijgewerkt. Je telefoon zal elk Bluetooth-signaal onmiddellijk doorgeven, in plaats van deze eerst te verzamelen.</string>
     <string name="settings_onepod_mode_label">Eén pod-modus</string>
     <string name="settings_onepod_mode_description">Automatisch afspelen/pauzeren en automatisch verbinden reageren op één enkele pod in plaats van dat beide nodig zijn.</string>
     <string name="settings_popup_caseopen_label">Case-pop-up weergeven</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Groen</string>
     <string name="widget_config_preset_red">Rood</string>
     <string name="settings_compat_indirectcallback_title">Indirecte gegevensoverdracht</string>
-    <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE-gegevens van het systeem te ontvangen (broadcast in plaats van callback).</string>
+    <string name="settings_compat_indirectcallback_summary">Probeer dit als de andere compatibiliteitsopties niet hebben geholpen. Android zal Bluetooth-signalen op de achtergrond aan de app overhandigen, in plaats van dat de app er rechtstreeks naar luistert.</string>
     <string name="troubleshooter_title">Probleemoplosser</string>
     <string name="troubleshooter_summary">Problemen met Bluetooth connectiviteit diagnosticeren en oplossen.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-uitzendingen</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-instellingen</string>
     <string name="device_settings_send_failed">Instelling kon niet worden toegepast: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">De uit-modus is niet ingeschakeld op dit apparaat. Schakel \'Uit-modus toestaan\' in onder Geluidsregeling.</string>
+    <string name="anc_mode_not_confirmed_message">De AirPods hebben de wijziging van de luistermodus niet bevestigd.</string>
     <string name="device_settings_category_battery_label">Batterij</string>
     <string name="device_settings_charge_cap_label">Geoptimaliseerde Oplaadlimiet</string>
     <string name="device_settings_charge_cap_description">Leer je routine kennen en stop met opladen rond de 80% om de batterijduur te verlengen. Laad de pods volledig op voordat je ze waarschijnlijk gaat gebruiken.</string>

@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Це окрема покупка — вона не скасовує підписку та не повертає за неї кошти. Використовуйте той самий обліковий запис Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Підписка досі активна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ваша підписка досі налаштована на автоматичне продовження. Спочатку скасуйте її в Google Play, а потім перейдіть на одноразову покупку. Щойно скасували? Дайте Google Play трохи часу та спробуйте ще раз.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не вдалося перевірити твої покупки в Google Play. Щоб уникнути подвійної покупки, спробуй ще раз через деякий час.</string>
+    <string name="upgrade_screen_pending_card_title">Платіж в обробці</string>
+    <string name="upgrade_screen_pending_card_body">Google Play все ще обробляє твій платіж. Pro розблокується автоматично, як тільки платіж буде завершений. Деякі способи оплати можуть займати довгий час. Більше нічого робити не потрібно.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play знайшов покупку з платежем в обробці і все ще її обробляє. Pro розблокується автоматично, як тільки платіж буде завершений.</string>
     <string name="upgrade_screen_grace_title">Підтвердження вашої покупки</string>
     <string name="upgrade_screen_grace_body_short">Google Play ще не підтвердив вашу покупку. Pro все ще активний — жодних дій не потрібно.</string>
     <string name="upgrade_screen_grace_body">Google Play вже деякий час не підтверджує вашу покупку. Pro все ще активний. Переконайтеся, що ви в мережі та ввійшли в обліковий запис Google, який використовували для покупки, а потім спробуйте відновити.</string>

@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Tai atskiras pirkimas — jis neatšaukia ir negrąžina pinigų už jūsų prenumeratą. Naudokite tą pačią „Google“ paskyrą.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Prenumerata vis dar aktyvi</string>
     <string name="upgrade_screen_sub_still_renewing_message">Jūsų prenumerata vis dar bus atnaujinta. Pirmiausia atšaukite ją „Google Play“, tada pereikite prie vienkartinio pirkimo. Ką tik atšaukėte? Palaukite kiek laiko, kol „Google Play“ apdoros, ir bandykite dar kartą.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nepavyko patikrinti jūsų pirkinių naudojant Google Play. Norėdami išvengti dvigubo pirkimo, bandykite dar kartą po kurio laiko.</string>
+    <string name="upgrade_screen_pending_card_title">Laukiamas mokėjimas</string>
+    <string name="upgrade_screen_pending_card_body">Google Play vis dar apdoroja jūsų mokėjimą. Pro automatiškai aktyvuojama, kai mokėjimas bus atliktas. Kai kurie mokėjimo būdai gali užtrukti. Jums nereikia daryti nieko daugiau.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play rado pirkimą su laukiamu mokėjimu ir vis dar jį apdoroja. Pro automatiškai aktyvuojama, kai mokėjimas bus atliktas.</string>
     <string name="upgrade_screen_grace_title">Patvirtinamas jūsų pirkimas</string>
     <string name="upgrade_screen_grace_body_short">„Google Play“ dar nepatvirtino jūsų pirkimo. „Pro“ vis dar aktyvus — jokių veiksmų atlikti nereikia.</string>
     <string name="upgrade_screen_grace_body">„Google Play“ jau kurį laiką nepatvirtina jūsų pirkimo. „Pro“ vis dar aktyvus. Įsitikinkite, kad esate prisijungę prie interneto ir naudojate „Google“ paskyrą, kuria atlikote pirkimą, tuomet pabandykite atkurti.</string>

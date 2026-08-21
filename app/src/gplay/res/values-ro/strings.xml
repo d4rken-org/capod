@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Aceasta este o achiziție separată — nu anulează și nu rambursează abonamentul tău. Folosește același cont Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonamentul este încă activ</string>
     <string name="upgrade_screen_sub_still_renewing_message">Abonamentul tău este încă setat să se reînnoiască. Anulează-l mai întâi din Google Play, apoi treci la achiziția unică. Tocmai l-ai anulat? Acordă-i lui Google Play un moment și încearcă din nou.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nu am putut verifica achizițiile tale cu Google Play. Pentru a evita o achiziție dublă, încearcă din nou peste ceva timp.</string>
+    <string name="upgrade_screen_pending_card_title">Plată în așteptare</string>
+    <string name="upgrade_screen_pending_card_body">Google Play încă procesează plata ta. Pro se deblochează automat după ce plata este procesată. Unele metode de plată pot dura ceva vreme. Nu trebuie să faci nimic altceva.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play a găsit o achiziție cu o plată în așteptare și o procesează încă. Pro se deblochează automat după ce plata este procesată.</string>
     <string name="upgrade_screen_grace_title">Se confirmă achiziția ta</string>
     <string name="upgrade_screen_grace_body_short">Google Play nu ți-a confirmat încă achiziția. Pro este încă activ — nu este nevoie de nicio acțiune.</string>
     <string name="upgrade_screen_grace_body">Google Play nu a confirmat achiziția ta de ceva vreme. Pro este încă activ. Asigură-te că ești conectat la internet și autentificat cu contul Google folosit pentru achiziție, apoi încearcă să restaurezi.</string>

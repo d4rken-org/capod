@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">ສະໜັບສະໜູນຜູ້ພັດທະນາ</string>
     <string name="upgrade_benefit_disclaimer">ການມີອີກຸ່ມຂຶ້ນອຍູ່ກັບຫູຟັງແລະອຸປະກອນຂອງທ່ານ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
-    <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
+    <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນທີສອງທີ່ຈະປາກົດຂຶ້ນສະເພາະເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຢູ່. ເມື່ອເປີດໃຊ້ອັນນີ້ ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນ \"ບໍ່ມີອຸປະກອນ\" ຖາວອນໄດ້: ໃຫ້ປິດໝວດໝູ່ \"ສະຖານະອຸປະກອນ\" ໃນການຕັ້ງຄ່າການແຈ້ງເຕືອນຂອງ Android ສຳລັບ CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="settings_signal_minimum_description">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າທີ່ອຸປະກອນຕ້ອງມີເພື່ອຖືວ່າເປັນຂອງທ່ານ.</string>
     <string name="settings_autoconnect_label">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
-    <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \"ສະເໝີ\" .</string>
+    <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ໂດຍອັດຕະໂນມັດ, ພວກເຮົາສາມາດຂໍໃຫ້ມັນເຮັດໄດ້. ອັນນີ້ຈະຮັກສາການຕິດຕາມຂອງ CAPod ໃຫ້ເຮັດວຽກຢູ່ພື້ນຫຼັງຕະຫຼອດເວລາ.</string>
     <string name="settings_autoconnect_info_android12">ການເຊື່ອມຕໍ່ອັດຕະໂນມັດອາໃສຟີເຈີລະບົບທີ່ Android 12 ແລະລຸ້ນໃໝ່ກວ່າຈຳກັດ. ມັນອາດຈະບໍ່ເຮັດວຽກໃນອຸປະກອນຂອງທ່ານ.</string>
     <string name="settings_autoconnect_condition_label">ເງື່ອນໄຂການເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="settings_autoconnect_condition_description">ພວກເຮົາຄວນພະຍາຍາມເຊື່ອມຕໍ່ກັບອຸປະກອນຂອງທ່ານເມື່ອໃດ?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">ຕົວເລືອກຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_category_compatibility_options_description">ຢ່າແຕະຕ້ອງຖ້າທຸກຢ່າງເຮັດວຽກ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ປິດການກັ່ນຕອງຮາດແວ</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">ຢ່າໂອນການກັ່ນຕອງຂໍ້ມູນໄປໃຫ້ລະບົບ, ແທນທີ່ຈະຮັບຂໍ້ມູນທັງໝົດ ແລະ ກັ່ນຕອງພາຍໃນແອັບ.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">ລອງໃຊ້ອັນນີ້ຖ້າ AirPods ຂອງທ່ານບໍ່ຖືກກວດພົບເລີຍ. ແອັບຈະຄົ້ນຫາຜ່ານສັນຍານ Bluetooth ທີ່ຢູ່ໃກ້ຄຽງທັງໝົດດ້ວຍຕົນເອງ ແທນທີ່ຈະໃຫ້ໂທລະສັບຂອງທ່ານເລືອກລ່ວງໜ້າ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ປິດການຈັດກຸ່ມຮາດແວ</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">ຢ່າໃຫ້ລະບົບຈັດກຸ່ມຂໍ້ມູນ BLE ທີ່ເກັບກຳໄດ້ກ່ອນທີ່ຈະສົ່ງຕໍ່ໃຫ້ພວກເຮົາ.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ລອງໃຊ້ອັນນີ້ຖ້າລະດັບແບັດເຕີຣີອັບເດດຊ້າ ຫຼື ອັບເດດເປັນຊຸດ. ໂທລະສັບຂອງທ່ານຈະສົ່ງຕໍ່ສັນຍານ Bluetooth ແຕ່ລະສັນຍານທັນທີ ແທນທີ່ຈະລວບລວມກ່ອນ.</string>
     <string name="settings_onepod_mode_label">ໂໝດផតດຽວ</string>
     <string name="settings_onepod_mode_description">ຫຼິ້ນ/ຢຸດ ແລະ ເຊື່ອມຕໍ່ອັດຕະໂນມັດຕອບສະໜອງຕໍ່ pod ດຽວ ແທນທີ່ຈະຕ້ອງໃຊ້ທັງສອງ.</string>
     <string name="settings_popup_caseopen_label">ສະແດງປັອບອັບເຄສ</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">ສີຂຽວ</string>
     <string name="widget_config_preset_red">ສີແດງ</string>
     <string name="settings_compat_indirectcallback_title">ການສົ່ງຂໍ້ມູນທາງອ້ອມ</string>
-    <string name="settings_compat_indirectcallback_summary">ໃຊ້ວິທີທາງເລືອກເພື່ອຮັບຂໍ້ມູນ BLE ຈາກລະບົບ (ກະຈາຍສຽງແທນການໂທກັບ).</string>
+    <string name="settings_compat_indirectcallback_summary">ລອງໃຊ້ອັນນີ້ຖ້າຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ອື່ນໆບໍ່ໄດ້ຊ່ວຍ. Android ຈະສົ່ງສັນຍານ Bluetooth ໃຫ້ແອັບໃນພື້ນຫຼັງ ແທນທີ່ແອັບຈະຟັງສັນຍານເອງໂດຍກົງ.</string>
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_summary">ກວດຫາ ແລະ ແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ການຕັ້ງຄ່າ Bluetooth</string>
     <string name="device_settings_send_failed">ບໍ່ສາມາດໃຊ້ການຕັ້ງຄ່າ: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ໂໝດປິດບໍ່ໄດ້ເຮັດວຽກໃນອຸປະກອນນີ້. ເຮັດວຽກ \"ອະນຸຍາດໂໝດປິດ\" ເທິງໃຕ້ ການຄວບຄຸມສຽງລົບກວນ.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ບໍ່ໄດ້ຢືນຢັນການປ່ຽນໂໝດການຟັງ.</string>
     <string name="device_settings_category_battery_label">ແບດເຕີລີ</string>
     <string name="device_settings_charge_cap_label">ຈຳກັດການສາກທີ່ປັບປຸງແລ້ວ</string>
     <string name="device_settings_charge_cap_description">ຮຽນຮູ້ການເຮັດວຽກປົກກະຕິຂອງທ່ານ ແລະ ຢຸດການສາກໄຟລອບ 80%% ເພື່ອຍືດອາຍຸການໃຊ້ງານແບດເຕີລີ, ໂດຍເຕີມຈົນເຕັມກ່ອນທີ່ທ່ານຈະໃຊ້ງານ.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">គាំទ្រអ្នកអភិវឌ្ឍន៍</string>
     <string name="upgrade_benefit_disclaimer">ភាពអាចប្រើបានអាស្រ័យលើកាស និងឧបករណ៍របស់អ្នក។</string>
     <string name="settings_monitor_connected_notification_label">ការជូនដំណឹងបន្ថែម</string>
-    <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងបន្ថែមនៅពេលឧបករណ៍ត្រូវបានភ្ជាប់។ វាអនុញ្ញាតឱ្យអ្នកលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" ដោយបិទឆានែល \"ស្ថានភាពឧបករណ៍\"។</string>
+    <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងទីពីរដែលបង្ហាញតែពេលឧបករណ៍មួយកំពុងតភ្ជាប់ប៉ុណ្ណោះ។ ដោយបើកវា អ្នកអាចលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" បាន: បិទប្រភេទ \"ស្ថានភាពឧបករណ៍\" នៅក្នុងការកំណត់ការជូនដំណឹងរបស់ Android សម្រាប់ CAPod។</string>
     <string name="settings_keep_notification_after_disconnect_label">រក្សាការជូនដំណឹងបន្ទាប់ពីផ្តាច់</string>
     <string name="settings_keep_notification_after_disconnect_description">បន្តបង្ហាញកម្រិតថ្មចុងក្រោយដែលស្គាល់ សូម្បីបន្ទាប់ពី AirPods របស់អ្នកផ្តាច់ក៏ដោយ</string>
     <string name="settings_autopause_label">ផ្អាកដោយស្វ័យប្រវត្តិ</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">គុណភាពសញ្ញាអប្បបរមា</string>
     <string name="settings_signal_minimum_description">គុណភាពសញ្ញាអប្បបរមាដែលឧបករណ៍ត្រូវតែមានដើម្បីចាត់ទុកថាជារបស់អ្នក។</string>
     <string name="settings_autoconnect_label">ភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
-    <string name="settings_autoconnect_description">ប្រសិនបើ Android មិនភ្ជាប់ដោយស្វ័យប្រវត្តិទេ យើងក៏អាចស្នើសុំវាបានដែរ។ វានឹងកំណត់ការកំណត់របៀបຕິດຕាមទៅ \"ជានិច្ច\" ។</string>
+    <string name="settings_autoconnect_description">ប្រសិនបើ Android មិនតភ្ជាប់ដោយស្វ័យប្រវត្តិទេ យើងអាចស្នើសុំវាបាន។ វារក្សាឱ្យ CAPod ត្រួតពិនិត្យនៅផ្ទៃខាងក្រោយជានិច្ច។</string>
     <string name="settings_autoconnect_info_android12">ការភ្ជាប់ស្វ័យប្រវត្តិពឹងផ្អែកលើមុខងារប្រព័ន្ធដែល Android 12 និងថ្មីជាងនេះដាក់កម្រិត។ វាប្រហែលជាមិនដំណើរការនៅលើឧបករណ៍របស់អ្នកទេ។</string>
     <string name="settings_autoconnect_condition_label">លក្ខខណ្ឌភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_autoconnect_condition_description">តើយើងគួរព្យាយាមភ្ជាប់ទៅឧបករណ៍របស់អ្នកនៅពេលណា?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">ជម្រើសភាពឆបគ្នា</string>
     <string name="settings_category_compatibility_options_description">កុំប៉ះប្រសិនបើអ្វីៗដំណើរការបានល្អ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">បិទការត្រងផ្នែករឹង</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">កុំផ្ទេរការត្រងទិន្នន័យទៅប្រព័ន្ធ ផ្ទុយទៅវិញទទួលបានទិន្នន័យទាំងអស់ ហើយត្រងនៅក្នុងកម្មវិធី។</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">សាកល្បងវិធីនេះប្រសិនបើ AirPods របស់អ្នកមិនត្រូវបានរកឃើញសោះ។ កម្មវិធីនឹងស្វែងរកសញ្ញា Bluetooth នៅជិតៗទាំងអស់ដោយខ្លួនឯង ជំនួសឱ្យការឱ្យទូរស័ព្ទរបស់អ្នកជ្រើសរើសមុន។</string>
     <string name="settings_compat_offloaded_batching_disabled_title">បិទការដាក់ជាក្រុមផ្នែករឹង</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">កុំឱ្យប្រព័ន្ធដាក់ជាក្រុមទិន្នន័យ BLE ដែលប្រមូលបានមុនពេលបញ្ជូនវាទៅយើង។</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">សាកល្បងវិធីនេះប្រសិនបើកម្រិតថ្មបច្ចុប្បន្នភាពយឺត ឬមកជាបំណុះៗ។ ទូរស័ព្ទរបស់អ្នកនឹងបញ្ជូនសញ្ញា Bluetooth នីមួយៗភ្លាមៗ ជំនួសឱ្យការប្រមូលវាជាមុនសិន។</string>
     <string name="settings_onepod_mode_label">របៀបផតមួយ</string>
     <string name="settings_onepod_mode_description">ការចាក់/ផ្អាកស្វ័យប្រវត្តិ និងការភ្ជាប់ស្វ័យប្រវត្តិឆ្លើយតបទៅ pod មួយ ជំនួសឱ្យការទាមទារទាំងពីរ។</string>
     <string name="settings_popup_caseopen_label">បង្ហាញផ្ទាំងលោតប្រអប់</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">ពណ៌បៃតង</string>
     <string name="widget_config_preset_red">ពណ៌ក្រហម</string>
     <string name="settings_compat_indirectcallback_title">ការបញ្ជូនទិន្នន័យដោយប្រយោល</string>
-    <string name="settings_compat_indirectcallback_summary">ប្រើវិធីសាស្ត្រជំនួសដើម្បីទទួលទិន្នន័យ BLE ពីប្រព័ន្ធ (ផ្សាយជំនួសឱ្យការហៅត្រឡប់)។</string>
+    <string name="settings_compat_indirectcallback_summary">សាកល្បងវិធីនេះប្រសិនបើជម្រើសភាពឆបគ្នាផ្សេងទៀតមិនបានជួយ។ Android នឹងបញ្ជូនសញ្ញា Bluetooth ទៅកម្មវិធីនៅផ្ទៃខាងក្រោយ ជំនួសឱ្យការឱ្យកម្មវិធីស្តាប់សញ្ញាទាំងនោះដោយផ្ទាល់។</string>
     <string name="troubleshooter_title">កម្មវិធីដោះស្រាយបញ្ហា</string>
     <string name="troubleshooter_summary">ធ្វើរោគវិនិច្ឆ័យ និងដោះស្រាយបញ្ហាការតភ្ជាប់ Bluetooth។</string>
     <string name="troubleshooter_ble_intro_title">ការផ្សាយ Bluetooth Low Energy</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ការកំណត់ Bluetooth</string>
     <string name="device_settings_send_failed">មិនអាចអនុវត្តការកំណត់: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">របឰប Off មិនបានបើកនៅលើឧបករណ៍នេះ។ បើក \"អនុញ្ញាតរបឰប Off\" ក្របម Noise Control។</string>
+    <string name="anc_mode_not_confirmed_message">AirPods មិនបានបញ្ជាក់ការផ្លាស់ប្តូរម៉ូតស្តាប់ទេ។</string>
     <string name="device_settings_category_battery_label">ថ្មី</string>
     <string name="device_settings_charge_cap_label">កំណត់ការសាកថ្មប្រសិទ្ធភាព</string>
     <string name="device_settings_charge_cap_description">រៀនទម្លាប់របស់អ្នក ហើយផ្អាកការសាកប្រហែល 80%% ដើម្បីពន្យារអាយុថ្ម ដោយបំពេញ pods មុនពេលអ្នកទំនងនឹងប្រើពួកវា។</string>

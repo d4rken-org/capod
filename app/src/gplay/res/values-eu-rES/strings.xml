@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Beste erosketa bat da — ez du zure harpidetza bertan behera uzten edo itzultzen. Erabili Google kontu bera.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Harpidetza oraindik aktibo</string>
     <string name="upgrade_screen_sub_still_renewing_message">Zure harpidetza oraindik berritzeko ezarrita dago. Utzi lehenengo Google Playn, eta gero aldatu aldi bateko erosketara. Duela gutxi utzi duzu? Eman Google Play-ri unetxo bat eta saiatu berriro.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Ezin izan dira zure erosketak Google Play-rekin egiaztatu. Erosketa bikoitza saihesteko, saiatu berriro pixka bat geroago.</string>
+    <string name="upgrade_screen_pending_card_title">Ordainketa zain</string>
+    <string name="upgrade_screen_pending_card_body">Google Play zure ordainketa prozesatzen ari da oraindik. Pro automatikoki desblokeatuko da ordainketa burutzen denean. Ordainketa-metodo batzuek denbora har dezakete. Ez duzu ezer gehiago egin behar.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play-k ordainketa zain duen erosketa bat aurkitu du eta prozesatzen ari da oraindik. Pro automatikoki desblokeatuko da ordainketa burutzen denean.</string>
     <string name="upgrade_screen_grace_title">Zure erosketa berresten</string>
     <string name="upgrade_screen_grace_body_short">Google Playk oraindik ez du zure erosketa berretsi. Pro aktibo dago oraindik — ez da ekintzarik behar.</string>
     <string name="upgrade_screen_grace_body">Google Playk denbora luzez ez du zure erosketa berretsi. Pro aktibo dago oraindik. Ziurtatu konektatuta zaudela eta erosketa egiteko erabilitako Google kontuarekin saioa hasita duzula, eta gero saiatu leheneratzen.</string>

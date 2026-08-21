@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">డెవలపర్‌కు మద్దతు ఇవ్వండి</string>
     <string name="upgrade_benefit_disclaimer">ఫీచర్ అందుబాటు మీ హెడ్‌ఫోన్‌లు మరియు పరికరంపై ఆధారపడి ఉంటుంది.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
-    <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
+    <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయి ఉన్నప్పుడు మాత్రమే కనిపించే రెండో నోటిఫికేషన్‌ను చూపిస్తుంది. దీన్ని ఆన్ చేస్తే, శాశ్వతంగా కనిపించే \"పరికరాలు లేవు\" నోటిఫికేషన్‌ను దాచవచ్చు: Android నోటిఫికేషన్ సెట్టింగ్‌లలో CAPod కోసం \"పరికర స్థితి\" వర్గాన్ని ఆఫ్ చేయి.</string>
     <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
     <string name="settings_keep_notification_after_disconnect_description">మీ AirPods డిస్‌కనెక్ట్ అయిన తర్వాత కూడా చివరిగా తెలిసిన బ్యాటరీ స్థాయిలను చూపించడం కొనసాగించు</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
     <string name="settings_signal_minimum_description">ఒక పరికరం మీదిగా పరిగణించబడటానికి అవసరమైన కనీస సిగ్నల్ నాణ్యత.</string>
     <string name="settings_autoconnect_label">ఆటో కనెక్ట్</string>
-    <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \'ఎల్లప్పుడూ\'కి సెట్ చేస్తుంది.</string>
+    <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మనం దానికి కూడా అడగగలం. దీనివల్ల CAPod ఎప్పుడూ నేపథ్యంలో పర్యవేక్షిస్తూనే ఉంటుంది.</string>
     <string name="settings_autoconnect_info_android12">స్వయంచాలక కనెక్ట్ Android 12 మరియు అంతకు తర్వాతి వెర్షన్‌లు పరిమితం చేసే సిస్టమ్ ఫీచర్‌పై ఆధారపడుతుంది. ఇది మీ పరికరంలో పని చేయకపోవచ్చు.</string>
     <string name="settings_autoconnect_condition_label">ఆటో కనెక్ట్ షరతు</string>
     <string name="settings_autoconnect_condition_description">మేము మీ పరికరానికి ఎప్పుడు కనెక్ట్ చేయడానికి ప్రయత్నించాలి?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">అనుకూలత ఎంపికలు</string>
     <string name="settings_category_compatibility_options_description">అన్నీ పని చేస్తే తాకవద్దు ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">హార్డ్‌వేర్ ఫిల్టరింగ్‌ను నిలిపివేయండి</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">డేటా ఫిల్టరింగ్‌ను సిస్టమ్‌కు అప్పగించవద్దు, బదులుగా మొత్తం డేటాను పొందండి మరియు యాప్‌లోనే ఫిల్టర్ చేయండి.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">నీ AirPods అస్సలు గుర్తించబడకపోతే దీన్ని ప్రయత్నించు. ఫోన్ వాటిని ముందుగా ఎంచుకోనివ్వకుండా, యాప్ దగ్గరలోని అన్ని Bluetooth సిగ్నల్స్‌ను స్వయంగా వెతుకుతుంది.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">హార్డ్‌వేర్ బ్యాచింగ్‌ను నిలిపివేయండి</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">సేకరించిన BLE డేటాను మాకు ఫార్వార్డ్ చేయడానికి ముందు సిస్టమ్ సమూహపరచడానికి అనుమతించవద్దు.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">బ్యాటరీ స్థాయిలు ఆలస్యంగా లేదా విడతలుగా మాత్రమే అప్‌డేట్ అవుతుంటే దీన్ని ప్రయత్నించు. నీ ఫోన్ ముందుగా సిగ్నల్స్‌ను సేకరించకుండా, ప్రతి Bluetooth సిగ్నల్‌ను వెంటనే పంపిస్తుంది.</string>
     <string name="settings_onepod_mode_label">ఒక పాడ్ మోడ్</string>
     <string name="settings_onepod_mode_description">స్వయంచాలక ప్లే/పాజ్ మరియు స్వయంచాలక-కనెక్ట్ రెండూ అవసరం లేకుండా ఒకే పాడ్‌కు స్పందిస్తాయి.</string>
     <string name="settings_popup_caseopen_label">కేస్ పాపప్ చూపించు</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">ఆకుపచ్చ</string>
     <string name="widget_config_preset_red">ఎరుపు</string>
     <string name="settings_compat_indirectcallback_title">పరోక్ష డేటా డెలివరీ</string>
-    <string name="settings_compat_indirectcallback_summary">సిస్టమ్ నుండి BLE డేటాను స్వీకరించడానికి ప్రత్యామ్నాయ పద్ధతిని ఉపయోగించండి (కాల్‌బ్యాక్‌కు బదులుగా ప్రసారం).</string>
+    <string name="settings_compat_indirectcallback_summary">ఇతర అనుకూలత ఎంపికలు పని చేయకపోతే దీన్ని ప్రయత్నించు. యాప్ నేరుగా Bluetooth సిగ్నల్స్ కోసం వినకుండా, Android వాటిని నేపథ్యంలో యాప్‌కు అందిస్తుంది.</string>
     <string name="troubleshooter_title">ట్రబుల్షూటర్</string>
     <string name="troubleshooter_summary">బ్లూటూత్ కనెక్టివిటీ సమస్యలను నిర్ధారించి పరిష్కరించండి.</string>
     <string name="troubleshooter_ble_intro_title">బ్లూటూత్ తక్కువ శక్తి ప్రసారాలు</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">బ్లూటూత్ సెట్టింగ్‌లు</string>
     <string name="device_settings_send_failed">సెట్టింగ్ వర్తింపజేయడం సాధ్యపడలేదు: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off మోడ్ ఈ పరికరంలో సక్రియం కాదు. నాయిస్ కంట్రోల్ కింద \"Off మోడ్ అనుమతించు\"ను సక్రియం చేయండి.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods వినికిడి మోడ్ మార్పును నిర్ధారించలేదు.</string>
     <string name="device_settings_category_battery_label">బ్యాటరీ</string>
     <string name="device_settings_charge_cap_label">ఆప్టిమైజ్ చేయబడిన చార్జ్ పరిమితి</string>
     <string name="device_settings_charge_cap_description">మీ దినచర్యను నేర్చుకుని బ్యాటరీ జీవితాన్ని పొడిగించడానికి 80%% వద్ద చార్జింగ్‌ను నిలిపి, మీరు వాటిని ఉపయోగించే ముందు పాడ్‌లను పూర్తిగా చార్జ్ చేస్తుంది.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Падтрымаць распрацоўшчыка</string>
     <string name="upgrade_benefit_disclaimer">Даступнасць функцый залежыць ад вашых навушнікаў і прылады.</string>
     <string name="settings_monitor_connected_notification_label">Дадатковае апавяшчэнне</string>
-    <string name="settings_monitor_connected_notification_description">Паказвае дадатковае апавяшчэнне пры падключэнні прылады. Гэта дазваляе схаваць пастаяннае апавяшчэнне \"Няма прылад\" шляхам адключэння канала \"Стан прылады\".</string>
+    <string name="settings_monitor_connected_notification_description">Паказвае другое паведамленне, якое з\'яўляецца толькі калі прылада падключана. Калі гэта ўключана, можаш схаваць пастаяны паведамленне «Прыладаў не знойдзена»: адключы катэгорыю «Статус прылады» ў параметрах паведамленняў Android для CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Захаваць апавяшчэнне пасля адключэння</string>
     <string name="settings_keep_notification_after_disconnect_description">Працягваць паказваць апошнія вядомыя ўзроўні зарадкі нават пасля адключэння вашых AirPods</string>
     <string name="settings_autopause_label">Аўтаматычная паўза</string>

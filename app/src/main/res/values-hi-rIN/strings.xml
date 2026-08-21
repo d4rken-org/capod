@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">डेवलपर का समर्थन करें</string>
     <string name="upgrade_benefit_disclaimer">सुविधा की उपलब्धता आपके हेडफ़ोन और डिवाइस पर निर्भर करती है।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
-    <string name="settings_monitor_connected_notification_description">जब कोई डिवाइस कनेक्ट होता है तो एक अतिरिक्त सूचना दिखाता है। यह आपको \"डिवाइस स्थिति\" चैनल को अक्षम करके स्थायी \"कोई डिवाइस नहीं\" सूचना को छिपाने की अनुमति देता है।</string>
+    <string name="settings_monitor_connected_notification_description">यह एक दूसरी सूचना दिखाता है जो केवल तब दिखाई देती है जब कोई डिवाइस कनेक्ट हो। इसे चालू करने से आप स्थायी \"कोई डिवाइस नहीं\" सूचना को छिपा सकते हैं: Android की सूचना सेटिंग में CAPod के लिए \"डिवाइस स्थिति\" श्रेणी को बंद करें।</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट होने के बाद सूचना बनाए रखें</string>
     <string name="settings_keep_notification_after_disconnect_description">आपके AirPods डिस्कनेक्ट होने के बाद भी अंतिम ज्ञात बैटरी स्तर दिखाना जारी रखें</string>
     <string name="settings_autopause_label">ऑटो-पॉज़</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणवत्ता</string>
     <string name="settings_signal_minimum_description">न्यूनतम सिग्नल गुणवत्ता जो किसी डिवाइस के पास आपकी मानी जाने के लिए होनी चाहिए।</string>
     <string name="settings_autoconnect_label">ऑटो-कनेक्ट</string>
-    <string name="settings_autoconnect_description">यदि एंड्रॉइड स्वचालित रूप से कनेक्ट नहीं होता है, तो हम भी अनुरोध कर सकते हैं। यह मॉनिटर मोड सेटिंग को \"हमेशा\" पर सेट करेगा।</string>
+    <string name="settings_autoconnect_description">यदि Android अपने आप कनेक्ट नहीं करता है, तो हम इसे भी पूछ सकते हैं। यह CAPod को हर समय पृष्ठभूमि में निगरानी रखता है।</string>
     <string name="settings_autoconnect_info_android12">ऑटो कनेक्ट एक सिस्टम फ़ीचर पर निर्भर करता है जिसे Android 12 और नए संस्करण प्रतिबंधित करते हैं। यह आपके डिवाइस पर काम नहीं कर सकता।</string>
     <string name="settings_autoconnect_condition_label">ऑटो-कनेक्ट शर्त</string>
     <string name="settings_autoconnect_condition_description">हमें आपके डिवाइस से कनेक्ट करने का प्रयास कब करना चाहिए?</string>
@@ -56,7 +56,7 @@
     <string name="settings_category_compatibility_options_title">संगतता विकल्प</string>
     <string name="settings_category_compatibility_options_description">अगर सब कुछ काम कर रहा है तो स्पर्श न करें ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">हार्डवेयर फ़िल्टरिंग अक्षम करें</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">सिस्टम को डेटा फ़िल्टरिंग न सौंपें, इसके बजाय सभी डेटा प्राप्त करें और ऐप के भीतर फ़िल्टर करें।</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">अगर आपके AirPods कभी पहचाने नहीं जाते हैं तो इसे आज़माएं। ऐप्लिकेशन पास के सभी Bluetooth सिग्नल को स्वयं देखेगा, बजाय इसके कि आपका फोन उन्हें पहले से चुनने दे।</string>
     <string name="settings_compat_offloaded_batching_disabled_title">हार्डवेयर बैचिंग अक्षम करें</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">सिस्टम को एकत्रित BLE डेटा को हमें अग्रेषित करने से पहले समूहित न करने दें।</string>
     <string name="settings_onepod_mode_label">एक पॉड मोड</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">हरा</string>
     <string name="widget_config_preset_red">लाल</string>
     <string name="settings_compat_indirectcallback_title">अप्रत्यक्ष डेटा वितरण</string>
-    <string name="settings_compat_indirectcallback_summary">सिस्टम से BLE डेटा प्राप्त करने के लिए एक वैकल्पिक विधि का उपयोग करें (कॉलबैक के बजाय प्रसारण)।</string>
+    <string name="settings_compat_indirectcallback_summary">अगर अन्य संगतता विकल्प मदद नहीं करते हैं तो इसे आज़माएं। Android ऐप्लिकेशन को पृष्ठभूमि में Bluetooth सिग्नल सौंपेगा, बजाय ऐप्लिकेशन सीधे उनके लिए सुनने के।</string>
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_summary">Bluetooth कनेक्टिविटी समस्याओं का निदान और समाधान करें।</string>
     <string name="troubleshooter_ble_intro_title">ब्लूटूथ कम ऊर्जा प्रसारण</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ब्लूटूथ सेटिंग्स</string>
     <string name="device_settings_send_failed">सेटिंग लागू नहीं हो सकी: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">इस डिवाइस पर Off मोड सक्षम नहीं है। शोर नियंत्रण के अंतर्गत \"ऑफ मोड अनुमति दें\" सक्षम करें।</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ने सुनने की मोड में परिवर्तन की पुष्टि नहीं की।</string>
     <string name="device_settings_category_battery_label">बैटरी</string>
     <string name="device_settings_charge_cap_label">अनुकूलित चार्ज सीमा</string>
     <string name="device_settings_charge_cap_description">आपकी दिनचर्या सीखें और बैटरी जीवन बढ़ाने के लिए लगभग 80%% पर चार्जिंग रोकें, इस्तेमाल से पहले पॉड्स को पूरी तरह चार्ज करें।</string>

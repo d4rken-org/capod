@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">開発者を支援する</string>
     <string name="upgrade_benefit_disclaimer">機能の利用可能性はヘッドフォンとデバイスによって異なります。</string>
     <string name="settings_monitor_connected_notification_label">追加通知</string>
-    <string name="settings_monitor_connected_notification_description">デバイスが接続されると追加の通知を表示します。これにより、「デバイスステータス」チャネルを無効にすることで、永続的な「デバイスなし」通知を非表示にできます。</string>
+    <string name="settings_monitor_connected_notification_description">デバイスが接続されている間だけ表示される2番目の通知を表示します。この設定をオンにすると、常に表示される「デバイスなし」通知を非表示にできます。Androidの通知設定でCAPodの「デバイスステータス」カテゴリをオフにしてください。</string>
     <string name="settings_keep_notification_after_disconnect_label">切断後も通知を維持</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPodsが切断された後も、最後に確認されたバッテリー残量を表示し続けます</string>
     <string name="settings_autopause_label">自動一時停止</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">最小信号品質</string>
     <string name="settings_signal_minimum_description">デバイスがあなたのものと見なされるために必要な最小信号品質。</string>
     <string name="settings_autoconnect_label">自動接続</string>
-    <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、私たちもそれを要求できます。これにより、モニターモードの設定が「常に」に設定されます。</string>
+    <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、CAPodから接続をリクエストすることができます。この機能をオンにすると、CAPodは常にバックグラウンドで監視を続けます。</string>
     <string name="settings_autoconnect_info_android12">自動接続はAndroid 12以降で制限されているシステム機能に依存しています。お使いのデバイスでは動作しない場合があります。</string>
     <string name="settings_autoconnect_condition_label">自動接続条件</string>
     <string name="settings_autoconnect_condition_description">いつデバイスに接続しようとすべきですか？</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">互換性オプション</string>
     <string name="settings_category_compatibility_options_description">すべてが機能する場合は触れないでください ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ハードウェアフィルタリングを無効にする</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">データフィルタリングをシステムに委任せず、代わりにすべてのデータを取得してアプリ内でフィルタリングします。</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPodsが検出されない場合は、これを試してください。電話による信号の事前選別ではなく、アプリがすべての近くのBluetooth信号を直接確認します。</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ハードウェアバッチ処理を無効にする</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">収集されたBLEデータを私たちに転送する前にシステムがグループ化するのを許可しないでください。</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">バッテリーレベルが遅れて更新される場合や、バースト的に更新される場合は、これを試してください。電話が信号を最初にまとめる代わりに、各Bluetooth信号をすぐにアプリに渡します。</string>
     <string name="settings_onepod_mode_label">片耳モード</string>
     <string name="settings_onepod_mode_description">自動再生/一時停止と自動接続は、両方を必要とせず、単一のポッドに反応します。</string>
     <string name="settings_popup_caseopen_label">ケースポップアップを表示</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">グリーン</string>
     <string name="widget_config_preset_red">レッド</string>
     <string name="settings_compat_indirectcallback_title">間接的なデータ配信</string>
-    <string name="settings_compat_indirectcallback_summary">システムからBLEデータを受信するための代替方法を使用します（コールバックではなくブロードキャスト）。</string>
+    <string name="settings_compat_indirectcallback_summary">他の互換性オプションが役に立たない場合は、これを試してください。アプリが直接リッスンする代わりに、Androidがバックグラウンドでアプリに対してBluetooth信号を配信します。</string>
     <string name="troubleshooter_title">トラブルシューター</string>
     <string name="troubleshooter_summary">Bluetooth接続の問題を診断して修正します。</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energyブロードキャスト</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth設定</string>
     <string name="device_settings_send_failed">設定を適用できませんでした: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">オフモードはこのデバイスで有効になっていません。「ノイズコントロール」で「オフモードを許可」を有効にしてください。</string>
+    <string name="anc_mode_not_confirmed_message">AirPodsがリスニングモード変更を確認しませんでした。</string>
     <string name="device_settings_category_battery_label">バッテリー</string>
     <string name="device_settings_charge_cap_label">最適化された充電上限</string>
     <string name="device_settings_charge_cap_description">あなたのルーティンを学習し、バッテリー寿命を延ばすために80%%前後で充電を一時停止し、使用する直前にイヤポッドを満充電にします。</string>

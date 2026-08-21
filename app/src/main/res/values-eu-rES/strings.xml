@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Lagundu garatzaileari</string>
     <string name="upgrade_benefit_disclaimer">Funtzionen erabilgarritasuna entzungailuen eta gailuaren araberakoa da.</string>
     <string name="settings_monitor_connected_notification_label">Jakinarazpen gehigarria</string>
-    <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean jakinarazpen gehigarri bat erakusten du. Honek \"Gailurik ez\" jakinarazpen iraunkorra ezkutatzeko aukera ematen dizu \"Gailuaren egoera\" kanala desgaituz.</string>
+    <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean bakarrik agertzen den bigarren jakinarazpen bat erakusten du. Hau aktibatuta, \"Gailurik ez\" jakinarazpen iraunkorra ezkuta dezakezu: desaktibatu \"Gailuaren egoera\" kategoria CAPod-en Androideko jakinarazpen-ezarpenetan.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantendu jakinarazpena deskonektatu ondoren</string>
     <string name="settings_keep_notification_after_disconnect_description">Jarraitu azken bateria-maila ezagunak erakusten zure AirPods-ak deskonektatu ondoren ere</string>
     <string name="settings_autopause_label">Pausatze automatikoa</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
     <string name="settings_signal_minimum_description">Gailu batek zurea dela kontsideratzeko izan behar duen seinalearen gutxieneko kalitatea.</string>
     <string name="settings_autoconnect_label">Automatikoki konektatu</string>
-    <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \"Beti\" moduan jarriko du.</string>
+    <string name="settings_autoconnect_description">Androidek automatikoki konektatzen ez badu, guk ere eska diezaiokegu. Honek CAPod atzeko planoan etengabe monitorizatzen jarraitzea eragiten du.</string>
     <string name="settings_autoconnect_info_android12">Konexio automatikoak Android 12 eta berriagoak mugatzen duen sistema-funtzio batean oinarritzen da. Baliteke zure gailuan ez funtzionatzea.</string>
     <string name="settings_autoconnect_condition_label">Automatikoki konektatzeko baldintza</string>
     <string name="settings_autoconnect_condition_description">Noiz saiatu behar gara zure gailura konektatzen?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Bateragarritasun aukerak</string>
     <string name="settings_category_compatibility_options_description">Ez ukitu dena ondo badabil ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Desgaitu hardware bidezko iragazketa</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Ez utzi datuen iragazketa sistemaren esku, horren ordez lortu datu guztiak eta iragazi aplikazioaren barruan.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Probatu hau zure AirPods inoiz detektatzen ez badira. Aplikazioak berak arakatuko ditu inguruko Bluetooth seinale guztiak, telefonoak aurrez hautatzen utzi beharrean.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desgaitu hardware bidezko sortakatzea</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Ez utzi sistemak bildutako BLE datuak sortaka ditzan gurera bidali aurretik.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Probatu hau bateria-mailak berandu edo saltoka bakarrik eguneratzen badira. Telefonoak Bluetooth seinale bakoitza berehala helaraziko du, aurretik biltzeaz baino.</string>
     <string name="settings_onepod_mode_label">Pod bakarreko modua</string>
     <string name="settings_onepod_mode_description">Erreprodukzio/pausaren automatismoa eta konexio automatikoa pod bakar bati erantzuten diote, biak behartu ordez.</string>
     <string name="settings_popup_caseopen_label">Erakutsi kaxaren pop-up-a</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Berdea</string>
     <string name="widget_config_preset_red">Gorria</string>
     <string name="settings_compat_indirectcallback_title">Datuen zeharkako bidalketa</string>
-    <string name="settings_compat_indirectcallback_summary">Erabili metodo alternatibo bat sistematik BLE datuak jasotzeko (igorpena deiaren ordez).</string>
+    <string name="settings_compat_indirectcallback_summary">Probatu hau bateragarritasun-aukera besteek lagundu ez badizute. Androidek Bluetooth seinaleak aplikazioari emango dizkio atzeko planoan, aplikazioak zuzenean entzun beharrean.</string>
     <string name="troubleshooter_title">Arazo-konpontzailea</string>
     <string name="troubleshooter_summary">Diagnostikatu eta konpondu Bluetooth konexio-arazoak.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Energia Baxuko Igorpenak</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth ezarpenak</string>
     <string name="device_settings_send_failed">Ezin izan da ezarpena aplikatu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Itzali modua ez dago aktibatuta gailu honetan. Gaitu \"Baimendu Itzali modua\" Zarata Kontrolen atalean.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods-ek ez du entzute-moduaren aldaketa berretsi.</string>
     <string name="device_settings_category_battery_label">Bateria</string>
     <string name="device_settings_charge_cap_label">Karga Muga Optimizatua</string>
     <string name="device_settings_charge_cap_description">Zure errutina ikasi eta karga %% 80 inguruan pausatu bateriaren bizitza luzatzeko, podak erabiltzeko prest utziz.</string>

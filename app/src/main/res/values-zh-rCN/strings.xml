@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">支持开发者</string>
     <string name="upgrade_benefit_disclaimer">功能可用性取决于您的耳机和设备。</string>
     <string name="settings_monitor_connected_notification_label">额外通知</string>
-    <string name="settings_monitor_connected_notification_description">在设备连接时显示一条额外通知。这使您可以禁用“设备状态”通道来隐藏永久性的“无设备”通知。</string>
+    <string name="settings_monitor_connected_notification_description">显示一个仅在设备连接时出现的第二个通知。启用此功能后，你可以隐藏“无设备”的常驻通知：在 Android 的通知设置中关闭 CAPod 的“设备状态”类别。</string>
     <string name="settings_keep_notification_after_disconnect_label">断开连接后保持通知</string>
     <string name="settings_keep_notification_after_disconnect_description">即使您的 AirPods 断开连接，继续显示上次已知的电池电量水平</string>
     <string name="settings_autopause_label">自动暂停</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">最低信号质量</string>
     <string name="settings_signal_minimum_description">判断可能是您的设备的最低信号质量。</string>
     <string name="settings_autoconnect_label">自动连接</string>
-    <string name="settings_autoconnect_description">如果安卓未自动连接，应用会自动询问。这会将监控模式设为“始终”</string>
+    <string name="settings_autoconnect_description">如果 Android 无法自动连接，我们也可以帮助请求连接。这样可以让 CAPod 始终在后台监控。</string>
     <string name="settings_autoconnect_info_android12">自动连接依赖于 Android 12 及更高版本所限制的系统功能，可能无法在您的设备上使用。</string>
     <string name="settings_autoconnect_condition_label">自动连接条件</string>
     <string name="settings_autoconnect_condition_description">何时连接到您的设备？</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">兼容性选项</string>
     <string name="settings_category_compatibility_options_description">如果一切正常，请不要修改 ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">禁用硬件过滤</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">不将数据过滤委托给系统，而是在应用内获取所有数据并进行过滤</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">如果你的 AirPods 从未被检测到，可以试试这个。应用会自己查看所有附近的蓝牙信号，而不是让你的手机预先筛选。</string>
     <string name="settings_compat_offloaded_batching_disabled_title">禁用硬件批处理</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">在转发给我们之前，不要让系统组收集BLE数据。</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">如果电池电量更新迟缓或只在间隔时出现，可以试试这个。你的手机会立即将每个蓝牙信号传递给应用，而不是先收集它们。</string>
     <string name="settings_onepod_mode_label">单耳模式</string>
     <string name="settings_onepod_mode_description">自动播放/暂停和自动连接可响应单个耳机，而不需要两个都在。</string>
     <string name="settings_popup_caseopen_label">显示开盖弹窗</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">绿色</string>
     <string name="widget_config_preset_red">红色</string>
     <string name="settings_compat_indirectcallback_title">间接数据传送</string>
-    <string name="settings_compat_indirectcallback_summary">使用替代方法从系统接收 BLE 数据（广播而不是回调）。</string>
+    <string name="settings_compat_indirectcallback_summary">如果其他兼容性选项都没有帮助，可以试试这个。Android 会在后台把蓝牙信号交给应用，而不是应用直接监听它们。</string>
     <string name="troubleshooter_title">故障排除</string>
     <string name="troubleshooter_summary">诊断和修复蓝牙连接问题。</string>
     <string name="troubleshooter_ble_intro_title">低延迟蓝牙广播</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">蓝牙设置</string>
     <string name="device_settings_send_failed">无法应用设置：%1$s</string>
     <string name="device_settings_anc_off_rejected_message">此设备未启用关闭模式。请在“噪音控制”下启用“允许关闭模式”。</string>
+    <string name="anc_mode_not_confirmed_message">AirPods 没有确认听觉模式的更改。</string>
     <string name="device_settings_category_battery_label">电池</string>
     <string name="device_settings_charge_cap_label">优化充电上限</string>
     <string name="device_settings_charge_cap_description">学习您的使用习惯，在电量约达到 80%% 时暂停充电以延长电池寿命，并在您可能使用前将耳机充满。</string>

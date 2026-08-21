@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">ဆော့ဖ်ဝဲရေးသားသူကို ထောက်ပံ့ပါ</string>
     <string name="upgrade_benefit_disclaimer">လုပ်ဆောင်ချက် ရရှိနိုင်မှုသည် သင့်် နားကြပ်နှင့် ကိရိယာပော် မဏောသည်။</string>
     <string name="settings_monitor_connected_notification_label">အပိုအသိပေးချက်</string>
-    <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \"စက်ပစ္စည်းအခြေအနေ\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \"စက်ပစ္စည်းမရှိပါ\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
+    <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခု ချိတ်ဆက်ထားစဉ်မှာသာ ပေါ်လာမည့် ဒုတိယအကြောင်းကြားချက်ကို ပြသသည်။ ဒါကို ဖွင့်ထားခြင်းဖြင့် အမြဲပေါ်နေသော \"No devices\" အကြောင်းကြားချက်ကို ဖျောက်ထားနိုင်ပါသည်။ Android ၏ CAPod အကြောင်းကြားချက် ဆက်တင်များတွင် \"Device status\" အမျိုးအစားကို ပိတ်ထားပါ။</string>
     <string name="settings_keep_notification_after_disconnect_label">ချိတ်ဆက်မှုပြတ်ပြီးနောက် အသိပေးချက်ကိုထားရှိပါ</string>
     <string name="settings_keep_notification_after_disconnect_description">သင့် AirPods ချိတ်ဆက်မှုပြတ်ပြီးနောက်ပင် နောက်ဆုံးသိရှိထားသော ဘက်ထရီအဆင့်များကို ဆက်လက်ပြသပါ</string>
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
     <string name="settings_signal_minimum_description">သင့်စက်ပစ္စည်းဟု မှတ်ယူရန် စက်ပစ္စည်းတစ်ခုတွင်ရှိရမည့် အနိမ့်ဆုံးအချက်ပြအရည်အသွေး။</string>
     <string name="settings_autoconnect_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်း</string>
-    <string name="settings_autoconnect_description">Android က အလိုအလြှောက်မချိတ်ဆက်ပါက ကျွန်ုပ်တို့လည်း တောင်းဆိုနိုင်သည်။ ၎င်းသည် စောင့်ကြည့်မုဒ်ဆက်တင်ကို \"အမြဲတမ်း\" ဟု သတ်မှတ်ပေးမည်ဖြစ်သည်။</string>
+    <string name="settings_autoconnect_description">Android က အလိုအလျောက် ချိတ်ဆက်ပေးမပေးရင် ကျွန်ုပ်တို့ကိုယ်တိုင် တောင်းဆိုပေးနိုင်ပါသည်။ ဒါက CAPod ကို နောက်ခံမှာ အမြဲစောင့်ကြည့်နေစေမည်။</string>
     <string name="settings_autoconnect_info_android12">Android 12 နှင့် အသစ်ပိုမိုထက် မည်သောစနစ်လုပ်ဆောင်ချက်ကို အားကိုးသည့် အလိုအလျောက် ချိတ်ဆက်မှုသည် ကန့်သတ်ချက်ရှိသည်။ သင့်ကိရိယာပေါ်တွင် အလုပ်မလုပ်နိုင်ပေ။</string>
     <string name="settings_autoconnect_condition_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်းအခြေအနေ</string>
     <string name="settings_autoconnect_condition_description">သင့်စက်ပစ္စည်းသို့ မည်သည့်အချိန်တွင် ချိတ်ဆက်ရန်ကြိုးစားသင့်သနည်း။</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">လိုက်ဖက်ညီမှုရွေးချယ်စရာများ</string>
     <string name="settings_category_compatibility_options_description">အရာအားလုံးအဆင်ပြေနေပါက မထိပါနှင့် ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ဟာ့ဒ်ဝဲစစ်ထုတ်ခြင်းကို ပိတ်ပါ</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">ဒေတာစစ်ထုတ်ခြင်းကို စနစ်သို့ လွှဲမပေးပါနှင့်၊ အဲဒီအစား ဒေတာအားလုံးကိုရယူပြီး အက်ပ်အတွင်း၌ စစ်ထုတ်ပါ။</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">သင့် AirPods ကို လုံးဝ မတွေ့ရှိနိုင်ပါက ဤနည်းကို စမ်းကြည့်ပါ။ ဖုန်းကို ကြိုတင်ရွေးချယ်ခိုင်းမည့်အစား၊ အက်ပ်ကိုယ်တိုင်က အနီးရှိ Bluetooth အချက်ပြမှုများအားလုံးကို ရှာဖွေစစ်ဆေးပါမည်။</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ဟာ့ဒ်ဝဲအစုလိုက်လုပ်ဆောင်ခြင်းကို ပိတ်ပါ</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">ကျွန်ုပ်တို့ထံ မပို့မီ စုဆောင်းထားသော BLE ဒေတာကို စနစ်က အုပ်စုဖွဲ့ခွင့်မပြုပါနှင့်။</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ဘက်ထရီအဆင့်များ နောက်ကျမှ ဒါမှမဟုတ် တစ်ခါတည်း အုပ်စုလိုက်မှသာ အပ်ဒိတ်ဖြစ်တယ်ဆိုရင် ဒါကို စမ်းကြည့်ပါ။ ဖုန်းက Bluetooth အချက်ပြမှုတိုင်းကို ရှေးဦးစွာ စုစည်းမည့်အစား ချက်ချင်း ပေးပို့မည်။</string>
     <string name="settings_onepod_mode_label">တစ်လုံးတည်းမုဒ်</string>
     <string name="settings_onepod_mode_description">အလိုအလျောက် ဖွင့်/ပိတ် နှင့် အလိုအလျောက်ချိတ်ဆက်မှုသည် နှစ်ဖက်လုံး လိုအပ်မည့်အစား Pod တစ်ခုတည်းကို တုံ့ပြန်သည်။</string>
     <string name="settings_popup_caseopen_label">အိတ်အဖွင့်ပြတင်းပေါက်ပြသရန်</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">အစိမ်း</string>
     <string name="widget_config_preset_red">အနီ</string>
     <string name="settings_compat_indirectcallback_title">သွယ်ဝိုက်ဒေတာပေးပို့ခြင်း</string>
-    <string name="settings_compat_indirectcallback_summary">စနစ်မှ BLE ဒေတာကိုလက်ခံရန် အစားထိုးနည်းလမ်းတစ်ခုအသုံးပြုပါ (ခေါ်ဆိုမှုအစား ထုတ်လွှင့်ခြင်း)။</string>
+    <string name="settings_compat_indirectcallback_summary">အခြား လိုက်ဖက်မှု ရွေးချယ်စရာများ အထောက်အကူမဖြစ်ရင် ဒါကို စမ်းကြည့်ပါ။ အက်ပ်က Bluetooth အချက်ပြမှုများကို တိုက်ရိုက်နားထောင်မည့်အစား Android က နောက်ခံမှာ အက်ပ်ကို လက်ဆင့်ကမ်းပေးမည်။</string>
     <string name="troubleshooter_title">ပြဿနာဖြေရှင်းသူ</string>
     <string name="troubleshooter_summary">Bluetooth ချိတ်ဆက်မှုပြဿနာများကို စစ်ဆေးပြီး ဖြေရှင်းပါ။</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy ထုတ်လွှင့်မှုများ</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth ဆက်တင်များ</string>
     <string name="device_settings_send_failed">ဆက်တင် မသက်ဆိုင်နိုင်ပါ: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off မုဒ်ကို ဤကိရိယာတွင် ဖွင့်ထားမခီမယန်။ ဆူညံသံ ထိန်းချုပ် အအောက \"Allow Off mode\" ကို ဖွင့်ပါ။</string>
+    <string name="anc_mode_not_confirmed_message">AirPods က နားထောင်နည်း ပြောင်းလဲမှုကို အတည်ပြုမပေးပါ။</string>
     <string name="device_settings_category_battery_label">ဘက်ထရီ</string>
     <string name="device_settings_charge_cap_label">အကောင်းဆုံး အားသွင်းမှု အဆုံးအမှတ်</string>
     <string name="device_settings_charge_cap_description">သင့်ပုံမှန်ကျင့်ထုံးကို လေ့လာပြီး ဘက်ထရီသက်တမ်း တိုးရှည်စေရန် 80%% ဝန်းကျင်တွင် အားသွင်းခြင်းကို ခေတ္တရပ်ကာ သင်အသုံးပြုဖွယ်ရှိမီ pods များကို ပြည့်အောင် ပြုလုပ်ပေးသည်။</string>

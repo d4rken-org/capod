@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Хөгжүүлэгчийг дэмжих</string>
     <string name="upgrade_benefit_disclaimer">Функцийн боломж таны чихэвч болон төхөөрөмжөөс хамаарна.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
-    <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \"Төхөөрөмжийн төлөв\" сувгийг идэвхгүй болгосноор \"Төхөөрөмж алга\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
+    <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдож байх үед л гарч ирэх хоёр дахь мэдэгдлийг харуулна. Үүнийг асаасан бол \"Төхөөрөмжгүй\" гэсэн байнгын мэдэгдлийг нуух боломжтой: Android-ийн мэдэгдлийн тохиргоонд CAPod-ын \"Төхөөрөмжийн төлөв\" ангиллыг унтраа.</string>
     <string name="settings_keep_notification_after_disconnect_label">Салсны дараа мэдэгдлийг хадгалах</string>
     <string name="settings_keep_notification_after_disconnect_description">Таны AirPods салсан ч хамгийн сүүлд мэдэгдэж буй батарейн түвшинг үргэлжлүүлэн харуулна</string>
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
     <string name="settings_signal_minimum_description">Төхөөрөмж таных гэж тооцогдохын тулд байх ёстой дохионы хамгийн бага чанар.</string>
     <string name="settings_autoconnect_label">Автомат холболт</string>
-    <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид ч бас хүсэлт гаргаж болно. Энэ нь хяналтын горимын тохиргоог \"Үргэлж\" болгож тохируулна.</string>
+    <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид үүнийг хийхийг хүсэлт болгож болно. Энэ нь CAPod-ыг үргэлж дэвсгэр горимд ажиллуулж, хянан ажиллуулна.</string>
     <string name="settings_autoconnect_info_android12">Автомат холболт нь Android 12 болон түүнээс хойшхи хувилбарт хязгаарлагдсан системийн функцэд тулгуурладаг. Таны төхөөрөмж дээр ажиллахгүй байж болзошгүй.</string>
     <string name="settings_autoconnect_condition_label">Автомат холболтын нөхцөл</string>
     <string name="settings_autoconnect_condition_description">Бид таны төхөөрөмжид хэзээ холбогдохыг оролдох ёстой вэ?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Тохиромжтой байдлын сонголтууд</string>
     <string name="settings_category_compatibility_options_description">Хэрэв бүх зүйл ажиллаж байвал бүү хүр ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Техник хангамжийн шүүлтүүрийг идэвхгүй болгох</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Өгөгдлийн шүүлтүүрийг системд даатгахгүй, харин бүх өгөгдлийг авч, апп дотор шүүнэ.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods-ыг огт илрүүлдэггүй бол үүнийг туршиж үзээрэй. Утас өөрөө урьдчилан сонгож өгөхийн оронд, апп ойролцоох бүх Bluetooth дохиог өөрөө шалгаж үзнэ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Техник хангамжийн багцлалтыг идэвхгүй болгох</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Системд цуглуулсан BLE өгөгдлийг бидэнд дамжуулахаас өмнө бүлэглэхийг бүү зөвшөөр.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Батарейны түвшин зөвхөн хожуу эсвэл багцаар шинэчлэгдэж байвал үүнийг туршиж үзээрэй. Утас чинь эхлээд дохиог цуглуулахын оронд, Bluetooth дохио бүрийг шууд дамжуулна.</string>
     <string name="settings_onepod_mode_label">Нэг чихэвчний горим</string>
     <string name="settings_onepod_mode_description">Автомат тоглуулах/түр зогсоох болон автомат холболт нь хоёуланг нь шаарддаггүйгээр нэг чихэвчинд хариу үйлдэл үзүүлдэг.</string>
     <string name="settings_popup_caseopen_label">Кейсний попап цонхыг харуулах</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Ногоон</string>
     <string name="widget_config_preset_red">Улаан</string>
     <string name="settings_compat_indirectcallback_title">Шууд бус өгөгдөл хүргэлт</string>
-    <string name="settings_compat_indirectcallback_summary">Системээс BLE өгөгдлийг хүлээн авах өөр аргыг ашиглана (буцах дуудлагын оронд өргөн нэвтрүүлэг).</string>
+    <string name="settings_compat_indirectcallback_summary">Бусад тохиромжийн сонголтууд тусалж чадаагүй бол үүнийг туршиж үзээрэй. Апп өөрөө шууд сонсохын оронд, Android Bluetooth дохиог дэвсгэр горимд байгаа апп руу дамжуулна.</string>
     <string name="troubleshooter_title">Асуудал шийдвэрлэгч</string>
     <string name="troubleshooter_summary">Bluetooth холболтын асуудлыг оношлож засна.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy нэвтрүүлэг</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth тохиргоо</string>
     <string name="device_settings_send_failed">Тохиргоог хэрэгжүүлэх боломжгүй: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Энэ төхөөрөмж дээр унтарсан горим идэвхгүй байна. Шуугайн Хяналт хэсэгт \"Allow Off mode\" гэснээсийг идэвхүүлээ.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods сонсох горимын өөрчлөлтийг баталгаажуулсангүй.</string>
     <string name="device_settings_category_battery_label">Батарей</string>
     <string name="device_settings_charge_cap_label">Оновсон цэнэглэлтийн хязгаар</string>
     <string name="device_settings_charge_cap_description">Таны дутмийг судлаж, батарейны ашиглалтын хугацааг уртасгахын тулд цэнэглэлтийг 80%%-ийн үед түр зогсоож, ашиглах магадлалтай үеэс өмнө дуусгана.</string>

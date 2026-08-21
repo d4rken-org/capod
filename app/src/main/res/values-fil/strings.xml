@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Suportahan ang developer</string>
     <string name="upgrade_benefit_disclaimer">Ang availability ng feature ay depende sa iyong headphones at device.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
-    <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
+    <string name="settings_monitor_connected_notification_description">Nagpapakita ng pangalawang notification na lumalabas lamang habang konektado ang isang device. Kapag ito ay naka-on, maaari mong itago ang permanenteng \"Walang mga device\" notification: i-off ang kategorya \"Device status\" sa Android notification settings ng CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Panatilihin ang notipikasyon pagkatapos mag-disconnect</string>
     <string name="settings_keep_notification_after_disconnect_description">Ipagpatuloy ang pagpapakita ng huling kilalang mga antas ng baterya kahit pagkatapos mag-disconnect ang iyong AirPods</string>
     <string name="settings_autopause_label">Auto pause</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
     <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
-    <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \'Palagi\'.</string>
+    <string name="settings_autoconnect_description">Kung hindi awtomatikong kumokonekta ang Android, maaari din namin itong hilingin. Napapanatili nito ang CAPod monitoring sa background palagi.</string>
     <string name="settings_autoconnect_info_android12">Ang auto connect ay umaasa sa isang tampok ng system na pinipigilan ng Android 12 at mas bago. Maaaring hindi ito gumana sa iyong device.</string>
     <string name="settings_autoconnect_condition_label">Kondisyon ng auto connect</string>
     <string name="settings_autoconnect_condition_description">Kailan tayo dapat sumubok kumonekta sa iyong device?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Mga opsyon sa compatibility</string>
     <string name="settings_category_compatibility_options_description">Huwag galawin kung gumagana ang lahat ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">I-disable ang hardware filtering</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Huwag ipaubaya ang data filtering sa system, sa halip kunin ang lahat ng data at i-filter sa loob ng app.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Subukan ito kung hindi kailanman natutukoy ang iyong AirPods. Ang app ay titingin sa lahat ng malapit na Bluetooth signals sa sarili nito, sa halip na payagan ang iyong telepono na pumili muna.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">I-disable ang hardware batching</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Huwag hayaang i-grupo ng system ang nakolektang BLE data bago ito ipasa sa amin.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Subukan ito kung ang mga antas ng baterya ay nag-update lamang ng huli o sa mga burst. Ang iyong telepono ay magpapadala ng bawat Bluetooth signal kaagad, sa halip na kolektahin muna ang mga ito.</string>
     <string name="settings_onepod_mode_label">Mode na isang pod</string>
     <string name="settings_onepod_mode_description">Ang auto play/pause at auto-connect ay tumutugon sa isang pod lamang kaysa sa parehong dalawa.</string>
     <string name="settings_popup_caseopen_label">Ipakita ang case popup</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Berde</string>
     <string name="widget_config_preset_red">Pula</string>
     <string name="settings_compat_indirectcallback_title">Hindi direktang paghahatid ng data</string>
-    <string name="settings_compat_indirectcallback_summary">Gumamit ng alternatibong paraan para makatanggap ng BLE data mula sa system (broadcast sa halip na callback).</string>
+    <string name="settings_compat_indirectcallback_summary">Subukan ito kung ang ibang compatibility options ay hindi nakatulong. Ang Android ay maghahatid ng Bluetooth signals sa app sa background, sa halip na ang app ay makinig sa mga ito nang direkta.</string>
     <string name="troubleshooter_title">Troubleshooter</string>
     <string name="troubleshooter_summary">I-diagnose at ayusin ang mga isyu sa koneksyon ng Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Mga Broadcast ng Bluetooth Low Energy</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mga Setting ng Bluetooth</string>
     <string name="device_settings_send_failed">Hindi ma-apply ang setting: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Hindi naka-enable ang Off mode sa device na ito. I-enable ang \"Payagan ang Off mode\" sa ilalim ng Noise Control.</string>
+    <string name="anc_mode_not_confirmed_message">Ang AirPods ay hindi nakumpirma ang pagbabago ng listening mode.</string>
     <string name="device_settings_category_battery_label">Baterya</string>
     <string name="device_settings_charge_cap_label">Na-optimize na Limitasyon ng Pagsisingilin</string>
     <string name="device_settings_charge_cap_description">Matuto ng iyong gawain at i-pause ang pagsisingilin sa paligid ng 80%% upang mapahaba ang buhay ng baterya, sinisisingilin ang mga pods bago mo pa malamang gamitin ang mga ito.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Stöd utvecklaren</string>
     <string name="upgrade_benefit_disclaimer">Funktionstillgänglighet beror på dina hörlurar och enhet.</string>
     <string name="settings_monitor_connected_notification_label">Extra avisering</string>
-    <string name="settings_monitor_connected_notification_description">Visar en extra avisering när en enhet är ansluten. Detta låter dig dölja den permanenta aviseringen \"Inga enheter\" genom att inaktivera kanalen \"Enhetsstatus\".</string>
+    <string name="settings_monitor_connected_notification_description">Visar en andra avisering som bara syns när en enhet är ansluten. Med detta aktiverat kan du dölja den permanenta aviseringen \"Inga enheter\": inaktivera kategorin \"Enhetsstatus\" i Androids aviseringsinställningar för CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Behåll avisering efter frånkoppling</string>
     <string name="settings_keep_notification_after_disconnect_description">Fortsätt visa de senast kända batterinivåerna även efter att dina AirPods kopplas från</string>
     <string name="settings_autopause_label">Automatisk paus</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
     <string name="settings_signal_minimum_description">Den minsta signalkvalitet som en enhet måste ha för att betraktas som din.</string>
     <string name="settings_autoconnect_label">Anslut automatiskt</string>
-    <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \"Alltid\".</string>
+    <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi be den att göra det. Då fortsätter CAPod att övervaka i bakgrunden hela tiden.</string>
     <string name="settings_autoconnect_info_android12">Automatisk anslutning förlitar sig på en systemfunktion som Android 12 och nyare begränsar. Det kanske inte fungerar på din enhet.</string>
     <string name="settings_autoconnect_condition_label">Villkor för automatisk anslutning</string>
     <string name="settings_autoconnect_condition_description">När ska vi försöka ansluta till din enhet?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Kompatibilitetsalternativ</string>
     <string name="settings_category_compatibility_options_description">Rör inte om allt fungerar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Inaktivera maskinvarufiltrering</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Delegera inte datafiltrering till systemet, utan hämta istället all data och filtrera inom appen.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Prova detta om dina AirPods aldrig upptäcks. Appen söker då igenom alla Bluetooth-signaler i närheten själv, i stället för att låta telefonen förvälja dem.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Inaktivera maskinvarubatchning</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Låt inte systemet gruppera insamlad BLE-data innan den vidarebefordras till oss.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Prova detta om batterinivåerna bara uppdateras sent eller i skurar. Telefonen skickar då vidare varje Bluetooth-signal direkt, i stället för att samla in dem först.</string>
     <string name="settings_onepod_mode_label">Enkelsnäckläge</string>
     <string name="settings_onepod_mode_description">Automatisk uppspelning/paus och automatisk anslutning reagerar på en enda pod istället för att kräva båda.</string>
     <string name="settings_popup_caseopen_label">Visa popup för fodral</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Grön</string>
     <string name="widget_config_preset_red">Röd</string>
     <string name="settings_compat_indirectcallback_title">Indirekt dataleverans</string>
-    <string name="settings_compat_indirectcallback_summary">Använd en alternativ metod för att ta emot BLE-data från systemet (sändning istället för återanrop).</string>
+    <string name="settings_compat_indirectcallback_summary">Prova detta om de andra kompatibilitetsalternativen inte hjälpte. Android skickar då Bluetooth-signaler till appen i bakgrunden, i stället för att appen lyssnar efter dem direkt.</string>
     <string name="troubleshooter_title">Felsökare</string>
     <string name="troubleshooter_summary">Diagnostisera och åtgärda Bluetooth-anslutningsproblem.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-sändningar</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-inställningar</string>
     <string name="device_settings_send_failed">Det gick inte att tillämpa inställningen: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Läget Av är inte aktiverat på den här enheten. Aktivera „Tillåt läget Av“ under Brusreglering.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods bekräftade inte ändringen av lyssningsläge.</string>
     <string name="device_settings_category_battery_label">Batteri</string>
     <string name="device_settings_charge_cap_label">Optimerad laddningsgräns</string>
     <string name="device_settings_charge_cap_description">Lär sig din rutin och pausar laddningen runt 80 %% för att förlänga batteritiden och laddar upp podsarna innan du troligtvis ska använda dem.</string>

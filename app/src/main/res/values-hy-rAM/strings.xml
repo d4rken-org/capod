@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
     <string name="settings_signal_minimum_description">Ազդանշանի նվազագույն որակը, որը պետք է ունենա սարքը՝ ձերը համարվելու համար։</string>
     <string name="settings_autoconnect_label">Ինքնամիացում</string>
-    <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \"Միշտ\" վիճակում։</string>
+    <string name="settings_autoconnect_description">Եթե Android-ը ինքնաբերաբար չի միանում, մենք կարող ենք այն հարցնել նաև: Սա պահում է CAPod մոնիտորինգը ֆոնային ռեժիմում ամբողջ ժամանակ:</string>
     <string name="settings_autoconnect_info_android12">Ավտոմատ կապը հիմնված է համակարգի հատկության վրա, որը Android 12-ը և ավելի նոր տարբերակները սահմանափակում են: Հնարավոր է այն չաշխատի ձեր սարքում:</string>
     <string name="settings_autoconnect_condition_label">Ինքնամիացման պայման</string>
     <string name="settings_autoconnect_condition_description">Ե՞րբ պետք է փորձենք միանալ ձեր սարքին։</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Համատեղելիության ընտրանքներ</string>
     <string name="settings_category_compatibility_options_description">Մի դիպչեք, եթե ամեն ինչ աշխատում է ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Անջատել սարքակազմային զտումը</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Տվյալների զտումը մի՛ հանձնարարեք համակարգին, փոխարենը ստացեք բոլոր տվյալները և զտեք հավելվածի ներսում։</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Փորձիր դա, եթե քո AirPods-ները երբեք հայտնաբերված չեն: Հավելվածը ինքն իրենով կստուգի բոլոր մոտակա Bluetooth ազդանշանները՝ ոչ թե թույլ տալ քո հեռախոսին դրանք նախ ընտրել:</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Անջատել սարքակազմային խմբավորումը</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Թույլ մի՛ տվեք համակարգին խմբավորել հավաքագրված BLE տվյալները՝ նախքան դրանք մեզ փոխանցելը։</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Փորձիր դա, եթե մարտկոցի մակարդակը թարմացվում է միայն ուշ կամ հաստիքով: Քո հեռախոսը անմիջապես կանցկացնի յուրաքանչյուր Bluetooth ազդանշան, ոչ թե նախ դրանք հավաքել:</string>
     <string name="settings_onepod_mode_label">Մեկ ականջակալի ռեժիմ</string>
     <string name="settings_onepod_mode_description">Ավտոմատ նվագարկում/դադար և ավտոկապը արձագանքում են մեկ ականջակալի, այլ ոչ թե պահանջում են երկուսն էլ:</string>
     <string name="settings_popup_caseopen_label">Ցուցադրել պատյանի բացվող պատուհանը</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Կանաչ</string>
     <string name="widget_config_preset_red">Կարմիր</string>
     <string name="settings_compat_indirectcallback_title">Անուղղակի տվյալների առաքում</string>
-    <string name="settings_compat_indirectcallback_summary">Օգտագործեք այլընտրանքային մեթոդ՝ համակարգից BLE տվյալներ ստանալու համար (հեռարձակում՝ հետկանչի փոխարեն)։</string>
+    <string name="settings_compat_indirectcallback_summary">Փորձիր դա, եթե համատեղելիության մյուս ընտրանքները չօգնել են: Android-ը կանցկացնի Bluetooth ազդանշանները հավելվածին ֆոնային ռեժիմում, ոչ թե հավելվածը ուղղակիորեն լսել դրանք:</string>
     <string name="troubleshooter_title">Խնդիրների լուծիչ</string>
     <string name="troubleshooter_summary">Ախտորոշել և շտկել Bluetooth միացման խնդիրները։</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy հեռարձակումներ</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth կարգաբերումներ</string>
     <string name="device_settings_send_failed">Չհաջողվեց կիրառել կարգավորումը՝ %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Անջատ ռեժիմը հասանելի չէ այս սարքին: Միացրեք «Թույլատրել Անջատ ռեժիմը» Աղմուկի կառավարման բաժնում:</string>
+    <string name="anc_mode_not_confirmed_message">AirPods-ը չհաստատեցին լսելու ռեժիմի փոփոխությունը:</string>
     <string name="device_settings_category_battery_label">Մարտկոց</string>
     <string name="device_settings_charge_cap_label">Լիցքի օպտիմիզացված սահման</string>
     <string name="device_settings_charge_cap_description">Սովորեք ձեր ռեժիմը և դադարեցրեք լիցքավորումը մոտ 80%%-ի դեպքում՝ մարտկոցի ծառայության ժամկետը երկարացնելու համար՝ pods-երը լիցքավորելով նախքան դրանք օգտագործելը։</string>

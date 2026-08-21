@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">นี่เป็นการซื้อแยกต่างหาก — จะไม่ยกเลิกหรือคืนเงินการสมัครสมาชิกของคุณ ใช้บัญชี Google เดียวกัน</string>
     <string name="upgrade_screen_sub_still_renewing_title">การสมัครสมาชิกยังคงใช้งานอยู่</string>
     <string name="upgrade_screen_sub_still_renewing_message">การสมัครสมาชิกของคุณยังคงตั้งค่าให้ต่ออายุ ให้ยกเลิกใน Google Play ก่อน แล้วจึงเปลี่ยนไปใช้การซื้อครั้งเดียว เพิ่งยกเลิกใช่ไหม รอสักครู่ให้ Google Play อัปเดตแล้วลองอีกครั้ง</string>
+    <string name="upgrade_screen_purchase_check_failed_message">ไม่สามารถตรวจสอบการซื้อของคุณกับ Google Play ได้ เพื่อหลีกเลี่ยงการซื้อซ้ำ โปรดลองอีกครั้งในอีกสักครู่</string>
+    <string name="upgrade_screen_pending_card_title">การชำระเงินอยู่ระหว่างดำเนินการ</string>
+    <string name="upgrade_screen_pending_card_body">Google Play กำลังดำเนินการชำระเงินของคุณ Pro จะปลดล็อกโดยอัตโนมัติเมื่อการชำระเงินเสร็จสมบูรณ์ วิธีการชำระเงินบางอย่างอาจใช้เวลาสักพัก คุณไม่จำเป็นต้องทำอะไรเพิ่มเติม</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play พบการซื้อที่มีการชำระเงินอยู่ระหว่างดำเนินการและกำลังดำเนินการอยู่ Pro จะปลดล็อกโดยอัตโนมัติเมื่อการชำระเงินเสร็จสมบูรณ์</string>
     <string name="upgrade_screen_grace_title">กำลังยืนยันการซื้อของคุณ</string>
     <string name="upgrade_screen_grace_body_short">Google Play ยังไม่ได้ยืนยันการซื้อของคุณ Pro ยังคงใช้งานได้อยู่ — ไม่ต้องดำเนินการใด ๆ</string>
     <string name="upgrade_screen_grace_body">Google Play ยังไม่ได้ยืนยันการซื้อของคุณมาสักระยะแล้ว Pro ยังคงใช้งานได้อยู่ ตรวจสอบให้แน่ใจว่าคุณออนไลน์อยู่และลงชื่อเข้าใช้ด้วยบัญชี Google ที่ใช้ซื้อ จากนั้นลองกู้คืน</string>

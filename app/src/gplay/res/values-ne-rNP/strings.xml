@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">यो एउटा छुट्टै खरिद हो — यसले तपाईंको सदस्यता रद्द वा फिर्ता गर्दैन। उही Google खाता प्रयोग गर्नुहोस्।</string>
     <string name="upgrade_screen_sub_still_renewing_title">सदस्यता अझै सक्रिय छ</string>
     <string name="upgrade_screen_sub_still_renewing_message">तपाईंको सदस्यता अझै नवीकरण हुने गरी सेट गरिएको छ। पहिले Google Play मा यसलाई रद्द गर्नुहोस्, त्यसपछि एक-पटक खरिदमा स्विच गर्नुहोस्। भर्खरै रद्द गर्नुभयो? Google Play लाई केही समय दिनुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play सँग तपाईंको खरिदहरू जाँच गर्न सकिएन। दोहोरो खरिद हुनबाट जोगिन, केही क्षणमा फेरि प्रयास गर्नुहोस्।</string>
+    <string name="upgrade_screen_pending_card_title">भुक्तानी पर्खाइमा</string>
+    <string name="upgrade_screen_pending_card_body">Google Play अझै तपाईंको भुक्तानी प्रक्रिया गरिरहेको छ। भुक्तानी पूरा भएपछि Pro स्वतः अनलक हुन्छ। केही भुक्तानी विधिहरूले समय लिन सक्छन्। तपाईंले अरू केही गर्नु पर्दैन।</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ले पर्खाइमा रहेको भुक्तानी सहितको खरिद फेला पार्यो र अझै यसलाई प्रक्रिया गरिरहेको छ। भुक्तानी पूरा भएपछि Pro स्वतः अनलक हुन्छ।</string>
     <string name="upgrade_screen_grace_title">तपाईंको खरिद पुष्टि गर्दै</string>
     <string name="upgrade_screen_grace_body_short">Google Play ले तपाईंको खरिद अझै पुष्टि गरेको छैन। Pro अझै सक्रिय छ — कुनै कार्य आवश्यक छैन।</string>
     <string name="upgrade_screen_grace_body">Google Play ले तपाईंको खरिद धेरै समयदेखि पुष्टि गरेको छैन। Pro अझै सक्रिय छ। तपाईं अनलाइन हुनुहुन्छ र खरिदको लागि प्रयोग गरिएको Google खातामा साइन इन गर्नुभएको सुनिश्चित गर्नुहोस्, त्यसपछि पुनर्स्थापना गर्ने प्रयास गर्नुहोस्।</string>

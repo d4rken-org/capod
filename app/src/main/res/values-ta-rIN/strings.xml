@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">டெவலப்பரை ஆதரிக்கவும்</string>
     <string name="upgrade_benefit_disclaimer">அம்சங்களின் கிடைக்கும் தன்மை உங்கள் ஹெட்ஃபோன்கள் மற்றும் சாதனத்தை சார்ந்துள்ளது.</string>
     <string name="settings_monitor_connected_notification_label">கூடுதல் அறிவிப்பு</string>
-    <string name="settings_monitor_connected_notification_description">ஒரு சாதனம் இணைக்கப்படும்போது கூடுதல் அறிவிப்பைக் காட்டுகிறது. \"சாதன நிலை\" சேனலை முடக்குவதன் மூலம் நிரந்தர \"சாதனங்கள் இல்லை\" அறிவிப்பை மறைக்க இது உங்களை அனுமதிக்கிறது.</string>
+    <string name="settings_monitor_connected_notification_description">சாதனம் இணைக்கப்பட்டுள்ள போது மட்டுமே தோன்றும் இரண்டாவது அறிவிப்பைக் காட்டுகிறது. இதை இயக்கும் போது, \'சாதனங்கள் இல்லை\' என்ற நிரந்தரமான அறிவிப்பை மறைக்கலாம்: CAPod க்கான Android இன் அறிவிப்பு அமைப்புகளில் \'சாதன நிலை\' வகையை முடக்கவும்.</string>
     <string name="settings_keep_notification_after_disconnect_label">துண்டிக்கப்பட்ட பிறகு அறிவிப்பை வைத்திரு</string>
     <string name="settings_keep_notification_after_disconnect_description">உங்கள் AirPods துண்டிக்கப்பட்ட பிறகும் கடைசியாக அறியப்பட்ட பேட்டரி நிலைகளைக் காட்டவும்</string>
     <string name="settings_autopause_label">தானியங்கு இடைநிறுத்தம்</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
     <string name="settings_signal_minimum_description">ஒரு சாதனம் உங்களுடையதாகக் கருதப்படுவதற்குத் தேவையான குறைந்தபட்ச சிக்னல் தரம்.</string>
     <string name="settings_autoconnect_label">தானியங்கு இணைப்பு</string>
-    <string name="settings_autoconnect_description">ஆண்ட்ராய்டு தானாக இணைக்கவில்லை என்றால், நாமும் அதைக் கேட்கலாம். இது கண்காணிப்பு முறை அமைப்பை \'எப்போதும்\' என அமைக்கும்.</string>
+    <string name="settings_autoconnect_description">Android தானாக இணைக்கவில்லை என்றால், நாம் அதை கேட்கலாம். இது CAPod கண்காணிப்பை எப்போதும் பின்னணியில் வைக்கிறது.</string>
     <string name="settings_autoconnect_info_android12">ஆட்டோ கனெக்ட் Android 12 மற்றும் புதிய பதிப்புகளில் கட்டுப்படுத்தப்பட்ட ஒரு கணினி அம்சத்தை நம்பியுள்ளது. இது உங்கள் சாதனத்தில் வேலை செய்யாமல் போகலாம்.</string>
     <string name="settings_autoconnect_condition_label">தானியங்கு இணைப்பு நிபந்தனை</string>
     <string name="settings_autoconnect_condition_description">உங்கள் சாதனத்துடன் எப்போது இணைக்க முயற்சிக்க வேண்டும்?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">இணக்கத்தன்மை விருப்பங்கள்</string>
     <string name="settings_category_compatibility_options_description">எல்லாம் வேலை செய்தால் தொடாதே ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">வன்பொருள் வடிகட்டலை முடக்கு</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">கணினிக்கு தரவு வடிகட்டலை ஒப்படைக்காதீர், பதிலாக எல்லா தரவையும் பெற்று ஆப்ஸிலேயே வடிகட்டு.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">உங்கள் AirPods ஒருபோதும் கண்டறியப்படவில்லை என்றால் இதை முயற்சி செய்யவும். பயன்பாடு அருகிலுள்ள அனைத்து Bluetooth சிக்னல்களையும் நேரடியாகத் தேடும், உங்கள் ஃபோனுக்கு அவற்றை முன்கூட்டியே வடிகட்ட விடாமல்.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">வன்பொருள் தொகுதிப்படுத்தலை முடக்கு</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">சேகரிக்கப்பட்ட BLE தரவை எங்களுக்கு அனுப்புவதற்கு முன்பு கணினி குழுவாக்க அனுமதிக்காதீர்கள்.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">பேட்டரி நிலைகள் தாமதமாக அல்லது கூட்டாக மட்டுமே புதுப்பிக்கப்பட்டால் இதை முயற்சி செய்யவும். உங்கள் ஃபோன் ஒவ்வொரு Bluetooth சிக்னலையும் உடனடியாக அனுப்பும், அவற்றை முதலில் சேகரிக்க விடாமல்.</string>
     <string name="settings_onepod_mode_label">ஒரு பாட் முறை</string>
     <string name="settings_onepod_mode_description">ஆட்டோ பிளே/இடைநிறுத்தம் மற்றும் ஆட்டோ-கனெக்ட் இரண்டும் தேவைப்படாமல் ஒரே ஒரு பாட்டுக்கு எதிர்வினை ஆற்றுகின்றன.</string>
     <string name="settings_popup_caseopen_label">கேஸ் பாப்அப்பைக் காட்டு</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">பச்சை</string>
     <string name="widget_config_preset_red">சிவப்பு</string>
     <string name="settings_compat_indirectcallback_title">மறைமுக தரவு விநியோகம்</string>
-    <string name="settings_compat_indirectcallback_summary">கணினியிலிருந்து BLE தரவைப் பெற மாற்று முறையைப் பயன்படுத்தவும் (அழைப்புக்குப் பதிலாக ஒளிபரப்பு).</string>
+    <string name="settings_compat_indirectcallback_summary">மற்ற பொருந்தகை விருப்பங்கள் உதவியளிக்கவில்லை என்றால் இதை முயற்சி செய்யவும். பயன்பாடு நேரடியாக Bluetooth சிக்னல்களைக் கேட்பதற்கு பதிலாக, Android அவற்றை பின்னணியில் பயன்பாட்டிற்கு அனுப்பும்.</string>
     <string name="troubleshooter_title">சிக்கல் தீர்ப்பான்</string>
     <string name="troubleshooter_summary">புளூடூத் இணைப்புச் சிக்கல்களைக் கண்டறிந்து சரிசெய்யவும்.</string>
     <string name="troubleshooter_ble_intro_title">புளூடூத் குறைந்த ஆற்றல் ஒளிபரப்புகள்</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth அமைப்புகள்</string>
     <string name="device_settings_send_failed">அமைப்பை பயன்படுத்த முடியவில்லை: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">இந்த சாதனத்தில் ஆஃஃப் முறை இயக்கப்படவில்லை. சத்தக் கட்டுப்பாட்டின் கீழ் \"ஆஃஃப் முறையை அனுமதி\" என்பதை இயக்கவும்.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods கேட்கும் முறை மாற்றத்தை உறுதிப்படுத்தவில்லை.</string>
     <string name="device_settings_category_battery_label">பேட்டரி</string>
     <string name="device_settings_charge_cap_label">உகந்த சார்ஜ் வரம்பு</string>
     <string name="device_settings_charge_cap_description">உங்கள் அன்றாட வழக்கத்தை கற்று 80%% அளவில் சார்ஜிங்கை இடைநிறுத்தி பேட்டரி ஆயுளை நீட்டிக்கும், நீங்கள் பயன்படுத்தும் முன் pods-ஐ முழுவதும் சார்ஜ் செய்யும்.</string>

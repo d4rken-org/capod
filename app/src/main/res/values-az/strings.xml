@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Tərtibatçıya dəstək ol</string>
     <string name="upgrade_benefit_disclaimer">Funksiya mövcudluğu qulaqlıqlarınıza və cihaza bağlıdır.</string>
     <string name="settings_monitor_connected_notification_label">Əlavə bildiriş</string>
-    <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \"Cihaz statusu\" kanalını deaktiv etməklə daimi \"Cihaz yoxdur\" bildirişini gizlətməyə imkan verir.</string>
+    <string name="settings_monitor_connected_notification_description">Cihaz qoşulu olduğu zaman görünən ikinci bir bildirişi göstərir. Bu seçeneği aktiv tutduğunda, daimi \"Cihaz yoxdur\" bildirişini gizlətə bilərsən: Android-in CAPod üçün bildirişlər ayarlarında \"Cihaz statusu\" kateqoriyasını söndür.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ayrıldıqdan sonra bildirişi saxla</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ayrıldıqdan sonra belə sonuncu bilinən batareya səviyyələrini göstərməyə davam et</string>
     <string name="settings_autopause_label">Avtomatik fasilə</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
     <string name="settings_signal_minimum_description">Bir cihazın sizə aid hesab edilməsi üçün malik olmalı olduğu minimum siqnal keyfiyyəti.</string>
     <string name="settings_autoconnect_label">Avtomatik qoşulma</string>
-    <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \"Həmişə\" olaraq təyin edəcək.</string>
+    <string name="settings_autoconnect_description">Android avtomatik qoşulmasa da, biz də ondan istəyə bilərik. Bu, CAPod-u hər zaman arxa planda monitorinq etməyi saxlayır.</string>
     <string name="settings_autoconnect_info_android12">Avtomatik qoşulma Android 12 və daha yeni versiyaların məhdudlaşdırdığı sistem funksiyasına əsaslanır. Bu, cihazınızda işləməyə bilər.</string>
     <string name="settings_autoconnect_condition_label">Avtomatik qoşulma şərti</string>
     <string name="settings_autoconnect_condition_description">Cihazınıza nə vaxt qoşulmağa cəhd etməliyik?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Uyğunluq seçimləri</string>
     <string name="settings_category_compatibility_options_description">Hər şey işləyirsə toxunmayın ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Aparat filtrasiyasını deaktiv edin</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Məlumat filtrasiyasını sistemə həvalə etməyin, bunun əvəzinə bütün məlumatları əldə edin və tətbiq daxilində filtr edin.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods-ların heç vaxt aşkar edilmirsə, bunu sına. Tətbiq, telefonunun onu əvvəlcədən seçməsinə icazə vermək əvəzinə, yaxınlıqdakı bütün Bluetooth siqnallarını özü axtaracaq.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Aparat qruplaşdırmasını deaktiv edin</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Sistemin toplanmış BLE məlumatlarını bizə ötürməzdən əvvəl qruplaşdırmasına icazə verməyin.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Batareya səviyyəsi yalnız geç və ya ayrı-ayrı yenilənirsə, bunu sına. Telefonun, Bluetooth siqnallarını əvvəlcə toplamaq əvəzinə, hər birini dərhal ötürəcək.</string>
     <string name="settings_onepod_mode_label">Tək qulaqlıq rejimi</string>
     <string name="settings_onepod_mode_description">Avtomatik oxut/dayandır və avtomatik qoşulma hər ikisini tələb etmək əvəzinə tək qulaqcığa reaksiya verir.</string>
     <string name="settings_popup_caseopen_label">Qutu pop-up-ını göstər</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Yaşıl</string>
     <string name="widget_config_preset_red">Qırmızı</string>
     <string name="settings_compat_indirectcallback_title">Dolayı məlumat çatdırılması</string>
-    <string name="settings_compat_indirectcallback_summary">Sistemdən BLE məlumatlarını almaq üçün alternativ bir üsuldan istifadə edin (geri zəng əvəzinə yayım).</string>
+    <string name="settings_compat_indirectcallback_summary">Digər uyğunluq seçimləri kömək etmirsə, bunu sına. Android, tətbiqin onları birbaşa dinləməsi əvəzinə, Bluetooth siqnallarını tətbiqə arxa planda ötürəcək.</string>
     <string name="troubleshooter_title">Problem Aradan Qaldırıcı</string>
     <string name="troubleshooter_summary">Bluetooth bağlantı problemlərini diaqnoz edin və həll edin.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Aşağı Enerji Yayımları</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Parametrləri</string>
     <string name="device_settings_send_failed">Parametr tətbiq edilə bilmədi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Söndürmə rejimi bu cihazda aktiv deyil. Səs-Küy Nəzarəti altında \"Söndürmə rejiminə icazə ver\" seçimini aktiv edin.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods dinləmə rejimi dəyişikliyini təsdiq etmədi.</string>
     <string name="device_settings_category_battery_label">Batareya</string>
     <string name="device_settings_charge_cap_label">Optimallaşdırılmış Şarj Həddi</string>
     <string name="device_settings_charge_cap_description">Batareya ömrünü uzatmaq üçün rutininizi öyrənir və şarjı təxminən 80%%-də dayandırır, qulluqlardan istifadə etməzdən əvvəl onları şarj edir.</string>

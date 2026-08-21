@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Поддржете го развивачот</string>
     <string name="upgrade_benefit_disclaimer">Достапноста на функциите зависи од вашите слушалки и уредот.</string>
     <string name="settings_monitor_connected_notification_label">Дополнително известување</string>
-    <string name="settings_monitor_connected_notification_description">Прикажува дополнително известување кога уредот е поврзан. Ова ви овозможува да го скриете трајното известување \"Нема уреди\" со оневозможување на каналот \"Статус на уредот\".</string>
+    <string name="settings_monitor_connected_notification_description">Прикажува второ известување кое се појавува само додека уредот е поврзан. Со ова вклучено, можете да го скријте трајното известување „Нема уреди\": исклучите ја категоријата „Статус на уредот\" во поставките за известување на Android за CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Задржи го известувањето по прекинување</string>
     <string name="settings_keep_notification_after_disconnect_description">Продолжи да ги прикажуваш последните познати нивоа на батеријата дури и откако вашите AirPods ќе се исклучат</string>
     <string name="settings_autopause_label">Автоматска пауза</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Минимален квалитет на сигналот</string>
     <string name="settings_signal_minimum_description">Минималниот квалитет на сигналот што уредот мора да го има за да се смета за ваш.</string>
     <string name="settings_autoconnect_label">Автоматско поврзување</string>
-    <string name="settings_autoconnect_description">Ако Android не се поврзе автоматски, можеме и ние да го побараме тоа. Ова ќе ја постави поставката за режимот на мониторинг на \"Секогаш\".</string>
+    <string name="settings_autoconnect_description">Ако Android не се поврзува автоматски, можеме да го замолиме и ние. Ова го одржува мониторирањето на CAPod во позадина во секое време.</string>
     <string name="settings_autoconnect_info_android12">Автоматското поврзување се потпира на системска функција која Android 12 и понови верзии ја ограничуваат. Може да не работи на вашиот уред.</string>
     <string name="settings_autoconnect_condition_label">Услов за автоматско поврзување</string>
     <string name="settings_autoconnect_condition_description">Кога треба да се обидеме да се поврземе со вашиот уред?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Опции за компатибилност</string>
     <string name="settings_category_compatibility_options_description">Не допирајте ако сè работи ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Оневозможи хардверско филтрирање</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Не делегирајте го филтрирањето податоци на системот, наместо тоа добијте ги сите податоци и филтрирајте ги во рамките на апликацијата.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Пробајте го ова ако вашите AirPods никогаш не се детектуваат. Апликацијата ќе ги прегледа сите Bluetooth сигнали во близина сама, наместо да го пушти вашиот телефон да ги преизбере.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Оневозможи хардверско групирање</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Не дозволувајте системот да ги групира собраните BLE податоци пред да ни ги проследи.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Пробајте го ова ако нивоата на батеријата се ажурираат само подоцна или во брсти. Вашиот телефон ќе ги проследи сите Bluetooth сигнали веднаш, наместо да ги собира прво.</string>
     <string name="settings_onepod_mode_label">Режим со една слушалка</string>
     <string name="settings_onepod_mode_description">Автоматско пуштање/пауза и автоматско поврзување реагираат на еден слушалец наместо да бараат и двата.</string>
     <string name="settings_popup_caseopen_label">Прикажи скокачки прозорец на куќиштето</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Зелено</string>
     <string name="widget_config_preset_red">Црвено</string>
     <string name="settings_compat_indirectcallback_title">Индиректна достава на податоци</string>
-    <string name="settings_compat_indirectcallback_summary">Користете алтернативен метод за примање BLE податоци од системот (емитување наместо повратен повик).</string>
+    <string name="settings_compat_indirectcallback_summary">Пробајте го ова ако другите опции за компатибилност не помогнаа. Android ќе ги проследи Bluetooth сигналите до апликацијата во позадина, наместо апликацијата директно да слуша за нив.</string>
     <string name="troubleshooter_title">Решавање проблеми</string>
     <string name="troubleshooter_summary">Дијагностицирајте и поправете проблеми со Bluetooth поврзувањето.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy емисии</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth поставки</string>
     <string name="device_settings_send_failed">Не може да се примени поставката: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режимот Исклучено не е вклучен на овој уред. Вклучете \"Дозволете режим Исклучено\" под Контрола на бучава.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods не го потврдија промена на режимот на слушање.</string>
     <string name="device_settings_category_battery_label">Батерија</string>
     <string name="device_settings_charge_cap_label">Оптимизирана граница на полнење</string>
     <string name="device_settings_charge_cap_description">Учи ја вашата рутина и паузира полнење околу 80%% за да го продолжи животниот век на батеријата, доливајќи ги слушалките пред да ги користите.</string>

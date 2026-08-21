@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Seka umqambi</string>
     <string name="upgrade_benefit_disclaimer">Ukutholakala kwezici kuncike ezindlebezaneni zakho nasedivayisini.</string>
     <string name="settings_monitor_connected_notification_label">Isaziso esengeziwe</string>
-    <string name="settings_monitor_connected_notification_description">Ibonisa isaziso esengeziwe lapho idivayisi ixhunyiwe. Lokhu kukuvumela ukuthi ufihle isaziso esihlala njalo esithi \"Awekho amadivayisi\" ngokukhubaza isiteshi \"Isimo sedivayisi\".</string>
+    <string name="settings_monitor_connected_notification_description">Kubonisa isaziso sesibili esivela kuphela uma idivayisi ixhunyiwe. Uma lokhu kuvuliwe, ungakwazi ukufihla isaziso esihlala njalo esithi \"Azikho amadivayisi\": vala isigaba esithi \"Isimo Sedivayisi\" ezilungiselelweni zezaziso ze-Android ze-CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Gcina isaziso ngemva kokunqamuka</string>
     <string name="settings_keep_notification_after_disconnect_description">Qhubeka ubonise amazinga ebhethri okugcina aziwayo nangemva kokuthi ama-AirPods akho anqamuke</string>
     <string name="settings_autopause_label">Misa kancane ngokuzenzakalela</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
     <string name="settings_signal_minimum_description">Izinga elincane lesignali okufanele idivayisi ibe nalo ukuze ibhekwe njengeyakho.</string>
     <string name="settings_autoconnect_label">Xhuma ngokuzenzakalela</string>
-    <string name="settings_autoconnect_description">Uma i-Android ingaxhumeki ngokuzenzakalela, singayicela nayo. Lokhu kuzosetha isethingi yemodi yokuqapha ibe \'Njalo\'.</string>
+    <string name="settings_autoconnect_description">Uma i-Android ingaxhumi ngokuzenzakalelayo, singayicela ukuba yenze njalo. Lokhu kugcina i-CAPod iqhubeka iqapha ngemuva ngaso sonke isikhathi.</string>
     <string name="settings_autoconnect_info_android12">Ukuxhumeka okuzenzakalelayo kusekelwa isici sesistimu esivimba i-Android 12 neyintsha. Kungenzeka singasebenzi kudivayisi yakho.</string>
     <string name="settings_autoconnect_condition_label">Isimo sokuxhuma ngokuzenzakalela</string>
     <string name="settings_autoconnect_condition_description">Kufanele sizame nini ukuxhuma kudivayisi yakho?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Izinketho zokuhambisana</string>
     <string name="settings_category_compatibility_options_description">Ungathinti uma konke kusebenza ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Khubaza ukuhlunga kwehadiwe</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Unganikezi uhlelo ukuhlunga idatha, esikhundleni salokho thola yonke idatha bese uhlunga ngaphakathi kohlelo lokusebenza.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Zama lokhu uma ama-AirPods akho engaze atholakale. Uhlelo lokusebenza luzobheka onke amasiginali e-Bluetooth aseduze ngokwalo, kunokuvumela ifoni yakho ukuthi iwakhethe kuqala.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Khubaza ukwenza amaqoqo kwehadiwe</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Ungavumeli uhlelo ukuthi luhlanganise idatha ye-BLE eqoqiwe ngaphambi kokuyidlulisela kithi.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Zama lokhu uma amazinga webhethri ebuyekezwa kuphela sekwephuzile noma ngamaqoqo. Ifoni yakho izodlulisela isiginali ngayinye ye-Bluetooth ngokushesha, kunokuqoqa kuqala.</string>
     <string name="settings_onepod_mode_label">Imodi ye-pod eyodwa</string>
     <string name="settings_onepod_mode_description">Ukudlala/ukumisa ngokuzenzakalelayo nokuxhumeka ngokuzenzakalelayo kuyaphendula ku-pod eyodwa endaweni yokudinga zombili.</string>
     <string name="settings_popup_caseopen_label">Bonisa isigelekeqe sekesi</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Oluhlaza</string>
     <string name="widget_config_preset_red">Okubomvu</string>
     <string name="settings_compat_indirectcallback_title">Ukulethwa kwedatha okungaqondile</string>
-    <string name="settings_compat_indirectcallback_summary">Sebenzisa enye indlela yokwamukela idatha ye-BLE ohlelweni (ukusakaza esikhundleni sokubuyisela ucingo).</string>
+    <string name="settings_compat_indirectcallback_summary">Zama lokhu uma ezinye izinketho zokuhambisana zingasizanga. I-Android izodlulisela amasiginali e-Bluetooth kuhlelo lokusebenza ngemuva, kunokuba uhlelo lokusebenza lulalele wona ngokuqondile.</string>
     <string name="troubleshooter_title">Isixazululi sezinkinga</string>
     <string name="troubleshooter_summary">Thola futhi ulungise izinkinga zokuxhuma kwe-Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Ukusakazwa Kwe-Bluetooth Low Energy</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Izilungiselelo ze-Bluetooth</string>
     <string name="device_settings_send_failed">Akunakwenzeka ukusebenzisa ilungiselelo: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Imodi evaliwe ayisebenziswanga kule divayisi. Vula \"Vumela imodi evaliwe\" ngaphansi kwe-Noise Control.</string>
+    <string name="anc_mode_not_confirmed_message">Ama-AirPods awakuqinisekisanga ukushintsha kwemodi yokulalela.</string>
     <string name="device_settings_category_battery_label">IBhethri</string>
     <string name="device_settings_charge_cap_label">Umkhawulo Wokushaja Olungisiwe</string>
     <string name="device_settings_charge_cap_description">Funda imikhuba yakho futhi misa ukushaja mayelana no-80%% ukuze ukhulise impilo yebhethri, ugcwalise amapodi ngaphambi kokuba uwasetshenzise.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Pêşdebir piştgirî bike</string>
     <string name="upgrade_benefit_disclaimer">Hebûna taybet mendêyê bi kulaklîkên we û amûrê ve girêdayî ye.</string>
     <string name="settings_monitor_connected_notification_label">Agahdariya zêde</string>
-    <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \"Amûr tune\" bi neçalakkirina kanala \"Rewşa amûrê\" veşêrin.</string>
+    <string name="settings_monitor_connected_notification_description">Agadarkirek din tenê dema cihûzek girêdahî ye derdikeve. Gava vê vekirî, hûn dikarin agadarkirî \'Cihûz tune\' hilatin: kategorî \'Rewşa cihûzê\' di mîhengên yademkiriya Android-ê yî CAPod-ê derxistin.</string>
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
     <string name="settings_keep_notification_after_disconnect_description">Piştî ku AirPods-ên te qut dibin jî asta dawîn a naskirî ya bataryayê nîşan bide</string>
     <string name="settings_autopause_label">Rawestandina otomatîk</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
     <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
     <string name="settings_autoconnect_label">Girêdana otomatîk</string>
-    <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \"Herdem\".</string>
+    <string name="settings_autoconnect_description">Heke Android bixwe girênebike, em jî dê bipirsînin. Ev CAPod di paşxan de her demê bixweber vê tikan dike.</string>
     <string name="settings_autoconnect_info_android12">Girêdana xweser li ser taybetmendiyek pergalê ye ku Android 12 û nûtir sînor dike. Dibe ku li ser amûra we nexebite.</string>
     <string name="settings_autoconnect_condition_label">Şertê girêdana otomatîk</string>
     <string name="settings_autoconnect_condition_description">Kengê divê em hewl bidin ku bi amûra we ve girêbidin?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Vebijarkên lihevhatinê</string>
     <string name="settings_category_compatibility_options_description">Heke her tişt baş dixebite dest nedin ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Parzûnkirina hardware neçalak bike</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Parzûnkirina daneyan ji pergalê re nehêlin, li şûna wê hemî daneyan bistînin û di nav sepanê de parzûn bikin.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Vê bikirînin heke AirPods-a we tenê nacinne. Sepane bi xwe li hemû nîşanên Bluetooth-ê vedigere, ne jî cîhûna telefonê hilbijêrin.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Komkirina hardware neçalak bike</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Nehêlin ku pergal daneyên BLE yên berhevkirî kom bike berî ku wan ji me re bişîne.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Vê bikirînin heke baş serokan tenê geç an bêhêvî biguherbin. Telefonê her nîşanê Bluetooth-ê bê paşxan vedigere, ne jî li ber komdike.</string>
     <string name="settings_onepod_mode_label">Moda yek pod</string>
     <string name="settings_onepod_mode_description">Lîstina/rawestana xweser û girêdana xweser li şûna ku herdu hewce bike, bi tenê yek pod re reaksiyonê didin.</string>
     <string name="settings_popup_caseopen_label">Pop-upa qapaxê nîşan bide</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Kesk</string>
     <string name="widget_config_preset_red">Sor</string>
     <string name="settings_compat_indirectcallback_title">Radestkirina daneyan a neyekser</string>
-    <string name="settings_compat_indirectcallback_summary">Ji bo wergirtina daneyên BLE ji pergalê rêbazek alternatîf bikar bînin (weşan li şûna paşvexwendinê).</string>
+    <string name="settings_compat_indirectcallback_summary">Vê bikirînin heke vebijêrkên din ên li ber natevin. Android nîşanên Bluetooth-ê di paşxan de CAPod-ê didhe, ne jî CAPod bi xwe ew dikîte.</string>
     <string name="troubleshooter_title">Çareserkerê pirsgirêkan</string>
     <string name="troubleshooter_summary">Pirsgirêkên girêdana Bluetooth teşhîs bikin û çareser bikin.</string>
     <string name="troubleshooter_ble_intro_title">Weşanên Bluetooth Kêm Enerjiyê</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mîhengên Bluetooth</string>
     <string name="device_settings_send_failed">Mîheng nehate sepandin: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Moda Venebûn li ser vê amûrê neçalak e. \"Destûrê bide Moda Venebûnê\" di bin Kontrola Dengê de çalak bike.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods guhdarkirina moda ne fikirî.</string>
     <string name="device_settings_category_battery_label">Batarya</string>
     <string name="device_settings_charge_cap_label">Sînorê Şandina Xweşkirî</string>
     <string name="device_settings_charge_cap_description">Rutîna we hîn bike û şandina bataryayê li dora 80%% rawestîne da ku heyama bataryayê dirêj bike, podên we berî ku hûn wan bikar bînin tijî bike.</string>

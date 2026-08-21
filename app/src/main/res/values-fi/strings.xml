@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Tue kehittäjää</string>
     <string name="upgrade_benefit_disclaimer">Ominaisuuksien saatavuus riippuu kuulokkeistasi ja laitteestasi.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
-    <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \"Ei laitteita\" -ilmoituksen poistamalla \"Laitteen tila\" -kanavan käytöstä.</string>
+    <string name="settings_monitor_connected_notification_description">Näyttää toisen ilmoituksen, joka näkyy vain laitteen ollessa yhteydessä. Kun tämä on käytössä, voit piilottaa pysyvän \"Ei laitteita\" -ilmoituksen: poista \"Laitteen tila\" -kategoria käytöstä CAPodin Android-ilmoitusasetuksissa.</string>
     <string name="settings_keep_notification_after_disconnect_label">Säilytä ilmoitus yhteyden katkaisun jälkeen</string>
     <string name="settings_keep_notification_after_disconnect_description">Jatka viimeisten tunnettujen akkutasojen näyttämistä senkin jälkeen, kun AirPodit katkaisevat yhteyden</string>
     <string name="settings_autopause_label">Automaattinen tauko</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
     <string name="settings_signal_minimum_description">Signaalin vähimmäislaatu, joka laitteella on oltava, jotta se katsotaan omaksesi.</string>
     <string name="settings_autoconnect_label">Automaattinen yhdistäminen</string>
-    <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme myös pyytää sitä. Tämä asettaa valvontatilan asetukseksi \'Aina\'.</string>
+    <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme pyytää sitä tekemään niin. Näin CAPod pysyy jatkuvasti taustalla valvomassa.</string>
     <string name="settings_autoconnect_info_android12">Automaattinen yhteys perustuu järjestelmäominaisuuteen, jota Android 12 ja uudemmat rajoittavat. Se ei välttämättä toimi laitteellasi.</string>
     <string name="settings_autoconnect_condition_label">Automaattisen yhdistämisen ehto</string>
     <string name="settings_autoconnect_condition_description">Milloin meidän pitäisi yrittää yhdistää laitteeseesi?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Yhteensopivuusasetukset</string>
     <string name="settings_category_compatibility_options_description">Älä koske, jos kaikki toimii ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Poista laitteistosuodatus käytöstä</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Älä delegoi tietojen suodatusta järjestelmälle, vaan hanki kaikki tiedot ja suodata ne sovelluksessa.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Kokeile tätä, jos AirPodejasi ei koskaan havaita. Sovellus käy itse läpi kaikki lähellä olevat Bluetooth-signaalit sen sijaan, että puhelin esivalitsisi ne.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Poista laitteistoeräajo käytöstä</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Älä anna järjestelmän ryhmitellä kerättyjä BLE-tietoja ennen niiden välittämistä meille.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Kokeile tätä, jos akkutasot päivittyvät vain myöhässä tai ryppäissä. Puhelimesi välittää jokaisen Bluetooth-signaalin heti sen sijaan, että keräisi niitä ensin.</string>
     <string name="settings_onepod_mode_label">Yhden kuulokkeen tila</string>
     <string name="settings_onepod_mode_description">Automaattinen toisto/tauko ja automaattinen yhdistäminen reagoivat yhteen kuulokkeeseen sen sijaan, että molempia tarvittaisiin.</string>
     <string name="settings_popup_caseopen_label">Näytä kotelon ponnahdusikkuna</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Vihreä</string>
     <string name="widget_config_preset_red">Punainen</string>
     <string name="settings_compat_indirectcallback_title">Epäsuora tietojen toimitus</string>
-    <string name="settings_compat_indirectcallback_summary">Käytä vaihtoehtoista tapaa vastaanottaa BLE-tietoja järjestelmästä (lähetys takaisinkutsun sijaan).</string>
+    <string name="settings_compat_indirectcallback_summary">Kokeile tätä, jos muut yhteensopivuusasetukset eivät auttaneet. Android välittää Bluetooth-signaalit sovellukselle taustalla sen sijaan, että sovellus kuuntelisi niitä suoraan.</string>
     <string name="troubleshooter_title">Vianmääritys</string>
     <string name="troubleshooter_summary">Diagnosoi ja korjaa Bluetooth-yhteysongelmia.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy -lähetykset</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-asetukset</string>
     <string name="device_settings_send_failed">Asetusta ei voitu ottaa käyttöön: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Pois-tila ei ole käytössä tässä laitteessa. Ota käyttöön \"Salli Pois-tila\" Melunhallinnassa.</string>
+    <string name="anc_mode_not_confirmed_message">AirPodit eivät vahvistaneet kuuntelutilan muutosta.</string>
     <string name="device_settings_category_battery_label">Akku</string>
     <string name="device_settings_charge_cap_label">Optimoitu latausraja</string>
     <string name="device_settings_charge_cap_description">Oppii rutiinisi ja keskeyttää lataamisen noin 80 %%:iin akkukeston pidentämiseksi, täydentäen kuulokkeet ennen todennäköistä käyttöä.</string>

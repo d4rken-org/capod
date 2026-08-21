@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">ಡೆವಲಪರ್‌ಗೆ ಬೆಂಬಲ ನೀಡಿ</string>
     <string name="upgrade_benefit_disclaimer">ವೈಶಿಷ್ಟ್ಯ ಲಭ್ಯತೆ ನಿಮ್ಮ ಹೆಡಫೋನ್ ಮತ್ತು ಸಾಧನದ ಮೇಲೆ ಅವಲಂಬಿಸುತ್ತದೆ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
-    <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \"ಸಾಧನ ಸ್ಥಿತಿ\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
+    <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ ಮಾತ್ರ ಕಾಣಿಸಿಕೊಳ್ಳುವ ಎರಡನೇ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದನ್ನು ಆನ್ ಮಾಡಿದಾಗ, ನೀವು ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಬಹುದು: CAPod ಗಾಗಿ Android ನ ಅಧಿಸೂಚನೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ \"ಸಾಧನ ಸ್ಥಿತಿ\" ವರ್ಗವನ್ನು ಆಫ್ ಮಾಡಿ.</string>
     <string name="settings_keep_notification_after_disconnect_label">ಸಂಪರ್ಕ ಕಡಿತದ ನಂತರ ಅಧಿಸೂಚನೆ ಇರಿಸಿ</string>
     <string name="settings_keep_notification_after_disconnect_description">ನಿಮ್ಮ AirPods ಸಂಪರ್ಕ ಕಡಿತವಾದ ನಂತರವೂ ಕೊನೆಯ ತಿಳಿದಿರುವ ಬ್ಯಾಟರಿ ಮಟ್ಟವನ್ನು ತೋರಿಸುವುದನ್ನು ಮುಂದುವರಿಸಿ</string>
     <string name="settings_autopause_label">ಸ್ವಯಂ-ವಿರಾಮ</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
     <string name="settings_signal_minimum_description">ನಿಮ್ಮದೆಂದು ಪರಿಗಣಿಸಲು ಸಾಧನವು ಹೊಂದಿರಬೇಕಾದ ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ.</string>
     <string name="settings_autoconnect_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
-    <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳದಿದ್ದರೆ, ನಾವು ಕೂಡ ಅದನ್ನು ವಿನಂತಿಸಬಹುದು. ಇದು ಮಾನಿಟರ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು \"ಯಾವಾಗಲೂ\" ಗೆ ಹೊಂದಿಸುತ್ತದೆ.</string>
+    <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಿಸದಿದ್ದರೆ, ನಾವು ಅದನ್ನು ಕೇಳಬಹುದು. ಇದರಿಂದ CAPod ಯಾವಾಗಲೂ ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಮಾನಿಟರಿಂಗ್ ಮುಂದುವರಿಸುತ್ತದೆ.</string>
     <string name="settings_autoconnect_info_android12">ಆಟೋ ಕನೆಕ್ಟ್ Android 12 ಮತ್ತು ಹೊಸ ಆವೃತ್ತಿಗಳು ನಿರ್ಬಂಧಿಸುವ ಸಿಸ್ಟಮ್ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಅವಲಂಬಿಸಿದೆ. ಇದು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಕಾರ್ಯ ನಿರ್ವಹಿಸದಿರಬಹುದು.</string>
     <string name="settings_autoconnect_condition_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ ಸ್ಥಿತಿ</string>
     <string name="settings_autoconnect_condition_description">ನಾವು ಯಾವಾಗ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಬೇಕು?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳು</string>
     <string name="settings_category_compatibility_options_description">ಎಲ್ಲವೂ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದರೆ ಮುಟ್ಟಬೇಡಿ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ಹಾರ್ಡ್‌ವೇರ್ ಫಿಲ್ಟರಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">ಡೇಟಾ ಫಿಲ್ಟರಿಂಗ್ ಅನ್ನು ಸಿಸ್ಟಮ್‌ಗೆ ನಿಯೋಜಿಸಬೇಡಿ, ಬದಲಿಗೆ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಪಡೆದುಕೊಳ್ಳಿ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಫಿಲ್ಟರ್ ಮಾಡಿ.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">ನಿಮ್ಮ AirPods ಎಂದಿಗೂ ಪತ್ತೆಯಾಗದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ. ನಿಮ್ಮ ಫೋನ್ ಅವುಗಳನ್ನು ಮೊದಲೇ ಆಯ್ಕೆ ಮಾಡುವ ಬದಲು, ಆ್ಯಪ್ ಸ್ವತಃ ಸಮೀಪದ ಎಲ್ಲಾ ಬ್ಲೂಟೂತ್ ಸಿಗ್ನಲ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ಹಾರ್ಡ್‌ವೇರ್ ಬ್ಯಾಚಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">ಸಂಗ್ರಹಿಸಿದ BLE ಡೇಟಾವನ್ನು ನಮಗೆ ರವಾನಿಸುವ ಮೊದಲು ಸಿಸ್ಟಮ್ ಗುಂಪು ಮಾಡಲು ಬಿಡಬೇಡಿ.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ಬ್ಯಾಟರಿ ಮಟ್ಟಗಳು ತಡವಾಗಿ ಅಥವಾ ಗುಂಪುಗಳಲ್ಲಿ ಮಾತ್ರ ಅಪ್‌ಡೇಟ್ ಆಗುತ್ತಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ. ಸಿಗ್ನಲ್‌ಗಳನ್ನು ಮೊದಲು ಸಂಗ್ರಹಿಸುವ ಬದಲು, ನಿಮ್ಮ ಫೋನ್ ಪ್ರತಿ ಬ್ಲೂಟೂತ್ ಸಿಗ್ನಲ್ ಅನ್ನು ತಕ್ಷಣ ರವಾನಿಸುತ್ತದೆ.</string>
     <string name="settings_onepod_mode_label">ಒಂದು ಪಾಡ್ ಮೋಡ್</string>
     <string name="settings_onepod_mode_description">ಆಟೋ ಪ್ಲೇ/ಪಾಸ್ ಮತ್ತು ಆಟೋ-ಕನೆಕ್ಟ್ ಎರಡನ್ನೂ ಅಗತ್ಯಪಡಿಸದೆ ಒಂದೇ ಪಾಡ್‌ಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತದೆ.</string>
     <string name="settings_popup_caseopen_label">ಕೇಸ್ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">ಹಸಿರು</string>
     <string name="widget_config_preset_red">ಕೆಂಪು</string>
     <string name="settings_compat_indirectcallback_title">ಡೇಟಾದ ಪರೋಕ್ಷ ವಿತರಣೆ</string>
-    <string name="settings_compat_indirectcallback_summary">ಸಿಸ್ಟಮ್‌ನಿಂದ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಲು ಪರ್ಯಾಯ ವಿಧಾನವನ್ನು ಬಳಸಿ (ಕಾಲ್‌ಬ್ಯಾಕ್ ಬದಲಿಗೆ ಪ್ರಸಾರ).</string>
+    <string name="settings_compat_indirectcallback_summary">ಇತರ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳು ಸಹಾಯ ಮಾಡದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ. ಆ್ಯಪ್ ನೇರವಾಗಿ ಸಿಗ್ನಲ್‌ಗಳಿಗಾಗಿ ಆಲಿಸುವ ಬದಲು, Android ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಬ್ಲೂಟೂತ್ ಸಿಗ್ನಲ್‌ಗಳನ್ನು ಆ್ಯಪ್‌ಗೆ ಹಸ್ತಾಂತರಿಸುತ್ತದೆ.</string>
     <string name="troubleshooter_title">ಸಮಸ್ಯೆ ನಿವಾರಕ</string>
     <string name="troubleshooter_summary">Bluetooth ಸಂಪರ್ಕ ಸಮಸ್ಯೆಗಳನ್ನು ಪತ್ತೆಹಚ್ಚಿ ಮತ್ತು ಸರಿಪಡಿಸಿ.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy ಪ್ರಸಾರಗಳು</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ಬ್ಲೂಟೂತ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="device_settings_send_failed">ಸೆಟ್ಟಿಂಗ್ ಅನ್ವಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ಈ ಸಾಧನದಲ್ಲಿ ಆಫ್ ಮೋಡ್ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ. ಶಬ್ದ ನಿಯಂತ್ರಣ ಅಡಿಯಲ್ಲಿ \"ಆಫ್ ಮೋಡ್ ಅನುಮತಿಸಿ\" ಸಕ್ರಿಯಗೊಳಿಸಿ.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ಆಲಿಸುವ ಮೋಡ್ ಬದಲಾವಣೆಯನ್ನು ದೃಢಪಡಿಸಲಿಲ್ಲ.</string>
     <string name="device_settings_category_battery_label">ಬ್ಯಾಟರಿ</string>
     <string name="device_settings_charge_cap_label">ಆಪ್ಟಿಮೈಸ್ಡ್ ಚಾರ್ಜ್ ಮಿತಿ</string>
     <string name="device_settings_charge_cap_description">ನಿಮ್ಮ ದಿನಚರಿಯನ್ನು ಕಲಿತು 80%% ಸಮೀಪ ಚಾರ್ಜಿಂಗ್ ವಿರಾಮಗೊಳಿಸಿ ಬ್ಯಾಟರಿ ಆಯಸ್ಸು ವಿಸ್ತರಿಸುತ್ತದೆ, ನೀವು ಬಳಸುವ ಮೊದಲು ಪಾಡ್‌ಗಳನ್ನು ತುಂಬಿಸುತ್ತದೆ.</string>

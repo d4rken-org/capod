@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">這是一項獨立的購買，不會取消或退還您的訂閱費用。請使用相同的 Google 帳戶。</string>
     <string name="upgrade_screen_sub_still_renewing_title">訂閱仍在生效中</string>
     <string name="upgrade_screen_sub_still_renewing_message">您的訂閱仍設定為自動續訂。請先在 Google Play 中取消訂閱，再切換至一次性購買。剛取消嗎？請稍候片刻讓 Google Play 更新後再試一次。</string>
+    <string name="upgrade_screen_purchase_check_failed_message">無法向 Google Play 檢查你的購買。為了避免重複購買，請稍後再試。</string>
+    <string name="upgrade_screen_pending_card_title">付款待處理</string>
+    <string name="upgrade_screen_pending_card_body">Google Play 正在處理你的付款。一旦付款完成，專業版將自動解鎖。某些付款方式可能需要一段時間。你無需進行任何其他操作。</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play 找到待付款的購買項目，並正在處理中。一旦付款完成，專業版將自動解鎖。</string>
     <string name="upgrade_screen_grace_title">正在確認您的購買</string>
     <string name="upgrade_screen_grace_body_short">Google Play 尚未確認您的購買。Pro 仍處於啟用狀態 — 無需採取任何動作。</string>
     <string name="upgrade_screen_grace_body">Google Play 已有一段時間尚未確認您的購買。Pro 仍處於啟用狀態。請確認您已連上網路，並登入購買時所用的 Google 帳戶，然後嘗試還原購買項目。</string>

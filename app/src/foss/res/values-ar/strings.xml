@@ -14,7 +14,7 @@
     <string name="settings_upgrade_status_description">حالة دعمك.</string>
     <string name="upgrade_screen_why_title">مزايا الترقية</string>
     <string name="upgrade_screen_how_title">كيفية المساعدة</string>
-    <string name="upgrade_screen_how_body">كُن راعيًا وساهم في تطوير المشروع! اضغط على الزرّ أدناه لتفعيل جميع الميزات الإضافية وفتح ملفّي الشخصي على GitHub Sponsors.</string>
+    <string name="upgrade_screen_how_body">كُن راعيًا وادعم تطوير المشروع! اضغط على الزرّ أدناه لتفعيل جميع المزايا الإضافية وفتح ملفّي الشخصي على GitHub Sponsors.</string>
     <string name="upgrade_screen_status_free_title">النسخة المجّانية</string>
     <string name="upgrade_screen_status_free_body">أنت تستخدم النسخة المجّانية من كابود. يمكنك فتح ميزات إضافية من خلال دعم التطوير.</string>
     <string name="upgrade_screen_status_free_action">الاطّلاع على خيارات الترقية</string>

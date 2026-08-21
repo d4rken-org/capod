@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ini adalah pembelian terpisah — tidak membatalkan atau mengembalikan dana langganan Anda. Gunakan akun Google yang sama.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Langganan masih aktif</string>
     <string name="upgrade_screen_sub_still_renewing_message">Langganan Anda masih diatur untuk diperpanjang. Batalkan dulu di Google Play, lalu beralih ke sekali bayar. Baru saja membatalkan? Beri waktu sebentar untuk Google Play lalu coba lagi.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Tidak dapat memeriksa pembelian kamu dengan Google Play. Untuk menghindari pembelian ganda, coba lagi sesaat lagi.</string>
+    <string name="upgrade_screen_pending_card_title">Pembayaran tertunda</string>
+    <string name="upgrade_screen_pending_card_body">Google Play masih memproses pembayaran kamu. Pro akan terbuka otomatis setelah pembayaran berhasil. Beberapa metode pembayaran mungkin membutuhkan waktu. Kamu tidak perlu melakukan apa pun lagi.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play menemukan pembelian dengan pembayaran tertunda dan masih memprosesnya. Pro akan terbuka otomatis setelah pembayaran berhasil.</string>
     <string name="upgrade_screen_grace_title">Mengonfirmasi pembelian Anda</string>
     <string name="upgrade_screen_grace_body_short">Google Play belum mengonfirmasi pembelian Anda. Pro masih aktif — tidak perlu tindakan apa pun.</string>
     <string name="upgrade_screen_grace_body">Google Play belum mengonfirmasi pembelian Anda untuk beberapa waktu. Pro masih aktif. Pastikan Anda daring dan masuk dengan akun Google yang digunakan untuk pembelian, lalu coba pulihkan.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Paremkite kūrėją</string>
     <string name="upgrade_benefit_disclaimer">Funkcijų pasiekiamumas priklauso nuo jūsų ausinių ir įrenginio.</string>
     <string name="settings_monitor_connected_notification_label">Papildomas pranešimas</string>
-    <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \"Nėra įrenginių\" išjungiant kanalą \"Įrenginio būsena\".</string>
+    <string name="settings_monitor_connected_notification_description">Rodo antrą pranešimą, kuris rodomas tik tada, kai įrenginys prijungtas. Jei tai įjungta, galite paslėpti nuolatinį „Nėra įrenginių\" pranešimą: Android CAPod pranešimų nustatymuose išjunkite „Įrenginio būsena\" kategoriją.</string>
     <string name="settings_keep_notification_after_disconnect_label">Palikti pranešimą atjungus</string>
     <string name="settings_keep_notification_after_disconnect_description">Toliau rodyti paskutinį žinomą baterijos lygį net ir atjungus „AirPods\"</string>
     <string name="settings_autopause_label">Automatinė pauzė</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
     <string name="settings_signal_minimum_description">Minimali signalo kokybė, kurią turi turėti įrenginys, kad būtų laikomas jūsų.</string>
     <string name="settings_autoconnect_label">Automatinis prisijungimas</string>
-    <string name="settings_autoconnect_description">Jei „Android“ neprisijungia automatiškai, mes taip pat galime to paprašyti. Tai nustatys stebėjimo režimo nustatymą į \"Visada\".</string>
+    <string name="settings_autoconnect_description">Jei Android neprijungia automatiškai, galime jį paprašyti. Tai laiko CAPod stebėjimą nuolat fone.</string>
     <string name="settings_autoconnect_info_android12">Automatinis prisijungimas remiasi sistemos funkcija, kurią Android 12 ir naujesnės versijos apriboja. Ji gali neveikti jūsų įrenginyje.</string>
     <string name="settings_autoconnect_condition_label">Automatinio prisijungimo sąlyga</string>
     <string name="settings_autoconnect_condition_description">Kada turėtume bandyti prisijungti prie jūsų įrenginio?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Suderinamumo parinktys</string>
     <string name="settings_category_compatibility_options_description">Nelieskite, jei viskas veikia ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Išjungti aparatinį filtravimą</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Nedeleguokite duomenų filtravimo sistemai, vietoj to gaukite visus duomenis ir filtruokite programoje.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Išbandykite tai, jei jūsų AirPods niekada neaptinkami. Programa pati peržiūrės visus netoliese esančius Bluetooth signalus, o ne leisdama telefonui juos iš anksto parinkti.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Išjungti aparatinį paketavimą</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Neleiskite sistemai grupuoti surinktų BLE duomenų prieš juos mums perduodant.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Išbandykite tai, jei baterijos lygis atnaujinamas tik vėliau arba šuoliais. Jūsų telefonas tuoj pat perduos kiekvieną Bluetooth signalą, o ne juos pirmiausia surinks.</string>
     <string name="settings_onepod_mode_label">Vieno „pod\" režimas</string>
     <string name="settings_onepod_mode_description">Automatinis grojimas / pristabdymas ir automatinis prisijungimas reaguoja į vieną ausines vietoj abiejų.</string>
     <string name="settings_popup_caseopen_label">Rodyti dėklo iškylantįjį langą</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Žalia</string>
     <string name="widget_config_preset_red">Raudona</string>
     <string name="settings_compat_indirectcallback_title">Netiesioginis duomenų pristatymas</string>
-    <string name="settings_compat_indirectcallback_summary">Naudokite alternatyvų metodą BLE duomenims gauti iš sistemos (transliacija vietoj atgalinio ryšio).</string>
+    <string name="settings_compat_indirectcallback_summary">Išbandykite tai, jei kitos suderinamumo parinktys nepadėjo. Android perduos Bluetooth signalus programai fone, o ne programa juos klausys tiesiogiai.</string>
     <string name="troubleshooter_title">Problemų sprendiklis</string>
     <string name="troubleshooter_summary">Diagnozuokite ir ištaisykite „Bluetooth\" ryšio problemas.</string>
     <string name="troubleshooter_ble_intro_title">„Bluetooth Low Energy\" transliacijos</string>
@@ -544,6 +544,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth nustatymai</string>
     <string name="device_settings_send_failed">Nepavyko pritaikyti nustatymo: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Išjungimo režimas nėra įjungtas šiame įrenginyje. Įjunkite \"Leisti išjungimo režimą\" skiltyje Triukšmo valdymas.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods nepatvirtino klausymo režimo pasikeitimo.</string>
     <string name="device_settings_category_battery_label">Baterija</string>
     <string name="device_settings_charge_cap_label">Optimizuotas įkrovimo limitas</string>
     <string name="device_settings_charge_cap_description">Išmokite savo rutiną ir stabdykite įkrovimą ties 80%%, kad prailgintumėte baterijos tarnavimo laiką – ausinukai bus viškai įkrauti prieš tai, kai tikėtinai juos naudosite.</string>
