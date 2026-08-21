@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ev kirîneke cuda ye — ew aboneya te betal nake û pereyê wê venagerîne. Heman hesabê Google bi kar bîne.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abone hîn jî çalak e</string>
     <string name="upgrade_screen_sub_still_renewing_message">Aboneya te hîn jî ji bo nûkirinê hatiye mêhengkirin. Berî her tiştî wê li Google Play betal bike, paşê derbasî kirîna carekî bibe. Heke te niha betal kir? Demekê bide Google Play û dîsa biceribîne.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Kiriyan we bi Google Play-ê kontrol nekarî. Ji bo neyik kirîya duyemîn, piştî demekî kurt cardin bipirsînin.</string>
+    <string name="upgrade_screen_pending_card_title">Drav bitmîne</string>
+    <string name="upgrade_screen_pending_card_body">Google Play hengî dravê hûn didê prosès dike. Pro bixweber veşêne gava drav der tê. Hin rêbazên dravê dibe ku demek dirêj bigrin. Tu tiştekî din pêwîst nabe.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play krînekê bi dravê bitmîyî dît û hengî prosês dike. Pro bixweber veşêne gava drav der tê.</string>
     <string name="upgrade_screen_grace_title">Kirîna te tê pejirandin</string>
     <string name="upgrade_screen_grace_body_short">Google Play hê kirîna te napejirîne. Pro hîn jî çalak e — ne hewce ye tu tiştekî bikî.</string>
     <string name="upgrade_screen_grace_body">Google Play demek e kirîna te napejirîne. Pro hîn jî çalak e. Piştrast bike ku tu girêdayî înternetê yî û bi hesabê Google yê ku pê kirî têkevî, paşê kirînê vegerîne.</string>

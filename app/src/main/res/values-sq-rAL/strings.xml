@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Mbështet zhvilluesin</string>
     <string name="upgrade_benefit_disclaimer">Disponueshmeria e funksionit varet nga kufjet dhe pajisja juaj.</string>
     <string name="settings_monitor_connected_notification_label">Njoftim shtesë</string>
-    <string name="settings_monitor_connected_notification_description">Shfaq një njoftim shtesë kur një pajisje lidhet. Kjo ju lejon të fshihni njoftimin e përhershëm \"Asnjë pajisje\" duke çaktivizuar kanalin \"Statusi i pajisjes\".</string>
+    <string name="settings_monitor_connected_notification_description">Shfaq një njoftim të dytë që shfaqet vetëm kur një pajisje është e lidhur. Kur kjo është aktive, mund të fshehësh njoftimin e përhershëm \"Asnjë pajisje\": çaktivizo kategorinë \"Statusi i pajisjes\" në cilësimet e njoftimeve të Android-it për CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
     <string name="settings_keep_notification_after_disconnect_description">Vazhdo të shfaqësh nivelet e fundit të njohura të baterisë edhe pasi AirPods tuaja shkëputen</string>
     <string name="settings_autopause_label">Pauzë automatike</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
     <string name="settings_signal_minimum_description">Cilësia minimale e sinjalit që një pajisje duhet të ketë për t\'u konsideruar e juaja.</string>
     <string name="settings_autoconnect_label">Lidhu automatikisht</string>
-    <string name="settings_autoconnect_description">Nëse Android nuk lidhet automatikisht, ne mund t\'i kërkojmë gjithashtu. Kjo do të vendosë cilësimin e modalitetit të monitorimit në \'Gjithmonë\'.</string>
+    <string name="settings_autoconnect_description">Nëse Android nuk lidhet automatikisht, ne mund t\'i kërkojmë ta bëjë këtë. Kjo e mban CAPod duke monitoruar në sfond gjatë gjithë kohës.</string>
     <string name="settings_autoconnect_info_android12">Lidhja automatike mbështetet në një funksion sistemi të cilin Android 12 dhe versionet më të reja e kufizojnë. Mund të mos funksionojë në pajisjen tuaj.</string>
     <string name="settings_autoconnect_condition_label">Kushti i lidhjes automatike</string>
     <string name="settings_autoconnect_condition_description">Kur duhet të përpiqemi të lidhemi me pajisjen tuaj?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opsionet e përputhshmërisë</string>
     <string name="settings_category_compatibility_options_description">Mos i prekni nëse gjithçka funksionon ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Çaktivizo filtrimin e harduerit</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Mos ia delego sistemit filtrimin e të dhënave, në vend të kësaj merr të gjitha të dhënat dhe filtro brenda aplikacionit.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Provoje këtë nëse AirPods e tua nuk zbulohen kurrë. Aplikacioni do të kontrollojë vetë të gjitha sinjalet Bluetooth në afërsi, në vend që të lërë telefonin t\'i para-përzgjedhë.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Çaktivizo grumbullimin e harduerit</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Mos lejo sistemin të grupojë të dhënat e mbledhura BLE përpara se t\'i përcjellë tek ne.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Provoje këtë nëse nivelet e baterisë përditësohen vetëm me vonesë ose në grupe. Telefoni yt do t\'i kalojë menjëherë çdo sinjal Bluetooth, në vend që t\'i mbledhë më parë.</string>
     <string name="settings_onepod_mode_label">Modaliteti me një kufje</string>
     <string name="settings_onepod_mode_description">Luajtja/pauzimi automatik dhe lidhja automatike reagojnë ndaj një kapsule të vetme në vend se të kërkojnë të dyja.</string>
     <string name="settings_popup_caseopen_label">Shfaq popup-in e kutisë</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Jeshile</string>
     <string name="widget_config_preset_red">E kuqe</string>
     <string name="settings_compat_indirectcallback_title">Dorëzimi indirekt i të dhënave</string>
-    <string name="settings_compat_indirectcallback_summary">Përdorni një metodë alternative për të marrë të dhëna BLE nga sistemi (transmetim në vend të kthimit të thirrjes).</string>
+    <string name="settings_compat_indirectcallback_summary">Provoje këtë nëse opsionet e tjera të përputhshmërisë nuk ndihmuan. Android do t\'ia dorëzojë sinjalet Bluetooth aplikacionit në sfond, në vend që aplikacioni t\'i dëgjojë ato drejtpërdrejt.</string>
     <string name="troubleshooter_title">Zgjidhësi i problemeve</string>
     <string name="troubleshooter_summary">Diagnostikoni dhe rregulloni problemet e lidhjes Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmetimet Bluetooth Low Energy</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Cilësimet e Bluetooth</string>
     <string name="device_settings_send_failed">Nuk mund të aplikohet cilësimi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Modaliteti Joaktiv nuk është i aktivizuar në këtë pajisje. Aktivizoni \"Lejo modalitetin Joaktiv\" nën Kontrollin e Zhurmës.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods nuk konfirmuan ndryshimin e modalitetit të dëgjimit.</string>
     <string name="device_settings_category_battery_label">Bateria</string>
     <string name="device_settings_charge_cap_label">Kufiri i ngarkimit të optimizuar</string>
     <string name="device_settings_charge_cap_description">Mëson rutinën tuaj dhe pauzues ngarkimin rreth 80%% për të zgjatur jetën e baterisë, duke plotësuar pods-at para se t\'i përdorni.</string>

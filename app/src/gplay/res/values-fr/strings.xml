@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Il s’agit d’un achat distinct — il n’annule ni ne rembourse votre abonnement. Utilisez le même compte Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement toujours actif</string>
     <string name="upgrade_screen_sub_still_renewing_message">Votre abonnement est toujours configuré pour se renouveler. Annulez-le d’abord dans Google Play, puis passez à l’achat unique. Vous venez de l’annuler ? Laissez un peu de temps à Google Play et réessayez.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Impossible de vérifier tes achats avec Google Play. Pour éviter un achat en double, réessaie dans un instant.</string>
+    <string name="upgrade_screen_pending_card_title">Paiement en attente</string>
+    <string name="upgrade_screen_pending_card_body">Google Play traite toujours ton paiement. Pro se déverrouille automatiquement une fois le paiement effectué. Certains modes de paiement peuvent prendre du temps. Tu n\'as rien d\'autre à faire.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play a trouvé un achat avec un paiement en attente et le traite actuellement. Pro se déverrouille automatiquement une fois le paiement effectué.</string>
     <string name="upgrade_screen_grace_title">Confirmation de votre achat</string>
     <string name="upgrade_screen_grace_body_short">Google Play n’a pas encore confirmé votre achat. Pro reste actif — aucune action requise.</string>
     <string name="upgrade_screen_grace_body">Google Play n’a pas confirmé votre achat depuis un moment. Pro reste actif. Assurez-vous d’être connecté à Internet et au compte Google utilisé pour l’achat, puis essayez de restaurer.</string>

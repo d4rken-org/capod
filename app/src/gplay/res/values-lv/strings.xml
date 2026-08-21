@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Šis ir atsevišķis pirkums — tas neatceļ un neatmaksā tavu abonementu. Izmanto to pašu Google kontu.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonements joprojām aktīvs</string>
     <string name="upgrade_screen_sub_still_renewing_message">Tavs abonements joprojām ir iestatīts atjaunoties. Vispirms atceļ to Google Play, tad pāriet uz vienreizējo pirkumu. Tikko atcēli? Dod Google Play brīdi un mēģini vēlreiz.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Neizdevās pārbaudīt tavus pirkumus ar Google Play. Lai izvairītos no dubulta pirkuma, mēģini vēlreiz pēc brīža.</string>
+    <string name="upgrade_screen_pending_card_title">Gaidīts maksājums</string>
+    <string name="upgrade_screen_pending_card_body">Google Play joprojām apstrādā tavu maksājumu. Pro atbloķēsies automātiski, kad maksājums tiks apstrādāts. Dažas maksājuma metodes var aizņemt ilgāku laiku. Tev nav ko vairāk jādara.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play atrada pirkumu ar gaidītu maksājumu un joprojām to apstrādā. Pro atbloķēsies automātiski, kad maksājums tiks apstrādāts.</string>
     <string name="upgrade_screen_grace_title">Notiek pirkuma apstiprināšana</string>
     <string name="upgrade_screen_grace_body_short">Google Play vēl nav apstiprinājis tavu pirkumu. Pro joprojām ir aktīvs — nekas nav jādara.</string>
     <string name="upgrade_screen_grace_body">Google Play jau kādu laiku nav apstiprinājis tavu pirkumu. Pro joprojām ir aktīvs. Pārliecinies, ka esi tiešsaistē un pieteicies ar Google kontu, kas izmantots pirkumam, tad mēģini atjaunot pirkumu.</string>

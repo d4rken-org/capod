@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Dasturchini qo\'llab-quvvatlash</string>
     <string name="upgrade_benefit_disclaimer">Xususiyatlarning mavjudligi quloqchinlaringiz va qurilmangizga bog\'liq.</string>
     <string name="settings_monitor_connected_notification_label">Qo\'shimcha bildirishnoma</string>
-    <string name="settings_monitor_connected_notification_description">Qurilma ulanganda qo\'shimcha bildirishnoma ko\'rsatadi. Bu sizga \"Qurilma holati\" kanalini o\'chirib qo\'yish orqali doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishga imkon beradi.</string>
+    <string name="settings_monitor_connected_notification_description">Faqat qurilma ulangan paytda ko\'rinadigan ikkinchi bildirishnomani ko\'rsatadi. Bu yoqilganda, doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishingiz mumkin: Android bildirishnoma sozlamalarida CAPod uchun \"Qurilma holati\" toifasini o\'chiring.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uzilgandan keyin bildirishnomani saqlash</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods uzilgandan keyin ham oxirgi ma\'lum batareya darajalarini ko\'rsatishni davom ettiring</string>
     <string name="settings_autopause_label">Avtomatik pauza</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimal signal sifati</string>
     <string name="settings_signal_minimum_description">Qurilma sizniki deb hisoblanishi uchun kerak bo\'lgan minimal signal sifati.</string>
     <string name="settings_autoconnect_label">Avtomatik ulanish</string>
-    <string name="settings_autoconnect_description">Agar Android avtomatik ravishda ulanmasa, biz ham so\'rashimiz mumkin. Bu monitoring rejimi sozlamasini \"Har doim\" ga o\'rnatadi.</string>
+    <string name="settings_autoconnect_description">Agar Android avtomatik ulanmasa, biz undan so\'rashimiz mumkin. Bu CAPod monitoringini doim fonda ishlab turishini ta\'minlaydi.</string>
     <string name="settings_autoconnect_info_android12">Avtomatik ulanish Android 12 va undan yangi versiyalarda cheklangan tizim xususiyatiga tayanadi. Bu qurilmangizda ishlamasligi mumkin.</string>
     <string name="settings_autoconnect_condition_label">Avtomatik ulanish sharti</string>
     <string name="settings_autoconnect_condition_description">Qurilmangizga qachon ulanishga harakat qilishimiz kerak?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Moslik parametrlari</string>
     <string name="settings_category_compatibility_options_description">Agar hamma narsa ishlayotgan bo\'lsa, tegmang ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Uskuna filtrlashni o\'chirish</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Ma\'lumotlarni filtrlashni tizimga topshirmang, aksincha barcha ma\'lumotlarni oling va ilova ichida filtrlang.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods hech qachon aniqlanmasa, buni sinab ko\'ring. Ilova telefoningiz ularni oldindan tanlashiga yo\'l qo\'ymasdan, atrofdagi barcha Bluetooth signallarini o\'zi ko\'rib chiqadi.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Uskuna paketlashni o\'chirish</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Tizimga yig\'ilgan BLE ma\'lumotlarini bizga yuborishdan oldin guruhlashiga yo\'l qo\'ymang.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Batareya darajasi kech yoki to\'plamlar tarzida yangilansa, buni sinab ko\'ring. Telefoningiz signallarni avval to\'plamasdan, har bir Bluetooth signalini darhol uzatadi.</string>
     <string name="settings_onepod_mode_label">Bitta pod rejimi</string>
     <string name="settings_onepod_mode_description">Avtomatik ijro/to\'xtatish va avtomatik ulanish ikkitasini ham talab qilish o\'rniga bitta naushnikka munosabat bildiradi.</string>
     <string name="settings_popup_caseopen_label">Keys ochilganda qalqib chiquvchi oynani ko\'rsatish</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Yashil</string>
     <string name="widget_config_preset_red">Qizil</string>
     <string name="settings_compat_indirectcallback_title">Bilvosita ma\'lumotlarni yetkazib berish</string>
-    <string name="settings_compat_indirectcallback_summary">Tizimdan BLE ma\'lumotlarini olish uchun muqobil usuldan foydalaning (qayta qo\'ng\'iroq o\'rniga translyatsiya).</string>
+    <string name="settings_compat_indirectcallback_summary">Boshqa moslik sozlamalari yordam bermasa, buni sinab ko\'ring. Android Bluetooth signallarini ilova ularni to\'g\'ridan-to\'g\'ri kuzatib turishi o\'rniga, fonda ilovaga uzatadi.</string>
     <string name="troubleshooter_title">Nosozliklarni bartaraf etish vositasi</string>
     <string name="troubleshooter_summary">Bluetooth ulanish muammolarini diagnostika qilish va tuzatish.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy translyatsiyalari</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth sozlamalari</string>
     <string name="device_settings_send_failed">Sozlamani qo\'llab bo\'lmadi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">O\'chirish rejimi bu qurilmada yoqilmagan. Shovqin boshqaruvi bo\'limida \"O\'chirish rejimiga ruxsat berish\" ni yoqing.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods tinglash rejimi o\'zgarishini tasdiqlamadi.</string>
     <string name="device_settings_category_battery_label">Batareya</string>
     <string name="device_settings_charge_cap_label">Optimallashtirilgan Zaryad Chegarasi</string>
     <string name="device_settings_charge_cap_description">Odatlaringizni o\'rganib, batareya muddatini uzaytirish uchun zaryad berish 80%% atrofida to\'xtatiladi va qurilmalarni ishlatishdan oldin to\'liq zaryadlanadi.</string>

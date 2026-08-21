@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">დეველოპერის მხარდაჭერა</string>
     <string name="upgrade_benefit_disclaimer">ფუნქციის ხელმისაწვდომობა დამოკიდებულია თქვენს ყურსასმენსა და მოწყობილობაზე.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
-    <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \"მოწყობილობები არ არის\" შეტყობინება \"მოწყობილობის სტატუსის\" არხის გამორთვით.</string>
+    <string name="settings_monitor_connected_notification_description">აჩვენებს მეორე შეტყობინებას, რომელიც მხოლოდ მოწყობილობის დაკავშირებისას ჩნდება. ამის ჩართვისას შეგიძლია დამალო მუდმივი „მოწყობილობები არ არის“ შეტყობინება: გამორთე „მოწყობილობის სტატუსი“ კატეგორია CAPod-ის Android-ის შეტყობინებების პარამეტრებში.</string>
     <string name="settings_keep_notification_after_disconnect_label">შეტყობინების შენარჩუნება გათიშვის შემდეგ</string>
     <string name="settings_keep_notification_after_disconnect_description">განაგრძეთ ბოლო ცნობილი ბატარეის დონეების ჩვენება მაშინაც კი, როცა თქვენი AirPods გაითიშება</string>
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
     <string name="settings_signal_minimum_description">სიგნალის მინიმალური ხარისხი, რომელიც მოწყობილობას უნდა ჰქონდეს, რომ თქვენად ჩაითვალოს.</string>
     <string name="settings_autoconnect_label">ავტომატური დაკავშირება</string>
-    <string name="settings_autoconnect_description">თუ Android ავტომატურად არ უკავშირდება, ჩვენც შეგვიძლია მოვითხოვოთ. ეს მონიტორინგის რეჟიმის პარამეტრს \"ყოველთვის\"-ზე დააყენებს.</string>
+    <string name="settings_autoconnect_description">თუ Android ავტომატურად არ დაუკავშირდება, ჩვენც შეგვიძლია ვთხოვოთ მას ეს. ეს უზრუნველყოფს, რომ CAPod ფონურ რეჟიმში მუდმივად აკვირდება.</string>
     <string name="settings_autoconnect_info_android12">ავტო-კავშირი ეყრდნობა სისტემის ფუნქციას, რომელსაც Android 12 და უფრო ახალი ვერსიები ზღუდავს. შესაძლოა, თქვენს მოწყობილობაზე ეს ფუნქცია არ მუშაობდეს.</string>
     <string name="settings_autoconnect_condition_label">ავტომატური დაკავშირების პირობა</string>
     <string name="settings_autoconnect_condition_description">როდის უნდა ვცადოთ თქვენს მოწყობილობასთან დაკავშირება?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">თავსებადობის პარამეტრები</string>
     <string name="settings_category_compatibility_options_description">არ შეეხოთ, თუ ყველაფერი მუშაობს ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">აპარატურული ფილტრაციის გამორთვა</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">არ გადასცეთ მონაცემთა ფილტრაცია სისტემას, ამის ნაცვლად მიიღეთ ყველა მონაცემი და გაფილტრეთ აპლიკაციის შიგნით.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">სცადე ეს, თუ შენი AirPods საერთოდ ვერ ვლინდება. აპლიკაცია თავად შეამოწმებს ყველა ახლომდებარე Bluetooth სიგნალს, იმის ნაცვლად, რომ ტელეფონმა წინასწარ შეარჩიოს ისინი.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">აპარატურული დაჯგუფების გამორთვა</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">არ დაუშვათ სისტემამ შეგროვებული BLE მონაცემების დაჯგუფება, სანამ ჩვენთან გადმოგზავნის.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">სცადე ეს, თუ ბატარეის დონე მხოლოდ დაგვიანებით ან წყვეტილად განახლდება. შენი ტელეფონი დაუყოვნებლივ გადასცემს ყოველ Bluetooth სიგნალს, იმის ნაცვლად, რომ ჯერ შეაგროვოს ისინი.</string>
     <string name="settings_onepod_mode_label">ერთი ყურსასმენის რეჟიმი</string>
     <string name="settings_onepod_mode_description">ავტო-დაკვრა/პაუზა და ავტო-კავშირი ერთ pod-ზე რეაგირებს, ორივეს საჭიროების ნაცვლად.</string>
     <string name="settings_popup_caseopen_label">ქეისის ამომხტარი ფანჯრის ჩვენება</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">მწვანო</string>
     <string name="widget_config_preset_red">წითელი</string>
     <string name="settings_compat_indirectcallback_title">მონაცემთა არაპირდაპირი მიწოდება</string>
-    <string name="settings_compat_indirectcallback_summary">გამოიყენეთ ალტერნატიული მეთოდი სისტემიდან BLE მონაცემების მისაღებად (მაუწყებლობა გამოძახების ნაცვლად).</string>
+    <string name="settings_compat_indirectcallback_summary">სცადე ეს, თუ თავსებადობის სხვა პარამეტრებმა არ დაგეხმარა. Android გადასცემს Bluetooth სიგნალებს აპლიკაციას ფონურ რეჟიმში, იმის ნაცვლად, რომ აპლიკაცია თავად უსმენდეს მათ პირდაპირ.</string>
     <string name="troubleshooter_title">პრობლემების გადამჭრელი</string>
     <string name="troubleshooter_summary">Bluetooth კავშირის პრობლემების დიაგნოსტიკა და გამოსწორება.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy მაუწყებლობა</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth პარამეტრები</string>
     <string name="device_settings_send_failed">პარამეტრის გამოყენება ვერ მოხერხდა: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off რეჟიმი არ არის აქტიური ამ მოწყობილობაზე. აღვისეთ \"Off რეჟიმის დაშვება\" Noise Control-ში.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods-მა ვერ დაადასტურა მოსმენის რეჟიმის ცვლილება.</string>
     <string name="device_settings_category_battery_label">ბატარეა</string>
     <string name="device_settings_charge_cap_label">ოპტიმიზებული დამუხტვის ლიმიტი</string>
     <string name="device_settings_charge_cap_description">ისწავლის თქვენს რუტინას და შეაჩერებს დამუხტვას დაახლოებით 80%%-ზე ბატარეის სიცოცხლის გასახანგრძლივებლად, პოდებს დამუხტავს სრულად სავარაუდო გამოყენებამდე.</string>

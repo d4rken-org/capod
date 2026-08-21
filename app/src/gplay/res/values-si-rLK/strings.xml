@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">මෙය වෙනම මිලදී ගැනීමකි — එය ඔබේ දායකත්වය අවලංගු කිරීමක් හෝ මුදල් ආපසු ගෙවීමක් සිදු නොකරයි. එකම Google ගිණුම භාවිත කරන්න.</string>
     <string name="upgrade_screen_sub_still_renewing_title">දායකත්වය තවමත් සක්‍රියයි</string>
     <string name="upgrade_screen_sub_still_renewing_message">ඔබේ දායකත්වය තවමත් අළුත් කිරීමට සකසා ඇත. පළමුව Google Play හි එය අවලංගු කර, පසුව එක් වරක් මිලදී ගැනීමට මාරු වන්න. දැන් අවලංගු කළාද? Google Play ට මොහොතක් ලබා දී නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play සමඟ ඔබගේ මිලදී ගැනීම් පරීක්ෂා කළ නොහැකි විය. දෙවරක් මිලදී ගැනීමක් වළක්වා ගැනීමට, ටික වේලාවකින් නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrade_screen_pending_card_title">ගෙවීම අපේක්ෂිතයි</string>
+    <string name="upgrade_screen_pending_card_body">Google Play තවමත් ඔබගේ ගෙවීම සකසමින් සිටී. ගෙවීම සම්පූර්ණ වූ පසු Pro ස්වයංක්‍රීයව අගුළු හැරෙනු ඇත. සමහර ගෙවීම් ක්‍රම වලට ටික වේලාවක් ගත විය හැක. ඔබ කළ යුතු වෙන කිසිවක් නැත.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play අපේක්ෂිත ගෙවීමක් සහිත මිලදී ගැනීමක් සොයාගෙන ඇති අතර, එය තවමත් සකසමින් සිටී. ගෙවීම සම්පූර්ණ වූ පසු Pro ස්වයංක්‍රීයව අගුළු හැරෙනු ඇත.</string>
     <string name="upgrade_screen_grace_title">ඔබේ මිලදී ගැනීම තහවුරු කරමින්</string>
     <string name="upgrade_screen_grace_body_short">Google Play තවම ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි — කිසිදු ක්‍රියාමාර්ගයක් අවශ්‍ය නොවේ.</string>
     <string name="upgrade_screen_grace_body">Google Play ටික කලක් තිස්සේ ඔබේ මිලදී ගැනීම තහවුරු කර නැත. Pro තවමත් සක්‍රියයි. ඔබ අන්තර්ජාලයට සම්බන්ධව සිටින බවත්, මිලදී ගැනීම සඳහා භාවිත කළ Google ගිණුමෙන් පුරන්ව ඇති බවත් තහවුරු කරගෙන, පසුව ප්‍රතිසාධනය කිරීමට උත්සාහ කරන්න.</string>

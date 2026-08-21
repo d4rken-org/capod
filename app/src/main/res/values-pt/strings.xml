@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Apoiar o programador</string>
     <string name="upgrade_benefit_disclaimer">A disponibilidade de funcionalidades depende dos seus auscultadores e dispositivo.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
-    <string name="settings_monitor_connected_notification_description">Mostra uma notificação extra quando um dispositivo está ligado. Isto permite-lhe ocultar a notificação permanente \"Sem dispositivos\" desativando o canal \"Estado do dispositivo\".</string>
+    <string name="settings_monitor_connected_notification_description">Mostra uma segunda notificação que só aparece enquanto um dispositivo está ligado. Com isto ativado, podes ocultar a notificação permanente \"Sem dispositivos\": desativa a categoria \"Estado do dispositivo\" nas definições de notificações do CAPod no Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Manter notificação após desligar</string>
     <string name="settings_keep_notification_after_disconnect_description">Continuar a mostrar os últimos níveis de bateria conhecidos mesmo após os AirPods desligarem</string>
     <string name="settings_autopause_label">Pausa automática</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Qualidade mínima do sinal</string>
     <string name="settings_signal_minimum_description">A qualidade mínima do sinal que um dispositivo tem de ter para ser considerado seu.</string>
     <string name="settings_autoconnect_label">Ligar automaticamente</string>
-    <string name="settings_autoconnect_description">Se o Android não ligar automaticamente, também podemos pedi-lo. Isto irá definir a definição do modo de monitorização para \"Sempre\".</string>
+    <string name="settings_autoconnect_description">Se o Android não se ligar automaticamente, podemos pedir-lhe para o fazer. Isto mantém o CAPod a monitorizar em segundo plano o tempo todo.</string>
     <string name="settings_autoconnect_info_android12">A ligação automática depende de uma funcionalidade do sistema que o Android 12 e versões mais recentes restringem. Pode não funcionar no seu dispositivo.</string>
     <string name="settings_autoconnect_condition_label">Condição de ligação automática</string>
     <string name="settings_autoconnect_condition_description">Quando é que devemos tentar ligar ao seu dispositivo?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opções de compatibilidade</string>
     <string name="settings_category_compatibility_options_description">Não mexa se tudo estiver a funcionar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Desativar filtragem por hardware</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Não delegue a filtragem de dados ao sistema, em vez disso, obtenha todos os dados e filtre dentro da aplicação.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Experimenta isto se os teus AirPods nunca forem detetados. A aplicação vai procurar em todos os sinais Bluetooth próximos por si própria, em vez de deixar o teu telemóvel pré-selecioná-los.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desativar processamento em lote por hardware</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Não permita que o sistema agrupe os dados BLE recolhidos antes de os encaminhar para nós.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Experimenta isto se os níveis de bateria só forem atualizados tarde ou aos saltos. O teu telemóvel vai transmitir cada sinal Bluetooth de imediato, em vez de os recolher primeiro.</string>
     <string name="settings_onepod_mode_label">Modo de um só pod</string>
     <string name="settings_onepod_mode_description">A reprodução/pausa automática e a ligação automática reagem a um único auricular em vez de exigirem ambos.</string>
     <string name="settings_popup_caseopen_label">Mostrar pop-up da caixa</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Verde</string>
     <string name="widget_config_preset_red">Vermelho</string>
     <string name="settings_compat_indirectcallback_title">Entrega de dados indireta</string>
-    <string name="settings_compat_indirectcallback_summary">Utilize um método alternativo para receber dados BLE do sistema (transmissão em vez de chamada de retorno).</string>
+    <string name="settings_compat_indirectcallback_summary">Experimenta isto se as outras opções de compatibilidade não ajudaram. O Android vai entregar os sinais Bluetooth à aplicação em segundo plano, em vez de a aplicação os escutar diretamente.</string>
     <string name="troubleshooter_title">Solucionador de problemas</string>
     <string name="troubleshooter_summary">Diagnosticar e corrigir problemas de conectividade Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmissões Bluetooth de Baixo Consumo de Energia</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Definições de Bluetooth</string>
     <string name="device_settings_send_failed">Não foi possível aplicar a definição: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">O modo Desligado não está ativado neste dispositivo. Ative \"Permitir modo Desligado\" em Controlo de Ruído.</string>
+    <string name="anc_mode_not_confirmed_message">Os AirPods não confirmaram a alteração do modo de escuta.</string>
     <string name="device_settings_category_battery_label">Bateria</string>
     <string name="device_settings_charge_cap_label">Limite de Carga Otimizado</string>
     <string name="device_settings_charge_cap_description">Aprende a sua rotina e pausa a carga por volta dos 80%% para prolongar a vida útil da bateria, carregando os AirPods antes de os usar.</string>

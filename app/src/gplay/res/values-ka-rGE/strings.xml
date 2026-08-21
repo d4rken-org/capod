@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ეს ცალკე შესყიდვაა — ის არ აუქმებს და არ აბრუნებს თანხას თქვენს გამოწერაზე. გამოიყენეთ იგივე Google ანგარიში.</string>
     <string name="upgrade_screen_sub_still_renewing_title">გამოწერა კვლავ აქტიურია</string>
     <string name="upgrade_screen_sub_still_renewing_message">თქვენი გამოწერა კვლავ დაყენებულია განახლებაზე. ჯერ გააუქმეთ ის Google Play-ში, შემდეგ გადადით ერთჯერად შესყიდვაზე. ახლახან გააუქმეთ? მიეცით Google Play-ს დრო და სცადეთ ხელახლა.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">ვერ მოხერხდა შენი შესყიდვების შემოწმება Google Play-სთან. ორმაგი შესყიდვის თავიდან ასაცილებლად, სცადე ისევ ცოტა ხანში.</string>
+    <string name="upgrade_screen_pending_card_title">გადახდა მოლოდინშია</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ჯერ კიდევ ამუშავებს შენს გადახდას. Pro ავტომატურად გაიხსნება, როგორც კი გადახდა დასრულდება. ზოგიერთ გადახდის მეთოდს გარკვეული დრო სჭირდება. სხვა არაფრის გაკეთება არ გჭირდება.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play-მ იპოვა შესყიდვა მოლოდინში მყოფი გადახდით და ჯერ კიდევ ამუშავებს მას. Pro ავტომატურად გაიხსნება, როგორც კი გადახდა დასრულდება.</string>
     <string name="upgrade_screen_grace_title">თქვენი შესყიდვის დადასტურება</string>
     <string name="upgrade_screen_grace_body_short">Google Play-მ ჯერ არ დაადასტურა თქვენი შესყიდვა. Pro კვლავ აქტიურია — არანაირი მოქმედება არ არის საჭირო.</string>
     <string name="upgrade_screen_grace_body">Google Play-მ დიდი ხანია არ დაუდასტურებია თქვენი შესყიდვა. Pro კვლავ აქტიურია. დარწმუნდით, რომ ხართ ონლაინ და შესული ხართ იმ Google ანგარიშით, რომლითაც შესყიდვა განახორციელეთ, შემდეგ სცადეთ აღდგენა.</string>

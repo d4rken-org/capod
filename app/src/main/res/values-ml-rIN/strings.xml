@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">ഡെവലപ്പറെ പിന്തുണയ്ക്കുക</string>
     <string name="upgrade_benefit_disclaimer">ഫീചർ ലഭ്യത നിങ്ങളുടെ ഹെഡ്‌ഫോണിലും ഉപകരണത്തിലും ആശ്രയിക്കുന്നു.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
-    <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \"ഉപകരണ നില\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
+    <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റ് ചെയ്തിരിക്കുമ്പോൾ മാത്രം ദൃശ്യമാകുന്ന രണ്ടാമത്തെ അറിയിപ്പ് ഇത് കാണിക്കുന്നു. ഇത് ഓണാക്കിയാൽ, സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് നിങ്ങൾക്ക് മറയ്ക്കാം: Android-ന്റെ അറിയിപ്പ് ക്രമീകരണങ്ങളിൽ CAPod-നായുള്ള \"ഉപകരണ നില\" വിഭാഗം ഓഫാക്കുക.</string>
     <string name="settings_keep_notification_after_disconnect_label">വിച്ഛേദിച്ച ശേഷം അറിയിപ്പ് നിലനിർത്തുക</string>
     <string name="settings_keep_notification_after_disconnect_description">നിങ്ങളുടെ AirPods വിച്ഛേദിച്ചാലും അവസാനമായി അറിയപ്പെടുന്ന ബാറ്ററി ലെവലുകൾ കാണിക്കുന്നത് തുടരുക</string>
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
     <string name="settings_signal_minimum_description">ഒരു ഉപകരണം നിങ്ങളുടേതാണെന്ന് കണക്കാക്കാൻ ആവശ്യമായ ഏറ്റവും കുറഞ്ഞ സിഗ്നൽ നിലവാരം.</string>
     <string name="settings_autoconnect_label">യാന്ത്രികമായി കണക്റ്റുചെയ്യുക</string>
-    <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \"എപ്പോഴും\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
+    <string name="settings_autoconnect_description">Android സ്വയമേവ കണക്റ്റ് ചെയ്യുന്നില്ലെങ്കിൽ, നമുക്ക് അത് ചെയ്യാൻ ആവശ്യപ്പെടാം. ഇത് CAPod-നെ എപ്പോഴും പശ്ചാത്തലത്തിൽ നിരീക്ഷിച്ചുകൊണ്ടിരിക്കാൻ സഹായിക്കുന്നു.</string>
     <string name="settings_autoconnect_info_android12">Android 12-ഉം അതിനു ശേഷമുള്ള പതിപ്പുകളും നിയന്ത്രിക്കുന്ന ഒരു സിസ്റ്റം സവിശേഷതയെ ആശ്രയിക്കുന്നതിനാൽ ഓട്ടോ കണക്ട് പ്രവർത്തിക്കണമെന്നില്ല. ഇത് നിങ്ങളുടെ ഡിവൈസിൽ പ്രവർത്തിക്കാതിരിക്കാം.</string>
     <string name="settings_autoconnect_condition_label">യാന്ത്രിക കണക്ഷൻ വ്യവസ്ഥ</string>
     <string name="settings_autoconnect_condition_description">എപ്പോഴാണ് ഞങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്യാൻ ശ്രമിക്കേണ്ടത്?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
     <string name="settings_category_compatibility_options_description">എല്ലാം ശരിയായി പ്രവർത്തിക്കുന്നുണ്ടെങ്കിൽ തൊടരുത് ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ഹാർഡ്‌വെയർ ഫിൽട്ടറിംഗ് പ്രവർത്തനരഹിതമാക്കുക</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">സിസ്റ്റത്തിലേക്ക് ഡാറ്റ ഫിൽട്ടറിംഗ് ഏൽപ്പിക്കരുത്, പകരം എല്ലാ ഡാറ്റയും നേടുകയും ആപ്പിനുള്ളിൽ ഫിൽട്ടർ ചെയ്യുകയും ചെയ്യുക.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">നിങ്ങളുടെ AirPods ഒരിക്കലും കണ്ടെത്തുന്നില്ലെങ്കിൽ ഇത് പരീക്ഷിക്കുക. നിങ്ങളുടെ ഫോൺ അവയെ മുൻകൂട്ടി തിരഞ്ഞെടുക്കുന്നതിന് പകരം, ആപ്പ് സമീപത്തുള്ള എല്ലാ ബ്ലൂടൂത്ത് സിഗ്നലുകളും സ്വയം പരിശോധിക്കും.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ഹാർഡ്‌വെയർ ബാച്ചിംഗ് പ്രവർത്തനരഹിതമാക്കുക</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">ശേഖരിച്ച BLE ഡാറ്റ ഞങ്ങൾക്ക് കൈമാറുന്നതിന് മുമ്പ് സിസ്റ്റം ഗ്രൂപ്പുചെയ്യാൻ അനുവദിക്കരുത്.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ബാറ്ററി നില വൈകി മാത്രം അല്ലെങ്കിൽ കൂട്ടമായി അപ്ഡേറ്റ് ആകുന്നുണ്ടെങ്കിൽ ഇത് പരീക്ഷിക്കുക. ആദ്യം ശേഖരിക്കുന്നതിന് പകരം, നിങ്ങളുടെ ഫോൺ ഓരോ ബ്ലൂടൂത്ത് സിഗ്നലും ഉടനടി കൈമാറും.</string>
     <string name="settings_onepod_mode_label">ഒരു പോഡ് മോഡ്</string>
     <string name="settings_onepod_mode_description">ഓട്ടോ പ്ലേ/പോസ്, ഓട്ടോ-കണക്ട് എന്നിവ രണ്ടും ആവശ്യപ്പെടുന്നതിനു പകരം ഒരൊറ്റ പോഡിനോട് പ്രതികരിക്കുന്നു.</string>
     <string name="settings_popup_caseopen_label">കേസ് പോപ്പ്അപ്പ് കാണിക്കുക</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">പച്ച</string>
     <string name="widget_config_preset_red">ചുവപ്പ്</string>
     <string name="settings_compat_indirectcallback_title">പരോക്ഷ ഡാറ്റ ഡെലിവറി</string>
-    <string name="settings_compat_indirectcallback_summary">സിസ്റ്റത്തിൽ നിന്ന് BLE ഡാറ്റ സ്വീകരിക്കാൻ ഒരു ഇതര രീതി ഉപയോഗിക്കുക (കോൾബാക്കിന് പകരം പ്രക്ഷേപണം ചെയ്യുക).</string>
+    <string name="settings_compat_indirectcallback_summary">മറ്റ് അനുയോജ്യത ഓപ്ഷനുകൾ സഹായിച്ചില്ലെങ്കിൽ ഇത് പരീക്ഷിക്കുക. ആപ്പ് നേരിട്ട് ബ്ലൂടൂത്ത് സിഗ്നലുകൾക്കായി ശ്രദ്ധിക്കുന്നതിന് പകരം, Android അവ പശ്ചാത്തലത്തിൽ ആപ്പിന് കൈമാറും.</string>
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
     <string name="troubleshooter_summary">Bluetooth കണക്റ്റിവിറ്റി പ്രശ്നങ്ങൾ കണ്ടെത്തി പരിഹരിക്കുക.</string>
     <string name="troubleshooter_ble_intro_title">ബ്ലൂടൂത്ത് ലോ എനർജി പ്രക്ഷേപണങ്ങൾ</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ബ്ലൂടൂത്ത് ക്രമീകരണങ്ങൾ</string>
     <string name="device_settings_send_failed">ക്രമീകരണം പ്രയോഗിക്കാൻ കഴിഞ്ഞില്ല: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ഈ ഡിവൈസിൽ Off മോഡ് പ്രപ്തമാക്കിയിട്ടില്ല. ശബ്ദ നിയന്ത്രണത്തിനു കീഴിലുള്ള \"ഇസ്ലാമിക Off മോഡ്\" പ്രപ്തമാക്കുക.</string>
+    <string name="anc_mode_not_confirmed_message">ലിസണിംഗ് മോഡ് മാറ്റം AirPods സ്ഥിരീകരിച്ചില്ല.</string>
     <string name="device_settings_category_battery_label">ബാറ്ററി</string>
     <string name="device_settings_charge_cap_label">ഒപ്റ്റിമൈസ്ഡ് ചാർജ് പരിധി</string>
     <string name="device_settings_charge_cap_description">നിങ്ങളുടെ ദിനചര്യ പഠിച്ച് ബാറ്ററി ആയുസ്സ് വർദ്ധിപ്പിക്കാൻ 80%% ഓളം ചാർജ്ജിംഗ് താൽക്കാലികമായി നിർത്തി, ഉപയോഗിക്കാൻ സാധ്യതയുള്ളതിന് മുമ്പ് പോഡ്‌സ് ടോപ്പ് ഓഫ് ചെയ്യും.</string>

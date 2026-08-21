@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Custu est unu cùmperu separadu — non cantzellat nen rimbursat s\'abbonamentu tuo. Impreu su matessi contu Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">S\'abbonamentu est galu atívu</string>
     <string name="upgrade_screen_sub_still_renewing_message">S\'abbonamentu tuo est galu programadu pro si rennovare. Cantzella·lu innantis in Google Play, e a pustis passa a su cùmperu de una borta. Cantzelladu como como? Dae unu momentu a Google Play e torra a proare.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">No est istadu possìbile controllare is comporas tuas cun Google Play. Pro evitare una compora dòpia, torra a proare pagu tempus a pustis.</string>
+    <string name="upgrade_screen_pending_card_title">Pagamentu in atesa</string>
+    <string name="upgrade_screen_pending_card_body">Google Play est ancora elaborende su pagamentu tuo. Pro s\'isblocat automaticamente cando su pagamentu est cumpletadu. Calicunu metodu de pagamentu podet pigare tempus. No b\'at àteru de fàghere.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play at agatadu una compora cun unu pagamentu in atesa e ddu est ancora elaborende. Pro s\'isblocat automaticamente cando su pagamentu est cumpletadu.</string>
     <string name="upgrade_screen_grace_title">Cunfirmande su cùmperu tuo</string>
     <string name="upgrade_screen_grace_body_short">Google Play no at ancora cunfirmadu su cùmperu tuo. Pro est galu atívu — no b\'at bisòngiu de fàghere nudda.</string>
     <string name="upgrade_screen_grace_body">Google Play no at cunfirmadu su cùmperu tuo dae unu pagu de tempus. Pro est galu atívu. Assegura·ti de èssere in lìnia e de àere fatu s\'aciesu cun su contu Google impreadu pro su cùmperu, e a pustis proa a ripristinare.</string>

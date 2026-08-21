@@ -8,8 +8,8 @@
     <string name="general_upgrade_action">ترقية</string>
     <string name="general_retry_action">إعادة المحاولة</string>
     <string name="common_feature_requires_pro_msg">رقِّ للفتح.</string>
-    <string name="common_upgrade_required_label">يتطلب الترقية</string>
-    <string name="general_donate_action">تبرع</string>
+    <string name="common_upgrade_required_label">يتطلّب الترقية</string>
+    <string name="general_donate_action">تبرّع</string>
     <string name="general_check_action">فحص</string>
     <string name="general_close_action">إغلاق</string>
     <string name="general_dismiss_action">تجاهُل</string>
@@ -21,17 +21,17 @@
     <string name="general_hide_action">إخفاء</string>
     <string name="general_example_label">مثال: %s</string>
     <string name="upgrade_capod_label">ترقية كابود</string>
-    <string name="upgrade_capod_description">احصل على ميزات إضافية وادعم المطور.</string>
+    <string name="upgrade_capod_description">احصل على مزايا إضافية وادعم المطوّر.</string>
     <string name="upgrade_benefit_themes">تخصيص السمة</string>
     <string name="upgrade_benefit_autoplay">التشغيل التلقائي والإيقاف التلقائي</string>
-    <string name="upgrade_benefit_popups">نافذة منبثقة عند فتح الغطاء والاتصال</string>
+    <string name="upgrade_benefit_popups">نافذة منبثقة عند فتح العلبة والاتصال</string>
     <string name="upgrade_benefit_widgets">عناصر الشاشة الرئيسة</string>
     <string name="upgrade_benefit_device_settings">إعدادات الجهاز المتقدمة</string>
     <string name="upgrade_benefit_device_controls">عناصر التحكم في الجهاز &#8212; الضوضاء والسيقان والمزيد</string>
     <string name="upgrade_benefit_support">دعم المطور</string>
     <string name="upgrade_benefit_disclaimer">يعتمد توفر الميزات على سماعات الرأس والجهاز المستخدَم.</string>
     <string name="settings_monitor_connected_notification_label">إشعار إضافي</string>
-    <string name="settings_monitor_connected_notification_description">يعرض إشعارًا إضافيًّا عند توصيل جهاز. يتيح لك هذا إخفاء الإشعار الدائم ”لا توجد أجهزة“ عن طريق تعطيل قناة ”حالة الجهاز“.</string>
+    <string name="settings_monitor_connected_notification_description">يعرض إشعارًا ثانيًا يظهر فقط أثناء اتصال جهاز. عند تفعيل هذا الخيار، يمكنك إخفاء الإشعار الدائم \"لا توجد أجهزة\": أوقف تصنيف \"حالة الجهاز\" في إعدادات إشعارات أندرويد الخاصة بـ CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">الاحتفاظ بالإشعار بعد قطع الاتصال</string>
     <string name="settings_keep_notification_after_disconnect_description">الاستمرار في عرض مستويات البطارية المعروفة الأخيرة حتى بعد انقطاع اتصال سماعات أيربودز الخاصة بك</string>
     <string name="settings_autopause_label">الإيقاف التلقائي</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">الحد الأدنى لجودة الإشارة</string>
     <string name="settings_signal_minimum_description">الحد الأدنى لجودة الإشارة التي يجب أن يتمتع بها الجهاز ليتم اعتباره ملكًا لك.</string>
     <string name="settings_autoconnect_label">الاتصال التلقائي</string>
-    <string name="settings_autoconnect_description">إذا لم يتصل أندرويد تلقائيًّا، فيمكننا طلب ذلك منه أيضًا. سيؤدي هذا إلى ضبط إعداد وضع المراقبة على ’دائمًا‘.</string>
+    <string name="settings_autoconnect_description">إذا لم يتصل أندرويد تلقائيًا، يمكننا طلب ذلك منه. هذا يُبقي CAPod يراقب في الخلفية طوال الوقت.</string>
     <string name="settings_autoconnect_info_android12">يعتمد الاتصال التلقائي على ميزة نظامية يقيّدها نظام أندرويد ١٢ والإصدارات الأحدث. قد لا تعمل على جهازك.</string>
     <string name="settings_autoconnect_condition_label">شرط الاتصال التلقائي</string>
     <string name="settings_autoconnect_condition_description">متى يجب أن نحاول الاتصال بجهازك؟</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">خيارات التوافق</string>
     <string name="settings_category_compatibility_options_description">لا تلمسه إذا كان كل شيء يعمل ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">تعطيل تصفية الأجهزة</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">لا تفوض عملية تصفية البيانات إلى النظام، بل احصل على جميع البيانات وصفِّها داخل التطبيق.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">جرّب هذا إذا لم يتم اكتشاف سماعات AirPods إطلاقًا. سيبحث التطبيق بنفسه في جميع إشارات البلوتوث القريبة، بدلًا من ترك هاتفك يختارها مسبقًا.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">تعطيل تجميع الأجهزة</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">لا تسمح لمجموعة النظام بجمع بيانات البلوتوث منخفض الطاقة (BLE) قبل إرسالها إلينا.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">جرّب هذا إذا كانت مستويات البطارية تتحدّث فقط بتأخير أو دفعات. سيُرسل هاتفك كل إشارة بلوتوث فور وصولها، بدلًا من تجميعها أولًا.</string>
     <string name="settings_onepod_mode_label">وضع السماعة الواحدة</string>
     <string name="settings_onepod_mode_description">تستجيب خاصيتا التشغيل/الإيقاف التلقائي والاتصال التلقائي لسماعة واحدة بدلًا من اشتراط كلتيهما.</string>
     <string name="settings_popup_caseopen_label">عرض نافذة منبثقة عند فتح الحافظة</string>
@@ -97,7 +97,7 @@
     <string name="settings_support_description">إذا كنت بحاجة إلى بعض المساعدة.</string>
     <string name="settings_wiki_label">الموسوعة</string>
     <string name="settings_wiki_description">الأسئلة الشائعة والأدلة</string>
-    <string name="issue_tracker_label">متتبع المشكلات</string>
+    <string name="issue_tracker_label">متتبّع المشاكل</string>
     <string name="issue_tracker_description">متتبع مشكلات عام للإبلاغ عن الأخطاء وطلبات الميزات (باللغة الإنجليزية فقط).</string>
     <string name="discord_label">دسكورد</string>
     <string name="discord_description">مكان للتسكع فيه وطرح الأسئلة.</string>
@@ -145,7 +145,7 @@
     <string name="widget_configuration_title">تحديد الجهاز</string>
     <string name="widget_configuration_description">اختر ملف تعريف الجهاز الذي يجب أن يعرضه هذا العنصر.</string>
     <string name="widget_no_data_label">لا توجد بيانات</string>
-    <string name="widget_error_loading_label">حدث خطأ أثناء تحميل العنصر</string>
+    <string name="widget_error_loading_label">حدث خطأٌ في أثناء تحميل العنصر</string>
     <string name="widget_config_appearance_label">المظهر</string>
     <string name="widget_config_preset_label">الإعدادات المسبقة</string>
     <string name="widget_config_background_color_label">لون الخلفية</string>
@@ -162,11 +162,11 @@
     <string name="widget_config_preset_green">أخضر</string>
     <string name="widget_config_preset_red">أحمر</string>
     <string name="settings_compat_indirectcallback_title">التوصيل غير المباشر للبيانات</string>
-    <string name="settings_compat_indirectcallback_summary">استخدم طريقة بديلة لاستقبال بيانات بلوتوث منخفض الطاقة (BLE) من النظام (البث بدلًا من رد الاتصال).</string>
+    <string name="settings_compat_indirectcallback_summary">جرّب هذا إذا لم تُفِد خيارات التوافق الأخرى. سيُسلّم أندرويد إشارات البلوتوث إلى التطبيق في الخلفية، بدلًا من أن يستمع التطبيق إليها مباشرةً.</string>
     <string name="troubleshooter_title">مستكشف الأخطاء ومصلحها</string>
     <string name="troubleshooter_summary">تشخيص وإصلاح مشكلات اتصال البلوتوث.</string>
     <string name="troubleshooter_ble_intro_title">عمليات بث البلوتوث منخفض الطاقة</string>
-    <string name="troubleshooter_ble_intro_body1">تبث سماعات أيربودز (والسماعات المشابهة) معلومات الحالة باستخدام تقنية بلوتوث منخفض الطاقة (BLE) تسمى ”الإعلانات“. بعض الهواتف لا تدعم هذه التقنية بشكل صحيح. يمكن لكابود محاولة إصلاح ذلك بتجربة خيارات توافق مختلفة حتى يتم استقبال البيانات. شغّل الموسيقى على سماعاتك وضعها بالقرب من هاتفك، ثم ابدأ العملية.</string>
+    <string name="troubleshooter_ble_intro_body1">تبثّ سمّاعات أيربودز (والسمّاعات المشابهة) معلومات الحالة باستخدام تقنية بلوتوث منخفضة الطاقة تُسمّى ”الإعلانات“. بعض الهواتف لا تدعم هذه التقنية بشكلٍ صحيح. يمكن لكابود محاولة إصلاح ذلك بتجربة خيارات توافقٍ مختلفةٍ حتى يتمّ استقبال البيانات. شغّل الموسيقى على سمّاعاتك وضَعها بالقرب من هاتفك، ثمّ ابدأ العملية.</string>
     <string name="troubleshooter_ble_intro_start_action">بدء عملية استكشاف الأخطاء وإصلاحها</string>
     <string name="troubleshooter_ble_process_title">استكشاف الأخطاء وإصلاحها جارٍ</string>
     <string name="troubleshooter_ble_process_subtile">تستغرق كل خطوة من ٥ إلى ١٠ ثوانٍ</string>
@@ -201,7 +201,7 @@
     <string name="overview_monitoring_active_label">جارٍ مراقبة الأجهزة</string>
     <string name="overview_monitoring_active_description">تأكد من أن جهازك قريب ونشط.</string>
     <string name="overview_monitoring_off_label">المراقبة الخلفية موقفة</string>
-    <string name="overview_monitoring_off_description">لا يوجد جهاز بلوتوث مقترن بأي ملف تعريف، لذا يتم تحديث CAPod فقط في أثناء فتح التطبيق. اختر جهازًا واحدًا لتمكين المراقبة الخلفية والإشعارات والتفاعلات المستمرّة.</string>
+    <string name="overview_monitoring_off_description">لا يوجد جهاز بلوتوث مقترنٌ بأيّ ملفّ تعريف، لذا لا يتمّ تحديث كابود إلّا في أثناء فتح التطبيق. اختر أحد الخيارات لتمكين المراقبة الخلفية، والإشعارات الحالية، والتفاعلات.</string>
     <string name="overview_monitoring_off_action">حدد الجهاز المقترِن</string>
     <string name="overview_troubleshoot_suggestion_label">متصل، ولكن لا توجد بيانات</string>
     <string name="overview_troubleshoot_suggestion_description">جهازك متصل، لكن تطبيق CAPod لا يستقبل أي بيانات مباشرة منه. قد يحتاج هاتفك إلى خيار توافق - يمكن لمُستكشف الأخطاء ومُصلحها محاولة إيجاد واحد تلقائيًّا.</string>
@@ -235,7 +235,7 @@
     <string name="permission_bluetooth_connect_description">يتطلب هذا التطبيق إذن \"اتصال البلوتوث\" للتفاعل مع الأجهزة المقترنة وبدء الاتصالات.</string>
     <string name="permission_bluetooth_scan_label">مسح البلوتوث</string>
     <string name="permission_bluetooth_scan_description">يسمح إذن \"مسح البلوتوث\" لهذا التطبيق باكتشاف واستقبال بيانات البلوتوث من الأجهزة القريبة مثل AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_label">البلوتوث</string>
     <string name="permission_bluetooth_description">يتطلب هذا التطبيق إذن \"Bluetooth\" للاتصال بأجهزة Bluetooth المقترنة.</string>
     <string name="permission_access_fine_location_label">الوصول إلى الموقع الدقيق</string>
     <string name="permission_access_fine_location_description">يستخدم CAPod إذن \"الموقع الدقيق\" لاستقبال بيانات Bluetooth Low Energy. تستخدم سماعاتك تقنية Bluetooth Low Energy لبث حالتها. لن يستخدم هذا التطبيق بيانات Bluetooth لتحديد موقعك.</string>
@@ -273,7 +273,7 @@
     <string name="pods_inear_label">في الأذن</string>
     <string name="pods_microphone_label">الميكروفون</string>
     <string name="anc_mode_off">إيقاف</string>
-    <string name="anc_mode_on">ANC</string>
+    <string name="anc_mode_on">إلغاء الضوضاء النشيط (ANC)</string>
     <string name="anc_mode_transparency">الشفافية</string>
     <string name="anc_mode_adaptive">تكيفي</string>
     <string name="conversation_awareness_label">الوعي بالمحادثة</string>
@@ -411,7 +411,7 @@
     <string name="support_contact_category_label">الفئة</string>
     <string name="support_contact_category_question_label">سؤال</string>
     <string name="support_contact_category_feature_label">طلب ميزة</string>
-    <string name="support_contact_category_bug_label">تقرير خطأ</string>
+    <string name="support_contact_category_bug_label">الإبلاغ عن خلل</string>
     <string name="support_contact_description_label">الوصف</string>
     <string name="support_contact_description_question_hint">صف سؤالك بالتفصيل. يُرجى التحديد.</string>
     <string name="support_contact_description_feature_hint">صف الميزة التي تود رؤيتها. يُرجى التحديد.</string>
@@ -428,10 +428,10 @@
     </plurals>
     <string name="support_contact_debuglog_label">سجل التصحيح</string>
     <string name="support_contact_debuglog_picker_hint">أرفق سجل تصحيح موجود، أو سجل سجلاً جديداً.</string>
-    <string name="support_contact_debuglog_picker_empty">لم يتم العثور على سجلات تصحيح. سجّل واحداً أولاً.</string>
+    <string name="support_contact_debuglog_picker_empty">لم يُعثَر على سجلّات تصحيح أخطاء. سجّل واحدًا أوّلًا.</string>
     <string name="support_contact_debuglog_zip_error">فشل ضغط سجل التصحيح</string>
     <string name="support_contact_send_action">فتح تطبيق البريد الإلكتروني</string>
-    <string name="support_contact_no_email_app">لم يتم العثور على تطبيق بريد إلكتروني على هذا الجهاز.</string>
+    <string name="support_contact_no_email_app">لم يُعثَر على تطبيق بريدٍ إلكترونيٍّ على هذا الجهاز.</string>
     <string name="support_contact_debuglog_delete_title">حذف سجل التصحيح؟</string>
     <string name="support_contact_debuglog_delete_message">سيتم حذف سجل التصحيح هذا نهائياً.</string>
     <!-- Post-share confirmation -->
@@ -556,6 +556,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">إعدادات البلوتوث</string>
     <string name="device_settings_send_failed">تعذّر تطبيق الإعداد: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">وضع إيقاف غير مفعّل على هذا الجهاز. فعّل \"السماح بوضع إيقاف\" ضمن التحكم في الضوضاء.</string>
+    <string name="anc_mode_not_confirmed_message">لم تؤكّد سماعات AirPods تغيير وضع الاستماع.</string>
     <string name="device_settings_category_battery_label">البطارية</string>
     <string name="device_settings_charge_cap_label">حد الشحن المحسَّن</string>
     <string name="device_settings_charge_cap_description">يتعلم روتينك ويوقف الشحن مؤقتًا عند حوالي 80%% لإطالة عمر البطارية، مع شحن السماعات بالكامل قبل استخدامك المتوقع لها.</string>

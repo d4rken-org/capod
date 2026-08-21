@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Styðja þróunarmann</string>
     <string name="upgrade_benefit_disclaimer">Tilð eiginleika fer eftir hæðlykkjum þínum og tæki.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
-    <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \"Engin tæki\" tilkynninguna með því að slökkva á \"Staða tækis\" rásinni.</string>
+    <string name="settings_monitor_connected_notification_description">Sýnir aukalegri tilkynningu sem birtist aðeins meðan tæki er tengt. Með þessu virku geturðu falið varanlegu tilkynninguna \"Engin tæki\": slökktu á flokknum \"Staða tækis\" í tilkynningastillingum Android fyrir CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Halda tilkynningu eftir aftengi</string>
     <string name="settings_keep_notification_after_disconnect_description">Halda áfram að sýna síðustu þekktu rafhlöðustöðu jafnvel eftir að AirPods tengjast af</string>
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
     <string name="settings_signal_minimum_description">Lágmarksgæði merkis sem tæki þarf að hafa til að teljast þitt.</string>
     <string name="settings_autoconnect_label">Sjálfvirk tenging</string>
-    <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við líka beðið um það. Þetta mun stilla vöktunarstillinguna á \"Alltaf\".</string>
+    <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við beðið það um tengingu. Þetta heldur eftirliti virku á bakgrunninum alltaf.</string>
     <string name="settings_autoconnect_info_android12">Sjálfvirk tenging notar kerfiseiginleika sem Android 12 og nýrra takmarkar. Hún virkar hugsanlega ekki á tækinu þínu.</string>
     <string name="settings_autoconnect_condition_label">Skilyrði fyrir sjálfvirkri tengingu</string>
     <string name="settings_autoconnect_condition_description">Hvenær ættum við að reyna að tengjast tækinu þínu?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Samhæfisvalkostir</string>
     <string name="settings_category_compatibility_options_description">Ekki snerta ef allt virkar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Slökkva á vélbúnaðarsíun</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Ekki úthluta gagnasíun til kerfisins, fáðu í staðinn öll gögn og síaðu innan forritsins.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Reyndu þetta ef AirPods þín finnast aldrei. Forritið sjálft mun leita í gegnum öll nærliggjandi Bluetooth-merki, frekar en að láta símann þinn velja þau fyrirfram.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Slökkva á vélbúnaðarflokkun</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Ekki láta kerfið flokka saman söfnuð BLE gögn áður en þau eru send til okkar.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Reyndu þetta ef rafhlöðustig aðeins uppfærast seint eða í bylgjum. Síminn þinn mun senda hvert Bluetooth-merki strax, í stað þess að safna þeim saman fyrst.</string>
     <string name="settings_onepod_mode_label">Eins heyrnartóls stilling</string>
     <string name="settings_onepod_mode_description">Sjálfvirk spilun/hlé og sjálfvirk tenging bregðast við einum hlustunarpípu í stað þess að krefjast beggja.</string>
     <string name="settings_popup_caseopen_label">Sýna upplýsingaglugga hulsturs</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Grænt</string>
     <string name="widget_config_preset_red">Rautt</string>
     <string name="settings_compat_indirectcallback_title">Óbein gagnaafhending</string>
-    <string name="settings_compat_indirectcallback_summary">Notaðu aðra aðferð til að taka á móti BLE gögnum frá kerfinu (útsending í stað endurkalls).</string>
+    <string name="settings_compat_indirectcallback_summary">Reyndu þetta ef hinar samhæfingarstillingar hjálpuðu ekki. Android mun afhenda Bluetooth-merki forritinu á bakgrunninum, frekar en að forritið hlusti beint á þeim.</string>
     <string name="troubleshooter_title">Villuleit</string>
     <string name="troubleshooter_summary">Greina og laga vandamál við Bluetooth tengingu.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy útsendingar</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-stillingar</string>
     <string name="device_settings_send_failed">Gat ekki beitt stillingu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Af-stilling er ekki virk á þessu tæki. Virkjaðu „Af-stilling leyfist“ undir Hljóðstýring.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods staðfestuðu ekki breytingu á hlustunarhætti.</string>
     <string name="device_settings_category_battery_label">Rafhlaða</string>
     <string name="device_settings_charge_cap_label">Fínstillt hleðslutakmark</string>
     <string name="device_settings_charge_cap_description">Lærir venjur þínar og hleyðir að 80%% til að lengja líftíma rafhlöðunnar, og lokar hleðslunni áður en þú notar þær.</string>

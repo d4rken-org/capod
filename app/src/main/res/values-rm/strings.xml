@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Sustegnair il sviluppader</string>
     <string name="upgrade_benefit_disclaimer">La disponibilitad da funcziuns dependa da tias ureglias e da tia app.</string>
     <string name="settings_monitor_connected_notification_label">Notificaziun supplementara</string>
-    <string name="settings_monitor_connected_notification_description">Mussa ina notificaziun supplementara cura ch\'in apparat è connectà. Quai permetta da zoppar la notificaziun permanenta \"Nagins apparats\" cun deactivar il chanal \"Stadi da l\'apparat\".</string>
+    <string name="settings_monitor_connected_notification_description">Mussa ina segunda notificaziun che cumpara mo cur ch\'in apparat è connectà. Cun questa funcziun activada, pos zuppentar la notificaziun permanenta \"Nagins apparats\": deactivescha la categoria \"Status da l\'apparat\" en las configuraziuns da notificaziuns d\'Android per CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantegnair la notificaziun suenter la deconnexiun</string>
     <string name="settings_keep_notification_after_disconnect_description">Cuntinuar da mussar ils davos nivels da battaria enconuschents er suenter che Voss AirPods sa deconnectan</string>
     <string name="settings_autopause_label">Pausa automata</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
     <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
     <string name="settings_autoconnect_label">Connectar automaticamain</string>
-    <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \"Adina\".</string>
+    <string name="settings_autoconnect_description">Sche Android na sa connectescha betg automaticamain, dumandain nus lez da far quai. Uschia resta CAPod adina activ en il fund per la surveglianza.</string>
     <string name="settings_autoconnect_info_android12">La connexiun automatica sa basa sin ina funcziun dal sistem che Android 12 e pli nov limita. Eventualmain che questa funcziun na funcziuna betg sin voss apparat.</string>
     <string name="settings_autoconnect_condition_label">Cundiziun per connectar automaticamain</string>
     <string name="settings_autoconnect_condition_description">Cura duain nus empruvar da connectar cun Voss apparat?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opziuns da cumpatibilitad</string>
     <string name="settings_category_compatibility_options_description">Betg tuccar sche tut funcziuna ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Deactivar la filtraziun hardware</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Betg delegar la filtraziun da datas al sistem, mabain obtegnair tut las datas e filtrar entaifer l\'app.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Emprova quai sche tes AirPods na vegnan mai chattads. L\'app tschertga sezza tras tut ils signals Bluetooth en la vischinanza, empè da laschar tes telefon preselecziunar els.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Deactivar il batching hardware</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Betg laschar che il sistem gruppeschia datas BLE collecziunadas avant che las trametter a nus.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Emprova quai sche ils nivels da batteria s\'actualiseschan mo tard u a stadis. Tes telefon renda vinavant mintga signal Bluetooth immediat, empè da als collecziunar bain avant.</string>
     <string name="settings_onepod_mode_label">Modus cun in singul pod</string>
     <string name="settings_onepod_mode_description">La reproducziun automatica/pausa e la connexiun automatica reageschan ad in singul pod senza pretender ombis.</string>
     <string name="settings_popup_caseopen_label">Mussar il popup da la scatla</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Verd</string>
     <string name="widget_config_preset_red">Rutg</string>
     <string name="settings_compat_indirectcallback_title">Furniziun indirecta da datas</string>
-    <string name="settings_compat_indirectcallback_summary">Duvrar ina metoda alternativa per retschaiver datas BLE dal sistem (emissiun enstagl da callback).</string>
+    <string name="settings_compat_indirectcallback_summary">Emprova quai sche las autras opziuns da compatibilitad n\'han betg gidà. Android renda vinavant ils signals Bluetooth a l\'app en il fund, empè che l\'app als ascolta directamain.</string>
     <string name="troubleshooter_title">Schliader da problems</string>
     <string name="troubleshooter_summary">Diagnosticar e curreger problems da connexiun Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Emissiuns Bluetooth Low Energy</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Parameters Bluetooth</string>
     <string name="device_settings_send_failed">Betg pussibel d\'applitgar il parameter: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Il modus Deactivà n\'è betg activà sin quest apparat. Activa «Permetter il modus Deactivà» sut Controlla dal rumur.</string>
+    <string name="anc_mode_not_confirmed_message">Ils AirPods n\'han betg confermà la midada dal mod d\'audiziun.</string>
     <string name="device_settings_category_battery_label">Batteria</string>
     <string name="device_settings_charge_cap_label">Limit Optimisà da Chargia</string>
     <string name="device_settings_charge_cap_description">Emprenda Vossa rutina e metta en pausa la chargia tar environ 80%% per prolungar la vita da la batteria, cargond ils pods avant ch\'Vus ils utilisais probablamain.</string>

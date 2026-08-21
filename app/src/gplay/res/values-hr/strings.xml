@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ovo je zasebna kupnja — ona ne otkazuje niti vraća novac za vašu pretplatu. Koristite isti Google račun.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Pretplata je i dalje aktivna</string>
     <string name="upgrade_screen_sub_still_renewing_message">Vaša pretplata je i dalje postavljena za obnavljanje. Prvo je otkažite u Google Playu, a zatim prijeđite na jednokratnu kupnju. Upravo ste otkazali? Dajte Google Playu trenutak i pokušajte ponovno.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nije moguće provjeriti tvoje kupnje putem Google Playa. Kako bi se izbjegla dvostruka kupnja, pokušaj ponovno za trenutak.</string>
+    <string name="upgrade_screen_pending_card_title">Plaćanje na čekanju</string>
+    <string name="upgrade_screen_pending_card_body">Google Play još uvijek obrađuje tvoje plaćanje. Pro se automatski otključava čim plaćanje bude izvršeno. Neki načini plaćanja mogu potrajati. Ne moraš poduzeti ništa drugo.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play je pronašao kupnju s plaćanjem na čekanju i još je uvijek obrađuje. Pro se automatski otključava čim plaćanje bude izvršeno.</string>
     <string name="upgrade_screen_grace_title">Potvrđivanje vaše kupnje</string>
     <string name="upgrade_screen_grace_body_short">Google Play još nije potvrdio vašu kupnju. Pro je i dalje aktivan — nije potrebna nikakva radnja.</string>
     <string name="upgrade_screen_grace_body">Google Play već neko vrijeme nije potvrdio vašu kupnju. Pro je i dalje aktivan. Provjerite jeste li povezani s internetom i prijavljeni s Google računom koji ste koristili za kupnju, a zatim pokušajte vratiti kupnju.</string>

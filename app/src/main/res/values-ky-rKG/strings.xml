@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Иштеп чыгуучуну колдоо</string>
     <string name="upgrade_benefit_disclaimer">Функцияларды колдонуу мүмкүнчүлүгү куулак кабыңызга жана түзмөгүңүзгө жараша болот.</string>
     <string name="settings_monitor_connected_notification_label">Кошумча билдирүү</string>
-    <string name="settings_monitor_connected_notification_description">Түзмөк туташканда кошумча билдирүү көрсөтүлөт. Бул \"Түзмөктүн абалы\" каналын өчүрүү менен туруктуу \"Түзмөктөр жок\" билдирүүсүн жашырууга мүмкүндүк берет.</string>
+    <string name="settings_monitor_connected_notification_description">Түзмөк туташканда гана көрүнүүчү экинчи билдирүүнү көрсөтөт. Бул күйгүзүлгөндө туруктуу \"Түзмөктөр жок\" билдирүүсүн жашыра аласыз: Android\'дын CAPod үчүн билдирүү жөндөөлөрүндө \"Түзмөк абалы\" категориясын өчүрүңүз.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ажыратылгандан кийин билдирүүнү сактоо</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ажыратылгандан кийин да акыркы белгилүү батарея деңгээлдерин көрсөтүүнү улантуу</string>
     <string name="settings_autopause_label">Авто тыным</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Минималдуу сигнал сапаты</string>
     <string name="settings_signal_minimum_description">Түзмөктүн сиздики деп эсептелиши үчүн талап кылынган минималдуу сигнал сапаты.</string>
     <string name="settings_autoconnect_label">Авто туташуу</string>
-    <string name="settings_autoconnect_description">Эгер Android автоматтык түрдө туташпаса, биз дагы сурасак болот. Бул мониторинг режиминин жөндөөсүн \'Ар дайым\' кылып коёт.</string>
+    <string name="settings_autoconnect_description">Android автоматтык түрдө туташпаса, биз аны сурай алабыз. Бул CAPod\'дун фондо ар дайым байкоо жүргүзүшүн камсыздайт.</string>
     <string name="settings_autoconnect_info_android12">Автоматтык туташуу Android 12 жана андан жаңыраак версияларда чектелген системалык функцияга таянат. Бул түзмөгүңүздө иштебеши мүмкүн.</string>
     <string name="settings_autoconnect_condition_label">Авто туташуу шарты</string>
     <string name="settings_autoconnect_condition_description">Түзмөгүңүзгө качан туташууга аракет кылышыбыз керек?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Шайкештик опциялары</string>
     <string name="settings_category_compatibility_options_description">Эгер баары иштесе тийбеңиз ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Аппараттык чыпкалоону өчүрүү</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Маалыматтарды чыпкалоону тутумга тапшырбаңыз, анын ордуна бардык маалыматтарды алып, колдонмонун ичинде чыпкалаңыз.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods такыр аныкталбаса, муну колдонуп көрүңүз. Колдонмо жакын жердеги бардык Bluetooth сигналдарын өзү карайт, телефонуңузга аларды алдын ала тандатпайт.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Аппараттык топтомдоону өчүрүү</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Чогултулган BLE маалыматтарын бизге жөнөтүүдөн мурун тутумдун топтоштуруусуна жол бербеңиз.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Батарея деңгээли кечиктирилип же тобу менен жаңырса, муну колдонуп көрүңүз. Телефонуңуз ар бир Bluetooth сигналын алдын ала чогултпастан, дароо өткөрүп берет.</string>
     <string name="settings_onepod_mode_label">Бир кулакчын режими</string>
     <string name="settings_onepod_mode_description">Автоматтык ойнотуу/токтотуу жана автоматтык туташуу эки гарнитурадан эмес, жалгыз гарнитурага реакция кылат.</string>
     <string name="settings_popup_caseopen_label">Кап ачылганда калкыма терезени көрсөтүү</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Жашыл</string>
     <string name="widget_config_preset_red">Кызыл</string>
     <string name="settings_compat_indirectcallback_title">Кыйыр маалымат жеткирүү</string>
-    <string name="settings_compat_indirectcallback_summary">Тутумдан BLE маалыматтарын алуу үчүн альтернативдүү ыкманы колдонуңуз (кайра чалуунун ордуна уктуруу).</string>
+    <string name="settings_compat_indirectcallback_summary">Башка шайкештик параметрлери жардам бербесе, муну колдонуп көрүңүз. Android Bluetooth сигналдарын колдонмого фондо өткөрүп берет, колдонмонун аларды түз угушунун ордуна.</string>
     <string name="troubleshooter_title">Кыйынчылыктарды аныктагыч</string>
     <string name="troubleshooter_summary">Bluetooth туташуу көйгөйлөрүн диагностикалоо жана оңдоо.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy уктуруулары</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Жөндөөлөрү</string>
     <string name="device_settings_send_failed">Орнотууну колдонуу мүмкүн болгон жок: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Өчүрүк режими бул түзмөктө косулган жок. Шуум Башкаруунун астында \"Өчүрүк режиміне жол берүү\"дү косуңуз.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods угуу режиминин өзгөрүшүн тастыктаган жок.</string>
     <string name="device_settings_category_battery_label">Батарея</string>
     <string name="device_settings_charge_cap_label">Оптималдаштырылган кубаттоо чеги</string>
     <string name="device_settings_charge_cap_description">Батарея өмүрүн узартуу үчүн адатыңызды үйрөнүп, кубаттоону болжол менен 80%% деңгээлинде токтотот жана аларды колдонуудан мурун кайра кубаттайт.</string>

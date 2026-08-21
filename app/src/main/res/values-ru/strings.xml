@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Поддержать разработчика</string>
     <string name="upgrade_benefit_disclaimer">Доступность функций зависит от Ваших наушников и устройства.</string>
     <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
-    <string name="settings_monitor_connected_notification_description">Показывать дополнительное уведомление, когда устройство подключено. Это позволяет скрыть постоянное уведомление «Нет устройств», отключая канал «Статус устройства».</string>
+    <string name="settings_monitor_connected_notification_description">Показывает второе уведомление, которое появляется только когда устройство подключено. Включив эту функцию, ты сможешь скрыть постоянное уведомление «Нет устройств»: отключи категорию «Статус устройства» в настройках уведомлений CAPod в Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Оставить уведомление после отключения</string>
     <string name="settings_keep_notification_after_disconnect_description">Продолжать показывать последний известный заряд батареи даже после отключения AirPods</string>
     <string name="settings_autopause_label">Автопауза</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
     <string name="settings_signal_minimum_description">Минимальное качество сигнала, необходимое устройству, чтобы оно опознавалось как Ваше.</string>
     <string name="settings_autoconnect_label">Автоподключение</string>
-    <string name="settings_autoconnect_description">Если Android не подключается автоматически, мы можем послать ему запрос. Это установит режим мониторинга на \'Всегда\'.</string>
+    <string name="settings_autoconnect_description">Если Android не подключается автоматически, мы можем попросить его об этом. Благодаря этому CAPod постоянно следит за устройством в фоновом режиме.</string>
     <string name="settings_autoconnect_info_android12">Автоподключение использует системную функцию, ограниченную в Android 12 и новее. Может не работать на Вашем устройстве.</string>
     <string name="settings_autoconnect_condition_label">Условия автоподключения</string>
     <string name="settings_autoconnect_condition_description">Когда мы должны пытаться подключить Ваше устройство?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
     <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Не делегируйте фильтрацию данных системе, вместо этого получайте все данные и фильтр в приложении.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Попробуй это, если твои AirPods никогда не обнаруживаются. Приложение само будет просматривать все сигналы Bluetooth поблизости, вместо того чтобы позволять телефону предварительно отбирать их.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Отключить аппаратное пакетирование</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Не позволять системной группе собирать данные BLE до их пересылки нам.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Попробуй это, если уровень заряда обновляется с задержкой или скачками. Телефон будет сразу передавать каждый сигнал Bluetooth, вместо того чтобы сначала их накапливать.</string>
     <string name="settings_onepod_mode_label">Режим одного наушника</string>
     <string name="settings_onepod_mode_description">Автовоспроизведение/пауза и автоподключение реагируют на один наушник, не требуя обоих.</string>
     <string name="settings_popup_caseopen_label">Показать открытие футляра</string>
@@ -163,7 +163,7 @@ AL_Cool_T</string>
     <string name="widget_config_preset_green">Зелёный</string>
     <string name="widget_config_preset_red">Красный</string>
     <string name="settings_compat_indirectcallback_title">Косвенная доставка данных</string>
-    <string name="settings_compat_indirectcallback_summary">Использовать альтернативный метод для получения данных BLE системы (широковещательная рассылка вместо обратного вызова).</string>
+    <string name="settings_compat_indirectcallback_summary">Попробуй это, если другие параметры совместимости не помогли. Android будет передавать сигналы Bluetooth приложению в фоновом режиме, вместо того чтобы приложение напрямую их прослушивало.</string>
     <string name="troubleshooter_title">Помощник</string>
     <string name="troubleshooter_summary">Диагностика и исправление проблем с подключением Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Трансляции Bluetooth с низким энергопотреблением</string>
@@ -545,6 +545,7 @@ AL_Cool_T</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Настройки Bluetooth</string>
     <string name="device_settings_send_failed">Не удалось применить настройку: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режим «Отключено» не включён на этом устройстве. Включите «Разрешить режим Отключено» в разделе Управление шумом.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods не подтвердили смену режима прослушивания.</string>
     <string name="device_settings_category_battery_label">Батарея</string>
     <string name="device_settings_charge_cap_label">Оптимизированный лимит заряда</string>
     <string name="device_settings_charge_cap_description">Изучает Ваш распорядок и приостанавливает зарядку около 80%%, чтобы продлить срок службы аккумулятора, дозаряжая наушники перед тем, как Вы будете ими пользоваться.</string>

@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu ayrı bir satın almadır — aboneliğini iptal etmez veya geri ödemez. Aynı Google hesabını kullan.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonelik hâlâ aktif</string>
     <string name="upgrade_screen_sub_still_renewing_message">Aboneliğin hâlâ yenilenecek şekilde ayarlı. Önce Google Play\'de iptal et, ardından tek seferlik satın alıma geç. Az önce mi iptal ettin? Google Play\'e biraz zaman tanı ve tekrar dene.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Satın alımların Google Play ile kontrol edilemedi. Çift satın alımı önlemek için birazdan tekrar dene.</string>
+    <string name="upgrade_screen_pending_card_title">Ödeme bekleniyor</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ödemeni hâlâ işliyor. Ödeme tamamlandığında Pro otomatik olarak açılır. Bazı ödeme yöntemleri biraz zaman alabilir. Başka bir şey yapmana gerek yok.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play, ödemesi bekleyen bir satın alma buldu ve hâlâ işliyor. Ödeme tamamlandığında Pro otomatik olarak açılır.</string>
     <string name="upgrade_screen_grace_title">Satın alman onaylanıyor</string>
     <string name="upgrade_screen_grace_body_short">Google Play satın almanı henüz onaylamadı. Pro hâlâ aktif — herhangi bir işlem yapmana gerek yok.</string>
     <string name="upgrade_screen_grace_body">Google Play satın almanı bir süredir onaylamadı. Pro hâlâ aktif. Çevrimiçi olduğundan ve satın alma için kullanılan Google hesabıyla oturum açtığından emin ol, ardından geri yüklemeyi dene.</string>

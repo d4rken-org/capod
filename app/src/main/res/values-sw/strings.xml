@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Msaada wa msanidi programu</string>
     <string name="upgrade_benefit_disclaimer">Upatikanaji wa kipengele unategemea vichwa vyako vya sauti na kifaa.</string>
     <string name="settings_monitor_connected_notification_label">Arifa ya ziada</string>
-    <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya ziada wakati kifaa kimeunganishwa. Hii inakuwezesha kuficha arifa ya kudumu ya \"Hakuna vifaa\" kwa kuzima kituo cha \"Hali ya kifaa\".</string>
+    <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya pili inayoonekana tu wakati kifaa kimeunganishwa. Ukiwasha hii, unaweza kuficha arifa ya kudumu ya \"Hakuna vifaa\": zima jamii ya \"Hali ya kifaa\" katika mipangilio ya arifa za Android kwa CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
     <string name="settings_keep_notification_after_disconnect_description">Endelea kuonyesha viwango vya mwisho vya betri hata baada ya AirPods yako kukatika muunganisho</string>
     <string name="settings_autopause_label">Sitisha kiotomatiki</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Ubora wa chini wa mawimbi</string>
     <string name="settings_signal_minimum_description">Ubora wa chini wa mawimbi ambao kifaa kinahitaji kuwa nao ili kuzingatiwa kuwa chako.</string>
     <string name="settings_autoconnect_label">Unganisha kiotomatiki</string>
-    <string name="settings_autoconnect_description">Ikiwa Android haiunganishi kiotomatiki, tunaweza kuiuliza pia. Hii itaweka mpangilio wa hali ya ufuatiliaji kuwa \'Kila mara\'.</string>
+    <string name="settings_autoconnect_description">Iwapo Android haiunganishi kiotomatiki, tunaweza kuiomba pia. Hii inaweka CAPod ikifuatilia nyuma ya pazia kila wakati.</string>
     <string name="settings_autoconnect_info_android12">Uunganisho wa kiotomatiki unategemea kipengele cha mfumo ambacho Android 12 na toleo jipya huzuia. Huenda usifanye kazi kwenye kifaa chako.</string>
     <string name="settings_autoconnect_condition_label">Sharti la kuunganisha kiotomatiki</string>
     <string name="settings_autoconnect_condition_description">Lini tujaribu kuunganisha kwenye kifaa chako?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Chaguo za uoanifu</string>
     <string name="settings_category_compatibility_options_description">Usiguse ikiwa kila kitu kinafanya kazi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Zima uchujaji wa maunzi</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Usipeane uchujaji wa data kwa mfumo, badala yake pata data yote na uchuje ndani ya programu.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Jaribu hii ikiwa AirPods zako hazitambuliki kamwe. Programu itatafuta yenyewe ishara zote za Bluetooth zilizo karibu, badala ya kumruhusu simu yako kuzichagua kabla.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Zima uunganishaji wa maunzi</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Usiruhusu mfumo kuunganisha data ya BLE iliyokusanywa kabla ya kuituma kwetu.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Jaribu hii ikiwa viwango vya betri vinasasishwa kuchelewa au kwa mafungu tu. Simu yako itapitisha kila ishara ya Bluetooth mara moja, badala ya kuzikusanya kwanza.</string>
     <string name="settings_onepod_mode_label">Hali ya ganda moja</string>
     <string name="settings_onepod_mode_description">Kucheza/kusimama kiotomatiki na kuunganisha kiotomatiki huitikia kwa kipod kimoja badala ya kuhitaji vyote viwili.</string>
     <string name="settings_popup_caseopen_label">Onyesha kidirisha cha kipochi</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Kijani</string>
     <string name="widget_config_preset_red">Nyekundu</string>
     <string name="settings_compat_indirectcallback_title">Uwasilishaji wa data usio wa moja kwa moja</string>
-    <string name="settings_compat_indirectcallback_summary">Tumia njia mbadala kupokea data ya BLE kutoka kwa mfumo (tangaza badala ya kurudisha simu).</string>
+    <string name="settings_compat_indirectcallback_summary">Jaribu hii ikiwa chaguo zingine za utangamano hazikusaidia. Android itakabidhi ishara za Bluetooth kwa programu ikiwa nyuma ya pazia, badala ya programu kusikiliza ishara hizo moja kwa moja.</string>
     <string name="troubleshooter_title">Kitatuzi cha matatizo</string>
     <string name="troubleshooter_summary">Tambua na urekebishe matatizo ya muunganisho wa Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Matangazo ya Bluetooth ya Nishati ya Chini</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mipangilio ya Bluetooth</string>
     <string name="device_settings_send_failed">Haikuweza kutumia mipangilio: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Hali ya Kuzima haijawashwa kwenye kifaa hiki. Washa \"Ruhusu hali ya Kuzima\" chini ya Udhibiti wa Kelele.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods hazikuthibitisha mabadiliko ya hali ya usikilizaji.</string>
     <string name="device_settings_category_battery_label">Betri</string>
     <string name="device_settings_charge_cap_label">Kikomo cha Kuchaji kilichoboreshwa</string>
     <string name="device_settings_charge_cap_description">Jifunza ratiba yako na usimamishe kuchaji karibu na 80%% ili kupanua maisha ya betri, ukijaza vipande kabla ya uwezekano wa kuvitumia.</string>

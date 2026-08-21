@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Đây là một giao dịch mua riêng biệt — không hủy hoặc hoàn tiền gói đăng ký của bạn. Hãy sử dụng cùng tài khoản Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Gói đăng ký vẫn đang hoạt động</string>
     <string name="upgrade_screen_sub_still_renewing_message">Gói đăng ký của bạn vẫn được đặt để gia hạn. Hãy hủy gói đăng ký trong Google Play trước, sau đó chuyển sang mua một lần. Vừa mới hủy? Hãy chờ Google Play một chút rồi thử lại.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Không thể kiểm tra giao dịch mua của bạn với Google Play. Để tránh mua trùng lặp, hãy thử lại sau ít phút.</string>
+    <string name="upgrade_screen_pending_card_title">Thanh toán đang chờ xử lý</string>
+    <string name="upgrade_screen_pending_card_body">Google Play vẫn đang xử lý khoản thanh toán của bạn. Pro sẽ tự động mở khóa ngay khi thanh toán hoàn tất. Một số phương thức thanh toán có thể mất một chút thời gian. Bạn không cần làm gì thêm.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play tìm thấy một giao dịch mua có thanh toán đang chờ xử lý và vẫn đang xử lý. Pro sẽ tự động mở khóa ngay khi thanh toán hoàn tất.</string>
     <string name="upgrade_screen_grace_title">Đang xác nhận giao dịch mua của bạn</string>
     <string name="upgrade_screen_grace_body_short">Google Play chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động — không cần thực hiện gì thêm.</string>
     <string name="upgrade_screen_grace_body">Google Play đã một thời gian chưa xác nhận giao dịch mua của bạn. Pro vẫn đang hoạt động. Hãy đảm bảo bạn đang trực tuyến và đã đăng nhập bằng tài khoản Google đã dùng để mua, sau đó thử khôi phục.</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">개발자 지원</string>
     <string name="upgrade_benefit_disclaimer">기능 사용 가능 여부는 헤드폰 및 기기에 따라 다릅니다.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
-    <string name="settings_monitor_connected_notification_description">기기가 연결되면 추가 알림을 표시합니다. 이렇게 하면 \"기기 상태\" 채널을 비활성화하여 영구적인 \"기기 없음\" 알림을 숨길 수 있습니다.</string>
+    <string name="settings_monitor_connected_notification_description">기기가 연결되어 있을 때만 나타나는 두 번째 알림을 표시해요. 이 옵션을 켜면 \"기기 없음\"이라는 영구 알림을 숨길 수 있어요. CAPod의 Android 알림 설정에서 \"기기 상태\" 카테고리를 꺼세요.</string>
     <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods이 연결 해제된 후에도 마지막으로 알려진 배터리 잔량 계속 표시하기</string>
     <string name="settings_autopause_label">자동 일시 중지</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">최소 신호 품질</string>
     <string name="settings_signal_minimum_description">기기가 사용자의 것으로 간주되기 위해 필요한 최소 신호 품질입니다.</string>
     <string name="settings_autoconnect_label">자동 연결</string>
-    <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터링 모드 설정이 \"항상\"으로 설정됩니다.</string>
+    <string name="settings_autoconnect_description">Android가 자동으로 연결하지 않는다면 앱이 대신 요청할 수 있어요. 이렇게 하면 CAPod가 항상 백그라운드에서 모니터링을 계속해요.</string>
     <string name="settings_autoconnect_info_android12">자동 연결은 Android 12 이상에서 제한하는 시스템 기능에 의존합니다. 기기에서 작동하지 않을 수 있습니다.</string>
     <string name="settings_autoconnect_condition_label">자동 연결 조건</string>
     <string name="settings_autoconnect_condition_description">언제 기기에 연결을 시도해야 할까요?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">호환성 옵션</string>
     <string name="settings_category_compatibility_options_description">모든 것이 작동하면 건드리지 마세요 ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">하드웨어 필터링 비활성화</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">데이터 필터링을 시스템에 위임하지 말고 대신 모든 데이터를 가져와 앱 내에서 필터링합니다.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods가 감지되지 않는다면 이것을 시도해 보세요. 휴대폰이 미리 선택하는 대신 앱이 근처의 모든 Bluetooth 신호를 직접 확인해요.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">하드웨어 일괄 처리 비활성화</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">수집된 BLE 데이터를 저희에게 전달하기 전에 시스템이 그룹화하도록 허용하지 마십시오.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">배터리 수준이 늦게 업데이트되거나 한 번에 업데이트된다면 이 옵션을 시도해 보세요. 휴대폰이 먼저 수집하는 대신 각 Bluetooth 신호를 즉시 전달해요.</string>
     <string name="settings_onepod_mode_label">단일 유닛 모드</string>
     <string name="settings_onepod_mode_description">자동 재생/일시 정지 및 자동 연결이 두 개 모두 필요하지 않고 단일 이어팟에도 반응합니다.</string>
     <string name="settings_popup_caseopen_label">케이스 팝업 표시</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">초록</string>
     <string name="widget_config_preset_red">빨강</string>
     <string name="settings_compat_indirectcallback_title">간접 데이터 전달</string>
-    <string name="settings_compat_indirectcallback_summary">시스템에서 BLE 데이터를 수신하는 대체 방법을 사용합니다(콜백 대신 브로드캐스트).</string>
+    <string name="settings_compat_indirectcallback_summary">다른 호환성 옵션이 도움이 되지 않았다면 이것을 시도해 보세요. 앱이 직접 수신하는 대신 Android가 백그라운드에서 Bluetooth 신호를 앱에 전달해요.</string>
     <string name="troubleshooter_title">문제 해결사</string>
     <string name="troubleshooter_summary">Bluetooth 연결 문제를 진단하고 고칩니다.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy 브로드캐스트</string>
@@ -528,6 +528,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">블루투스 설정</string>
     <string name="device_settings_send_failed">설정을 적용할 수 없습니다: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">이 기기에서 Off 모드가 활성화되어 있지 않습니다. 소음 제어 아래의 \"오프 모드 허용\"을 활성화하세요.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods가 청취 모드 변경을 확인하지 않았어요.</string>
     <string name="device_settings_category_battery_label">배터리</string>
     <string name="device_settings_charge_cap_label">최적화된 충전 한도</string>
     <string name="device_settings_charge_cap_description">사용 패턴을 학습하여 배터리 수명 연장을 위해 충전을 약 80%%에서 일시 중지하고, 사용하기 전에 충전을 완료합니다.</string>

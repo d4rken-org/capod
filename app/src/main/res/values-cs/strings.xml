@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Podpořit vývojáře</string>
     <string name="upgrade_benefit_disclaimer">Dostupnost funkcí závisí na vašich sluchátkách a zařízení.</string>
     <string name="settings_monitor_connected_notification_label">Dodatečné oznámení</string>
-    <string name="settings_monitor_connected_notification_description">Zobrazí dodatečné oznámení, když je zařízení připojeno. To umožňuje skrýt trvalé oznámení \"Žádné zařízení\" vypnutím kanálu \"Stav zařízení\".</string>
+    <string name="settings_monitor_connected_notification_description">Zobrazí druhé oznámení, které se objeví pouze při připojení zařízení. Když je tato možnost zapnutá, můžeš skrýt trvalé oznámení „Žádná zařízení“: v nastavení oznámení systému Android pro CAPod vypni kategorii „Stav zařízení“.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uchovat oznámení po odpojení</string>
     <string name="settings_keep_notification_after_disconnect_description">Pokračovat v zobrazování poslední známé úrovně nabití baterie i po odpojení AirPods</string>
     <string name="settings_autopause_label">Autom. pozastavení</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimální kvalita signálu</string>
     <string name="settings_signal_minimum_description">Minimální kvalita signálu, kterou musí zařízení mít, aby bylo považováno za vaše.</string>
     <string name="settings_autoconnect_label">Automatické připojení</string>
-    <string name="settings_autoconnect_description">Pokud se systém Android nepřipojí automaticky, můžeme jej o to požádat. Tím se nastaví režim monitorování na hodnotu „Vždy“.</string>
+    <string name="settings_autoconnect_description">Pokud se Android automaticky nepřipojí, můžeme ho o to požádat. Díky tomu CAPod stále monitoruje na pozadí.</string>
     <string name="settings_autoconnect_info_android12">Automatické připojení závisí na systémové funkci, kterou Android 12 a novější omezuje. Na vašem zařízení nemusí fungovat.</string>
     <string name="settings_autoconnect_condition_label">Stav automatického připojení</string>
     <string name="settings_autoconnect_condition_description">Kdy se máme pokusit připojit k vašemu zařízení?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Možnosti kompatibility</string>
     <string name="settings_category_compatibility_options_description">Nedotýkejte se, pokud vše funguje ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Vypnout hardwarové filtrování</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Nesvěřujte filtrování dat systému, ale přijímejte a filtrujte všechna data v aplikaci.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Vyzkoušej to, pokud tvé AirPods nejsou nikdy rozpoznány. Aplikace sama projde všechny signály Bluetooth v okolí, místo aby je za tebe předvybíral telefon.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Vypnout hardwarové dávkování</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Nedovolte, aby systém seskupil shromážděná data BLE předtím, než nám je předá.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Vyzkoušej to, pokud se stav baterie aktualizuje pozdě nebo v dávkách. Telefon předá každý signál Bluetooth okamžitě, místo aby je nejprve shromažďoval.</string>
     <string name="settings_onepod_mode_label">Režim jednoho sluchátka</string>
     <string name="settings_onepod_mode_description">Automatické přehrávání/pozastavení a automatické připojení reagují na jediné sluchátko místo požadavku obou.</string>
     <string name="settings_popup_caseopen_label">Zobrazit vyskakovací okno pouzdra</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Zelená</string>
     <string name="widget_config_preset_red">Červená</string>
     <string name="settings_compat_indirectcallback_title">Nepřímé poskytování dat</string>
-    <string name="settings_compat_indirectcallback_summary">Použijte alternativní metodu pro příjem dat BLE ze systému (vysílání namísto přijímání).</string>
+    <string name="settings_compat_indirectcallback_summary">Vyzkoušej to, pokud ostatní možnosti kompatibility nepomohly. Android předá signály Bluetooth aplikaci na pozadí, místo aby je aplikace poslouchala přímo.</string>
     <string name="troubleshooter_title">Řešení problémů</string>
     <string name="troubleshooter_summary">Diagnostika a oprava problémů s připojením Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Vysílání Bluetooth Low Energy</string>
@@ -544,6 +544,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Nastavení Bluetooth</string>
     <string name="device_settings_send_failed">Nastavení nelze použít: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Režim Vypnuto není na tomto zařízení povolen. Povolte \"Povolit režim Vypnuto\" v části Kontrola hluku.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods nepotvrdily změnu režimu poslechu.</string>
     <string name="device_settings_category_battery_label">Baterie</string>
     <string name="device_settings_charge_cap_label">Optimalizovaný limit nabíjení</string>
     <string name="device_settings_charge_cap_description">Naučí se vaše návyky a pozastaví nabíjení přibližně na 80 %%, aby prodloužilo životnost baterie, a dobíjí sluchátka těsně před jejich použitím.</string>

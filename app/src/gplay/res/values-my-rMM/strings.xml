@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ဤသည်မှာ သီးခြားဝယ်ယူမှုတစ်ခုဖြစ်သည် — ၎င်းသည် သင့်စာရင်းသွင်းမှုကို မပယ်ဖျက်ပါ၊ ငွေပြန်အမ်းမှုလည်း မပြုလုပ်ပါ။ တူညီသော Google အကောင့်ကို အသုံးပြုပါ။</string>
     <string name="upgrade_screen_sub_still_renewing_title">စာရင်းသွင်းမှု ဆက်လက်အသက်ဝင်နေဆဲ</string>
     <string name="upgrade_screen_sub_still_renewing_message">သင့်စာရင်းသွင်းမှုသည် ပြန်လည်သက်တမ်းတိုးရန် ဆက်လက်သတ်မှတ်ထားဆဲဖြစ်သည်။ ဦးစွာ Google Play တွင် ၎င်းကို ပယ်ဖျက်ပြီးမှ တစ်ကြိမ်တည်း ဝယ်ယူမှုသို့ ပြောင်းလဲပါ။ ယခုပဲ ပယ်ဖျက်လိုက်ပါသလား။ Google Play ကို အချိန်အနည်းငယ်ပေးပြီး ထပ်စမ်းကြည့်ပါ။</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play နှင့် မင်း၏ ဝယ်ယူမှုများကို စစ်ဆေးမရနိုင်ပါ။ နှစ်ကြိမ်ဝယ်ယူမိမှုကို ရှောင်ရှားရန် ခဏနေမှ ထပ်စမ်းကြည့်ပါ။</string>
+    <string name="upgrade_screen_pending_card_title">ငွေပေးချေမှု စောင့်ဆိုင်းနေသည်</string>
+    <string name="upgrade_screen_pending_card_body">Google Play က မင်း၏ ငွေပေးချေမှုကို ဆက်လက်စစ်ဆေးနေဆဲဖြစ်သည်။ ငွေပေးချေမှု အောင်မြင်ပြီးလျှင် Pro ကို အလိုအလျောက် ဖွင့်ပေးမည်။ ငွေပေးချေမှု နည်းလမ်းအချို့သည် အချိန်အနည်းငယ် ကြာနိုင်ပါသည်။ မင်း ဘာမှလုပ်ဆောင်ရန် မလိုအပ်ပါ။</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play က ငွေပေးချေမှု စောင့်ဆိုင်းနေသော ဝယ်ယူမှုတစ်ခုကို တွေ့ရှိပြီး ဆက်လက်စစ်ဆေးနေဆဲဖြစ်သည်။ ငွေပေးချေမှု အောင်မြင်ပြီးလျှင် Pro ကို အလိုအလျောက် ဖွင့်ပေးမည်။</string>
     <string name="upgrade_screen_grace_title">သင့်ဝယ်ယူမှုကို အတည်ပြုနေသည်</string>
     <string name="upgrade_screen_grace_body_short">Google Play က သင့်ဝယ်ယူမှုကို အတည်မပြုရသေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည် — မည်သည့်အရာမှ လုပ်ဆောင်ရန် မလိုအပ်ပါ။</string>
     <string name="upgrade_screen_grace_body">Google Play သည် သင့်ဝယ်ယူမှုကို အတန်ကြာအောင် အတည်မပြုနိုင်သေးပါ။ Pro မှာ ဆက်လက်အသက်ဝင်နေဆဲဖြစ်သည်။ အွန်လိုင်းနှင့် ချိတ်ဆက်ထားပြီး ဝယ်ယူမှုတွင် အသုံးပြုခဲ့သည့် Google အကောင့်ဖြင့် လက်မှတ်ရေးထိုးဝင်ထားကြောင်း သေချာစေပြီးမှ ပြန်လည်ရယူရန် စမ်းကြည့်ပါ။</string>

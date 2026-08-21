@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
     <string name="settings_signal_minimum_description">አንድ መሣሪያ የእርስዎ ተደርጎ እንዲቆጠር ሊኖረው የሚገባው ዝቅተኛው የሲግናል ጥራት።</string>
     <string name="settings_autoconnect_label">ራስ-ሰር ግንኙነት</string>
-    <string name="settings_autoconnect_description">አንድሮይድ በራስ-ሰር ካልተገናኘ፣ እኛም ልንጠይቀው እንችላለን። ይህ የክትትል ሁነታ ቅንብሩን ወደ \"ሁልጊዜ\" ያደርገዋል።</string>
+    <string name="settings_autoconnect_description">Android ራሱ ከወቅቶ ስናገናኝ ካልቻለ፣ እኛም ሊጠየቅ ይችላሉ። ይህ CAPod ወደ ጀርባ ሙሉ ጊዜ ተከታተሎ ያቆየዋል።</string>
     <string name="settings_autoconnect_info_android12">ራስ-ሰር ግንኙነት Android 12 እና ከዚያ በኋላ ባሉ ስሪቶች ላይ ገደብ የሚደረግበት የስርዓት ባህሪ ላይ ይተማመናል። በእርስዎ መሳሪያ ላይ ላይሰራ ይችላል።</string>
     <string name="settings_autoconnect_condition_label">ራስ-ሰር የግንኙነት ሁኔታ</string>
     <string name="settings_autoconnect_condition_description">ከመሳሪያዎ ጋር ለመገናኘት መቼ መሞከር አለብን?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">የተኳኋኝነት አማራጮች</string>
     <string name="settings_category_compatibility_options_description">ሁሉም ነገር የሚሰራ ከሆነ አይንኩ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">የሃርድዌር ማጣሪያን አሰናክል</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">የመረጃ ማጣሪያን ለሲስተሙ አትውክል፣ ይልቁንስ ሁሉንም መረጃ ያግኙ እና በመተግበሪያው ውስጥ ያጣሩ።</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">AirPods ሊታወቁ ካልሞገቱ ይህን ሞክር። ስልካዋ ምረጥ ሳታደርግ ትግበራው ሁሉንም ዙሪያ ያሉ Bluetooth ሲግናል በራሷ ትመርመራለች።</string>
     <string name="settings_compat_offloaded_batching_disabled_title">የሃርድዌር ባቺንግን አሰናክል</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">ሲስተሙ የተሰበሰበውን የBLE መረጃ ወደ እኛ ከማስተላለፉ በፊት እንዲስብር አትፍቀዱለት።</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ባትሪ ደረጃ በዘግየት ወይም በተውሳቶ ብቻ ከሳሳ ይህን ሞክር። ስልካዋ Bluetooth ሲግናል ሲሞያ ወዲህ ይላክ ይሆናል።</string>
     <string name="settings_onepod_mode_label">ባለአንድ ፖድ ሁነታ</string>
     <string name="settings_onepod_mode_description">ራስ-ሰር አጫወት/አቁም እና ራስ-ሰር ግንኙነት ሁለቱንም ከሚጠይቁ ይልቅ ለአንድ ፖድ ምላሽ ይሰጣሉ።</string>
     <string name="settings_popup_caseopen_label">የኬዝ ብቅ-ባይ አሳይ</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">የ Bluetooth ቅንብሮች</string>
     <string name="device_settings_send_failed">ቅንብሩን መተግበር አልተቻለም: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ጠፍ ሁኔታ በዚህ መሳሪያ ላይ አልነቃም። \"ጠፍ ሁኔታን ፍቀድ\" በጫጫታ ቁጥጥር ስር አንቃ።</string>
+    <string name="anc_mode_not_confirmed_message">AirPods የዓይነት ለውጥ አልወሰደም።</string>
     <string name="device_settings_category_battery_label">ባትሪ</string>
     <string name="device_settings_charge_cap_label">ተመቻችቶ የሚቆጠር የኃይል ወሰን</string>
     <string name="device_settings_charge_cap_description">የእርስዎን ልምድ ተምሮ የባትሪ ሕይወት ለማሳደግ ወደ 80%% ሲደርስ ኤሌክትሪኩን ያቆማል፣ ሊጠቀሟቸው ከመሆናቸው በፊት ድብዳቤ ኮዳቹን ሙሉ ይሞላቸዋል።</string>

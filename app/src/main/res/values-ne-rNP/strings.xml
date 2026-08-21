@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">डेभलपरलाई सहयोग गर्नुहोस्</string>
     <string name="upgrade_benefit_disclaimer">सुविधाको उपलब्धता तपाईंको हेडफोन र उपकरणमा निर्भर गर्छ।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
-    <string name="settings_monitor_connected_notification_description">उपकरण जडान हुँदा अतिरिक्त सूचना देखाउँछ। यसले तपाईंलाई \"उपकरण स्थिति\" च्यानल असक्षम गरेर स्थायी \"कुनै उपकरण छैन\" सूचना लुकाउन अनुमति दिन्छ।</string>
+    <string name="settings_monitor_connected_notification_description">यन्त्र जोडिएको बेला मात्र देखिने दोस्रो सूचना देखाउँछ। यो सक्षम गरेपछि, तपाईं स्थायी \"कुनै यन्त्र छैन\" सूचना लुकाउन सक्नुहुन्छ: Android को सूचना सेटिङमा CAPod को लागि \"यन्त्र स्थिति\" श्रेणी बन्द गर्नुहोस्।</string>
     <string name="settings_keep_notification_after_disconnect_label">विच्छेद पछि सूचना राख्नुहोस्</string>
     <string name="settings_keep_notification_after_disconnect_description">तपाईंको AirPods विच्छेद भएपछि पनि अन्तिम ज्ञात ब्याट्री स्तर देखाउन जारी राख्नुहोस्</string>
     <string name="settings_autopause_label">स्वत: पज</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
     <string name="settings_signal_minimum_description">उपकरणलाई तपाइँको मान्नको लागि आवश्यक पर्ने न्यूनतम सिग्नल गुणस्तर।</string>
     <string name="settings_autoconnect_label">स्वत: जडान</string>
-    <string name="settings_autoconnect_description">यदि एन्ड्रोइडले स्वचालित रूपमा जडान गर्दैन भने, हामी पनि अनुरोध गर्न सक्छौं। यसले मोनिटर मोड सेटिङलाई \"सधैं\" मा सेट गर्नेछ।</string>
+    <string name="settings_autoconnect_description">यदि Android स्वचालित रूपमा जोडिँदैन भने, हामी पनि यसलाई अनुरोध गर्न सक्छौं। यसले CAPod लाई सधैं पृष्ठभूमिमा अनुगमन गरिरहन मद्दत गर्छ।</string>
     <string name="settings_autoconnect_info_android12">स्वतः जडान Android 12 र त्यसभन्दा नयाँले प्रतिबन्धित गरेको एउटा प्रणाली सुविधामा निर्भर छ। यो तपाईंको उपकरणमा काम नगर्न सक्छ।</string>
     <string name="settings_autoconnect_condition_label">स्वत: जडान अवस्था</string>
     <string name="settings_autoconnect_condition_description">हामीले कहिले तपाइँको उपकरणमा जडान गर्ने प्रयास गर्नुपर्छ?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">अनुकूलता विकल्पहरू</string>
     <string name="settings_category_compatibility_options_description">सबै कुरा ठीकठाक चलिरहेको छ भने नचलाउनुहोस् ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">हार्डवेयर फिल्टरिङ असक्षम गर्नुहोस्</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">डाटा फिल्टरिङलाई प्रणालीमा प्रत्यायोजित नगर्नुहोस्, बरु सबै डाटा प्राप्त गर्नुहोस् र एप भित्र फिल्टर गर्नुहोस्।</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">यदि तपाईंको AirPods कहिल्यै पत्ता लाग्दैन भने यो प्रयास गर्नुहोस्। फोनलाई तिनीहरू पूर्व-चयन गर्न दिनुको सट्टा, एप आफैंले नजिकैका सबै ब्लुटुथ सिग्नलहरू खोज्नेछ।</string>
     <string name="settings_compat_offloaded_batching_disabled_title">हार्डवेयर ब्याचिङ असक्षम गर्नुहोस्</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">हामीलाई फर्वार्ड गर्नु अघि प्रणालीलाई सङ्कलन गरिएको BLE डाटा समूहबद्ध गर्न नदिनुहोस्।</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">यदि ब्याट्री स्तर ढिलो वा गुच्छाहरूमा मात्र अद्यावधिक हुन्छ भने यो प्रयास गर्नुहोस्। तपाईंको फोनले पहिले सिग्नलहरू सङ्कलन गर्नुको सट्टा प्रत्येक ब्लुटुथ सिग्नल तुरुन्तै पठाउनेछ।</string>
     <string name="settings_onepod_mode_label">एक पोड मोड</string>
     <string name="settings_onepod_mode_description">स्वतः प्ले/पज र स्वतः-जडानले दुवै आवश्यक नगरी एउटै पड प्रति प्रतिक्रिया दिन्छ।</string>
     <string name="settings_popup_caseopen_label">केस पपअप देखाउनुहोस्</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">हरियो</string>
     <string name="widget_config_preset_red">रातो</string>
     <string name="settings_compat_indirectcallback_title">अप्रत्यक्ष डाटा डेलिभरी</string>
-    <string name="settings_compat_indirectcallback_summary">प्रणालीबाट BLE डाटा प्राप्त गर्न वैकल्पिक विधि प्रयोग गर्नुहोस् (कलब्याकको सट्टा प्रसारण)।</string>
+    <string name="settings_compat_indirectcallback_summary">यदि अन्य अनुकूलता विकल्पहरूले मद्दत गरेनन् भने यो प्रयास गर्नुहोस्। एपले सिग्नलहरू सिधै सुन्नुको सट्टा, Android ले पृष्ठभूमिमा एपलाई ब्लुटुथ सिग्नलहरू सुम्पिनेछ।</string>
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_summary">Bluetooth जडान समस्याहरूको निदान र समाधान गर्नुहोस्।</string>
     <string name="troubleshooter_ble_intro_title">ब्लुटुथ कम ऊर्जा प्रसारणहरू</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ब्लुटुथ सेटिङहरू</string>
     <string name="device_settings_send_failed">सेटिङ लागू गर्न सकिएन: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">अफ मोड यस उपकरणमा सक्षम छैन। ध्वनि नियन्त्रण अन्तर्गत \"अफ मोड अनुमति दिनुहोस्\" सक्षम गर्नुहोस्।</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ले सुन्ने मोड परिवर्तनको पुष्टि गरेन।</string>
     <string name="device_settings_category_battery_label">ब्याट्री</string>
     <string name="device_settings_charge_cap_label">अनुकूलित चार्ज सीमा</string>
     <string name="device_settings_charge_cap_description">तपाईंको दिनचर्या सिकेर ब्याट्री जीवन बढाउन ८०%% को आसपास चार्जिङ रोक्छ र तपाईंले प्रयोग गर्ने सम्भावना हुँदा पड्सलाई पूर्ण गर्छ।</string>

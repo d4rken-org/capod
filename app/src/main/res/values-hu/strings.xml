@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Támogasd a fejlesztőt</string>
     <string name="upgrade_benefit_disclaimer">A funkció elérhetősége a fejhallgatótól és az eszköztől függ.</string>
     <string name="settings_monitor_connected_notification_label">Extra értesítés</string>
-    <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \"Nincs eszköz\" értesítés elrejtését az \"Eszköz állapota\" csatorna letiltásával.</string>
+    <string name="settings_monitor_connected_notification_description">Egy második értesítést mutat, amely csak akkor jelenik meg, ha egy eszköz csatlakozik. Ha bekapcsolod, elrejtetheted az állandó „Nincsenek eszközök\" értesítést: a CAPod alkalmazás Android-értesítési beállításaiban kapcsold ki az „Eszköz állapota\" kategóriát.</string>
     <string name="settings_keep_notification_after_disconnect_label">Értesítés megőrzése lecsatlakozás után</string>
     <string name="settings_keep_notification_after_disconnect_description">Az utolsó ismert akkumulátorszintek megjelenítésének folytatása az AirPods lecsatlakozása után is</string>
     <string name="settings_autopause_label">Automatikus szünet</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimális jelerősség</string>
     <string name="settings_signal_minimum_description">Vegye figyelembe a minimális jelerősséget, amelyre egy eszköznek szüksége van.</string>
     <string name="settings_autoconnect_label">Automatikus csatlakozás</string>
-    <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan. A monitor mód beállítása „Mindig” lesz.</string>
+    <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan, mi is kérhetjük tőle. Ez azt biztosítja, hogy a CAPod mindig figyel a háttérben.</string>
     <string name="settings_autoconnect_info_android12">Az automatikus csatlakozás olyan rendszerfunkcióra támaszkodik, amelyet az Android 12 és újabb verziók korlátoznak. Előfordulhat, hogy nem működik az eszközödön.</string>
     <string name="settings_autoconnect_condition_label">Automatikus csatlakozás állapota</string>
     <string name="settings_autoconnect_condition_description">Mikor próbáljunk meg csatlakozni az eszközéhez?</string>
@@ -56,7 +56,7 @@
     <string name="settings_category_compatibility_options_title">Kompatibilitási opciók</string>
     <string name="settings_category_compatibility_options_description">Ezekhez ne nyúljon, ha minden jól műkődik ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Hardveres szűrés letiltása</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Ne bízza az adatok szűrését a rendszerre, hanem kérje le az összes adatot és szűrje az alkalmazáson belül.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Próbáld ezt, ha az AirPods soha nem kerülnek felismerésre. Az alkalmazás magának vizsgálja meg az összes közeli Bluetooth-jelet ahelyett, hogy a telefon szűrné azokat.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Hardveres összefűzés letiltása</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ne hagyja, hogy a rendszer csoportosítsa az összegyűjtött BLE-adatokat, mielőtt továbbítja azokat nekünk.</string>
     <string name="settings_onepod_mode_label">Egy fülhallgató mód</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Zöld</string>
     <string name="widget_config_preset_red">Piros</string>
     <string name="settings_compat_indirectcallback_title">Közvetett adatszolgáltatás</string>
-    <string name="settings_compat_indirectcallback_summary">Alternatív módszer használata a BLE adatok lekérésére (broadcast, callback helyett).</string>
+    <string name="settings_compat_indirectcallback_summary">Próbáld ezt, ha az egyéb kompatibilitási lehetőségek nem segítettek. Az Android a Bluetooth-jeleket a háttérben adja át az alkalmazásnak, ahelyett hogy az alkalmazás közvetlenül figyelné meg őket.</string>
     <string name="troubleshooter_title">Hibaelhárító</string>
     <string name="troubleshooter_summary">Bluetooth-csatlakozási problémák diagnosztizálása és javítása.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcast</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-beállítások</string>
     <string name="device_settings_send_failed">Nem sikerült alkalmazni a beállítást: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">A Ki mód nincs engedélyezve ezen az eszközön. Engedélyezd a \"Ki mód engedélyezése\" opciót a Zajvezérlés alatt.</string>
+    <string name="anc_mode_not_confirmed_message">Az AirPods nem erősítette meg a hallgatási mód módosítását.</string>
     <string name="device_settings_category_battery_label">Akkumulátor</string>
     <string name="device_settings_charge_cap_label">Optimalizált töltési limit</string>
     <string name="device_settings_charge_cap_description">Megtanulja a szokásaidat, és kb. 80%%-nál szünetelteti a töltést az akkumulátor élettartalmának megnyújtásához, majd befejezi a töltést, mielőtt valószínűleg használni szeretnéd.</string>

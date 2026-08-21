@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">حمایت از توسعه‌دهنده</string>
     <string name="upgrade_benefit_disclaimer">در دسترس بودن ویژگی‌ها به هدفون و دستگاه شما بستگی دارد.</string>
     <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
-    <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \"بدون دستگاه\" را با غیرفعال کردن کانال \"وضعیت دستگاه\" پنهان کنید.</string>
+    <string name="settings_monitor_connected_notification_description">یک اعلان دوم نشان می‌دهد که فقط زمانی ظاهر می‌شود که دستگاهی متصل باشد. با روشن بودن این گزینه، می‌توانید اعلان دائمی «بدون دستگاه» را پنهان کنید: دسته «وضعیت دستگاه» را در تنظیمات اعلان‌های اندروید برای CAPod خاموش کنید.</string>
     <string name="settings_keep_notification_after_disconnect_label">حفظ اعلان پس از قطع اتصال</string>
     <string name="settings_keep_notification_after_disconnect_description">نمایش آخرین سطوح شارژ شناخته‌شده حتی پس از قطع اتصال AirPods شما</string>
     <string name="settings_autopause_label">مکث خودکار</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
     <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
-    <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \"همیشه\" قرار می‌دهد.</string>
+    <string name="settings_autoconnect_description">اگر اندروید به‌طور خودکار متصل نشد، ما هم می‌توانیم از آن بخواهیم. این کار باعث می‌شود CAPod همیشه در پس‌زمینه نظارت را ادامه دهد.</string>
     <string name="settings_autoconnect_info_android12">اتصال خودکار به یک ویژگی سیستمی متکی است که اندروید ۱۲ و نسخه‌های جدیدتر آن را محدود کرده‌اند. ممکن است روی دستگاه شما کار نکند.</string>
     <string name="settings_autoconnect_condition_label">شرط اتصال خودکار</string>
     <string name="settings_autoconnect_condition_description">چه زمانی باید سعی کنیم به دستگاه شما متصل شویم؟</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">گزینه‌های سازگاری</string>
     <string name="settings_category_compatibility_options_description">اگر همه چیز کار می‌کند، دست نزنید ؛)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">غیرفعال کردن فیلتر سخت‌افزاری</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">فیلتر کردن داده‌ها را به سیستم واگذار نکنید، در عوض همه داده‌ها را دریافت کرده و در داخل برنامه فیلتر کنید.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">اگر ایرپادهای شما هیچ‌وقت شناسایی نمی‌شوند، این گزینه را امتحان کنید. برنامه به‌جای اینکه اجازه دهد گوشی شما آن‌ها را از پیش انتخاب کند، خودش تمام سیگنال‌های بلوتوث اطراف را بررسی می‌کند.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">غیرفعال کردن دسته‌بندی سخت‌افزاری</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">اجازه ندهید سیستم داده‌های BLE جمع‌آوری‌شده را قبل از ارسال به ما، گروه‌بندی کند.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">اگر سطح باتری فقط با تأخیر یا به‌صورت دسته‌ای به‌روزرسانی می‌شود، این گزینه را امتحان کنید. گوشی شما به‌جای جمع‌آوری اولیه سیگنال‌های بلوتوث، هر سیگنال را بلافاصله ارسال می‌کند.</string>
     <string name="settings_onepod_mode_label">حالت یک ایرپاد</string>
     <string name="settings_onepod_mode_description">پخش/مکث خودکار و اتصال خودکار به یک پاد واکنش نشان می‌دهند و نیازی به هر دو نیست.</string>
     <string name="settings_popup_caseopen_label">نمایش پاپ‌آپ کیس</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">سبز</string>
     <string name="widget_config_preset_red">قرمز</string>
     <string name="settings_compat_indirectcallback_title">تحویل غیرمستقیم داده</string>
-    <string name="settings_compat_indirectcallback_summary">از یک روش جایگزین برای دریافت داده‌های BLE از سیستم استفاده کنید (پخش به‌جای فراخوانی مجدد).</string>
+    <string name="settings_compat_indirectcallback_summary">اگر گزینه‌های سازگاری دیگر کمکی نکردند، این را امتحان کنید. اندروید سیگنال‌های بلوتوث را در پس‌زمینه به برنامه تحویل می‌دهد، به‌جای اینکه برنامه مستقیماً منتظر آن‌ها بماند.</string>
     <string name="troubleshooter_title">عیب‌یاب</string>
     <string name="troubleshooter_summary">تشخیص و رفع مشکلات اتصال بلوتوث.</string>
     <string name="troubleshooter_ble_intro_title">پخش‌های بلوتوث کم‌مصرف</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">تنظیمات بلوتوث</string>
     <string name="device_settings_send_failed">نمی‌توان تنظیمات را اعمال کرد: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">حالت خاموش روی این دستگاه فعال نیست. «اجازه دادن به حالت خاموش» را در کنترل نویز فعال کنید.</string>
+    <string name="anc_mode_not_confirmed_message">ایرپادها تغییر حالت شنیداری را تأیید نکردند.</string>
     <string name="device_settings_category_battery_label">باتری</string>
     <string name="device_settings_charge_cap_label">محدودیت شارژ بهینه</string>
     <string name="device_settings_charge_cap_description">روتین شما را یاد می‌گیرد و شارژ را در حدود ۸۰%% متوقف می‌کند تا عمر باتری افزایش یابد و پادها را قبل از زمانی که احتمالاً از آن‌ها استفاده می‌کنید شارژ کامل می‌کند.</string>

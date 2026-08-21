@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">یہ ایک الگ خریداری ہے — یہ آپ کے سبسکرپشن کو منسوخ یا ریفنڈ نہیں کرتی۔ وہی گوگل اکاؤنٹ استعمال کریں۔</string>
     <string name="upgrade_screen_sub_still_renewing_title">سبسکرپشن اب بھی فعال ہے</string>
     <string name="upgrade_screen_sub_still_renewing_message">آپ کا سبسکرپشن اب بھی تجدید ہونے کے لیے طے ہے۔ پہلے اسے گوگل پلے میں منسوخ کریں، پھر ایک بار کی خریداری پر منتقل ہوں۔ ابھی منسوخ کیا؟ گوگل پلے کو تھوڑا وقت دیں اور دوبارہ کوشش کریں۔</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play کے ساتھ آپ کی خریداریوں کی جانچ نہیں ہو سکی۔ دوبارہ خریداری سے بچنے کے لیے، براہ کرم تھوڑی دیر میں دوبارہ کوشش کریں۔</string>
+    <string name="upgrade_screen_pending_card_title">ادائیگی زیر التوا ہے</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ابھی بھی آپ کی ادائیگی پر کارروائی کر رہا ہے۔ ادائیگی مکمل ہوتے ہی Pro خود بخود ان لاک ہو جائے گا۔ کچھ ادائیگی کے طریقوں میں کچھ وقت لگ سکتا ہے۔ آپ کو مزید کچھ کرنے کی ضرورت نہیں ہے۔</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play کو ایک ایسی خریداری ملی ہے جس کی ادائیگی زیر التوا ہے اور وہ ابھی بھی اس پر کارروائی کر رہا ہے۔ ادائیگی مکمل ہوتے ہی Pro خود بخود ان لاک ہو جائے گا۔</string>
     <string name="upgrade_screen_grace_title">آپ کی خریداری کی تصدیق ہو رہی ہے</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلے نے ابھی تک آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے — کسی اقدام کی ضرورت نہیں۔</string>
     <string name="upgrade_screen_grace_body">گوگل پلے نے کافی عرصے سے آپ کی خریداری کی تصدیق نہیں کی۔ Pro اب بھی فعال ہے۔ یقینی بنائیں کہ آپ آن لائن ہیں اور وہی گوگل اکاؤنٹ سے سائن ان ہیں جو خریداری کے لیے استعمال ہوا تھا، پھر بحال کرنے کی کوشش کریں۔</string>

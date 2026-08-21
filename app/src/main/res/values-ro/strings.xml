@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Susțineți dezvoltatorul</string>
     <string name="upgrade_benefit_disclaimer">Disponibilitatea funcțiilor depinde de căștile și dispozitivul dvs.</string>
     <string name="settings_monitor_connected_notification_label">Notificare suplimentară</string>
-    <string name="settings_monitor_connected_notification_description">Afișează o notificare suplimentară atunci când un dispozitiv este conectat. Acest lucru vă permite să ascundeți notificarea permanentă \"Niciun dispozitiv\" prin dezactivarea canalului \"Stare dispozitiv\".</string>
+    <string name="settings_monitor_connected_notification_description">Afișează a doua notificare care apare doar atunci când un dispozitiv este conectat. Cu această opțiune activată, poți ascunde notificarea permanentă „Niciun dispozitiv”: dezactivează categoria „Starea dispozitivului” din setările de notificări ale Android pentru CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Păstrează notificarea după deconectare</string>
     <string name="settings_keep_notification_after_disconnect_description">Continuă să afișeze ultimele niveluri cunoscute ale bateriei chiar și după deconectarea AirPods</string>
     <string name="settings_autopause_label">Pauză automată</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
     <string name="settings_signal_minimum_description">Calitatea minimă a semnalului pe care trebuie să o aibă un dispozitiv trebuie să fie considerată a dvs.</string>
     <string name="settings_autoconnect_label">Conectare automată</string>
-    <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îl putem întreba și noi. Aceasta va seta setarea modului monitorizare la „Întotdeauna”.</string>
+    <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îi putem cere și noi. Aceasta menține monitorizarea CAPod în fundal în permanență.</string>
     <string name="settings_autoconnect_info_android12">Conectarea automată se bazează pe o funcție de sistem restricționată în Android 12 și versiunile mai noi. Este posibil să nu funcționeze pe dispozitivul tău.</string>
     <string name="settings_autoconnect_condition_label">Condiția de conectare automată</string>
     <string name="settings_autoconnect_condition_description">Când ar trebui să încercăm să ne conectăm la dispozitivul dvs.?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opțiuni de compatibilitate</string>
     <string name="settings_category_compatibility_options_description">Nu atingeți dacă totul funcționează ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Dezactivați filtrarea hardware-ului</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Nu delegați filtrarea datelor către sistem, în schimb, obțineți toate datele și filtrați în cadrul aplicației.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Încearcă aceasta dacă AirPods-urile tale nu sunt detectate niciodată. Aplicația va căuta prin toate semnalele Bluetooth din apropiere, în loc să lași telefonul să le preselecteze.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Dezactivați lotizarea hardware</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Nu lăsați sistemul să grupeze datele BLE colectate înainte de a ni le transmite.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Încearcă aceasta dacă nivelurile de baterie se actualizează doar cu întârziere sau în rafale. Telefonul tău va transmite fiecare semnal Bluetooth imediat, în loc să le colecteze mai întâi.</string>
     <string name="settings_onepod_mode_label">Modul de utilizare o singură cască</string>
     <string name="settings_onepod_mode_description">Redarea/pauza automată și conectarea automată reacționează la un singur pod în loc să necesite ambele.</string>
     <string name="settings_popup_caseopen_label">Afișați pop-upul carcasei</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Verde</string>
     <string name="widget_config_preset_red">Roșu</string>
     <string name="settings_compat_indirectcallback_title">Livrarea indirectă a datelor</string>
-    <string name="settings_compat_indirectcallback_summary">Utilizați o metodă alternativă pentru a primi date BLE de la sistem (difuzare în loc de apel invers).</string>
+    <string name="settings_compat_indirectcallback_summary">Încearcă aceasta dacă celelalte opțiuni de compatibilitate nu au ajutat. Android va transmite semnalele Bluetooth aplicației în fundal, în loc ca aplicația să le asculte direct.</string>
     <string name="troubleshooter_title">Depanator</string>
     <string name="troubleshooter_summary">Diagnosticați și remediați problemele de conectivitate Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmisii Bluetooth Energie Scăzută (BLE)</string>
@@ -538,6 +538,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Setări Bluetooth</string>
     <string name="device_settings_send_failed">Nu s-a putut aplica setarea: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Modul Off nu este activat pe acest dispozitiv. Activând \"Permite modul Off\" la Controlul zgomotului.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods-urile nu au confirmat schimbarea modului de ascultare.</string>
     <string name="device_settings_category_battery_label">Baterie</string>
     <string name="device_settings_charge_cap_label">Limită de încărcare optimizată</string>
     <string name="device_settings_charge_cap_description">Îvăță rutina ta și întrerupe încărcarea la aproximativ 80%% pentru a prelungi durata de viață a bateriei, reîncărcând căștile înainte să fie necesare.</string>

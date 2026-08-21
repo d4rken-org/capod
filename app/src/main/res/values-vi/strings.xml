@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Hỗ trợ nhà phát triển</string>
     <string name="upgrade_benefit_disclaimer">Tính năng khả dụng tùy thuộc vào tai nghe và thiết bị của bạn.</string>
     <string name="settings_monitor_connected_notification_label">Thông báo bổ sung</string>
-    <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \"Không có thiết bị\" bằng cách tắt kênh \"Trạng thái thiết bị\".</string>
+    <string name="settings_monitor_connected_notification_description">Hiển thị một thông báo thứ hai chỉ xuất hiện khi có thiết bị đang kết nối. Khi bật tùy chọn này, bạn có thể ẩn thông báo \"Không có thiết bị\" thường trực: tắt danh mục \"Trạng thái thiết bị\" trong phần cài đặt thông báo của CAPod trên Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Giữ thông báo sau khi ngắt kết nối</string>
     <string name="settings_keep_notification_after_disconnect_description">Tiếp tục hiển thị mức pin đã biết gần nhất ngay cả sau khi AirPods của bạn ngắt kết nối</string>
     <string name="settings_autopause_label">Tự động tạm dừng</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
     <string name="settings_signal_minimum_description">Chất lượng tín hiệu tối thiểu mà một thiết bị cần phải được coi là của bạn.</string>
     <string name="settings_autoconnect_label">Tự động kết nối</string>
-    <string name="settings_autoconnect_description">Nếu Android không tự động kết nối, chúng ta cũng có thể hỏi nó. Thao tác này sẽ đặt cài đặt chế độ màn hình thành \'Luôn luôn\'.</string>
+    <string name="settings_autoconnect_description">Nếu Android không tự động kết nối, chúng ta có thể yêu cầu nó làm điều đó. Cách này giúp CAPod luôn theo dõi ở chế độ nền.</string>
     <string name="settings_autoconnect_info_android12">Kết nối tự động dựa vào tính năng hệ thống mà Android 12 và mới hơn hạn chế. Nó có thể không hoạt động trên thiết bị của bạn.</string>
     <string name="settings_autoconnect_condition_label">Điều kiện kết nối tự động</string>
     <string name="settings_autoconnect_condition_description">Khi nào chúng ta nên cố gắng kết nối với thiết bị của bạn?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Tùy chọn tương thích</string>
     <string name="settings_category_compatibility_options_description">Đừng chạm vào nếu mọi thứ hoạt động ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Tắt bộ lọc phần cứng</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Không giao phó việc lọc dữ liệu cho hệ thống, thay vào đó hãy lấy tất cả dữ liệu và lọc trong ứng dụng.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Hãy thử cách này nếu AirPods của bạn không bao giờ được nhận diện. Ứng dụng sẽ tự quét tất cả tín hiệu Bluetooth gần đó, thay vì để điện thoại chọn lọc trước.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Tắt tính năng gộp lô phần cứng</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Không cho phép hệ thống nhóm dữ liệu BLE đã thu thập trước khi chuyển tiếp cho chúng tôi.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Hãy thử cách này nếu mức pin chỉ cập nhật muộn hoặc theo từng đợt. Điện thoại của bạn sẽ chuyển ngay từng tín hiệu Bluetooth, thay vì thu thập chúng trước.</string>
     <string name="settings_onepod_mode_label">Chế độ 1 tai nghe</string>
     <string name="settings_onepod_mode_description">Tự động phát/tạm dừng và tự động kết nối phản ứng với một tai nghe đơn thay vì yêu cầu cả hai.</string>
     <string name="settings_popup_caseopen_label">Hiển thị case popup</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Xanh lá cây</string>
     <string name="widget_config_preset_red">Đỏ</string>
     <string name="settings_compat_indirectcallback_title">Phân phối dữ liệu gián tiếp</string>
-    <string name="settings_compat_indirectcallback_summary">Sử dụng một phương pháp thay thế để nhận dữ liệu BLE từ hệ thống (phát sóng thay vì gọi lại).</string>
+    <string name="settings_compat_indirectcallback_summary">Hãy thử cách này nếu các tùy chọn tương thích khác không có tác dụng. Android sẽ chuyển tín hiệu Bluetooth cho ứng dụng ở chế độ nền, thay vì để ứng dụng trực tiếp lắng nghe chúng.</string>
     <string name="troubleshooter_title">Trình khắc phục sự cố</string>
     <string name="troubleshooter_summary">Chẩn đoán và sửa lỗi kết nối Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Phát sóng Bluetooth năng lượng thấp</string>
@@ -526,6 +526,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Cài đặt Bluetooth</string>
     <string name="device_settings_send_failed">Không thể áp dụng cài đặt: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Chế độ Tắt chưa được bật trên thiết bị này. Bật “Cho phép chế độ Tắt” trong Kiểm soát tiếng ồn.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods chưa xác nhận việc thay đổi chế độ nghe.</string>
     <string name="device_settings_category_battery_label">Pin</string>
     <string name="device_settings_charge_cap_label">Giới hạn sạc tối ưu</string>
     <string name="device_settings_charge_cap_description">Học thói quen của bạn và tạm dừng sạc ở khoảng 80%% để kéo dài tuổi thọ pin, sạc đầy pods trước khi bạn có khả năng sử dụng chúng.</string>

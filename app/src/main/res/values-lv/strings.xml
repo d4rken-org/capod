@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Izstrādātāja atbalstīšana</string>
     <string name="upgrade_benefit_disclaimer">Iespēju pieejamība atkarīga no austiņam un ierīces.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
-    <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
+    <string name="settings_monitor_connected_notification_description">Parāda otru paziņojumu, kas parādās tikai tad, kad ierīce ir savienota. Ja ieslēgts, vari paslēpt pastāvīgo \"Nav ierīču\" paziņojumu: izslēdz \"Ierīces statusu\" kategoriju CAPod paziņojumu iestatījumos sistēmā Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
     <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
     <string name="settings_signal_minimum_description">Minimālā signāla kvalitāte, kādai jābūt ierīcei, lai tā tiktu uzskatīta par jūsu.</string>
     <string name="settings_autoconnect_label">Automātiska savienošana</string>
-    <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \"Vienmēr\".</string>
+    <string name="settings_autoconnect_description">Ja Android nepievieno automātiski, mēs tam to varam arī lūgt. Tas notur CAPod darbību fonā visu laiku.</string>
     <string name="settings_autoconnect_info_android12">Automātiskā savienojuma funkcija ir atkarīga no sistēmas funkcijas, ko Android 12 un jaunākas versijas ierobežo. Iespējams, tā nedarbosies jūsu ierīcē.</string>
     <string name="settings_autoconnect_condition_label">Automātiskas savienošanas nosacījums</string>
     <string name="settings_autoconnect_condition_description">Kad mums vajadzētu mēģināt izveidot savienojumu ar jūsu ierīci?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Saderības opcijas</string>
     <string name="settings_category_compatibility_options_description">Neaiztieciet, ja viss darbojas ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Atspējot aparatūras filtrēšanu</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Nedelegējiet datu filtrēšanu sistēmai, tā vietā iegūstiet visus datus un filtrējiet lietotnē.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Izmēģini to, ja tavus AirPods nekad netiek detektēti. Aplikācija pati meklēs visos tuvumā esošos Bluetooth signālos, tā vietā lai ļautu telefonam tos iepriekš atlasīt.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Atspējot aparatūras pakešapstrādi</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Neļaujiet sistēmai grupēt savāktos BLE datus pirms to pārsūtīšanas mums.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Izmēģini to, ja akumulatora līmenis atjauninās vēlu vai pa birstiem. Tavs telefons tūdaļ nodos katru Bluetooth signālu, tā vietā lai tos vispirms apkopotu.</string>
     <string name="settings_onepod_mode_label">Viena austiņas režīms</string>
     <string name="settings_onepod_mode_description">Automātiskā atskaņošana/pauze un automātiskā savienošana reaģē uz vienu austiņu vietā, nevis uz abām vienlaicīgi.</string>
     <string name="settings_popup_caseopen_label">Rādīt korpusa uznirstošo logu</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Zaļš</string>
     <string name="widget_config_preset_red">Sarkans</string>
     <string name="settings_compat_indirectcallback_title">Netieša datu piegāde</string>
-    <string name="settings_compat_indirectcallback_summary">Izmantojiet alternatīvu metodi, lai saņemtu BLE datus no sistēmas (pārraide, nevis atzvanīšana).</string>
+    <string name="settings_compat_indirectcallback_summary">Izmēģini to, ja citas saderības iespējas nepalīdzēja. Android sniegs Bluetooth signālus aplikācijai fonā, tā vietā lai aplikācija tos uzklausītu tieši.</string>
     <string name="troubleshooter_title">Problēmu risinātājs</string>
     <string name="troubleshooter_summary">Diagnosticējiet un novērsiet Bluetooth savienojamības problēmas.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy pārraides</string>
@@ -538,6 +538,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth iestatījumi</string>
     <string name="device_settings_send_failed">Nevarēja piemērot iestatījumu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Izslēgšanas režīms nav iespējots šajā ierīcē. Iespējojiet „Atļaut izslēgšanas režīmu“ sadalā Trokšņu kontrole.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods neapstiprinājuši klausīšanās režīma maiņu.</string>
     <string name="device_settings_category_battery_label">Akumulators</string>
     <string name="device_settings_charge_cap_label">Optimizēts uzņēmšanas limits</string>
     <string name="device_settings_charge_cap_description">Iemacās jūsu ikdienas rutbu un aptur uzņēmšanu ap 80%%, lai pagarinātu akumulatora kalpošanas laiku, uzņemot aussāgļus pilnbīdi, pirms jūs tos drīzāk izmantosīt.</string>

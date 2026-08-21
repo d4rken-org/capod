@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">תמוך במפתח</string>
     <string name="upgrade_benefit_disclaimer">זמינות התכונות תלויה באוזניות ובמכשיר שלך.</string>
     <string name="settings_monitor_connected_notification_label">התראה נוספת</string>
-    <string name="settings_monitor_connected_notification_description">מציג התראה נוספת כאשר מכשיר מחובר. זה מאפשר לך להסתיר את ההתראה הקבועה \"אין מכשירים\" על ידי השבתת הערוץ \"סטטוס מכשיר\".</string>
+    <string name="settings_monitor_connected_notification_description">מציג התראה שנייה שמופיעה רק כשמכשיר מחובר. כשזה מופעל, אפשר להסתיר את ההתראה הקבועה \"אין מכשירים\": בהגדרות ההתראות של אנדרואיד עבור CAPod, כבה את הקטגוריה \"סטטוס מכשיר\".</string>
     <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
     <string name="settings_keep_notification_after_disconnect_description">המשך להציג את רמות הסוללה האחרונות הידועות גם לאחר ניתוק ה-AirPods</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">איכות אות מינימלית</string>
     <string name="settings_signal_minimum_description">איכות האות המינימלית שמכשיר צריך להתחשב עבורך.</string>
     <string name="settings_autoconnect_label">חיבור אוטומטי</string>
-    <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אנחנו גם יכולים לבקש זאת. פעולה זו תגדיר את הגדרת מצב ניתור ל\'תמיד\'.</string>
+    <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אפשר לבקש ממנו בעצמנו. כך המעקב של CAPod ממשיך לפעול ברקע כל הזמן.</string>
     <string name="settings_autoconnect_info_android12">חיבור אוטומטי מסתמך על תכונת מערכת שאנדרואיד 12 ומעלה מגבילה. ייתכן שלא תפעל במכשיר שלך.</string>
     <string name="settings_autoconnect_condition_label">מצב חיבור אוטומטי</string>
     <string name="settings_autoconnect_condition_description">מתי עלינו לנסות להתחבר למכשיר שלך?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">מצב תאימות</string>
     <string name="settings_category_compatibility_options_description">אל תיגע אם הכל עובד ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ביטול סינון בחומרה</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">אל תאציל סינון נתונים למערכת, במקום זאת קבל את כל הנתונים וסנן בתוך האפליקציה.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">כדאי לנסות את זה אם ה-AirPods לעולם לא מזוהים. האפליקציה תסרוק בעצמה את כל אותות ה-Bluetooth בסביבה, במקום לתת לטלפון לבחור אותם מראש.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ביטול אצוות חומרה</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">אל תאפשר לקבוצת המערכת אסיפת נתוני BLE לפני שתעביר אותם אלינו.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">כדאי לנסות את זה אם רמות הסוללה מתעדכנות רק באיחור או בקפיצות. הטלפון יעביר כל אות Bluetooth מיד, במקום לאסוף אותם קודם.</string>
     <string name="settings_onepod_mode_label">מצב אוזניה בודדת</string>
     <string name="settings_onepod_mode_description">ניגון/השהייה אוטומטיים וחיבור אוטומטי מגיבים לאוזנייה בודדת במקום לדרוש את שתיהן.</string>
     <string name="settings_popup_caseopen_label">הצג חלון קופץ</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">ירוק</string>
     <string name="widget_config_preset_red">אדום</string>
     <string name="settings_compat_indirectcallback_title">העברה עקיפה של הנתונים</string>
-    <string name="settings_compat_indirectcallback_summary">השתמש בשיטה חלופית כדי לקבל נתוני BLE מהמערכת (שידור במקום התקשרות חוזרת).</string>
+    <string name="settings_compat_indirectcallback_summary">כדאי לנסות את זה אם אפשרויות התאימות האחרות לא עזרו. אנדרואיד יעביר את אותות ה-Bluetooth לאפליקציה ברקע, במקום שהאפליקציה תאזין להם ישירות.</string>
     <string name="troubleshooter_title">פותר בעיות</string>
     <string name="troubleshooter_summary">אבחון ותיקון בעיות קישוריות Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">שידורי Bluetooth באנרגיה נמוכה</string>
@@ -544,6 +544,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">הגדרות Bluetooth</string>
     <string name="device_settings_send_failed">לא ניתן היה להחיל את ההגדרה: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">מצב כבוי אינו מופעל במכשיר זה. הפעל את \"אפשר מצב כבוי\" תחת בקרת רעש.</string>
+    <string name="anc_mode_not_confirmed_message">ה-AirPods לא אישרו את שינוי מצב ההאזנה.</string>
     <string name="device_settings_category_battery_label">סוללה</string>
     <string name="device_settings_charge_cap_label">מגבלת טעינה מותאמת</string>
     <string name="device_settings_charge_cap_description">לומד את השגרה שלך ומשהה את הטעינה סביב 80%% כדי להאריך את חיי הסוללה, ומשלים את הטעינה לפני שסביר שתשתמש בהם.</string>

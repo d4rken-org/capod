@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">यह एक अलग खरीद है — यह आपकी सदस्यता को रद्द या रिफंड नहीं करता। उसी Google खाते का उपयोग करें।</string>
     <string name="upgrade_screen_sub_still_renewing_title">सदस्यता अभी भी सक्रिय है</string>
     <string name="upgrade_screen_sub_still_renewing_message">आपकी सदस्यता अभी भी नवीनीकरण के लिए सेट है। पहले इसे Google Play में रद्द करें, फिर एकमुश्त खरीद पर स्विच करें। अभी-अभी रद्द किया? Google Play को थोड़ा समय दें और फिर से कोशिश करें।</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play के साथ आपकी खरीद की जांच नहीं की जा सकी। दोहरी खरीद से बचने के लिए, थोड़ी देर में फिर से कोशिश करें।</string>
+    <string name="upgrade_screen_pending_card_title">भुगतान लंबित है</string>
+    <string name="upgrade_screen_pending_card_body">Google Play अभी भी आपके भुगतान को संसाधित कर रहा है। भुगतान पूरा होने पर Pro स्वचालित रूप से अनलॉक हो जाता है। कुछ भुगतान विधियों को कुछ समय लग सकता है। आपको कुछ और करने की आवश्यकता नहीं है।</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ने एक लंबित भुगतान के साथ एक खरीद पाई और अभी भी इसे संसाधित कर रहा है। भुगतान पूरा होने पर Pro स्वचालित रूप से अनलॉक हो जाता है।</string>
     <string name="upgrade_screen_grace_title">आपकी खरीदारी की पुष्टि की जा रही है</string>
     <string name="upgrade_screen_grace_body_short">Google Play ने अभी तक आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है — कोई कार्रवाई जरूरी नहीं।</string>
     <string name="upgrade_screen_grace_body">Google Play ने काफ़ी समय से आपकी खरीदारी की पुष्टि नहीं की है। Pro अभी भी सक्रिय है। सुनिश्चित करें कि आप ऑनलाइन हैं और उसी Google खाते से साइन इन हैं जिससे खरीदारी की गई थी, फिर पुनर्स्थापित करने का प्रयास करें।</string>

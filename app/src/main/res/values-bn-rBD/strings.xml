@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">ডেভেলপারকে সহায়তা করুন</string>
     <string name="upgrade_benefit_disclaimer">ফিচার প্রাপ্যতা আপনার হেডফোন এবং ডিভাইসের উপর নির্ভর করে।</string>
     <string name="settings_monitor_connected_notification_label">অতিরিক্ত বিজ্ঞপ্তি</string>
-    <string name="settings_monitor_connected_notification_description">একটি ডিভাইস সংযুক্ত হলে একটি অতিরিক্ত বিজ্ঞপ্তি দেখায়। এটি আপনাকে \"ডিভাইস স্ট্যাটাস\" চ্যানেল নিষ্ক্রিয় করে স্থায়ী \"কোনো ডিভাইস নেই\" বিজ্ঞপ্তি লুকাতে দেয়।</string>
+    <string name="settings_monitor_connected_notification_description">একটি দ্বিতীয় বিজ্ঞপ্তি দেখায় যা কেবল একটি ডিভাইস সংযুক্ত থাকা অবস্থায় দেখা যায়। এটি চালু থাকলে, আপনি স্থায়ী \"কোনো ডিভাইস নেই\" বিজ্ঞপ্তিটি লুকাতে পারেন: CAPod-এর জন্য Android-এর বিজ্ঞপ্তি সেটিংসে \"ডিভাইস স্ট্যাটাস\" বিভাগটি বন্ধ করুন।</string>
     <string name="settings_keep_notification_after_disconnect_label">সংযোগ বিচ্ছিন্নের পরে বিজ্ঞপ্তি রাখুন</string>
     <string name="settings_keep_notification_after_disconnect_description">আপনার AirPods সংযোগ বিচ্ছিন্ন হওয়ার পরেও সর্বশেষ জানা ব্যাটারি স্তর দেখাতে থাকুন</string>
     <string name="settings_autopause_label">স্বয়ংক্রিয় বিরতি</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">ন্যূনতম সংকেত গুণমান</string>
     <string name="settings_signal_minimum_description">একটি ডিভাইসকে আপনার হিসাবে বিবেচনা করার জন্য ন্যূনতম সংকেত গুণমান থাকতে হবে।</string>
     <string name="settings_autoconnect_label">স্বয়ংক্রিয় সংযোগ</string>
-    <string name="settings_autoconnect_description">যদি অ্যান্ড্রয়েড স্বয়ংক্রিয়ভাবে সংযোগ না করে, আমরাও এটি জিজ্ঞাসা করতে পারি। এটি মনিটর মোড সেটিংকে \"সর্বদা\" তে সেট করবে।</string>
+    <string name="settings_autoconnect_description">Android যদি নিজে থেকে সংযোগ না করে, তাহলে আমরা এটিকে অনুরোধ করতে পারি। এতে CAPod সবসময় ব্যাকগ্রাউন্ডে নজরদারি চালিয়ে যায়।</string>
     <string name="settings_autoconnect_info_android12">অটো কানেক্ট একটি সিস্টেম ফিচারের উপর নির্ভর করে যা Android 12 এবং তার নতুন সংস্করণ সীমাবদ্ধ করেছে। এটি আপনার ডিভাইসে কাজ নাও করতে পারে।</string>
     <string name="settings_autoconnect_condition_label">স্বয়ংক্রিয় সংযোগের শর্ত</string>
     <string name="settings_autoconnect_condition_description">কখন আমাদের আপনার ডিভাইসের সাথে সংযোগ করার চেষ্টা করা উচিত?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">সামঞ্জস্যতার বিকল্প</string>
     <string name="settings_category_compatibility_options_description">সবকিছু কাজ করলে স্পর্শ করবেন না ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">হার্ডওয়্যার ফিল্টারিং নিষ্ক্রিয় করুন</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">সিস্টেমে ডেটা ফিল্টারিং অর্পণ করবেন না, পরিবর্তে সমস্ত ডেটা পান এবং অ্যাপের মধ্যে ফিল্টার করুন।</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">আপনার AirPods কখনো শনাক্ত না হলে এটি চেষ্টা করুন। ফোনকে সেগুলো আগে থেকে বেছে নিতে দেওয়ার বদলে অ্যাপটি নিজেই আশেপাশের সমস্ত ব্লুটুথ সংকেত পরীক্ষা করবে।</string>
     <string name="settings_compat_offloaded_batching_disabled_title">হার্ডওয়্যার ব্যাচিং নিষ্ক্রিয় করুন</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">সিস্টেমকে সংগৃহীত BLE ডেটা আমাদের কাছে ফরোয়ার্ড করার আগে গ্রুপ করতে দেবেন না।</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">ব্যাটারি লেভেল দেরিতে বা একসাথে অনেকগুলো আপডেট হলে এটি চেষ্টা করুন। আগে সংকেতগুলো জমা না করে আপনার ফোন প্রতিটি ব্লুটুথ সংকেত সাথে সাথে পাঠাবে।</string>
     <string name="settings_onepod_mode_label">একক পড মোড</string>
     <string name="settings_onepod_mode_description">অটো প্লে/পজ এবং অটো-কানেক্ট উভয় পড প্রয়োজন না করে একটি একক পডের সাথে প্রতিক্রিয়া করে।</string>
     <string name="settings_popup_caseopen_label">কেস পপআপ দেখান</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">সবুজ</string>
     <string name="widget_config_preset_red">লাল</string>
     <string name="settings_compat_indirectcallback_title">পরোক্ষ ডেটা ডেলিভারি</string>
-    <string name="settings_compat_indirectcallback_summary">সিস্টেম থেকে BLE ডেটা পাওয়ার জন্য একটি বিকল্প পদ্ধতি ব্যবহার করুন (কলব্যাকের পরিবর্তে সম্প্রচার)।</string>
+    <string name="settings_compat_indirectcallback_summary">অন্যান্য সামঞ্জস্য বিকল্পগুলো কাজ না করলে এটি চেষ্টা করুন। অ্যাপটি সরাসরি ব্লুটুথ সংকেতের জন্য অপেক্ষা করার বদলে Android ব্যাকগ্রাউন্ডে সেগুলো অ্যাপে পাঠিয়ে দেবে।</string>
     <string name="troubleshooter_title">সমস্যা সমাধানকারী</string>
     <string name="troubleshooter_summary">Bluetooth সংযোগ সমস্যা নির্ণয় ও সমাধান করুন।</string>
     <string name="troubleshooter_ble_intro_title">ব্লুটুথ লো এনার্জি ব্রডকাস্ট</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ব্লুটুথ সেটিংস</string>
     <string name="device_settings_send_failed">সেটিং প্রয়োগ করা যায়নি: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">এই ডিভাইসে অফ মোড সক্রিয় নেই। নয়েজ কন্ট্রোলের অধীনে \"অফ মোড অনুমতি দিন\" সক্রিয় করুন।</string>
+    <string name="anc_mode_not_confirmed_message">AirPods শোনার মোড পরিবর্তন নিশ্চিত করেনি।</string>
     <string name="device_settings_category_battery_label">ব্যাটারি</string>
     <string name="device_settings_charge_cap_label">অপ্টিমাইজড চার্জ সীমা</string>
     <string name="device_settings_charge_cap_description">আপনার রুটিন শিখে ব্যাটারি জীবন বাড়াতে প্রায় ৮0%% এ চার্জ বিরতি রাখে, আপনি ব্যবহার করার আগে পডসগুলি পূর্ণ চার্জ করে দেয়।</string>

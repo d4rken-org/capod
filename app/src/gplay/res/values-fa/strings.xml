@@ -46,6 +46,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">این یک خرید جداگانه است — اشتراک شما را لغو یا بازپرداخت نمی‌کند. از همان حساب گوگل استفاده کنید.</string>
     <string name="upgrade_screen_sub_still_renewing_title">اشتراک همچنان فعال است</string>
     <string name="upgrade_screen_sub_still_renewing_message">اشتراک شما همچنان برای تمدید تنظیم شده است. ابتدا آن را در گوگل پلی لغو کنید، سپس به خرید یک‌باره تغییر دهید. تازه لغو کرده‌اید؟ کمی به گوگل پلی زمان بدهید و دوباره امتحان کنید.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">بررسی خریدهای شما با گوگل پلی ممکن نشد. برای جلوگیری از خرید دوباره، کمی بعد دوباره امتحان کنید.</string>
+    <string name="upgrade_screen_pending_card_title">پرداخت در انتظار</string>
+    <string name="upgrade_screen_pending_card_body">گوگل پلی هنوز در حال پردازش پرداخت شماست. نسخه Pro به‌محض تکمیل پرداخت به‌طور خودکار فعال می‌شود. برخی روش‌های پرداخت ممکن است زمان‌بر باشند. کار دیگری لازم نیست انجام دهید.</string>
+    <string name="upgrade_screen_pending_dialog_message">گوگل پلی خریدی با پرداخت در انتظار پیدا کرده و هنوز در حال پردازش آن است. نسخه Pro به‌محض تکمیل پرداخت به‌طور خودکار فعال می‌شود.</string>
     <string name="upgrade_screen_grace_title">در حال تأیید خرید شما</string>
     <string name="upgrade_screen_grace_body_short">گوگل پلی هنوز خرید شما را تأیید نکرده است. Pro همچنان فعال است — نیازی به اقدام نیست.</string>
     <string name="upgrade_screen_grace_body">گوگل پلی مدتی است خرید شما را تأیید نکرده است. Pro همچنان فعال است. مطمئن شوید که آنلاین هستید و با همان حساب گوگلی که خرید را با آن انجام داده‌اید وارد شده‌اید، سپس بازیابی را امتحان کنید.</string>

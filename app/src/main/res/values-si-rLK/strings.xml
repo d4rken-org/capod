@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">සංවර්ධකයාට සහාය දෙන්න</string>
     <string name="upgrade_benefit_disclaimer">විශේෂාංග ලබා ගෙඳීමේ හැකියාව ඔබේ හෙඩ්ෆෝන් සහ උපාංගය මත රෞදා පවතී.</string>
     <string name="settings_monitor_connected_notification_label">අමතර දැනුම්දීම</string>
-    <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධ වූ විට අමතර දැනුම්දීමක් පෙන්වයි. \"උපාංග තත්ත්වය\" නාලිකාව අක්‍රීය කිරීමෙන් \"උපාංග නොමැත\" ස්ථිර දැනුම්දීම සැඟවීමට මෙය ඔබට ඉඩ සලසයි.</string>
+    <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධව ඇති විට පමණක් දිස්වන දෙවන දැනුම්දීමක් පෙන්වයි. මෙය ක්‍රියාත්මක කිරීමෙන්, ස්ථිර \"උපාංග නැත\" දැනුම්දීම සඟවා ගත හැක: CAPod සඳහා Android හි දැනුම්දීම් සැකසීම් තුළ \"උපාංග තත්ත්වය\" කාණ්ඩය අක්‍රිය කරන්න.</string>
     <string name="settings_keep_notification_after_disconnect_label">විසන්ධි වූ පසු දැනුම්දීම තබන්න</string>
     <string name="settings_keep_notification_after_disconnect_description">ඔබගේ AirPods විසන්ධි වූ පසුවද අවසාන වරට දන්නා බැටරි මට්ටම් පෙන්වීම දිගටම කරන්න</string>
     <string name="settings_autopause_label">ස්වයංක්‍රීයව විරාම කරන්න</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
     <string name="settings_signal_minimum_description">උපාංගයක් ඔබේ යැයි සැලකීමට තිබිය යුතු අවම සංඥා ගුණත්වය.</string>
     <string name="settings_autoconnect_label">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
-    <string name="settings_autoconnect_description">Android ස්වයංක්‍රීයව සම්බන්ධ නොවන්නේ නම්, අපටද එය ඉල්ලා සිටිය හැක. මෙය නිරීක්ෂණ ප්‍රකාර සැකසුම \'සෑමවිටම\' ලෙස සකසනු ඇත.</string>
+    <string name="settings_autoconnect_description">Android ස්වයංක්‍රීයව සම්බන්ධ නොවන්නේ නම්, අපටත් එසේ කිරීමට ඉල්ලා සිටිය හැක. මෙය CAPod සෑම විටම පසුබිමින් නිරීක්ෂණය කරමින් තබයි.</string>
     <string name="settings_autoconnect_info_android12">ස්වයංක්‍රීය සම්බන්ධතාව Android 12 සහ නව අනුවාද සීමා කරන පද්ධති ලක්ෂණයක් මත රඳා පවතී. එය ඔබේ උපකරණයේ ක්‍රියා නොකරනු ඇත.</string>
     <string name="settings_autoconnect_condition_label">ස්වයංක්‍රීය සම්බන්ධ වීමේ තත්ත්වය</string>
     <string name="settings_autoconnect_condition_description">අපි ඔබේ උපාංගයට සම්බන්ධ වීමට උත්සාහ කළ යුත්තේ කවදාද?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">ගැළපුම් විකල්ප</string>
     <string name="settings_category_compatibility_options_description">සියල්ල ක්‍රියාත්මක නම් අත නොගසන්න ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">දෘඪාංග පෙරහන අක්‍රීය කරන්න</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">දත්ත පෙරහන පද්ධතියට පැවරීමෙන් වළකින්න, ඒ වෙනුවට සියලු දත්ත ලබාගෙන යෙදුම තුළ පෙරහන් කරන්න.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">ඔබගේ AirPods කිසිසේත් හඳුනා නොගන්නේ නම් මෙය උත්සාහ කරන්න. ඔබගේ දුරකථනයට ඒවා කලින් තෝරා ගැනීමට ඉඩ දීම වෙනුවට, යෙදුම විසින්ම ආසන්නයේ ඇති සියලුම Bluetooth සංඥා පරීක්ෂා කරනු ලැබේ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">දෘඪාංග කාණ්ඩ කිරීම අක්‍රීය කරන්න</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">අප වෙත යොමු කිරීමට පෙර පද්ධතියට එකතු කරන ලද BLE දත්ත කාණ්ඩ කිරීමට ඉඩ නොදෙන්න.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">බැටරි මට්ටම් ප්‍රමාද වී හෝ කැරළි ලෙස පමණක් යාවත්කාලීන වන්නේ නම් මෙය උත්සාහ කරන්න. ඔබගේ දුරකථනය ඒවා පළමුව එකතු කිරීම වෙනුවට, සෑම Bluetooth සංඥාවක්ම වහාම ලබා දෙනු ඇත.</string>
     <string name="settings_onepod_mode_label">එක් පොඩ් ප්‍රකාරය</string>
     <string name="settings_onepod_mode_description">ස්වයංක්‍රීය play/pause සහ ස්වයංක්‍රීය-සම්බන්ධතාව දෙකම අවශ්‍ය නොකර තනි pod එකට ප්‍රතිචාර දක්වයි.</string>
     <string name="settings_popup_caseopen_label">කවරයේ පොප්-අප් පෙන්වන්න</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">කොළ</string>
     <string name="widget_config_preset_red">රතු</string>
     <string name="settings_compat_indirectcallback_title">වක්‍ර දත්ත සැපයුම</string>
-    <string name="settings_compat_indirectcallback_summary">පද්ධතියෙන් BLE දත්ත ලබා ගැනීමට විකල්ප ක්‍රමයක් භාවිතා කරන්න (ඇමතුමක් වෙනුවට විකාශනය).</string>
+    <string name="settings_compat_indirectcallback_summary">අනෙකුත් ගැළපුම් විකල්ප උදව් නොවුණේ නම් මෙය උත්සාහ කරන්න. යෙදුම ඒවාට සෘජුවම සවන් දීම වෙනුවට, Android විසින් Bluetooth සංඥා පසුබිමින් යෙදුමට භාර දෙනු ඇත.</string>
     <string name="troubleshooter_title">දෝෂ නිරාකරණකය</string>
     <string name="troubleshooter_summary">Bluetooth සම්බන්ධතා ගැටළු හඳුනාගෙන නිවැරදි කරන්න.</string>
     <string name="troubleshooter_ble_intro_title">බ්ලූටූත් අඩු ශක්ති විකාශන</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">බ්ලූටූත් සැකසුම්</string>
     <string name="device_settings_send_failed">සැකසුම යෙදිය නොහැකි විය: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off මාතය මෙම උපකරණයේ සක්‍රිය නැත. ශබ්ද පාලනය යටතේ \"Off මාතය ඉඩ දෙන්න\" සක්‍රිය කරන්න.</string>
+    <string name="anc_mode_not_confirmed_message">AirPods ශ්‍රවණ ප්‍රකාරයේ වෙනස තහවුරු කළේ නැත.</string>
     <string name="device_settings_category_battery_label">බැටරිය</string>
     <string name="device_settings_charge_cap_label">ප්‍රශස්ත ආරොපණ සීමාව</string>
     <string name="device_settings_charge_cap_description">ඔබේ දිනඩරිය ඉගෙන ගෙන බැටරි ජීවිතය දීර්ඝ කිරීමට 80%% ආසන්නයේ ආරොපණය ළිරාම කරයි, ඔබ බහුතා කිරීමට ඉරින් පැන pod ආරොපණය කරයි.</string>
