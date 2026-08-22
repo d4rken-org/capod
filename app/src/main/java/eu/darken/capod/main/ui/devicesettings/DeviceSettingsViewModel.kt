@@ -347,6 +347,14 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setDynamicEndOfCharge(enabled: Boolean) = send(AapCommand.SetDynamicEndOfCharge(enabled))
 
+    /**
+     * Debug-only evaluation control (see `CustomEqDebugCard`). One tap sends exactly one packet
+     * carrying the complete tuple — the 0x63 format is unconfirmed and the point is to observe
+     * how a real device answers a single write.
+     */
+    fun setCustomEq(mode: AapSetting.CustomEq.Mode, low: Int, mid: Int, high: Int) =
+        send(AapCommand.SetCustomEq(mode, low, mid, high))
+
     fun setDeviceName(name: String) = launch {
         val address = currentAddress() ?: return@launch
         try {

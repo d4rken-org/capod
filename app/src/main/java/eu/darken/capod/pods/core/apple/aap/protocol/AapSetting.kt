@@ -183,23 +183,56 @@ sealed class AapSetting {
 
     /**
      * Payload of message type 0x0053 — "PME Config" in the Wireshark AAP dissector.
-     * PME = Personal Medical Equipment (cf. PPE = Personal Protective Equipment):
-     * the hearing-aid configuration for Apple's iOS 18.1+ hearing-aid feature on
-     * AirPods Pro 2.
+     * PME = Personal Medical Equipment (cf. PPE = Personal Protective Equipment).
      *
-     * Decoded as 4 × 8 Float32 values — consistent with per-ear × per-profile
-     * audiogram band gains (e.g. L/R × two environment profiles, 8 frequency
-     * bands). CAPod previously called this "EQ bands".
+     * This is the **Headphone Accommodations** configuration — an iOS Accessibility
+     * feature with its own "Apply To: Phone / Media" toggles, which the iOS 18.1+
+     * hearing-aid feature reuses. It is not exclusively the hearing-aid audiogram.
      *
-     * Callers should treat all-zero [sets] as "no hearing-aid profile configured"
-     * — stock firmware reports zeros until the user runs Apple's Hearing Test /
-     * hearing-aid setup.
+     * [sets] is decoded as 4 × 8 Float32 values — consistent with per-ear × per-profile
+     * band gains (e.g. L/R × two environment profiles, 8 frequency bands). CAPod
+     * previously called this "EQ bands".
+     *
+     * [applyToMedia] and [applyToPhone] mirror the two "Apply To" checkboxes. They
+     * describe **scope only** — which audio the accommodation is applied to. They say
+     * nothing about whether a profile exists: both can be false while band data is
+     * stored. [isAllZero] is likewise a pure band-data predicate; all-zero gains may
+     * be flat values rather than an absent profile. Stock firmware does report zeros
+     * before the user runs Apple's Hearing Test / Headphone Accommodations setup.
      */
     data class PmeConfig(
         val sets: List<List<Float>>,
+        val applyToMedia: Boolean,
+        val applyToPhone: Boolean,
     ) : AapSetting() {
         val isAllZero: Boolean
             get() = sets.all { set -> set.all { it == 0f } }
+    }
+
+    /**
+     * Payload of message type 0x0063 — Apple's iOS 27 "Custom EQ" (see [AapMessageType.CUSTOM_EQ]).
+     *
+     * [low], [mid] and [high] are the three band gains, `0..100` with `50` as the neutral
+     * (no-gain) position. [mode] selects between Apple's recommended curve and the user's
+     * own band values.
+     *
+     * The layout comes from librepods commit `7341e41` and has never been seen on hardware
+     * we own — treat any decoded value as unconfirmed.
+     */
+    data class CustomEq(
+        val mode: Mode,
+        val low: Int,
+        val mid: Int,
+        val high: Int,
+    ) : AapSetting() {
+        enum class Mode(val wireValue: Int) {
+            RECOMMENDED(0x01),
+            CUSTOM(0x02);
+
+            companion object {
+                fun fromWire(value: Int): Mode? = entries.firstOrNull { it.wireValue == value }
+            }
+        }
     }
 
     /** Per-pod placement reported by the device (command 0x06). */

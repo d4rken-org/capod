@@ -19,6 +19,7 @@ import eu.darken.capod.monitor.core.battery.DrainProfile
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -305,6 +306,23 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.setDeviceName("NewName")
 
         coVerify { aapManager.sendCommand(testAddress, AapCommand.SetDeviceName("NewName")) }
+    }
+
+    @Test
+    fun `setCustomEq sends exactly one SetCustomEq carrying the drafted tuple`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 10, mid = 55, high = 90)
+
+        coVerify(exactly = 1) {
+            aapManager.sendCommand(
+                testAddress,
+                AapCommand.SetCustomEq(AapSetting.CustomEq.Mode.CUSTOM, low = 10, mid = 55, high = 90),
+            )
+        }
+        coVerify(exactly = 1) { aapManager.sendCommand(any(), any<AapCommand.SetCustomEq>()) }
     }
 
     @Test

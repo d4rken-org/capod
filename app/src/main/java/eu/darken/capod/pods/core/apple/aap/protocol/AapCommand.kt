@@ -36,4 +36,16 @@ sealed class AapCommand {
     data class SetSleepDetection(val enabled: Boolean) : AapCommand()
     data class SetDynamicEndOfCharge(val enabled: Boolean) : AapCommand()
     data class SetDeviceName(val name: String) : AapCommand()
+    data class SetCustomEq(
+        val mode: AapSetting.CustomEq.Mode,
+        val low: Int,
+        val mid: Int,
+        val high: Int,
+    ) : AapCommand() {
+        init {
+            require(low in 0..100) { "low band out of range: $low" }
+            require(mid in 0..100) { "mid band out of range: $mid" }
+            require(high in 0..100) { "high band out of range: $high" }
+        }
+    }
 }

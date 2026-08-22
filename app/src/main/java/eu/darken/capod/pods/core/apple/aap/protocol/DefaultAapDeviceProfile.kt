@@ -100,6 +100,7 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetSleepDetection -> buildSettingsMessage(AapControlId.SLEEP_DETECTION.value, encodeAppleBool(command.enabled))
         is AapCommand.SetDynamicEndOfCharge -> buildSettingsMessage(AapControlId.DYNAMIC_END_OF_CHARGE.value, encodeAppleBool(command.enabled))
         is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
+        is AapCommand.SetCustomEq -> buildCustomEqMessage(command.mode, command.low, command.mid, command.high)
     }
 
     override fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>? {
@@ -159,13 +160,19 @@ class DefaultAapDeviceProfile(
         }
 
         // 0x53 is "PME Config" per the Wireshark AAP dissector — Personal Medical
-        // Equipment (cf. PPE), i.e. the iOS 18.1+ hearing-aid profile on AirPods
-        // Pro 2. Decoded verbatim as 4 × 8 Float32 (per-ear × per-profile band
-        // gains); stock firmware reports all-zero until the user runs Apple's
-        // Hearing Test. 0x54 "Set Band Edges" is a neighbouring opcode with a
-        // different payload — not decoded here.
+        // Equipment (cf. PPE), i.e. the Headphone Accommodations configuration that
+        // the iOS 18.1+ hearing-aid feature reuses. Payload bytes 4 and 5 are the two
+        // "Apply To" scope flags (Media, Phone); the band gains follow at offset 6,
+        // decoded verbatim as 4 × 8 Float32 (per-ear × per-profile). Stock firmware
+        // reports all-zero gains until the user runs Apple's Hearing Test. 0x54
+        // "Set Band Edges" is a neighbouring opcode with a different payload — not
+        // decoded here.
         if (message.commandType == AapMessageType.PME_CONFIG.value) {
             if (message.payload.size < 6 + 128) return null
+            // Plain 0x01 flags, NOT the Apple-bool 0x01/0x02 encoding used by the
+            // 0x09 control settings — don't route these through decodeAppleBool.
+            val applyToMedia = (message.payload[4].toInt() and 0xFF) == 0x01
+            val applyToPhone = (message.payload[5].toInt() and 0xFF) == 0x01
             val sets = mutableListOf<List<Float>>()
             var offset = 6 // skip header
             for (s in 0 until 4) {
@@ -180,7 +187,11 @@ class DefaultAapDeviceProfile(
                 }
                 sets.add(bands)
             }
-            return AapSetting.PmeConfig::class to AapSetting.PmeConfig(sets)
+            return AapSetting.PmeConfig::class to AapSetting.PmeConfig(
+                sets = sets,
+                applyToMedia = applyToMedia,
+                applyToPhone = applyToPhone,
+            )
         }
 
         // Conversation Awareness State is a separate command type (push-only). Two payload shapes
@@ -204,6 +215,33 @@ class DefaultAapDeviceProfile(
                 status in ConversationAwarenessEvent.RESUME_STATUSES
             return AapSetting.ConversationalAwarenessState::class to
                 AapSetting.ConversationalAwarenessState(speaking, rawValue = status)
+        }
+
+        // Custom EQ (0x63, iOS 27 / H2 models). Payload — everything after the 4-byte AAP
+        // packet-type/service header and the 2-byte opcode — is `05 00 01 <mode> <low> <mid> <high>`:
+        // bytes 0-1 are a little-endian declared length (5), byte 2 is a marker whose purpose is
+        // unidentified, byte 3 is the mode, bytes 4-6 are the three band values (0..100).
+        //
+        // Every field is validated and ANY mismatch returns null, which routes the frame to the
+        // engine's existing unknown-message logging (that prints full hex). We have never seen this
+        // opcode on hardware — the format is librepods `7341e41` hearsay — so on a firmware whose
+        // 0x63 dialect differs, preserving the unrecognised frame verbatim in the log beats
+        // mis-parsing it into plausible-looking values. The size check is deliberately an equality:
+        // `>= 7` would silently swallow trailing unknown bytes, which is exactly the dialect
+        // variation we want surfaced. Same shape-validation rationale as the 0x4B branch above.
+        if (message.commandType == AapMessageType.CUSTOM_EQ.value) {
+            val p = message.payload
+            if (p.size < 2) return null
+            val declaredLength = (p[0].toInt() and 0xFF) or ((p[1].toInt() and 0xFF) shl 8)
+            if (declaredLength != 5) return null
+            if (p.size != 2 + declaredLength) return null
+            if ((p[2].toInt() and 0xFF) != 0x01) return null
+            val mode = AapSetting.CustomEq.Mode.fromWire(p[3].toInt() and 0xFF) ?: return null
+            val low = p[4].toInt() and 0xFF
+            val mid = p[5].toInt() and 0xFF
+            val high = p[6].toInt() and 0xFF
+            if (low !in 0..100 || mid !in 0..100 || high !in 0..100) return null
+            return AapSetting.CustomEq::class to AapSetting.CustomEq(mode, low, mid, high)
         }
 
         if (message.commandType != AapMessageType.CONTROL.value) return null
@@ -567,6 +605,34 @@ class DefaultAapDeviceProfile(
             0x1A, 0x00, 0x01,
             nameBytes.size.toByte(), 0x00,
         ) + nameBytes
+    }
+
+    private fun buildCustomEqMessage(
+        mode: AapSetting.CustomEq.Mode,
+        low: Int,
+        mid: Int,
+        high: Int,
+    ): ByteArray {
+        // Uses the opcode 0x63 format from librepods commit 7341e41. Unlike the settings writes
+        // above this is NOT a 0x09 control command — it carries its own message shape, so it can't
+        // go through buildSettingsMessage.
+        //
+        // Layout: header `04 00 04 00`, opcode `63 00`, little-endian declared length `05 00`,
+        // then `01` — a marker byte whose purpose is unidentified, carried verbatim because
+        // librepods sends it — the mode, and the three band values (0..100, 50 neutral).
+        //
+        // On-device acceptance is UNVERIFIED at time of writing: no device we own has ever emitted
+        // or acknowledged 0x63, and librepods itself never confirmed the format works. Nothing here
+        // assumes the write lands — there is deliberately no optimistic update and no verification
+        // predicate (see AapSettingsCoordinator).
+        return byteArrayOf(
+            0x04, 0x00, 0x04, 0x00,
+            0x63, 0x00,
+            0x05, 0x00,
+            0x01,
+            mode.wireValue.toByte(),
+            low.toByte(), mid.toByte(), high.toByte(),
+        )
     }
 
     /**
