@@ -65,6 +65,15 @@ class CaseChargesTest : BaseTest() {
     }
 
     @Test
+    fun `an interval ending exactly on one charge is not enough`() {
+        // the top of the interval is excluded, so 5.0 x (0.10 + 0.10) = 1.0 is still short
+        charges(PodModel.CaseSpec(fullPairRecharges = 5.0f), 0.10f, decile)!!
+            .adequacy shouldBe CaseCharges.Adequacy.NOT_ENOUGH
+        // 4.0 x (0.24 + 0.01) = 1.0
+        charges(exact, 0.24f, percent)!!.adequacy shouldBe CaseCharges.Adequacy.NOT_ENOUGH
+    }
+
+    @Test
     fun `an interval straddling one charge claims nothing`() {
         // 4.0 x 0.20 = 0.8, 4.0 x 0.30 = 1.2
         charges(exact, 0.20f, decile)!!.adequacy shouldBe CaseCharges.Adequacy.UNCERTAIN
