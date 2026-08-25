@@ -18,6 +18,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.theming.fillColor
+import eu.darken.capod.monitor.core.battery.BatteryTier
+import eu.darken.capod.monitor.core.battery.batteryTier
+import eu.darken.capod.pods.core.apple.ble.batteryProgress
 
 private val CapsuleShape = RoundedCornerShape(6.dp)
 
@@ -26,26 +30,22 @@ fun BatteryCapsule(
     percent: Float,
     modifier: Modifier = Modifier,
 ) {
-    val clamped = if (percent >= 0f) percent.coerceIn(0f, 1f) else -1f
+    val tier = batteryTier(percent)
+    val isKnown = tier != BatteryTier.UNKNOWN
     val animatedFraction by animateFloatAsState(
-        targetValue = if (clamped >= 0f) clamped else 0f,
+        targetValue = batteryProgress(percent),
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "batteryFill",
     )
 
-    val barColor = when {
-        clamped < 0f -> MaterialTheme.colorScheme.surfaceVariant
-        clamped > 0.30f -> MaterialTheme.colorScheme.primary
-        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
-        else -> MaterialTheme.colorScheme.error
-    }
+    val barColor = tier.fillColor()
 
     Box(
         modifier = modifier
             .clip(CapsuleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant),
     ) {
-        if (clamped >= 0f) {
+        if (isKnown) {
             Box(
                 modifier = Modifier
                     .fillMaxHeight()

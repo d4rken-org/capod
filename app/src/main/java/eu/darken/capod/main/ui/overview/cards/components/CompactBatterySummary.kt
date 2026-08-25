@@ -32,7 +32,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.theming.fillColor
+import eu.darken.capod.common.theming.textColorOrNull
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryTier
+import eu.darken.capod.monitor.core.battery.batteryTier
 import eu.darken.capod.pods.core.apple.ble.batteryProgress
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.isKnownBattery
@@ -127,19 +131,15 @@ private fun MiniPodRing(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val isKnown = isKnownBattery(percent)
+    val tier = batteryTier(percent)
+    val isKnown = tier != BatteryTier.UNKNOWN
     val animatedProgress by animateFloatAsState(
         targetValue = batteryProgress(percent),
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "miniGaugeProgress",
     )
 
-    val ringColor = when {
-        !isKnown -> MaterialTheme.colorScheme.surfaceVariant
-        percent > 0.30f -> MaterialTheme.colorScheme.primary
-        percent >= 0.15f -> MaterialTheme.colorScheme.tertiary
-        else -> MaterialTheme.colorScheme.error
-    }
+    val ringColor = tier.fillColor()
 
     Row(
         modifier = modifier,
@@ -179,7 +179,7 @@ private fun MiniPodRing(
         Text(
             text = formatBatteryPercent(context, percent),
             style = MaterialTheme.typography.titleSmall,
-            color = if (isKnown) {
+            color = tier.textColorOrNull() ?: if (isKnown) {
                 MaterialTheme.colorScheme.onSurface
             } else {
                 MaterialTheme.colorScheme.onSurfaceVariant
@@ -194,6 +194,7 @@ private fun MiniCaseCluster(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val tier = batteryTier(device.batteryCase)
 
     Row(
         modifier = modifier,
@@ -215,7 +216,7 @@ private fun MiniCaseCluster(
         Text(
             text = formatBatteryPercent(context, device.batteryCase),
             style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.onSurface,
+            color = tier.textColorOrNull() ?: MaterialTheme.colorScheme.onSurface,
         )
     }
 }
