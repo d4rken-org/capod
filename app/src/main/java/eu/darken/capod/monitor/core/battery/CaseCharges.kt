@@ -28,6 +28,8 @@ data class CaseCharges(
  * makes a claim; anything straddling it is [CaseCharges.Adequacy.UNCERTAIN]. That also absorbs the
  * bounce between adjacent readings, so no state has to be remembered between frames.
  *
+ * The interval excludes its upper end, so an upper end of exactly one charge is still short of one.
+ *
  * A spec that is itself a lower bound has no upper end, so it can never claim "not enough".
  *
  * Null when the model publishes no case figures or the reading is missing or nonsense — the caller
@@ -44,7 +46,7 @@ fun caseCharges(spec: PodModel.CaseSpec?, reading: BatteryReading?): CaseCharges
     val adequacy = when {
         lowest >= 1f -> CaseCharges.Adequacy.ENOUGH
         spec.isLowerBound -> CaseCharges.Adequacy.UNCERTAIN
-        highest < 1f -> CaseCharges.Adequacy.NOT_ENOUGH
+        highest <= 1f -> CaseCharges.Adequacy.NOT_ENOUGH
         else -> CaseCharges.Adequacy.UNCERTAIN
     }
 
