@@ -377,6 +377,26 @@ private fun SinglePodsCardEstimatePreview() = PreviewWrapper {
 
 @Preview2
 @Composable
+private fun SinglePodsCardWarnPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodBattery(percent = 0.20f),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardCriticalPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodBattery(percent = 0.08f),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
 private fun SinglePodsCardMinimalPreview() = PreviewWrapper {
     SinglePodsCard(
         device = MockPodDataProvider.singlePodMonitored(),

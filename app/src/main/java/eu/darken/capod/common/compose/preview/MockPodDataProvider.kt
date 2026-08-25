@@ -264,6 +264,51 @@ object MockPodDataProvider {
         ),
     )
 
+    /**
+     * Dual pods with hand-picked battery levels. The case reads at decile granularity, like the
+     * public advertisement it would come from.
+     */
+    fun dualPodBatteries(
+        left: Float? = 0.80f,
+        right: Float? = 0.45f,
+        case: Float? = 0.60f,
+        model: PodModel = PodModel.AIRPODS_PRO2,
+        label: String = "My AirPods Pro",
+    ): PodDevice = PodDevice(
+        profileId = "preview-dual-batteries",
+        label = label,
+        ble = MockDualBlePodSnapshot(
+            _model = model,
+            _label = label,
+            batteryLeftPodPercent = left,
+            batteryRightPodPercent = right,
+            _batteryCasePercent = case,
+            leftPodIcon = model.leftPodIconRes ?: R.drawable.device_airpods_gen1_left,
+            rightPodIcon = model.rightPodIconRes ?: R.drawable.device_airpods_gen1_right,
+            _caseIcon = model.caseIconRes ?: R.drawable.device_airpods_gen1_case,
+            _address = "AA:BB:CC:DD:EE:FF",
+        ),
+        aap = null,
+    )
+
+    /** A single-pod device with a hand-picked battery level. */
+    fun singlePodBattery(
+        percent: Float,
+        model: PodModel = PodModel.AIRPODS_MAX,
+        label: String = "AirPods Max",
+    ): PodDevice = PodDevice(
+        profileId = "preview-single-battery",
+        label = label,
+        ble = MockSingleBlePodSnapshot(
+            _model = model,
+            _label = label,
+            batteryHeadsetPercent = percent,
+            _isBeingWorn = true,
+            _address = "AA:BB:CC:DD:EE:FF",
+        ),
+        aap = null,
+    )
+
     fun singlePodMonitored(): PodDevice = PodDevice(
         profileId = "preview-single",
         label = "AirPods Max",
