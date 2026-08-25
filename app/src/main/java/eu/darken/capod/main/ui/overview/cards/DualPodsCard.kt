@@ -29,6 +29,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Surface
@@ -59,14 +60,19 @@ import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.common.theming.fillColor
+import eu.darken.capod.common.theming.textColorOrNull
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.BatteryTier
+import eu.darken.capod.monitor.core.battery.batteryTier
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
 import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
+import eu.darken.capod.pods.core.apple.ble.batteryProgress
 import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Instant
@@ -313,19 +319,15 @@ private fun PodGauge(
     untilCharged: String? = null,
 ) {
     val context = LocalContext.current
-    val clamped = if (batteryPercent >= 0f) batteryPercent.coerceIn(0f, 1f) else -1f
+    val tier = batteryTier(batteryPercent)
+    val isKnown = tier != BatteryTier.UNKNOWN
     val animatedProgress by animateFloatAsState(
-        targetValue = if (clamped >= 0f) clamped else 0f,
+        targetValue = batteryProgress(batteryPercent),
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "gaugeProgress",
     )
 
-    val ringColor = when {
-        clamped < 0f -> MaterialTheme.colorScheme.surfaceVariant
-        clamped > 0.30f -> MaterialTheme.colorScheme.primary
-        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
-        else -> MaterialTheme.colorScheme.error
-    }
+    val ringColor = tier.fillColor()
 
     Column(
         modifier = modifier,
@@ -347,7 +349,7 @@ private fun PodGauge(
             )
 
             // Progress ring
-            if (clamped >= 0f) {
+            if (isKnown) {
                 CircularProgressIndicator(
                     progress = { animatedProgress },
                     modifier = Modifier.size(68.dp),
@@ -373,7 +375,7 @@ private fun PodGauge(
             Text(
                 text = formatBatteryPercent(context, batteryPercent),
                 style = MaterialTheme.typography.titleMedium,
-                color = if (batteryPercent >= 0f) {
+                color = tier.textColorOrNull() ?: if (isKnown) {
                     MaterialTheme.colorScheme.onSurface
                 } else {
                     MaterialTheme.colorScheme.onSurfaceVariant
@@ -414,6 +416,7 @@ private fun CaseRow(
     device: PodDevice,
 ) {
     val context = LocalContext.current
+    val tier = batteryTier(device.batteryCase)
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -430,6 +433,7 @@ private fun CaseRow(
         Text(
             text = formatBatteryPercent(context, device.batteryCase),
             style = MaterialTheme.typography.bodyMedium,
+            color = tier.textColorOrNull() ?: LocalContentColor.current,
             modifier = Modifier.padding(end = 8.dp),
         )
 
