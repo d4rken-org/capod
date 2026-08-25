@@ -52,6 +52,7 @@ import eu.darken.capod.main.ui.overview.cards.components.DeviceConnectionBadge
 import eu.darken.capod.main.ui.overview.cards.components.MissingPairedDeviceBanner
 import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
 import eu.darken.capod.main.ui.overview.cards.components.StatusChip
+import eu.darken.capod.main.ui.overview.cards.components.batteryTierState
 import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
@@ -231,7 +232,9 @@ private fun ColumnScope.SinglePodsCardExpanded(
         ) {
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.size(88.dp),
+                modifier = Modifier
+                    .size(88.dp)
+                    .batteryTierState(tier),
             ) {
                 // Track ring
                 CircularProgressIndicator(

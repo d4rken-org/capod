@@ -50,6 +50,7 @@ import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.overview.cards.components.BatteryCapsule
 import eu.darken.capod.main.ui.overview.cards.components.CompactBatterySummary
+import eu.darken.capod.main.ui.overview.cards.components.batteryTierState
 import eu.darken.capod.main.ui.overview.cards.components.DebugSection
 import eu.darken.capod.main.ui.overview.cards.components.DeviceConnectionBadge
 import eu.darken.capod.main.ui.overview.cards.components.MissingPairedDeviceBanner
@@ -330,7 +331,7 @@ private fun PodGauge(
     val ringColor = tier.fillColor()
 
     Column(
-        modifier = modifier,
+        modifier = modifier.batteryTierState(tier),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Ring with icon inside
@@ -420,7 +421,9 @@ private fun CaseRow(
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .batteryTierState(tier),
     ) {
         Image(
             painter = painterResource(device.caseIcon),
