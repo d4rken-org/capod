@@ -21,6 +21,12 @@ import kotlin.math.roundToInt
 
 const val BATTERY_UNKNOWN = -1f
 
+/** Step size of a percent-granularity reading: AAP battery notifications and the encrypted payload. */
+const val BATTERY_RESOLUTION_PERCENT = 0.01f
+
+/** Step size of the public advertisement's battery nibble, which only carries deciles. */
+const val BATTERY_RESOLUTION_DECILE = 0.10f
+
 fun isKnownBattery(percent: Float): Boolean = percent.isFinite() && percent >= 0f
 
 fun batteryProgress(percent: Float): Float =
