@@ -129,11 +129,11 @@
     <string name="settings_overview_hide_unmatched_label">Hide unmatched devices</string>
     <string name="settings_overview_hide_unmatched_description">Don\'t show nearby devices that don\'t match any of your profiles in the overview, e.g. other people\'s AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Battery estimates</string>
-    <string name="device_battery_estimate_card_desc">Learn how this device charges and drains to estimate time remaining, time until charged, and battery health.</string>
+    <string name="device_battery_estimate_card_desc">Learn how this device charges and drains to estimate time remaining, time until charged, and how much of its rated listening time it still reaches.</string>
     <string name="device_battery_estimate_reset_action">Reset learned data</string>
     <string name="device_battery_estimate_reset_desc">Start over from the rated battery life.</string>
     <string name="device_battery_estimate_reset_confirm_title">Reset learned data?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod will forget this device\'s measured drain, charging speed and battery health, and start over from the rated battery life.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod will forget this device\'s measured drain, charging speed and listening time, and start over from the rated battery life.</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
@@ -475,10 +475,10 @@
     <string name="device_settings_info_right_serial_label">Right Pod Serial</string>
     <string name="device_settings_info_left_bonded_label">Left Bonded</string>
     <string name="device_settings_info_right_bonded_label">Right Bonded</string>
-    <string name="device_settings_info_battery_health_label">Battery Health (estimated)</string>
-    <string name="device_settings_info_battery_health_left_label">Left Battery Health (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Right Battery Health (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Estimated listening time</string>
+    <string name="device_settings_info_battery_health_left_label">Left pod listening time</string>
+    <string name="device_settings_info_battery_health_right_label">Right pod listening time</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% of rated</string>
     <string name="device_settings_info_battery_health_pending">Still determining, check back later</string>
     <string name="device_settings_battery_runtime_warning_title">Listening time is much shorter than rated</string>
     <string name="device_settings_battery_runtime_warning_description">%1$s: about %2$d%% of the rated listening time. Tap for details.</string>
