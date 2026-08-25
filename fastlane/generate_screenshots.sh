@@ -122,6 +122,15 @@ echo "=== Localized Screenshot Generation ==="
 echo "Locales: $TOTAL | Batch size: $BATCH_SIZE | Batches: $NUM_BATCHES"
 echo ""
 
+# A leftover .bak means a previous run died before its trap restored the file: the real source is
+# in the .bak and copying over it here would destroy the only good copy.
+if [[ -e "$LOCALES_FILE.bak" ]]; then
+    echo "ERROR: Stale backup found: $LOCALES_FILE.bak"
+    echo "A previous run was interrupted. Restore it first:"
+    echo "  mv \"$LOCALES_FILE.bak\" \"$LOCALES_FILE\""
+    exit 1
+fi
+
 # Back up the original file
 cp "$LOCALES_FILE" "$LOCALES_FILE.bak"
 trap 'mv "$LOCALES_FILE.bak" "$LOCALES_FILE"; echo "Restored original PlayStoreLocales.kt"' EXIT
@@ -166,13 +175,6 @@ HEADER
     done
     echo "annotation class PlayStoreLocalesDark" >> "$file"
     echo "" >> "$file"
-
-    # Smoke annotation (single entry placeholder)
-    echo "/**" >> "$file"
-    echo " * Smoke test subset for fast iteration (6 locales covering LTR, RTL, CJK)." >> "$file"
-    echo " */" >> "$file"
-    echo "@Preview(locale = \"en\", name = \"en-US\", device = DS)" >> "$file"
-    echo "annotation class PlayStoreLocalesSmoke" >> "$file"
 }
 
 for (( batch=0; batch < NUM_BATCHES; batch++ )); do
