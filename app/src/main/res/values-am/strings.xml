@@ -283,7 +283,7 @@
     <string name="last_seen_x">ለመጨረሻ ጊዜ የታየው: %s</string>
     <string name="first_seen_x">ለመጀመሪያ ጊዜ የታየው: %s</string>
     <string name="battery_cached_label">የመጨረሻ ታወቀ · %s</string>
-    <string name="battery_time_remaining_format_hm">%1$dሰ %2$ደ</string>
+    <string name="battery_time_remaining_format_hm">%1$dሰ %2$dደ</string>
     <string name="battery_time_remaining_format_h">%1$dሰ</string>
     <string name="battery_time_remaining_format_m">%1$dደ</string>
     <string name="permission_post_notifications_label">ማሳወቂያዎችን አሳይ</string>
