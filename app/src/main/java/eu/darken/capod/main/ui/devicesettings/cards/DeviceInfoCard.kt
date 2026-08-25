@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.Info
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -53,14 +52,9 @@ internal fun DeviceInfoCard(
     detailItems: List<DeviceDetailItem> = emptyList(),
     canRename: Boolean = false,
     onRename: (String) -> Unit = {},
-    showDetails: Boolean = false,
-    onShowDetailsChange: (Boolean) -> Unit = {},
+    onShowDetails: () -> Unit = {},
 ) {
     var showRenameDialog by remember { mutableStateOf(false) }
-
-    LaunchedEffect(detailItems) {
-        if (detailItems.isEmpty()) onShowDetailsChange(false)
-    }
 
     if (showRenameDialog && deviceInfo != null) {
         RenameDialog(
@@ -70,13 +64,6 @@ internal fun DeviceInfoCard(
                 showRenameDialog = false
             },
             onDismiss = { showRenameDialog = false },
-        )
-    }
-
-    if (showDetails && detailItems.isNotEmpty()) {
-        DeviceInfoBottomSheet(
-            items = detailItems,
-            onDismiss = { onShowDetailsChange(false) },
         )
     }
 
@@ -104,7 +91,7 @@ internal fun DeviceInfoCard(
                         modifier = Modifier.weight(1f),
                     )
                     if (showInfoIconInModelRow) {
-                        IconButton(onClick = { onShowDetailsChange(true) }) {
+                        IconButton(onClick = onShowDetails) {
                             Icon(
                                 imageVector = Icons.TwoTone.Info,
                                 contentDescription = stringResource(R.string.device_settings_info_details_action),
@@ -145,7 +132,7 @@ internal fun DeviceInfoCard(
                         } else null,
                     )
                     if (showInfoIconInNameRow) {
-                        IconButton(onClick = { onShowDetailsChange(true) }) {
+                        IconButton(onClick = onShowDetails) {
                             Icon(
                                 imageVector = Icons.TwoTone.Info,
                                 contentDescription = stringResource(R.string.device_settings_info_details_action),
@@ -160,7 +147,7 @@ internal fun DeviceInfoCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End,
                 ) {
-                    IconButton(onClick = { onShowDetailsChange(true) }) {
+                    IconButton(onClick = onShowDetails) {
                         Icon(
                             imageVector = Icons.TwoTone.Info,
                             contentDescription = stringResource(R.string.device_settings_info_details_action),
