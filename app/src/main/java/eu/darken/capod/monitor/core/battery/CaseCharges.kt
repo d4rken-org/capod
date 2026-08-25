@@ -33,7 +33,8 @@ data class CaseCharges(
  *
  * The interval excludes its upper end, so an upper end of exactly one charge is still short of one.
  *
- * A spec that is itself a lower bound has no upper end, so it can never claim "not enough".
+ * A spec that is itself a lower bound has no upper end, so it can never claim "not enough" — except
+ * at an empty reading, where a floor on the published capacity has nothing left to undersell.
  *
  * The wording follows the whole interval, not its pessimistic end: an uncertain one rounds to a
  * single charge, or names no number at all ([CaseCharges.Display.UNCERTAIN]) when the spec is a
@@ -52,6 +53,7 @@ fun caseCharges(spec: PodModel.CaseSpec?, reading: BatteryReading?): CaseCharges
 
     val adequacy = when {
         lowest >= 1f -> CaseCharges.Adequacy.ENOUGH
+        reading.percent == 0f -> CaseCharges.Adequacy.NOT_ENOUGH
         spec.isLowerBound -> CaseCharges.Adequacy.UNCERTAIN
         highest <= 1f -> CaseCharges.Adequacy.NOT_ENOUGH
         else -> CaseCharges.Adequacy.UNCERTAIN

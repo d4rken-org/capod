@@ -129,6 +129,16 @@ class CaseChargesLineTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `an empty case on an open ended spec still reads as not enough`() {
+        setCard(device(case = 0f, model = PodModel.AIRPODS_GEN1))
+
+        assertAdequacy(
+            context.getString(R.string.battery_case_charges_empty),
+            R.string.battery_case_charges_state_not_enough_cd,
+        )
+    }
+
+    @Test
     fun `the line survives a right-to-left layout`() {
         setCard(device(case = 0.60f)) { card ->
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) { card() }
