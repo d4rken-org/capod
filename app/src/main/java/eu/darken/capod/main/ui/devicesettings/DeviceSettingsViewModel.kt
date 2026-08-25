@@ -160,9 +160,15 @@ class DeviceSettingsViewModel @Inject constructor(
                     null
                 }
             }
+            val now = timeSource.now()
+            // The runtime figure rides on the same learned data as the estimate — the per-device
+            // toggle governs both.
+            val batteryHealth = device
+                ?.takeIf { appleProfile?.batteryEstimateEnabled ?: true }
+                ?.let { BatteryHealth.estimate(drainProfiles[profileId], it.model, now) }
             State(
                 device = device,
-                now = timeSource.now(),
+                now = now,
                 isPro = upgrade.isPro,
                 isNudgeAvailable = nudgeAvailability != NudgeAvailability.BROKEN,
                 isForceConnecting = forcing,
@@ -174,12 +180,10 @@ class DeviceSettingsViewModel @Inject constructor(
                         (it.rightLong !is StemAction.None && it.rightLong !is StemAction.CycleAnc)
                 } == true,
                 batteryEstimateEnabled = appleProfile?.batteryEstimateEnabled ?: true,
-                // Health rides on the same learned data as the estimate — the per-device toggle
-                // governs both.
-                batteryHealth = device
-                    ?.takeIf { appleProfile?.batteryEstimateEnabled ?: true }
-                    ?.let { BatteryHealth.estimate(drainProfiles[profileId], it.model) },
-                // A model with a rating WILL eventually produce a health figure — surface the
+                batteryHealth = batteryHealth,
+                batteryRuntimeWarning = batteryHealth?.lowestPromotable
+                    ?.takeIf { it.reading.percent <= BatteryHealth.LOW_RUNTIME_PERCENT },
+                // A model with a rating WILL eventually produce a runtime figure — surface the
                 // feature as "still determining" until the listening sessions accumulate. Without
                 // a paired device the listening gate can never open, so no promise is made.
                 batteryHealthPending = device != null &&
@@ -212,10 +216,14 @@ class DeviceSettingsViewModel @Inject constructor(
         val systemBluetoothName: String? = null,
         val hasCustomLongPressStemAction: Boolean = false,
         val batteryEstimateEnabled: Boolean = true,
-        /** Derived per-pod battery health (1..100 each), or null when there isn't enough learned data. */
+        /** Derived per-pod share of the rated listening time (1..100 each), or null when there
+         * isn't enough learned data. */
         val batteryHealth: BatteryHealth.PerPod? = null,
-        /** True when health CAN be derived for this device (rated model, feature on) — shows the
-         * "still determining" placeholder while [batteryHealth] is null. */
+        /** The worst pod whose runtime has dropped to [BatteryHealth.LOW_RUNTIME_PERCENT] or below
+         * on enough recent evidence to warn about — drives the warning banner. */
+        val batteryRuntimeWarning: BatteryHealth.SlotReading? = null,
+        /** True when a runtime figure CAN be derived for this device (rated model, feature on) —
+         * shows the "still determining" placeholder while [batteryHealth] is null. */
         val batteryHealthPending: Boolean = false,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()

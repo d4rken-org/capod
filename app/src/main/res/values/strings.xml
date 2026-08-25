@@ -480,6 +480,9 @@
     <string name="device_settings_info_battery_health_right_label">Right Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">Still determining, check back later</string>
+    <string name="device_settings_battery_runtime_warning_title">Listening time is much shorter than rated</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: about %2$d%% of the rated listening time. Tap for details.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">These headphones</string>
     <string name="device_settings_info_details_label">Device Details</string>
     <string name="device_settings_info_details_action">Show device details</string>
     <string name="device_settings_info_status_label">Status</string>
