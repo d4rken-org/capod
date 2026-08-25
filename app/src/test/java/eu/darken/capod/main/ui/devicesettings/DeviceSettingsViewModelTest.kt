@@ -576,7 +576,103 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val vm = createViewModel()
         vm.initialize(testAddress)
 
-        vm.state.first().batteryHealth shouldBe BatteryHealth.PerPod(left = 50)
+        vm.state.first().batteryHealth shouldBe BatteryHealth.PerPod(
+            left = BatteryHealth.Reading(percent = 50, isPromotable = false),
+        )
+    }
+
+    @Test
+    fun `low runtime on recent evidence raises a warning`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+        }
+        devicesFlow.value = listOf(device)
+        drainProfilesFlow.value = mapOf(
+            testAddress to DrainProfile(
+                model = PodModel.AIRPODS_PRO2.name,
+                listeningRates = mapOf(
+                    "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
+                        fractionPerHour = 1f / 3f,
+                        sampleCount = 10,
+                        updateCount = BatteryHealth.MIN_PROMOTE_UPDATE_COUNT,
+                        updatedAt = timeSource.now(),
+                    )
+                ),
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryRuntimeWarning shouldBe BatteryHealth.SlotReading(
+            slot = BatteryHealth.Slot.LEFT,
+            reading = BatteryHealth.Reading(percent = 50, isPromotable = true),
+        )
+    }
+
+    @Test
+    fun `low runtime on thin evidence raises no warning`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+        }
+        devicesFlow.value = listOf(device)
+        drainProfilesFlow.value = mapOf(
+            testAddress to DrainProfile(
+                model = PodModel.AIRPODS_PRO2.name,
+                listeningRates = mapOf(
+                    "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
+                        fractionPerHour = 1f / 3f,
+                        sampleCount = 10,
+                        updateCount = BatteryHealth.MIN_PROMOTE_UPDATE_COUNT - 1,
+                        updatedAt = timeSource.now(),
+                    )
+                ),
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        val state = vm.state.first()
+        state.batteryHealth?.left?.percent shouldBe 50
+        state.batteryRuntimeWarning shouldBe null
+    }
+
+    @Test
+    fun `the warning follows the per-device estimate toggle`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+        }
+        devicesFlow.value = listOf(device)
+        drainProfilesFlow.value = mapOf(
+            testAddress to DrainProfile(
+                model = PodModel.AIRPODS_PRO2.name,
+                listeningRates = mapOf(
+                    "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
+                        fractionPerHour = 1f / 3f,
+                        sampleCount = 10,
+                        updateCount = BatteryHealth.MIN_PROMOTE_UPDATE_COUNT,
+                        updatedAt = timeSource.now(),
+                    )
+                ),
+            )
+        )
+        profilesFlow.value = listOf(
+            AppleDeviceProfile(
+                id = testAddress,
+                label = "Test",
+                address = testAddress,
+                batteryEstimateEnabled = false,
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryRuntimeWarning shouldBe null
     }
 
     @Test

@@ -45,6 +45,7 @@ import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryHealthTexts
+import eu.darken.capod.main.ui.devicesettings.cards.BatteryRuntimeWarningBanner
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
@@ -240,6 +241,9 @@ fun DeviceSettingsScreen(
     val features = device?.model?.features
     val enabled = device?.isAapReady == true
     val isPro = state.isPro
+    // Hoisted out of DeviceInfoCard: the runtime warning banner opens the same detail sheet as the
+    // card's info icon.
+    var showDeviceDetails by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -306,13 +310,13 @@ fun DeviceSettingsScreen(
                         batteryHealth = when {
                             state.batteryHealth != null -> BatteryHealthTexts(
                                 left = state.batteryHealth.left?.let {
-                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                    stringResource(R.string.device_settings_info_battery_health_value, it.percent)
                                 },
                                 right = state.batteryHealth.right?.let {
-                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                    stringResource(R.string.device_settings_info_battery_health_value, it.percent)
                                 },
                                 headset = state.batteryHealth.headset?.let {
-                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                    stringResource(R.string.device_settings_info_battery_health_value, it.percent)
                                 },
                             )
                             state.batteryHealthPending -> BatteryHealthTexts(
@@ -331,6 +335,8 @@ fun DeviceSettingsScreen(
                         detailItems = detailItems,
                         canRename = device.isAapReady,
                         onRename = onDeviceNameChange,
+                        showDetails = showDeviceDetails,
+                        onShowDetailsChange = { showDeviceDetails = it },
                     )
                 }
             }
@@ -340,6 +346,19 @@ fun DeviceSettingsScreen(
                 item("missing_paired_device") {
                     MissingPairedDeviceBanner(
                         onClick = onEditProfile,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    )
+                }
+            }
+
+            // Listening time has dropped far below the model's rating — details live in the sheet
+            val runtimeWarning = state.batteryRuntimeWarning
+            if (device != null && device.hasSelectedPairedDevice && runtimeWarning != null) {
+                item("battery_runtime_warning") {
+                    BatteryRuntimeWarningBanner(
+                        slot = runtimeWarning.slot,
+                        percent = runtimeWarning.reading.percent,
+                        onClick = { showDeviceDetails = true },
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                     )
                 }

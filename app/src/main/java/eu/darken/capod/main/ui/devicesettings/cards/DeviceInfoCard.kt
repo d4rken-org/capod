@@ -53,12 +53,13 @@ internal fun DeviceInfoCard(
     detailItems: List<DeviceDetailItem> = emptyList(),
     canRename: Boolean = false,
     onRename: (String) -> Unit = {},
+    showDetails: Boolean = false,
+    onShowDetailsChange: (Boolean) -> Unit = {},
 ) {
     var showRenameDialog by remember { mutableStateOf(false) }
-    var showBottomSheet by remember { mutableStateOf(false) }
 
     LaunchedEffect(detailItems) {
-        if (detailItems.isEmpty()) showBottomSheet = false
+        if (detailItems.isEmpty()) onShowDetailsChange(false)
     }
 
     if (showRenameDialog && deviceInfo != null) {
@@ -72,10 +73,10 @@ internal fun DeviceInfoCard(
         )
     }
 
-    if (showBottomSheet && detailItems.isNotEmpty()) {
+    if (showDetails && detailItems.isNotEmpty()) {
         DeviceInfoBottomSheet(
             items = detailItems,
-            onDismiss = { showBottomSheet = false },
+            onDismiss = { onShowDetailsChange(false) },
         )
     }
 
@@ -103,7 +104,7 @@ internal fun DeviceInfoCard(
                         modifier = Modifier.weight(1f),
                     )
                     if (showInfoIconInModelRow) {
-                        IconButton(onClick = { showBottomSheet = true }) {
+                        IconButton(onClick = { onShowDetailsChange(true) }) {
                             Icon(
                                 imageVector = Icons.TwoTone.Info,
                                 contentDescription = stringResource(R.string.device_settings_info_details_action),
@@ -144,7 +145,7 @@ internal fun DeviceInfoCard(
                         } else null,
                     )
                     if (showInfoIconInNameRow) {
-                        IconButton(onClick = { showBottomSheet = true }) {
+                        IconButton(onClick = { onShowDetailsChange(true) }) {
                             Icon(
                                 imageVector = Icons.TwoTone.Info,
                                 contentDescription = stringResource(R.string.device_settings_info_details_action),
@@ -159,7 +160,7 @@ internal fun DeviceInfoCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End,
                 ) {
-                    IconButton(onClick = { showBottomSheet = true }) {
+                    IconButton(onClick = { onShowDetailsChange(true) }) {
                         Icon(
                             imageVector = Icons.TwoTone.Info,
                             contentDescription = stringResource(R.string.device_settings_info_details_action),
