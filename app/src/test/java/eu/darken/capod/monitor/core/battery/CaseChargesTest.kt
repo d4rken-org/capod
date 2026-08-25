@@ -82,7 +82,7 @@ class CaseChargesTest : BaseTest() {
     }
 
     @Test
-    fun `a lower bound spec never claims not enough`() {
+    fun `a lower bound spec above empty never claims not enough`() {
         // 3.8 x 0.25 = 0.95 — a confident "not enough" for a case that may well hold more
         charges(lowerBound, 0.25f, percent)!!.adequacy shouldBe CaseCharges.Adequacy.UNCERTAIN
         charges(lowerBound, 0.01f, percent)!!.adequacy shouldBe CaseCharges.Adequacy.UNCERTAIN
@@ -138,8 +138,14 @@ class CaseChargesTest : BaseTest() {
     }
 
     @Test
-    fun `an empty case renders as empty`() {
-        charges(exact, 0f, percent)!!.display shouldBe CaseCharges.Display.EMPTY
-        charges(lowerBound, 0f, decile)!!.display shouldBe CaseCharges.Display.EMPTY
+    fun `an empty case renders as empty and claims not enough`() {
+        val exactly = charges(exact, 0f, percent)!!
+        exactly.display shouldBe CaseCharges.Display.EMPTY
+        exactly.adequacy shouldBe CaseCharges.Adequacy.NOT_ENOUGH
+
+        // an empty case holds nothing for the open ended spec to undersell
+        val floored = charges(lowerBound, 0f, decile)!!
+        floored.display shouldBe CaseCharges.Display.EMPTY
+        floored.adequacy shouldBe CaseCharges.Adequacy.NOT_ENOUGH
     }
 }
