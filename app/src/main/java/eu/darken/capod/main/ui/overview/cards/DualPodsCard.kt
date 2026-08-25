@@ -42,7 +42,10 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
@@ -61,13 +64,18 @@ import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.common.theming.LocalBatteryColors
 import eu.darken.capod.common.theming.fillColor
 import eu.darken.capod.common.theming.textColorOrNull
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.batteryCaseReading
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryTier
+import eu.darken.capod.monitor.core.battery.CaseCharges
 import eu.darken.capod.monitor.core.battery.batteryTier
+import eu.darken.capod.monitor.core.battery.caseCharges
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
@@ -418,67 +426,123 @@ private fun CaseRow(
 ) {
     val context = LocalContext.current
     val tier = batteryTier(device.batteryCase)
+    val charges = caseCharges(device.model.caseSpec, device.batteryCaseReading)
 
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .batteryTierState(tier),
-    ) {
-        Image(
-            painter = painterResource(device.caseIcon),
-            contentDescription = null,
-            modifier = Modifier.size(28.dp),
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        Text(
-            text = formatBatteryPercent(context, device.batteryCase),
-            style = MaterialTheme.typography.bodyMedium,
-            color = tier.textColorOrNull() ?: LocalContentColor.current,
-            modifier = Modifier.padding(end = 8.dp),
-        )
-
-        BatteryCapsule(
-            percent = device.batteryCase,
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .weight(1f)
-                .height(8.dp),
-        )
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        FlowRow(
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
+                .fillMaxWidth()
+                .batteryTierState(tier),
         ) {
-            when (val caseState = device.caseChargingState
-                ?: device.isCaseCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null }) {
-                AapPodState.ChargingState.CHARGING_OPTIMIZED -> StatusChip(
-                    icon = Icons.TwoTone.BatteryChargingFull,
-                    label = stringResource(R.string.pods_charging_optimized_label),
-                )
-                AapPodState.ChargingState.CHARGING -> StatusChip(
-                    icon = Icons.TwoTone.BatteryChargingFull,
-                    label = stringResource(R.string.pods_charging_label),
-                )
-                else -> Unit
-            }
+            Image(
+                painter = painterResource(device.caseIcon),
+                contentDescription = null,
+                modifier = Modifier.size(28.dp),
+            )
 
-            val lidState = device.caseLidState
-            if (lidState == LidState.OPEN || lidState == LidState.CLOSED) {
-                StatusChip(
-                    icon = Icons.TwoTone.GridView,
-                    label = when (lidState) {
-                        LidState.OPEN -> stringResource(R.string.pods_case_status_open_label)
-                        LidState.CLOSED -> stringResource(R.string.pods_case_status_closed_label)
-                        else -> ""
-                    },
-                )
+            Spacer(modifier = Modifier.width(8.dp))
+
+            Text(
+                text = formatBatteryPercent(context, device.batteryCase),
+                style = MaterialTheme.typography.bodyMedium,
+                color = tier.textColorOrNull() ?: LocalContentColor.current,
+                modifier = Modifier.padding(end = 8.dp),
+            )
+
+            BatteryCapsule(
+                percent = device.batteryCase,
+                modifier = Modifier
+                    .weight(1f)
+                    .height(8.dp),
+            )
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                when (val caseState = device.caseChargingState
+                    ?: device.isCaseCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null }) {
+                    AapPodState.ChargingState.CHARGING_OPTIMIZED -> StatusChip(
+                        icon = Icons.TwoTone.BatteryChargingFull,
+                        label = stringResource(R.string.pods_charging_optimized_label),
+                    )
+                    AapPodState.ChargingState.CHARGING -> StatusChip(
+                        icon = Icons.TwoTone.BatteryChargingFull,
+                        label = stringResource(R.string.pods_charging_label),
+                    )
+                    else -> Unit
+                }
+
+                val lidState = device.caseLidState
+                if (lidState == LidState.OPEN || lidState == LidState.CLOSED) {
+                    StatusChip(
+                        icon = Icons.TwoTone.GridView,
+                        label = when (lidState) {
+                            LidState.OPEN -> stringResource(R.string.pods_case_status_open_label)
+                            LidState.CLOSED -> stringResource(R.string.pods_case_status_closed_label)
+                            else -> ""
+                        },
+                    )
+                }
             }
         }
+
+        if (charges != null) {
+            CaseChargesLine(
+                charges = charges,
+                // Aligned under the percentage, past the case icon and its spacer.
+                modifier = Modifier.padding(start = 36.dp, top = 2.dp),
+            )
+        }
     }
+}
+
+/**
+ * Stacked below the case row rather than inline: that row already carries four children of which
+ * only the capsule is weighted, so an unbounded plural in front of it squeezes the capsule away at
+ * large font scales and in locales with long plural forms.
+ */
+@Composable
+private fun CaseChargesLine(
+    charges: CaseCharges,
+    modifier: Modifier = Modifier,
+) {
+    val text = when (charges.display) {
+        CaseCharges.Display.EMPTY -> stringResource(R.string.battery_case_charges_empty)
+        CaseCharges.Display.LESS_THAN_ONE -> stringResource(R.string.battery_case_charges_less_than_one)
+        CaseCharges.Display.AT_LEAST -> pluralStringResource(
+            R.plurals.battery_case_charges_at_least,
+            charges.count,
+            charges.count,
+        )
+        CaseCharges.Display.APPROXIMATE -> pluralStringResource(
+            R.plurals.battery_case_charges_approx,
+            charges.count,
+            charges.count,
+        )
+    }
+    // The same visible count can be adequate or not depending on how coarse the reading was, so
+    // the adequacy needs its own announcement rather than riding on the case battery's state.
+    val state = when (charges.adequacy) {
+        CaseCharges.Adequacy.ENOUGH -> stringResource(R.string.battery_case_charges_state_enough_cd)
+        CaseCharges.Adequacy.NOT_ENOUGH -> stringResource(R.string.battery_case_charges_state_not_enough_cd)
+        CaseCharges.Adequacy.UNCERTAIN -> stringResource(R.string.battery_case_charges_state_uncertain_cd)
+    }
+    val color = when (charges.adequacy) {
+        CaseCharges.Adequacy.ENOUGH -> LocalBatteryColors.current.positiveText
+        CaseCharges.Adequacy.NOT_ENOUGH -> LocalBatteryColors.current.warnText
+        CaseCharges.Adequacy.UNCERTAIN -> MaterialTheme.colorScheme.onSurfaceVariant
+    }
+
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodySmall,
+        color = color,
+        modifier = modifier.semantics { stateDescription = state },
+    )
 }
 
 @Preview2
@@ -529,6 +593,54 @@ private fun DualPodsCardEstimateProvisionalPreview() = PreviewWrapper {
             right = BatteryEstimate.Pod(minutesRemaining = 360, fractionPerHour = 0.167f, source = BatteryEstimate.Source.SPEC),
         ),
         onDeviceSettings = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardWarnPreview() = PreviewWrapper {
+    // Case at 30% of a 4.0-charge spec: even the bottom of the decile band clears a full charge.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodBatteries(left = 0.22f, right = 0.18f, case = 0.30f),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardCriticalPreview() = PreviewWrapper {
+    // Case at 10%: the whole band stays under a full charge.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodBatteries(left = 0.10f, right = 0.05f, case = 0.10f),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardCaseChargesUncertainPreview() = PreviewWrapper {
+    // Case at 20%: the decile band straddles a full charge, so the line makes no claim.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodBatteries(case = 0.20f),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardCaseWithoutSpecPreview() = PreviewWrapper {
+    // PowerBeats Pro has a case, but Apple publishes no figures for it, so there is no line.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodBatteries(
+            case = 0.60f,
+            model = PodModel.POWERBEATS_PRO,
+            label = "PowerBeats Pro",
+        ),
+        showDebug = false,
+        now = SystemTimeSource.now(),
     )
 }
 
