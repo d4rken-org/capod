@@ -287,6 +287,8 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Less than one more full charge for both earbuds</string>
     <string name="battery_case_charges_empty">Case is empty, no charges left for your earbuds</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Not sure how many full charges are left for both earbuds</string>
     <string name="battery_case_charges_state_enough_cd">Enough for a full charge</string>
     <string name="battery_case_charges_state_not_enough_cd">Not enough for a full charge</string>
     <string name="battery_case_charges_state_uncertain_cd">May not be enough for a full charge</string>

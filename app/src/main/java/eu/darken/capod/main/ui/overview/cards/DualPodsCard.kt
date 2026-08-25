@@ -513,6 +513,7 @@ private fun CaseChargesLine(
     val text = when (charges.display) {
         CaseCharges.Display.EMPTY -> stringResource(R.string.battery_case_charges_empty)
         CaseCharges.Display.LESS_THAN_ONE -> stringResource(R.string.battery_case_charges_less_than_one)
+        CaseCharges.Display.UNCERTAIN -> stringResource(R.string.battery_case_charges_uncertain)
         CaseCharges.Display.AT_LEAST -> pluralStringResource(
             R.plurals.battery_case_charges_at_least,
             charges.count,

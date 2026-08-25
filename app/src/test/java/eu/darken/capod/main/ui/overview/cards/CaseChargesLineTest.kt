@@ -92,11 +92,19 @@ class CaseChargesLineTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `a reading astride a full charge claims nothing`() {
+    fun `a reading astride a full charge rounds to one`() {
         setCard(device(case = 0.20f))
 
+        assertAdequacy(charges(1), R.string.battery_case_charges_state_uncertain_cd)
+    }
+
+    @Test
+    fun `an open ended spec below a full charge names no number`() {
+        // AirPods (Gen 1) publish a lower bound, so 3.8 x 0.10 has no upper end to round to
+        setCard(device(case = 0.10f, model = PodModel.AIRPODS_GEN1))
+
         assertAdequacy(
-            context.getString(R.string.battery_case_charges_less_than_one),
+            context.getString(R.string.battery_case_charges_uncertain),
             R.string.battery_case_charges_state_uncertain_cd,
         )
     }

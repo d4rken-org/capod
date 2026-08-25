@@ -107,8 +107,34 @@ class CaseChargesTest : BaseTest() {
     @Test
     fun `below a full charge renders as less than one`() {
         charges(exact, 0.20f, percent)!!.display shouldBe CaseCharges.Display.LESS_THAN_ONE
-        charges(lowerBound, 0.20f, percent)!!.display shouldBe CaseCharges.Display.LESS_THAN_ONE
         charges(exact, 0.01f, percent)!!.display shouldBe CaseCharges.Display.LESS_THAN_ONE
+    }
+
+    @Test
+    fun `an interval straddling one charge rounds to one instead of claiming less`() {
+        // 4.0 x 0.20 = 0.8, 4.0 x 0.30 = 1.2 — the text must not deny what the interval allows
+        val straddle = charges(exact, 0.20f, decile)!!
+        straddle.display shouldBe CaseCharges.Display.APPROXIMATE
+        straddle.count shouldBe 1
+    }
+
+    @Test
+    fun `an uncertain lower bound spec names no number`() {
+        // 3.8 x 0.10 = 0.38 with no upper end, so neither "less than one" nor "~1" is supportable
+        val vague = charges(lowerBound, 0.10f, decile)!!
+        vague.adequacy shouldBe CaseCharges.Adequacy.UNCERTAIN
+        vague.display shouldBe CaseCharges.Display.UNCERTAIN
+
+        charges(lowerBound, 0.20f, percent)!!.display shouldBe CaseCharges.Display.UNCERTAIN
+    }
+
+    @Test
+    fun `a lower bound spec that reaches enough still counts`() {
+        val enough = charges(lowerBound, 0.50f, decile)!!
+        enough.adequacy shouldBe CaseCharges.Adequacy.ENOUGH
+        enough.display shouldBe CaseCharges.Display.AT_LEAST
+        // 3.8 x 0.50 = 1.9
+        enough.count shouldBe 1
     }
 
     @Test
