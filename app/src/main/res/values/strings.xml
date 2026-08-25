@@ -274,6 +274,8 @@
     <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">Case</string>
     <string name="battery_unavailable_label">Battery unavailable</string>
+    <string name="battery_state_low_cd">Battery low</string>
+    <string name="battery_state_critical_cd">Battery critically low</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
     <string name="pods_connection_state_disconnected_label">Not connected to a device</string>

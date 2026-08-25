@@ -142,7 +142,7 @@ private fun MiniPodRing(
     val ringColor = tier.fillColor()
 
     Row(
-        modifier = modifier,
+        modifier = modifier.batteryTierState(tier),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
@@ -197,7 +197,7 @@ private fun MiniCaseCluster(
     val tier = batteryTier(device.batteryCase)
 
     Row(
-        modifier = modifier,
+        modifier = modifier.batteryTierState(tier),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
