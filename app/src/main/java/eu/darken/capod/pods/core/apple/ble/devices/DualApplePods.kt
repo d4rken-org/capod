@@ -4,6 +4,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_DECILE
+import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_PERCENT
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot.Pod
 
@@ -135,6 +137,13 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
                     value / 10f
                 }
             }
+        }
+
+    /** The encrypted payload carries whole percents; the public nibble only carries deciles. */
+    override val batteryCaseResolution: Float
+        get() = when {
+            payload.private?.asBatteryState(3) != null -> BATTERY_RESOLUTION_PERCENT
+            else -> BATTERY_RESOLUTION_DECILE
         }
 
     override val isCaseCharging: Boolean
