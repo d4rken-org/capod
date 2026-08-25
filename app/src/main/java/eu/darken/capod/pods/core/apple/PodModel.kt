@@ -15,7 +15,9 @@ enum class PodModel(
     @DrawableRes val rightPodIconRes: Int? = null,
     @DrawableRes val caseIconRes: Int? = null,
     val batterySpec: BatterySpec? = null,
+    val caseSpec: CaseSpec? = null,
 ) {
+    /** Case charges: 5 h listening, more than 24 h with the case, noise control off. */
     @SerialName("airpods.gen1")
     AIRPODS_GEN1(
         "AirPods (Gen 1)",
@@ -28,12 +30,14 @@ enum class PodModel(
             hasEarDetectionToggle = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        caseSpec = CaseSpec(fullPairRecharges = 3.8f, isLowerBound = true),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
         caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
+    /** Case charges: 5 h listening, more than 24 h with the case, noise control off (SP791). */
     @SerialName("airpods.gen2")
     AIRPODS_GEN2(
         "AirPods (Gen 2)",
@@ -46,12 +50,14 @@ enum class PodModel(
             hasEarDetectionToggle = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        caseSpec = CaseSpec(fullPairRecharges = 3.8f, isLowerBound = true),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
         caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
+    /** Case charges: 6 h listening, 30 h with the case, noise control off. */
     @SerialName("airpods.gen3")
     AIRPODS_GEN3(
         "AirPods (Gen 3)",
@@ -68,12 +74,14 @@ enum class PodModel(
             hasEarDetectionToggle = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
         caseIconRes = R.drawable.device_airpods_gen3_case,
     ),
 
+    /** Case charges: 5 h listening, 30 h with the case, noise control off. */
     @SerialName("airpods.gen4")
     AIRPODS_GEN4(
         "AirPods (Gen 4)",
@@ -91,12 +99,14 @@ enum class PodModel(
             hasSleepDetection = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        caseSpec = CaseSpec(fullPairRecharges = 5.0f),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
         caseIconRes = R.drawable.device_airpods_gen3_case,
     ),
 
+    /** Case charges: 4 h listening, 20 h with the case, ANC on. */
     @SerialName("airpods.gen4.anc")
     AIRPODS_GEN4_ANC(
         "AirPods (Gen 4 ANC)",
@@ -123,6 +133,7 @@ enum class PodModel(
             hasSleepDetection = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
         modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
         rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
@@ -155,6 +166,7 @@ enum class PodModel(
         caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
+    /** Case charges: 6 h listening, 30 h with the case, ANC on. */
     @SerialName("airpods.pro2")
     AIRPODS_PRO2(
         "AirPods Pro 2",
@@ -183,12 +195,14 @@ enum class PodModel(
             hasSleepDetection = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
         modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
         caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
+    /** Case charges: 6 h listening, 30 h with the case, ANC on. */
     @SerialName("airpods.pro2.usbc")
     AIRPODS_PRO2_USBC(
         "AirPods Pro 2 USB-C",
@@ -217,12 +231,14 @@ enum class PodModel(
             hasSleepDetection = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
         modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
         caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
+    /** Case charges: 8 h listening, 24 h with the case, ANC on (support.apple.com/en-us/125135). */
     @SerialName("airpods.pro3")
     AIRPODS_PRO3(
         "AirPods Pro 3",
@@ -252,6 +268,7 @@ enum class PodModel(
             hasDynamicEndOfCharge = true,
         ),
         batterySpec = BatterySpec(listeningHoursAncOn = 8f, chargeFractionPerHour = 1.5f),
+        caseSpec = CaseSpec(fullPairRecharges = 2.0f),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -615,5 +632,18 @@ enum class PodModel(
          * rate has been measured; a live fit takes over within minutes.
          */
         val chargeFractionPerHour: Float? = null,
+    )
+
+    /**
+     * How many times a full case recharges BOTH earbuds, derived from Apple's published figures as
+     * `hoursWithCase / hoursListening - 1`. Both figures have to be read under the same noise
+     * control condition, which is why every entry records the pair it came from. Only a case that
+     * holds a battery carries a spec: [Features.hasCase] describes the physical case, and models
+     * such as Beats Solo Buds ship one that doesn't charge.
+     */
+    data class CaseSpec(
+        val fullPairRecharges: Float,
+        /** True when the published total was "more than N hours" - the value is a lower bound. */
+        val isLowerBound: Boolean = false,
     )
 }
