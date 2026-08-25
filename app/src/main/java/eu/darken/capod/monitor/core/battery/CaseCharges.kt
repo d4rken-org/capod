@@ -14,6 +14,9 @@ data class CaseCharges(
         /** Nothing left to give — distinct from [LESS_THAN_ONE], which still implies some charge. */
         EMPTY,
         LESS_THAN_ONE,
+
+        /** No number at all: an open-ended interval that has not yet reached a full charge. */
+        UNCERTAIN,
         AT_LEAST,
         APPROXIMATE,
     }
@@ -31,6 +34,10 @@ data class CaseCharges(
  * The interval excludes its upper end, so an upper end of exactly one charge is still short of one.
  *
  * A spec that is itself a lower bound has no upper end, so it can never claim "not enough".
+ *
+ * The wording follows the whole interval, not its pessimistic end: an uncertain one rounds to a
+ * single charge, or names no number at all ([CaseCharges.Display.UNCERTAIN]) when the spec is a
+ * lower bound and there is no upper end to round from.
  *
  * Null when the model publishes no case figures or the reading is missing or nonsense — the caller
  * shows no line at all rather than a neutral one.
@@ -50,12 +57,22 @@ fun caseCharges(spec: PodModel.CaseSpec?, reading: BatteryReading?): CaseCharges
         else -> CaseCharges.Adequacy.UNCERTAIN
     }
 
-    val count = floor(lowest).toInt()
+    val floored = floor(lowest).toInt()
+
     val display = when {
         reading.percent == 0f -> CaseCharges.Display.EMPTY
-        count < 1 -> CaseCharges.Display.LESS_THAN_ONE
+        adequacy == CaseCharges.Adequacy.NOT_ENOUGH -> CaseCharges.Display.LESS_THAN_ONE
+        adequacy == CaseCharges.Adequacy.UNCERTAIN && spec.isLowerBound -> CaseCharges.Display.UNCERTAIN
+        adequacy == CaseCharges.Adequacy.UNCERTAIN -> CaseCharges.Display.APPROXIMATE
         spec.isLowerBound -> CaseCharges.Display.AT_LEAST
         else -> CaseCharges.Display.APPROXIMATE
+    }
+
+    val count = when {
+        reading.percent == 0f -> 0
+        adequacy == CaseCharges.Adequacy.NOT_ENOUGH -> 0
+        adequacy == CaseCharges.Adequacy.UNCERTAIN && !spec.isLowerBound -> 1
+        else -> floored
     }
 
     return CaseCharges(count = count, display = display, adequacy = adequacy)
