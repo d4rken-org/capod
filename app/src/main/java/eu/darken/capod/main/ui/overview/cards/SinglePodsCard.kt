@@ -322,7 +322,7 @@ private fun ColumnScope.SinglePodsCardExpanded(
 
     // Cached battery indicator
     if (device.isBatteryCached && !device.isLive) {
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
             style = MaterialTheme.typography.bodySmall,
