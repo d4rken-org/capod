@@ -13,6 +13,7 @@ import io.kotest.matchers.types.shouldNotBeSameInstanceAs
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.StateFlow
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -41,6 +42,8 @@ class MonitorServiceTest {
 
     private fun MonitorService.getField(name: String): Any? =
         MonitorService::class.java.getDeclaredField(name).apply { isAccessible = true }.get(this)
+
+    private fun MonitorService.startSignal(): Long = (getField("startSignal") as StateFlow<*>).value as Long
 
     private fun notification(title: String): Notification =
         NotificationCompat.Builder(context, MonitorNotifications.NOTIFICATION_CHANNEL_ID)
@@ -202,6 +205,22 @@ class MonitorServiceTest {
 
         verify(exactly = 0) { manager.notify(any<Int>(), any()) }
         service.getField("lastNotification").shouldBeNull()
+    }
+
+    /**
+     * A start request that finds a live session is acknowledged without touching it — including a
+     * teardown countdown that is already running. Bumping the signal is what re-arms that window.
+     */
+    @Test
+    fun `a short-circuited start bumps the start signal`() {
+        val service = createService()
+        service.readyForMonitoring()
+
+        val before = service.startSignal()
+
+        service.onStartCommand(MonitorService.intent(context), 0, 1) shouldBe Service.START_STICKY
+
+        service.startSignal() shouldBe before + 1
     }
 
     @Test

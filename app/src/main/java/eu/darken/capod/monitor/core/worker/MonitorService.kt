@@ -55,6 +55,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -95,6 +98,7 @@ class MonitorService : Service() {
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
+    private val startSignal = MutableStateFlow(0L)
     @Volatile private var monitorGeneration = 0
     private var foregroundStartFailed = false
     private var injectionComplete = false
@@ -212,6 +216,8 @@ class MonitorService : Service() {
 
         if (monitoringJob?.isActive == true && !forceStart) {
             log(TAG) { "Already monitoring and forceStart=false, keeping current session." }
+            // Fresh evidence of activity: re-arm any pending teardown countdown.
+            startSignal.value++
             return START_STICKY
         }
 
@@ -314,7 +320,7 @@ class MonitorService : Service() {
             }
             .launchIn(monitorScope)
 
-        permissionTool.missingScanPermissions
+        val modeStates = permissionTool.missingScanPermissions
             .flatMapLatest { missingPermsFlow ->
                 if (missingPermsFlow.isNotEmpty()) {
                     log(TAG, WARN) { "Aborting, scan permissions are missing: $missingPermsFlow" }
@@ -333,38 +339,13 @@ class MonitorService : Service() {
             }
             .distinctUntilChanged()
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
-            .flatMapLatest { state ->
-                log(TAG) { "Monitor mode: ${state.mode}" }
-                log(TAG) { "connectedAddresses: ${state.connectedAddresses}" }
-                log(TAG) { "knownAddresses: ${state.knownAddresses}" }
 
-                when (state.mode) {
-                    MonitorMode.MANUAL -> flow<Unit> {
-                        monitorScope.coroutineContext.cancelChildren()
-                    }
-
-                    MonitorMode.ALWAYS -> emptyFlow()
-                    MonitorMode.AUTOMATIC -> flow {
-                        when {
-                            !state.hasProfiles && state.connectedAddresses.isNotEmpty() -> {
-                                log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
-                            }
-
-                            state.knownAddresses.any { it in state.connectedAddresses } || state.hasAapSession -> {
-                                log(TAG) { "A device is connected, aborting any timeout." }
-                            }
-
-                            else -> {
-                                log(TAG) { "No known Pods are connected, stopping service soon." }
-                                delay(15 * 1000)
-                                log(TAG) { "Stopping service now, still no Pods connected." }
-
-                                monitorScope.coroutineContext.cancelChildren()
-                            }
-                        }
-                    }
-                }
-            }
+        monitorModeFlow(
+            tag = TAG,
+            modeStates = modeStates,
+            startSignal = startSignal,
+            onTeardown = { monitorScope.coroutineContext.cancelChildren() },
+        )
             .catch {
                 log(TAG, WARN) { "MonitorMode Flow failed:\n${it.asLog()}" }
             }
@@ -491,6 +472,60 @@ internal data class MonitorModeState(
     val connectedAddresses: Set<BluetoothAddress>,
     val hasAapSession: Boolean,
 )
+
+/**
+ * Decides whether a monitor session may keep running. In [MonitorMode.AUTOMATIC] with nothing
+ * connected the teardown runs [timeoutMillis] after the state was seen.
+ *
+ * [startSignal] is bumped by a start request that found a live session and short-circuited. The
+ * bump restarts this flow, arming a fresh window, and the pre-teardown re-check covers the case
+ * where the bump lands while the expired countdown is already unwinding.
+ */
+internal fun monitorModeFlow(
+    tag: String,
+    modeStates: Flow<MonitorModeState>,
+    startSignal: StateFlow<Long>,
+    timeoutMillis: Long = 15 * 1000,
+    onTeardown: () -> Unit,
+): Flow<Unit> = combine(modeStates, startSignal) { state, signal ->
+    state to signal
+}.flatMapLatest { (state, armedSignal) ->
+    log(tag) { "Monitor mode: ${state.mode}" }
+    log(tag) { "connectedAddresses: ${state.connectedAddresses}" }
+    log(tag) { "knownAddresses: ${state.knownAddresses}" }
+
+    when (state.mode) {
+        MonitorMode.MANUAL -> flow<Unit> {
+            onTeardown()
+        }
+
+        MonitorMode.ALWAYS -> emptyFlow()
+        MonitorMode.AUTOMATIC -> flow {
+            when {
+                !state.hasProfiles && state.connectedAddresses.isNotEmpty() -> {
+                    log(tag, WARN) { "Main device address not set, staying alive while any is connected" }
+                }
+
+                state.knownAddresses.any { it in state.connectedAddresses } || state.hasAapSession -> {
+                    log(tag) { "A device is connected, aborting any timeout." }
+                }
+
+                else -> {
+                    log(tag) { "No known Pods are connected, stopping service soon." }
+                    delay(timeoutMillis)
+
+                    if (startSignal.value != armedSignal) {
+                        log(tag) { "A start request arrived during the timeout, staying alive." }
+                        return@flow
+                    }
+                    log(tag) { "Stopping service now, still no Pods connected." }
+
+                    onTeardown()
+                }
+            }
+        }
+    }
+}
 
 internal fun buildMonitorModeState(
     mode: MonitorMode,
