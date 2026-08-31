@@ -45,6 +45,7 @@ class BlePodMonitorTest : BaseTest() {
         verify(exactly = 1) {
             fixture.bleScanner.scan(
                 filters = any(),
+                filterPolicy = any(),
                 scannerMode = any(),
                 disableOffloadFiltering = any(),
                 disableOffloadBatching = any(),
@@ -72,6 +73,7 @@ class BlePodMonitorTest : BaseTest() {
         verify(exactly = 2) {
             fixture.bleScanner.scan(
                 filters = any(),
+                filterPolicy = any(),
                 scannerMode = any(),
                 disableOffloadFiltering = any(),
                 disableOffloadBatching = any(),
@@ -90,6 +92,7 @@ class BlePodMonitorTest : BaseTest() {
             every {
                 scan(
                     filters = any(),
+                    filterPolicy = any(),
                     scannerMode = any(),
                     disableOffloadFiltering = any(),
                     disableOffloadBatching = any(),
