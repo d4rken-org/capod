@@ -30,7 +30,7 @@ import java.util.concurrent.CopyOnWriteArrayList
  * investigator is reading.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(application = TestApplication::class)
+@Config(sdk = [33], application = TestApplication::class)
 class BleScannerConfigLogTest : BaseTest() {
 
     private val logLines = CopyOnWriteArrayList<String>()

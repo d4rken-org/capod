@@ -32,7 +32,7 @@ import java.util.concurrent.CopyOnWriteArrayList
  * carries no evidence for it unless the state is written into the log while the recording runs.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(application = TestApplication::class)
+@Config(sdk = [33], application = TestApplication::class)
 class PowerStateLoggerTest : BaseTest() {
 
     private val logLines = CopyOnWriteArrayList<String>()
