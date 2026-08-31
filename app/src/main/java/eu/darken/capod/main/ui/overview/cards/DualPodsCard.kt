@@ -46,6 +46,7 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
@@ -287,7 +288,7 @@ private fun ColumnScope.DualPodsCardExpanded(
 
     // Cached battery indicator
     if (device.isBatteryCached && !device.isLive) {
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
             style = MaterialTheme.typography.bodySmall,
@@ -493,8 +494,7 @@ private fun CaseRow(
         if (charges != null) {
             CaseChargesLine(
                 charges = charges,
-                // Aligned under the percentage, past the case icon and its spacer.
-                modifier = Modifier.padding(start = 36.dp, top = 2.dp),
+                modifier = Modifier.padding(top = 2.dp),
             )
         }
     }
@@ -542,7 +542,10 @@ private fun CaseChargesLine(
         text = text,
         style = MaterialTheme.typography.bodySmall,
         color = color,
-        modifier = modifier.semantics { stateDescription = state },
+        textAlign = TextAlign.Center,
+        modifier = modifier
+            .fillMaxWidth()
+            .semantics { stateDescription = state },
     )
 }
 
