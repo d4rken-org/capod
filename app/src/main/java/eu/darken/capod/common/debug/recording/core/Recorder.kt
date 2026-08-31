@@ -1,6 +1,7 @@
 package eu.darken.capod.common.debug.recording.core
 
 import eu.darken.capod.common.TimeSource
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.FileLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
@@ -33,6 +34,10 @@ class Recorder @Inject constructor(
             it.start()
             Logging.install(it)
             log(TAG, INFO) { "Now logging to file!" }
+            // Flipped here rather than only from the committed module state: that publishes after
+            // the recording header has been read, and everything written in that window would miss
+            // the debug-only diagnostics that key off this flag.
+            Bugs.isDebug.value = true
         }
     }
 
@@ -52,6 +57,7 @@ class Recorder @Inject constructor(
             } finally {
                 fileLogger = null
                 this@Recorder.path = null
+                Bugs.isDebug.value = false
             }
         }
     }
