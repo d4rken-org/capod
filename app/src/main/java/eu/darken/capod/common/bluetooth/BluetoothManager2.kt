@@ -311,12 +311,10 @@ class BluetoothManager2 @Inject constructor(
                 address = device.address,
                 name = device.name,
                 internal = device,
+                // Read-only: a bonded device is not necessarily connected, and writing here would
+                // re-stamp entries that [connectedDevices] just pruned.
                 seenFirstAt = seenDevicesLock.withLock {
-                    seenDevicesCache[device.address] ?: run {
-                        val now = timeSource.now()
-                        seenDevicesCache[device.address] = now
-                        now
-                    }
+                    seenDevicesCache[device.address] ?: timeSource.now()
                 }
             )
 
