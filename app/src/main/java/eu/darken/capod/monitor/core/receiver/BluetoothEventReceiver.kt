@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.hasFeature
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -19,6 +20,7 @@ import javax.inject.Inject
 class BluetoothEventReceiver : BroadcastReceiver() {
 
     @Inject lateinit var monitorControl: MonitorControl
+    @Inject lateinit var bluetoothManager: BluetoothManager2
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context, $intent)" }
@@ -46,6 +48,15 @@ class BluetoothEventReceiver : BroadcastReceiver() {
             return
         } else {
             log { "Device has the following we features we support $supportedFeatures" }
+        }
+
+        when (intent.action) {
+            BluetoothDevice.ACTION_ACL_CONNECTED -> bluetoothManager.markDeviceConnected(bluetoothDevice.address)
+            BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
+                bluetoothManager.markDeviceDisconnected(bluetoothDevice.address)
+                // A disconnect is not a reason to start monitoring.
+                return
+            }
         }
 
         log(TAG) { "Starting monitor" }
