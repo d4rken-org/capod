@@ -27,7 +27,10 @@ class PodHistoryFuzzyCollisionTest : BaseBlePodsTest() {
     // IRK + a resolvable RPA pair lifted from RPACheckerTest.
     private val irkHex = "79-04-65-1E-E2-CC-D9-26-F2-6E-20-EE-3E-CC-DE-79"
     private val myRpa = "5A:16:2B:91:D1:CD"        // resolves against irkHex
+    private val myRotatedRpa = "45:23:51:E3:40:6E" // also resolves against irkHex (computed)
     private val foreignAddress = "77:49:4C:D8:25:0C" // does NOT resolve against irkHex
+
+    private fun String.reversedOctets(): String = split(":").reversed().joinToString(":")
 
     // A valid AirPods Pro 2 (USB-C) proximity advertisement (model 0x2420), reused for both frames.
     private val payload = "07 19 01 24 20 0B 99 8F 11 00 04 BD A7 3B FF 2D 8A 3C AF 9B 1A 7C 74 B7 A9 D1 C3"
@@ -75,7 +78,6 @@ class PodHistoryFuzzyCollisionTest : BaseBlePodsTest() {
                 address = "AA:BB:CC:DD:EE:FF",
             )
         )
-        val myRotatedRpa = "45:23:51:E3:40:6E" // also resolves against irkHex (computed)
 
         lateinit var first: AirPodsPro2Usbc
         create<AirPodsPro2Usbc>(payload, address = myRpa) { first = this }
@@ -86,5 +88,85 @@ class PodHistoryFuzzyCollisionTest : BaseBlePodsTest() {
         second.meta.isIRKMatch shouldBe true
         // Same physical device across rotation -> same stable identity (recovered via IRK).
         second.identifier shouldBe first.identifier
+    }
+
+    @Test
+    fun `a device whose address arrives octet-reversed keeps one identity across a rotation`() = runTest {
+        profileList.add(
+            AppleDeviceProfile(
+                label = "Mine",
+                model = PodModel.AIRPODS_PRO2_USBC,
+                identityKey = irkHex.fromHex(),
+                address = "AA:BB:CC:DD:EE:FF",
+            )
+        )
+
+        lateinit var first: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = myRpa.reversedOctets()) { first = this }
+        first.meta.isIRKMatch shouldBe true
+        first.meta.profile shouldNotBe null
+
+        lateinit var second: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = myRotatedRpa.reversedOctets()) { second = this }
+        second.meta.isIRKMatch shouldBe true
+        second.identifier shouldBe first.identifier
+    }
+
+    @Test
+    fun `a reversed foreign address must not inherit a keyed device's identity`() = runTest {
+        profileList.add(
+            AppleDeviceProfile(
+                label = "Mine",
+                model = PodModel.AIRPODS_PRO2_USBC,
+                identityKey = irkHex.fromHex(),
+                address = "AA:BB:CC:DD:EE:FF",
+            )
+        )
+
+        lateinit var mine: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = myRpa) { mine = this }
+        mine.meta.isIRKMatch shouldBe true
+
+        // The reversed foreign address is RPA-shaped in its reversed form, so the alternate-order
+        // path runs its hash comparison on it — and must still refuse to attribute it.
+        lateinit var foreign: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = foreignAddress.reversedOctets()) { foreign = this }
+        foreign.meta.isIRKMatch shouldBe false
+        foreign.meta.profile shouldBe null
+        foreign.identifier shouldNotBe mine.identifier
+    }
+
+    @Test
+    fun `a history bound to another profile is not claimed by identity recovery`() = runTest {
+        // Both profiles carry the SAME key: with two independent keys the candidate would already
+        // fail the key check and the binding check would never be reached.
+        val profileOne = AppleDeviceProfile(
+            label = "First",
+            model = PodModel.AIRPODS_PRO2_USBC,
+            identityKey = irkHex.fromHex(),
+            address = "AA:BB:CC:DD:EE:F1",
+        )
+        val profileTwo = AppleDeviceProfile(
+            label = "Second",
+            model = PodModel.AIRPODS_PRO2_USBC,
+            identityKey = irkHex.fromHex(),
+            address = "AA:BB:CC:DD:EE:F2",
+        )
+        profileList.add(profileOne)
+        profileList.add(profileTwo)
+
+        // The first resolving profile wins, so this frame binds the history to profileOne.
+        lateinit var first: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = myRpa) { first = this }
+        first.meta.profile?.id shouldBe profileOne.id
+
+        // profileOne is gone, so the next frame resolves to profileTwo — which must not be handed
+        // the history that is already bound to profileOne.
+        profileList.remove(profileOne)
+
+        lateinit var second: AirPodsPro2Usbc
+        create<AirPodsPro2Usbc>(payload, address = myRotatedRpa) { second = this }
+        second.meta.profile?.id shouldBe profileTwo.id
+        second.identifier shouldNotBe first.identifier
     }
 }
