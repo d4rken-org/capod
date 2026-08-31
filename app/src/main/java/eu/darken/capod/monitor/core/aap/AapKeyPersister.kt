@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core.aap
 
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -33,15 +34,22 @@ class AapKeyPersister @Inject constructor(
                 return@onEach
             }
 
-            val updated = profile.copy(
-                identityKey = keys.irk ?: profile.identityKey,
-                encryptionKey = keys.encKey ?: profile.encryptionKey,
-            )
+            // The profile's key fields are ByteArrays, so the generated equals() compares them by
+            // reference — content comparison is what decides whether anything actually changed.
+            val irkChanged = keys.irk != null && !keys.irk.contentEquals(profile.identityKey)
+            val encChanged = keys.encKey != null && !keys.encKey.contentEquals(profile.encryptionKey)
 
-            if (updated != profile) {
-                profilesRepo.updateProfile(updated)
-                log(TAG) { "Persisted keys for $address (IRK=${keys.irk != null}, ENC=${keys.encKey != null})" }
+            if (!irkChanged && !encChanged) {
+                log(TAG, VERBOSE) { "Keys for $address are unchanged, skipping key persistence" }
+                return@onEach
             }
+
+            val updated = profile.copy(
+                identityKey = if (irkChanged) keys.irk else profile.identityKey,
+                encryptionKey = if (encChanged) keys.encKey else profile.encryptionKey,
+            )
+            profilesRepo.updateProfile(updated)
+            log(TAG) { "Persisted keys for $address (IRK changed=$irkChanged, ENC changed=$encChanged)" }
         }
         .map { }
         .setupCommonEventHandlers(TAG) { "keyPersister" }
