@@ -30,7 +30,12 @@ class RPAChecker @Inject constructor() {
     fun resolve(address: BluetoothAddress, irk: IdentityResolvingKey): AddressOrder? = try {
         val octets = address.parseOctets()
         when {
-            octets == null -> null
+            octets == null -> {
+                log(TAG, Logging.Priority.WARN) {
+                    "Failed to resolve RPA, malformed address: ${address.redactedForLogs()}"
+                }
+                null
+            }
             matchesHash(octets, irk) -> AddressOrder.STANDARD
             else -> octets.reversedArray()
                 .takeIf { it.isRpaShaped() && matchesHash(it, irk) }

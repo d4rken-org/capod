@@ -162,4 +162,32 @@ class RPACheckerTest : BaseTest() {
         captured.any { (_, message) -> message.contains(keyHex, ignoreCase = true) } shouldBe false
         captured.any { (_, message) -> message.contains(resolvingAddress) } shouldBe false
     }
+
+    @Test
+    fun `a malformed address is logged as a warning`() {
+        val captured = mutableListOf<Pair<Logging.Priority, String>>()
+        val capturingLogger = object : Logging.Logger {
+            override fun log(
+                priority: Logging.Priority,
+                tag: String,
+                message: String,
+                metaData: Map<String, Any>?,
+            ) {
+                captured.add(priority to message)
+            }
+        }
+
+        Logging.clearAll()
+        Logging.install(capturingLogger)
+        try {
+            RPAChecker().verify(address = "123", irk = irkHex.fromHex()) shouldBe false
+        } finally {
+            Logging.clearAll()
+            Logging.install(JUnitLogger())
+        }
+
+        captured.any { (priority, message) ->
+            priority == Logging.Priority.WARN && message.contains("malformed")
+        } shouldBe true
+    }
 }
