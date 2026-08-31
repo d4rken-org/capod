@@ -7,9 +7,12 @@ import android.content.Context
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.TestTimeSource
@@ -34,8 +37,16 @@ class BluetoothManager2Test : BaseTest() {
     }
     private val timeSource = TestTimeSource()
 
-    private fun TestScope.create() = BluetoothManager2(
-        appScope = backgroundScope,
+    // Unconfined, so the appScope.launch bodies of the mark* methods complete in place.
+    private val appScope = CoroutineScope(UnconfinedTestDispatcher())
+
+    @AfterEach
+    fun teardown() {
+        appScope.cancel()
+    }
+
+    private fun create() = BluetoothManager2(
+        appScope = appScope,
         dispatcherProvider = TestDispatcherProvider(),
         context = mockk<Context>(),
         manager = btManager,
@@ -57,6 +68,47 @@ class BluetoothManager2Test : BaseTest() {
         manager.bonded(ADDRESS_A).seenFirstAt shouldBe timeSource.now()
 
         timeSource.advanceBy(Duration.ofSeconds(60))
+
+        manager.bonded(ADDRESS_A).seenFirstAt shouldBe timeSource.now()
+    }
+
+    /**
+     * The ACL broadcast arrives whether or not anything is collecting the connected-devices flow,
+     * so the stamp it leaves has to survive until the device disconnects.
+     */
+    @Test
+    fun `an ACL connect stamp survives the passage of time`() = runTest {
+        val manager = create()
+        val connectedAt = timeSource.now()
+
+        manager.markDeviceConnected(ADDRESS_A)
+
+        timeSource.advanceBy(Duration.ofSeconds(60))
+
+        manager.bonded(ADDRESS_A).seenFirstAt shouldBe connectedAt
+    }
+
+    @Test
+    fun `a repeated ACL connect keeps the first stamp`() = runTest {
+        val manager = create()
+        val connectedAt = timeSource.now()
+
+        manager.markDeviceConnected(ADDRESS_A)
+
+        timeSource.advanceBy(Duration.ofSeconds(60))
+        manager.markDeviceConnected(ADDRESS_A)
+
+        manager.bonded(ADDRESS_A).seenFirstAt shouldBe connectedAt
+    }
+
+    @Test
+    fun `an ACL disconnect drops the stamp`() = runTest {
+        val manager = create()
+
+        manager.markDeviceConnected(ADDRESS_A)
+
+        timeSource.advanceBy(Duration.ofSeconds(60))
+        manager.markDeviceDisconnected(ADDRESS_A)
 
         manager.bonded(ADDRESS_A).seenFirstAt shouldBe timeSource.now()
     }
