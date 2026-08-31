@@ -136,6 +136,7 @@ class PodHistoryRepo @Inject constructor(
 
             if (profile != null) {
                 recognizedDevice = knownDevices.values
+                    .filter { it.boundProfileId == null || it.boundProfileId == profile.id }
                     .firstOrNull { rpaChecker.verify(it.lastAddress, profile.identityKey!!) }
                     .also { log(TAG, VERBOSE) { "search1: Recovered via IRK: ${it?.logSummary()}" } }
             }

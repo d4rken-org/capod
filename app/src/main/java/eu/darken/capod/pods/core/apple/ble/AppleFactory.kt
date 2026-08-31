@@ -70,9 +70,12 @@ class AppleFactory @Inject constructor(
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) } ?: unknownAppleFactory
 
         val profiles = profilesRepo.currentProfiles().filterIsInstance<AppleDeviceProfile>()
-        var profile = profiles.firstOrNull {
-            it.identityKey != null && rpaChecker.verify(scanResult.address, it.identityKey)
+        val irkMatch = profiles.firstNotNullOfOrNull { candidate ->
+            val identityKey = candidate.identityKey ?: return@firstNotNullOfOrNull null
+            rpaChecker.resolve(scanResult.address, identityKey)?.let { candidate to it }
         }
+        var profile = irkMatch?.first
+        val irkOrder = irkMatch?.second
 
         val isIrkMatch = profile != null
         if (isIrkMatch) {
@@ -115,7 +118,10 @@ class AppleFactory @Inject constructor(
                     .filter { it.identityKey != null && (it.model == PodModel.UNKNOWN || it.model == tempDevice.model) }
                     .firstOrNull { it.minimumSignalQuality <= tempDevice.signalQuality }
                 if (legacyCandidate != null) {
-                    log(TAG, WARN) { "Keyed profile ${legacyCandidate.id} would match via old fallback (IRK failed) — stale key?" }
+                    log(TAG, WARN) {
+                        "Keyed profile ${legacyCandidate.id} would match via old fallback, " +
+                            "its key resolved neither address order"
+                    }
                 }
             }
         }
@@ -136,7 +142,8 @@ class AppleFactory @Inject constructor(
             val publicHex = payload.public.data.joinToString(" ") { "%02X".format(it.toInt()) }
             val privateHex = payload.private?.data?.joinToString(" ") { "%02X".format(it.toInt()) } ?: "-"
             "Apple decoded: model=${device.model}, addr=${scanResult.address.redactedForLogs()}, " +
-                "irkMatch=$isIrkMatch, raw=[$rawHex], public=[$publicHex], private=[$privateHex]"
+                "irkMatch=$isIrkMatch, irkOrder=${irkOrder?.name ?: "-"}, " +
+                "raw=[$rawHex], public=[$publicHex], private=[$privateHex]"
         }
 
         device
