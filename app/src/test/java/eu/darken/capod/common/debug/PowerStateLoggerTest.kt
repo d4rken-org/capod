@@ -57,7 +57,7 @@ class PowerStateLoggerTest : BaseTest() {
         Bugs.isDebug.value = false
     }
 
-    private fun powerLines() = logLines.filter { it.startsWith("Power state") }
+    private fun powerLines() = logLines.filter { it.startsWith("Power state (") }
 
     private fun broadcast(action: String) {
         context.sendBroadcast(Intent(action))
