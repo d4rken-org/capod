@@ -26,6 +26,8 @@ import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
@@ -207,7 +209,14 @@ class RecorderModule @Inject constructor(
             }
             .launchIn(appScope)
 
+        // Confirms the flag on committed transitions only. Requests carry an `isRecording` the
+        // recorder has already moved past, so publishing one would overwrite the flip that
+        // [Recorder.start]/[Recorder.stop] did next to the file logger they actually installed.
+        // The pre-start emissions collapse into one, which is then dropped; swapping the two
+        // operators lets the start request through again.
         internalState.flow
+            .distinctUntilChangedBy { it.isRecording }
+            .drop(1)
             .onEach { Bugs.isDebug.value = it.isRecording }
             .launchIn(appScope)
     }
