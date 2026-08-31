@@ -6,6 +6,7 @@ import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.debug.PowerStateLogger
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.LogCatLogger
 import eu.darken.capod.common.debug.logging.Logging
@@ -41,6 +42,7 @@ open class App : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
     @Inject lateinit var autoReporting: AutomaticBugReporter
+    @Inject lateinit var powerStateLogger: PowerStateLogger
     @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var widgetManager: WidgetManager
     @Inject lateinit var upgradeRepo: UpgradeRepo
@@ -69,6 +71,7 @@ open class App : Application(), Configuration.Provider {
         )
 
         autoReporting.setup(this)
+        powerStateLogger.setup()
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
 
