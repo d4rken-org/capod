@@ -5,6 +5,7 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.ScanFilterPolicy
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.bluetooth.onlyNewAndUnique
 import eu.darken.capod.common.coroutine.AppScope
@@ -215,6 +216,10 @@ class BlePodMonitor @Inject constructor(
                 emitAll(
                     bleScanner.scan(
                         filters = filters,
+                        filterPolicy = when {
+                            options.showUnfiltered -> ScanFilterPolicy.MATCH_ALL
+                            else -> ScanFilterPolicy.PROXIMITY_PAIRING
+                        },
                         scannerMode = options.scannerMode,
                         disableOffloadFiltering = options.offloadedFilteringDisabled,
                         disableOffloadBatching = options.offloadedBatchingDisabled,

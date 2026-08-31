@@ -10,7 +10,9 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.TimeSource
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -21,6 +23,8 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.dropWhile
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -39,6 +43,7 @@ class BleScanner @Inject constructor(
 
     @SuppressLint("MissingPermission") fun scan(
         filters: Set<ScanFilter>,
+        filterPolicy: ScanFilterPolicy,
         scannerMode: ScannerMode = ScannerMode.BALANCED,
         disableOffloadFiltering: Boolean = false,
         disableOffloadBatching: Boolean = false,
@@ -50,14 +55,16 @@ class BleScanner @Inject constructor(
 
         val adapter = bluetoothManager.adapter ?: throw IllegalStateException("Bluetooth adapter unavailable")
 
-        val useOffloadedFiltering = adapter.isOffloadedFilteringSupported.also {
+        val offloadFilteringSupported = adapter.isOffloadedFilteringSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedFilteringSupported=$it" }
-        } && !disableOffloadFiltering
+        }
+        val useOffloadedFiltering = offloadFilteringSupported && !disableOffloadFiltering
         if (disableOffloadFiltering) log(TAG, WARN) { "Offloaded filtering is disabled!" }
 
-        val useOffloadedBatching = adapter.isOffloadedScanBatchingSupported.also {
+        val offloadBatchingSupported = adapter.isOffloadedScanBatchingSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedScanBatchingSupported=$it" }
-        } && !disableOffloadBatching
+        }
+        val useOffloadedBatching = offloadBatchingSupported && !disableOffloadBatching
         if (disableOffloadBatching) log(TAG, WARN) { "Offloaded scan-batching is disabled!" }
 
         if (disableDirectScanCallback) log(TAG, WARN) { "Direct scan callback is disabled!" }
@@ -128,6 +135,16 @@ class BleScanner @Inject constructor(
             else -> emptyList()
         }
 
+        val reportDelayMs = if (useOffloadedBatching) {
+            when (scannerMode) {
+                ScannerMode.LOW_POWER -> 2000L
+                ScannerMode.BALANCED -> 1000L
+                ScannerMode.LOW_LATENCY -> 500L
+            }
+        } else {
+            0L // Anything > 0 enables batching
+        }
+
         val scanSettings = ScanSettings.Builder().apply {
             setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
             when (scannerMode) {
@@ -148,17 +165,34 @@ class BleScanner @Inject constructor(
                 }
             }
 
-            val delay = if (useOffloadedBatching) {
-                when (scannerMode) {
-                    ScannerMode.LOW_POWER -> 2000L
-                    ScannerMode.BALANCED -> 1000L
-                    ScannerMode.LOW_LATENCY -> 500L
-                }
-            } else {
-                0L // Anything > 0 enables batching
-            }
-            setReportDelay(delay)
+            setReportDelay(reportDelayMs)
         }.build()
+
+        val config = ScanConfig(
+            scannerMode = scannerMode,
+            filterPolicy = filterPolicy,
+            platformFilterCount = filterList.size,
+            requestedFilterCount = filters.size,
+            offloadFilteringSupported = offloadFilteringSupported,
+            offloadFilteringDisabledBySetting = disableOffloadFiltering,
+            offloadBatchingSupported = offloadBatchingSupported,
+            offloadBatchingDisabledBySetting = disableOffloadBatching,
+            reportDelayMs = reportDelayMs,
+            directCallback = !disableDirectScanCallback,
+        )
+        log(TAG, INFO) { config.summary() }
+
+        // A recording usually starts while a scan is already running, i.e. after the line above went
+        // nowhere. Re-emit so the capture contains the configuration it is meant to diagnose.
+        val debugAtStart = Bugs.isDebug.value
+        Bugs.isDebug
+            // Not drop(1): launchIn subscribes asynchronously, so the replayed value is whatever is
+            // current at subscription time. A recording started in that gap would be discarded as
+            // though it were the initial value.
+            .dropWhile { it == debugAtStart }
+            .filter { it }
+            .onEach { log(TAG, INFO) { "${config.summary()} (recording started)" } }
+            .launchIn(this)
 
         try {
             if (disableDirectScanCallback) {
@@ -237,5 +271,32 @@ class BleScanner @Inject constructor(
     companion object {
         private const val CALLBACK_INTENT_REQUESTCODE = 270
         private val TAG = logTag("Bluetooth", "BleScanner")
+    }
+}
+
+internal data class ScanConfig(
+    val scannerMode: ScannerMode,
+    val filterPolicy: ScanFilterPolicy,
+    val platformFilterCount: Int,
+    val requestedFilterCount: Int,
+    val offloadFilteringSupported: Boolean,
+    val offloadFilteringDisabledBySetting: Boolean,
+    val offloadBatchingSupported: Boolean,
+    val offloadBatchingDisabledBySetting: Boolean,
+    val reportDelayMs: Long,
+    val directCallback: Boolean,
+) {
+    // "Requested" rather than "filtering"/"batching": adapter capability plus our own setting is
+    // what we asked the platform for, not proof that the controller offloaded anything.
+    fun summary(): String {
+        val offloadFilteringRequested = offloadFilteringSupported && !offloadFilteringDisabledBySetting
+        val offloadBatchingRequested = offloadBatchingSupported && !offloadBatchingDisabledBySetting
+        return "Scan config: mode=$scannerMode, filterPolicy=$filterPolicy, " +
+            "platformFilters=$platformFilterCount/$requestedFilterCount, " +
+            "offloadFilteringRequested=$offloadFilteringRequested " +
+            "(supported=$offloadFilteringSupported, disabledBySetting=$offloadFilteringDisabledBySetting), " +
+            "offloadBatchingRequested=$offloadBatchingRequested " +
+            "(supported=$offloadBatchingSupported, disabledBySetting=$offloadBatchingDisabledBySetting), " +
+            "reportDelay=${reportDelayMs}ms, callback=${if (directCallback) "direct" else "intent"}"
     }
 }
