@@ -9,6 +9,7 @@ import eu.darken.capod.common.debug.logging.FileLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.upgrade.UpgradeDiagnostics
 import io.kotest.assertions.withClue
+import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -19,7 +20,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
@@ -40,24 +40,23 @@ import java.util.concurrent.TimeUnit
 import kotlin.coroutines.CoroutineContext
 
 /**
- * [Bugs.isDebug] has two writers: [Recorder.start]/[Recorder.stop] flip it around the file logger
- * they install, and a collector in [RecorderModule]'s init mirrors `isRecording` from every state
- * emission. Three of those emissions carry an `isRecording` the recorder has already moved past —
- * a start request is published while `recorder` is still null, a stop request while it is still
- * set — so the collector can publish a value that contradicts the logger that is actually running.
+ * The flag collector in [RecorderModule]'s init mirrors `isRecording` from the module state, and a
+ * committed stop is a value it legitimately publishes. Delivery of that value is not tied to the
+ * recording it describes: the collector runs on the app scope while the recorder work runs on the
+ * producer's IO context, so the `false` can land after the next session's [Recorder.start] has
+ * already written `true`. `distinctUntilChangedBy`/`drop(1)` do not filter it — a genuine stop and
+ * a genuine start are distinct values, and both pass.
  *
- * The start request is the expensive one: the state that would repair it only commits after the
- * recording header has been read, which is bounded at five seconds. Everything logged in that
- * window loses the debug-only diagnostics that key off this flag.
+ * The window that follows is not short: the state that would repair the flag only commits after
+ * `logRecordingHeader()`, which is bounded at five seconds.
  *
- * The two writers run on the same scope but different dispatchers, so which one lands last is a
- * race. It is forced here rather than waited for: the module's scope gets a dispatcher whose queue
- * this test steps through by hand, which is what a saturated Dispatchers.Default does to the flag
- * collector's continuation while the start work proceeds on an IO thread.
+ * Forced rather than waited for: the module's app scope gets a dispatcher whose queue this test
+ * steps through by hand, which is what a saturated Dispatchers.Default does to the flag collector's
+ * continuation while the module's own producer proceeds on IO.
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
-class RecorderModuleDebugFlagTest : BaseTest() {
+class RecorderModuleStaleStopFlagTest : BaseTest() {
 
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()
@@ -68,16 +67,22 @@ class RecorderModuleDebugFlagTest : BaseTest() {
     private val externalLogsDir: File
         get() = File(context.getExternalFilesDir(null), "debug/logs")
 
+    private val secondSessionDir: File
+        get() = File(context.cacheDir, "stale-stop-second-session")
+
     @Before
     fun cleanRecorderFiles() {
         triggerFile.delete()
         externalLogsDir.deleteRecursively()
         File(context.cacheDir, "debug/logs").deleteRecursively()
+        secondSessionDir.deleteRecursively()
+        secondSessionDir.mkdirs()
     }
 
     @After
     fun resetDebugFlag() {
         Logging.loggers.filterIsInstance<FileLogger>().forEach { Logging.remove(it) }
+        secondSessionDir.deleteRecursively()
         Bugs.isDebug.value = false
     }
 
@@ -132,23 +137,10 @@ class RecorderModuleDebugFlagTest : BaseTest() {
     }
 
     @Test
-    fun `the flag collector does not clobber the flag of a recorder that is already live`() {
+    fun `a late committed stop does not clear the flag of the session that replaced it`() {
         val moduleDispatcher = SteppingDispatcher()
         val moduleScope = CoroutineScope(moduleDispatcher + SupervisorJob())
         val callerScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
-
-        // Mirrors the real recorder: the flag is flipped where the file logger is installed, and
-        // parked there so the module cannot commit the state that would paper over a stale write.
-        val recorderLive = CountDownLatch(1)
-        val releaseStart = CountDownLatch(1)
-        val recorder = mockk<Recorder>(relaxed = true)
-        coEvery { recorder.start(any()) } coAnswers {
-            Bugs.isDebug.value = true
-            recorderLive.countDown()
-            releaseStart.await(AWAIT_TIMEOUT_MS, TimeUnit.MILLISECONDS)
-            Unit
-        }
-        coEvery { recorder.stop() } coAnswers { Bugs.isDebug.value = false }
 
         val module = RecorderModule(
             context = context,
@@ -157,52 +149,63 @@ class RecorderModuleDebugFlagTest : BaseTest() {
             installId = mockk<InstallId>(relaxed = true),
             timeSource = SystemTimeSource,
             upgradeDiagnostics = mockk<UpgradeDiagnostics>().apply { coEvery { debugInfo() } returns null },
-        ).apply { recorderFactory = { recorder } }
+        )
+
+        // Stands in for the recorder of the session that follows. In production this is the module's
+        // own next recorder: its start() runs on the producer's IO context, not on the app scope
+        // whose queue is held below, so it can write the flag while the collector still owes a value.
+        val nextSession = Recorder(SystemTimeSource)
 
         try {
-            // Both init collectors have subscribed and consumed the initial state.
-            moduleDispatcher.barrier(AWAIT_TIMEOUT_MS) shouldBe true
-            runBlocking { withTimeout(AWAIT_TIMEOUT_MS) { module.state.first() } }.isRecording shouldBe false
-            moduleDispatcher.barrier(AWAIT_TIMEOUT_MS) shouldBe true
-
-            moduleDispatcher.hold()
-            val start = callerScope.async { module.startRecorder() }
-
-            // The start request has been published: both collectors are queued on it.
-            runBlocking {
-                withTimeout(AWAIT_TIMEOUT_MS) {
-                    while (moduleDispatcher.heldCount() < 2) delay(POLL_MS)
-                }
-            }
-
-            // Step 1: the state machine collector, which hands the start work to the module's own
-            // producer and leaves the recorder live but uncommitted.
-            moduleDispatcher.releaseOne(AWAIT_TIMEOUT_MS) shouldBe true
-            recorderLive.await(AWAIT_TIMEOUT_MS, TimeUnit.MILLISECONDS) shouldBe true
-            withClue("the recorder's own write is the baseline this test measures against") {
+            runBlocking { withTimeout(AWAIT_TIMEOUT_MS) { withContext(Dispatchers.IO) { module.startRecorder() } } }
+            settleAndHold(moduleDispatcher)
+            withClue("the first recording is live, so the flag is true before anything is held") {
                 Bugs.isDebug.value shouldBe true
             }
 
-            // Step 2: the flag collector, still holding the pre-start emission.
-            withClue("the flag collector's turn on the start request must still be pending") {
+            val stop = callerScope.async { module.stopRecorder() }
+
+            // The stop request has been published and the state machine collector is queued on it.
+            runBlocking {
+                withTimeout(AWAIT_TIMEOUT_MS) {
+                    while (moduleDispatcher.heldCount() < 1) delay(POLL_MS)
+                }
+            }
+
+            // Step 1: the state machine collector. It hands the stop to the module's own producer,
+            // which stops the recorder on IO and publishes the committed stop.
+            withClue("the state machine collector's turn on the stop request must be pending") {
                 moduleDispatcher.releaseOne(AWAIT_TIMEOUT_MS) shouldBe true
             }
+            runBlocking { withTimeout(AWAIT_TIMEOUT_MS) { stop.await() } }
+
+            withClue("the recorder stopped itself, so nothing is recording at this point") {
+                Bugs.isDebug.value shouldBe false
+            }
+
+            // The committed stop is queued for the flag collector and has not been delivered yet.
+            withClue("the collector must still owe a delivery, or this test proves nothing") {
+                moduleDispatcher.heldCount() shouldBeGreaterThanOrEqual 1
+            }
+
+            runBlocking { nextSession.start(File(secondSessionDir, "core.log")) }
+            withClue("the new session's recorder wrote the flag next to the logger it installed") {
+                Bugs.isDebug.value shouldBe true
+            }
+
+            // Step 2: everything the collector still owes, the committed stop included.
+            moduleDispatcher.release()
+            moduleDispatcher.barrier(AWAIT_TIMEOUT_MS) shouldBe true
 
             withClue("a live recorder is writing to the log file, so isDebug must not read false") {
                 Bugs.isDebug.value shouldBe true
             }
-
-            releaseStart.countDown()
-            moduleDispatcher.release()
-            runBlocking { withTimeout(AWAIT_TIMEOUT_MS) { start.await() } }
         } finally {
-            releaseStart.countDown()
             moduleDispatcher.release()
             runBlocking {
-                try {
+                runCatching { withTimeout(AWAIT_TIMEOUT_MS) { nextSession.stop() } }
+                runCatching {
                     withTimeout(AWAIT_TIMEOUT_MS) { withContext(Dispatchers.IO) { module.stopRecorder() } }
-                } catch (e: Exception) {
-                    // cleanup only
                 }
             }
             callerScope.cancel()
@@ -211,8 +214,27 @@ class RecorderModuleDebugFlagTest : BaseTest() {
         }
     }
 
+    /**
+     * Holds the dispatcher at a point where nothing is queued on it, so the first task released
+     * afterwards is the first reaction to whatever the test does next.
+     */
+    private fun settleAndHold(dispatcher: SteppingDispatcher) = runBlocking {
+        withTimeout(AWAIT_TIMEOUT_MS) {
+            while (true) {
+                dispatcher.barrier(AWAIT_TIMEOUT_MS) shouldBe true
+                dispatcher.hold()
+                dispatcher.barrier(AWAIT_TIMEOUT_MS) shouldBe true
+                delay(SETTLE_MS)
+                if (dispatcher.heldCount() == 0) return@withTimeout
+                dispatcher.release()
+                delay(SETTLE_MS)
+            }
+        }
+    }
+
     companion object {
         private const val AWAIT_TIMEOUT_MS = 5_000L
         private const val POLL_MS = 10L
+        private const val SETTLE_MS = 100L
     }
 }
