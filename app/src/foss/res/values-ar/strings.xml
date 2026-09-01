@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">تبرع</string>
-    <string name="foss_upgrade_alreadydonated_label">لقد تبرعت بالفعل</string>
-    <string name="foss_upgrade_no_money_label">أنفق كل أموالي على سماعات أيربودز</string>
-    <string name="upgrade_foss_preamble">برنامج كابود FOSS مجاني ومفتوح المصدر. إذا وجدته مفيدًا، ففكر في دعم تطويره للمساعدة في استمرار المشروع.</string>
-    <string name="upgrade_foss_sponsor_action">دعم التطوير</string>
-    <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبع. لا قيود من جوجل بلاي.</string>
+    <string name="foss_upgrade_donate_label">تبرَّع</string>
+    <string name="foss_upgrade_alreadydonated_label">لقد تبرّعتُ فعلًا</string>
+    <string name="foss_upgrade_no_money_label">أنفق كلّ أموالي على سمّاعات أيربودز</string>
+    <string name="upgrade_foss_preamble">برنامج كابود FOSS مجّاني ومفتوح المصدر. إذا وجدته مفيدًا، ففكّر في دعم تطويره للمساعدة في استمرار المشروع.</string>
+    <string name="upgrade_foss_sponsor_action">ادعم التطوير</string>
+    <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبّع. لا قيود من جوجل بلاي.</string>
     <string name="upgrade_foss_sponsor_returned_early">هل عدت بالفعل؟ دعمك يبقي كابود حيًّا.</string>
-    <string name="upgrade_foss_supporter_since">داعم منذ %s</string>
-    <string name="upgrade_foss_supporter_thanks">شكرًا لدعمك تطوير CAPod!</string>
-    <string name="upgrade_foss_sponsor_again_action">فتح صفحة الرعاية</string>
+    <string name="upgrade_foss_supporter_since">داعمٌ منذ %s</string>
+    <string name="upgrade_foss_supporter_thanks">شكرًا لدعمك تطوير كابود!</string>
+    <string name="upgrade_foss_sponsor_again_action">افتح صفحة الرعاية</string>
     <string name="upgrade_foss_sponsor_label">دعم كابود</string>
     <string name="settings_upgrade_status_description">حالة دعمك.</string>
     <string name="upgrade_screen_why_title">مزايا الترقية</string>
     <string name="upgrade_screen_how_title">كيفية المساعدة</string>
     <string name="upgrade_screen_how_body">كُن راعيًا وادعم تطوير المشروع! اضغط على الزرّ أدناه لتفعيل جميع المزايا الإضافية وفتح ملفّي الشخصي على GitHub Sponsors.</string>
     <string name="upgrade_screen_status_free_title">النسخة المجّانية</string>
-    <string name="upgrade_screen_status_free_body">أنت تستخدم النسخة المجّانية من كابود. يمكنك فتح ميزات إضافية من خلال دعم التطوير.</string>
-    <string name="upgrade_screen_status_free_action">الاطّلاع على خيارات الترقية</string>
-    <string name="upgrade_screen_status_upgraded_title">الترقية نشطة</string>
+    <string name="upgrade_screen_status_free_body">أنت تستخدم النسخة المجّانية من كابود. يمكنك فتح مزايا إضافيةٍ عبر دعم التطوير.</string>
+    <string name="upgrade_screen_status_free_action">اطّلع على خيارات الترقية</string>
+    <string name="upgrade_screen_status_upgraded_title">الترقية نشيطة</string>
     <string name="upgrade_screen_recurring_title">أبقِ التطبيق مستمرًّا</string>
-    <string name="upgrade_screen_recurring_body">يستمرّ كابود في التطوّر من خلال التحديثات والإصلاحات. إذا كنت ترغب في دعم هذا التطوّر، ففكّر في التبرّع بشكل دوري عبر GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_body">يستمرّ كابود في التطوّر عبر التحديثات والإصلاحات. إذا كنت ترغب في دعم هذا التطوّر، ففكّر في التبرّع بشكلٍ دوريٍّ عبر GitHub Sponsors.</string>
 </resources>

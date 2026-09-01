@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">຋່ອນອຸປະກອນທີ່ໄມ່ຕໍງກັນ</string>
     <string name="settings_overview_hide_unmatched_description">ບໍ່ສະແດງອຸປະກອນໃກ້ທີ່ໄມ່ຕໍງກັບໂປຣໄຟລ໌ຂອງທ່ານໃນບັນທຶກປະກອບການ, ເຊັ່ນ: AirPods ຂອງຄນອື່ນ.</string>
     <string name="device_battery_estimate_toggle_label">ການປະເມີນແບັດເຕີຣີ</string>
-    <string name="device_battery_estimate_card_desc">ຮຽນຮູ້ວິທີການສາກແລະລະບາຍຂອງອຸປະກອນນີ້ ເພື່ອຄາດຄະເນເວລາທີ່ຍັງເຫຼືອ, ເວລາໃນການສາກສົມບູນ, ແລະ ສະຖານະພາບແບັດເຕີຣີ</string>
+    <string name="device_battery_estimate_card_desc">ຮຽນຮູ້ວ່າອຸປະກອນນີ້ສາກແລະລະບາຍແບັດເຕີຣີ ເພື່ອຄາດຄະເນເວລາທີ່ເຫລືອ, ເວລາຈົນກວ່າສາກເຕັມ, ແລະວ່າວລີຟັງມາດຕະຖານທີ່ຍັງເຫລືອເທົ່າໃດ</string>
     <string name="device_battery_estimate_reset_action">ຕັ້ງໃໝ່ຂໍ້ມູນທີ່ຮຽນຮູ້</string>
     <string name="device_battery_estimate_reset_desc">ເລີ່ມຕົ້ນໃໝ່ຈາກອາຍຸແບັດເຕີຣີມາດຕະຖານ</string>
     <string name="device_battery_estimate_reset_confirm_title">ຕັ້ງໃໝ່ຂໍ້ມູນທີ່ຮຽນຮູ້ບໍ?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ຈະລືມຂໍ້ມູນການລະບາຍ, ຄວາມໄວໃນການສາກ ແລະ ສະຖານະພາບແບັດເຕີຣີຂອງອຸປະກອນນີ້, ແລະ ເລີ່ມຕົ້ນໃໝ່ຈາກອາຍຸແບັດເຕີຣີມາດຕະຖານ</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ຈະລືມຂໍ້ມູນການລະບາຍ, ຄວາມໄວໃນການສາກ ແລະ ວລີຟັງຂອງອຸປະກອນນີ້, ແລະ ເລີ່ມຕົ້ນໃໝ່ຈາກອາຍຸແບັດເຕີຣີມາດຕະຖານ</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
     <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">ຂວາ</string>
     <string name="pods_case_label">ເຄສ</string>
     <string name="battery_unavailable_label">ບາດເຕີຣີບໍ່ສາມາດໃຊ້ງານໄດ້</string>
+    <string name="battery_state_low_cd">ແບັດເຕີຣີຕໍ່າ</string>
+    <string name="battery_state_critical_cd">ແບັດເຕີຣີໃກ້ຈະໝົດ</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">~%d ຄັ້ງສາກເຕັມອີກສໍາລັບຫູໄຟຟ້າທັງສອງ</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">ຢ່າງໜ້ອຍ %d ຄັ້ງສາກເຕັມອີກສໍາລັບຫູໄຟຟ້າທັງສອງ</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">ນ້ອຍກວ່າໜຶ່ງຄັ້ງສາກເຕັມສໍາລັບຫູໄຟຟ້າທັງສອງ</string>
+    <string name="battery_case_charges_empty">ກໍ່ວາງເປົ່າ, ບໍ່ມີຄັ້ງສາກເຕັມເຫລືອສໍາລັບຫູໄຟຟ້າຂອງທ່ານ</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">ບໍ່ແນ່ໃຈວ່າມີຄັ້ງສາກເຕັມເຫລືອເທົ່າໃດສໍາລັບຫູໄຟຟ້າທັງສອງ</string>
+    <string name="battery_case_charges_state_enough_cd">ພຽງພໍສໍາລັບສາກເຕັມ</string>
+    <string name="battery_case_charges_state_not_enough_cd">ບໍ່ພຽງພໍສຳລັບສາກເຕັມ</string>
+    <string name="battery_case_charges_state_uncertain_cd">ອາດຈະບໍ່ພຽງພໍສຳລັບສາກເຕັມ</string>
     <string name="pods_case_status_open_label">ເປີດ</string>
     <string name="pods_case_status_closed_label">ປິດ</string>
     <string name="pods_connection_state_disconnected_label">ບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບອຸປະກອນ</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">ໝາຍເລກ Pod ຂວາ</string>
     <string name="device_settings_info_left_bonded_label">ຊ້າຍໄດ້ຜູກມັດ</string>
     <string name="device_settings_info_right_bonded_label">ຂວາໄດ້ຜູກມັດ</string>
-    <string name="device_settings_info_battery_health_label">ສະຖານະພາບແບັດເຕີຣີ (ປະເມີນ)</string>
+    <string name="device_settings_info_battery_health_label">ວລີຟັງທີ່ຄາດຄະເນໄວ້</string>
     <string name="device_settings_info_battery_health_left_label">ສະຖານະພາບແບັດເຕີຣີຊ້າຍ (ປະເມີນ)</string>
-    <string name="device_settings_info_battery_health_right_label">ສະຖານະພາບແບັດເຕີຣີຂວາ (ປະເມີນ)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_right_label">ວລີຟັງຫູຂ້າງຂວາ</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% ຂອງມາດຕະຖານ</string>
     <string name="device_settings_info_battery_health_pending">ຍັງກຳລັງກຳນົດ, ກະລຸນາກັບມາບໍ່ດົນ</string>
+    <string name="device_settings_battery_runtime_warning_title">ວລີຟັງສັ້ນກວ່າມາດຕະຖານຫລາຍ</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: ປະມານ %2$d%% ຂອງວລີຟັງມາດຕະຖານ. ແຕະເພື່ອເບິ່ງລາຍລະອີດ</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">ຫູໄຟຟ້າເໜ່ານີ້</string>
     <string name="device_settings_info_details_label">ຂໍ້ມູນອຸປະກອນ</string>
     <string name="device_settings_info_details_action">ສະແດງຂໍ້ມູນອຸປະກອນ</string>
     <string name="device_settings_info_status_label">ສົຖະນະ</string>

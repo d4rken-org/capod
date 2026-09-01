@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Skrij neusklajene naprave</string>
     <string name="settings_overview_hide_unmatched_description">V pregledu ne prikazuj bližnjih naprav, ki ne ustrezajo nobenim od tvojih profilov, npr. AirPods drugih oseb.</string>
     <string name="device_battery_estimate_toggle_label">Ocene baterije</string>
-    <string name="device_battery_estimate_card_desc">Nauči se, kako se ta naprava polni in prazni, da oceniš preostali čas, čas do polnjenja in stanje baterije.</string>
+    <string name="device_battery_estimate_card_desc">Nauči se, kako se ta naprava polni in prazni, da oceniš preostali čas, čas do polnjenja in koliko od nazivnega časa poslušanja še dosega.</string>
     <string name="device_battery_estimate_reset_action">Resetiraj učene podatke</string>
     <string name="device_battery_estimate_reset_desc">Ponovno začni od nazivne življenjske dobe baterije.</string>
     <string name="device_battery_estimate_reset_confirm_title">Resetirati učene podatke?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod bo pozabil izmerjeno praznjenje, hitrost polnjenja in stanje baterije te naprave in ponovno začel od nazivne življenjske dobe baterije.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bo pozabil izmerjeno praznjenje, hitrost polnjenja in čas poslušanja te naprave in ponovno začel od nazivne življenjske dobe baterije.</string>
     <string name="settings_acknowledgements_label">Zahvale</string>
     <string name="settings_debug_autoreports_label">Samodejna poročila o napakah</string>
     <string name="settings_debug_autoreports_description">Samodejno poroča o težavah, npr. podrobnosti o zrušitvi aplikacije, da lahko ugotovim, kako jo popraviti.</string>
@@ -249,6 +249,28 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Ohišje</string>
     <string name="battery_unavailable_label">Baterija ni na voljo</string>
+    <string name="battery_state_low_cd">Nizka baterija</string>
+    <string name="battery_state_critical_cd">Kritično nizka baterija</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d več polnega polnjenja za oba slušalca</item>
+        <item quantity="two">~%d več polnih polnjenj za oba slušalca</item>
+        <item quantity="few">~%d več polnih polnjenj za oba slušalca</item>
+        <item quantity="other">~%d več polnih polnjenj za oba slušalca</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Vsaj %d več polnega polnjenja za oba slušalca</item>
+        <item quantity="two">Vsaj %d več polnih polnjenj za oba slušalca</item>
+        <item quantity="few">Vsaj %d več polnih polnjenj za oba slušalca</item>
+        <item quantity="other">Vsaj %d več polnih polnjenj za oba slušalca</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Manj kot eno polno polnjenje več za oba slušalca</string>
+    <string name="battery_case_charges_empty">Ohišje je prazno, ni več polnjenj za tvoje slušalce</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Ni jasno, koliko polnih polnjenj je ostalo za oba slušalca</string>
+    <string name="battery_case_charges_state_enough_cd">Dovolj za polno polnjenje</string>
+    <string name="battery_case_charges_state_not_enough_cd">Ni dovolj za polno polnjenje</string>
+    <string name="battery_case_charges_state_uncertain_cd">Morda ni dovolj za polno polnjenje</string>
     <string name="pods_case_status_open_label">Odprto</string>
     <string name="pods_case_status_closed_label">Zaprto</string>
     <string name="pods_connection_state_disconnected_label">Ni povezano z napravo</string>
@@ -443,11 +465,14 @@
     <string name="device_settings_info_right_serial_label">Serijska številka desnega slušalnika</string>
     <string name="device_settings_info_left_bonded_label">Levo sparjeno</string>
     <string name="device_settings_info_right_bonded_label">Desno sparjeno</string>
-    <string name="device_settings_info_battery_health_label">Stanje baterije (ocenjeno)</string>
-    <string name="device_settings_info_battery_health_left_label">Stanje leve baterije (oc.)</string>
-    <string name="device_settings_info_battery_health_right_label">Stanje desne baterije (oc.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Ocenjeni čas poslušanja</string>
+    <string name="device_settings_info_battery_health_left_label">Čas poslušanja levega slušalca</string>
+    <string name="device_settings_info_battery_health_right_label">Čas poslušanja desnega slušalca</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% od nazivnega</string>
     <string name="device_settings_info_battery_health_pending">Še vedno se določa, preveri pozneje</string>
+    <string name="device_settings_battery_runtime_warning_title">Čas poslušanja je bistveno krajši od nazivnega</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: približno %2$d%% od nazivnega časa poslušanja. Tapni za podrobnosti.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Te slušalke</string>
     <string name="device_settings_info_details_label">Podrobnosti naprave</string>
     <string name="device_settings_info_details_action">Prikaži podrobnosti naprave</string>
     <string name="device_settings_info_status_label">Status</string>

@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Поддержать разработчика</string>
     <string name="upgrade_benefit_disclaimer">Доступность функций зависит от Ваших наушников и устройства.</string>
     <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
-    <string name="settings_monitor_connected_notification_description">Показывает второе уведомление, которое появляется только когда устройство подключено. Включив эту функцию, ты сможешь скрыть постоянное уведомление «Нет устройств»: отключи категорию «Статус устройства» в настройках уведомлений CAPod в Android.</string>
+    <string name="settings_monitor_connected_notification_description">Показывает второе уведомление, которое появляется только когда устройство подключено. Включив эту функцию, Вы сможете скрыть постоянное уведомление «Нет устройств»: отключите категорию «Статус устройства» в настройках уведомлений CAPod в Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Оставить уведомление после отключения</string>
     <string name="settings_keep_notification_after_disconnect_description">Продолжать показывать последний известный заряд батареи даже после отключения AirPods</string>
     <string name="settings_autopause_label">Автопауза</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
     <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Попробуй это, если твои AirPods никогда не обнаруживаются. Приложение само будет просматривать все сигналы Bluetooth поблизости, вместо того чтобы позволять телефону предварительно отбирать их.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Попробуйте это, если Ваши AirPods никогда не обнаруживаются. Приложение само будет просматривать все сигналы Bluetooth поблизости, вместо того чтобы позволять телефону предварительно отбирать их.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Отключить аппаратное пакетирование</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Попробуй это, если уровень заряда обновляется с задержкой или скачками. Телефон будет сразу передавать каждый сигнал Bluetooth, вместо того чтобы сначала их накапливать.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Попробуйте это, если уровень заряда обновляется с задержкой или скачками. Телефон будет сразу передавать каждый сигнал Bluetooth, вместо того чтобы сначала их накапливать.</string>
     <string name="settings_onepod_mode_label">Режим одного наушника</string>
     <string name="settings_onepod_mode_description">Автовоспроизведение/пауза и автоподключение реагируют на один наушник, не требуя обоих.</string>
     <string name="settings_popup_caseopen_label">Показать открытие футляра</string>
@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Скрывать несопряжённые устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показывать ближайшие устройства, не соответствующие ни одному из твоих профилей, в обзоре, например AirPods других людей.</string>
     <string name="device_battery_estimate_toggle_label">Расчётное время батареи</string>
-    <string name="device_battery_estimate_card_desc">Узнайте, как это устройство заряжается и разряжается, чтобы оценить оставшееся время, время до полной зарядки и состояние батареи.</string>
+    <string name="device_battery_estimate_card_desc">Узнайте, как это устройство заряжается и разряжается, чтобы оценить оставшееся время, время до полной зарядки и сколько из номинального времени прослушивания остается.</string>
     <string name="device_battery_estimate_reset_action">Сбросить собранные данные</string>
     <string name="device_battery_estimate_reset_desc">Начать заново с номинальной емкости батареи.</string>
     <string name="device_battery_estimate_reset_confirm_title">Сбросить собранные данные?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod забудет измеренный расход, скорость зарядки и состояние батареи этого устройства и начнет заново с номинальной емкости батареи.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod забудет измеренный расход, скорость зарядки и время прослушивания этого устройства и начнет заново с номинального времени батареи.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
     <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
@@ -163,7 +163,7 @@ AL_Cool_T</string>
     <string name="widget_config_preset_green">Зелёный</string>
     <string name="widget_config_preset_red">Красный</string>
     <string name="settings_compat_indirectcallback_title">Косвенная доставка данных</string>
-    <string name="settings_compat_indirectcallback_summary">Попробуй это, если другие параметры совместимости не помогли. Android будет передавать сигналы Bluetooth приложению в фоновом режиме, вместо того чтобы приложение напрямую их прослушивало.</string>
+    <string name="settings_compat_indirectcallback_summary">Попробуйте это, если другие параметры совместимости не помогли. Android будет передавать сигналы Bluetooth приложению в фоновом режиме, вместо того чтобы приложение напрямую их прослушивало.</string>
     <string name="troubleshooter_title">Помощник</string>
     <string name="troubleshooter_summary">Диагностика и исправление проблем с подключением Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Трансляции Bluetooth с низким энергопотреблением</string>
@@ -250,6 +250,28 @@ AL_Cool_T</string>
     <string name="pods_dual_right_short_label">П</string>
     <string name="pods_case_label">Футляр</string>
     <string name="battery_unavailable_label">Заряд недоступен</string>
+    <string name="battery_state_low_cd">Низкий уровень батареи</string>
+    <string name="battery_state_critical_cd">Критически низкий уровень батареи</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d дополнительная полная зарядка для обоих наушников</item>
+        <item quantity="few">~%d дополнительные полные зарядки для обоих наушников</item>
+        <item quantity="many">~%d дополнительных полных зарядок для обоих наушников</item>
+        <item quantity="other">~%d дополнительных полных зарядок для обоих наушников</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Минимум %d дополнительная полная зарядка для обоих наушников</item>
+        <item quantity="few">Минимум %d дополнительные полные зарядки для обоих наушников</item>
+        <item quantity="many">Минимум %d дополнительных полных зарядок для обоих наушников</item>
+        <item quantity="other">Минимум %d дополнительных полных зарядок для обоих наушников</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Менее одной полной зарядки для обоих наушников</string>
+    <string name="battery_case_charges_empty">Чехол разряжен, нет зарядок для наушников</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Неясно, сколько полных зарядок осталось для обоих наушников</string>
+    <string name="battery_case_charges_state_enough_cd">Достаточно для полной зарядки</string>
+    <string name="battery_case_charges_state_not_enough_cd">Недостаточно для полной зарядки</string>
+    <string name="battery_case_charges_state_uncertain_cd">Может быть недостаточно для полной зарядки</string>
     <string name="pods_case_status_open_label">Открыто</string>
     <string name="pods_case_status_closed_label">Закрыто</string>
     <string name="pods_connection_state_disconnected_label">Не подключено к устройству</string>
@@ -444,11 +466,14 @@ AL_Cool_T</string>
     <string name="device_settings_info_right_serial_label">Серийный номер правого наушника</string>
     <string name="device_settings_info_left_bonded_label">Левый сопряжён</string>
     <string name="device_settings_info_right_bonded_label">Правый сопряжён</string>
-    <string name="device_settings_info_battery_health_label">Состояние батареи (расчётное)</string>
-    <string name="device_settings_info_battery_health_left_label">Состояние батареи слева (расч.)</string>
-    <string name="device_settings_info_battery_health_right_label">Состояние батареи справа (расч.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Примерное время прослушивания</string>
+    <string name="device_settings_info_battery_health_left_label">Время прослушивания левого наушника</string>
+    <string name="device_settings_info_battery_health_right_label">Время прослушивания правого наушника</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% от номинала</string>
     <string name="device_settings_info_battery_health_pending">Еще определяется, проверьте позже</string>
+    <string name="device_settings_battery_runtime_warning_title">Время прослушивания значительно меньше номинального</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: около %2$d%% от номинального времени прослушивания. Нажмите для подробностей.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Эти наушники</string>
     <string name="device_settings_info_details_label">Подробности устройства</string>
     <string name="device_settings_info_details_action">Показать подробности устройства</string>
     <string name="device_settings_info_status_label">Состояние</string>

@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">일치하지 않는 기기 숨기기</string>
     <string name="settings_overview_hide_unmatched_description">개요에서 프로필과 일치하지 않는 주변 기기(예: 다른 사람의 AirPods)를 표시하지 않습니다.</string>
     <string name="device_battery_estimate_toggle_label">배터리 추정</string>
-    <string name="device_battery_estimate_card_desc">이 기기의 충전 및 방전 방식을 학습하여 남은 시간, 충전 시간 및 배터리 상태를 추정합니다.</string>
+    <string name="device_battery_estimate_card_desc">이 기기의 충전 및 방전 방식을 파악하여 남은 청취 시간, 충전까지의 시간, 정격 청취 시간 중 남은 용량을 추정합니다.</string>
     <string name="device_battery_estimate_reset_action">학습된 데이터 초기화</string>
     <string name="device_battery_estimate_reset_desc">정격 배터리 수명부터 다시 시작됩니다.</string>
     <string name="device_battery_estimate_reset_confirm_title">학습된 데이터를 초기화하시겠습니까?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod가 이 기기의 측정된 방전량, 충전 속도 및 배터리 상태를 잊고 정격 배터리 수명부터 다시 시작합니다.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod가 이 기기의 측정된 방전량, 충전 속도 및 청취 시간을 잊고 정격 배터리 수명부터 다시 시작합니다.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
     <string name="settings_debug_autoreports_label">자동 버그 보고서</string>
     <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">케이스</string>
     <string name="battery_unavailable_label">배터리 사용 불가</string>
+    <string name="battery_state_low_cd">배터리 부족</string>
+    <string name="battery_state_critical_cd">배터리 극히 부족</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">~%d회 추가 완전 충전</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">최소 %d회 추가 완전 충전</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">추가 완전 충전이 1회 미만입니다</string>
+    <string name="battery_case_charges_empty">케이스가 비어 있고 더 이상 이어버드를 충전할 수 없습니다</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">남은 완전 충전 횟수를 확실히 알 수 없습니다</string>
+    <string name="battery_case_charges_state_enough_cd">완전 충전 가능</string>
+    <string name="battery_case_charges_state_not_enough_cd">완전 충전 불가능</string>
+    <string name="battery_case_charges_state_uncertain_cd">완전 충전에 부족할 수 있습니다</string>
     <string name="pods_case_status_open_label">열림</string>
     <string name="pods_case_status_closed_label">닫힘</string>
     <string name="pods_connection_state_disconnected_label">연결되지 않음</string>
@@ -427,11 +443,14 @@
     <string name="device_settings_info_right_serial_label">오른쪽 이어팟 일련번호</string>
     <string name="device_settings_info_left_bonded_label">왼쪽 연결됨</string>
     <string name="device_settings_info_right_bonded_label">오른쪽 연결됨</string>
-    <string name="device_settings_info_battery_health_label">배터리 건강도 (추정)</string>
-    <string name="device_settings_info_battery_health_left_label">좌측 배터리 건강도 (추정)</string>
-    <string name="device_settings_info_battery_health_right_label">우측 배터리 건강도 (추정)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">예상 청취 시간</string>
+    <string name="device_settings_info_battery_health_left_label">왼쪽 이어버드 청취 시간</string>
+    <string name="device_settings_info_battery_health_right_label">오른쪽 이어버드 청취 시간</string>
+    <string name="device_settings_info_battery_health_value">정격의 약 %1$d%%</string>
     <string name="device_settings_info_battery_health_pending">계산 중입니다. 나중에 다시 확인하세요</string>
+    <string name="device_settings_battery_runtime_warning_title">청취 시간이 정격보다 훨씬 짧습니다</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: 정격 청취 시간의 약 %2$d%%. 자세한 내용을 보려면 탭하세요.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">이 이어버드</string>
     <string name="device_settings_info_details_label">기기 세부정보</string>
     <string name="device_settings_info_details_action">기기 세부정보 보기</string>
     <string name="device_settings_info_status_label">상태</string>

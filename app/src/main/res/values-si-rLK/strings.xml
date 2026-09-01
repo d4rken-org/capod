@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">නොගැලපෙන උපාංග සඟවන්න</string>
     <string name="settings_overview_hide_unmatched_description">ඔබේ profile වල නොගැලපෙන ආසන්නයේ ඇති උපාංග දළ ළිස්ලේෂණයේ නොපෙන්වන්න, උදා. අනේකුත් පුද්ගලයන්ගේ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">බැටරි ඇස්තමේන්තු</string>
-    <string name="device_battery_estimate_card_desc">මෙම උපකරණයේ ආරෝපණය සහ පිටවීම ඉගෙන ගෙන ඉතිරි කාලය, ආරෝපිත වන කාලය සහ බැටරි සෞඛ්‍යය ඇස්තමේන්තු කරන්න.</string>
+    <string name="device_battery_estimate_card_desc">ඉතිරි කාලය, ආරෝපණය වන තෙක් ඇති කාලය, සහ එහි ශ්‍රේණිගත ශ්‍රවණ කාලයෙන් තවමත් ළඟා විය හැකි ප්‍රමාණය ඇස්තමේන්තු කිරීමට මෙම උපකරණය ආරෝපණය වන ආකාරය සහ පිටවන ආකාරය ඉගෙන ගන්න.</string>
     <string name="device_battery_estimate_reset_action">ඉගෙනගත් දත්ත ප්‍රතිසකසන්න</string>
     <string name="device_battery_estimate_reset_desc">ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගන්න</string>
     <string name="device_battery_estimate_reset_confirm_title">ඉගෙනගත් දත්ත ප්‍රතිසකසන්නද?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod මෙම උපකරණයේ මනින ලද පිටවීම, ආරෝපණ වේගය සහ බැටරි සෞඛ්‍යය අමතක කරයි, සහ ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගනී.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod මෙම උපකරණයේ මනින ලද පිටවීම, ආරෝපණ වේගය සහ ශ්‍රවණ කාලය අමතක කරයි, සහ ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගනී.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
     <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
     <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">ද</string>
     <string name="pods_case_label">කවරය</string>
     <string name="battery_unavailable_label">බැටරිය නොමැත</string>
+    <string name="battery_state_low_cd">බැටරිය අඩුයි</string>
+    <string name="battery_state_critical_cd">බැටරිය බරපතල ලෙස අඩුයි</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">කන් බුඩු දෙකටම තවත් සම්පූර්ණ ආරෝපණයක් ~%d</item>
+        <item quantity="other">කන් බුඩු දෙකටම තවත් සම්පූර්ණ ආරෝපණ ~%d ක්</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">අවම වශයෙන් කන් බුඩු දෙකටම තවත් සම්පූර්ණ ආරෝපණයක් %d</item>
+        <item quantity="other">අවම වශයෙන් කන් බුඩු දෙකටම තවත් සම්පූර්ණ ආරෝපණ %d ක්</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">කන් බුඩු දෙකටම තවත් සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත් නැත</string>
+    <string name="battery_case_charges_empty">පෙට්ටිය හිස්ය, ඔබේ කන් බුඩු සඳහා ආරෝපණ ඉතිරි නැත</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">කන් බුඩු දෙකටම කී සම්පූර්ණ ආරෝපණ ඉතිරිද යන්න පැහැදිලි නැත</string>
+    <string name="battery_case_charges_state_enough_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත්</string>
+    <string name="battery_case_charges_state_not_enough_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත් නොවේ</string>
+    <string name="battery_case_charges_state_uncertain_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත් නොවිය හැක</string>
     <string name="pods_case_status_open_label">විවෘතයි</string>
     <string name="pods_case_status_closed_label">වසා ඇත</string>
     <string name="pods_connection_state_disconnected_label">උපාංගයකට සම්බන්ධ නොවේ</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">දකුණු Pod අනුක්‍රමික අංකය</string>
     <string name="device_settings_info_left_bonded_label">වම් බැඳුණා</string>
     <string name="device_settings_info_right_bonded_label">දකුණු බැඳුණා</string>
-    <string name="device_settings_info_battery_health_label">බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
-    <string name="device_settings_info_battery_health_left_label">වම බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
-    <string name="device_settings_info_battery_health_right_label">දකුණු බැටරි සෞඛ්‍යය (ඇස්තැමත්)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">ඇස්තමේන්තුගත ශ්‍රවණ කාලය</string>
+    <string name="device_settings_info_battery_health_left_label">වම් පොඩ් ශ්‍රවණ කාලය</string>
+    <string name="device_settings_info_battery_health_right_label">දකුණු පොඩ් ශ්‍රවණ කාලය</string>
+    <string name="device_settings_info_battery_health_value">ශ්‍රේණිගතයෙන් ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">තවමත් තීරණය කරනවා, පසුව නැවත බලන්න</string>
+    <string name="device_settings_battery_runtime_warning_title">ශ්‍රවණ කාලය ශ්‍රේණිගතයට වඩා බෙහෙවින් අඩුය</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: ශ්‍රේණිගත ශ්‍රවණ කාලයෙන් පමණ %2$d%%ක්. විස්තර සඳහා තට්ටු කරන්න.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">මෙම හෙඩ්ෆෝන</string>
     <string name="device_settings_info_details_label">උපකරණ විස්තර</string>
     <string name="device_settings_info_details_action">උපකරණ විස්තර පේන්වන්න</string>
     <string name="device_settings_info_status_label">තත්වය</string>

@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">പൊരുത്തപ്പെടാത്ത ഉപകരണങ്ങൾ മറയ്ക്കുക</string>
     <string name="settings_overview_hide_unmatched_description">നിങ്ങളുടെ ഒരു പ്രൊഫൈലുമായും പൊരുത്തപ്പെടാത്ത അടുത്തുള്ള ഉപകരണങ്ങൾ അവലോകനത്തിൽ കാണിക്കരുത്, ഉദാ. മറ്റുള്ളവരുടെ AirPods.</string>
     <string name="device_battery_estimate_toggle_label">ബാറ്ററി കണക്കുമാനം</string>
-    <string name="device_battery_estimate_card_desc">ഈ ഉപകരണം എങ്ങനെ ചാർജ് ചെയ്യുകയും വെറ്റുകയും ചെയ്യുന്നുവെന്ന് പഠിച്ച് ശേഷിക്കുന്ന സമയം, ചാർജാകാനുള്ള സമയം, ബാറ്ററി ആരോഗ്യം എന്നിവ കണക്കാക്കുക</string>
+    <string name="device_battery_estimate_card_desc">ബാക്കിയുള്ള സമയം, ചാർജാകാൻ എടുക്കുന്ന സമയം, കൂടാതെ നിർദ്ദിഷ്ട കേൾവി സമയത്തിന്റെ എത്ര ശതമാനം ഇപ്പോഴും ലഭിക്കുന്നു എന്നും കണക്കാക്കാൻ ഈ ഉപകരണം എങ്ങനെ ചാർജാകുന്നുവെന്നും ചാർജ് കുറയുന്നുവെന്നും മനസ്സിലാക്കുക.</string>
     <string name="device_battery_estimate_reset_action">പഠിപ്പിച്ച ഡാറ്റ പുനരാരംഭിക്കുക</string>
     <string name="device_battery_estimate_reset_desc">നിർദ്ദിഷ്ട ബാറ്ററി കാലാവധിയിൽ നിന്ന് വീണ്ടും ആരംഭിക്കുക</string>
     <string name="device_battery_estimate_reset_confirm_title">പഠിപ്പിച്ച ഡാറ്റ പുനരാരംഭിക്കണോ?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ഈ ഉപകരണത്തിന്റെ അളന്ന നഷ്ടം, ചാർജിംഗ് വേഗത, ബാറ്ററി ആരോഗ്യം എന്നിവ മറന്ന് നിർദ്ദിഷ്ട ബാറ്ററി കാലാവധിയിൽ നിന്ന് വീണ്ടും ആരംഭിക്കും</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ഈ ഉപകരണത്തിന്റെ അളന്ന നഷ്ടം, ചാർജിംഗ് വേഗത, കേൾവി സമയം എന്നിവ മറന്ന് നിർദ്ദിഷ്ട ബാറ്ററി കാലാവധിയിൽ നിന്ന് വീണ്ടും ആരംഭിക്കും</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
     <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">കേസ്</string>
     <string name="battery_unavailable_label">ബാറ്ററി ലഭ്യമല്ല</string>
+    <string name="battery_state_low_cd">ബാറ്ററി കുറവാണ്</string>
+    <string name="battery_state_critical_cd">ബാറ്ററി ഗുരുതരമായി കുറവാണ്</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">രണ്ട് ഇയർബഡുകൾക്കും ഇനി ~%d പൂർണ്ണ ചാർജ് കൂടി</item>
+        <item quantity="other">രണ്ട് ഇയർബഡുകൾക്കും ഇനി ~%d പൂർണ്ണ ചാർജുകൾ കൂടി</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">രണ്ട് ഇയർബഡുകൾക്കും ഇനി കുറഞ്ഞത് %d പൂർണ്ണ ചാർജ് കൂടി</item>
+        <item quantity="other">രണ്ട് ഇയർബഡുകൾക്കും ഇനി കുറഞ്ഞത് %d പൂർണ്ണ ചാർജുകൾ കൂടി</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">രണ്ട് ഇയർബഡുകൾക്കും ഇനി ഒരു പൂർണ്ണ ചാർജിൽ താഴെ മാത്രം</string>
+    <string name="battery_case_charges_empty">കേസ് കാലിയാണ്, നിങ്ങളുടെ ഇയർബഡുകൾക്ക് ചാർജ് ബാക്കിയില്ല</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">രണ്ട് ഇയർബഡുകൾക്കും എത്ര പൂർണ്ണ ചാർജുകൾ ബാക്കിയുണ്ടെന്ന് ഉറപ്പില്ല</string>
+    <string name="battery_case_charges_state_enough_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകും</string>
+    <string name="battery_case_charges_state_not_enough_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകില്ല</string>
+    <string name="battery_case_charges_state_uncertain_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകണമെന്നില്ല</string>
     <string name="pods_case_status_open_label">തുറന്നിരിക്കുന്നു</string>
     <string name="pods_case_status_closed_label">അടച്ചിരിക്കുന്നു</string>
     <string name="pods_connection_state_disconnected_label">ഒരു ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്തിട്ടില്ല</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">വലതു പോഡ് സീരിയൽ</string>
     <string name="device_settings_info_left_bonded_label">ഇടത് ബോണ്ട് ചെയ്തത്</string>
     <string name="device_settings_info_right_bonded_label">വലത് ബോണ്ട് ചെയ്തത്</string>
-    <string name="device_settings_info_battery_health_label">ബാറ്ററി ആരോഗ്യം (കണക്കാക്കപ്പെട്ടത്)</string>
-    <string name="device_settings_info_battery_health_left_label">ഇടത് ബാറ്ററി ആരോഗ്യം (കണ.)</string>
-    <string name="device_settings_info_battery_health_right_label">വലത് ബാറ്ററി ആരോഗ്യം (കണ.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">കണക്കാക്കിയ കേൾവി സമയം</string>
+    <string name="device_settings_info_battery_health_left_label">ഇടത് പോഡിന്റെ കേൾവി സമയം</string>
+    <string name="device_settings_info_battery_health_right_label">വലത് പോഡിന്റെ കേൾവി സമയം</string>
+    <string name="device_settings_info_battery_health_value">നിർദ്ദിഷ്ടതയുടെ ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">ഇപ്പോഴും നിർണയിക്കുന്നു, പിന്നീട് നോക്കുക</string>
+    <string name="device_settings_battery_runtime_warning_title">കേൾവി സമയം നിർദ്ദിഷ്ടതയേക്കാൾ വളരെ കുറവാണ്</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: നിർദ്ദിഷ്ട കേൾവി സമയത്തിന്റെ ഏകദേശം %2$d%%. വിശദാംശങ്ങൾക്ക് ടാപ്പ് ചെയ്യുക.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">ഈ ഹെഡ്‌ഫോണുകൾ</string>
     <string name="device_settings_info_details_label">ഡിവൈസ് വിവരങ്ങൾ</string>
     <string name="device_settings_info_details_action">ഡിവൈസ് വിവരങ്ങൾ കാണിക്കുക</string>
     <string name="device_settings_info_status_label">നില</string>

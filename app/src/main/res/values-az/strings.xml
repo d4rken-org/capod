@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Uyğun olmayan cihazları gizlət</string>
     <string name="settings_overview_hide_unmatched_description">İcmalda profillərinizə uyğun gəlməyən yaxın cihazları göstərməyin, məs. başqalarının AirPods-ları.</string>
     <string name="device_battery_estimate_toggle_label">Batareya qiymətləndirmələri</string>
-    <string name="device_battery_estimate_card_desc">Bu cihazın necə doldurulduğunu və enerji istifadə etdiyini öyrənərək, qalan vaxtı, dolğunlaşma vaxtını və batareya sağlamlığını qiymətləndirin.</string>
+    <string name="device_battery_estimate_card_desc">Bu cihazın necə dolğunlaştığını və boşaldığını öyrənərək qalan vaxtı, dolğunlanana qalan vaxtı və qiymətləndirilmiş dinləmə müddətinin nə qədərini əldə edə biləcəyini qiymətləndirin.</string>
     <string name="device_battery_estimate_reset_action">Öyrənilmiş məlumatları sıfırla</string>
     <string name="device_battery_estimate_reset_desc">Qiymətləndirilmiş batareya ömrünə qayıdıb yenidən başlayın.</string>
     <string name="device_battery_estimate_reset_confirm_title">Öyrənilmiş məlumatları sıfırla?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülmüş enerji istifadəsini, dolğunlaşma sürətini və batareya sağlamlığını unudacaq, qiymətləndirilmiş batareya ömrünə qayıdıb yenidən başlayacaq.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülmüş enerji istifadəsini, dolğunlaşma sürətini və dinləmə müddətini unudacaq, qiymətləndirilmiş batareya ömrünə qayıdıb yenidən başlayacaq.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
     <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">S</string>
     <string name="pods_case_label">Qutu</string>
     <string name="battery_unavailable_label">Batareya məlumatı yoxdur</string>
+    <string name="battery_state_low_cd">Batareya aşağı</string>
+    <string name="battery_state_critical_cd">Batareya kritik şəkildə aşağı</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d tam dolğunlaşma qalır hər iki qulaqlıq üçün</item>
+        <item quantity="other">~%d tam dolğunlaşma qalır hər iki qulaqlıq üçün</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Ən azı %d tam dolğunlaşma qalır hər iki qulaqlıq üçün</item>
+        <item quantity="other">Ən azı %d tam dolğunlaşma qalır hər iki qulaqlıq üçün</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Hər iki qulaqlıq üçün bir tam dolğunlaşmadan az qalır</string>
+    <string name="battery_case_charges_empty">Qutu boşdur, qulaqlıqlarınız üçün dolğunlaşma qalmamışdır</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Hər iki qulaqlıq üçün neçə tam dolğunlaşmanın qaldığından əmin deyil</string>
+    <string name="battery_case_charges_state_enough_cd">Tam dolğunlaşma üçün kifayətdir</string>
+    <string name="battery_case_charges_state_not_enough_cd">Tam dolğunlaşma üçün kifayət deyil</string>
+    <string name="battery_case_charges_state_uncertain_cd">Tam dolğunlaşma üçün kifayət olmayacağı mümkündür</string>
     <string name="pods_case_status_open_label">Açıq</string>
     <string name="pods_case_status_closed_label">Bağlı</string>
     <string name="pods_connection_state_disconnected_label">Cihaza qoşulmayıb</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Sağ Qulaqcıq Seriya Nömrəsi</string>
     <string name="device_settings_info_left_bonded_label">Sol cütləşdirilmiş</string>
     <string name="device_settings_info_right_bonded_label">Sağ cütləşdirilmiş</string>
-    <string name="device_settings_info_battery_health_label">Batareya Sağlığı (təxmini)</string>
-    <string name="device_settings_info_battery_health_left_label">Sol Batareya Sağlığı (təx.)</string>
-    <string name="device_settings_info_battery_health_right_label">Sağ Batareya Sağlığı (təx.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Qiymətləndirilmiş dinləmə müddəti</string>
+    <string name="device_settings_info_battery_health_left_label">Sol qulaqlıq dinləmə müddəti</string>
+    <string name="device_settings_info_battery_health_right_label">Sağ qulaqlıq dinləmə müddəti</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% qiymətləndirilmiş</string>
     <string name="device_settings_info_battery_health_pending">Hələ müəyyən edilir, sonra yoxlayın</string>
+    <string name="device_settings_battery_runtime_warning_title">Dinləmə müddəti qiymətləndirilmiş müddətdən çox qısadır</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: qiymətləndirilmiş dinləmə müddətinin təxminən %2$d%%-i. Ətraflı məlumat üçün toxun.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Bu qulaqlıqlar</string>
     <string name="device_settings_info_details_label">Cihaz Ǝtraflı Məlumatları</string>
     <string name="device_settings_info_details_action">Cihaz təfsilatlarını göstər</string>
     <string name="device_settings_info_status_label">Vəziyyət</string>

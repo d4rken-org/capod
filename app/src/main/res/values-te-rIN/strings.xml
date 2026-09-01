@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">సరిపోలని పరికరాలను దాచు</string>
     <string name="settings_overview_hide_unmatched_description">మీ ప్రొఫైల్‌లలో ఏదీ సరిపోలని దగ్గరి పరికరాలను అవలోకనంలో చూపించవద్దు, ఉదా. ఇతరుల AirPods.</string>
     <string name="device_battery_estimate_toggle_label">బ్యాటరీ అంచనాలు</string>
-    <string name="device_battery_estimate_card_desc">ఈ పరికరం ఎలా చార్జ్ చేయబడుతుందో మరియు ఎలా డ్రెయిన్ అవుతుందో తెలుసుకోండి మరియు మిగిలిన సమయం, చార్జ్ కాబడటానికి పట్టే సమయం మరియు బ్యాటరీ ఆరోగ్యం అంచనా వేయండి</string>
+    <string name="device_battery_estimate_card_desc">మిగిలిన సమయం, పూర్తిగా చార్జ్ అయ్యే వరకు పట్టే సమయం, మరియు దాని రేట్ చేయబడిన వినికిడి సమయంలో ఇంకా ఎంత చేరుకుంటుందో అంచనా వేయడానికి ఈ పరికరం ఎలా చార్జ్ అవుతుందో మరియు డ్రెయిన్ అవుతుందో తెలుసుకోండి.</string>
     <string name="device_battery_estimate_reset_action">నేర్చిన డేటాను రీసెట్ చేయండి</string>
     <string name="device_battery_estimate_reset_desc">రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించండి</string>
     <string name="device_battery_estimate_reset_confirm_title">నేర్చిన డేటాను రీసెట్ చేయాలా?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ఈ పరికరం యొక్క కొలిచిన డ్రెయిన్, చార్జింగ్ వేగం మరియు బ్యాటరీ ఆరోగ్యం మరచిపోతుంది మరియు రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించుకుంటుంది</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ఈ పరికరం యొక్క కొలిచిన డ్రెయిన్, చార్జింగ్ వేగం మరియు వినికిడి సమయం మరచిపోతుంది మరియు రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించుకుంటుంది</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
     <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">కు</string>
     <string name="pods_case_label">కేస్</string>
     <string name="battery_unavailable_label">బ్యాటరీ అందుబాటులో లేదు</string>
+    <string name="battery_state_low_cd">బ్యాటరీ తక్కువగా ఉంది</string>
+    <string name="battery_state_critical_cd">బ్యాటరీ అత్యంత తక్కువగా ఉంది</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">ఇరు ఇయర్‌బడ్‌ల కోసం ~%d పూర్తి చార్జ్ మిగిలి ఉంది</item>
+        <item quantity="other">ఇరు ఇయర్‌బడ్‌ల కోసం ~%d పూర్తి చార్జ్‌లు మిగిలి ఉన్నాయి</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">ఇరు ఇయర్‌బడ్‌ల కోసం కనీసం %d పూర్తి చార్జ్ మిగిలి ఉంది</item>
+        <item quantity="other">ఇరు ఇయర్‌బడ్‌ల కోసం కనీసం %d పూర్తి చార్జ్‌లు మిగిలి ఉన్నాయి</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">ఇరు ఇయర్‌బడ్‌ల కోసం ఒక పూర్తి చార్జ్ కంటే తక్కువ మిగిలి ఉంది</string>
+    <string name="battery_case_charges_empty">కేస్ ఖాళీగా ఉంది, మీ ఇయర్‌బడ్‌ల కోసం చార్జ్‌లు మిగలలేదు</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">ఇరు ఇయర్‌బడ్‌ల కోసం ఎన్ని పూర్తి చార్జ్‌లు మిగిలి ఉన్నాయో ఖచ్చితంగా తెలియదు</string>
+    <string name="battery_case_charges_state_enough_cd">పూర్తి చార్జ్‌కు సరిపోతుంది</string>
+    <string name="battery_case_charges_state_not_enough_cd">పూర్తి చార్జ్‌కు సరిపోదు</string>
+    <string name="battery_case_charges_state_uncertain_cd">పూర్తి చార్జ్‌కు సరిపోకపోవచ్చు</string>
     <string name="pods_case_status_open_label">తెరిచి ఉంది</string>
     <string name="pods_case_status_closed_label">మూసివేయబడింది</string>
     <string name="pods_connection_state_disconnected_label">పరికరానికి కనెక్ట్ కాలేదు</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">కుడి పాడ్ సీరియల్</string>
     <string name="device_settings_info_left_bonded_label">ఎడమ బంధించబడింది</string>
     <string name="device_settings_info_right_bonded_label">కుడి బంధించబడింది</string>
-    <string name="device_settings_info_battery_health_label">బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
-    <string name="device_settings_info_battery_health_left_label">ఎడమ బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
-    <string name="device_settings_info_battery_health_right_label">కుడి బ్యాటరీ ఆరోగ్యం (అంచనా)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">అంచనా వేయబడిన వినికిడి సమయం</string>
+    <string name="device_settings_info_battery_health_left_label">ఎడమ పాడ్ వినికిడి సమయం</string>
+    <string name="device_settings_info_battery_health_right_label">కుడి పాడ్ వినికిడి సమయం</string>
+    <string name="device_settings_info_battery_health_value">రేట్ చేయబడిన దాంట్లో ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">ఇంకా నిర్ణయం జరుగుతున్నది, తరువాత మరోసారి చూడండి</string>
+    <string name="device_settings_battery_runtime_warning_title">వినికిడి సమయం రేట్ చేయబడిన దానికంటే చాలా తక్కువగా ఉంది</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: రేట్ చేయబడిన వినికిడి సమయంలో దాదాపు %2$d%%. వివరాల కోసం నొక్కండి.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">ఈ హెడ్‌ఫోన్‌లు</string>
     <string name="device_settings_info_details_label">పరికరం వివరాలు</string>
     <string name="device_settings_info_details_action">పరికరం వివరాలు చూపించు</string>
     <string name="device_settings_info_status_label">స్థితి</string>

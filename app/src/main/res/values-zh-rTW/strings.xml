@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">支持開發者</string>
     <string name="upgrade_benefit_disclaimer">功能可用性取決於您的耳機和裝置。</string>
     <string name="settings_monitor_connected_notification_label">額外通知</string>
-    <string name="settings_monitor_connected_notification_description">顯示第二個通知，僅在連接設備時出現。啟用後，你可以隱藏永久的「無設備」通知：在 Android 的 CAPod 通知設定中關閉「設備狀態」類別。</string>
+    <string name="settings_monitor_connected_notification_description">顯示第二個通知，僅在連接裝置時出現。啟用後，你可以隱藏永久的「無裝置」通知：在 Android 的 CAPod 通知設定中關閉「裝置狀態」類別。</string>
     <string name="settings_keep_notification_after_disconnect_label">斷線後保留通知</string>
     <string name="settings_keep_notification_after_disconnect_description">即使 AirPods 斷線後仍顯示上次的電量</string>
     <string name="settings_autopause_label">自動暫停</string>
@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">隱藏未配對的裝置</string>
     <string name="settings_overview_hide_unmatched_description">在總覽中不顯示附近不符合任何設定檔的裝置，例如其他人的 AirPods。</string>
     <string name="device_battery_estimate_toggle_label">電池估計</string>
-    <string name="device_battery_estimate_card_desc">了解此裝置的充放電方式，以估算剩餘時間、充滿時間和電池健康狀態。</string>
+    <string name="device_battery_estimate_card_desc">瞭解此裝置的充電和耗電方式，以估算剩餘時間、充滿電時間，以及它還能達到額定聆聽時間的百分比。</string>
     <string name="device_battery_estimate_reset_action">重置學習資料</string>
     <string name="device_battery_estimate_reset_desc">從額定電池續航時間重新開始。</string>
     <string name="device_battery_estimate_reset_confirm_title">重置學習資料？</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod 將忘記此裝置的實測耗電量、充電速度和電池健康狀態，並從額定電池續航時間重新開始。</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod 將忘記此裝置的實測耗電量、充電速度和聆聽時間，並從額定電池續航時間重新開始。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
     <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">右</string>
     <string name="pods_case_label">充電盒</string>
     <string name="battery_unavailable_label">電池無法取得</string>
+    <string name="battery_state_low_cd">電池電量低</string>
+    <string name="battery_state_critical_cd">電池電量嚴重不足</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">約可再為兩個耳塞充電 %d 次</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">至少可再為兩個耳塞充電 %d 次</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">無法再為兩個耳塞充滿電一次</string>
+    <string name="battery_case_charges_empty">充電盒已空，無法再為您的耳塞充電</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">不確定還能為兩個耳塞充電多少次</string>
+    <string name="battery_case_charges_state_enough_cd">足以充滿一次電</string>
+    <string name="battery_case_charges_state_not_enough_cd">電量不足以充滿一次電</string>
+    <string name="battery_case_charges_state_uncertain_cd">可能電量不足以充滿一次電</string>
     <string name="pods_case_status_open_label">已開啟</string>
     <string name="pods_case_status_closed_label">已關閉</string>
     <string name="pods_connection_state_disconnected_label">未連線到裝置</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">右耳機序號</string>
     <string name="device_settings_info_left_bonded_label">左耳已配對</string>
     <string name="device_settings_info_right_bonded_label">右耳已配對</string>
-    <string name="device_settings_info_battery_health_label">電池健康狀態（估計值）</string>
-    <string name="device_settings_info_battery_health_left_label">左電池健康狀態（估計）</string>
-    <string name="device_settings_info_battery_health_right_label">右電池健康狀態（估計）</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">預估聆聽時間</string>
+    <string name="device_settings_info_battery_health_left_label">左耳塞聆聽時間</string>
+    <string name="device_settings_info_battery_health_right_label">右耳塞聆聽時間</string>
+    <string name="device_settings_info_battery_health_value">額定值的約 %1$d%%</string>
     <string name="device_settings_info_battery_health_pending">正在評估中，請稍後查看</string>
+    <string name="device_settings_battery_runtime_warning_title">聆聽時間遠短於額定值</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s：額定聆聽時間的約 %2$d%%。點擊以了解詳情。</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">這副耳機</string>
     <string name="device_settings_info_details_label">裝置詳情</string>
     <string name="device_settings_info_details_action">顯示裝置詳情</string>
     <string name="device_settings_info_status_label">狀態</string>

@@ -118,7 +118,7 @@
     <string name="device_battery_estimate_reset_action">የተማረውን ዳታ ዳግም ያስጀምሩ</string>
     <string name="device_battery_estimate_reset_desc">ተወሰነ ባትሪ ዕድሜ ሪጀምር።</string>
     <string name="device_battery_estimate_reset_confirm_title">የተማረውን ዳታ ዳግም ያስጀምራሉ?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ይህ መሳሪያ የተለካው ወደዳ፣ ሙሎት ፍጥነት እና ባትሪ ጤናን ይረሳል እና ተወሰነ ባትሪ ዕድሜ ሪጀምራል።</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ይህ መሳሪያ የተለካው ወደዳ፣ ሙሎት ፍጥነት እና ማዳመጥ ጊዜን ይረሳል እና ተወሰነ ባትሪ ዕድሜ ሪጀምራል።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
     <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">ቀ</string>
     <string name="pods_case_label">ኬዝ</string>
     <string name="battery_unavailable_label">ባትሪ አይገኝም</string>
+    <string name="battery_state_low_cd">ባትሪ ዝቅ</string>
+    <string name="battery_state_critical_cd">ባትሪ በጣም ዝቅ</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d ተጨማሪ ሙሉ ሙሎት ለሁለቱ ማዳመጫ</item>
+        <item quantity="other">~%d ተጨማሪ ሙሉ ሙሎቶች ለሁለቱ ማዳመጫ</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">ቢያንስ %d ተጨማሪ ሙሉ ሙሎት ለሁለቱ ማዳመጫ</item>
+        <item quantity="other">ቢያንስ %d ተጨማሪ ሙሉ ሙሎቶች ለሁለቱ ማዳመጫ</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">ከአንድ ሙሉ ሙሎት ያነሰ ለሁለቱ ማዳመጫ</string>
+    <string name="battery_case_charges_empty">ሳጥኑ ባዶ ነው ፣ ማዳመጫዎ ሙሎት ቀርቶ የለም</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">ለሁለቱ ማዳመጫ ምን ያህል ሙሉ ሙሎት ቀርቷል እርግጠኛ አይደለም</string>
+    <string name="battery_case_charges_state_enough_cd">ሙሉ ሙሎት ሞቅ ነው</string>
+    <string name="battery_case_charges_state_not_enough_cd">ሙሉ ሙሎት ሞቅ አይደለም</string>
+    <string name="battery_case_charges_state_uncertain_cd">ሙሉ ሙሎት ሞቅ ላይሆን ይችላል</string>
     <string name="pods_case_status_open_label">ክፍት</string>
     <string name="pods_case_status_closed_label">ዝግ</string>
     <string name="pods_connection_state_disconnected_label">ከመሣሪያ ጋር አልተገናኘም</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">የቀኝ ፖድ ተከታታይ ቅጥር</string>
     <string name="device_settings_info_left_bonded_label">ግራ ተያይዟል</string>
     <string name="device_settings_info_right_bonded_label">ቀኝ ተያይዟል</string>
-    <string name="device_settings_info_battery_health_label">ባትሪ ጤና (ግምታዊ)</string>
-    <string name="device_settings_info_battery_health_left_label">ግራ ባትሪ ጤና (ግምታዊ)</string>
-    <string name="device_settings_info_battery_health_right_label">ቀኝ ባትሪ ጤና (ግምታዊ)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">ተገምተ ማዳመጥ ጊዜ</string>
+    <string name="device_settings_info_battery_health_left_label">ግራ ማዳመጫ ማዳመጥ ጊዜ</string>
+    <string name="device_settings_info_battery_health_right_label">ቀኝ ማዳመጫ ማዳመጥ ጊዜ</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% ከተወሰነው</string>
     <string name="device_settings_info_battery_health_pending">ገና ይወሰናል፣ በኋላ ይመልከቱ</string>
+    <string name="device_settings_battery_runtime_warning_title">ማዳመጥ ጊዜ ከተወሰነው በጣም አጭር ነው</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: ተወሰነው ማዳመጥ ጊዜ ወደ %2$d%% ያህል። ዝርዝር ለመታወቅ ተጫን።</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">እነዚህ ሄድፎን</string>
     <string name="device_settings_info_details_label">የመሳሪያ ዝርዝሮች</string>
     <string name="device_settings_info_details_action">የመሳሪያ ዝርዝሮችን አሳይ</string>
     <string name="device_settings_info_status_label">ሁኔታ</string>

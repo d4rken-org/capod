@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Zuppentar apparats betg concordants</string>
     <string name="settings_overview_hide_unmatched_description">Na mussa betg ils apparats visadaifer che na correspundan a nagin da tis profils en la survista, p.ex. ils AirPods d\'autras persunas.</string>
     <string name="device_battery_estimate_toggle_label">Estimaziuns da bateria</string>
-    <string name="device_battery_estimate_card_desc">Sclapina co quest dispositiv sa chargia e deschargia per estimar il temp restant, il temp fin ch\'el vegn chargià e la salutica da bateria.</string>
+    <string name="device_battery_estimate_card_desc">Emprend co quest apparat as chargia ed as descargia per stimar il temp che resta, il temp enfin ch\'el è chargià, e quant da sia temp d\'audiziun valitada el cuntanscha anc.</string>
     <string name="device_battery_estimate_reset_action">Redatg da datas appresas</string>
     <string name="device_battery_estimate_reset_desc">Recomenzar da la vita da bateria valitada.</string>
     <string name="device_battery_estimate_reset_confirm_title">Redatg da datas appresas?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod vegn a scerder ils datas dal consumo mesirà, la velocitad da chargia e la salutica da bateria, e vegn a recomenzar da la vita da bateria valitada.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod vegn a scerder il consumo mesirà, la velocitad da chargia e la temp d\'audiziun da quest apparat, e vegn a recomenzar da la vita da bateria valitada.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
     <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
     <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Scatla</string>
     <string name="battery_unavailable_label">Battaria betg disponibla</string>
+    <string name="battery_state_low_cd">Bateria bassa</string>
+    <string name="battery_state_critical_cd">Bateria criticamain bassa</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">Anc ~%d chargia entira per ils dus auriculars</item>
+        <item quantity="other">Anc ~%d chargias entiras per ils dus auriculars</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Almain %d chargia entira dapli per ils dus auriculars</item>
+        <item quantity="other">Almain %d chargias entiras dapli per ils dus auriculars</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Damain ch\'ina chargia entira dapli per ils dus auriculars</string>
+    <string name="battery_case_charges_empty">La chascha è vida, naginas chargias restan per tes auriculars</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Betg segir quantas chargias entiras che restan per ils dus auriculars</string>
+    <string name="battery_case_charges_state_enough_cd">Avunda per ina chargia entira</string>
+    <string name="battery_case_charges_state_not_enough_cd">Betg avunda per ina chargia entira</string>
+    <string name="battery_case_charges_state_uncertain_cd">Forsa betg avunda per ina chargia entira</string>
     <string name="pods_case_status_open_label">Avert</string>
     <string name="pods_case_status_closed_label">Serrà</string>
     <string name="pods_connection_state_disconnected_label">Betg connectà cun in apparat</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Numer serial da l\'AirPod dretg</string>
     <string name="device_settings_info_left_bonded_label">Sanglà Seniester</string>
     <string name="device_settings_info_right_bonded_label">Sanglà Dretg</string>
-    <string name="device_settings_info_battery_health_label">Sanadad da la bataria (estimada)</string>
-    <string name="device_settings_info_battery_health_left_label">Sanadad sanestra da la bataria (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Sanadad dretta da la bataria (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Temp d\'audiziun estimà</string>
+    <string name="device_settings_info_battery_health_left_label">Temp d\'audiziun da l\'auricular sanester</string>
+    <string name="device_settings_info_battery_health_right_label">Temp d\'audiziun da l\'auricular dretg</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% da la durada valitada</string>
     <string name="device_settings_info_battery_health_pending">Simpel a determinar, controllescha pli tard</string>
+    <string name="device_settings_battery_runtime_warning_title">La temp d\'audiziun è bler pli curta che la durada valitada</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: radund %2$d%% da la temp d\'audiziun valitada. Tutga per detagls.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Quests auriculars</string>
     <string name="device_settings_info_details_label">Detagls da l\'apparat</string>
     <string name="device_settings_info_details_action">Mussar detagls da l\'apparat</string>
     <string name="device_settings_info_status_label">Status</string>

@@ -32,7 +32,7 @@
     <string name="upgrade_benefit_support">Doneu suport al desenvolupador</string>
     <string name="upgrade_benefit_disclaimer">La disponibilitat de les funcions depèn dels auriculars i del dispositiu.</string>
     <string name="settings_monitor_connected_notification_label">Notificació addicional</string>
-    <string name="settings_monitor_connected_notification_description">Mostra una segona notificació que només apareix mentre un dispositiu està connectat. Amb això activat, pots amagar la notificació permanent de \"Cap dispositiu\": desactiva la categoria \"Estat del dispositiu\" a la configuració de notificacions d\'Android per a CAPod.</string>
+    <string name="settings_monitor_connected_notification_description">Mostra una segona notificació que només apareix mentre un dispositiu està connectat. Amb això activat, podeu amagar la notificació permanent de «Cap dispositiu»: desactiva la categoria «Estat del dispositiu» a la configuració de notificacions d\'Android per al CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantén les notificacions després de la desconnexió</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua mostrant els últims nivells de bateria coneguts fins i tot després que els AirPods es desconnectin</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
@@ -46,7 +46,7 @@
     <string name="settings_signal_minimum_label">Qualitat de senyal mínima</string>
     <string name="settings_signal_minimum_description">La qualitat de senyal mínima que ha de tenir un dispositiu per considerar-se vostre.</string>
     <string name="settings_autoconnect_label">Connexió automàtica</string>
-    <string name="settings_autoconnect_description">Si l\'Android no es connecta automàticament, podem demanar-li que ho faci. Això manté el monitoratge de CAPod actiu en segon pla en tot moment.</string>
+    <string name="settings_autoconnect_description">Si l\'Android no es connecta automàticament, podem demanar-li que ho faci. Això manté el monitoratge del CAPod actiu en segon pla en tot moment.</string>
     <string name="settings_autoconnect_info_android12">La connexió automàtica depèn d\'una funció del sistema que l\'Android 12 i versions posteriors restringeixen. És possible que no funcioni al vostre dispositiu.</string>
     <string name="settings_autoconnect_condition_label">Condició de connexió automàtica</string>
     <string name="settings_autoconnect_condition_description">Quan hem d\'intentar connectar-nos al vostre dispositiu?</string>
@@ -57,9 +57,9 @@
     <string name="settings_category_compatibility_options_title">Opcions de compatibilitat</string>
     <string name="settings_category_compatibility_options_description">No ho toqueu si tot funciona ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Desactiva el filtratge de maquinari</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Prova-ho si els teus AirPods no es detecten mai. L\'aplicació buscarà per si mateixa entre tots els senyals Bluetooth propers, en lloc de deixar que el telèfon els preseleccioni.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Proveu això si no detecten mai els vostres AirPods. L\'aplicació buscarà tots els senyals Bluetooth propers, en comptes de deixar que el telèfon els seleccioni per defecte.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desactiva el processament per lots de maquinari</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Prova-ho si els nivells de bateria només s\'actualitzen tard o en ràfegues. El telèfon transmetrà cada senyal Bluetooth immediatament, en lloc de recollir-los primer.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Proveu això si els nivells de bateria només s\'actualitzen tard o en ràfegues. El telèfon transmetrà cada senyal Bluetooth immediatament, en comptes de recollir-los primer.</string>
     <string name="settings_onepod_mode_label">Mode d\'un auricular</string>
     <string name="settings_onepod_mode_description">La reproducció/pausa automàtica i la connexió automàtica reaccionen a un sol auricular en lloc de requerir tots dos.</string>
     <string name="settings_popup_caseopen_label">Mostra la finestra emergent de la funda</string>
@@ -115,11 +115,11 @@
     <string name="settings_overview_hide_unmatched_label">Amaga els dispositius no coincidents</string>
     <string name="settings_overview_hide_unmatched_description">No mostris els dispositius propers que no coincideixen amb cap dels perfils a la vista general. P. ex. els AirPods d’altres persones.</string>
     <string name="device_battery_estimate_toggle_label">Estimació de la bateria</string>
-    <string name="device_battery_estimate_card_desc">Obteniu informació sobre com es carrega i s\'esgota aquest dispositiu per estimar el temps restant, el temps fins que es carrega completament i l\'estat de la bateria.</string>
+    <string name="device_battery_estimate_card_desc">Aprèn com es carrega i es descarrega aquest dispositiu per estimar el temps restant, el temps fins a la càrrega i quant del temps d\'escolta nominal li queda.</string>
     <string name="device_battery_estimate_reset_action">Restableix les dades apreses</string>
     <string name="device_battery_estimate_reset_desc">Comença de nou des de la durada nominal de la bateria.</string>
     <string name="device_battery_estimate_reset_confirm_title">Voleu restablir les dades apreses?</string>
-    <string name="device_battery_estimate_reset_confirm_message">El CAPod oblidarà el consum mesurat d\'aquest dispositiu, la velocitat de càrrega i la salut de la bateria, i tornarà a començar des de la durada nominal de la bateria.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod oblidarà el consum mesurat d\'aquest dispositiu, la velocitat de càrrega i el temps d\'escolta, i tornarà a començar des de la durada nominal de la bateria.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
     <string name="settings_debug_autoreports_label">Informes automàtics d\'errors</string>
     <string name="settings_debug_autoreports_description">Informa automàticament de problemes. Per exemple: detalls sobre un bloqueig de l\'aplicació perquè pugui esbrinar com solucionar-ho.</string>
@@ -163,7 +163,7 @@
     <string name="widget_config_preset_green">Verd</string>
     <string name="widget_config_preset_red">Vermell</string>
     <string name="settings_compat_indirectcallback_title">Lliurament indirecte de dades</string>
-    <string name="settings_compat_indirectcallback_summary">Prova-ho si les altres opcions de compatibilitat no han funcionat. L\'Android passarà els senyals Bluetooth a l\'aplicació en segon pla, en lloc que l\'aplicació els escolti directament.</string>
+    <string name="settings_compat_indirectcallback_summary">Proveu això si les altres opcions de compatibilitat no us han ajudat. L\'Android passarà els senyals Bluetooth a l\'aplicació en segon pla, en comptes que l\'aplicació els escolti directament.</string>
     <string name="troubleshooter_title">Solucionador de problemes</string>
     <string name="troubleshooter_summary">Diagnostica i soluciona problemes de connectivitat Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Emissions Bluetooth de baixa energia</string>
@@ -244,6 +244,24 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Funda</string>
     <string name="battery_unavailable_label">Bateria no disponible</string>
+    <string name="battery_state_low_cd">Bateria baixa</string>
+    <string name="battery_state_critical_cd">Bateria críticament baixa</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d més càrrega completa pels auriculars</item>
+        <item quantity="other">~%d més càrregues completes pels auriculars</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Almenys %d més càrrega completa pels auriculars</item>
+        <item quantity="other">Almenys %d més càrregues completes pels auriculars</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Menys d\'una càrrega completa més pels auriculars</string>
+    <string name="battery_case_charges_empty">La caixa està buida, sense més càrregues pels auriculars</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">No és segur quantes càrregues completes hi queden pels auriculars</string>
+    <string name="battery_case_charges_state_enough_cd">Prou per a una càrrega completa</string>
+    <string name="battery_case_charges_state_not_enough_cd">Insuficient per a una càrrega completa</string>
+    <string name="battery_case_charges_state_uncertain_cd">Potser no és suficient per a una càrrega completa</string>
     <string name="pods_case_status_open_label">Oberta</string>
     <string name="pods_case_status_closed_label">Tancada</string>
     <string name="pods_connection_state_disconnected_label">No està connectat a un dispositiu</string>
@@ -432,11 +450,14 @@
     <string name="device_settings_info_right_serial_label">Número de sèrie de l\'auricular dret</string>
     <string name="device_settings_info_left_bonded_label">Esquerre vinculat</string>
     <string name="device_settings_info_right_bonded_label">Dret vinculat</string>
-    <string name="device_settings_info_battery_health_label">Salut de la bateria (estimat)</string>
-    <string name="device_settings_info_battery_health_left_label">Salut de la bateria esquerra (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Salut de la bateria dreta (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Temps d\'escolta estimat</string>
+    <string name="device_settings_info_battery_health_left_label">Temps d\'escolta del pod esquerre</string>
+    <string name="device_settings_info_battery_health_right_label">Temps d\'escolta del pod dret</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% del nominal</string>
     <string name="device_settings_info_battery_health_pending">Encara s\'està determinant, torneu més tard</string>
+    <string name="device_settings_battery_runtime_warning_title">El temps d\'escolta és molt més curt que el nominal</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: aproximadament %2$d%% del temps d\'escolta nominal. Toca per a detalls.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Aquests auriculars</string>
     <string name="device_settings_info_details_label">Detalls del dispositiu</string>
     <string name="device_settings_info_details_action">Mostra els detalls del dispositiu</string>
     <string name="device_settings_info_status_label">Estat</string>

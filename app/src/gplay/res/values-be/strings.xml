@@ -46,6 +46,7 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Гэта асобная пакупка — яна не скасоўвае падпіску і не вяртае за яе грошы. Выкарыстоўвайце той жа акаунт Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Падпіска ўсё яшчэ актыўная</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ваша падпіска ўсё яшчэ будзе аўтаматычна прадоўжана. Спачатку скасуйце яе ў Google Play, а потым пераключацеся на аднаразовую пакупку. Толькі што скасавалі? Дайце Google Play крыху часу і паспрабуйце зноў.</string>
+    <string name="upgrade_screen_pending_card_title">Плата разглядаецца</string>
     <string name="upgrade_screen_grace_title">Пацвярджэнне вашай пакупкі</string>
     <string name="upgrade_screen_grace_body_short">Google Play яшчэ не пацвердзіў вашу пакупку. Pro па-ранейшаму актыўны — дзеянні не патрабуюцца.</string>
     <string name="upgrade_screen_grace_body">Google Play ужо некаторы час не пацвярджае вашу пакупку. Pro па-ранейшаму актыўны. Пераканайцеся, што вы падключаны да інтэрнэту і ўвайшлі ў акаунт Google, які выкарыстоўваўся для пакупкі, а потым паспрабуйце аднавіць пакупку.</string>

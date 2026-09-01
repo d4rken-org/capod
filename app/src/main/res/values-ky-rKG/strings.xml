@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Дал келбеген түзмөктөрдү жашыруу</string>
     <string name="settings_overview_hide_unmatched_description">Профилдериңиздин эч бирине дал келбеген жакын жердеги түзмөктөрдү, мисалы башка адамдардын AirPods\'ун, чолпондо көрсөтпөө.</string>
     <string name="device_battery_estimate_toggle_label">Батарея болжолдоосу</string>
-    <string name="device_battery_estimate_card_desc">Бул түзүлүштүн кеминтүүсүнүн жана зарядтоо ылдамдыгын үйрөнүп, калган убакытты, зарядталуу убакыты жана батарейанын ден соолугун баалоо үчүн.</string>
+    <string name="device_battery_estimate_card_desc">Бул түзүлүштүн заряддалуу жана кубат кетүү мүнөзүн билүү калган убакытты, толук заряддалганга чейинки убакытты жана номиналдык угуу убактысынын канча бөлүгүнө жетерин болжолдоого жардам берет.</string>
     <string name="device_battery_estimate_reset_action">Үйрөнүлгөн маалыматты тазалоо</string>
     <string name="device_battery_estimate_reset_desc">Номиналдык батарея жашоо убакытынан кайра баштоо</string>
     <string name="device_battery_estimate_reset_confirm_title">Үйрөнүлгөн маалыматты тазалообу?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod бул түзүлүштүн өлчөнгөн кеминтүүсү, зарядтоо ылдамдыгы жана батарейанын ден соолугу туралуу маалыматын унутуп, номиналдык батарея жашоо убакытынан баштажы керек.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod бул түзүлүштүн өлчөнгөн кубат кетүүсү, зарядтоо ылдамдыгы жана угуу убактысы тууралуу маалыматты унутуп, номиналдык батарея жашоо мөөнөтүнөн кайра баштайт.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
     <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">Оң</string>
     <string name="pods_case_label">Кап</string>
     <string name="battery_unavailable_label">Батарея жеткиликсиз</string>
+    <string name="battery_state_low_cd">Батареянын деңгээли төмөн</string>
+    <string name="battery_state_critical_cd">Батареянын деңгээли өтө төмөн</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">Эки кулакчын үчүн дагы ~%d жолу толук заряддоого жетет</item>
+        <item quantity="other">Эки кулакчын үчүн дагы ~%d жолу толук заряддоого жетет</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Эки кулакчын үчүн дагы жок дегенде %d жолу толук заряддоого жетет</item>
+        <item quantity="other">Эки кулакчын үчүн дагы жок дегенде %d жолу толук заряддоого жетет</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Эки кулакчын үчүн бир жолу толук заряддоого да жетпейт</string>
+    <string name="battery_case_charges_empty">Кутуча бош, кулакчындар үчүн заряд калган жок</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Эки кулакчын үчүн канча толук заряддоо калганы белгисиз</string>
+    <string name="battery_case_charges_state_enough_cd">Толук заряддоого жетиштүү</string>
+    <string name="battery_case_charges_state_not_enough_cd">Толук заряддоого жетишсиз</string>
+    <string name="battery_case_charges_state_uncertain_cd">Толук заряддоого жетпеши мүмкүн</string>
     <string name="pods_case_status_open_label">Ачык</string>
     <string name="pods_case_status_closed_label">Жабык</string>
     <string name="pods_connection_state_disconnected_label">Түзмөккө туташкан эмес</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Оң гарнитуранын сериал номери</string>
     <string name="device_settings_info_left_bonded_label">Сол жакка байланган</string>
     <string name="device_settings_info_right_bonded_label">Оң жакка байланган</string>
-    <string name="device_settings_info_battery_health_label">Батарея абалы (болжолдуу)</string>
-    <string name="device_settings_info_battery_health_left_label">Сол батарея абалы (б.)</string>
-    <string name="device_settings_info_battery_health_right_label">Оң батарея абалы (б.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Болжолдуу угуу убактысы</string>
+    <string name="device_settings_info_battery_health_left_label">Сол кулакчындын угуу убактысы</string>
+    <string name="device_settings_info_battery_health_right_label">Оң кулакчындын угуу убактысы</string>
+    <string name="device_settings_info_battery_health_value">Номиналдын ~%1$d%%ы</string>
     <string name="device_settings_info_battery_health_pending">Дагы аныкталуп жатат, кийинчерээк текшеп көрүңүз</string>
+    <string name="device_settings_battery_runtime_warning_title">Угуу убактысы номиналдан алда канча кыска</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: номиналдык угуу убактысынын болжол менен %2$d%%ы. Чоо-жайын билүү үчүн басыңыз.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Бул кулакчындар</string>
     <string name="device_settings_info_details_label">Түзмөк деталдары</string>
     <string name="device_settings_info_details_action">Түзмөк деталдарын көрсөтүү</string>
     <string name="device_settings_info_status_label">Абалы</string>

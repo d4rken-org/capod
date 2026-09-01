@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">न जुळणारी उपकरणे लपवा</string>
     <string name="settings_overview_hide_unmatched_description">आढावा विभागात तुमच्या कोणत्याही प्रोफाइलशी न जुळणारी जवळची उपकरणे दाखवू नका, उदा. इतर लोकांचे AirPods.</string>
     <string name="device_battery_estimate_toggle_label">बॅटरी अंदाज</string>
-    <string name="device_battery_estimate_card_desc">या डिव्हाइसचे चार्जिंग आणि डिस्चार्जिंग समजून घ्या आणि उरलेली वेळ, चार्ज होण्याची वेळ आणि बॅटरीचे आरोग्य अंदाजित करा.</string>
+    <string name="device_battery_estimate_card_desc">हा डिव्हाइस कसे चार्ज होतो आणि ड्रेन होतो हे समजून घ्या आणि उर्वरित वेळ, चार्ज होण्यापर्यंतचा वेळ, आणि रेट केलेल्या ऐकण्याच्या वेळचा किती भाग राहते याचा अंदाज लावा.</string>
     <string name="device_battery_estimate_reset_action">शिकलेला डेटा रीसेट करा</string>
     <string name="device_battery_estimate_reset_desc">रेट केलेल्या बॅटरी आयुष्यापासून पुन्हा सुरुवात करा.</string>
     <string name="device_battery_estimate_reset_confirm_title">शिकलेला डेटा रीसेट करायचे?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod या डिव्हाइसचा मोजलेला ड्रेन, चार्जिंग गती आणि बॅटरी आरोग्य विसरून देईल आणि रेट केलेल्या बॅटरी आयुष्यापासून पुन्हा सुरुवात करेल.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod या डिव्हाइसचा मोजलेला ड्रेन, चार्जिंग गती आणि ऐकण्याचा वेळ विसरून देईल आणि रेट केलेल्या बॅटरी आयुष्यापासून पुन्हा सुरुवात करेल.</string>
     <string name="settings_acknowledgements_label">पोचपावती</string>
     <string name="settings_debug_autoreports_label">स्वयंचलित बग अहवाल</string>
     <string name="settings_debug_autoreports_description">समस्या स्वयंचलितपणे नोंदवते, उदा. अॅप क्रॅशबद्दल तपशील जेणेकरून मी ते कसे दुरुस्त करायचे हे शोधू शकेन.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">उ</string>
     <string name="pods_case_label">केस</string>
     <string name="battery_unavailable_label">बॅटरी उपलब्ध नाही</string>
+    <string name="battery_state_low_cd">बॅटरी कमी</string>
+    <string name="battery_state_critical_cd">बॅटरी गंभीरपणे कमी</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d अधिक पूर्ण चार्ज दोन्ही इअरबड्ससाठी</item>
+        <item quantity="other">~%d अधिक पूर्ण चार्जे दोन्ही इअरबड्ससाठी</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">किमान %d अधिक पूर्ण चार्ज दोन्ही इअरबड्ससाठी</item>
+        <item quantity="other">किमान %d अधिक पूर्ण चार्जे दोन्ही इअरबड्ससाठी</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">दोन्ही इअरबड्ससाठी एक पूर्ण चार्जपेक्षा कमी</string>
+    <string name="battery_case_charges_empty">केस रिक्त आहे, आपल्या इअरबड्ससाठी कोणतीही चार्जे उर्वरित नाहीत</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">दोन्ही इअरबड्ससाठी किती पूर्ण चार्जे उर्वरित आहेत हे खात्री नाही</string>
+    <string name="battery_case_charges_state_enough_cd">एक पूर्ण चार्जसाठी पुरेसे</string>
+    <string name="battery_case_charges_state_not_enough_cd">एक पूर्ण चार्जसाठी पुरेसे नाही</string>
+    <string name="battery_case_charges_state_uncertain_cd">एक पूर्ण चार्जसाठी पुरेसे असू शकत नाही</string>
     <string name="pods_case_status_open_label">उघडे</string>
     <string name="pods_case_status_closed_label">बंद</string>
     <string name="pods_connection_state_disconnected_label">डिव्हाइसशी कनेक्ट नाही</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">उजव्या पॉडचा सीरियल</string>
     <string name="device_settings_info_left_bonded_label">डावे बाँडेड</string>
     <string name="device_settings_info_right_bonded_label">उजवे बाँडेड</string>
-    <string name="device_settings_info_battery_health_label">बॅटरी आरोग्य (अंदाजे)</string>
-    <string name="device_settings_info_battery_health_left_label">डावे बॅटरी आरोग्य (अंदाजे)</string>
-    <string name="device_settings_info_battery_health_right_label">उजवे बॅटरी आरोग्य (अंदाजे)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">अंदाजे ऐकण्याचा वेळ</string>
+    <string name="device_settings_info_battery_health_left_label">डाव्या पॉडचा ऐकण्याचा वेळ</string>
+    <string name="device_settings_info_battery_health_right_label">उजव्या पॉडचा ऐकण्याचा वेळ</string>
+    <string name="device_settings_info_battery_health_value">रेट केलेल्याचा ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">अजूनही निर्धारण होत आहे, नंतर परत पहा</string>
+    <string name="device_settings_battery_runtime_warning_title">ऐकण्याचा वेळ रेट केलेल्यापेक्षा बरेच कमी आहे</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: रेट केलेल्या ऐकण्याच्या वेळपर्यंत सुमारे %2$d%%. तपशीलांसाठी टॅप करा.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">हे हेडफोन्स</string>
     <string name="device_settings_info_details_label">डिव्हाइस तपशिल</string>
     <string name="device_settings_info_details_action">डिव्हाइस तपशिल दाखवा</string>
     <string name="device_settings_info_status_label">स्थिती</string>

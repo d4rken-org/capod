@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Fihla amadivayisi angafanele</string>
     <string name="settings_overview_hide_unmatched_description">Ungabonisi amadivayisi aseduzane angafanele namaprofile akho embonweni jikelele, isib. ama-AirPods abantu abanye.</string>
     <string name="device_battery_estimate_toggle_label">Izilinganiso zeBatari</string>
-    <string name="device_battery_estimate_card_desc">Funza indlela yesikwama sichaja nokucina ukuze ulinganise isikhathi esisele, isikhathi sokughajwa, nokuphila kweBatari.</string>
+    <string name="device_battery_estimate_card_desc">Funda indlela le-divayisi ichaja kanye nokwehlela amasodi ukuze lingane isikhathi esele, isikhathi kuze kube sechijiwe, kanye nokuthi ingakuphi kwesikhathi sokumamela esethembiliwe.</string>
     <string name="device_battery_estimate_reset_action">Ziphindezele imininingwane efundwe</string>
     <string name="device_battery_estimate_reset_desc">Qala kabusha kusuka ekubhalweni kweBatari.</string>
     <string name="device_battery_estimate_reset_confirm_title">Ziphindezele imininingwane efundwe?</string>
-    <string name="device_battery_estimate_reset_confirm_message">I-CAPod izokhohlwa umkhulu omlinganisiwe, isivinini sokuchaja, nokuphila kweBatari, nokaqala kabusha kusuka ekubhalweni kweBatari.</string>
+    <string name="device_battery_estimate_reset_confirm_message">I-CAPod izokhohlwa umkhulu omlinganisiwe, isivinini sokuchaja, esikhathi sokumamela, nokaqala kabusha kusuka ekubhalweni kweBatari.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
     <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
     <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">K</string>
     <string name="pods_case_label">Ikesi</string>
     <string name="battery_unavailable_label">Ibhethri ayitholakali</string>
+    <string name="battery_state_low_cd">I-Batari iphansi</string>
+    <string name="battery_state_critical_cd">I-Batari iphansi kakhulu</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d elingeni eliphelele kumakhulethi womabili</item>
+        <item quantity="other">~%d amalinga aphelele kumakhulethi womabili</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Okungenani %d elingeni eliphelele kumakhulethi womabili</item>
+        <item quantity="other">Okungenani %d amalinga aphelele kumakhulethi womabili</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Okungaphansi kwelingeni eliphelele kumakhulethi womabili</string>
+    <string name="battery_case_charges_empty">Icala lingenalutho, azikho ilingeni eliphelele kumakhulethi akho</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Ayikwazi ukucoca ukuthi ingakanani amalinga aphelele esele kumakhulethi womabili</string>
+    <string name="battery_case_charges_state_enough_cd">Kwaanele ngalingeni eliphelele</string>
+    <string name="battery_case_charges_state_not_enough_cd">Ayianele ngalingeni eliphelele</string>
+    <string name="battery_case_charges_state_uncertain_cd">Ingase ayianele ngalingeni eliphelele</string>
     <string name="pods_case_status_open_label">Ivuliwe</string>
     <string name="pods_case_status_closed_label">Ivaliwe</string>
     <string name="pods_connection_state_disconnected_label">Ayixhunyiwe kudivayisi</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Inombolo Yesitho Sesokudla</string>
     <string name="device_settings_info_left_bonded_label">Okuxhunyiwe Kwesokunxele</string>
     <string name="device_settings_info_right_bonded_label">Okuxhunyiwe Kwesokudla</string>
-    <string name="device_settings_info_battery_health_label">Ubuphilakha bweBatari (okungeniswe)</string>
-    <string name="device_settings_info_battery_health_left_label">Ubuphilakha bweBatari Okosele (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Ubuphilakha bweBatari Okunene (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Isikhathi sokumamela esacoshulwe</string>
+    <string name="device_settings_info_battery_health_left_label">Isikhathi sokumamela se-pod esobunxele</string>
+    <string name="device_settings_info_battery_health_right_label">Isikhathi sokumamela se-pod esokunene</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% yesikhathi esethembiliwe</string>
     <string name="device_settings_info_battery_health_pending">Kusabonakala, buyela ngemuva</string>
+    <string name="device_settings_battery_runtime_warning_title">Isikhathi sokumamela sincinane kakhulu kunalokho ekubhalweni</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: cishe %2$d%% yesikhathi sokumamela esethembiliwe. Thinta ngenxalenye.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Lolamakhulle</string>
     <string name="device_settings_info_details_label">Imininingwane Yedivayisi</string>
     <string name="device_settings_info_details_action">Bonisa imininingwane yedivayisi</string>
     <string name="device_settings_info_status_label">Isimo</string>
