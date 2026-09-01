@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Թաքցնել անհամապատասխան սարքերը</string>
     <string name="settings_overview_hide_unmatched_description">Չցուցադրել մոտակա սարքերը, որոնք չեն համընկնում ձեր պրոֆիլներից որևէ մեկի հետ, օրինակ՝ ուրիշի AirPods-ները:</string>
     <string name="device_battery_estimate_toggle_label">Մարտկոցի գնահատականներ</string>
-    <string name="device_battery_estimate_card_desc">Իմացեք, թե ինչպես է այս սարքը լիցքավորվում և լիցքազրկվում՝ մնացած ժամանակը, լիցքավորման ժամանակը և մարտկոցի առողջությունը գնահատելու համար:</string>
+    <string name="device_battery_estimate_card_desc">Իմացիր, թե ինչպես է այս սարքը լիցքավորվում և լիցքաթափվում, որպեսզի գնահատվի մնացած ժամանակը, լիցքավորման ավարտին մնացած ժամանակը և թե որքանով է այն դեռ հասնում իր անվանական լսելու ժամանակին։</string>
     <string name="device_battery_estimate_reset_action">Վերականգնել սովորած տվյալները</string>
     <string name="device_battery_estimate_reset_desc">Նորից սկսել գնահատված մարտկոցի կյանքից:</string>
     <string name="device_battery_estimate_reset_confirm_title">Վերականգնել սովորած տվյալները?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod-ը կմոռանա այս սարքի չափված լիցքազրկումը, լիցքավորման արագությունը և մարտկոցի առողջությունը, և կսկսի նորից գնահատված մարտկոցի կյանքից:</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod-ը կմոռանա այս սարքի չափված լիցքազրկումը, լիցքավորման արագությունը և լսելու ժամանակը, և կսկսի նորից գնահատված մարտկոցի կյանքից:</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
     <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
     <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">Ա</string>
     <string name="pods_case_label">Պատյան</string>
     <string name="battery_unavailable_label">Մարտկոցը անհասանելի է</string>
+    <string name="battery_state_low_cd">Մարտկոցի ցածր լիցք</string>
+    <string name="battery_state_critical_cd">Մարտկոցի կրիտիկական ցածր լիցք</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d ևս լրիվ լիցքավորում երկու ականջակալների համար</item>
+        <item quantity="other">~%d ևս լրիվ լիցքավորում երկու ականջակալների համար</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Առնվազն %d ևս լրիվ լիցքավորում երկու ականջակալների համար</item>
+        <item quantity="other">Առնվազն %d ևս լրիվ լիցքավորում երկու ականջակալների համար</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Մեկ լրիվ լիցքավորումից պակաս՝ երկու ականջակալների համար</string>
+    <string name="battery_case_charges_empty">Պատյանը դատարկ է, ականջակալների համար լիցքավորում չի մնացել</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Հստակ չէ, թե քանի լրիվ լիցքավորում է մնացել երկու ականջակալների համար</string>
+    <string name="battery_case_charges_state_enough_cd">Բավարար է լրիվ լիցքավորման համար</string>
+    <string name="battery_case_charges_state_not_enough_cd">Բավարար չէ լրիվ լիցքավորման համար</string>
+    <string name="battery_case_charges_state_uncertain_cd">Կարող է բավարար չլինել լրիվ լիցքավորման համար</string>
     <string name="pods_case_status_open_label">Բաց</string>
     <string name="pods_case_status_closed_label">Փակ</string>
     <string name="pods_connection_state_disconnected_label">Սարքին միացված չէ</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Աջ ականջակալի սերիա</string>
     <string name="device_settings_info_left_bonded_label">Ձախ կապակցված</string>
     <string name="device_settings_info_right_bonded_label">Աջ կապակցված</string>
-    <string name="device_settings_info_battery_health_label">Մարտկոցի առողջություն (գնահատված)</string>
-    <string name="device_settings_info_battery_health_left_label">Ձախ մարտկոցի առողջություն (գն.)</string>
-    <string name="device_settings_info_battery_health_right_label">Աջ մարտկոցի առողջություն (գն.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Գնահատված լսելու ժամանակ</string>
+    <string name="device_settings_info_battery_health_left_label">Ձախ ականջակալի լսելու ժամանակ</string>
+    <string name="device_settings_info_battery_health_right_label">Աջ ականջակալի լսելու ժամանակ</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% անվանականից</string>
     <string name="device_settings_info_battery_health_pending">Դեռ որոշվում է, ավելի ուշ կրկին ստուգեք</string>
+    <string name="device_settings_battery_runtime_warning_title">Լսելու ժամանակը զգալիորեն կարճ է անվանականից</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s՝ անվանական լսելու ժամանակի մոտավորապես %2$d%%-ը: Հպիր՝ մանրամասների համար։</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Այս ականջակալները</string>
     <string name="device_settings_info_details_label">Սարքի մանրամասները</string>
     <string name="device_settings_info_details_action">Ցուցադրել սարքի մանրամասները</string>
     <string name="device_settings_info_status_label">Կարգավիճակ</string>

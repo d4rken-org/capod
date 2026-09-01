@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">অমিল ডিভাইস লুকান</string>
     <string name="settings_overview_hide_unmatched_description">ওভারভিউতে কাছের এমন ডিভাইস দেখাবে না যেগুলো আপনার কোনো প্রোফাইলের সাথে মেলে না, যেমন অন্যদের AirPods।</string>
     <string name="device_battery_estimate_toggle_label">ব্যাটারি অনুমান</string>
-    <string name="device_battery_estimate_card_desc">এই ডিভাইসটি কীভাবে চার্জ হয় এবং কীভাবে খরচ হয় তা শিখুন যাতে অবশিষ্ট সময়, চার্জ হওয়ার সময় এবং ব্যাটারি স্বাস্থ্য অনুমান করতে পারেন।</string>
+    <string name="device_battery_estimate_card_desc">এই ডিভাইস কীভাবে চার্জ এবং ড্রেইন হয় তা শিখুন যাতে অবশিষ্ট সময়, চার্জ পূর্ণ হতে সময় এবং অবশিষ্ট শ্রবণ সময় অনুমান করতে পারেন।</string>
     <string name="device_battery_estimate_reset_action">শেখা ডেটা রিসেট করুন</string>
     <string name="device_battery_estimate_reset_desc">রেটেড ব্যাটারি আয়ু থেকে শুরু করুন।</string>
     <string name="device_battery_estimate_reset_confirm_title">শেখা ডেটা রিসেট করুন?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod এই ডিভাইসের পরিমাপ করা ড্রেইন, চার্জিং গতি এবং ব্যাটারি স্বাস্থ্য ভুলে যাবে এবং রেটেড ব্যাটারি আয়ু থেকে শুরু করবে।</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod এই ডিভাইসের পরিমাপ করা ড্রেইন, চার্জিং গতি এবং শ্রবণ সময় ভুলে যাবে এবং রেটেড ব্যাটারি আয়ু থেকে শুরু করবে।</string>
     <string name="settings_acknowledgements_label">স্বীকৃতি</string>
     <string name="settings_debug_autoreports_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
     <string name="settings_debug_autoreports_description">স্বয়ংক্রিয়ভাবে সমস্যাগুলি রিপোর্ট করে, যেমন অ্যাপ ক্র্যাশের বিবরণ যাতে আমি এটি কীভাবে ঠিক করতে পারি তা বের করতে পারি।</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">ডা</string>
     <string name="pods_case_label">কেস</string>
     <string name="battery_unavailable_label">ব্যাটারি অনুপলব্ধ</string>
+    <string name="battery_state_low_cd">ব্যাটারি কম</string>
+    <string name="battery_state_critical_cd">ব্যাটারি অত্যন্ত কম</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">উভয় ইয়ারবাডের জন্য আরও ~%d সম্পূর্ণ চার্জ</item>
+        <item quantity="other">উভয় ইয়ারবাডের জন্য আরও ~%d সম্পূর্ণ চার্জ</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">উভয় ইয়ারবাডের জন্য কমপক্ষে %d সম্পূর্ণ চার্জ</item>
+        <item quantity="other">উভয় ইয়ারবাডের জন্য কমপক্ষে %d সম্পূর্ণ চার্জ</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">উভয় ইয়ারবাডের জন্য একটি সম্পূর্ণ চার্জের কম</string>
+    <string name="battery_case_charges_empty">কেস খালি, আপনার ইয়ারবাডের জন্য কোন চার্জ বাকি নেই</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">উভয় ইয়ারবাডের জন্য কত সম্পূর্ণ চার্জ বাকি আছে তা নিশ্চিত নই</string>
+    <string name="battery_case_charges_state_enough_cd">একটি সম্পূর্ণ চার্জের জন্য যথেষ্ট</string>
+    <string name="battery_case_charges_state_not_enough_cd">একটি সম্পূর্ণ চার্জের জন্য যথেষ্ট নয়</string>
+    <string name="battery_case_charges_state_uncertain_cd">একটি সম্পূর্ণ চার্জের জন্য যথেষ্ট নাও হতে পারে</string>
     <string name="pods_case_status_open_label">খোলা</string>
     <string name="pods_case_status_closed_label">বন্ধ</string>
     <string name="pods_connection_state_disconnected_label">কোনো ডিভাইসের সাথে সংযুক্ত নয়</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">ডান পড সিরিয়াল</string>
     <string name="device_settings_info_left_bonded_label">বাম পেয়ার করা</string>
     <string name="device_settings_info_right_bonded_label">ডান পেয়ার করা</string>
-    <string name="device_settings_info_battery_health_label">ব্যাটারি স্বাস্থ্য (অনুমানিত)</string>
-    <string name="device_settings_info_battery_health_left_label">বাম ব্যাটারি স্বাস্থ্য (অনু.)</string>
-    <string name="device_settings_info_battery_health_right_label">ডান ব্যাটারি স্বাস্থ্য (অনু.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">আনুমানিক শ্রবণ সময়</string>
+    <string name="device_settings_info_battery_health_left_label">বাম পডের শ্রবণ সময়</string>
+    <string name="device_settings_info_battery_health_right_label">ডান পডের শ্রবণ সময়</string>
+    <string name="device_settings_info_battery_health_value">রেটেডের ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">এখনও নির্ধারণ করছি, পরে আবার চেক করুন</string>
+    <string name="device_settings_battery_runtime_warning_title">শ্রবণ সময় রেটেডের চেয়ে অনেক কম</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: রেটেড শ্রবণ সময়ের প্রায় %2$d%%। বিস্তারিত জানতে ট্যাপ করুন।</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">এই হেডফোনগুলি</string>
     <string name="device_settings_info_details_label">ডিভাইস বিস্তারিত</string>
     <string name="device_settings_info_details_action">ডিভাইস বিস্তারিত দেখুন</string>
     <string name="device_settings_info_status_label">স্ট্যাটাস</string>

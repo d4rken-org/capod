@@ -46,9 +46,9 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ово је посебна куповина — не отказује нити рефундира вашу претплату. Користите исти Google налог.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Претплата је и даље активна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ваша претплата је и даље подешена да се обнавља. Прво је откажите у Google Play-у, а затим пређите на једнократну куповину. Управо сте је отказали? Сачекајте тренутак да Google Play обради промену и покушајте поново.</string>
-    <string name="upgrade_screen_purchase_check_failed_message">Не могу да проверим твоју куповину са Google Play. Покушај поново за трен да избегнеш двоструку куповину.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не могу да проверим Вашу куповину са Google Play. Покушајте поново за трен да избегнете двоструку куповину.</string>
     <string name="upgrade_screen_pending_card_title">Плаћање је на чекању</string>
-    <string name="upgrade_screen_pending_card_body">Google Play још обрађује твоје плаћање. Pro се откључава аутоматски чим плаћање буде обрађено. Неке методе плаћања могу требати више времена. Нема ничега другог што требаш да урадиш.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play још обрађује Ваше плаћање. Pro се откључава аутоматски чим плаћање буде обрађено. Неке методе плаћања могу требати више времена. Нема ничега другог што треба да урадите.</string>
     <string name="upgrade_screen_pending_dialog_message">Google Play је нашао куповину са плаћањем на чекању и још је обрађује. Pro се откључава аутоматски чим плаћање буде обрађено.</string>
     <string name="upgrade_screen_grace_title">Потврђивање ваше куповине</string>
     <string name="upgrade_screen_grace_body_short">Google Play још увек није потврдио вашу куповину. Pro је и даље активан — није потребна никаква радња.</string>

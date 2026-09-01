@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Тохирохгүй төхөөрөмжүүдийг нуух</string>
     <string name="settings_overview_hide_unmatched_description">Таны профайлтай тохирохгүй ойрхон байгаа төхөөрөмжүүдийг, тухайлбал бусад хүмүүсийн AirPods-ийг тоймд харуулахгүй.</string>
     <string name="device_battery_estimate_toggle_label">Батерейны үнэлгээ</string>
-    <string name="device_battery_estimate_card_desc">Энэ төхөөрөмжийн цэнэглэлт, цэнэг ашиглалтын байдлыг сураад үлдсэн цаг, цэнэглэгдэх хүртэлх цаг, батерейны байдлыг үнэлнэ.</string>
+    <string name="device_battery_estimate_card_desc">Энэ төхөөрөмжийн цэнэгдэх, цэнэг ашигладаг байдлыг ойлгосноор үлдсэн цаг, цэнэглэх хүртэлх цаг, үнэлгээтэй сонсох цагаас хичнээнийг авч болохыг үнэлнэ.</string>
     <string name="device_battery_estimate_reset_action">Сурсан өгөгдлийг сэргээх</string>
     <string name="device_battery_estimate_reset_desc">Үнэлгээтэй батерейны хугацаанаас эхлүүлэх</string>
     <string name="device_battery_estimate_reset_confirm_title">Сурсан өгөгдлийг сэргээх үү?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod энэ төхөөрөмжийн хэмжсэн цэнэг ашигалт, цэнэглэх хурд болон батерейны байдлыг мартаж, үнэлгээтэй батерейны хугацаанаас эхлүүлэх болно.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod энэ төхөөрөмжийн хэмжсэн цэнэг ашигалт, цэнэглэх хурд болон сонсох цагийг мартаж, үнэлгээтэй батерейны хугацаанаас эхлүүлэх болно.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
     <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">Б</string>
     <string name="pods_case_label">Кейс</string>
     <string name="battery_unavailable_label">Батарей мэдэгдэхгүй байна</string>
+    <string name="battery_state_low_cd">Батерей сулбай байна</string>
+    <string name="battery_state_critical_cd">Батерей маш сулбай байна</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">хоёр чихэвчийн ~%d цэнэгийн боломж үлдсэн</item>
+        <item quantity="other">хоёр чихэвчийн ~%d цэнэгийн боломж үлдсэн</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Хоёр чихэвчийн дор хаяж ~%d цэнэгийн боломж үлдсэн</item>
+        <item quantity="other">Хоёр чихэвчийн дор хаяж ~%d цэнэгийн боломж үлдсэн</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Хоёр чихэвчийн нэг цэнэгээс бага боломж үлдсэн</string>
+    <string name="battery_case_charges_empty">Цэнэглүүр хоосон, чихэвчүүдийн цэнэглэх боломж үлдээгүй</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Хоёр чихэвчийн хичнээн цэнэглэх боломж үлдсэнийг мэдэхгүй байна</string>
+    <string name="battery_case_charges_state_enough_cd">Нэг цэнэгийн хувьд хангалттай</string>
+    <string name="battery_case_charges_state_not_enough_cd">Нэг цэнэгийн хувьд хангалтгүй</string>
+    <string name="battery_case_charges_state_uncertain_cd">Нэг цэнэгийн хувьд хангалтгүй байж болно</string>
     <string name="pods_case_status_open_label">Нээлттэй</string>
     <string name="pods_case_status_closed_label">Хаалттай</string>
     <string name="pods_connection_state_disconnected_label">Төхөөрөмжид холбогдоогүй</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Баруун чихэвчийн серийн дугаар</string>
     <string name="device_settings_info_left_bonded_label">Зүүн холбосон</string>
     <string name="device_settings_info_right_bonded_label">Баруун холбосон</string>
-    <string name="device_settings_info_battery_health_label">Батерейны байдал (тооцоолсон)</string>
-    <string name="device_settings_info_battery_health_left_label">Зүүн батерейны байдал (т.)</string>
-    <string name="device_settings_info_battery_health_right_label">Баруун батерейны байдал (т.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Үнэлгээтэй сонсох цаг</string>
+    <string name="device_settings_info_battery_health_left_label">Зүүн чихэвчийн сонсох цаг</string>
+    <string name="device_settings_info_battery_health_right_label">Баруун чихэвчийн сонсох цаг</string>
+    <string name="device_settings_info_battery_health_value">үнэлгээтэй ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">Одоо тооцоолж байна, дараа дахин үзээрэй</string>
+    <string name="device_settings_battery_runtime_warning_title">Батерейны сонсох цаг үнэлгээтэйгээс хамаагүй богино</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: үнэлгээтэй сонсох цагаас ~%2$d%%. Дэлгэрэнгүйг үзэхийн тулд дарна уу.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Эдгээр чихэвч</string>
     <string name="device_settings_info_details_label">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл</string>
     <string name="device_settings_info_details_action">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл үзэх</string>
     <string name="device_settings_info_status_label">Төлөв</string>

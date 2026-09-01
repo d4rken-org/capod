@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Ezkutatu bat ez datozen gailuak</string>
     <string name="settings_overview_hide_unmatched_description">Ez erakutsi ikuspegiaren inguruan dauden eta zure profilekin bat ez datozen gailuak, esaterako, beste pertsonen AirPods-ak.</string>
     <string name="device_battery_estimate_toggle_label">Bateriaren estimazioak</string>
-    <string name="device_battery_estimate_card_desc">Ikasi nola kargatzen eta deskargatzen den gailu hau, geratzen den denbora, kargatzeko denbora eta bateriaren osasuna estimatzeko.</string>
+    <string name="device_battery_estimate_card_desc">Ikasi gailu honek nola kargatzen eta deskargatzen den denbora kalkulatzeko, gelditzen denbora, kargatzera iritsa eta kalifikatuaren entzuteko denboraren zenbatekoa.</string>
     <string name="device_battery_estimate_reset_action">Ikasitako datuak berrezarri</string>
     <string name="device_battery_estimate_reset_desc">Kalifikatutako bateriaren bizitzatik berriro hasi.</string>
     <string name="device_battery_estimate_reset_confirm_title">Ikasitako datuak berrezarri?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod-ek gailu honetako neurtutako kontsumoa, kargatzeko abiadura eta bateriaren osasuna ahaztuko ditu, eta kalifikatutako bateriaren bizitzatik berriro hasiko da.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod-ek gailu honetako neurtutako kontsumoa, kargatzeko abiadura eta entzuteko denbora ahaztuko ditu, eta kalifikatutako bateriaren bizitzatik berriro hasiko da.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
     <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
     <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
@@ -243,6 +243,21 @@
     <string name="pods_dual_right_short_label">E</string>
     <string name="pods_case_label">Kaxa</string>
     <string name="battery_unavailable_label">Bateria ez dago erabilgarri</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d karga gehiago auriculareentzat</item>
+        <item quantity="other">~%d karga gehiago auriculareentzat</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Gutxienez %d karga gehiago auriculareentzat</item>
+        <item quantity="other">Gutxienez %d karga gehiago auriculareentzat</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Karga osoa baino gutxiago auriculareentzat gelditzen</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Ez dago argi zenbat karga gelditzen diren auriculareentzat</string>
+    <string name="battery_case_charges_state_enough_cd">Karga osoa izateko nahikoa</string>
+    <string name="battery_case_charges_state_not_enough_cd">Karga osoa izateko ez nahikoa</string>
+    <string name="battery_case_charges_state_uncertain_cd">Agian ez dute nahikoa karga osoa izateko</string>
     <string name="pods_case_status_open_label">Irekita</string>
     <string name="pods_case_status_closed_label">Itxita</string>
     <string name="pods_connection_state_disconnected_label">Ez dago gailu batera konektatuta</string>
@@ -431,11 +446,13 @@
     <string name="device_settings_info_right_serial_label">Eskuineko pod-aren seriea</string>
     <string name="device_settings_info_left_bonded_label">Ezkerra Lotuta</string>
     <string name="device_settings_info_right_bonded_label">Eskuina Lotuta</string>
-    <string name="device_settings_info_battery_health_label">Bateriaren osasuna (kalkulatua)</string>
-    <string name="device_settings_info_battery_health_left_label">Ezkerreko bateriaren osasuna (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Eskuineko bateriaren osasuna (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Entzuteko denbora estimatua</string>
+    <string name="device_settings_info_battery_health_left_label">Ezkerreko auricularearen entzuteko denbora</string>
+    <string name="device_settings_info_battery_health_right_label">Eskuineko auricularearen entzuteko denbora</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% kalifikatuaren</string>
     <string name="device_settings_info_battery_health_pending">Oraindik kalkulatzen, beranduago itzuli</string>
+    <string name="device_settings_battery_runtime_warning_title">Entzuteko denbora kalifikatua baino askoz laburragoa da</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: gutxi gorabehera %2$d%% kalifikatuen entzuteko denboraren. Sakatu xehetasunetarako.</string>
     <string name="device_settings_info_details_label">Gailuaren xehetasunak</string>
     <string name="device_settings_info_details_action">Erakutsi gailuaren xehetasunak</string>
     <string name="device_settings_info_status_label">Egoera</string>

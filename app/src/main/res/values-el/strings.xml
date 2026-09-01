@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Απόκρυψη μη αντιστοιχισμένων συσκευών</string>
     <string name="settings_overview_hide_unmatched_description">Να μην εμφανίζονται κοντινές συσκευές που δεν αντιστοιχούν σε κανένα από τα προφίλ σου στην επισκόπηση, π.χ. τα AirPods άλλων ανθρώπων.</string>
     <string name="device_battery_estimate_toggle_label">Εκτιμήσεις μπαταρίας</string>
-    <string name="device_battery_estimate_card_desc">Μάθετε πώς φορτίζεται και εκφορτίζεται αυτή η συσκευή για να εκτιμήσετε τον υπόλοιπο χρόνο, τον χρόνο έως τη φόρτιση και την υγεία της μπαταρίας.</string>
+    <string name="device_battery_estimate_card_desc">Μάθε πώς φορτίζεται και αποφορτίζεται αυτή η συσκευή, ώστε να υπολογίζεται ο χρόνος που απομένει, ο χρόνος μέχρι την πλήρη φόρτιση και πόσο από τον ονομαστικό χρόνο ακρόασης εξακολουθεί να καλύπτει.</string>
     <string name="device_battery_estimate_reset_action">Επαναφορά μαθημένων δεδομένων</string>
     <string name="device_battery_estimate_reset_desc">Ξεκινήστε ξανά από τη χρήση μπαταρίας που αναφέρεται.</string>
     <string name="device_battery_estimate_reset_confirm_title">Επαναφορά μαθημένων δεδομένων;</string>
-    <string name="device_battery_estimate_reset_confirm_message">Το CAPod θα ξεχάσει την μετρημένη κατανάλωση, την ταχύτητα φόρτισης και την υγεία της μπαταρίας αυτής της συσκευής, και θα ξεκινήσει ξανά από τη χρήση μπαταρίας που αναφέρεται.</string>
+    <string name="device_battery_estimate_reset_confirm_message">Το CAPod θα ξεχάσει την μετρημένη κατανάλωση, την ταχύτητα φόρτισης και τον χρόνο ακρόασης αυτής της συσκευής, και θα ξεκινήσει ξανά από τη διάρκεια μπαταρίας που αναφέρεται.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">Δ</string>
     <string name="pods_case_label">Θήκη</string>
     <string name="battery_unavailable_label">Μπαταρία μη διαθέσιμη</string>
+    <string name="battery_state_low_cd">Χαμηλή μπαταρία</string>
+    <string name="battery_state_critical_cd">Κρίσιμα χαμηλή μπαταρία</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d ακόμη πλήρης φόρτιση για τα δύο ακουστικά</item>
+        <item quantity="other">~%d ακόμη πλήρεις φορτίσεις για τα δύο ακουστικά</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Τουλάχιστον %d ακόμη πλήρης φόρτιση για τα δύο ακουστικά</item>
+        <item quantity="other">Τουλάχιστον %d ακόμη πλήρεις φορτίσεις για τα δύο ακουστικά</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Λιγότερο από μία ακόμη πλήρη φόρτιση για τα δύο ακουστικά</string>
+    <string name="battery_case_charges_empty">Η θήκη είναι άδεια, δεν απομένει φόρτιση για τα ακουστικά σου</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Δεν είναι σαφές πόσες πλήρεις φορτίσεις απομένουν για τα δύο ακουστικά</string>
+    <string name="battery_case_charges_state_enough_cd">Αρκετή για μία πλήρη φόρτιση</string>
+    <string name="battery_case_charges_state_not_enough_cd">Δεν αρκεί για μία πλήρη φόρτιση</string>
+    <string name="battery_case_charges_state_uncertain_cd">Μπορεί να μην αρκεί για μία πλήρη φόρτιση</string>
     <string name="pods_case_status_open_label">Ανοιχτή</string>
     <string name="pods_case_status_closed_label">Κλειστή</string>
     <string name="pods_connection_state_disconnected_label">Δεν είναι συνδεδεμένο σε συσκευή</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Σειριακός Αριθμός Δεξιού Pod</string>
     <string name="device_settings_info_left_bonded_label">Αριστερό Συζευγμένο</string>
     <string name="device_settings_info_right_bonded_label">Δεξί Συζευγμένο</string>
-    <string name="device_settings_info_battery_health_label">Υγεία Μπαταρίας (εκτιμώμενη)</string>
-    <string name="device_settings_info_battery_health_left_label">Υγεία Αριστερής Μπαταρίας (εκτ.)</string>
-    <string name="device_settings_info_battery_health_right_label">Υγεία Δεξιάς Μπαταρίας (εκτ.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Εκτιμώμενος χρόνος ακρόασης</string>
+    <string name="device_settings_info_battery_health_left_label">Χρόνος ακρόασης αριστερού ακουστικού</string>
+    <string name="device_settings_info_battery_health_right_label">Χρόνος ακρόασης δεξιού ακουστικού</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% του ονομαστικού</string>
     <string name="device_settings_info_battery_health_pending">Εξακολουθεί να προσδιορίζεται, ελέγξτε αργότερα</string>
+    <string name="device_settings_battery_runtime_warning_title">Ο χρόνος ακρόασης είναι πολύ μικρότερος από τον ονομαστικό</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: περίπου %2$d%% του ονομαστικού χρόνου ακρόασης. Πάτησε για λεπτομέρειες.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Αυτά τα ακουστικά</string>
     <string name="device_settings_info_details_label">Λεπτομέρειες Συσκευής</string>
     <string name="device_settings_info_details_action">Εμφάνιση λεπτομερειών συσκευής</string>
     <string name="device_settings_info_status_label">Κατάσταση</string>

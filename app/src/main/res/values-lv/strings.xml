@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Slēpt neatbilstošās ierīces</string>
     <string name="settings_overview_hide_unmatched_description">Nerādīt tuvumā esošās ierīces, kas neatbilst nevienam no jūsu profiliem pārskatā, piemēram, citu cilvēku AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Baterijas novērtējumi</string>
-    <string name="device_battery_estimate_card_desc">Uzziniet, kā šī ierīce tiek uzlādēta un iztukšojas, lai novērtētu atlikušo laiku, laiku līdz pilnai uzlādei un baterijas stāvokli.</string>
+    <string name="device_battery_estimate_card_desc">Uzziniet, kā šī ierīce uzlādējas un izlādējas, lai novērtētu atlikušo laiku, laiku līdz pilnai uzlādei un cik daudz no norādītā klausīšanās laika tā vēl sasniedz.</string>
     <string name="device_battery_estimate_reset_action">Atiestatīt apgūtos datus</string>
     <string name="device_battery_estimate_reset_desc">Sāciet no jauna ar norādīto baterijas darbības ilgumu.</string>
     <string name="device_battery_estimate_reset_confirm_title">Atiestatīt apgūtos datus?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod aizmirsīs šīs ierīces izmērīto baterijas noplūdi, uzlādes ātrumu un baterijas stāvokli, un sāks no jauna ar norādīto baterijas darbības ilgumu.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod aizmirsīs šīs ierīces izmērīto baterijas noplūdi, uzlādes ātrumu un klausīšanās laiku, un sāks no jauna ar norādīto baterijas darbības ilgumu.</string>
     <string name="settings_acknowledgements_label">Pateicības</string>
     <string name="settings_debug_autoreports_label">Automātiski kļūdu ziņojumi</string>
     <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string>
@@ -246,6 +246,26 @@
     <string name="pods_dual_right_short_label">L</string>
     <string name="pods_case_label">Korpuss</string>
     <string name="battery_unavailable_label">Akumulātors nav pieejams</string>
+    <string name="battery_state_low_cd">Baterija zema</string>
+    <string name="battery_state_critical_cd">Baterija kritiski zema</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="zero">Vēl ~%d pilnas uzlādes abiem austiņām</item>
+        <item quantity="one">Vēl ~%d pilna uzlāde abiem austiņām</item>
+        <item quantity="other">Vēl ~%d pilnas uzlādes abiem austiņām</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="zero">Vēl vismaz %d pilnas uzlādes abiem austiņām</item>
+        <item quantity="one">Vēl vismaz %d pilna uzlāde abiem austiņām</item>
+        <item quantity="other">Vēl vismaz %d pilnas uzlādes abiem austiņām</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Mazāk nekā viena pilna uzlāde abiem austiņām</string>
+    <string name="battery_case_charges_empty">Futlārs ir tukšs, nav atlicis uzlāžu austiņām</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Nav skaidrs, cik pilnu uzlāžu ir atlicis abiem austiņām</string>
+    <string name="battery_case_charges_state_enough_cd">Pietiek pilnai uzlādei</string>
+    <string name="battery_case_charges_state_not_enough_cd">Nepietiek pilnai uzlādei</string>
+    <string name="battery_case_charges_state_uncertain_cd">Iespējams nepietiek pilnai uzlādei</string>
     <string name="pods_case_status_open_label">Atvērts</string>
     <string name="pods_case_status_closed_label">Aizvērts</string>
     <string name="pods_connection_state_disconnected_label">Nav savienota ar ierīci</string>
@@ -437,11 +457,14 @@
     <string name="device_settings_info_right_serial_label">Labās austiņas sērijas numurs</string>
     <string name="device_settings_info_left_bonded_label">Kreisais savienots</string>
     <string name="device_settings_info_right_bonded_label">Labais savienots</string>
-    <string name="device_settings_info_battery_health_label">Baterijas stāvoklis (novērtēts)</string>
-    <string name="device_settings_info_battery_health_left_label">Kreisās baterijas stāvoklis (novērt.)</string>
-    <string name="device_settings_info_battery_health_right_label">Labās baterijas stāvoklis (novērt.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Aprēķinātais klausīšanās laiks</string>
+    <string name="device_settings_info_battery_health_left_label">Kreisās austiņas klausīšanās laiks</string>
+    <string name="device_settings_info_battery_health_right_label">Labās austiņas klausīšanās laiks</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% no norādītā</string>
     <string name="device_settings_info_battery_health_pending">Joprojām tiek aprēķināts, vēlāk pārbaudiet</string>
+    <string name="device_settings_battery_runtime_warning_title">Klausīšanās laiks ir daudz īsāks nekā norādīts</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: apmēram %2$d%% no norādītā klausīšanās laika. Pieskarieties detaļām.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Šīs austiņas</string>
     <string name="device_settings_info_details_label">Ierīces informācija</string>
     <string name="device_settings_info_details_action">Rādīt ierīces informāciju</string>
     <string name="device_settings_info_status_label">Stāvoklis</string>

@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">பொருந்தாத சாதனங்களை மறை</string>
     <string name="settings_overview_hide_unmatched_description">உங்கள் சுயவிவரங்களில் எதுவும் பொருந்தாத அருகில் உள்ள சாதனங்களை மேலோட்டத்தில் காட்டாதே, எ.கா. மற்றவர்களின் AirPods.</string>
     <string name="device_battery_estimate_toggle_label">பேட்டரி மதிப்பீடுகள்</string>
-    <string name="device_battery_estimate_card_desc">இந்த சாதனம் எப்படி சார்ஜ் ஆகிறது மற்றும் வெளியேறுகிறது என்பதைக் கற்றுக்கொள்ளுங்கள்; மீதமுள்ள நேரம், சார்ஜ் ஆகும் நேரம் மற்றும் பேட்டரி ஆரோக்கியத்தை மதிப்பீடு செய்ய.</string>
+    <string name="device_battery_estimate_card_desc">இந்த சாதனத்தின் சார்ஜ் மற்றும் வெளியேற்ற முறை பற்றி அறிந்து, மீதமுள்ள நேரம், சார்ஜ் ஆக மீதமுள்ள நேரம் மற்றும் மதிப்பிடப்பட்ட கேட்கும் நேரத்தில் எவ்வளவு மீதமுள்ளது என்பதை மதிப்பிடலாம்.</string>
     <string name="device_battery_estimate_reset_action">கற்ற தரவைக் மீட்டமைக்கவும்</string>
     <string name="device_battery_estimate_reset_desc">மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கவும்.</string>
     <string name="device_battery_estimate_reset_confirm_title">கற்ற தரவைக் மீட்டமைக்கவுமா?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod இந்த சாதனத்தின் அளந்த வெளியேற்றம், சார்ஜ் வேகம் மற்றும் பேட்டரி ஆரோக்கியத்தை மறந்துவிடும், மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கும்.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod இந்த சாதனத்தின் அளந்த வெளியேற்றம், சார்ஜ் வேகம் மற்றும் கேட்கும் நேரத்தை மறந்துவிடும், மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கும்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
     <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
     <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">வ</string>
     <string name="pods_case_label">கேஸ்</string>
     <string name="battery_unavailable_label">பேட்டரி கிடைக்கவில்லை</string>
+    <string name="battery_state_low_cd">பேட்டரி குறைவு</string>
+    <string name="battery_state_critical_cd">பேட்டரி மிக குறைவு</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் ~%d முழு சார்ஜ்</item>
+        <item quantity="other">இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் ~%d முழு சார்ஜ்கள்</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">குறைந்தபட்சம் இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் %d முழு சார்ஜ்</item>
+        <item quantity="other">குறைந்தபட்சம் இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் %d முழு சார்ஜ்கள்</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">இரண்டு ஈர்பட்டிகளுக்கும் ஒரு முழு சார்ஜிற்குக் குறைவு</string>
+    <string name="battery_case_charges_empty">கேஸ் காலியாக உள்ளது, உங்கள் ஈர்பட்டிக்கு சார்ஜ் இல்லை</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">இரண்டு ஈர்பட்டிகளுக்கும் எவ்வளவு முழு சார்ஜ் மீதமுள்ளது என்பது தெரியவில்லை</string>
+    <string name="battery_case_charges_state_enough_cd">முழு சார்ஜிற்குத் போதுமானது</string>
+    <string name="battery_case_charges_state_not_enough_cd">முழு சார்ஜிற்குப் போதுமற்றது</string>
+    <string name="battery_case_charges_state_uncertain_cd">முழு சார்ஜிற்குப் போதுமாக இல்லாமல் இருக்கலாம்</string>
     <string name="pods_case_status_open_label">திறந்தது</string>
     <string name="pods_case_status_closed_label">மூடப்பட்டது</string>
     <string name="pods_connection_state_disconnected_label">சாதனத்துடன் இணைக்கப்படவில்லை</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">வலது பாட் தொடர் எண்</string>
     <string name="device_settings_info_left_bonded_label">இடது இணைக்கப்பட்டது</string>
     <string name="device_settings_info_right_bonded_label">வலது இணைக்கப்பட்டது</string>
-    <string name="device_settings_info_battery_health_label">பேட்டரி ஆரோக்கியம் (மதிப்பீடு)</string>
-    <string name="device_settings_info_battery_health_left_label">இடது பேட்டரி ஆரோக்கியம் (மதிப்.)</string>
-    <string name="device_settings_info_battery_health_right_label">வலது பேட்டரி ஆரோக்கியம் (மதிப்.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">மதிப்பிடப்பட்ட கேட்கும் நேரம்</string>
+    <string name="device_settings_info_battery_health_left_label">இடது ஈர்பட்டி கேட்கும் நேரம்</string>
+    <string name="device_settings_info_battery_health_right_label">வலது ஈர்பட்டி கேட்கும் நேரம்</string>
+    <string name="device_settings_info_battery_health_value">மதிப்பிடப்பட்டதில் ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">இன்னும் கணக்கிடப்படுகிறது, பிறகு பாருங்கள்</string>
+    <string name="device_settings_battery_runtime_warning_title">கேட்கும் நேரம் மதிப்பிடப்பட்டதை விட மிகக் குறைவு</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: மதிப்பிடப்பட்ட கேட்கும் நேரத்தின் சுமார் %2$d%%. விவரங்களுக்குத் தட்டவும்.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">இந்த ஹெட்ஸெட்</string>
     <string name="device_settings_info_details_label">சாதன விவரங்கள்</string>
     <string name="device_settings_info_details_action">சாதன விவரங்களைக் காட்டு</string>
     <string name="device_settings_info_status_label">நிலை</string>

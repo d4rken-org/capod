@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">הסתר מכשירים שאינם תואמים</string>
     <string name="settings_overview_hide_unmatched_description">אל תציג מכשירים קרובים שאינם תואמים אף אחד מהפרופילים שלך בתצוגה הכללית, למשל AirPods של אנשים אחרים.</string>
     <string name="device_battery_estimate_toggle_label">הערכות סוללה</string>
-    <string name="device_battery_estimate_card_desc">למד כיצד הציוד הזה טוען ומתרוקן כדי להעריך את הזמן הנותר, הזמן עד לטעינה מלאה ובריאות הסוללה.</string>
+    <string name="device_battery_estimate_card_desc">גלה כיצד הציוד הזה טוען ומנוקז כדי להעריך את הזמן הנותר, את הזמן לטעינה מלאה, וכמה מזמן ההקשבה המדורג שלו עדיין קיים.</string>
     <string name="device_battery_estimate_reset_action">איפוס נתונים שנלמדו</string>
     <string name="device_battery_estimate_reset_desc">התחל מחדש מחיי הסוללה המדורגים.</string>
     <string name="device_battery_estimate_reset_confirm_title">לאפס את הנתונים שנלמדו?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod תשכח את ניקוז הציוד שנמדד, מהירות הטעינה ובריאות הסוללה, והתחלה מחדש מחיי הסוללה המדורגים.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod תשכח את ניקוז הציוד שנמדד, מהירות הטעינה וזמן ההקשבה, והתחלה מחדש מחיי הסוללה המדורגים.</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
     <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
@@ -210,19 +210,16 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">מכשיר %d ללא פרופיל תואם</item>
         <item quantity="two">%d מכשירים ללא פרופיל תואם</item>
-        <item quantity="many">%d מכשירים ללא פרופיל תואם</item>
         <item quantity="other">%d מכשירים ללא פרופיל תואם</item>
     </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d מכשיר קרוב זוהה ללא פרופיל תואם. הציגו אותו לפרטים זמינים. אם הוא שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
         <item quantity="two">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
-        <item quantity="many">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
         <item quantity="other">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
         <item quantity="one">התקן %d נוסף</item>
         <item quantity="two">%d התקנים נוספים</item>
-        <item quantity="many">%d התקנים נוספים</item>
         <item quantity="other">%d התקנים נוספים</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">חיבור Bluetooth</string>
@@ -249,6 +246,26 @@
     <string name="pods_dual_right_short_label">י</string>
     <string name="pods_case_label">מארז</string>
     <string name="battery_unavailable_label">הסוללה אינה זמינה</string>
+    <string name="battery_state_low_cd">סוללה נמוכה</string>
+    <string name="battery_state_critical_cd">סוללה במצב קריטי</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d טעינה מלאה נוספת עבור שתי האוזניות</item>
+        <item quantity="two">~%d טעינות מלאות נוספות עבור שתי האוזניות</item>
+        <item quantity="other">~%d טעינות מלאות נוספות עבור שתי האוזניות</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">לפחות %d טעינה מלאה נוספת עבור שתי האוזניות</item>
+        <item quantity="two">לפחות %d טעינות מלאות נוספות עבור שתי האוזניות</item>
+        <item quantity="other">לפחות %d טעינות מלאות נוספות עבור שתי האוזניות</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">פחות מטעינה מלאה נוספת עבור שתי האוזניות</string>
+    <string name="battery_case_charges_empty">הנרתיק ריק, אין טעינות נותרות עבור האוזניות שלך</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">לא בטוח כמה טעינות מלאות נותרו עבור שתי האוזניות</string>
+    <string name="battery_case_charges_state_enough_cd">מספיק לטעינה מלאה</string>
+    <string name="battery_case_charges_state_not_enough_cd">לא מספיק לטעינה מלאה</string>
+    <string name="battery_case_charges_state_uncertain_cd">ייתכן שלא מספיק לטעינה מלאה</string>
     <string name="pods_case_status_open_label">פתוח</string>
     <string name="pods_case_status_closed_label">סגור</string>
     <string name="pods_connection_state_disconnected_label">לא מחובר למכשיר</string>
@@ -368,7 +385,6 @@
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
         <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
-        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
         <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">מחיקה</string>
@@ -377,7 +393,6 @@
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">יומן ניפוי באגים %1$d (%2$s)</item>
         <item quantity="two">%1$d יומני ניפוי באגים (%2$s)</item>
-        <item quantity="many">%1$d יומני ניפוי באגים (%2$s)</item>
         <item quantity="other">%1$d יומני ניפוי באגים (%2$s)</item>
     </plurals>
     <string name="support_debuglog_clear_action">נקה יומני ניפוי באגים השמורים</string>
@@ -411,7 +426,6 @@
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d מילה</item>
         <item quantity="two">%1$d / %2$d מילים</item>
-        <item quantity="many">%1$d / %2$d מילים</item>
         <item quantity="other">%1$d / %2$d מילים</item>
     </plurals>
     <string name="support_contact_debuglog_label">יומן ניפוי באגים</string>
@@ -443,11 +457,14 @@
     <string name="device_settings_info_right_serial_label">מספר סידורי ימין</string>
     <string name="device_settings_info_left_bonded_label">שמאל מחובר</string>
     <string name="device_settings_info_right_bonded_label">ימין מחובר</string>
-    <string name="device_settings_info_battery_health_label">בריאות הסוללה (משוערת)</string>
-    <string name="device_settings_info_battery_health_left_label">בריאות סוללה שמאלה (משוערת)</string>
-    <string name="device_settings_info_battery_health_right_label">בריאות סוללה ימינה (משוערת)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">זמן הקשבה משוער</string>
+    <string name="device_settings_info_battery_health_left_label">זמן הקשבה של הפד השמאלי</string>
+    <string name="device_settings_info_battery_health_right_label">זמן הקשבה של הפד הימני</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% מהמדורג</string>
     <string name="device_settings_info_battery_health_pending">עדיין בקביעה, בדוק שוב מאוחר יותר</string>
+    <string name="device_settings_battery_runtime_warning_title">זמן הקשבה קצר הרבה יותר מהמדורג</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: כ-%2$d%% מזמן ההקשבה המדורג. הקש לפרטים.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">אוזניות אלו</string>
     <string name="device_settings_info_details_label">פרטי התקן</string>
     <string name="device_settings_info_details_action">הצג פרטי התקן</string>
     <string name="device_settings_info_status_label">מצב</string>

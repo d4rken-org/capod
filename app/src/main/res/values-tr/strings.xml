@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Eşleşmeyen cihazları gizle</string>
     <string name="settings_overview_hide_unmatched_description">Genel bakışta profillerinizden herhangi biriyle eşleşmeyen yakındaki cihazları gösterme, örn. başkalarının AirPods\'ları.</string>
     <string name="device_battery_estimate_toggle_label">Pil Tahminleri</string>
-    <string name="device_battery_estimate_card_desc">Bu cihazın nasıl şarj olup tükendiğini öğren, kalan zamanı, tamamen şarj olmaya kalan süreyi ve pil sağlığını tahmin et.</string>
+    <string name="device_battery_estimate_card_desc">Bu cihazın nasıl şarj olup pili nasıl tükendiğini öğren; kalan süreyi, tam şarj olmaya kalan süreyi ve orijinal dinleme süresinin ne kadarını karşılayabileceğini tahmin et.</string>
     <string name="device_battery_estimate_reset_action">Öğrenilen Verileri Sıfırla</string>
     <string name="device_battery_estimate_reset_desc">Orijinal pil ömründen yeniden başla.</string>
     <string name="device_battery_estimate_reset_confirm_title">Öğrenilen Verileri Sıfırla?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülen pil tükenme hızını, şarj hızını ve pil sağlığını unutacak ve orijinal pil ömründen yeniden başlayacak.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülen pil tükenme hızını, şarj hızını ve dinleme süresini unutacak ve orijinal pil ömründen yeniden başlayacak.</string>
     <string name="settings_acknowledgements_label">Teşekkürler</string>
     <string name="settings_debug_autoreports_label">Otomatik hata raporları</string>
     <string name="settings_debug_autoreports_description">Sorunları otomatik olarak bildirir, ör. uygulama çökmesiyle ilgili ayrıntılı bilgiler. Böylece nasıl düzelteceğimi bulabilirim.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">Kutu</string>
     <string name="battery_unavailable_label">Batarya mevcut değil</string>
+    <string name="battery_state_low_cd">Pil düşük</string>
+    <string name="battery_state_critical_cd">Pil kritik seviyede</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">Her iki kulaklık için ~%d tam şarj</item>
+        <item quantity="other">Her iki kulaklık için ~%d tam şarj</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Her iki kulaklık için en az %d tam şarj</item>
+        <item quantity="other">Her iki kulaklık için en az %d tam şarj</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Her iki kulaklık için birden az tam şarj</string>
+    <string name="battery_case_charges_empty">Kutu boş, kulaklıklarınız için hiç şarj kalmadı</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Her iki kulaklık için kaç tam şarj kalacağı belirsiz</string>
+    <string name="battery_case_charges_state_enough_cd">Tam şarj için yeterli</string>
+    <string name="battery_case_charges_state_not_enough_cd">Tam şarj için yeterli değil</string>
+    <string name="battery_case_charges_state_uncertain_cd">Tam şarj için yeterli olmayabilir</string>
     <string name="pods_case_status_open_label">Açık</string>
     <string name="pods_case_status_closed_label">Kapalı</string>
     <string name="pods_connection_state_disconnected_label">Bir cihaza bağlı değil</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Sağ Kulaklık Seri Numarası</string>
     <string name="device_settings_info_left_bonded_label">Sol Eşleştirildi</string>
     <string name="device_settings_info_right_bonded_label">Sağ Eşleştirildi</string>
-    <string name="device_settings_info_battery_health_label">Pil Sağlığı (tahmini)</string>
-    <string name="device_settings_info_battery_health_left_label">Sol Pil Sağlığı (tah.)</string>
-    <string name="device_settings_info_battery_health_right_label">Sağ Pil Sağlığı (tah.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Tahmini dinleme süresi</string>
+    <string name="device_settings_info_battery_health_left_label">Sol kulaklık dinleme süresi</string>
+    <string name="device_settings_info_battery_health_right_label">Sağ kulaklık dinleme süresi</string>
+    <string name="device_settings_info_battery_health_value">Orijinal kapasitesinin ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">Hala belirleniyor, daha sonra kontrol edin</string>
+    <string name="device_settings_battery_runtime_warning_title">Dinleme süresi orijinalinden çok daha kısa</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: orijinal dinleme süresinin yaklaşık %2$d%%. Ayrıntılar için dokun.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Bu kulaklıklar</string>
     <string name="device_settings_info_details_label">Cihaz Detayları</string>
     <string name="device_settings_info_details_action">Cihaz detaylarını göster</string>
     <string name="device_settings_info_status_label">Durum</string>

@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Ficha vifaa visivyolingana</string>
     <string name="settings_overview_hide_unmatched_description">Usionyeshe vifaa vilivyo karibu ambavyo havilingani na mojawapo ya maelezo yako kwenye muhtasari, k.m. AirPods za watu wengine.</string>
     <string name="device_battery_estimate_toggle_label">Tathmini za Betri</string>
-    <string name="device_battery_estimate_card_desc">Jifunze jinsi kifaa hiki kinavyochaaji na kueneza kukadiria muda unaobaki, muda hadi ujaze, na afya ya betri.</string>
+    <string name="device_battery_estimate_card_desc">Jifunze jinsi kifaa hiki kinavyochaji na kupungua ili kukadiria muda uliobaki, muda hadi kichaji kikamilike, na kiasi gani cha muda wake wa kusikiliza uliokadiriwa bado kinafikia.</string>
     <string name="device_battery_estimate_reset_action">Weka upya data iliyojifunza</string>
     <string name="device_battery_estimate_reset_desc">Anza tena kutoka kwa umri wa betri uliokaditiwa.</string>
     <string name="device_battery_estimate_reset_confirm_title">Weka upya data iliyojifunza?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod itasahau kueneza kupimiwa wa kifaa hiki, kasi ya chaaji na afya ya betri, na anza tena kutoka kwa umri wa betri uliokaditiwa.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod itasahau kupungua kwa betri kulikopimwa, kasi ya chaji, na muda wa kusikiliza wa kifaa hiki, na kuanza tena kutoka kwa maisha ya betri yaliyokadiriwa.</string>
     <string name="settings_acknowledgements_label">Shukrani</string>
     <string name="settings_debug_autoreports_label">Ripoti za hitilafu za kiotomatiki</string>
     <string name="settings_debug_autoreports_description">Huripoti matatizo kiotomatiki, k.m. maelezo kuhusu kuacha kufanya kazi kwa programu ili niweze kujua jinsi ya kuyarekebisha.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">K</string>
     <string name="pods_case_label">Kipochi</string>
     <string name="battery_unavailable_label">Betri haipatikani</string>
+    <string name="battery_state_low_cd">Betri iko chini</string>
+    <string name="battery_state_critical_cd">Betri iko chini sana</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d chaji kamili zaidi kwa vipokea sauti vyote viwili</item>
+        <item quantity="other">~%d chaji kamili zaidi kwa vipokea sauti vyote viwili</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Angalau chaji kamili %d zaidi kwa vipokea sauti vyote viwili</item>
+        <item quantity="other">Angalau chaji kamili %d zaidi kwa vipokea sauti vyote viwili</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Chini ya chaji kamili moja zaidi kwa vipokea sauti vyote viwili</string>
+    <string name="battery_case_charges_empty">Kasha ni tupu, hakuna chaji zilizobaki kwa vipokea sauti vyako</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Haijulikani ni chaji ngapi kamili zilizobaki kwa vipokea sauti vyote viwili</string>
+    <string name="battery_case_charges_state_enough_cd">Inatosha kwa chaji kamili</string>
+    <string name="battery_case_charges_state_not_enough_cd">Haitoshi kwa chaji kamili</string>
+    <string name="battery_case_charges_state_uncertain_cd">Huenda isitoshe kwa chaji kamili</string>
     <string name="pods_case_status_open_label">Wazi</string>
     <string name="pods_case_status_closed_label">Imefungwa</string>
     <string name="pods_connection_state_disconnected_label">Haijaunganishwa na kifaa</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Nambari ya Mfululizo ya Pod ya Kulia</string>
     <string name="device_settings_info_left_bonded_label">Imefungwa Kushoto</string>
     <string name="device_settings_info_right_bonded_label">Imefungwa Kulia</string>
-    <string name="device_settings_info_battery_health_label">Afya ya Betri (Inakadiriwa)</string>
-    <string name="device_settings_info_battery_health_left_label">Afya ya Betri ya Kushoto (Kad.)</string>
-    <string name="device_settings_info_battery_health_right_label">Afya ya Betri ya Kulia (Kad.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Muda wa kusikiliza uliokadiriwa</string>
+    <string name="device_settings_info_battery_health_left_label">Muda wa kusikiliza wa kipokea sauti cha kushoto</string>
+    <string name="device_settings_info_battery_health_right_label">Muda wa kusikiliza wa kipokea sauti cha kulia</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% ya kiwango kilichokadiriwa</string>
     <string name="device_settings_info_battery_health_pending">Bado inahesabu, rudi baadaye</string>
+    <string name="device_settings_battery_runtime_warning_title">Muda wa kusikiliza ni mfupi zaidi kuliko ulivyokadiriwa</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: karibu %2$d%% ya muda wa kusikiliza uliokadiriwa. Gusa kwa maelezo zaidi.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Vipokea sauti hivi</string>
     <string name="device_settings_info_details_label">Maelezo ya Kifaa</string>
     <string name="device_settings_info_details_action">Onyesha maelezo ya kifaa</string>
     <string name="device_settings_info_status_label">Hali</string>

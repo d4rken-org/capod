@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Itago ang mga hindi tugmang device</string>
     <string name="settings_overview_hide_unmatched_description">Huwag ipakita ang mga kalapit na device na hindi tugma sa alinman sa iyong mga profile sa pangkalahatang-tanaw, hal. ang mga AirPods ng ibang tao.</string>
     <string name="device_battery_estimate_toggle_label">Mga Pagtataya ng Baterya</string>
-    <string name="device_battery_estimate_card_desc">Alamin kung paano nag-charge at gumagamit ng kuryente ang device na ito upang matantya ang natitirang oras, oras hanggang sa puno, at kalusugan ng baterya.</string>
+    <string name="device_battery_estimate_card_desc">Alamin kung paano nag-charge at umuubos ang baterya ng device na ito para tantiyahin ang natitirang oras, oras hanggang ma-charge nang buo, at kung gaano karaming bahagi ng rated na oras ng pakikinig ang naaabot pa nito.</string>
     <string name="device_battery_estimate_reset_action">Burahin ang natutunan na datos</string>
     <string name="device_battery_estimate_reset_desc">Magsimula muli mula sa rated na buhay ng baterya.</string>
     <string name="device_battery_estimate_reset_confirm_title">Burahin ang natutunan na datos?</string>
-    <string name="device_battery_estimate_reset_confirm_message">Makakalimutan ng CAPod ang sinusukat na paggamit ng kuryente, bilis ng pag-charge, at kalusugan ng baterya ng device na ito, at magsisimula muli mula sa rated na buhay ng baterya.</string>
+    <string name="device_battery_estimate_reset_confirm_message">Makakalimutan ng CAPod ang sinusukat na paggamit ng kuryente, bilis ng pag-charge, at oras ng pakikinig ng device na ito, at magsisimula muli mula sa rated na buhay ng baterya.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
     <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">K</string>
     <string name="pods_case_label">Case</string>
     <string name="battery_unavailable_label">Hindi available ang baterya</string>
+    <string name="battery_state_low_cd">Mababa ang baterya</string>
+    <string name="battery_state_critical_cd">Kritikal na mababa ang baterya</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d pang buong charge para sa magkabilang earbud</item>
+        <item quantity="other">~%d pang buong charge para sa magkabilang earbud</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Hindi bababa sa %d pang buong charge para sa magkabilang earbud</item>
+        <item quantity="other">Hindi bababa sa %d pang buong charge para sa magkabilang earbud</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Kulang sa isang buong charge na lang para sa magkabilang earbud</string>
+    <string name="battery_case_charges_empty">Walang laman ang case, wala nang natitirang charge para sa iyong mga earbud</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Hindi sigurado kung ilang buong charge pa ang natitira para sa magkabilang earbud</string>
+    <string name="battery_case_charges_state_enough_cd">Sapat para sa isang buong charge</string>
+    <string name="battery_case_charges_state_not_enough_cd">Hindi sapat para sa isang buong charge</string>
+    <string name="battery_case_charges_state_uncertain_cd">Maaaring hindi sapat para sa isang buong charge</string>
     <string name="pods_case_status_open_label">Bukas</string>
     <string name="pods_case_status_closed_label">Sarado</string>
     <string name="pods_connection_state_disconnected_label">Hindi konektado sa isang device</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Serial ng Kanang Pod</string>
     <string name="device_settings_info_left_bonded_label">Kaliwang Naka-bond</string>
     <string name="device_settings_info_right_bonded_label">Kanang Naka-bond</string>
-    <string name="device_settings_info_battery_health_label">Kalusugan ng Baterya (tinantya)</string>
-    <string name="device_settings_info_battery_health_left_label">Kalusugan ng Kaliwang Baterya (tinantya.)</string>
-    <string name="device_settings_info_battery_health_right_label">Kalusugan ng Kananang Baterya (tinantya.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Tinatayang oras ng pakikinig</string>
+    <string name="device_settings_info_battery_health_left_label">Oras ng pakikinig ng kaliwang pod</string>
+    <string name="device_settings_info_battery_health_right_label">Oras ng pakikinig ng kanang pod</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% ng rated</string>
     <string name="device_settings_info_battery_health_pending">Patuloy na tinutukoy, bumalik mamaya</string>
+    <string name="device_settings_battery_runtime_warning_title">Mas maikli nang husto ang oras ng pakikinig kaysa sa rated</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: mga %2$d%% ng rated na oras ng pakikinig. I-tap para sa detalye.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Ang headphones na ito</string>
     <string name="device_settings_info_details_label">Mga Detalye ng Device</string>
     <string name="device_settings_info_details_action">Ipakita ang mga detalye ng device</string>
     <string name="device_settings_info_status_label">Katayuan</string>

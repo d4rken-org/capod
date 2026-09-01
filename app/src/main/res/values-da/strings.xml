@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Skjul ikke-matchende enheder</string>
     <string name="settings_overview_hide_unmatched_description">Vis ikke nærliggende enheder, der ikke matcher nogen af dine profiler i overblikkket, f.eks. andres AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteriestimater</string>
-    <string name="device_battery_estimate_card_desc">Lær, hvordan denne enhed oplades og aflades, for at estimere resterende tid, tid til opladning, og batteritilstand.</string>
+    <string name="device_battery_estimate_card_desc">Lær, hvordan denne enheds opladning og afladning varierer for at estimere resterende afspilningstid, tid til fuldt opladt, og hvor meget af dens nominelle lyttetid der stadig er tilbage.</string>
     <string name="device_battery_estimate_reset_action">Nulstil indlærte data</string>
     <string name="device_battery_estimate_reset_desc">Start forfra fra den nominelle batterilevetid.</string>
     <string name="device_battery_estimate_reset_confirm_title">Nulstil indlærte data?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod vil glemme denne enheds målte forbrug, opladningshastighed og batteritilstand, og starte forfra fra den nominelle batterilevetid.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod vil glemme denne enheds målte forbrug, opladningshastighed og lyttetid, og starte forfra fra den nominelle batterilevetid.</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
     <string name="settings_debug_autoreports_label">Automatiske fejlrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterer automatisk problemer, f.eks. detaljer om et app-nedbrud, så jeg kan finde ud af, hvordan jeg løser det.</string>
@@ -243,6 +243,23 @@
     <string name="pods_dual_right_short_label">H</string>
     <string name="pods_case_label">Etui</string>
     <string name="battery_unavailable_label">Batteri utilgængeligt</string>
+    <string name="battery_state_low_cd">Batteri lavt</string>
+    <string name="battery_state_critical_cd">Batteri kritisk lavt</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d mere fuld opladning til begge øretelefoner</item>
+        <item quantity="other">~%d flere fulde opladninger til begge øretelefoner</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Mindst %d mere fuld opladning til begge øretelefoner</item>
+        <item quantity="other">Mindst %d flere fulde opladninger til begge øretelefoner</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Mindre end en fuld opladning mere til begge øretelefoner</string>
+    <string name="battery_case_charges_empty">Etui er tomt, ingen opladninger tilbage til dine øretelefoner</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Usikker på hvor mange fulde opladninger der er tilbage til begge øretelefoner</string>
+    <string name="battery_case_charges_state_enough_cd">Nok til en fuld opladning</string>
+    <string name="battery_case_charges_state_not_enough_cd">Ikke nok til en fuld opladning</string>
     <string name="pods_case_status_open_label">Åben</string>
     <string name="pods_case_status_closed_label">Lukket</string>
     <string name="pods_connection_state_disconnected_label">Ikke forbundet til en enhed</string>
@@ -431,11 +448,14 @@
     <string name="device_settings_info_right_serial_label">Højre pod-serienummer</string>
     <string name="device_settings_info_left_bonded_label">Venstre parret</string>
     <string name="device_settings_info_right_bonded_label">Højre parret</string>
-    <string name="device_settings_info_battery_health_label">Batteritilstand (estimeret)</string>
-    <string name="device_settings_info_battery_health_left_label">Venstre batteritilstand (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Højre batteritilstand (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Estimeret lyttetid</string>
+    <string name="device_settings_info_battery_health_left_label">Venstre øretelefonens lyttetid</string>
+    <string name="device_settings_info_battery_health_right_label">Højre øretelefonens lyttetid</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% af nominelt</string>
     <string name="device_settings_info_battery_health_pending">Bestemmes stadig, kom tilbage senere</string>
+    <string name="device_settings_battery_runtime_warning_title">Lyttetid er meget kortere end nominelt</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: omkring %2$d%% af den nominelle lyttetid. Tryk for detaljer.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Disse høretelefoner</string>
     <string name="device_settings_info_details_label">Enhedsdetaljer</string>
     <string name="device_settings_info_details_action">Vis enhedsdetaljer</string>
     <string name="device_settings_info_status_label">Status</string>

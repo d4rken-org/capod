@@ -114,7 +114,7 @@
     <string name="settings_overview_hide_unmatched_label">Fshih pajisjet e papërputhura</string>
     <string name="settings_overview_hide_unmatched_description">Mos shfaq pajisjet afërsisht që nuk përputhen me asnjë nga profilet tuaja në pamje të përgjithshme, p.sh. AirPods-et e njerëzve të tjerë.</string>
     <string name="device_battery_estimate_toggle_label">Vlerësimet e baterisë</string>
-    <string name="device_battery_estimate_card_desc">Mësoni se si kjo pajisje ngarkohet dhe zbrazet për të vlerësuar kohën e mbetur, kohën deri sa të ngarkohet dhe shëndetin e baterisë.</string>
+    <string name="device_battery_estimate_card_desc">Mësoni se si kjo pajisje ngarkohet dhe shkarkohet për të vlerësuar kohën e mbetur, kohën deri në ngarkesë të plotë, dhe sa shumë e kohës nominale të dëgjimit ajo ende arrin.</string>
     <string name="device_battery_estimate_reset_action">Rivendosni të dhënat e mësuara</string>
     <string name="device_battery_estimate_reset_desc">Filloni përsëri nga jeta nominale e baterisë.</string>
     <string name="device_battery_estimate_reset_confirm_title">Rivendosni të dhënat e mësuara?</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Kutia</string>
     <string name="battery_unavailable_label">Bateria e padisponueshme</string>
+    <string name="battery_state_low_cd">Bateria e ulët</string>
+    <string name="battery_state_critical_cd">Bateria në nivel kritik</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d më shumë ngarkesë e plotë për të dy kufjet</item>
+        <item quantity="other">~%d më shumë ngarkesë të plota për të dy kufjet</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Të paktën %d më shumë ngarkesë e plotë për të dy kufjet</item>
+        <item quantity="other">Të paktën %d më shumë ngarkesë të plota për të dy kufjet</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Më pak se një ngarkesë e plotë për të dy kufjet</string>
+    <string name="battery_case_charges_empty">Kutia është bosh, nuk ka më ngarkesë për kufjet tuaja</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Nuk jam i sigurt sa ngarkesë të plota kanë mbetur për të dy kufjet</string>
+    <string name="battery_case_charges_state_enough_cd">Mjaft për një ngarkesë të plotë</string>
+    <string name="battery_case_charges_state_not_enough_cd">Nuk mjafton për një ngarkesë të plotë</string>
+    <string name="battery_case_charges_state_uncertain_cd">Mund të mos mjaftojë për një ngarkesë të plotë</string>
     <string name="pods_case_status_open_label">E hapur</string>
     <string name="pods_case_status_closed_label">E mbyllur</string>
     <string name="pods_connection_state_disconnected_label">Nuk është e lidhur me një pajisje</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Numri serial i kapsulit të djathtë</string>
     <string name="device_settings_info_left_bonded_label">E lidhur majtas</string>
     <string name="device_settings_info_right_bonded_label">E lidhur djathtas</string>
-    <string name="device_settings_info_battery_health_label">Shëndeti i Baterisë (i vlerësuar)</string>
-    <string name="device_settings_info_battery_health_left_label">Shëndeti i Baterisë të Majtë (i vlerësuar)</string>
-    <string name="device_settings_info_battery_health_right_label">Shëndeti i Baterisë të Djathtë (i vlerësuar)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Koha e dëgjimit e vlerësuar</string>
+    <string name="device_settings_info_battery_health_left_label">Koha e dëgjimit të kufit të majtë</string>
+    <string name="device_settings_info_battery_health_right_label">Koha e dëgjimit të kufit të djathtë</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% e nominales</string>
     <string name="device_settings_info_battery_health_pending">Ende po përcaktohet, kontrollo më vonë</string>
+    <string name="device_settings_battery_runtime_warning_title">Koha e dëgjimit është shumë më e shkurtër se nominale</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: afërsisht %2$d%% e kohës nominale të dëgjimit. Shtypni për detaje.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Këto kufje</string>
     <string name="device_settings_info_details_label">Detajet e pajisjes</string>
     <string name="device_settings_info_details_action">Shfaq detajet e pajisjes</string>
     <string name="device_settings_info_status_label">Statusi</string>

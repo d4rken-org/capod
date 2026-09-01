@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Sembunyikan perangkat yang tidak cocok</string>
     <string name="settings_overview_hide_unmatched_description">Jangan tampilkan perangkat terdekat yang tidak cocok dengan profil mana pun di ringkasan, misalnya AirPods milik orang lain.</string>
     <string name="device_battery_estimate_toggle_label">Perkiraan Baterai</string>
-    <string name="device_battery_estimate_card_desc">Pelajari cara perangkat ini diisi daya dan dihabiskan untuk memperkirakan waktu yang tersisa, waktu hingga terisi penuh, dan kesehatan baterai.</string>
+    <string name="device_battery_estimate_card_desc">Pelajari cara perangkat ini mengisi daya dan mengalami penurunan daya untuk memperkirakan waktu tersisa, waktu hingga pengisian penuh, dan seberapa banyak waktu mendengarkan yang dinilai masih dapat dicapai.</string>
     <string name="device_battery_estimate_reset_action">Setel Ulang Data Terbelajar</string>
     <string name="device_battery_estimate_reset_desc">Mulai dari awal dengan daya tahan baterai yang dinilai.</string>
     <string name="device_battery_estimate_reset_confirm_title">Setel Ulang Data Terbelajar?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod akan melupakan pengurasan, kecepatan pengisian, dan kesehatan baterai perangkat yang telah diukur, serta memulai dari awal dengan daya tahan baterai yang dinilai.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod akan melupakan pengurasan, kecepatan pengisian, dan waktu mendengarkan perangkat yang telah diukur, serta memulai dari awal dengan daya tahan baterai yang dinilai.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
     <string name="settings_debug_autoreports_label">Laporan bug otomatis</string>
     <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">Ka</string>
     <string name="pods_case_label">Casing</string>
     <string name="battery_unavailable_label">Baterai tidak tersedia</string>
+    <string name="battery_state_low_cd">Baterai rendah</string>
+    <string name="battery_state_critical_cd">Baterai sangat rendah</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">~%d pengisian daya penuh lagi untuk kedua earbuds</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">Setidaknya %d pengisian daya penuh lagi untuk kedua earbuds</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Kurang dari satu pengisian daya penuh lagi untuk kedua earbuds</string>
+    <string name="battery_case_charges_empty">Kotak kosong, tidak ada pengisian daya tersisa untuk earbuds Anda</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Tidak yakin berapa banyak pengisian daya penuh tersisa untuk kedua earbuds</string>
+    <string name="battery_case_charges_state_enough_cd">Cukup untuk pengisian daya penuh</string>
+    <string name="battery_case_charges_state_not_enough_cd">Tidak cukup untuk pengisian daya penuh</string>
+    <string name="battery_case_charges_state_uncertain_cd">Mungkin tidak cukup untuk pengisian daya penuh</string>
     <string name="pods_case_status_open_label">Terbuka</string>
     <string name="pods_case_status_closed_label">Tertutup</string>
     <string name="pods_connection_state_disconnected_label">Tidak terhubung ke perangkat</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">Nomor Seri Pod Kanan</string>
     <string name="device_settings_info_left_bonded_label">Kiri Terhubung</string>
     <string name="device_settings_info_right_bonded_label">Kanan Terhubung</string>
-    <string name="device_settings_info_battery_health_label">Kesehatan Baterai (diperkirakan)</string>
-    <string name="device_settings_info_battery_health_left_label">Kesehatan Baterai Kiri (perkiraan)</string>
-    <string name="device_settings_info_battery_health_right_label">Kesehatan Baterai Kanan (perkiraan)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Waktu mendengarkan yang diperkirakan</string>
+    <string name="device_settings_info_battery_health_left_label">Waktu mendengarkan pod kiri</string>
+    <string name="device_settings_info_battery_health_right_label">Waktu mendengarkan pod kanan</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% dari yang dinilai</string>
     <string name="device_settings_info_battery_health_pending">Sedang ditentukan, periksa kembali nanti</string>
+    <string name="device_settings_battery_runtime_warning_title">Waktu mendengarkan jauh lebih pendek dari yang dinilai</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: sekitar %2$d%% dari waktu mendengarkan yang dinilai. Ketuk untuk detail.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Headphone ini</string>
     <string name="device_settings_info_details_label">Detail Perangkat</string>
     <string name="device_settings_info_details_action">Tampilkan detail perangkat</string>
     <string name="device_settings_info_status_label">Status</string>

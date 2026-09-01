@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Dölj omatchade enheter</string>
     <string name="settings_overview_hide_unmatched_description">Visa inte närliggande enheter som inte matchar någon av dina profiler i översikten, t.ex. andras AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Batteriuppskattningar</string>
-    <string name="device_battery_estimate_card_desc">Lär dig hur denna enhet laddas och förbrukar batterienergi för att uppskatta återstående tid, tid till fulladdning och batterihälsa.</string>
+    <string name="device_battery_estimate_card_desc">Lär dig hur den här enheten laddas och laddas ur för att uppskatta återstående tid, tid tills fulladdad och hur stor del av sin klassificerade lyssningstid den fortfarande når.</string>
     <string name="device_battery_estimate_reset_action">Återställ inlärd data</string>
     <string name="device_battery_estimate_reset_desc">Börja om från den klassificerade batteritiden.</string>
     <string name="device_battery_estimate_reset_confirm_title">Återställ inlärd data?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod kommer att glömma denna enhets uppmätta förbrukning, laddningshastighet och batterihälsa, och börja om från den klassificerade batteritiden.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod kommer att glömma denna enhets uppmätta förbrukning, laddningshastighet och lyssningstid, och börja om från den klassificerade batteritiden.</string>
     <string name="settings_acknowledgements_label">Tack till</string>
     <string name="settings_debug_autoreports_label">Automatiska felrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">H</string>
     <string name="pods_case_label">Fodral</string>
     <string name="battery_unavailable_label">Batteri ej tillgängligt</string>
+    <string name="battery_state_low_cd">Batterinivån är låg</string>
+    <string name="battery_state_critical_cd">Kritiskt låg batterinivå</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d ytterligare fulladdning för båda öronsnäckorna</item>
+        <item quantity="other">~%d ytterligare fulladdningar för båda öronsnäckorna</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Minst %d ytterligare fulladdning för båda öronsnäckorna</item>
+        <item quantity="other">Minst %d ytterligare fulladdningar för båda öronsnäckorna</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Mindre än en fulladdning kvar för båda öronsnäckorna</string>
+    <string name="battery_case_charges_empty">Fodralet är tomt, inga laddningar kvar för dina öronsnäckor</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Osäkert hur många fulladdningar som finns kvar för båda öronsnäckorna</string>
+    <string name="battery_case_charges_state_enough_cd">Tillräckligt för en fulladdning</string>
+    <string name="battery_case_charges_state_not_enough_cd">Inte tillräckligt för en fulladdning</string>
+    <string name="battery_case_charges_state_uncertain_cd">Kanske inte tillräckligt för en fulladdning</string>
     <string name="pods_case_status_open_label">Öppet</string>
     <string name="pods_case_status_closed_label">Stängt</string>
     <string name="pods_connection_state_disconnected_label">Inte ansluten till en enhet</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Höger pod-serienummer</string>
     <string name="device_settings_info_left_bonded_label">Vänster parkopplad</string>
     <string name="device_settings_info_right_bonded_label">Höger parkopplad</string>
-    <string name="device_settings_info_battery_health_label">Batterihälsa (uppskattad)</string>
-    <string name="device_settings_info_battery_health_left_label">Vänster batterihälsa (upps.)</string>
-    <string name="device_settings_info_battery_health_right_label">Höger batterihälsa (upps.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Uppskattad lyssningstid</string>
+    <string name="device_settings_info_battery_health_left_label">Vänster öronsnäckas lyssningstid</string>
+    <string name="device_settings_info_battery_health_right_label">Höger öronsnäckas lyssningstid</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% av klassificerad</string>
     <string name="device_settings_info_battery_health_pending">Bestäms fortfarande, kontrollera senare</string>
+    <string name="device_settings_battery_runtime_warning_title">Lyssningstiden är mycket kortare än klassificerad</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: cirka %2$d%% av den klassificerade lyssningstiden. Tryck för mer information.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Dessa hörlurar</string>
     <string name="device_settings_info_details_label">Enhetsinformation</string>
     <string name="device_settings_info_details_action">Visa enhetsinformation</string>
     <string name="device_settings_info_status_label">Status</string>

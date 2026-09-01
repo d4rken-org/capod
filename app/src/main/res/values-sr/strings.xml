@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Подржите програмера</string>
     <string name="upgrade_benefit_disclaimer">Доступност функција зависи од ваших слушалица и уређаја.</string>
     <string name="settings_monitor_connected_notification_label">Додатно обавештење</string>
-    <string name="settings_monitor_connected_notification_description">Приказује другу обавијест која се појављује само док је уређај повезан. Када је ово укључено, можеш сакрити трајну обавијест „Нема уређаја“: искључи категорију „Статус уређаја“ у поставкама обавијести за CAPod у Android-у.</string>
+    <string name="settings_monitor_connected_notification_description">Приказује другу обавијест која се појављује само док је уређај повезан. Када је ово укључено, можете сакрити трајну обавијест „Нема уређаја“: искључите категорију „Статус уређаја“ у поставкама обавијести за CAPod у Android-у.</string>
     <string name="settings_keep_notification_after_disconnect_label">Задржи обавештење након прекида везе</string>
     <string name="settings_keep_notification_after_disconnect_description">Настави да приказује последње познате нивое батерије чак и након што се AirPods искључе</string>
     <string name="settings_autopause_label">Аутоматска пауза</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Опције компатибилности</string>
     <string name="settings_category_compatibility_options_description">Не дирајте ако све ради ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Онемогући хардверско филтрирање</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Покушај ово ако твоји AirPods никад нису откривени. Апликација ће сама претраживати све близу Bluetooth сигнале, уместо да телефон унапред одабира.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Покушајте ово ако Ваши AirPods никад нису откривени. Апликација ће сама претраживати све близу Bluetooth сигнале, уместо да телефон унапред одабира.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Онемогући хардверско груписање</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Покушај ово ако се нивои батерије ажурирају касно или наваљу. Твој телефон ће прослеђивати сваки Bluetooth сигнал одмах, уместо да их прво прикупи.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Покушајте ово ако се нивои батерије ажурирају касно или наваљу. Ваш телефон ће прослеђивати сваки Bluetooth сигнал одмах, уместо да их прво прикупи.</string>
     <string name="settings_onepod_mode_label">Режим једне слушалице</string>
     <string name="settings_onepod_mode_description">Аутоматско репродуковање/пауза и аутоматско повезивање реагују на један слушалица уместо да захтевају обе.</string>
     <string name="settings_popup_caseopen_label">Прикажи искачући прозор футроле</string>
@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Сакриј уређаје без профила</string>
     <string name="settings_overview_hide_unmatched_description">Не приказуј оближње уређаје који не одговарају ниједном профилу у прегледу, нпр. AirPods других људи.</string>
     <string name="device_battery_estimate_toggle_label">Процене батерије</string>
-    <string name="device_battery_estimate_card_desc">Научите како се овај уређај пуни и празни да процените преостало време, време до пуњења и здравље батерије.</string>
+    <string name="device_battery_estimate_card_desc">Сазнајте како се овај уређај пуни и пражни да бисте проценили преостало време, време до пуњења и колико од номиналног времена слушања му остаје.</string>
     <string name="device_battery_estimate_reset_action">Ресетуј научене податке</string>
     <string name="device_battery_estimate_reset_desc">Почните испочетка са номиналним животом батерије.</string>
     <string name="device_battery_estimate_reset_confirm_title">Ресетуј научене податке?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ће заборавити измерену потрошњу овог уређаја, брзину пуњења и здравље батерије, и почети испочетка са номиналним животом батерије.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ће заборавити измерену потрошњу овог уређаја, брзину пуњења и време слушања, и почети испочетка са номиналним животом батерије.</string>
     <string name="settings_acknowledgements_label">Захвалнице</string>
     <string name="settings_debug_autoreports_label">Аутоматски извештаји о грешкама</string>
     <string name="settings_debug_autoreports_description">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како бих могао да схватим како да то поправим.</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Зелено</string>
     <string name="widget_config_preset_red">Црвено</string>
     <string name="settings_compat_indirectcallback_title">Индиректна достава података</string>
-    <string name="settings_compat_indirectcallback_summary">Покушај ово ако остале опције компатибилности нису помогле. Android ће прослеђивати Bluetooth сигнале апликацији у позадини, уместо да апликација директно слуша њих.</string>
+    <string name="settings_compat_indirectcallback_summary">Покушајте ово ако остале опције компатибилности нису помогле. Android ће прослеђивати Bluetooth сигнале апликацији у позадини, уместо да апликација директно слуша њих.</string>
     <string name="troubleshooter_title">Решавање проблема</string>
     <string name="troubleshooter_summary">Дијагностикујте и поправите проблеме са Bluetooth повезивањем.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy емитовања</string>
@@ -246,6 +246,26 @@
     <string name="pods_dual_right_short_label">Д</string>
     <string name="pods_case_label">Футрола</string>
     <string name="battery_unavailable_label">Батерија недоступна</string>
+    <string name="battery_state_low_cd">Батерија ниска</string>
+    <string name="battery_state_critical_cd">Батерија критично ниска</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d пуно пуњење за оба слушалица</item>
+        <item quantity="few">~%d пуна пуњења за оба слушалица</item>
+        <item quantity="other">~%d пуних пуњења за оба слушалица</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Најмање %d пуно пуњење за оба слушалица</item>
+        <item quantity="few">Најмање %d пуна пуњења за оба слушалица</item>
+        <item quantity="other">Најмање %d пуних пуњења за оба слушалица</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Мање од једног пуног пуњења за оба слушалица</string>
+    <string name="battery_case_charges_empty">Кутија је празна, нема више пуњења за ваше слушалице</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Није јасно колико је пуних пуњења преостало за оба слушалица</string>
+    <string name="battery_case_charges_state_enough_cd">Довољно за једно пуно пуњење</string>
+    <string name="battery_case_charges_state_not_enough_cd">Није довољно за пуно пуњење</string>
+    <string name="battery_case_charges_state_uncertain_cd">Можда није довољно за пуно пуњење</string>
     <string name="pods_case_status_open_label">Отворено</string>
     <string name="pods_case_status_closed_label">Затворено</string>
     <string name="pods_connection_state_disconnected_label">Није повезано са уређајем</string>
@@ -437,11 +457,14 @@
     <string name="device_settings_info_right_serial_label">Серијски број десног слушалица</string>
     <string name="device_settings_info_left_bonded_label">Лево повезано</string>
     <string name="device_settings_info_right_bonded_label">Десно повезано</string>
-    <string name="device_settings_info_battery_health_label">Здравље батерије (процењено)</string>
-    <string name="device_settings_info_battery_health_left_label">Здравље леве батерије (пр.)</string>
-    <string name="device_settings_info_battery_health_right_label">Здравље десне батерије (пр.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Процењено време слушања</string>
+    <string name="device_settings_info_battery_health_left_label">Време слушања леве слушалице</string>
+    <string name="device_settings_info_battery_health_right_label">Време слушања десне слушалице</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% номиналног</string>
     <string name="device_settings_info_battery_health_pending">Још се одређује, проверите касније</string>
+    <string name="device_settings_battery_runtime_warning_title">Време слушања је много краће од номиналног</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: приближно %2$d%% од номиналног времена слушања. Додирните за детаље.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Те слушалице</string>
     <string name="device_settings_info_details_label">Детаљи уређаја</string>
     <string name="device_settings_info_details_action">Прикажи детаље уређаја</string>
     <string name="device_settings_info_status_label">Статус</string>

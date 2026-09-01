@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Ocultar dispositivos no reconocidos</string>
     <string name="settings_overview_hide_unmatched_description">No mostrar en el resumen los dispositivos cercanos que no coincidan con ninguno de tus perfiles, p. ej. los AirPods de otras personas.</string>
     <string name="device_battery_estimate_toggle_label">Estimaciones de batería</string>
-    <string name="device_battery_estimate_card_desc">Aprende cómo se carga y descarga este dispositivo para estimar el tiempo restante, el tiempo hasta que se cargue completamente y la salud de la batería.</string>
+    <string name="device_battery_estimate_card_desc">Aprende cómo se carga y consume este dispositivo para calcular el tiempo restante, el tiempo hasta la carga completa y qué parte de su tiempo de escucha nominal sigue alcanzando.</string>
     <string name="device_battery_estimate_reset_action">Restablecer datos aprendidos</string>
     <string name="device_battery_estimate_reset_desc">Comienza de nuevo desde la duración nominal de la batería.</string>
     <string name="device_battery_estimate_reset_confirm_title">¿Restablecer datos aprendidos?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod olvidará el consumo medido de este dispositivo, la velocidad de carga y la salud de la batería, y comenzará de nuevo desde la duración nominal de la batería.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod olvidará el consumo medido de este dispositivo, la velocidad de carga y el tiempo de escucha, y comenzará de nuevo desde la duración nominal de la batería.</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
     <string name="settings_debug_autoreports_label">Informes de error automáticos</string>
     <string name="settings_debug_autoreports_description">Informa automáticamente de los problemas, p. ej., detalles sobre un fallo de la aplicación para que pueda averiguar cómo solucionarlo.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Estuche</string>
     <string name="battery_unavailable_label">Batería no disponible</string>
+    <string name="battery_state_low_cd">Batería baja</string>
+    <string name="battery_state_critical_cd">Batería críticamente baja</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d carga completa más para ambos auriculares</item>
+        <item quantity="other">~%d cargas completas más para ambos auriculares</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Al menos %d carga completa más para ambos auriculares</item>
+        <item quantity="other">Al menos %d cargas completas más para ambos auriculares</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Menos de una carga completa más para ambos auriculares</string>
+    <string name="battery_case_charges_empty">El estuche está vacío, no quedan cargas para tus auriculares</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">No está claro cuántas cargas completas quedan para ambos auriculares</string>
+    <string name="battery_case_charges_state_enough_cd">Suficiente para una carga completa</string>
+    <string name="battery_case_charges_state_not_enough_cd">No es suficiente para una carga completa</string>
+    <string name="battery_case_charges_state_uncertain_cd">Puede que no sea suficiente para una carga completa</string>
     <string name="pods_case_status_open_label">Abierto</string>
     <string name="pods_case_status_closed_label">Cerrado</string>
     <string name="pods_connection_state_disconnected_label">No está conectado a un dispositivo</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Número de serie del auricular derecho</string>
     <string name="device_settings_info_left_bonded_label">Izquierdo vinculado</string>
     <string name="device_settings_info_right_bonded_label">Derecho vinculado</string>
-    <string name="device_settings_info_battery_health_label">Salud de la batería (estimado)</string>
-    <string name="device_settings_info_battery_health_left_label">Salud de la batería izquierda (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Salud de la batería derecha (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Tiempo de escucha estimado</string>
+    <string name="device_settings_info_battery_health_left_label">Tiempo de escucha del auricular izquierdo</string>
+    <string name="device_settings_info_battery_health_right_label">Tiempo de escucha del auricular derecho</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% de lo nominal</string>
     <string name="device_settings_info_battery_health_pending">Aún se está determinando, comprueba más tarde</string>
+    <string name="device_settings_battery_runtime_warning_title">El tiempo de escucha es mucho más corto de lo nominal</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: aproximadamente %2$d%% del tiempo de escucha nominal. Toca para más detalles.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Estos auriculares</string>
     <string name="device_settings_info_details_label">Detalles del dispositivo</string>
     <string name="device_settings_info_details_action">Mostrar detalles del dispositivo</string>
     <string name="device_settings_info_status_label">Estado</string>

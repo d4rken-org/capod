@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Wesprzyj programistę</string>
     <string name="upgrade_benefit_disclaimer">Dostępność funkcji zależy od słuchawek i urządzenia.</string>
     <string name="settings_monitor_connected_notification_label">Dodatkowe powiadomienie</string>
-    <string name="settings_monitor_connected_notification_description">Pokazuje drugą notyfikację, która pojawia się tylko wtedy, gdy urządzenie jest połączone. Jeśli to włączysz, możesz ukryć stałą notyfikację „Brak urządzeń”: wyłącz kategorię „Stan urządzenia” w ustawieniach powiadomień Androida dla CAPod.</string>
+    <string name="settings_monitor_connected_notification_description">Wyświetla drugie powiadomienie, które pojawia się tylko wtedy, gdy urządzenie jest podłączone. Po włączeniu tej opcji możesz ukryć stałe powiadomienie Brak urządzeń: wyłącz kategorię Stan urządzenia w ustawieniach powiadomień Androida dla CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Zachowaj powiadomienie po rozłączeniu</string>
     <string name="settings_keep_notification_after_disconnect_description">Kontynuuj wyświetlanie ostatniego znanego poziomu baterii nawet po rozłączeniu AirPods</string>
     <string name="settings_autopause_label">Automatyczne wstrzymywanie</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
     <string name="settings_signal_minimum_description">Minimalna jakość sygnału, wymagana od urządzenia, aby zostało uznanym za twoje.</string>
     <string name="settings_autoconnect_label">Automatyczne połączenie</string>
-    <string name="settings_autoconnect_description">Jeśli Android nie łączy się automatycznie, możemy go też poprosić. To utrzymuje monitorowanie CAPod w tle przez cały czas.</string>
+    <string name="settings_autoconnect_description">Jeśli Android nie połączy się automatycznie, możemy również o to poprosić. Dzięki temu CAPod będzie stale monitorował system w tle.</string>
     <string name="settings_autoconnect_info_android12">Automatyczne łączenie opiera się na funkcji systemowej, którą ograniczają systemy Android 12 i nowsze. Funkcja ta może nie działać na twoim urządzeniu.</string>
     <string name="settings_autoconnect_condition_label">Warunek automatycznego połączenia</string>
     <string name="settings_autoconnect_condition_description">Kiedy należy połączyć się z twoim urządzeniem?</string>
@@ -56,9 +56,9 @@
     <string name="settings_category_compatibility_options_title">Opcje kompatybilności</string>
     <string name="settings_category_compatibility_options_description">Nie dotykaj, jeżeli wszystko działa ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Wyłącz sprzętowe filtrowanie</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Spróbuj tego, jeśli twoje AirPods nigdy nie są wykrywane. Aplikacja będzie sama przeszukiwać wszystkie pobliskie sygnały Bluetooth, zamiast pozwolić telefonowi je wstępnie filtrować.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Wypróbuj tę opcję, jeśli twoje AirPodsy nigdy nie są wykrywane. Aplikacja sama przeszuka wszystkie pobliskie sygnały Bluetooth, zamiast pozwolić telefonowi na ich wstępne wybranie.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Wyłącz sprzętowe przetwarzanie</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Spróbuj tego, jeśli poziomy baterii aktualizują się z opóźnieniem lub porywami. Twój telefon będzie przekazywać każdy sygnał Bluetooth od razu, zamiast je najpierw zbierać.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Wypróbuj to, jeśli poziom naładowania baterii aktualizuje się tylko z opóźnieniem lub w krótkich odstępach czasu. Twój telefon będzie przesyłał każdy sygnał Bluetooth od razu, zamiast zbierać go najpierw.</string>
     <string name="settings_onepod_mode_label">Tryb jednej słuchawki</string>
     <string name="settings_onepod_mode_description">Automatyczne odtwarzanie/wstrzymywanie i automatyczne łączenie reagują na pojedynczą słuchawkę, zamiast wymagać obu.</string>
     <string name="settings_popup_caseopen_label">Wyświetl okienko etui</string>
@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Ukryj niedopasowane urządzenia</string>
     <string name="settings_overview_hide_unmatched_description">Nie pokazuj w przeglądzie pobliskich urządzeń, które nie pasują do żadnego z twoich profili, np. AirPods innych osób.</string>
     <string name="device_battery_estimate_toggle_label">Szacunkowy czas pracy baterii</string>
-    <string name="device_battery_estimate_card_desc">Dowiedz się, jak urządzenie się ładuje i rozładowuje, aby oszacować pozostały czas, czas do pełnego naładowania i stan baterii.</string>
+    <string name="device_battery_estimate_card_desc">Dowiedz się, jak to urządzenie się ładuje i rozładowuje, aby oszacować pozostały czas pracy, czas do pełnego naładowania i ile z nominalnego czasu pracy jeszcze pozostaje.</string>
     <string name="device_battery_estimate_reset_action">Zresetuj zapamiętane dane</string>
     <string name="device_battery_estimate_reset_desc">Zacznij od nowa od podanego czasu pracy baterii.</string>
     <string name="device_battery_estimate_reset_confirm_title">Zresetować zapamiętane dane?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod zapomni o zmierzonej szybkości rozładowania, szybkości ładowania i stanie baterii tego urządzenia i zacznie od nowa od podanego czasu pracy baterii.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod zapomni o zmierzonej szybkości rozładowania, szybkości ładowania i czasie pracy tego urządzenia i zacznie od nowa od podanego czasu pracy baterii.</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="settings_debug_autoreports_label">Automatyczne raportowanie błędów</string>
     <string name="settings_debug_autoreports_description">Automatyczne raportowanie problemów, na przykład w przypadku awarii aplikacji, tak aby można było łatwo ją naprawić.</string>
@@ -164,7 +164,7 @@ K4r0lSz;</string>
     <string name="widget_config_preset_green">Zielony</string>
     <string name="widget_config_preset_red">Czerwony</string>
     <string name="settings_compat_indirectcallback_title">Pośrednie dostarczanie danych</string>
-    <string name="settings_compat_indirectcallback_summary">Spróbuj tego, jeśli inne opcje kompatybilności nie pomogły. Android będzie przekazywać sygnały Bluetooth aplikacji w tle, zamiast tego żeby aplikacja słuchała ich bezpośrednio.</string>
+    <string name="settings_compat_indirectcallback_summary">Wypróbuj to, jeśli inne opcje zgodności nie pomogły. Android będzie przekazywał sygnały Bluetooth do aplikacji w tle, zamiast aby aplikacja nasłuchiwała ich bezpośrednio.</string>
     <string name="troubleshooter_title">Rozwiązywanie problemów</string>
     <string name="troubleshooter_summary">Diagnoza i naprawianie problemów z łącznością Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmisja Bluetooth Low Energy</string>
@@ -251,6 +251,28 @@ K4r0lSz;</string>
     <string name="pods_dual_right_short_label">P</string>
     <string name="pods_case_label">Etui</string>
     <string name="battery_unavailable_label">Bateria niedostępna</string>
+    <string name="battery_state_low_cd">Bateria słaba</string>
+    <string name="battery_state_critical_cd">Bateria krytycznie słaba</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d pełne ładowanie dla obu słuchawek</item>
+        <item quantity="few">~%d pełne ładowania dla obu słuchawek</item>
+        <item quantity="many">~%d pełnych ładowań dla obu słuchawek</item>
+        <item quantity="other">~%d pełnych ładowań dla obu słuchawek</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Co najmniej %d pełne ładowanie dla obu słuchawek</item>
+        <item quantity="few">Co najmniej %d pełne ładowania dla obu słuchawek</item>
+        <item quantity="many">Co najmniej %d pełnych ładowań dla obu słuchawek</item>
+        <item quantity="other">Co najmniej %d pełnych ładowań dla obu słuchawek</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Mniej niż jedno pełne ładowanie dla obu słuchawek</string>
+    <string name="battery_case_charges_empty">Etui jest puste, nie pozostało żadnych ładowań dla słuchawek</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Nie wiadomo, ile pełnych ładowań pozostało dla obu słuchawek</string>
+    <string name="battery_case_charges_state_enough_cd">Wystarczy do pełnego ładowania</string>
+    <string name="battery_case_charges_state_not_enough_cd">Za mało do pełnego ładowania</string>
+    <string name="battery_case_charges_state_uncertain_cd">Może być za mało do pełnego ładowania</string>
     <string name="pods_case_status_open_label">Otwarte</string>
     <string name="pods_case_status_closed_label">Zamknięte</string>
     <string name="pods_connection_state_disconnected_label">Nie połączono z urządzeniem</string>
@@ -445,11 +467,14 @@ K4r0lSz;</string>
     <string name="device_settings_info_right_serial_label">Numer seryjny prawej słuchawki</string>
     <string name="device_settings_info_left_bonded_label">Lewy sparowany</string>
     <string name="device_settings_info_right_bonded_label">Prawy sparowany</string>
-    <string name="device_settings_info_battery_health_label">Kondycja baterii (szacunkowa)</string>
-    <string name="device_settings_info_battery_health_left_label">Szacowany stan lewej baterii</string>
-    <string name="device_settings_info_battery_health_right_label">Szacowany stan prawej baterii</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Szacunkowy czas pracy</string>
+    <string name="device_settings_info_battery_health_left_label">Czas pracy lewej słuchawki</string>
+    <string name="device_settings_info_battery_health_right_label">Czas pracy prawej słuchawki</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% nominalnego</string>
     <string name="device_settings_info_battery_health_pending">Nadal się ustala, sprawdź później</string>
+    <string name="device_settings_battery_runtime_warning_title">Czas pracy jest znacznie krótszy niż nominalny</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: około %2$d%% nominalnego czasu pracy. Dotknij, aby uzyskać szczegóły.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Te słuchawki</string>
     <string name="device_settings_info_details_label">Szczegóły urządzenia</string>
     <string name="device_settings_info_details_action">Pokaż szczegóły urządzenia</string>
     <string name="device_settings_info_status_label">Stan</string>
@@ -546,7 +571,7 @@ K4r0lSz;</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Ustawienia Bluetooth</string>
     <string name="device_settings_send_failed">Nie można zastosować ustawienia: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Tryb wyłączony nie jest włączony na tym urządzeniu. Włącz „Zezwól na tryb wyłączony” w sekcji Kontrola hałasu.</string>
-    <string name="anc_mode_not_confirmed_message">AirPods nie potwierdziły zmiany trybu słuchania.</string>
+    <string name="anc_mode_not_confirmed_message">AirPodsy nie potwierdziły zmiany trybu słuchania.</string>
     <string name="device_settings_category_battery_label">Bateria</string>
     <string name="device_settings_charge_cap_label">Zoptymalizowany limit ładowania</string>
     <string name="device_settings_charge_cap_description">Uczy się twojego harmonogramu i wstrzymuje ładowanie około 80%%, aby wydłużyć żywotność baterii, doładowując słuchawki przed prawdopodobnym ich użyciem.</string>

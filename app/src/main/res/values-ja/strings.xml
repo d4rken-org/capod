@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">一致しないデバイスを非表示</string>
     <string name="settings_overview_hide_unmatched_description">プロフィールに一致しない近くのデバイス（他の人のAirPodsなど）を概要に表示しません。</string>
     <string name="device_battery_estimate_toggle_label">バッテリー推定値</string>
-    <string name="device_battery_estimate_card_desc">このデバイスの充電・放電パターンを学習して、残り時間、充電完了までの時間、バッテリーの状態を推定します。</string>
+    <string name="device_battery_estimate_card_desc">このデバイスの充電と放電を学んで、残り時間、充電までの時間、および定格リスニング時間の残りを推定します。</string>
     <string name="device_battery_estimate_reset_action">学習データをリセット</string>
     <string name="device_battery_estimate_reset_desc">定格バッテリー寿命からやり直します。</string>
     <string name="device_battery_estimate_reset_confirm_title">学習データをリセットしますか？</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPodはこのデバイスの測定済み放電、充電速度、バッテリーの状態を忘れて、定格バッテリー寿命からやり直します。</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPodはこのデバイスの測定済み放電、充電速度、リスニング時間を忘れて、定格バッテリー寿命からやり直します。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
     <string name="settings_debug_autoreports_label">自動バグレポート</string>
     <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">右</string>
     <string name="pods_case_label">ケース</string>
     <string name="battery_unavailable_label">バッテリー情報なし</string>
+    <string name="battery_state_low_cd">バッテリー残量が少ない</string>
+    <string name="battery_state_critical_cd">バッテリーが危機的に低い</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">~%d回、両イヤフォンをフル充電できます</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">少なくとも%d回、両イヤフォンをフル充電できます</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">両イヤフォン用の充電が1回分未満です</string>
+    <string name="battery_case_charges_empty">ケースが空です。イヤフォンをもう充電できません</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">両イヤフォンが何回フル充電できるか不確かです</string>
+    <string name="battery_case_charges_state_enough_cd">フル充電に足ります</string>
+    <string name="battery_case_charges_state_not_enough_cd">フル充電に足りません</string>
+    <string name="battery_case_charges_state_uncertain_cd">フル充電に足りないかもしれません</string>
     <string name="pods_case_status_open_label">開いている</string>
     <string name="pods_case_status_closed_label">閉じている</string>
     <string name="pods_connection_state_disconnected_label">デバイスに接続されていません</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">右ポッドのシリアル</string>
     <string name="device_settings_info_left_bonded_label">左ボンド済み</string>
     <string name="device_settings_info_right_bonded_label">右ボンド済み</string>
-    <string name="device_settings_info_battery_health_label">バッテリーの状態 (推定値)</string>
-    <string name="device_settings_info_battery_health_left_label">左のバッテリー状態 (推定値)</string>
-    <string name="device_settings_info_battery_health_right_label">右のバッテリー状態 (推定値)</string>
-    <string name="device_settings_info_battery_health_value">〜%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">推定リスニング時間</string>
+    <string name="device_settings_info_battery_health_left_label">左イヤフォンのリスニング時間</string>
+    <string name="device_settings_info_battery_health_right_label">右イヤフォンのリスニング時間</string>
+    <string name="device_settings_info_battery_health_value">定格の~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">計算中です。後ほどもう一度ご確認ください。</string>
+    <string name="device_settings_battery_runtime_warning_title">リスニング時間が定格よりはるかに短い</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: 定格リスニング時間の約%2$d%%。詳細をタップしてください。</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">このヘッドフォン</string>
     <string name="device_settings_info_details_label">デバイス詳細</string>
     <string name="device_settings_info_details_action">デバイス詳細を表示</string>
     <string name="device_settings_info_status_label">状態</string>

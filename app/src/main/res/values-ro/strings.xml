@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Ascunde dispozitivele nepotrivite</string>
     <string name="settings_overview_hide_unmatched_description">Nu afișa dispozitivele din apropiere care nu corespund niciunui profil al tău în prezentare generală, de ex. AirPods-urile altor persoane.</string>
     <string name="device_battery_estimate_toggle_label">Estimări ale bateriei</string>
-    <string name="device_battery_estimate_card_desc">Aflați cum se încarcă și se descarcă dispozitivul pentru a estima timpul rămas, timpul până la încărcare și starea bateriei.</string>
+    <string name="device_battery_estimate_card_desc">Află cum se încarcă și se descarcă acest dispozitiv pentru a estima timpul rămas, timpul până la încărcare completă și cât din durata de ascultare nominală mai poate atinge.</string>
     <string name="device_battery_estimate_reset_action">Resetează datele învățate</string>
     <string name="device_battery_estimate_reset_desc">Porniți din nou de la durata de viață a bateriei nominale.</string>
     <string name="device_battery_estimate_reset_confirm_title">Resetezi datele învățate?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod va uita consumul măsurat al acestui dispozitiv, viteza de încărcare și starea bateriei, și va porni din nou de la durata de viață a bateriei nominale.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod va uita consumul măsurat al acestui dispozitiv, viteza de încărcare și timpul de ascultare, și va porni din nou de la durata de viață a bateriei nominale.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
     <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
@@ -246,6 +246,26 @@
     <string name="pods_dual_right_short_label">D</string>
     <string name="pods_case_label">Carcasă</string>
     <string name="battery_unavailable_label">Baterie indisponibilă</string>
+    <string name="battery_state_low_cd">Baterie scăzută</string>
+    <string name="battery_state_critical_cd">Baterie critic de scăzută</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d încărcare completă în plus pentru ambele căști</item>
+        <item quantity="few">~%d încărcări complete în plus pentru ambele căști</item>
+        <item quantity="other">~%d de încărcări complete în plus pentru ambele căști</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Cel puțin %d încărcare completă în plus pentru ambele căști</item>
+        <item quantity="few">Cel puțin %d încărcări complete în plus pentru ambele căști</item>
+        <item quantity="other">Cel puțin %d de încărcări complete în plus pentru ambele căști</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Mai puțin de o încărcare completă în plus pentru ambele căști</string>
+    <string name="battery_case_charges_empty">Carcasa este goală, nu mai există încărcări pentru căștile tale</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Nu se știe sigur câte încărcări complete au mai rămas pentru ambele căști</string>
+    <string name="battery_case_charges_state_enough_cd">Suficient pentru o încărcare completă</string>
+    <string name="battery_case_charges_state_not_enough_cd">Insuficient pentru o încărcare completă</string>
+    <string name="battery_case_charges_state_uncertain_cd">S-ar putea să nu fie suficient pentru o încărcare completă</string>
     <string name="pods_case_status_open_label">Deschis</string>
     <string name="pods_case_status_closed_label">Închis</string>
     <string name="pods_connection_state_disconnected_label">Nu este conectat la un dispozitiv</string>
@@ -437,11 +457,14 @@
     <string name="device_settings_info_right_serial_label">Serial pod drept</string>
     <string name="device_settings_info_left_bonded_label">Stânga asociată</string>
     <string name="device_settings_info_right_bonded_label">Dreapta asociată</string>
-    <string name="device_settings_info_battery_health_label">Sănătatea bateriei (estimată)</string>
-    <string name="device_settings_info_battery_health_left_label">Sănătatea bateriei din stânga (est.)</string>
-    <string name="device_settings_info_battery_health_right_label">Sănătatea bateriei din dreapta (est.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Timp de ascultare estimat</string>
+    <string name="device_settings_info_battery_health_left_label">Timp de ascultare cască stângă</string>
+    <string name="device_settings_info_battery_health_right_label">Timp de ascultare cască dreaptă</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% din valoarea nominală</string>
     <string name="device_settings_info_battery_health_pending">Se mai determină, revino mai târziu</string>
+    <string name="device_settings_battery_runtime_warning_title">Timpul de ascultare este mult mai scurt decât cel nominal</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: aproximativ %2$d%% din timpul de ascultare nominal. Atinge pentru detalii.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Aceste căști</string>
     <string name="device_settings_info_details_label">Detalii dispozitiv</string>
     <string name="device_settings_info_details_action">Arată detalii dispozitiv</string>
     <string name="device_settings_info_status_label">Stare</string>

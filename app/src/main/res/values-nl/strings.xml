@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Niet-overeenkomende apparaten verbergen</string>
     <string name="settings_overview_hide_unmatched_description">Verberg apparaten in het overzicht die niet overeenkomen met je profielen, bijv. AirPods van anderen.</string>
     <string name="device_battery_estimate_toggle_label">Batterijschattingen</string>
-    <string name="device_battery_estimate_card_desc">Leer hoe dit apparaat oplaadt en ontlaadt om de resterende tijd, oplaadtijd en batterijgezondheid in te schatten.</string>
+    <string name="device_battery_estimate_card_desc">Leer hoe dit apparaat oplaadt en verbruikt om de resterende tijd, laadtijd en hoeveel van de nominale luisterduur het nog bereikt in te schatten.</string>
     <string name="device_battery_estimate_reset_action">Leergegevens wissen</string>
     <string name="device_battery_estimate_reset_desc">Opnieuw beginnen met de nominale batterijduur.</string>
     <string name="device_battery_estimate_reset_confirm_title">Leergegevens wissen?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod zal het verbruik, de oplaadsnelheid en batterijgezondheid van dit apparaat vergeten en opnieuw met de nominale batterijduur beginnen.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod zal het verbruik, de oplaadsnelheid en luisterduur van dit apparaat vergeten en opnieuw met de nominale batterijduur beginnen.</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
     <string name="settings_debug_autoreports_label">Automatische bugrapporten</string>
     <string name="settings_debug_autoreports_description">Rapporteert automatisch problemen, b.v. details over een app-crash, zodat ik kan uitzoeken hoe ik dit kan oplossen.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">Geval</string>
     <string name="battery_unavailable_label">Batterij niet beschikbaar</string>
+    <string name="battery_state_low_cd">Batterij laag</string>
+    <string name="battery_state_critical_cd">Batterij kritiek leeg</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d meer volledige lading voor beide oordopjes</item>
+        <item quantity="other">~%d meer volledige ladingen voor beide oordopjes</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Minstens %d meer volledige lading voor beide oordopjes</item>
+        <item quantity="other">Minstens %d meer volledige ladingen voor beide oordopjes</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Minder dan één volledige lading voor beide oordopjes</string>
+    <string name="battery_case_charges_empty">Etui is leeg, geen ladingen meer voor je oordopjes</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Niet zeker hoeveel volledige ladingen voor beide oordopjes overblijven</string>
+    <string name="battery_case_charges_state_enough_cd">Genoeg voor één volledige lading</string>
+    <string name="battery_case_charges_state_not_enough_cd">Niet genoeg voor één volledige lading</string>
+    <string name="battery_case_charges_state_uncertain_cd">Mogelijk niet genoeg voor één volledige lading</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Gesloten</string>
     <string name="pods_connection_state_disconnected_label">Niet verbonden met een apparaat</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Rechter Pod Serienummer</string>
     <string name="device_settings_info_left_bonded_label">Links Gekoppeld</string>
     <string name="device_settings_info_right_bonded_label">Rechts Gekoppeld</string>
-    <string name="device_settings_info_battery_health_label">Batterijgezondheid (geschat)</string>
-    <string name="device_settings_info_battery_health_left_label">Linker batterijgezondheid (gesch.)</string>
-    <string name="device_settings_info_battery_health_right_label">Rechter batterijgezondheid (gesch.)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Geschatte luisterduur</string>
+    <string name="device_settings_info_battery_health_left_label">Luisterduur linker oordopje</string>
+    <string name="device_settings_info_battery_health_right_label">Luisterduur rechter oordopje</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% van nominaal</string>
     <string name="device_settings_info_battery_health_pending">Nog steeds in onderzoek,  kom later terug</string>
+    <string name="device_settings_battery_runtime_warning_title">Luisterduur is veel korter dan nominaal</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: ongeveer %2$d%% van de nominale luisterduur. Tik voor details.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Deze koptelefoon</string>
     <string name="device_settings_info_details_label">Apparaatdetails</string>
     <string name="device_settings_info_details_action">Apparaatdetails weergeven</string>
     <string name="device_settings_info_status_label">Status</string>

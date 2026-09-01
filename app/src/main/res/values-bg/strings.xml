@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Скриване на несъответстващи устройства</string>
     <string name="settings_overview_hide_unmatched_description">Не показвай намиращи се наблизо устройства, които не съответстват на нито един от профилите ти в прегледа, напр. AirPods на други хора.</string>
     <string name="device_battery_estimate_toggle_label">Оценки на батерията</string>
-    <string name="device_battery_estimate_card_desc">Научете как това устройство се зарежда и разходва, за да оцените оставащото време, времето до зареждане и състоянието на батерията.</string>
+    <string name="device_battery_estimate_card_desc">Научете как се зарежда и разрежда това устройство, за да оцените оставащото време, времето до пълно зареждане и остатъка от номиналния живот на батерията.</string>
     <string name="device_battery_estimate_reset_action">Нулирай научените данни</string>
     <string name="device_battery_estimate_reset_desc">Начало отново от номиналния живот на батерията.</string>
     <string name="device_battery_estimate_reset_confirm_title">Нулирай научените данни?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod ще забрави измереното потребление, скоростта на зареждане и състоянието на батерията на това устройство и ще начне отново от номиналния живот на батерията.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod ще забрави измереното потребление, скоростта на зареждане и времето за слушане на това устройство и ще начне отново от номиналния живот на батерията.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматични доклади за грешки</string>
     <string name="settings_debug_autoreports_description">Автоматично докладва проблеми, напр. подробности за срив на приложението, за да мога да разбера как да го поправя.</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">Д</string>
     <string name="pods_case_label">Калъф</string>
     <string name="battery_unavailable_label">Батерията е недостъпна</string>
+    <string name="battery_state_low_cd">Слаба батерия</string>
+    <string name="battery_state_critical_cd">Критично слаба батерия</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d още пълно зареждане за двете слушалки</item>
+        <item quantity="other">~%d още пълни зареждания за двете слушалки</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Поне %d още пълно зареждане за двете слушалки</item>
+        <item quantity="other">Поне %d още пълни зареждания за двете слушалки</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">По-малко от едно пълно зареждане за двете слушалки</string>
+    <string name="battery_case_charges_empty">Кутията е празна, няма останали зареждания за вашите слушалки</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Не е сигурно колко пълни зареждания са останали за двете слушалки</string>
+    <string name="battery_case_charges_state_enough_cd">Достатъчно за пълно зареждане</string>
+    <string name="battery_case_charges_state_not_enough_cd">Недостатъчно за пълно зареждане</string>
+    <string name="battery_case_charges_state_uncertain_cd">Може да не е достатъчно за пълно зареждане</string>
     <string name="pods_case_status_open_label">Отворен</string>
     <string name="pods_case_status_closed_label">Затворен</string>
     <string name="pods_connection_state_disconnected_label">Не е свързано с устройство</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Сериен номер на десния под</string>
     <string name="device_settings_info_left_bonded_label">Ляво сдвоено</string>
     <string name="device_settings_info_right_bonded_label">Дясно сдвоено</string>
-    <string name="device_settings_info_battery_health_label">Здравословно състояние на батерията (прогноза)</string>
-    <string name="device_settings_info_battery_health_left_label">Здравословно състояние на лявата батерия (прогноза)</string>
-    <string name="device_settings_info_battery_health_right_label">Здравословно състояние на дясната батерия (прогноза)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">Прогнозно време за слушане</string>
+    <string name="device_settings_info_battery_health_left_label">Време за слушане на левата слушалка</string>
+    <string name="device_settings_info_battery_health_right_label">Време за слушане на дясната слушалка</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% от номиналния</string>
     <string name="device_settings_info_battery_health_pending">Все още се определя, проверете отново по-късно</string>
+    <string name="device_settings_battery_runtime_warning_title">Времето за слушане е много по-кратко от номиналното</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: около %2$d%% от номиналното време за слушане. Докоснете за подробности.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Тези слушалки</string>
     <string name="device_settings_info_details_label">Подробности за устройството</string>
     <string name="device_settings_info_details_action">Покажи подробности за устройството</string>
     <string name="device_settings_info_status_label">Статус</string>

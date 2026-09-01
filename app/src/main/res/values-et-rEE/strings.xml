@@ -31,7 +31,7 @@
     <string name="upgrade_benefit_support">Toeta arendajat</string>
     <string name="upgrade_benefit_disclaimer">Funktsioonide saadavus sõltub kõrvaklappidest ja seadmest.</string>
     <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
-    <string name="settings_monitor_connected_notification_description">Kuvab teist teatavitust, mis kuvatakse ainult siis, kui seade on ühendatud. Selle lubamisel saad peita püsivat teatavitust \"Seadmeid pole\": lülita välja kategooria \"Device status\" Androidi teatavituste seadetes CAPodi jaoks.</string>
+    <string name="settings_monitor_connected_notification_description">Kuvab teist teavitust, mis kuvatakse ainult siis, kui seade on ühendatud. Selle lubamisel saad peita püsivat teatavitust „Seadmeid pole“: lülita välja kategooria „Seadme olek“ Androidi teavituste seadetes CAPodi jaoks.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
     <string name="settings_keep_notification_after_disconnect_description">Jätkake viimase teadaoleva akutaseme kuvamist isegi pärast AirPodside eemaldamist</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
@@ -45,7 +45,7 @@
     <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
-    <string name="settings_autoconnect_description">Kui Android ei ühendu automaatselt, saame seda paluda. See hoiab CAPodi jälgimist taustal kogu aeg.</string>
+    <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda paluda. See hoiab CAPodi töös taustal kogu aeg.</string>
     <string name="settings_autoconnect_info_android12">Iseühenduvus tugineb süsteemivõimalusele, mida Android 12 ja uuemad versioonid piiravad. See ei pruugi teie seadmel toimida.</string>
     <string name="settings_autoconnect_condition_label">Automaatse ühendamise tingimus</string>
     <string name="settings_autoconnect_condition_description">Millal võime üritada ühendada teie seadet?</string>
@@ -58,7 +58,7 @@
     <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Proovi seda, kui AirPods\'i kunagi ei tuvastatakse. Rakendus uurib kõik lähedal olevad Bluetoothi signaalid ise, asemel et lasta telefonil neid enne valida.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Proovi seda, kui akuatasemed värskenduvad ainult hilja või lainete kaupa. Sinu telefon edastab iga Bluetoothi signaali rakendusele kohe, asemel et neid esmalt koguda.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Proovi seda, kui akutasemed värskenduvad ainult hilja või lainete kaupa. Telefon edastab iga Bluetoothi signaali rakendusele kohe, selmet neid esmalt koguda.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
     <string name="settings_onepod_mode_description">Automaatne esitus/paus ja iseühenduvus reageerivad ühele kõrvaklapile, mitte ei nõua mõlemat.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">Peida mittevastavad seadmed</string>
     <string name="settings_overview_hide_unmatched_description">Ära näita ülevaates lähedalasuvaid seadmeid, mis ei vasta ühelegi sinu profiilile, nt teiste inimeste AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Aku hinnangud</string>
-    <string name="device_battery_estimate_card_desc">Saate teada, kuidas see seade laadib ja tühjeneb, et hinnata ülejäänud aega, laadimiseni kuluva aega ja aku tervist.</string>
+    <string name="device_battery_estimate_card_desc">Uurige, kuidas see seade laadib ja tühjeneb, et hinnata järelejäänud kasutusaega, laadimiseni kuluvat aega ja seadme nimiväärtusest säilinud kuulamisaja osa.</string>
     <string name="device_battery_estimate_reset_action">Lähtesta õpitud andmed</string>
     <string name="device_battery_estimate_reset_desc">Alusta uuesti nimiväärtustest.</string>
     <string name="device_battery_estimate_reset_confirm_title">Lähtesta õpitud andmed?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod unustab selle seadme mõõdetud kulu, laadimiskiiruse ja aku tervise ning alustab uuesti nimiväärtustest.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod unustab selle seadme mõõdetud kulu, laadimiskiiruse ja kuulamisaja ning alustab uuesti nimiväärtustest.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
     <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
     <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
@@ -162,7 +162,7 @@
     <string name="widget_config_preset_green">Roheline</string>
     <string name="widget_config_preset_red">Punane</string>
     <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
-    <string name="settings_compat_indirectcallback_summary">Proovi seda, kui muud ühilduvuse valikud ei aidanud. Android edastab Bluetoothi signaalid rakendusele taustal, asemel et rakendus neid otse kuulata.</string>
+    <string name="settings_compat_indirectcallback_summary">Proovi seda, kui muud ühilduvuse valikud ei aidanud. Android edastab Bluetoothi signaalid rakendusele taustal, selmet rakendus neid otse kuuleks.</string>
     <string name="troubleshooter_title">Abistaja</string>
     <string name="troubleshooter_summary">Uurige ja parandage Bluetooth-ühenduse probleeme.</string>
     <string name="troubleshooter_ble_intro_title">Madalama energiatarbimisega Bluetoothi edastused</string>
@@ -243,6 +243,24 @@
     <string name="pods_dual_right_short_label">P</string>
     <string name="pods_case_label">Kaas</string>
     <string name="battery_unavailable_label">Aku pole saadaval</string>
+    <string name="battery_state_low_cd">Aku madal</string>
+    <string name="battery_state_critical_cd">Aku kriitiliselt madal</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d täielik laadimiskord mõlemale kõrvaklapile</item>
+        <item quantity="other">~%d täielikku laadimiskorda mõlemale kõrvaklapile</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Vähemalt %d täielik laadimiskord mõlemale kõrvaklapile</item>
+        <item quantity="other">Vähemalt %d täielikku laadimiskorda mõlemale kõrvaklapile</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Vähem kui üks täielik laadimiskord mõlemale kõrvaklapile</string>
+    <string name="battery_case_charges_empty">Kest on tühi, laadimiskordaid kõrvaklapidele enam ei ole</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">Ei ole selge, kui palju täielikke laadimiskordade on jäänud mõlemale kõrvaklapile</string>
+    <string name="battery_case_charges_state_enough_cd">Piisavalt täielikuks laadimiseks</string>
+    <string name="battery_case_charges_state_not_enough_cd">Ei ole piisavalt täielikuks laadimiseks</string>
+    <string name="battery_case_charges_state_uncertain_cd">Võib-olla ei ole piisavalt täielikuks laadimiseks</string>
     <string name="pods_case_status_open_label">Avatud</string>
     <string name="pods_case_status_closed_label">Suletud</string>
     <string name="pods_connection_state_disconnected_label">Puudub ühendus seadmega</string>
@@ -431,11 +449,14 @@
     <string name="device_settings_info_right_serial_label">Parema kõrvaklapiosa seerianumber</string>
     <string name="device_settings_info_left_bonded_label">Vasak seotud</string>
     <string name="device_settings_info_right_bonded_label">Parem seotud</string>
-    <string name="device_settings_info_battery_health_label">Aku tervis (hinnanguline)</string>
+    <string name="device_settings_info_battery_health_label">Hinnanguline kuulamisaeg</string>
     <string name="device_settings_info_battery_health_left_label">Vasaku aku tervis (hinnanguline)</string>
     <string name="device_settings_info_battery_health_right_label">Parema aku tervis (hinnanguline)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% nimiväärtusest</string>
     <string name="device_settings_info_battery_health_pending">Määratakse, vaata hiljem uuesti</string>
+    <string name="device_settings_battery_runtime_warning_title">Kuulamisaeg on palju lühem kui nimiväärtus</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: umbes %2$d%% nimiväärtusest kuulamisajast. Puudutage üksikasjade saamiseks.</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">Need peakomplektid</string>
     <string name="device_settings_info_details_label">Seadme andmed</string>
     <string name="device_settings_info_details_action">Kuva seadme andmed</string>
     <string name="device_settings_info_status_label">Olek</string>

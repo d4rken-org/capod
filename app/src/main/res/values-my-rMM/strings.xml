@@ -118,7 +118,7 @@
     <string name="device_battery_estimate_reset_action">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်ရန်</string>
     <string name="device_battery_estimate_reset_desc">သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါ။</string>
     <string name="device_battery_estimate_reset_confirm_title">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်မည်လား</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod သည် ဤကိရိယာ၏ တိုင်းတာထားသော စွမ်းအားကုန်ဆုံးမှု၊ အားသွင်းနှုန်းနှင့် ဘက်ထရီကျန်းမာရေးကို မေ့ပျောက်စေပြီး၊ သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါမည်။</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod သည် ဤကိရိယာ၏ တိုင်းတာထားသော စွမ်းအားကုန်ဆုံးမှု၊ အားသွင်းနှုန်းနှင့် နားထောင်အချိန်ကို မေ့ပျောက်စေပြီး၊ သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါမည်။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
     <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
@@ -240,6 +240,21 @@
     <string name="pods_dual_right_short_label">ည</string>
     <string name="pods_case_label">အိတ်</string>
     <string name="battery_unavailable_label">ဘက်ထရီ မရနိုင်ပါ</string>
+    <string name="battery_state_low_cd">ဘက်ထရီ နည်း</string>
+    <string name="battery_state_critical_cd">ဘက်ထရီ အလွန်နည်း</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">နှစ်ဖက်စလုံး အားသွင်းစုံ နောက်ထပ် ~%d ကြိမ်</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">နှစ်ဖက်စလုံး အားသွင်းစုံ အနည်းဆုံး %d ကြိမ်</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">နှစ်ဖက်စလုံး အားသွင်းစုံ တစ်ကြိမ်အောက်</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">နှစ်ဖက်စလုံး အားသွင်းစုံ မည်မျှ ကျန်ရှိသည်ကို မသိရှိပါ</string>
+    <string name="battery_case_charges_state_enough_cd">တစ်ကြိမ်အားသွင်းနိုင်သည်</string>
+    <string name="battery_case_charges_state_not_enough_cd">တစ်ကြိမ်အားသွင်းမည် မလုံလောက်ပါ</string>
+    <string name="battery_case_charges_state_uncertain_cd">တစ်ကြိမ်အားသွင်းမည် လုံလောက်မှုမရှိနိုင်ပါ</string>
     <string name="pods_case_status_open_label">ဖွင့်ထားသည်</string>
     <string name="pods_case_status_closed_label">ပိတ်ထားသည်</string>
     <string name="pods_connection_state_disconnected_label">စက်ပစ္စည်းနှင့် ချိတ်ဆက်မထားပါ</string>
@@ -425,11 +440,12 @@
     <string name="device_settings_info_right_serial_label">ညာဘက် Pod စီရီရယ်နံပါတ်</string>
     <string name="device_settings_info_left_bonded_label">ဘယ်ဘက် ချိတ်ဆက်ထားသည်</string>
     <string name="device_settings_info_right_bonded_label">ညာဘက် ချိတ်ဆက်ထားသည်</string>
-    <string name="device_settings_info_battery_health_label">ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
+    <string name="device_settings_info_battery_health_label">အခန့်မှန်းသည့် နားထောင်အချိန်</string>
     <string name="device_settings_info_battery_health_left_label">ဘယ်ဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
     <string name="device_settings_info_battery_health_right_label">ညာဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_value">သတ်မှတ်ထားသည့် ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">ယခုသတ်မှတ်နေဆဲဖြစ်ပါသည်၊ နောက်မှ ပြန်စစ်ပါ</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: သတ်မှတ်ထားသည့် နားထောင်အချိန်ခန့် %2$d%%။ အသေးစိတ်အတွက် ထိပါ။</string>
     <string name="device_settings_info_details_label">ကိရိယာ အသေးစိတ်</string>
     <string name="device_settings_info_details_action">ကိရိယာ အသေးစိတ်ကို ပြသပါ</string>
     <string name="device_settings_info_status_label">အခြေအနေ</string>

@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">隱藏不符合的裝置</string>
     <string name="settings_overview_hide_unmatched_description">在總覽中不顯示附近與您的設定檔不符的裝置，例如他人的 AirPods。</string>
     <string name="device_battery_estimate_toggle_label">電池壽命估計</string>
-    <string name="device_battery_estimate_card_desc">了解此設備的充電和消耗方式，以估計剩餘時間、充電時間和電池健康狀況。</string>
+    <string name="device_battery_estimate_card_desc">了解此設備的充電和消耗方式，以估計剩餘時間、充滿時間及額定聆聽時間還剩多少。</string>
     <string name="device_battery_estimate_reset_action">重設已學習的數據</string>
     <string name="device_battery_estimate_reset_desc">從額定電池壽命重新開始。</string>
     <string name="device_battery_estimate_reset_confirm_title">重設已學習的數據？</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod 將忘記此設備的測量消耗、充電速度和電池健康狀況，並從額定電池壽命重新開始。</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod 將忘記此設備的測量消耗、充電速度和聆聽時間，並從額定電池壽命重新開始。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
     <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">右</string>
     <string name="pods_case_label">充電盒</string>
     <string name="battery_unavailable_label">電量無法取得</string>
+    <string name="battery_state_low_cd">電池電量不足</string>
+    <string name="battery_state_critical_cd">電池電量嚴重不足</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">可再為耳機完全充電約 %d 次</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">可再為耳機完全充電至少 %d 次</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">不足以提供一次耳機完整充電</string>
+    <string name="battery_case_charges_empty">充電盒已空，無法再為耳機充電</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">不確定還能為耳機完全充電多少次</string>
+    <string name="battery_case_charges_state_enough_cd">足以完全充電</string>
+    <string name="battery_case_charges_state_not_enough_cd">不足以完全充電</string>
+    <string name="battery_case_charges_state_uncertain_cd">可能不足以完全充電</string>
     <string name="pods_case_status_open_label">開啟</string>
     <string name="pods_case_status_closed_label">關閉</string>
     <string name="pods_connection_state_disconnected_label">未連線到任何裝置</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">右耳機序列號</string>
     <string name="device_settings_info_left_bonded_label">左耳已配對</string>
     <string name="device_settings_info_right_bonded_label">右耳已配對</string>
-    <string name="device_settings_info_battery_health_label">電池健康狀況（預估）</string>
-    <string name="device_settings_info_battery_health_left_label">左邊電池健康狀況（預估）</string>
-    <string name="device_settings_info_battery_health_right_label">右邊電池健康狀況（預估）</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">預估聆聽時間</string>
+    <string name="device_settings_info_battery_health_left_label">左耳機聆聽時間</string>
+    <string name="device_settings_info_battery_health_right_label">右耳機聆聽時間</string>
+    <string name="device_settings_info_battery_health_value">約為額定值的 %1$d%%</string>
     <string name="device_settings_info_battery_health_pending">仍在確認中，請稍後再查看</string>
+    <string name="device_settings_battery_runtime_warning_title">聆聽時間遠短於額定值</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s：約為額定聆聽時間的 %2$d%%。點擊以查看詳情。</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">這些耳機</string>
     <string name="device_settings_info_details_label">裝置詳情</string>
     <string name="device_settings_info_details_action">顯示裝置詳情</string>
     <string name="device_settings_info_status_label">狀態</string>

@@ -7,7 +7,7 @@
     <string name="upgrades_gplay_billing_result_error_label">خطأٌ في فوترة جوجل بلاي</string>
     <string name="upgrades_gplay_billing_result_error_description">حدث خطأٌ في أثناء طلب تفاصيل عملية الاشتراء من جوجل بلاي. يُرجى مسح ذاكرة التخزين المؤقّت لجوجل بلاي وإعادة تشغيل هاتفك.\n\nالخطأ %s</string>
     <string name="upgrades_gplay_already_owned_label">هل اشتريت فعلًا؟</string>
-    <string name="upgrades_gplay_already_owned_description">أفاد جوجل بلاي بأنّك تمتلك هذه الترقية فعلًا، ولكن تعذّر استعادته. تأكّد من استخدام حساب جوجل الذي اشتريت به الترقية. قد تستغرق مزامنة سوق بلاي بعض الوقت — حاول إعادة تشغيل الجهاز، أو مسح ذاكرة التخزين المؤقّت لجوجل بلاي، أو الانتظار ببساطة.</string>
+    <string name="upgrades_gplay_already_owned_description">أفاد جوجل بلاي بأنّك تمتلك هذه الترقية فعلًا، ولكنْ تعذّرت استعادتها. تأكّد استخدام حساب جوجل الذي اشتريت به الترقية. قد تستغرق مزامنة سوق بلاي بعض الوقت — حاول إعادة تشغيل الجهاز، أو مسح ذاكرة التخزين المؤقّت لجوجل بلاي، أو الانتظار ببساطة.</string>
     <string name="upgrade_restore_action">استعادة المشتريات</string>
     <string name="upgrade_badge_label">النسخة الاحترافية</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
@@ -24,8 +24,8 @@
     <string name="upgrade_screen_restore_purchase_message">لم يُعثَر على أيّ مشتريات. هل تستخدم الحساب الصحيح؟</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">إذا اشتريت مؤخّرًا، فقد يستغرق الأمر بعض الوقت حتى تتمّ مزامنة حسابك على جوجل بلاي.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">حاول مرّةً أخرى بعد بضع دقائق إذا لم يظهر طلبك.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">تأكّد من تسجيل دخولك باستخدام حساب جوجل نفسه المُستخدَم في عملية الاشتراء.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">قد يؤدّي تعدّد الحسابات إلى إرباك جوجل بلاي. لذا، فإنّ تثبيت التطبيق عبر موقع جوجل بلاي الإلكتروني يجبر التطبيق على الارتباط بحسابٍ مُحدَّد.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">تأكّد تسجيل دخولك باستخدام حساب جوجل نفسه المُستخدَم في عملية الاشتراء.</string>
+    <string name="upgrade_screen_restore_webinstall_hint">قد يؤدّي تعدّد الحسابات إلى إرباك جوجل بلاي. لذا، فإنّ تثبيت التطبيق عبر موقع جوجل بلاي الإلكتروني يُجبِر التطبيق على الارتباط بحسابٍ مُحدَّد.</string>
     <string name="upgrade_screen_restore_banner_title">هل اشتريت النسخة الاحترافية فعلًا؟</string>
     <string name="upgrade_screen_restore_banner_body">يبدو أنّك رقّيت إلى النسخة الاحترافية على هذا الجهاز سابقًا. استعِدْ عملية الاشتراء لفتحه مرّةً أخرى.</string>
     <string name="upgrade_screen_restore_success_message">تمّت استعادة عملية الاشتراء.</string>
@@ -46,13 +46,13 @@
     <string name="upgrade_screen_owned_iap_purchase_note">هذا شراءٌ منفصل — لا يؤدّي إلى إلغاء اشتراكك أو استرداد قيمته. استخدم حساب جوجل نفسه.</string>
     <string name="upgrade_screen_sub_still_renewing_title">الاشتراك لا يزال فعّالًا</string>
     <string name="upgrade_screen_sub_still_renewing_message">لا يزال اشتراكك مُعَدًّا للتجديد التلقائي. ألغِه من جوجل بلاي أوّلًا، ثمّ بدّل إلى خيار الاشتراء لمرّةٍ واحدة. هل ألغيت للتوّ؟ انتظر قليلًا ثمّ حاول مرّةً أخرى من جوجل بلاي.</string>
-    <string name="upgrade_screen_purchase_check_failed_message">تعذّرت مراجعة مشترياتك في جوجل بلاي. لتجنّب عملية اشتراءٍ مُكرَّرة، حاول مرّةً أخرى بعد قليل.</string>
-    <string name="upgrade_screen_pending_card_title">الدفع قيد الانتظار</string>
-    <string name="upgrade_screen_pending_card_body">لا تزال جوجل بلاي تعالج عملية الدفع. سيتم فتح الإصدار الاحترافي تلقائيًا فور إتمام الدفع. قد تستغرق بعض طرق الدفع بعض الوقت. لا حاجة لأي إجراء إضافي من جانبك.</string>
-    <string name="upgrade_screen_pending_dialog_message">عثرت جوجل بلاي على عملية شراء بدفعٍ معلّق ولا تزال تعالجها. سيتم فتح الإصدار الاحترافي تلقائيًا فور إتمام الدفع.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">تعذّرت مراجعة مشترياتك باستخدام جوجل بلاي. لتجنّب عملية اشتراءٍ مُكرَّرة، حاول مرّةً أخرى بعد قليل.</string>
+    <string name="upgrade_screen_pending_card_title">الدُّفعة قيد الانتظار</string>
+    <string name="upgrade_screen_pending_card_body">لا يزال جوجل بلاي يعالج دُفعتك. سيتمّ تفعيل النسخة الاحترافية تلقائيًّا بمجرّد إتمام الدفع. قد تستغرق بعض طرق الدفع بعض الوقت. لا يلزمك فعل أيّ شيءٍ آخر.</string>
+    <string name="upgrade_screen_pending_dialog_message">عثر جوجل بلاي على عملية اشتراء ذي دُفعة مُعلَّقة، ولا يزال يعمل على معالجتها. سيتمّ تفعيل النسخة الاحترافية تلقائيًّا بمجرّد إتمام عملية الدفع.</string>
     <string name="upgrade_screen_grace_title">يجري تأكيد عملية الاشتراء</string>
-    <string name="upgrade_screen_grace_body_short">لم يؤكّد جوجل بلاي عملية الاشتراء بعد. لا تزَل النسخة الاحترافية فعّالةً، فلا داعي لاتّخاذ أيّ إجراء.</string>
-    <string name="upgrade_screen_grace_body">لم يؤكّد جوجل بلاي عملية الاشتراء منذ مدّة. لا تزَل النسخة الاحترافية فعّالةً. تأكّد من اتّصالك بالإنترنت وتسجيل دخولك باستخدام حساب جوجل المُستخدَم في عملية الاشتراء، ثمّ حاول استعادة حسابك.</string>
+    <string name="upgrade_screen_grace_body_short">لم يؤكّد جوجل بلاي عملية الاشتراء بعد. لا تزال النسخة الاحترافية فعّالةً، فلا داعي لاتّخاذ أيّ إجراء.</string>
+    <string name="upgrade_screen_grace_body">لم يؤكّد جوجل بلاي عملية الاشتراء منذ مدّة. لا تزال النسخة الاحترافية فعّالةً. راجع اتّصالك بالإنترنت وتسجيل دخولك باستخدام حساب جوجل المُستخدَم في عملية الاشتراء، ثمّ حاول استعادة حسابك.</string>
     <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">خيارات الترقية</string>
     <string name="upgrade_screen_offers_or">أو</string>
@@ -62,10 +62,10 @@
     <string name="upgrade_screen_subscription_offer_title">الاشتراك السنوي</string>
     <string name="upgrade_screen_subscription_offer_body">يتمّ التجديد سنويًّا بعد انتهاء المدّة التجريبية المجّانية. يمكنك الإلغاء في أيّ وقتٍ عبر جوجل بلاي.</string>
     <string name="upgrade_screen_subscription_offer_body_no_trial">يتمّ التجديد سنويًّا. يمكنك الإلغاء في أيّ وقتٍ عبر جوجل بلاي.</string>
-    <string name="upgrade_screen_iap_offer_body">دُفعةً واحدة، دون تجديدات.</string>
+    <string name="upgrade_screen_iap_offer_body">دُفعةً واحدةً، دون تجديدات.</string>
     <string name="upgrade_screen_benefits_title">مزايا الترقية</string>
     <string name="upgrade_screen_restore_body">تطلب عملية الاستعادة من جوجل بلاي إعادة مراجعة مشتريات هذا التطبيق للحساب الحالي. ولا تبدأ عملية اشتراءٍ جديدة.</string>
-    <string name="upgrade_screen_restore_checked_message">راجَع كابود جوجل بلاي، ولكن لم يتمّ تأكيد أيّ عملية اشتراء النسخة الاحترافية للحساب الذي يستخدمه جوجل بلاي لهذا التطبيق.</string>
+    <string name="upgrade_screen_restore_checked_message">راجَع كابود جوجل بلاي، ولكنْ لم يتمّ تأكيد أيّ عملية اشتراء النسخة الاحترافية للحساب الذي يستخدمه جوجل بلاي لهذا التطبيق.</string>
     <string name="upgrade_screen_restore_contact_hint">هل ما زلت تواجه مشكلةً؟ تواصَل مع الدعم عبر البريد الإلكتروني الذي استخدمته لإتمام عملية الاشتراء، وضمّن رقم طلبك من جوجل بلاي.</string>
     <string name="upgrade_screen_contact_support_action">تواصَل مع الدعم</string>
     <string name="settings_upgrade_status_description">حالة الترقية والاشتراء الخاصّة بك.</string>
@@ -73,10 +73,10 @@
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">تعذّر فتح جوجل بلاي. قد يكون غير موجودٍ أو مُعطَّلٍ أو مُقيَّدٍ على هذا الجهاز.</string>
     <string name="upgrades_gplay_internal_error_title">خطأٌ في جوجل بلاي</string>
-    <string name="upgrades_gplay_internal_error_description">حدث خطأٌ داخليٌّ في جوجل بلاي. يُرجى تجربة ما يلي:\n\n• أعِدْ تشغيل جهازك\n• امسح ذاكرة التخزين المؤقّت لجوجل بلاي\n• حاول مرّةً أخرى لاحقًا</string>
+    <string name="upgrades_gplay_internal_error_description">حدث خطأٌ داخليٌّ في جوجل بلاي. يُرجى تجربة ما يلي:\n\n• أعِد تشغيل جهازك\n• امسح ذاكرة التخزين المؤقّت لجوجل بلاي\n• حاول مرّةً أخرى لاحقًا</string>
     <string name="upgrades_gplay_network_error_title">خطأٌ في الاتّصال</string>
     <string name="upgrades_gplay_network_error_description">تعذّر الاتصال بجوجل بلاي. يُرجى التحقّق من اتّصالك بالإنترنت والمحاولة مرّةً أخرى.</string>
     <string name="upgrades_gplay_offer_unavailable_title">العرض غير متوفّر</string>
     <string name="upgrades_gplay_offer_unavailable_description">لا يقدّم جوجل بلاي حاليًّا خيار الترقية هذا. يُرجى المحاولة لاحقًا أو مراجعة سوق جوجل بلاي.</string>
-    <string name="upgrade_screen_restore_inconclusive_message">لم تكتمل مراجعة جوجل بلاي في الوقت المُحدَّد، لذا لا تزَل حالة عملية الاشتراء غير معروفة. لم يُطرأ أيّ تغيير على حسابك.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">لم تكتمل مراجعة جوجل بلاي في الوقت المُحدَّد، لذا لا تزال حالة عملية الاشتراء غير معروفة. لم يُطرأ أيّ تغيير على حسابك.</string>
 </resources>

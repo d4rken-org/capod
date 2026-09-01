@@ -114,11 +114,11 @@
     <string name="settings_overview_hide_unmatched_label">លាក់ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
     <string name="settings_overview_hide_unmatched_description">មិនបង្ហាញឧបករណ៍នៅជិតដែលមិនត្រូវនឹងប្រវត្តិរូបណាមួយរបស់អ្នកនៅក្នុងទិដ្ឋភាពទូទៅ ឧ. AirPods របស់អ្នកដទៃ។</string>
     <string name="device_battery_estimate_toggle_label">ការប៉ាន់ប្រមាណថាមពលថ្ម</string>
-    <string name="device_battery_estimate_card_desc">រៀនពីរបៀបដែលឧបករណ៍នេះសាក និងរលាយថាមពល ដើម្បីប៉ាន់ប្រមាណពេលដែលនៅសល់ រយៈពេលសាក និងសុខភាពថ្ម។</string>
+    <string name="device_battery_estimate_card_desc">រៀនពីរបៀបដែលឧបករណ៍នេះសាក និងរលាយដើម្បីប៉ាន់ប្រមាណពេលលេខដែលនៅសល់ ពេលលេខរហូតដល់ការសាកពេញលេញ និងរយៈពេលស្តាប់ដែលបានវាយតម្លៃដែលវាឈានដល់</string>
     <string name="device_battery_estimate_reset_action">កំដាប់ទិន្នន័យដែលរៀន</string>
     <string name="device_battery_estimate_reset_desc">ចាប់ផ្តើមម្តងទៀតពីរយៈពេលថ្មដែលបានវាយតម្លៃ។</string>
     <string name="device_battery_estimate_reset_confirm_title">លុបទិន្នន័យដែលរៀនឡើងវិញ?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod នឹងភ្លេចការរលាយដែលបានវាស់វែងរបស់ឧបករណ៍នេះ ល្បឿនសាក និងសុខភាពថ្ម ហើយចាប់ផ្តើមម្តងទៀតពីរយៈពេលថ្មដែលបានវាយតម្លៃ។</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod នឹងភ្លេចការរលាយដែលបានវាស់វែងរបស់ឧបករណ៍នេះ ល្បឿនសាក និងរយៈពេលស្តាប់ ហើយចាប់ផ្តើមម្តងទៀតពីរយៈពេលថ្មដែលបានវាយតម្លៃ។</string>
     <string name="settings_acknowledgements_label">ការទទួលស្គាល់</string>
     <string name="settings_debug_autoreports_label">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_debug_autoreports_description">រាយការណ៍បញ្ហាដោយស្វ័យប្រវត្តិ ឧ. ព័ត៌មានលម្អិតអំពីការគាំងកម្មវិធី ដូច្នេះខ្ញុំអាចរកវិធីដោះស្រាយវាបាន។</string>
@@ -240,6 +240,22 @@
     <string name="pods_dual_right_short_label">ស្តាំ</string>
     <string name="pods_case_label">ប្រអប់</string>
     <string name="battery_unavailable_label">ថ្មមិនអាចប្រើបាន</string>
+    <string name="battery_state_low_cd">ថ្មទាប</string>
+    <string name="battery_state_critical_cd">ថ្មក្រិតិកាល</string>
+    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <plurals name="battery_case_charges_approx">
+        <item quantity="other">ការសាកពេញលេញប្រហែល %d ដងទៀតសម្រាប់ឆ្នាយទាំងពីរ</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="other">យ៉ាងហោចណាស់ការសាកពេញលេញ %d ដងទៀតសម្រាប់ឆ្នាយទាំងពីរ</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">មិនដល់ការសាកពេញលេញម្ដងទៀតសម្រាប់ឆ្នាយទាំងពីរ</string>
+    <string name="battery_case_charges_empty">ស៊ុមទទេ គ្មានការសាកនៅសល់សម្រាប់ឆ្នាយរបស់អ្នក</string>
+    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_uncertain">មិនច្បាស់ថាមានការសាកពេញលេញប៉ុន្មានដងនៅសល់សម្រាប់ឆ្នាយទាំងពីរ</string>
+    <string name="battery_case_charges_state_enough_cd">គ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
+    <string name="battery_case_charges_state_not_enough_cd">មិនគ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
+    <string name="battery_case_charges_state_uncertain_cd">អាចមិនគ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
     <string name="pods_case_status_open_label">បើក</string>
     <string name="pods_case_status_closed_label">បិទ</string>
     <string name="pods_connection_state_disconnected_label">មិនបានភ្ជាប់ទៅឧបករណ៍</string>
@@ -425,11 +441,14 @@
     <string name="device_settings_info_right_serial_label">លើខស៊ើរី Pod ខាងស្តាំ</string>
     <string name="device_settings_info_left_bonded_label">ខាងឆ្វេងបានភ្ជាប់</string>
     <string name="device_settings_info_right_bonded_label">ខាងស្តាំបានភ្ជាប់</string>
-    <string name="device_settings_info_battery_health_label">សុខភាពថ្ម (ប៉ាន់ស្មាន)</string>
-    <string name="device_settings_info_battery_health_left_label">សុខភាពថ្ម ឆ្វេង (ប៉ាន់ស្មាន)</string>
-    <string name="device_settings_info_battery_health_right_label">សុខភាពថ្ម ស្ដាំ (ប៉ាន់ស្មាន)</string>
-    <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_label">រយៈពេលស្តាប់ដែលប៉ាន់ប្រមាណ</string>
+    <string name="device_settings_info_battery_health_left_label">រយៈពេលស្តាប់របស់ឆ្នាយខាងឆ្វេង</string>
+    <string name="device_settings_info_battery_health_right_label">រយៈពេលស្តាប់របស់ឆ្នាយខាងស្តាំ</string>
+    <string name="device_settings_info_battery_health_value">~%1$d%% នៃដែលបានវាយតម្លៃ</string>
     <string name="device_settings_info_battery_health_pending">នៅកំពុងកំណត់ សូមត្រលប់មកពេលក្រោយ</string>
+    <string name="device_settings_battery_runtime_warning_title">រយៈពេលស្តាប់ខ្លីច្រើនជាងដែលបានវាយតម្លៃ</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: ប្រហែល %2$d%% នៃរយៈពេលស្តាប់ដែលបានវាយតម្លៃ។ ចុចដើម្បីលម្អិត។</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">ឧបករណ៍ស្តាប់ទូរស័ព្ទទាំងនេះ</string>
     <string name="device_settings_info_details_label">ព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_details_action">បង់ហាញព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_status_label">ស្ថានភាព</string>
