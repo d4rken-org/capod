@@ -3,7 +3,6 @@
     <string name="general_share_action">Jaga</string>
     <string name="general_done_action">Valmis</string>
     <string name="general_cancel_action">Tühista</string>
-    <string name="general_copy_action">Kopeeri</string>
     <string name="general_thank_you_label">Tänan</string>
     <string name="general_upgrade_action">Uuenda</string>
     <string name="general_retry_action">Proovi uuesti</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Kontrolli</string>
     <string name="general_close_action">Sulge</string>
     <string name="general_dismiss_action">Sulge</string>
-    <string name="general_edit_action">Muuda</string>
     <string name="general_save_action">Salvesta</string>
     <string name="general_guide_action">Juhend</string>
     <string name="general_continue_action">Jätka</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Jätka muusika kuulamist, kui kannad taas kõrvaklappe, kuid ainult siis, kui isekäivitunud paus selle peatas. Isepausimise (telefon, AirPodsi vars, uni) puhul jääb paus kestma.</string>
     <string name="settings_start_music_on_wear_label">Esita muusikat kõrva panemisel</string>
     <string name="settings_start_music_on_wear_description">Proovib alati esitada muusikat, kui paned kõrvaklapid pähe, isegi pärast enda käivitatud pausi.</string>
-    <string name="settings_eardetection_info_label">Kõrva tuvastamisest</string>
     <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string>
-    <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
-    <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
     <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda paluda. See hoiab CAPodi töös taustal kogu aeg.</string>
     <string name="settings_autoconnect_info_android12">Iseühenduvus tugineb süsteemivõimalusele, mida Android 12 ja uuemad versioonid piiravad. See ei pruugi teie seadmel toimida.</string>
     <string name="settings_autoconnect_condition_label">Automaatse ühendamise tingimus</string>
-    <string name="settings_autoconnect_condition_description">Millal võime üritada ühendada teie seadet?</string>
     <string name="settings_devices_label">Seadmed</string>
     <string name="settings_devices_description">Seadmete haldamine.</string>
     <string name="settings_reaction_label">Reaktsioonid</string>
-    <string name="settings_category_yourdevice_label">Teie seade</string>
     <string name="settings_category_compatibility_options_title">Ühilduvuse valikud</string>
     <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Käivitamine…</string>
     <string name="support_debuglog_label">Silumisinfo</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavasse tekstifaili.</string>
-    <string name="debug_debuglog_size_label">Maht</string>
-    <string name="debug_debuglog_size_compressed_label">Maht pärast kokkusurumist</string>
-    <string name="debug_notification_channel_label">Silumisteated</string>
-    <string name="debug_debuglog_file_label">Salvestatud logifail</string>
-    <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>
     <string name="debug_debuglog_stop_action">Peata salvestamine</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isikuandmeid (nt Bluetooth seadme tehnilisi näitajaid). Jagage seda vaid usaldusväärsetega.</string>
     <string name="settings_debuglog_explanation">See salvestab kogu rakenduse tegevuse jagatavasse tekstifaili. Loodud fail sisaldab isikuandmeid (nt Bluetooth seadme tehnilisi näitajaid). Jagage seda vaid usaldusväärsetega (nt probleemi lahendava arendajaga).</string>
-    <string name="settings_support_installid_label">Paigalduse tunnus</string>
-    <string name="settings_support_installid_desc">Automaatsed veateated on anonüümsed. Jagage oma paigalduse tunnust, kui arendaja peab leidma teie veateateid.</string>
     <string name="settings_support_label">Abi</string>
     <string name="settings_support_description">Jagatud mure on pool mure.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Lähtesta õpitud andmed?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod unustab selle seadme mõõdetud kulu, laadimiskiiruse ja kuulamisaja ning alustab uuesti nimiväärtustest.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
-    <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
-    <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
-    <string name="settings_compatibility_mode_label">Ühilduvusrežiim</string>
-    <string name="settings_compatibility_mode_description">Ühilduvuse parandamiseks keelake optimeeringud. Proovige seda, kui te ei näe mingeid andmeid.</string>
     <string name="help_translate_label">Tõlge</string>
     <string name="help_translate_description">Aita tõlkida seda rakendust oma emakeelde.</string>
     <string name="translators_thanks_title">Tõlkijad</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Õnnestus</string>
     <string name="troubleshooter_ble_result_success_body">CAPod võtab vastu madalama energiakuluga Bluetoothi kaudu reklaame.</string>
     <string name="troubleshooter_ble_result_failure_title">Nurjus</string>
-    <string name="troubleshooter_ble_result_failure_body">Parandamine nurjus. Ükski ühilduvuskombinatsioonidest ei toiminud.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Telefon ei võtnud vastu mingeid andmeid madalama energiakuluga Buetoothi kaudu. Üritage korrate rahvarohkes kohas, et näha, kas andmete allikaid (mis pole teie kõrvaklapid) saab kätte. Andmete saamise nurjumine viitab telefoni operatsioonisüsteemi veale.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni saabusid andmed madalama energiakuluga Bluetoothi kaudu aga andmed ei pärine ühestki ühilduvast seadmest. Kas CAPod ühildub teie kõrvaklapiga?</string>
-    <string name="troubleshooter_ble_result_failure_action">Proovi uuesti</string>
-    <string name="troubleshoot_action">Lahendamine</string>
     <string name="onboarding_body1">See rakendus lisab Androidile AirPodi võimalused.</string>
     <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
     <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Seade on ühendatud, kuid CAPod ei saa sellelt otseandmeid. Telefon vajab tõenäoliselt ühilduvuse valikut — abistaja kontrollib, kas suudab selle ise leida.</string>
     <string name="overview_troubleshoot_suggestion_action">Käivita abistaja</string>
     <string name="overview_unmatched_devices_label">Omavahel sobimatud seadmed</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d seade ei kattu profiiliga</item>
-        <item quantity="other">%d seadet ei kattu profiiliga</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Tuvastati %d lähedalasuv seade, millel puudub sobiv profiil. Kuva andmed. Kui see on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
         <item quantity="other">Tuvastati %d lähedalasuvat seadet, millel puudub sobiv profiil. Kuva andmed. Kui mõni neist on sinu oma, lisa seadmete alt profiil selle tuvastamiseks.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod võimaldab sellega hüpikakende näitamist ja automaatset ühendumist, kui rakendus on suletud ning saada Bluetooth madala energiatarbimisega andmeid, kui rakendus töötab taustal. See rakendus ei tuvasta Bluetooth andmetega teie asukohta.</string>
     <string name="permission_ignore_battery_optimizations_label">Keela aku optimeerimine</string>
     <string name="permission_ignore_battery_optimizations_description">Aku optimeerimine takistab rakendusel Bluetooth andmete saamist taustal töötades.</string>
-    <string name="permission_required_title">Vaja on järgmist luba:</string>
     <string name="permission_system_alert_window_label">Süsteemi teate aken</string>
     <string name="permission_system_alert_window_description">Luba CAPodil toimetada teiste rakenduste kohal, et näha hüpikaknaid.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kui nähtaval</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Kõrvas</string>
     <string name="pods_dual_left_label">Vasak klapp</string>
     <string name="pods_dual_right_label">Parem klapp</string>
-    <string name="pods_dual_left_short_label">V</string>
-    <string name="pods_dual_right_short_label">P</string>
-    <string name="pods_case_label">Kaas</string>
     <string name="battery_unavailable_label">Aku pole saadaval</string>
     <string name="battery_state_low_cd">Aku madal</string>
     <string name="battery_state_critical_cd">Aku kriitiliselt madal</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Otseühendus aktiivne</string>
     <string name="signal_indicator_bars_cd">Signaali tugevus: %1$d 4 ribast</string>
     <string name="signal_indicator_disconnected_cd">Signaal: ühendus puudub</string>
-    <string name="pods_yours">Sinu</string>
     <string name="headset_being_worn_label">Kasutusel</string>
     <string name="headset_not_being_worn_label">Ei kasuta</string>
     <string name="pods_case_unknown_state">Tundmatu olek</string>
-    <string name="last_seen_x">Viimati kasutusel: %s</string>
-    <string name="first_seen_x">Esimesena kasutusel: %s</string>
     <string name="battery_cached_label">Viimati teadaolev · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dt %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dt</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Väikseim signaali kvaliteet</string>
     <string name="profiles_signal_quality_description">Kuvage ainult sellest lävest kõrgema signaalitugevusega seadmed. Väiksemad väärtused vähendavad tuvastamismäära, ent võivad valesti teavitada. Ärge seadistage seda liiga suureks, kuna Bluetooth vastuvõtmine on tavaliselt kehv ja sõltub vahemaast ning takistustest.</string>
     <string name="profiles_identitykey_label">Tuvastamisvõti</string>
-    <string name="profilessettings_maindevice_identitykey_description">Teie seadme tunnuse lahendamisvõti (IRK), mis võimaldab CAPodil tuvastada seda ümberkaudsete seadmete hulgast.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPodsid muudavad privaatsuse tõttu sageli oma Bluetooth aadressi. IRK aitab CAPodil tuvastada teie seadet. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="profiles_maindevice_encryptionkey_label">Krüpteerimisvõti</string>
-    <string name="profiles_maindevice_encryptionkey_description">Teie seadme krüpteerimisvõti, mis võimaldab CaPodil saada täpset oleku teavet.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPodsid saadavad olekuteateid, millest osad on krüptitut. Krüpteerimisvõti võimaldab CAPodil kogu teadet lugeda. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="profiles_key_invalid_format">Vigane loa vorming</string>
     <string name="profiles_key_expected_format">Eeldati vormingut: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Muudatused on salvestamata. Mida tahaksite teha?</string>
     <string name="general_save_and_exit_action">Salvesta ja välju</string>
     <string name="general_discard_action">Hülga</string>
-    <string name="general_keep_editing_action">Jätka muutmist</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Salvestis on liiga lühike</string>
     <string name="debug_debuglog_short_recording_message">Vealogi peab jäädvustama probleemi selle toimumise ajal. Jätkake salvestamist, korrake probleemi ja seejärel peatage salvestamine.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Seadme seaded</string>
     <string name="device_settings_subtitle_profile_prefix">Profiil: %s</string>
-    <string name="device_settings_info_name_label">Nimi</string>
     <string name="device_settings_info_bt_name_label">Bluetoothi seadme silt</string>
     <string name="device_settings_info_model_label">Mudel</string>
     <string name="device_settings_info_manufacturer_label">Tootja</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Kas soovid kommenteerida CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Kumba kõrvaklappi kasutatakse mikrofonina</string>
     <string name="device_settings_microphone_mode_auto">Automaatne</string>

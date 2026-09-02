@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play teenused pole saadaval.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ühtki ostu ei leitud. Kasutate õiget kontot?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play viga</string>
     <string name="upgrades_gplay_billing_error_description">Google Play viga. Üritage hiljem uuesti või taaskäivitage oma telefon.\n\nViga: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play makse viga</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Playl ilmnes teie ostuandmete pärimisel viga. Tühjendage Google Play vahemälu ja taaskäivitage oma telefon.\n\nViga %s</string>
     <string name="upgrades_gplay_already_owned_label">Juba ostetud?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play andmetel on see uuendus sul juba olemas, kuid seda ei õnnestunud taastada. Veendu, et kasutad sama Google\'i kontot, millega ostu tegid. Play poe sünkroonimine võib aega võtta — proovi taaskäivitada, tühjendada Google Play vahemälu või lihtsalt oodata.</string>
-    <string name="upgrade_restore_action">Taasta ost</string>
     <string name="upgrade_badge_label">Tasuline</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Hangi %1$s</string>
     <string name="upgrade_preamble">CAPodi arendab üks inimene. Uuendamine avab lisavõimalused ja aitab rakendust arendada.</string>
-    <string name="upgrade_screen_options_description">Samad võimalused, erinev hind. Tellimus sisaldab tasuta katseaega ja selle saab igal ajal tühistada.</string>
-    <string name="upgrade_screen_options_description_no_trial">Samad võimalused, erinev hind. Tellimuse saab igal ajal tühistada.</string>
     <string name="upgrade_screen_subscription_trial_action">Proovi</string>
     <string name="upgrade_screen_subscription_action">Telli aastaks</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/aastas</string>
     <string name="upgrade_screen_iap_action">Osta korra</string>
-    <string name="upgrade_screen_iap_action_hint">Ühekordne ost: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Taasta ost</string>
-    <string name="upgrade_screen_restore_purchase_message">Ühtki ostu ei leitud. Kasutate õiget kontot?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Kui olete hiljuti ostnud, võib Google Playl kuluda ajakohastamiseks hetk.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Proovige mõne minuti pärast uuesti, kui teie ost ei ilmu.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Veenduge, et olete sisse logitud sama Google\'i kontoga, mida kasutasite ostu sooritamiseks.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Mitu kontot võivad Google Playd segadusse ajada. Rakenduse paigaldamine Google Play veebilehe kaudu sunnib seose kindla kontoga.</string>
     <string name="upgrade_screen_restore_banner_title">Oled juba Pro versiooni ostnud?</string>
     <string name="upgrade_screen_restore_banner_body">Tundub, et oled selles seadmes varem Pro versioonile uuendanud. Taasta oma ost, et see uuesti avada.</string>
     <string name="upgrade_screen_restore_success_message">Ost taastatud.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Sul on CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Avatud sinu tellimusega. Täname, et toetad CAPodi!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Avatud sinu ühekordse ostuga. Täname, et toetad CAPodi!</string>
-    <string name="upgrade_screen_owned_sub_title">Aastane tellimus</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Teie Pro tellimus on kasutatav ja seadistatud uuendamiseks. Google Play tegeleb arveldusega.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Teie tellimus on kasutatav, kuid pole seadistatud uuendamiseks. Pro on saadaval kuni praeguse perioodi lõpuni.</string>
     <string name="upgrade_screen_owned_iap_title">Ühekordne ost</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">شیئر کریں</string>
     <string name="general_done_action">ہو گیا</string>
     <string name="general_cancel_action">منسوخ کریں</string>
-    <string name="general_copy_action">کاپی کریں</string>
     <string name="general_thank_you_label">شکریہ</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
     <string name="general_retry_action">دوبارہ کوشش کریں</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">چیک کریں</string>
     <string name="general_close_action">بند کریں</string>
     <string name="general_dismiss_action">مسترد کریں</string>
-    <string name="general_edit_action">تبدیلی کریں</string>
     <string name="general_save_action">محفوظ کریں</string>
     <string name="general_guide_action">رہنما</string>
     <string name="general_continue_action">جاری رکھیں</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">جب آپ دوبارہ پوڈز پہنیں تو موسیقی دوبارہ شروع کریں، لیکن صرف اس صورت میں جب آٹو پاز نے اسے روکا ہو۔ آپ کے اپنے ہاتھ سے لگائے گئے پاز (فون، AirPods اسٹیم، نیند) وقفے میں رہتے ہیں۔</string>
     <string name="settings_start_music_on_wear_label">پہننے پر موسیقی شروع کریں</string>
     <string name="settings_start_music_on_wear_description">جب آپ پوڈز پہنیں تو ہمیشہ موسیقی چلانے کی کوشش کرتا ہے، چاہے آپ نے خود وقفہ کیا ہو۔</string>
-    <string name="settings_eardetection_info_label">کان کی شناخت کا نوٹ</string>
     <string name="settings_eardetection_info_description">اگر کان کی شناخت صرف ایک پوڈ کے لئے کام کرتی ہے تو یہ Apple کی حد ہے۔ صرف \"بنیادی پوڈ\" (مائیکروفون کے لئے استعمال ہونے والا) کا پتہ چلتا ہے۔ Apple آلات پر ترتیب دیں: سیٹنگز → بلوٹوتھ → AirPods → مائیکروفون۔</string>
-    <string name="settings_signal_minimum_label">کم از کم سگنل کا معیار</string>
-    <string name="settings_signal_minimum_description">کم از کم سگنل کا معیار جو کسی آلہ کو آپ کا سمجھا جانے کے لئے درکار ہے۔</string>
     <string name="settings_autoconnect_label">خودکار کنیکٹ</string>
     <string name="settings_autoconnect_description">اگر اینڈرائیڈ خود بخود منسلک نہیں ہوتا، تو ہم اسے ایسا کرنے کے لیے کہہ سکتے ہیں۔ اس سے CAPod ہر وقت بیک گراؤنڈ میں مانیٹرنگ جاری رکھتا ہے۔</string>
     <string name="settings_autoconnect_info_android12">آٹو کنیکٹ ایک ایسے سسٹم فیچر پر انحصار کرتا ہے جسے Android 12 اور اس سے جدید ورژن محدود کرتا ہے۔ یہ آپ کے ڈیوائس پر کام نہیں کر سکتا۔</string>
     <string name="settings_autoconnect_condition_label">خودکار کنیکٹ کی شرط</string>
-    <string name="settings_autoconnect_condition_description">ہمیں آپ کے آلہ سے کب منسلک ہونے کی کوشش کرنی چاہئے؟</string>
     <string name="settings_devices_label">آلات</string>
     <string name="settings_devices_description">اپنے آلات کا نظم کریں۔</string>
     <string name="settings_reaction_label">رد عمل</string>
-    <string name="settings_category_yourdevice_label">آپ کا آلہ</string>
     <string name="settings_category_compatibility_options_title">مطابقت کے اختیارات</string>
     <string name="settings_category_compatibility_options_description">اگر سب کچھ کام کر رہا ہو تو ہاتھ نہ لگائیں ؛)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ہارڈ ویئر فلٹرنگ کو غیر فعال کریں</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">شروع ہو رہا ہے…</string>
     <string name="support_debuglog_label">ڈیبگ لاگ</string>
     <string name="support_debuglog_desc">ایپ جو کچھ بھی کر رہی ہے اسے ایک ٹیکسٹ فائل میں ریکارڈ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
-    <string name="debug_debuglog_size_label">سائز</string>
-    <string name="debug_debuglog_size_compressed_label">کمپریسڈ سائز</string>
-    <string name="debug_notification_channel_label">ڈیبگ اطلاعات</string>
-    <string name="debug_debuglog_file_label">ریکارڈ شدہ لاگ فائل</string>
-    <string name="debug_debuglog_recording_progress">ڈیبگ لاگ ریکارڈ ہو رہا ہے</string>
     <string name="debug_debuglog_record_action">ڈیبگ لاگ ریکارڈ کریں</string>
     <string name="debug_debuglog_stop_action">ریکارڈنگ روکیں</string>
     <string name="debug_debuglog_sensitive_information_message">تیار کردہ فائل میں حساس معلومات ہیں (مثلاً بلوٹوتھ آلہ کی تفصیلات)۔ اسے صرف قابل اعتماد فریقوں کے ساتھ شیئر کریں۔</string>
     <string name="settings_debuglog_explanation">یہ خصوصیت ایپ جو کچھ بھی کر رہی ہے اسے ایک قابل اشتراک فائل میں ریکارڈ کرتی ہے۔ تیار کردہ فائل میں حساس معلومات ہیں (مثلاً بلوٹوتھ آلہ کی تفصیلات)۔ اسے صرف قابل اعتماد فریقوں (مثلاً کسی مسئلے کو حل کرنے والے ڈیولپر) کے ساتھ شیئر کریں۔</string>
-    <string name="settings_support_installid_label">انسٹال ID</string>
-    <string name="settings_support_installid_desc">خودکار غلطی کی رپورٹس گمنام ہیں۔ اگر ڈیولپر کو آپ کی غلطی کی رپورٹس تلاش کرنے کی ضرورت ہو تو اپنا انسٹال ID شیئر کریں۔</string>
     <string name="settings_support_label">مدد</string>
     <string name="settings_support_description">اگر آپ کو کچھ مدد کی ضرورت ہو۔</string>
     <string name="settings_wiki_label">ویکی</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">سیکھے ہوئے ڈیٹا کو ری سیٹ کریں؟</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod اس ڈیوائس کی ناپی ہوئی بیٹری کی کمی، چارجنگ کی رفتار، اور سننے کے وقت کو بھول جائے گا، اور درجہ بندی کی گئی بیٹری کی زندگی سے دوبارہ شروع ہوگا۔</string>
     <string name="settings_acknowledgements_label">اعترافات</string>
-    <string name="settings_debug_autoreports_label">خودکار بگ رپورٹس</string>
-    <string name="settings_debug_autoreports_description">مسائل کی خود بخود اطلاع دیتا ہے، مثلاً ایپ کریش کی تفصیلات تاکہ میں اسے ٹھیک کرنے کا طریقہ معلوم کر سکوں۔</string>
-    <string name="settings_compatibility_mode_label">مطابقت موڈ</string>
-    <string name="settings_compatibility_mode_description">مطابقت کو بہتر بنانے کے لئے اصلاحات کو غیر فعال کریں۔ اگر آپ کو کوئی ڈیٹا نظر نہیں آرہا ہے تو اسے آزمائیں۔</string>
     <string name="help_translate_label">ترجمہ</string>
     <string name="help_translate_description">اس ایپ کو اپنی پسندیدہ زبان میں ترجمہ کرنے میں مدد کریں۔</string>
     <string name="translators_thanks_title">مترجمین</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">کامیابی</string>
     <string name="troubleshooter_ble_result_success_body">BLE اشتہارات کی نشریات CAPod کے ذریعے موصول ہو رہی ہیں۔</string>
     <string name="troubleshooter_ble_result_failure_title">ناکام</string>
-    <string name="troubleshooter_ble_result_failure_body">مسئلہ حل کرنے میں ناکامی ہوئی۔ مطابقت کے اختیارات کا کوئی مجموعہ مددگار ثابت نہیں ہوا۔</string>
     <string name="troubleshooter_ble_result_failure_phone_body">آپ کے فون نے بالکل بھی کوئی BLE ڈیٹا موصول نہیں کیا۔ آپ اس ٹیسٹ کو کسی بھیڑ والی جگہ پر دوبارہ آزما سکتے ہیں تاکہ یہ دیکھا جا سکے کہ آیا ڈیٹا کے ذرائع (آپ کے ہیڈ فون کے علاوہ) موصول ہو سکتے ہیں۔ کوئی ڈیٹا موصول نہ ہونا آپ کے فون کے آپریٹنگ سسٹم میں کسی مسئلے کی نشاندہی کرتا ہے۔</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">آپ کے فون نے BLE ڈیٹا موصول کیا، لیکن ڈیٹا کسی بھی معاونت یافتہ آلہ سے نہیں آرہا ہے۔ کیا آپ کے ہیڈ فون آن ہیں؟ کیا CAPod آپ کے ہیڈ فون کو سپورٹ کرتا ہے؟</string>
-    <string name="troubleshooter_ble_result_failure_action">دوبارہ کوشش کریں</string>
-    <string name="troubleshoot_action">مسئلہ حل کریں</string>
     <string name="onboarding_body1">یہ ایپ اینڈرائیڈ میں ایئر پوڈ کی مخصوص خصوصیات کے لئے معاونت شامل کرتی ہے۔</string>
     <string name="onboarding_body2">تمام اینڈرائیڈ آلات ایئر پوڈ کی اضافی خصوصیات کو مکمل طور پر سپورٹ نہیں کرتے ہیں۔ آپ کے آپریٹنگ سسٹم کو صحیح طریقے سے کام کرنے والے بلوٹوتھ-لو-انرجی نفاذ کی ضرورت ہے۔</string>
     <string name="onboarding_body3">CAPod میں کوئی اشتہار نہیں ہے اور یہ آپ کا ڈیٹا جمع نہیں کرتا ہے۔</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">آپ کا آلہ متصل ہے، لیکن CAPod اس سے کوئی براہ راست ڈیٹا وصول نہیں کر رہا۔ آپ کے فون کو ایک مطابقت کے آپشن کی ضرورت ہو سکتی ہے — مسئلہ حل کرنے والا خود بخود ایک تلاش کرنے کی کوشش کر سکتا ہے۔</string>
     <string name="overview_troubleshoot_suggestion_action">مسئلہ حل کرنے والا چلائیں</string>
     <string name="overview_unmatched_devices_label">غیر مماثل آلات</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">مماثل پروفائل کے بغیر %d آلہ</item>
-        <item quantity="other">مماثل پروفائل کے بغیر %d آلات</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d قریبی آلہ بغیر کسی مماثل پروفائل کے پایا گیا۔ دستیاب تفصیلات کے لیے اسے دکھائیں۔ اگر یہ آپ کا ہے تو اسے پہچاننے کے لیے ڈیوائسز سے ایک پروفائل شامل کریں۔</item>
         <item quantity="other">%d قریبی آلات بغیر کسی مماثل پروفائل کے پائے گئے۔ دستیاب تفصیلات کے لیے انہیں دکھائیں۔ اگر ان میں سے کوئی آپ کا ہے تو اسے پہچاننے کے لیے ڈیوائسز سے ایک پروفائل شامل کریں۔</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod ایپ بند ہونے پر \"پاپ اپ دکھائیں\" اور \"خودکار کنیکٹ\" جیسی خصوصیات فعال کرنے کے لئے \"پس منظر مقام تک رسائی\" استعمال کرتا ہے۔ پس منظر مقام تک رسائی ایپ کو پس منظر میں رہتے ہوئے بلوٹوتھ لو انرجی ڈیٹا وصول کرنے کی اجازت دیتی ہے۔ یہ ایپ آپ کا مقام معلوم کرنے کے لئے بلوٹوتھ ڈیٹا استعمال نہیں کرے گی۔</string>
     <string name="permission_ignore_battery_optimizations_label">بیٹری کی اصلاحات غیر فعال کریں</string>
     <string name="permission_ignore_battery_optimizations_description">بیٹری کی اصلاحات اس ایپ کو پس منظر میں رہتے ہوئے بلوٹوتھ ڈیٹا قابل اعتماد طریقے سے وصول کرنے سے روکتی ہیں۔</string>
-    <string name="permission_required_title">درج ذیل اجازت درکار ہے:</string>
     <string name="permission_system_alert_window_label">سسٹم الرٹ ونڈو</string>
     <string name="permission_system_alert_window_description">\"پاپ اپ دکھائیں\" خصوصیت ممکن بنانے کے لئے CAPod کو دوسری ایپس کے اوپر ڈرا کرنے کی اجازت دیں۔</string>
     <string name="settings_reaction_autoconnect_whenseen_label">نظر آنے پر</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">کان میں</string>
     <string name="pods_dual_left_label">بایاں پوڈ</string>
     <string name="pods_dual_right_label">دایاں پوڈ</string>
-    <string name="pods_dual_left_short_label">ب</string>
-    <string name="pods_dual_right_short_label">د</string>
-    <string name="pods_case_label">کیس</string>
     <string name="battery_unavailable_label">بیٹری دستیاب نہیں</string>
     <string name="battery_state_low_cd">بیٹری کم ہے</string>
     <string name="battery_state_critical_cd">بیٹری انتہائی کم ہے</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">براہ راست کنکشن فعال</string>
     <string name="signal_indicator_bars_cd">سگنل کی طاقت: 4 میں سے %1$d بار</string>
     <string name="signal_indicator_disconnected_cd">سگنل: منقطع</string>
-    <string name="pods_yours">آپ کا</string>
     <string name="headset_being_worn_label">پہنا ہوا</string>
     <string name="headset_not_being_worn_label">نہیں پہنا ہوا</string>
     <string name="pods_case_unknown_state">نامعلوم حالت</string>
-    <string name="last_seen_x">آخری بار دیکھا گیا: %s</string>
-    <string name="first_seen_x">پہلی بار دیکھا گیا: %s</string>
     <string name="battery_cached_label">آخری معلوم · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dگھنٹہ %2$dمنٹ</string>
     <string name="battery_time_remaining_format_h">%1$dگھنٹہ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">کم از کم سگنل کا معیار</string>
     <string name="profiles_signal_quality_description">صرف اس حد سے اوپر سگنل کی طاقت والے آلات کا پتہ لگائیں۔ کم قدریں شناخت کی حد بڑھاتی ہیں لیکن غلط نتائج دے سکتی ہیں۔ اسے بہت زیادہ مقرر نہ کریں - بلوٹوتھ ریسیپشن عموماً کمزور ہے اور فاصلے اور رکاوٹوں کے ساتھ بدلتا ہے۔</string>
     <string name="profiles_identitykey_label">شناختی کلید</string>
-    <string name="profilessettings_maindevice_identitykey_description">آپ کے آلہ کی Identity Resolving Key (IRK)، جو CAPod کو قریبی آلات میں اسے پہچاننے میں مدد کرتی ہے۔</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods رازداری کے لئے اپنا بلوٹوتھ پتہ بار بار تبدیل کرتے ہیں۔ IRK CAPod کو آپ کے آلہ کو پہچاننے میں مدد کرتا ہے۔ آپ کو MacBook تک ایک بار رسائی کی ضرورت ہے۔</string>
     <string name="profiles_maindevice_encryptionkey_label">خفیہ کاری کی کلید</string>
-    <string name="profiles_maindevice_encryptionkey_description">آپ کے آلہ کی خفیہ کاری کی کلید، جو CAPod کو تفصیلی حیثیت کی معلومات حاصل کرنے کی اجازت دیتی ہے۔</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ایک حیثیت کا پیغام بھیجتے ہیں، جس کا ایک حصہ خفیہ ہوتا ہے۔ خفیہ کاری کی کلید CAPod کو مکمل پیغام کی خفیہ کشائی کرنے کی اجازت دیتی ہے۔ آپ کو MacBook تک ایک بار رسائی کی ضرورت ہے۔</string>
     <string name="profiles_key_invalid_format">غلط کلید کی شکل</string>
     <string name="profiles_key_expected_format">متوقع شکل: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں۔ آپ کیا کرنا چاہیں گے؟</string>
     <string name="general_save_and_exit_action">محفوظ کریں اور باہر نکلیں</string>
     <string name="general_discard_action">رد کریں</string>
-    <string name="general_keep_editing_action">ترمیم جاری رکھیں</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ریکارڈنگ بہت مختصر</string>
     <string name="debug_debuglog_short_recording_message">ڈیبگ لاگ کو مسئلے کے وقوع کے دوران ریکارڈ کرنا ہوتا ہے۔ ریکارڈنگ جاری رکھیں، مسئلہ دوبارہ پیدا کریں، پھر ریکارڈنگ بند کریں۔</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">ڈیوائس کی ترتیبات</string>
     <string name="device_settings_subtitle_profile_prefix">پروفائل: %s</string>
-    <string name="device_settings_info_name_label">نام</string>
     <string name="device_settings_info_bt_name_label">بلوٹوتھ ڈیوائس لیبل</string>
     <string name="device_settings_info_model_label">ماڈل</string>
     <string name="device_settings_info_manufacturer_label">مینوفیکچرر</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">شاید بعد میں</string>
     <string name="review_app_body">کیا آپ CAPod کے لیے ریویو چھوڑنا چاہیں گے؟ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>
     <string name="device_settings_microphone_mode_description">کون سا ایئربڈ مائیکروفون کے طور پر استعمال ہوتا ہے</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>

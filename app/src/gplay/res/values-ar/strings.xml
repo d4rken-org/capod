@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">خدمات جوجل بلاي غير متوفّرة.</string>
-    <string name="upgrades_no_purchases_found_check_account">لم يُعثَر على أيّ مشتريات. هل تستخدم الحساب الصحيح؟</string>
     <string name="upgrades_gplay_billing_error_label">خطأٌ في جوجل بلاي</string>
     <string name="upgrades_gplay_billing_error_description">حدث خطأٌ في جوجل بلاي. يُرجى المحاولة لاحقًا أو إعادة تشغيل هاتفك.\n\nالخطأ: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">خطأٌ في فوترة جوجل بلاي</string>
-    <string name="upgrades_gplay_billing_result_error_description">حدث خطأٌ في أثناء طلب تفاصيل عملية الاشتراء من جوجل بلاي. يُرجى مسح ذاكرة التخزين المؤقّت لجوجل بلاي وإعادة تشغيل هاتفك.\n\nالخطأ %s</string>
     <string name="upgrades_gplay_already_owned_label">هل اشتريت فعلًا؟</string>
     <string name="upgrades_gplay_already_owned_description">أفاد جوجل بلاي بأنّك تمتلك هذه الترقية فعلًا، ولكنْ تعذّرت استعادتها. تأكّد استخدام حساب جوجل الذي اشتريت به الترقية. قد تستغرق مزامنة سوق بلاي بعض الوقت — حاول إعادة تشغيل الجهاز، أو مسح ذاكرة التخزين المؤقّت لجوجل بلاي، أو الانتظار ببساطة.</string>
-    <string name="upgrade_restore_action">استعادة المشتريات</string>
     <string name="upgrade_badge_label">النسخة الاحترافية</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">احصل على %1$s</string>
     <string name="upgrade_preamble">تمّ تطوير كابود بواسطة شخصٍ واحد. تتيح الترقية مزايا إضافية وتساعد في استمرار عمل التطبيق.</string>
-    <string name="upgrade_screen_options_description">نفس المزايا، بتسعيرٍ مختلف. يشمل الاشتراك مدّةً تجريبيةً مجّانيةً ويمكن إلغاؤه في أيّ وقت.</string>
-    <string name="upgrade_screen_options_description_no_trial">نفس المزايا، بتسعيرٍ مختلف. يمكن إلغاء الاشتراك في أيّ وقت.</string>
     <string name="upgrade_screen_subscription_trial_action">بدء المدّة التجريبية المجّانية</string>
     <string name="upgrade_screen_subscription_action">الاشتراك سنويًّا</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/سنويًّا</string>
     <string name="upgrade_screen_iap_action">الاشتراء لمرّةٍ واحدة</string>
-    <string name="upgrade_screen_iap_action_hint">اشتراء لمرّةٍ واحدة: %s</string>
     <string name="upgrade_screen_restore_purchase_action">استعادة المشتريات</string>
-    <string name="upgrade_screen_restore_purchase_message">لم يُعثَر على أيّ مشتريات. هل تستخدم الحساب الصحيح؟</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">إذا اشتريت مؤخّرًا، فقد يستغرق الأمر بعض الوقت حتى تتمّ مزامنة حسابك على جوجل بلاي.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">حاول مرّةً أخرى بعد بضع دقائق إذا لم يظهر طلبك.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">تأكّد تسجيل دخولك باستخدام حساب جوجل نفسه المُستخدَم في عملية الاشتراء.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">قد يؤدّي تعدّد الحسابات إلى إرباك جوجل بلاي. لذا، فإنّ تثبيت التطبيق عبر موقع جوجل بلاي الإلكتروني يُجبِر التطبيق على الارتباط بحسابٍ مُحدَّد.</string>
     <string name="upgrade_screen_restore_banner_title">هل اشتريت النسخة الاحترافية فعلًا؟</string>
     <string name="upgrade_screen_restore_banner_body">يبدو أنّك رقّيت إلى النسخة الاحترافية على هذا الجهاز سابقًا. استعِدْ عملية الاشتراء لفتحه مرّةً أخرى.</string>
     <string name="upgrade_screen_restore_success_message">تمّت استعادة عملية الاشتراء.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">لديك النسخة الاحترافية من كابود!</string>
     <string name="upgrade_screen_owned_hero_sub_body">تمّ فتحها باشتراكك. شكرًا لدعمك لكابود!</string>
     <string name="upgrade_screen_owned_hero_iap_body">تمّ فتحها باختيارك خيار الاشتراء لمرّةٍ واحدة. شكرًا لدعمك لكابود!</string>
-    <string name="upgrade_screen_owned_sub_title">اشتراك سنوي</string>
     <string name="upgrade_screen_owned_sub_renewing_body">اشتراكك فعّالٌ ومُعَدٌّ للتجديد. تتمّ إدارة الفواتير بواسطة جوجل بلاي.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">اشتراكك فعّالٌ، لكنّه غير مُعَدٍّ للتجديد. ستظلّ النسخة الاحترافية متاحةً حتّى نهاية المدّة الحالية.</string>
     <string name="upgrade_screen_owned_iap_title">اشتراء لمرّةٍ واحدة</string>

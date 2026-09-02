@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">„Google Play“ paslaugos nepasiekiamos.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nerasta jokių pirkinių. Ar naudojate tinkamą paskyrą?</string>
     <string name="upgrades_gplay_billing_error_label">„Google Play\" klaida</string>
     <string name="upgrades_gplay_billing_error_description">„Google Play\" įvyko klaida. Bandykite dar kartą vėliau arba paleiskite telefoną iš naujo.\n\nKlaida: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">„Google Play\" atsiskaitymo klaida</string>
-    <string name="upgrades_gplay_billing_result_error_description">Įvyko klaida gaunant pirkinių informaciją iš „Google Play\". Išvalykite „Google Play\" talpyklą ir paleiskite telefoną iš naujo.\n\nKlaida %s</string>
     <string name="upgrades_gplay_already_owned_label">Jau nusipirkote?</string>
     <string name="upgrades_gplay_already_owned_description">„Google Play“ praneša, kad jau turite šį atnaujinimą, tačiau jo nepavyko atkurti. Įsitikinkite, kad naudojate tą pačią „Google“ paskyrą, su kuria atlikote pirkimą. „Play Store“ sinchronizavimas gali užtrukti — pabandykite paleisti įrenginį iš naujo, išvalyti „Google Play“ talpyklą arba tiesiog palaukite.</string>
-    <string name="upgrade_restore_action">Atkurti pirkimą</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Gauti %1$s</string>
     <string name="upgrade_preamble">CAPod kuria vienas žmogus. Atnaujinimas atrakina papildomas funkcijas ir padeda išlaikyti programą gyvą.</string>
-    <string name="upgrade_screen_options_description">Tos pačios funkcijos, skirtingos kainos. Prenumerata apima nemokamą bandomąjį laikotarpį ir bet kada gali būti atšaukta.</string>
-    <string name="upgrade_screen_options_description_no_trial">Tos pačios funkcijos, skirtingos kainos. Prenumerata bet kada gali būti atšaukta.</string>
     <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą bandomąjį laikotarpį</string>
     <string name="upgrade_screen_subscription_action">Prenumeruoti metams</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/metus</string>
     <string name="upgrade_screen_iap_action">Pirkti vieną kartą</string>
-    <string name="upgrade_screen_iap_action_hint">Vienkartinis pirkimas: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
-    <string name="upgrade_screen_restore_purchase_message">Nerasta jokių pirkinių. Ar naudojate tinkamą paskyrą?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jei nesenai atlikote pirkimą, „Google Play“ sinchronizavimas gali užtrukti.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Jei jūsų pirkimas nerodomas, pabandykite dar kartą po kelių minučių.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Įsitikinkite, kad esate prisijungę ta pačia „Google“ paskyra, kuria atlikote pirkimą.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Kelios paskyros gali supainioti „Google Play“. Įdiegus programą per „Google Play“ svetainę, ji priverstinai susiejama su konkrečia paskyra.</string>
     <string name="upgrade_screen_restore_banner_title">Jau nusipirkote „Pro“?</string>
     <string name="upgrade_screen_restore_banner_body">Panašu, kad anksčiau šiame įrenginyje jau atnaujinote iki „Pro“. Atkurkite savo pirkimą, kad jį vėl atrakintumėte.</string>
     <string name="upgrade_screen_restore_success_message">Pirkimas atkurtas.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Turite CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Atrakinta jūsų prenumeratos dėka. Dėkojame, kad remiate CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Atrakinta jūsų vienkartinio pirkimo dėka. Dėkojame, kad remiate CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Metinė prenumerata</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Jūsų prenumerata aktyvi ir bus atnaujinta. Atsiskaitymą tvarko „Google Play“.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Jūsų prenumerata aktyvi, tačiau nebus atnaujinta. „Pro“ liks pasiekiama iki dabartinio laikotarpio pabaigos.</string>
     <string name="upgrade_screen_owned_iap_title">Vienkartinis pirkimas</string>

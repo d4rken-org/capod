@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">A Google Play szolgáltatások nem érhetők el.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nem található vásárlás. A megfelelő fiókot használja?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play hiba</string>
     <string name="upgrades_gplay_billing_error_description">Hiba történt a Google Playben. Kérjük, próbálja újra később, vagy indítsa újra a telefonját.\n\nHiba: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play számlázási hiba</string>
-    <string name="upgrades_gplay_billing_result_error_description">Hiba történt a vásárlási adatok lekérésekor a Google Playből. Törölje a Google Play gyorsítótárát, és indítsa újra a telefonját.\n\nHiba %s</string>
     <string name="upgrades_gplay_already_owned_label">Már megvásároltad?</string>
     <string name="upgrades_gplay_already_owned_description">A Google Play szerint már megvásároltad ezt a frissítést, de nem sikerült visszaállítani. Győződj meg róla, hogy azzal a Google-fiókkal vagy bejelentkezve, amellyel a vásárlást végezted. A Play Store szinkronizálása eltarthat egy ideig – próbáld meg újraindítani a készüléket, törölni a Google Play gyorsítótárát, vagy egyszerűen várj egy kicsit.</string>
-    <string name="upgrade_restore_action">Vásárlás visszaállítása</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Szerezd meg a %1$s-t</string>
     <string name="upgrade_preamble">A CAPod-ot egyetlen ember fejleszti. A frissítés extra funkciókat old fel, és segít életben tartani az alkalmazást.</string>
-    <string name="upgrade_screen_options_description">Ugyanazok a funkciók, eltérő árazás. Az előfizetés ingyenes próbaidőszakot tartalmaz, és bármikor lemondható.</string>
-    <string name="upgrade_screen_options_description_no_trial">Ugyanazok a funkciók, eltérő árazás. Az előfizetés bármikor lemondható.</string>
     <string name="upgrade_screen_subscription_trial_action">Ingyenes próba indítása</string>
     <string name="upgrade_screen_subscription_action">Éves előfizetés</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/év</string>
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
-    <string name="upgrade_screen_iap_action_hint">Egyszeri vásárlás: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Vásárlás visszaállítása</string>
-    <string name="upgrade_screen_restore_purchase_message">Nem található vásárlás. A megfelelő fiókot használja?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ha nemrég vásároltál, eltarthat egy ideig, amíg a Google Play szinkronizál.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Próbáld újra néhány perc múlva, ha a vásárlásod nem jelenik meg.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Győződj meg róla, hogy ugyanazzal a Google-fiókkal vagy bejelentkezve, amellyel a vásárlást végezted.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">A több fiók összezavarhatja a Google Playt. Az alkalmazás Google Play weboldalán keresztüli telepítése kikényszeríti a társulást egy adott fiókkal.</string>
     <string name="upgrade_screen_restore_banner_title">Már megvásároltad a Pro-t?</string>
     <string name="upgrade_screen_restore_banner_body">Úgy tűnik, korábban már frissítettél Pro-ra ezen az eszközön. Állítsd vissza a vásárlásod, hogy újra feloldd.</string>
     <string name="upgrade_screen_restore_success_message">A vásárlás visszaállítva.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Megvan a CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Az előfizetésed oldotta fel. Köszönjük, hogy támogatod a CAPod-ot!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Az egyszeri vásárlásod oldotta fel. Köszönjük, hogy támogatod a CAPod-ot!</string>
-    <string name="upgrade_screen_owned_sub_title">Éves előfizetés</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Az előfizetésed aktív, és megújulásra van állítva. A számlázást a Google Play kezeli.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Az előfizetésed aktív, de nincs megújulásra állítva. A Pro a jelenlegi időszak végéig elérhető marad.</string>
     <string name="upgrade_screen_owned_iap_title">Egyszeri vásárlás</string>

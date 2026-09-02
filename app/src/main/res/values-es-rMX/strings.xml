@@ -3,7 +3,6 @@
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_cancel_action">Cancelar</string>
-    <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_upgrade_action">Actualizar</string>
     <string name="general_retry_action">Reintentar</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Cerrar</string>
     <string name="general_dismiss_action">Descartar</string>
-    <string name="general_edit_action">Editar</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_guide_action">Guía</string>
     <string name="general_continue_action">Continuar</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Reanuda la música al volver a usar tus pods, pero solo si Auto pausa la detuvo. Las pausas que activaste tú mismo (teléfono, varilla de AirPods, suspensión) siguen en pausa.</string>
     <string name="settings_start_music_on_wear_label">Iniciar música al ponerse</string>
     <string name="settings_start_music_on_wear_description">Siempre intenta reproducir música cuando te pones los pods, incluso después de una pausa manual.</string>
-    <string name="settings_eardetection_info_label">Nota sobre la detección de oídos</string>
     <string name="settings_eardetection_info_description">Si la detección de auriculares solo funciona para un pod, se trata de una limitación de Apple. Solo se detecta el «pod principal» (utilizado para el micrófono). Configuración en dispositivos Apple: Ajustes → Bluetooth → AirPods → Micrófono.</string>
-    <string name="settings_signal_minimum_label">Calidad de señal mínima</string>
-    <string name="settings_signal_minimum_description">La calidad de señal mínima que un dispositivo necesita tener para ser considerado tuyo.</string>
     <string name="settings_autoconnect_label">Conexión automática</string>
     <string name="settings_autoconnect_description">Si Android no conecta automáticamente, también podemos pedirle que lo haga. Esto mantiene CAPod monitoreando en segundo plano todo el tiempo.</string>
     <string name="settings_autoconnect_info_android12">La conexión automática depende de una función del sistema que Android 12 y versiones más recientes restringen. Es posible que no funcione en tu dispositivo.</string>
     <string name="settings_autoconnect_condition_label">Condición de conexión automática</string>
-    <string name="settings_autoconnect_condition_description">¿Cuándo deberíamos intentar conectarnos a tu dispositivo?</string>
     <string name="settings_devices_label">Dispositivos</string>
     <string name="settings_devices_description">Gestionar tus dispositivos.</string>
     <string name="settings_reaction_label">Reacciones</string>
-    <string name="settings_category_yourdevice_label">Tu dispositivo</string>
     <string name="settings_category_compatibility_options_title">Opciones de compatibilidad</string>
     <string name="settings_category_compatibility_options_description">No tocar si todo funciona ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Desactivar filtrado por hardware</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Iniciando…</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registrar todo lo que la aplicación está haciendo en un archivo de texto que puedes compartir.</string>
-    <string name="debug_debuglog_size_label">Tamaño</string>
-    <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
-    <string name="debug_notification_channel_label">Notificaciones de depuración</string>
-    <string name="debug_debuglog_file_label">Archivo de registro guardado</string>
-    <string name="debug_debuglog_recording_progress">Grabando registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (ej. detalles del dispositivo Bluetooth). Compártelo solo con personas de confianza.</string>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que la aplicación está haciendo en un archivo compartible. El archivo generado contiene información sensible (ej. detalles del dispositivo Bluetooth). Compártelo solo con personas de confianza (ej. un desarrollador que está solucionando un problema).</string>
-    <string name="settings_support_installid_label">ID de Instalación</string>
-    <string name="settings_support_installid_desc">Los reportes automáticos de errores son anónimos. Comparte tu ID de instalación si el desarrollador necesita encontrar tus reportes de errores.</string>
     <string name="settings_support_label">Soporte</string>
     <string name="settings_support_description">Si necesitas ayuda.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">¿Restablecer datos aprendidos?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod olvidará el consumo medido, la velocidad de carga y el tiempo de escucha de este dispositivo, y comenzará desde la vida útil nominal de la batería.</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
-    <string name="settings_debug_autoreports_label">Reportes automáticos de errores</string>
-    <string name="settings_debug_autoreports_description">Reporta problemas automáticamente, ej. detalles sobre un cierre inesperado de la aplicación para que pueda averiguar cómo solucionarlo.</string>
-    <string name="settings_compatibility_mode_label">Modo de compatibilidad</string>
-    <string name="settings_compatibility_mode_description">Desactivar optimizaciones para mejorar la compatibilidad. Prueba esto si no estás viendo ningún dato.</string>
     <string name="help_translate_label">Traducción</string>
     <string name="help_translate_description">Ayuda a traducir esta aplicación a tu idioma favorito.</string>
     <string name="translators_thanks_title">Traductores</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Éxito</string>
     <string name="troubleshooter_ble_result_success_body">CAPod está recibiendo las transmisiones de anuncios BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Sin éxito</string>
-    <string name="troubleshooter_ble_result_failure_body">La solución de problemas falló. Ninguna combinación de opciones de compatibilidad ayudó.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Tu teléfono no recibió ningún dato BLE. Puedes reintentar esta prueba en un área concurrida para ver si se pueden recibir fuentes de datos (distintas de tus auriculares). No recibir datos apunta a un problema con el sistema operativo de tu teléfono.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Tu teléfono recibió datos BLE, pero los datos no provienen de ningún dispositivo compatible. ¿Están encendidos tus auriculares? ¿CAPod es compatible con tus auriculares?</string>
-    <string name="troubleshooter_ble_result_failure_action">Intentar de nuevo</string>
-    <string name="troubleshoot_action">Solucionar problemas</string>
     <string name="onboarding_body1">Esta aplicación agrega soporte para funciones específicas de los AirPods para Android.</string>
     <string name="onboarding_body2">No todos los dispositivos Android son totalmente compatibles con las funciones adicionales de los AirPods. Tu sistema operativo requiere una implementación de Bluetooth de baja energía que funcione correctamente.</string>
     <string name="onboarding_body3">CAPod no contiene anuncios y no recopila tus datos.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Tu dispositivo está conectado, pero CAPod no está recibiendo datos en tiempo real. Es posible que tu teléfono necesite una opción de compatibilidad — el solucionador de problemas puede intentar encontrar una automáticamente.</string>
     <string name="overview_troubleshoot_suggestion_action">Ejecutar solucionador de problemas</string>
     <string name="overview_unmatched_devices_label">Dispositivos no emparejados</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d dispositivo sin perfil coincidente</item>
-        <item quantity="other">%d dispositivos sin perfil coincidentes</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Se detectó %d dispositivo cercano sin un perfil coincidente. Muéstralo para ver los detalles disponibles. Si es tuyo, agrega un perfil desde Dispositivos para reconocerlo.</item>
         <item quantity="other">Se detectaron %d dispositivos cercanos sin perfiles coincidentes. Muéstralos para ver los detalles disponibles. Si alguno es tuyo, agrega un perfil desde Dispositivos para reconocerlo.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod utiliza el acceso a la ubicación en segundo plano para habilitar funciones como \"Mostrar ventana emergente\" y \"Conectar automáticamente\" mientras la aplicación está cerrada. Este acceso permite que la aplicación reciba datos de Bluetooth de bajo consumo mientras está en segundo plano. Esta aplicación NO utiliza datos de Bluetooth para determinar tu ubicación.</string>
     <string name="permission_ignore_battery_optimizations_label">Desactivar las optimizaciones de la batería</string>
     <string name="permission_ignore_battery_optimizations_description">Las optimizaciones de la batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mientras se encuentra en segundo plano.</string>
-    <string name="permission_required_title">Se requiere el siguiente permiso:</string>
     <string name="permission_system_alert_window_label">Ventana emergente</string>
     <string name="permission_system_alert_window_description">Permite que CAPod se superponga a otras aplicaciones para que la función «Mostrar ventana emergente».</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cuando está visible</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">En el oído</string>
     <string name="pods_dual_left_label">Auricular izquierdo</string>
     <string name="pods_dual_right_label">Auricular derecho</string>
-    <string name="pods_dual_left_short_label">I</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Estuche</string>
     <string name="battery_unavailable_label">Batería no disponible</string>
     <string name="battery_state_low_cd">Batería baja</string>
     <string name="battery_state_critical_cd">Batería críticamente baja</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Conexión directa activa</string>
     <string name="signal_indicator_bars_cd">Intensidad de señal: %1$d de 4 barras</string>
     <string name="signal_indicator_disconnected_cd">Señal: desconectada</string>
-    <string name="pods_yours">Tuyos</string>
     <string name="headset_being_worn_label">En uso</string>
     <string name="headset_not_being_worn_label">No se usan</string>
     <string name="pods_case_unknown_state">Desconocido</string>
-    <string name="last_seen_x">Ultima vez conectado: %s</string>
-    <string name="first_seen_x">Primera vez conectados: %s</string>
     <string name="battery_cached_label">Último conocido · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Calidad mínima de la señal</string>
     <string name="profiles_signal_quality_description">Solo detecta dispositivos con una intensidad de señal superior a este umbral. Valores más bajos aumentan el rango de detección pero pueden causar falsos positivos. No lo configures demasiado alto; la recepción de Bluetooth es generalmente mala y varía con la distancia y los obstáculos.</string>
     <string name="profiles_identitykey_label">Clave de Identidad</string>
-    <string name="profilessettings_maindevice_identitykey_description">La Clave de Resolución de Identidad (IRK) de su dispositivo, que ayuda a CAPod a identificarlo entre los dispositivos cercanos.</string>
     <string name="profiles_maindevice_identitykey_explanation">Los AirPods cambian con frecuencia su dirección Bluetooth por motivos de privacidad. El IRK ayuda a CAPod a reconocer tu dispositivo. Necesitas acceso único a un MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Clave de cifrado</string>
-    <string name="profiles_maindevice_encryptionkey_description">La clave de cifrado de tu dispositivo, que permite a CAPod recuperar información detallada sobre el estado.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Los AirPods envían un mensaje de estado, parte del cual está cifrado. La clave de cifrado permite a CAPod descifrar el mensaje completo. Se necesita acceso único a un MacBook.</string>
     <string name="profiles_key_invalid_format">El formato de la clave no es correcta</string>
     <string name="profiles_key_expected_format">Formato esperado: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Tienes cambios sin guardar. ¿Qué quieres hacer?</string>
     <string name="general_save_and_exit_action">Guardar y salir</string>
     <string name="general_discard_action">Descartar</string>
-    <string name="general_keep_editing_action">Seguir editando</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Grabación demasiado corta</string>
     <string name="debug_debuglog_short_recording_message">Un registro de depuración necesita capturar el problema mientras ocurre. Continúa grabando, reproduce el problema y luego detén la grabación.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Configuración del dispositivo</string>
     <string name="device_settings_subtitle_profile_prefix">Perfil: %s</string>
-    <string name="device_settings_info_name_label">Nombre</string>
     <string name="device_settings_info_bt_name_label">Etiqueta del dispositivo Bluetooth</string>
     <string name="device_settings_info_model_label">Modelo</string>
     <string name="device_settings_info_manufacturer_label">Fabricante</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Quizás más tarde</string>
     <string name="review_app_body">¿Te gustaría dejar una reseña de CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>
     <string name="device_settings_microphone_mode_description">Qué audífono se usa como micrófono</string>
     <string name="device_settings_microphone_mode_auto">Automático</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">Deila</string>
     <string name="general_done_action">Lokið</string>
     <string name="general_cancel_action">Hætta við</string>
-    <string name="general_copy_action">Afrita</string>
     <string name="general_thank_you_label">Þakka þér fyrir</string>
     <string name="general_upgrade_action">Uppfæra</string>
     <string name="general_retry_action">Reyndu aftur</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Athuga</string>
     <string name="general_close_action">Loka</string>
     <string name="general_dismiss_action">Hafna</string>
-    <string name="general_edit_action">Breyta</string>
     <string name="general_save_action">Vista</string>
     <string name="general_guide_action">Leiðbeiningar</string>
     <string name="general_continue_action">Halda áfram</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Halda áfram tónlist þegar þú setur hlustunartækið á aftur, en aðeins ef Sjálfvirk hlé stöðvaði hana. Hlé sem þú settir sjálfur/sjálf (sími, AirPods stingill, svefn) haldast í bið.</string>
     <string name="settings_start_music_on_wear_label">Byrja tónlist þegar þú setur á</string>
     <string name="settings_start_music_on_wear_description">Reynir alltaf að spila tónlist þegar þú setur hlustunartækið á, jafnvel eftir handvirkt hlé.</string>
-    <string name="settings_eardetection_info_label">Athugasemd um eyraskynjun</string>
     <string name="settings_eardetection_info_description">Ef eyraskynjun virkar aðeins fyrir annað heyrnartólið er þetta takmörkun frá Apple. Aðeins \"aðalheyrnartólið\" (notað fyrir hljóðnema) er skynjað. Stilla á Apple tækjum: Stillingar → Bluetooth → AirPods → Hljóðnemi.</string>
-    <string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
-    <string name="settings_signal_minimum_description">Lágmarksgæði merkis sem tæki þarf að hafa til að teljast þitt.</string>
     <string name="settings_autoconnect_label">Sjálfvirk tenging</string>
     <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við beðið það um tengingu. Þetta heldur eftirliti virku á bakgrunninum alltaf.</string>
     <string name="settings_autoconnect_info_android12">Sjálfvirk tenging notar kerfiseiginleika sem Android 12 og nýrra takmarkar. Hún virkar hugsanlega ekki á tækinu þínu.</string>
     <string name="settings_autoconnect_condition_label">Skilyrði fyrir sjálfvirkri tengingu</string>
-    <string name="settings_autoconnect_condition_description">Hvenær ættum við að reyna að tengjast tækinu þínu?</string>
     <string name="settings_devices_label">Tæki</string>
     <string name="settings_devices_description">Hafa umsjón með tækjunum þínum.</string>
     <string name="settings_reaction_label">Viðbrögð</string>
-    <string name="settings_category_yourdevice_label">Tækið þitt</string>
     <string name="settings_category_compatibility_options_title">Samhæfisvalkostir</string>
     <string name="settings_category_compatibility_options_description">Ekki snerta ef allt virkar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Slökkva á vélbúnaðarsíun</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Stofnar upp…</string>
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
-    <string name="debug_debuglog_size_label">Stærð</string>
-    <string name="debug_debuglog_size_compressed_label">Þjöppuð stærð</string>
-    <string name="debug_notification_channel_label">Villuleitartilkynningar</string>
-    <string name="debug_debuglog_file_label">Skráð villuleitarskrá</string>
-    <string name="debug_debuglog_recording_progress">Skráir villuleitarskrá</string>
     <string name="debug_debuglog_record_action">Skrá villuleitarskrá</string>
     <string name="debug_debuglog_stop_action">Hætta skráningu</string>
     <string name="debug_debuglog_sensitive_information_message">Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum.</string>
     <string name="settings_debuglog_explanation">Þessi aðgerð skráir allt sem forritið gerir í skrá sem hægt er að deila. Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
-    <string name="settings_support_installid_label">Uppsetningarauðkenni</string>
-    <string name="settings_support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningarauðkenninu þínu ef þróunaraðilinn þarf að finna villuskýrslurnar þínar.</string>
     <string name="settings_support_label">Aðstoð</string>
     <string name="settings_support_description">Ef þú þarft hjálp.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Endurstilla lærð gögn?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod mun gleyma mældum gangi, hleðsluhraða og hlustunartíma þessa tækis og byrja upp á nýtt frá tilgreindri rafhlöðuendingu.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
-    <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
-    <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
-    <string name="settings_compatibility_mode_label">Samhæfisstilling</string>
-    <string name="settings_compatibility_mode_description">Slökkva á hagræðingum til að bæta samhæfni. Prófaðu þetta ef þú sérð engin gögn.</string>
     <string name="help_translate_label">Þýðing</string>
     <string name="help_translate_description">Hjálpaðu til við að þýða þetta forrit á þitt uppáhalds tungumál.</string>
     <string name="translators_thanks_title">Þýðendur</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Tókst</string>
     <string name="troubleshooter_ble_result_success_body">CAPod tekur á móti BLE auglýsingaútsendingum.</string>
     <string name="troubleshooter_ble_result_failure_title">Mistókst</string>
-    <string name="troubleshooter_ble_result_failure_body">Villuleit mistókst. Engin samsetning samhæfisvalkosta hjálpaði.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Síminn þinn tók alls ekki á móti neinum BLE gögnum. Þú getur prófað þetta próf aftur á fjölmennum stað til að sjá hvort hægt sé að taka á móti gagnagjöfum (öðrum en heyrnartólunum þínum). Engin móttekin gögn benda til vandamáls með stýrikerfi símans þíns.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Síminn þinn tók á móti BLE gögnum, en gögnin koma ekki frá neinu studdu tæki. Eru heyrnartólin þín kveikt? Styður CAPod heyrnartólin þín?</string>
-    <string name="troubleshooter_ble_result_failure_action">Reyndu aftur</string>
-    <string name="troubleshoot_action">Leysa vandamál</string>
     <string name="onboarding_body1">Þetta forrit bætir við stuðningi fyrir AirPod sértæka eiginleika í Android.</string>
     <string name="onboarding_body2">Ekki öll Android tæki styðja að fullu viðbótar AirPod eiginleika. Stýrikerfið þitt krefst rétt virkandi Bluetooth-Low-Energy útfærslu.</string>
     <string name="onboarding_body3">CAPod hefur engar auglýsingar og safnar ekki gögnunum þínum.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Tækið þitt er tengt, en CAPod er ekki að taka við lifandi gögnum frá því. Síminn þinn þarf kannski samhæfnismöguleika — villuleitin getur reynt að finna hann sjálfkrafa.</string>
     <string name="overview_troubleshoot_suggestion_action">Keyra villuleit</string>
     <string name="overview_unmatched_devices_label">Ópöruð tæki</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d tæki án samsvarandi sniðs</item>
-        <item quantity="other">%d tæki án samsvarandi sniðs</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d tæki í nágrenninu fannst án samsvarandi sniðs. Sýndu það til að sjá tiltækar upplýsingar. Ef það er þitt skaltu bæta við sniði frá Tækjum til að þekkja það.</item>
         <item quantity="other">%d tæki í nágrenninu fundust án samsvarandi sniða. Sýndu þau til að sjá tiltækar upplýsingar. Ef eitt þeirra er þitt skaltu bæta við sniði frá Tækjum til að þekkja það.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod notar \"bakgrunns staðsetningaraðgang\" til að virkja eiginleika eins og \"Sýna upplýsingaglugga\" og \"Sjálfvirk tenging\" á meðan forritið er lokað. Bakgrunns staðsetningaraðgangur gerir forritinu kleift að taka á móti Bluetooth Low Energy gögnum á meðan það er í bakgrunni. Þetta forrit mun EKKI nota Bluetooth gögn til að ákvarða staðsetningu þína.</string>
     <string name="permission_ignore_battery_optimizations_label">Slökkva á rafhlöðuhagræðingu</string>
     <string name="permission_ignore_battery_optimizations_description">Rafhlöðuhagræðing kemur í veg fyrir að þetta forrit taki á móti Bluetooth gögnum á áreiðanlegan hátt á meðan forritið er í bakgrunni.</string>
-    <string name="permission_required_title">Eftirfarandi heimild er nauðsynleg:</string>
     <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
     <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna upplýsingaglugga\" mögulegan.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Þegar séð</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Í eyra</string>
     <string name="pods_dual_left_label">Vinstra heyrnartól</string>
     <string name="pods_dual_right_label">Hægra heyrnartól</string>
-    <string name="pods_dual_left_short_label">V</string>
-    <string name="pods_dual_right_short_label">H</string>
-    <string name="pods_case_label">Hulstur</string>
     <string name="battery_unavailable_label">Rafhlaða ekki tiltæk</string>
     <string name="battery_state_low_cd">Rafhlaðan er lítil</string>
     <string name="battery_state_critical_cd">Rafhlaðan er við endalok</string>
@@ -281,12 +252,9 @@
     <string name="signal_badge_aap_cd">Bein tenging virk</string>
     <string name="signal_indicator_bars_cd">Merkjastyrkur: %1$d af 4 strikum</string>
     <string name="signal_indicator_disconnected_cd">Merki: ótengd</string>
-    <string name="pods_yours">Þitt</string>
     <string name="headset_being_worn_label">Verið borið</string>
     <string name="headset_not_being_worn_label">Ekki verið borið</string>
     <string name="pods_case_unknown_state">Óþekkt staða</string>
-    <string name="last_seen_x">Síðast séð: %s</string>
-    <string name="first_seen_x">Fyrst séð: %s</string>
     <string name="battery_cached_label">Síðast þekkt · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -316,10 +284,8 @@
     <string name="profiles_signal_quality_title">Lágmarksgæði merkis</string>
     <string name="profiles_signal_quality_description">Greina aðeins tæki með merkisstyrkinn yfir þessum þröskuldi. Lægri gildi auka greiningarsvæðið en geta valdið röngum jákvæðum. Ekki stilla þetta of hátt — Bluetooth móttaka er yfirleitt léleg og breytist eftir fjarlægð og hindrunum.</string>
     <string name="profiles_identitykey_label">Auðkennislykill</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) tækisins þíns, sem hjálpar CAPod að bera kennsl á það meðal nálægra tækja.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods breyta Bluetooth vistfangi sínu reglulega vegna persónuverndar. IRK hjálpar CAPod að þekkja tækið þitt. Þú þarft einu sinni aðgang að MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Dulritunarlykill</string>
-    <string name="profiles_maindevice_encryptionkey_description">Dulritunarlykill tækisins þíns, sem gerir CAPod kleift að sækja nákvæmar stöðuupplýsingar.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods senda stöðuskilaboð, hluti þeirra er dulritaður. Dulritunarlykillinn gerir CAPod kleift að afkóða öll skilaboðin. Þú þarft einu sinni aðgang að MacBook.</string>
     <string name="profiles_key_invalid_format">Ógilt lyklasnið</string>
     <string name="profiles_key_expected_format">Vænt snið: %1$s</string>
@@ -352,7 +318,6 @@
     <string name="general_unsaved_changes_message">Þú ert með óvistaðar breytingar. Hvað viltu gera?</string>
     <string name="general_save_and_exit_action">Vista &amp; Hætta</string>
     <string name="general_discard_action">Henda</string>
-    <string name="general_keep_editing_action">Halda áfram að breyta</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Upptökun of stutt</string>
     <string name="debug_debuglog_short_recording_message">Villuloki þarf að taka upp vandamálið meðan það gerist. Haltu áfram að taka upp, endurskapa vandamálið og stöðvaðu síðan upptökuna.</string>
@@ -423,7 +388,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Tæki stillingar</string>
     <string name="device_settings_subtitle_profile_prefix">Prófíll: %s</string>
-    <string name="device_settings_info_name_label">Nafn</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-tækjaheiti</string>
     <string name="device_settings_info_model_label">Líkan</string>
     <string name="device_settings_info_manufacturer_label">Framleiðandi</string>
@@ -503,7 +467,6 @@
     <string name="review_app_dismiss_action">Kannski síðar</string>
     <string name="review_app_body">Viltu skilja eftir umsögn um CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Álmennt</string>
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>
     <string name="device_settings_microphone_mode_description">Hvaða hlustunartæki er notað sem hljóðnemi</string>
     <string name="device_settings_microphone_mode_auto">Sjálfvirkt</string>

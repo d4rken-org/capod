@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play सेवाएं अनुपलब्ध हैं।</string>
-    <string name="upgrades_no_purchases_found_check_account">कोई खरीदारी नहीं मिली, क्या आप सही खाते का उपयोग कर रहे हैं?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play त्रुटि</string>
     <string name="upgrades_gplay_billing_error_description">Google Play में एक त्रुटि हुई। कृपया बाद में पुनः प्रयास करें या अपना फ़ोन रीबूट करें।\n\nत्रुटि: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play बिलिंग त्रुटि</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Play से आपकी खरीदारी का विवरण प्राप्त करते समय एक त्रुटि हुई। Google Play कैश साफ़ करें और अपना फ़ोन रीबूट करें।\n\nत्रुटि %s</string>
     <string name="upgrades_gplay_already_owned_label">पहले से खरीदा हुआ है?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play की रिपोर्ट है कि आपके पास पहले से यह अपग्रेड है, लेकिन इसे पुनर्स्थापित नहीं किया जा सका। सुनिश्चित करें कि आप उसी Google खाते का उपयोग कर रहे हैं जिससे आपने खरीदारी की थी। Play Store सिंक होने में समय लग सकता है — रीबूट करने, Google Play कैश साफ़ करने या बस थोड़ा इंतज़ार करने का प्रयास करें।</string>
-    <string name="upgrade_restore_action">खरीदारी पुनर्स्थापित करें</string>
     <string name="upgrade_badge_label">प्रो</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s प्राप्त करें</string>
     <string name="upgrade_preamble">CAPod को एक ही व्यक्ति द्वारा विकसित किया गया है। अपग्रेड करने से अतिरिक्त सुविधाएँ अनलॉक होती हैं और ऐप को जीवित रखने में मदद मिलती है।</string>
-    <string name="upgrade_screen_options_description">सुविधाएँ समान हैं, कीमत अलग है। सदस्यता में एक मुफ़्त ट्रायल शामिल है और इसे किसी भी समय रद्द किया जा सकता है।</string>
-    <string name="upgrade_screen_options_description_no_trial">सुविधाएँ समान हैं, कीमत अलग है। सदस्यता को किसी भी समय रद्द किया जा सकता है।</string>
     <string name="upgrade_screen_subscription_trial_action">निशुल्क प्रयोग प्रारंभ करें</string>
     <string name="upgrade_screen_subscription_action">सालाना सदस्यता लें</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/वर्ष</string>
     <string name="upgrade_screen_iap_action">एक बार खरीदें</string>
-    <string name="upgrade_screen_iap_action_hint">एकमुश्त खरीद: %s</string>
     <string name="upgrade_screen_restore_purchase_action">खरीदारी पुनर्स्थापित करें</string>
-    <string name="upgrade_screen_restore_purchase_message">कोई खरीदारी नहीं मिली, क्या आप सही खाते का उपयोग कर रहे हैं?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">अगर आपने हाल ही में खरीदा है, तो Google Play को सिंक होने में कुछ समय लग सकता है।</string>
     <string name="upgrade_screen_restore_sync_patience_hint">अगर आपकी खरीदारी दिखाई नहीं देती, तो कुछ मिनट बाद फिर से कोशिश करें।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">सुनिश्चित करें कि आप उसी Google खाते से साइन इन हैं जिससे खरीदारी की गई थी।</string>
-    <string name="upgrade_screen_restore_webinstall_hint">कई खाते Google Play को भ्रमित कर सकते हैं। Google Play वेबसाइट के जरिए ऐप इंस्टॉल करने से विशेष खाते के साथ संबंध सुनिश्चित हो जाता है।</string>
     <string name="upgrade_screen_restore_banner_title">पहले से Pro खरीदा हुआ है?</string>
     <string name="upgrade_screen_restore_banner_body">ऐसा लगता है कि आपने पहले इस डिवाइस पर Pro में अपग्रेड किया था। इसे दोबारा अनलॉक करने के लिए अपनी खरीदारी पुनर्स्थापित करें।</string>
     <string name="upgrade_screen_restore_success_message">खरीदारी पुनर्स्थापित हो गई।</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">आपके पास CAPod Pro है!</string>
     <string name="upgrade_screen_owned_hero_sub_body">आपकी सदस्यता द्वारा अनलॉक किया गया। CAPod का समर्थन करने के लिए धन्यवाद!</string>
     <string name="upgrade_screen_owned_hero_iap_body">आपकी एकमुश्त खरीद द्वारा अनलॉक किया गया। CAPod का समर्थन करने के लिए धन्यवाद!</string>
-    <string name="upgrade_screen_owned_sub_title">सालाना सदस्यता</string>
     <string name="upgrade_screen_owned_sub_renewing_body">आपकी सदस्यता सक्रिय है और नवीनीकरण होने के लिए सेट है। बिलिंग का प्रबंधन Google Play द्वारा किया जाता है।</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">आपकी सदस्यता सक्रिय है, लेकिन नवीनीकरण के लिए सेट नहीं है। मौजूदा अवधि समाप्त होने तक Pro उपलब्ध रहेगा।</string>
     <string name="upgrade_screen_owned_iap_title">एक-बार खरीदे</string>

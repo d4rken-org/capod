@@ -3,7 +3,6 @@
     <string name="general_share_action">Bendrinti</string>
     <string name="general_done_action">Atlikta</string>
     <string name="general_cancel_action">Atšaukti</string>
-    <string name="general_copy_action">Kopijuoti</string>
     <string name="general_thank_you_label">Ačiū</string>
     <string name="general_upgrade_action">Naujinti</string>
     <string name="general_retry_action">Bandyti iš naujo</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Tikrinti</string>
     <string name="general_close_action">Uždaryti</string>
     <string name="general_dismiss_action">Atšaukti</string>
-    <string name="general_edit_action">Redaguoti</string>
     <string name="general_save_action">Išsaugoti</string>
     <string name="general_guide_action">Vadovas</string>
     <string name="general_continue_action">Tęsti</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Tęsti muziką vėl užsidėjus ausines, bet tik jei ją sustabdė automatinis pristabdymas. Pristabdymai, kuriuos inicijavote patys (telefonas, AirPods koteliai, miegas), lieka pristabdyti.</string>
     <string name="settings_start_music_on_wear_label">Pradėti muziką užsidėjus</string>
     <string name="settings_start_music_on_wear_description">Visada bando paleisti muziką, kai užsidedatе ausines, net po rankinio pristabdymo.</string>
-    <string name="settings_eardetection_info_label">Ausies aptikimo pastaba</string>
     <string name="settings_eardetection_info_description">Jei ausies aptikimas veikia tik vienam „pod\", tai yra „Apple\" apribojimas. Aptinkamas tik „pagrindinis pod\" (naudojamas mikrofonui). Konfigūruokite „Apple\" įrenginiuose: Nustatymai → „Bluetooth\" → „AirPods\" → Mikrofonas.</string>
-    <string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
-    <string name="settings_signal_minimum_description">Minimali signalo kokybė, kurią turi turėti įrenginys, kad būtų laikomas jūsų.</string>
     <string name="settings_autoconnect_label">Automatinis prisijungimas</string>
     <string name="settings_autoconnect_description">Jei Android neprijungia automatiškai, galime jį paprašyti. Tai laiko CAPod stebėjimą nuolat fone.</string>
     <string name="settings_autoconnect_info_android12">Automatinis prisijungimas remiasi sistemos funkcija, kurią Android 12 ir naujesnės versijos apriboja. Ji gali neveikti jūsų įrenginyje.</string>
     <string name="settings_autoconnect_condition_label">Automatinio prisijungimo sąlyga</string>
-    <string name="settings_autoconnect_condition_description">Kada turėtume bandyti prisijungti prie jūsų įrenginio?</string>
     <string name="settings_devices_label">Įrenginiai</string>
     <string name="settings_devices_description">Tvarkykite savo įrenginius.</string>
     <string name="settings_reaction_label">Reakcijos</string>
-    <string name="settings_category_yourdevice_label">Jūsų įrenginys</string>
     <string name="settings_category_compatibility_options_title">Suderinamumo parinktys</string>
     <string name="settings_category_compatibility_options_description">Nelieskite, jei viskas veikia ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Išjungti aparatinį filtravimą</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Paleidžiama…</string>
     <string name="support_debuglog_label">Derinimo žurnalas</string>
     <string name="support_debuglog_desc">Įrašykite viską, ką daro programa, į tekstinį failą, kurį galite bendrinti.</string>
-    <string name="debug_debuglog_size_label">Dydis</string>
-    <string name="debug_debuglog_size_compressed_label">Suglaudintas dydis</string>
-    <string name="debug_notification_channel_label">Derinimo pranešimai</string>
-    <string name="debug_debuglog_file_label">Įrašytas žurnalo failas</string>
-    <string name="debug_debuglog_recording_progress">Įrašomas derinimo žurnalas</string>
     <string name="debug_debuglog_record_action">Įrašyti derinimo žurnalą</string>
     <string name="debug_debuglog_stop_action">Stabdyti įrašymą</string>
     <string name="debug_debuglog_sensitive_information_message">Sugeneruotame faile yra slaptos informacijos (pvz., „Bluetooth\" įrenginio informacija). Bendrinkite jį tik su patikimomis šalimis.</string>
     <string name="settings_debuglog_explanation">Ši funkcija įrašo viską, ką daro programa, į bendrinamą failą. Sugeneruotame faile yra slaptos informacijos (pvz., „Bluetooth\" įrenginio informacija). Bendrinkite jį tik su patikimomis šalimis (pvz., kūrėju, kuris sprendžia problemą).</string>
-    <string name="settings_support_installid_label">Diegimo ID</string>
-    <string name="settings_support_installid_desc">Automatinės klaidų ataskaitos yra anoniminės. Pasidalykite savo diegimo ID, jei kūrėjui reikia rasti jūsų klaidų ataskaitas.</string>
     <string name="settings_support_label">Pagalba</string>
     <string name="settings_support_description">Jei jums reikia pagalbos.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Iš naujo nustatyti išmoktus duomenis?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod pamiršs šio įrenginio išmatuotą energijos sąnaudą, įkrovimo greitį ir naudojimosi laiką, ir pradės iš naujo nuo nurodytosios baterijos veikimo trukmės.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
-    <string name="settings_debug_autoreports_label">Automatinės klaidų ataskaitos</string>
-    <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string>
-    <string name="settings_compatibility_mode_label">Suderinamumo režimas</string>
-    <string name="settings_compatibility_mode_description">Išjunkite optimizavimą, kad pagerintumėte suderinamumą. Išbandykite tai, jei nematote jokių duomenų.</string>
     <string name="help_translate_label">Vertimas</string>
     <string name="help_translate_description">Padėkite išversti šią programą į savo mėgstamą kalbą.</string>
     <string name="translators_thanks_title">Vertėjai</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Sėkmė</string>
     <string name="troubleshooter_ble_result_success_body">CAPod gauna BLE reklamos transliacijas.</string>
     <string name="troubleshooter_ble_result_failure_title">Nesėkminga</string>
-    <string name="troubleshooter_ble_result_failure_body">Problemų sprendimas nepavyko. Jokia suderinamumo parinkčių kombinacija nepadėjo.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Jūsų telefonas visiškai negavo jokių BLE duomenų. Galite pakartoti šį testą perpildytoje vietoje, kad pamatytumėte, ar galima gauti duomenų šaltinius (išskyrus jūsų ausines). Jokių gautų duomenų nebuvimas rodo problemą su jūsų telefono operacine sistema.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Jūsų telefonas gavo BLE duomenis, tačiau duomenys negaunami iš jokio palaikomo įrenginio. Ar jūsų ausinės įjungtos? Ar CAPod palaiko jūsų ausines?</string>
-    <string name="troubleshooter_ble_result_failure_action">Bandyti vėl</string>
-    <string name="troubleshoot_action">Spręsti problemas</string>
     <string name="onboarding_body1">Ši programa prideda „AirPod\" specifinių funkcijų palaikymą „Android\".</string>
     <string name="onboarding_body2">Ne visi „Android\" įrenginiai visiškai palaiko papildomas „AirPod\" funkcijas. Jūsų operacinei sistemai reikalinga tinkamai veikianti „Bluetooth-Low-Energy\" implementacija.</string>
     <string name="onboarding_body3">CAPod neturi skelbimų ir nerenka jūsų duomenų.</string>
@@ -207,12 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Jūsų įrenginys yra prisijungęs, tačiau CAPod negauna jokių tiesioginių duomenų iš jo. Jūsų telefonui gali reikėti suderinamumo parinkties — problemų sprendiklis gali bandyti ją rasti automatiškai.</string>
     <string name="overview_troubleshoot_suggestion_action">Paleisti problemų sprendiklį</string>
     <string name="overview_unmatched_devices_label">Nesutapę įrenginiai</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d įrenginys be atitinkamo profilio</item>
-        <item quantity="few">%d įrenginiai be atitinkamo profilio</item>
-        <item quantity="many">%d įrenginių be atitinkamo profilio</item>
-        <item quantity="other">%d įrenginių be atitinkamo profilio</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Aptiktas %d netoliese esantis įrenginys be atitinkančio profilio. Rodykite jį, kad pamatytumėte visą informaciją. Jei tai jūsų įrenginys, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
         <item quantity="few">Aptikti %d netoliese esantys įrenginiai be atitinkančių profilių. Rodykite juos, kad pamatytumėte visą informaciją. Jei vienas iš jų yra jūsų, pridėkite profilį iš skilties „Įrenginiai“, kad jį atpažintų.</item>
@@ -237,7 +210,6 @@
     <string name="permission_background_location_description">CAPod naudoja „foninę prieigą prie vietos\", kad įjungtų tokias funkcijas kaip „Rodyti iškylantįjį langą\" ir „Automatinis prisijungimas\", kai programa uždaryta. Foninė prieiga prie vietos leidžia programai gauti „Bluetooth Low Energy\" duomenis fone. Ši programa NENAUDOS „Bluetooth\" duomenų jūsų vietai nustatyti.</string>
     <string name="permission_ignore_battery_optimizations_label">Išjungti baterijos optimizavimą</string>
     <string name="permission_ignore_battery_optimizations_description">Baterijos optimizavimas neleidžia šiai programai patikimai gauti „Bluetooth\" duomenų, kai programa veikia fone.</string>
-    <string name="permission_required_title">Reikalingas šis leidimas:</string>
     <string name="permission_system_alert_window_label">Sistemos perspėjimo langas</string>
     <string name="permission_system_alert_window_description">Leiskite CAPod piešti virš kitų programų, kad būtų galima naudoti funkciją „Rodyti iškylantįjį langą\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kai pastebėtas</string>
@@ -245,9 +217,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Ausyje</string>
     <string name="pods_dual_left_label">Kairysis „pod\"</string>
     <string name="pods_dual_right_label">Dešinysis „pod\"</string>
-    <string name="pods_dual_left_short_label">K</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Dėklas</string>
     <string name="battery_unavailable_label">Baterija neprieinama</string>
     <string name="battery_state_low_cd">Baterija žema</string>
     <string name="battery_state_critical_cd">Baterija kritiškai žema</string>
@@ -304,12 +273,9 @@
     <string name="signal_badge_aap_cd">Tiesioginis ryšys aktyvus</string>
     <string name="signal_indicator_bars_cd">Signalo stiprumas: %1$d iš 4 juostų</string>
     <string name="signal_indicator_disconnected_cd">Signalas: atjungta</string>
-    <string name="pods_yours">Jūsų</string>
     <string name="headset_being_worn_label">Dėvimas</string>
     <string name="headset_not_being_worn_label">Nedėvimas</string>
     <string name="pods_case_unknown_state">Nežinoma būsena</string>
-    <string name="last_seen_x">Paskutinį kartą matytas: %s</string>
-    <string name="first_seen_x">Pirmą kartą matytas: %s</string>
     <string name="battery_cached_label">Paskutinis žinomas · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dv %2$dmin</string>
     <string name="battery_time_remaining_format_h">%1$dv</string>
@@ -339,10 +305,8 @@
     <string name="profiles_signal_quality_title">Minimali signalo kokybė</string>
     <string name="profiles_signal_quality_description">Aptikti tik įrenginius, kurių signalo stiprumas viršija šią ribą. Mažesnės vertės padidina aptikimo diapazoną, bet gali sukelti klaidingą aptikimą. Nenustatykite per aukštai – „Bluetooth\" signalas paprastai yra silpnas ir kinta priklausomai nuo atstumo ir kliūčių.</string>
     <string name="profiles_identitykey_label">Tapatybės raktas</string>
-    <string name="profilessettings_maindevice_identitykey_description">Jūsų įrenginio tapatybės sprendimo raktas (IRK), padedantis CAPod jį atpažinti tarp netoliese esančių įrenginių.</string>
     <string name="profiles_maindevice_identitykey_explanation">„AirPods\" dažnai keičia savo „Bluetooth\" adresą dėl privatumo. IRK padeda CAPod atpažinti jūsų įrenginį. Jums reikia vienkartin prieigos prie „MacBook\".</string>
     <string name="profiles_maindevice_encryptionkey_label">Šifravimo raktas</string>
-    <string name="profiles_maindevice_encryptionkey_description">Jūsų įrenginio šifravimo raktas, leidžiantis CAPod gauti išsamią būsenos informaciją.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">„AirPods\" siunčia būsenos pranešimą, kurio dalis yra užšifruota. Šifravimo raktas leidžia CAPod iššifruoti visą pranešimą. Jums reikia vienkartinės prieigos prie „MacBook\".</string>
     <string name="profiles_key_invalid_format">Netinkamas rakto formatas</string>
     <string name="profiles_key_expected_format">Tikėtinas formatas: %1$s</string>
@@ -375,7 +339,6 @@
     <string name="general_unsaved_changes_message">Turite neišsaugotų pakeitimų. Ką norėtumėte daryti?</string>
     <string name="general_save_and_exit_action">Išsaugoti ir išeiti</string>
     <string name="general_discard_action">Atmesti</string>
-    <string name="general_keep_editing_action">Tęsti redagavimą</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Irašas per trumpas</string>
     <string name="debug_debuglog_short_recording_message">Derinimo žurnalas turi užfiksuoti problemą jos metu. Tęskite įrašymą, atkurkite problemą, tada sustabdykite įrašymą.</string>
@@ -452,7 +415,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Įrenginio nustatymai</string>
     <string name="device_settings_subtitle_profile_prefix">Profilis: %s</string>
-    <string name="device_settings_info_name_label">Pavadinimas</string>
     <string name="device_settings_info_bt_name_label">Bluetooth įrenginio žnyma</string>
     <string name="device_settings_info_model_label">Modelis</string>
     <string name="device_settings_info_manufacturer_label">Gamintojas</string>
@@ -532,7 +494,6 @@
     <string name="review_app_dismiss_action">Galbūt vėliau</string>
     <string name="review_app_body">Ar norėtumėte palikti CAPod recenziją? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Bendrieji</string>
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>
     <string name="device_settings_microphone_mode_description">Kuris ausinis naudojamas kaip mikrofonas</string>
     <string name="device_settings_microphone_mode_auto">Automatinis</string>

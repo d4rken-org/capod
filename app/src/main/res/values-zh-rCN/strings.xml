@@ -3,7 +3,6 @@
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_cancel_action">取消</string>
-    <string name="general_copy_action">复制</string>
     <string name="general_thank_you_label">谢谢你</string>
     <string name="general_upgrade_action">升级</string>
     <string name="general_retry_action">重试</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">检查</string>
     <string name="general_close_action">关闭</string>
     <string name="general_dismiss_action">取消</string>
-    <string name="general_edit_action">编辑</string>
     <string name="general_save_action">保存</string>
     <string name="general_guide_action">指南</string>
     <string name="general_continue_action">继续</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">再次佩戴耳机时恢复音乐，但仅限于自动暂停将其停止的情况。您手动触发的暂停（手机、AirPods 按压、睡眠定时）将保持暂停状态。</string>
     <string name="settings_start_music_on_wear_label">佩戴时开始播放音乐</string>
     <string name="settings_start_music_on_wear_description">每次佩戴耳机时都尝试播放音乐，即使之前是手动暂停的。</string>
-    <string name="settings_eardetection_info_label">耳机探测通知</string>
     <string name="settings_eardetection_info_description">如果耳朵检测只能用于一个耳机，这是苹果限制。只检测到“主耳机”(用于麦克风)。 在苹果设备上配置：设置 → 蓝牙 → AirPoods → 麦克风。</string>
-    <string name="settings_signal_minimum_label">最低信号质量</string>
-    <string name="settings_signal_minimum_description">判断可能是您的设备的最低信号质量。</string>
     <string name="settings_autoconnect_label">自动连接</string>
     <string name="settings_autoconnect_description">如果 Android 无法自动连接，我们也可以帮助请求连接。这样可以让 CAPod 始终在后台监控。</string>
     <string name="settings_autoconnect_info_android12">自动连接依赖于 Android 12 及更高版本所限制的系统功能，可能无法在您的设备上使用。</string>
     <string name="settings_autoconnect_condition_label">自动连接条件</string>
-    <string name="settings_autoconnect_condition_description">何时连接到您的设备？</string>
     <string name="settings_devices_label">设备</string>
     <string name="settings_devices_description">管理您的设备。</string>
     <string name="settings_reaction_label">动作</string>
-    <string name="settings_category_yourdevice_label">您的设备</string>
     <string name="settings_category_compatibility_options_title">兼容性选项</string>
     <string name="settings_category_compatibility_options_description">如果一切正常，请不要修改 ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">禁用硬件过滤</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">启动中…</string>
     <string name="support_debuglog_label">调试日志</string>
     <string name="support_debuglog_desc">将应用执行的所有操作记录到您可以共享的文本文件中。</string>
-    <string name="debug_debuglog_size_label">大小</string>
-    <string name="debug_debuglog_size_compressed_label">压缩后大小</string>
-    <string name="debug_notification_channel_label">调试通知</string>
-    <string name="debug_debuglog_file_label">已录制的日志文件</string>
-    <string name="debug_debuglog_recording_progress">正在录制调试日志</string>
     <string name="debug_debuglog_record_action">录制调试日志</string>
     <string name="debug_debuglog_stop_action">停止录制</string>
     <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息（例如蓝牙设备详细信息）。仅与受信任方共享。</string>
     <string name="settings_debuglog_explanation">此功能会将应用执行的所有操作记录到一个可共享的文件中。生成的文件包含敏感信息（例如蓝牙设备详细信息）。仅与受信任方（例如正在解决问题的开发人员）共享。</string>
-    <string name="settings_support_installid_label">安装 ID</string>
-    <string name="settings_support_installid_desc">自动发送的错误报告是匿名的。如果需要，给开发者发送您的安装 ID 以便找出您的错误报告。</string>
     <string name="settings_support_label">用户支持</string>
     <string name="settings_support_description">如果你需要一些帮助。</string>
     <string name="settings_wiki_label">维基</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">重置已学习的数据？</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod 将忘记此设备测得的耗电量、充电速度和听音时间，并从额定电池寿命重新开始。</string>
     <string name="settings_acknowledgements_label">鸣谢</string>
-    <string name="settings_debug_autoreports_label">自动反馈错误</string>
-    <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string>
-    <string name="settings_compatibility_mode_label">兼容模式</string>
-    <string name="settings_compatibility_mode_description">禁用优化以提高兼容性，请在未看到任何数据时尝试此操作</string>
     <string name="help_translate_label">翻译</string>
     <string name="help_translate_description">帮助翻译本应用</string>
     <string name="translators_thanks_title">翻译人员</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">成功</string>
     <string name="troubleshooter_ble_result_success_body">CAPod 正在接收 BLE 广告广播</string>
     <string name="troubleshooter_ble_result_failure_title">失败</string>
-    <string name="troubleshooter_ble_result_failure_body">故障排除失败，兼容性选项的组合没有帮助</string>
     <string name="troubleshooter_ble_result_failure_phone_body">您的手机未收到任何 BLE 数据。您可以在人多的地方重试此测试，看看能否接收到数据源（耳机除外）。若未收到任何数据则表明您的手机系统存在问题</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">您的手机收到了 BLE 数据，但该数据并非来自任何受支持的设备。您的耳机电源打开了吗？CAPod 支持您的耳机吗？</string>
-    <string name="troubleshooter_ble_result_failure_action">重试</string>
-    <string name="troubleshoot_action">故障排除</string>
     <string name="onboarding_body1">本应用为 Android 增加 AirPod 相关的专用功能。</string>
     <string name="onboarding_body2">并非所有 Android 设备都充分支持额外的 AirPod 功能。您的操作系统必须正确处理低功耗蓝牙的相关内容。</string>
     <string name="onboarding_body3">CAPod 不含广告且不会收集您的数据。</string>
@@ -207,9 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">设备已连接，但 CAPod 未收到任何实时数据。你的手机可能需要一个兼容选项——故障排除程序可以尝试自动找到一个。</string>
     <string name="overview_troubleshoot_suggestion_action">运行故障排除程序</string>
     <string name="overview_unmatched_devices_label">不匹配的设备</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="other">没有匹配的 %d 设备信息</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="other">检测到 %d 台没有匹配配置文件的附近设备。显示以查看可用详情。如果其中一台是您的,请从“设备”添加配置文件以识别它。</item>
     </plurals>
@@ -228,7 +204,6 @@
     <string name="permission_background_location_description">CAPod 使用“在后台访问位置”权限以在本应用被关闭时继续提供如“显示弹窗”、“自动连接”等功能。此权限允许本应用在后台运行时继续接收蓝牙低功耗数据。本应用并不使用蓝牙数据来窥探您的位置。</string>
     <string name="permission_ignore_battery_optimizations_label">禁用电池优化</string>
     <string name="permission_ignore_battery_optimizations_description">电池优化可能导致本应用在后台运行时不能稳定地接收蓝牙数据。</string>
-    <string name="permission_required_title">需要以下权限：</string>
     <string name="permission_system_alert_window_label">系统警告窗口</string>
     <string name="permission_system_alert_window_description">允许 CAPod 在其他应用的界面上方显示，以允许如“显示弹窗”功能。</string>
     <string name="settings_reaction_autoconnect_whenseen_label">当发现设备时</string>
@@ -236,9 +211,6 @@
     <string name="settings_reaction_autoconnect_inear_label">在耳中</string>
     <string name="pods_dual_left_label">左耳</string>
     <string name="pods_dual_right_label">右耳</string>
-    <string name="pods_dual_left_short_label">左</string>
-    <string name="pods_dual_right_short_label">右</string>
-    <string name="pods_case_label">充电仓</string>
     <string name="battery_unavailable_label">电量不可用</string>
     <string name="battery_state_low_cd">电池电量低</string>
     <string name="battery_state_critical_cd">电池电量严重不足</string>
@@ -289,12 +261,9 @@
     <string name="signal_badge_aap_cd">直连已激活</string>
     <string name="signal_indicator_bars_cd">信号强度：4格中的第 %1$d 格</string>
     <string name="signal_indicator_disconnected_cd">信号：已断开</string>
-    <string name="pods_yours">您的</string>
     <string name="headset_being_worn_label">正在穿戴的</string>
     <string name="headset_not_being_worn_label">未穿戴的</string>
     <string name="pods_case_unknown_state">未知状态</string>
-    <string name="last_seen_x">最后一次在线: %s</string>
-    <string name="first_seen_x">首次在线：%s</string>
     <string name="battery_cached_label">上次已知 · %s</string>
     <string name="battery_time_remaining_format_hm">%1$d小时 %2$d分钟</string>
     <string name="battery_time_remaining_format_h">%1$d小时</string>
@@ -324,10 +293,8 @@
     <string name="profiles_signal_quality_title">最低信号质量</string>
     <string name="profiles_signal_quality_description">仅检测信号强度高于此阈值的装置。值越低，检测范围越大，但可能会导致虚假检测。 不要设置太高――蓝牙接收率普遍很低，而且因距离和障碍而异。</string>
     <string name="profiles_identitykey_label">身份密钥（Identity Key）</string>
-    <string name="profilessettings_maindevice_identitykey_description">您设备的身份解析密钥 (IRK)，可帮助 CAPod 在附近的设备中识别它。</string>
     <string name="profiles_maindevice_identitykey_explanation">出于隐私原因，AirPods 会经常更改其蓝牙地址。IRK 可帮助 CAPod 识别您的设备。您需要用到一次 MacBook。</string>
     <string name="profiles_maindevice_encryptionkey_label">加密密钥（Encryption Key）</string>
-    <string name="profiles_maindevice_encryptionkey_description">您设备的加密密钥，允许 CAPod 检索详细的状态信息。</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods 会发送状态消息，其中一部分是加密的。加密密钥允许 CAPod 解密完整的消息。您需要用到一次 MacBook。</string>
     <string name="profiles_key_invalid_format">无效的格式</string>
     <string name="profiles_key_expected_format">预期格式： %1$s</string>
@@ -360,7 +327,6 @@
     <string name="general_unsaved_changes_message">您有未保存的更改。您想做什么？</string>
     <string name="general_save_and_exit_action">保存并退出</string>
     <string name="general_discard_action">放弃</string>
-    <string name="general_keep_editing_action">继续编辑</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">录制时间太短</string>
     <string name="debug_debuglog_short_recording_message">调试日志需要在问题发生时进行录制。请保持录制，复现问题，然后停止录制。</string>
@@ -428,7 +394,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">设备设置</string>
     <string name="device_settings_subtitle_profile_prefix">配置文件：%s</string>
-    <string name="device_settings_info_name_label">名称</string>
     <string name="device_settings_info_bt_name_label">蓝牙设备标签</string>
     <string name="device_settings_info_model_label">型号</string>
     <string name="device_settings_info_manufacturer_label">制造商</string>
@@ -508,7 +473,6 @@
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 CAPod 写一条评论吗？❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">常规</string>
     <string name="device_settings_microphone_mode_label">麦克风</string>
     <string name="device_settings_microphone_mode_description">用作麦克风的耳机</string>
     <string name="device_settings_microphone_mode_auto">自动</string>

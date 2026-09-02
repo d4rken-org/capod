@@ -3,7 +3,6 @@
     <string name="general_share_action">सेयर गर्नुहोस्</string>
     <string name="general_done_action">भयो</string>
     <string name="general_cancel_action">रद्द गर्नुहोस्</string>
-    <string name="general_copy_action">प्रतिलिपि गर्नुहोस्</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_upgrade_action">अपग्रेड गर्नुहोस्</string>
     <string name="general_retry_action">पुनः प्रयास</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">जाँच गर्नुहोस्</string>
     <string name="general_close_action">बन्द गर्नुहोस्</string>
     <string name="general_dismiss_action">बन्द गर्नुहोस्</string>
-    <string name="general_edit_action">सम्पादन गर्नुहोस्</string>
     <string name="general_save_action"> सुरक्षित गर्नुहोस्</string>
     <string name="general_guide_action">मार्गनिर्देशन</string>
     <string name="general_continue_action">जारी राख्नुहोस्</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">तपाईंले आफ्नो पड्स फेरि लगाउँदा सङ्गीत फेरि सुरु गर्नुहोस्, तर केवल यदि अटो पज ले रोकेको थियो भने। तपाईंले आफैं रोकेका पज (फोन, AirPods स्टेम, निद्रा) रोकिएकै रहन्छन्।</string>
     <string name="settings_start_music_on_wear_label">लगाउँदा सङ्गीत सुरु गर्नुहोस्</string>
     <string name="settings_start_music_on_wear_description">तपाईंले आफ्नो पड्स लगाउँदा सधैं सङ्गीत बजाउने कोशिश गर्छ, म्यानुअल पज पछि पनि।</string>
-    <string name="settings_eardetection_info_label">कान पत्ता लगाउने नोट</string>
     <string name="settings_eardetection_info_description">यदि कान पत्ता लगाउने सुविधा एक पोडको लागि मात्र काम गर्छ भने, यो Apple सीमितता हो। माइक्रोफोनको लागि प्रयोग हुने \"प्राथमिक पोड\" मात्र पत्ता लगाइन्छ। Apple उपकरणहरूमा कन्फिगर गर्नुहोस्: सेटिङ → Bluetooth → AirPods → माइक्रोफोन।</string>
-    <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
-    <string name="settings_signal_minimum_description">उपकरणलाई तपाइँको मान्नको लागि आवश्यक पर्ने न्यूनतम सिग्नल गुणस्तर।</string>
     <string name="settings_autoconnect_label">स्वत: जडान</string>
     <string name="settings_autoconnect_description">यदि Android स्वचालित रूपमा जोडिँदैन भने, हामी पनि यसलाई अनुरोध गर्न सक्छौं। यसले CAPod लाई सधैं पृष्ठभूमिमा अनुगमन गरिरहन मद्दत गर्छ।</string>
     <string name="settings_autoconnect_info_android12">स्वतः जडान Android 12 र त्यसभन्दा नयाँले प्रतिबन्धित गरेको एउटा प्रणाली सुविधामा निर्भर छ। यो तपाईंको उपकरणमा काम नगर्न सक्छ।</string>
     <string name="settings_autoconnect_condition_label">स्वत: जडान अवस्था</string>
-    <string name="settings_autoconnect_condition_description">हामीले कहिले तपाइँको उपकरणमा जडान गर्ने प्रयास गर्नुपर्छ?</string>
     <string name="settings_devices_label">उपकरणहरू</string>
     <string name="settings_devices_description">आफ्ना उपकरणहरू व्यवस्थापन गर्नुहोस्।</string>
     <string name="settings_reaction_label">प्रतिक्रियाहरू</string>
-    <string name="settings_category_yourdevice_label">तपाईंको उपकरण</string>
     <string name="settings_category_compatibility_options_title">अनुकूलता विकल्पहरू</string>
     <string name="settings_category_compatibility_options_description">सबै कुरा ठीकठाक चलिरहेको छ भने नचलाउनुहोस् ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">हार्डवेयर फिल्टरिङ असक्षम गर्नुहोस्</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">सुरु भइरहेको छ…</string>
     <string name="support_debuglog_label">डिबग लग</string>
     <string name="support_debuglog_desc">एपले गर्ने सबै कुरालाई तपाईंले साझेदारी गर्न सक्ने टेक्स्ट फाइलमा रेकर्ड गर्नुहोस्।</string>
-    <string name="debug_debuglog_size_label">आकार</string>
-    <string name="debug_debuglog_size_compressed_label">संकुचित आकार</string>
-    <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
-    <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
-    <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>
     <string name="debug_debuglog_record_action">डिबग लग रेकर्ड गर्नुहोस्</string>
     <string name="debug_debuglog_stop_action">रेकर्डिङ रोक्नुहोस्</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न गरिएको फाइलमा संवेदनशील जानकारी (जस्तै ब्लुटुथ उपकरण विवरणहरू) समावेश छ। यसलाई विश्वसनीय पक्षहरूसँग मात्र साझेदारी गर्नुहोस्।</string>
     <string name="settings_debuglog_explanation">यो सुविधाले एपले गर्ने सबै कुरालाई साझेदारी गर्न मिल्ने फाइलमा रेकर्ड गर्छ। उत्पन्न गरिएको फाइलमा संवेदनशील जानकारी (जस्तै ब्लुटुथ उपकरण विवरणहरू) समावेश छ। यसलाई विश्वसनीय पक्षहरूसँग मात्र साझेदारी गर्नुहोस् (जस्तै समस्या निवारण गरिरहेको विकासकर्ता)।</string>
-    <string name="settings_support_installid_label">स्थापना आईडी</string>
-    <string name="settings_support_installid_desc">स्वचालित त्रुटि रिपोर्टहरू गुमनाम छन्। यदि विकासकर्तालाई तपाईंको त्रुटि रिपोर्टहरू फेला पार्न आवश्यक छ भने आफ्नो स्थापना आईडी साझेदारी गर्नुहोस्।</string>
     <string name="settings_support_label">समर्थन</string>
     <string name="settings_support_description">यदि तपाईंलाई केही मद्दत चाहिन्छ भने।</string>
     <string name="settings_wiki_label">विकि</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">सिखेको डेटा रिसेट गर्नुहोस्?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod ले यो उपकरणको मापन गरिएको ड्रेन, चार्जिङ गति र सुन्ने समय भुल्नेछ, र रेट गरिएको ब्याटरी आयुबाट फेरि सुरु गर्नेछ।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
-    <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
-    <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
-    <string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
-    <string name="settings_compatibility_mode_description">अनुकूलता सुधार गर्न अप्टिमाइजेसनहरू असक्षम गर्नुहोस्। यदि तपाईंले कुनै डाटा देख्नुभएन भने यो प्रयास गर्नुहोस्।</string>
     <string name="help_translate_label">अनुवाद</string>
     <string name="help_translate_description">यो एपलाई आफ्नो मनपर्ने भाषामा अनुवाद गर्न मद्दत गर्नुहोस्।</string>
     <string name="translators_thanks_title">अनुवादकहरू</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">सफलता</string>
     <string name="troubleshooter_ble_result_success_body">CAPod द्वारा BLE विज्ञापन प्रसारणहरू प्राप्त भइरहेका छन्।</string>
     <string name="troubleshooter_ble_result_failure_title">असफल</string>
-    <string name="troubleshooter_ble_result_failure_body">समस्या निवारण असफल भयो। अनुकूलता विकल्पहरूको कुनै पनि संयोजनले मद्दत गरेन।</string>
     <string name="troubleshooter_ble_result_failure_phone_body">तपाईंको फोनले कुनै पनि BLE डाटा प्राप्त गरेन। डाटा स्रोतहरू (तपाईंको हेडफोन बाहेक) प्राप्त गर्न सकिन्छ कि भनेर हेर्न तपाईं यो परीक्षण भीडभाड भएको क्षेत्रमा पुन: प्रयास गर्न सक्नुहुन्छ। कुनै डाटा प्राप्त नहुनुले तपाईंको फोनको अपरेटिङ सिस्टममा समस्या भएको सङ्केत गर्छ।</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">तपाईंको फोनले BLE डाटा प्राप्त गर्‍यो, तर डाटा कुनै पनि समर्थित उपकरणबाट आएको छैन। तपाईंको हेडफोनहरू सक्रिय छन्? CAPod ले तपाईंको हेडफोनलाई समर्थन गर्छ?</string>
-    <string name="troubleshooter_ble_result_failure_action">फेरि प्रयास गर्नुहोस्</string>
-    <string name="troubleshoot_action">समस्या समाधान गर्नुहोस्</string>
     <string name="onboarding_body1">यो एपले एन्ड्रोइडमा AirPod विशेष सुविधाहरूको लागि समर्थन थप्छ।</string>
     <string name="onboarding_body2">सबै एन्ड्रोइड उपकरणहरूले अतिरिक्त AirPod सुविधाहरूलाई पूर्ण रूपमा समर्थन गर्दैनन्। तपाईंको अपरेटिङ सिस्टमलाई सही रूपमा काम गर्ने ब्लुटुथ-कम-ऊर्जा कार्यान्वयन आवश्यक छ।</string>
     <string name="onboarding_body3">CAPod मा कुनै विज्ञापन छैन र तपाईंको डाटा सङ्कलन गर्दैन।</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">तपाईंको यन्त्र जोडिएको छ, तर CAPod ले यसबाट कुनै लाइभ डेटा प्राप्त गरिरहेको छैन। तपाईंको फोनलाई अनुकूलता विकल्पको आवश्यकता पर्न सक्छ — समस्या निवारकले स्वतः एउटा खोज्ने प्रयास गर्न सक्छ।</string>
     <string name="overview_troubleshoot_suggestion_action">समस्या निवारक चलाउनुस्</string>
     <string name="overview_unmatched_devices_label">मेल नखाएका उपकरणहरू</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">मेल खाने प्रोफाइल नभएको %d उपकरण</item>
-        <item quantity="other">मेल खाने प्रोफाइल नभएका %d उपकरणहरू</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d नजिकैको यन्त्र मिल्दो प्रोफाइल बिना पत्ता लाग्यो। उपलब्ध विवरणहरूका लागि यसलाई देखाउनुहोस्। यदि यो तपाईंको हो भने, यसलाई चिन्नका लागि यन्त्रहरूबाट प्रोफाइल थप्नुहोस्।</item>
         <item quantity="other">%d नजिकैका यन्त्रहरू मिल्दो प्रोफाइलहरू बिना पत्ता लागे। उपलब्ध विवरणहरूका लागि तिनीहरूलाई देखाउनुहोस्। यदि तिनीहरूमध्ये एउटा तपाईंको हो भने, यसलाई चिन्नका लागि यन्त्रहरूबाट प्रोफाइल थप्नुहोस्।</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod ले एप बन्द हुँदा \"पपअप देखाउनुहोस्\" र \"स्वत: जडान\" जस्ता सुविधाहरू सक्षम गर्न \"पृष्ठभूमि स्थान पहुँच\" प्रयोग गर्छ। पृष्ठभूमि स्थान पहुँचले एपलाई पृष्ठभूमिमा हुँदा Bluetooth Low Energy डाटा प्राप्त गर्न अनुमति दिन्छ। यो एपले तपाईंको स्थान निर्धारण गर्न Bluetooth डाटा प्रयोग गर्दैन।</string>
     <string name="permission_ignore_battery_optimizations_label">ब्याट्री अप्टिमाइजेसन असक्षम गर्नुहोस्</string>
     <string name="permission_ignore_battery_optimizations_description">ब्याट्री अप्टिमाइजेसनले यो एपलाई पृष्ठभूमिमा हुँदा Bluetooth डाटा भरपर्दो रूपमा प्राप्त गर्नबाट रोक्छ।</string>
-    <string name="permission_required_title">निम्न अनुमति आवश्यक छ:</string>
     <string name="permission_system_alert_window_label">प्रणाली अलर्ट विन्डो</string>
     <string name="permission_system_alert_window_description">\"पपअप देखाउनुहोस्\" सुविधा सम्भव बनाउन CAPod लाई अन्य एपहरूमाथि कोर्न अनुमति दिनुहोस्।</string>
     <string name="settings_reaction_autoconnect_whenseen_label">देखिएमा</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">कानमा</string>
     <string name="pods_dual_left_label">बायाँ पोड</string>
     <string name="pods_dual_right_label">दायाँ पोड</string>
-    <string name="pods_dual_left_short_label">बा</string>
-    <string name="pods_dual_right_short_label">दा</string>
-    <string name="pods_case_label">केस</string>
     <string name="battery_unavailable_label">ब्याट्री उपलब्ध छैन</string>
     <string name="battery_state_low_cd">ब्याटरी कम</string>
     <string name="battery_state_critical_cd">ब्याटरी अत्यन्त कम</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">प्रत्यक्ष जडान सक्रिय</string>
     <string name="signal_indicator_bars_cd">सिग्नल शक्ति: ४ मध्ये %1$d बार</string>
     <string name="signal_indicator_disconnected_cd">सिग्नल: विच्छेदित</string>
-    <string name="pods_yours">तपाईंको</string>
     <string name="headset_being_worn_label">लगाइएको छ</string>
     <string name="headset_not_being_worn_label">लगाइएको छैन</string>
     <string name="pods_case_unknown_state">अज्ञात स्थिति</string>
-    <string name="last_seen_x">अन्तिम देखिएको: %s</string>
-    <string name="first_seen_x">पहिलो पटक देखिएको: %s</string>
     <string name="battery_cached_label">अन्तिम थाहा · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dघ %2$dमि</string>
     <string name="battery_time_remaining_format_h">%1$dघ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">न्यूनतम सिग्नल गुणस्तर</string>
     <string name="profiles_signal_quality_description">यो थ्रेसहोल्डभन्दा माथिको सिग्नल शक्ति भएका उपकरणहरू मात्र पत्ता लगाउनुहोस्। कम मानहरूले पत्ता लगाउने दायरा बढाउँछ तर गलत सकारात्मक निम्त्याउन सक्छ। यसलाई धेरै उच्च नराख्नुहोस् — Bluetooth रिसेप्सन सामान्यतया कमजोर हुन्छ र दूरी र बाधाहरूसँग भिन्न हुन्छ।</string>
     <string name="profiles_identitykey_label">पहिचान कुञ्जी</string>
-    <string name="profilessettings_maindevice_identitykey_description">तपाईंको उपकरणको Identity Resolving Key (IRK), जसले CAPod लाई नजिकका उपकरणहरूमध्ये यसलाई पहिचान गर्न मद्दत गर्छ।</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ले गोपनीयताको लागि आफ्नो Bluetooth ठेगाना बारम्बार परिवर्तन गर्छ। IRK ले CAPod लाई तपाईंको उपकरण चिन्न मद्दत गर्छ। तपाईंलाई MacBook मा एक पटक पहुँच चाहिन्छ।</string>
     <string name="profiles_maindevice_encryptionkey_label">इन्क्रिप्शन कुञ्जी</string>
-    <string name="profiles_maindevice_encryptionkey_description">तपाईंको उपकरणको इन्क्रिप्शन कुञ्जी, जसले CAPod लाई विस्तृत स्थिति जानकारी प्राप्त गर्न अनुमति दिन्छ।</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ले स्थिति सन्देश पठाउँछ, जसको एक भाग इन्क्रिप्टेड हुन्छ। इन्क्रिप्शन कुञ्जीले CAPod लाई पूर्ण सन्देश डिक्रिप्ट गर्न अनुमति दिन्छ। तपाईंलाई MacBook मा एक पटक पहुँच चाहिन्छ।</string>
     <string name="profiles_key_invalid_format">अमान्य कुञ्जी ढाँचा</string>
     <string name="profiles_key_expected_format">अपेक्षित ढाँचा: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">तपाईंसँग नसुरक्षित परिवर्तनहरू छन्। तपाईं के गर्न चाहनुहुन्छ?</string>
     <string name="general_save_and_exit_action">सुरक्षित गर्नुहोस् &amp; बाहिर जानुहोस्</string>
     <string name="general_discard_action">खारेज गर्नुहोस्</string>
-    <string name="general_keep_editing_action">सम्पादन जारी राख्नुहोस्</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">रेकर्डिङ धेरै छोटो छ</string>
     <string name="debug_debuglog_short_recording_message">डिबग लगले समस्या हुँदाकै क्याप्चर गर्नु पर्दछ। रेकर्डिङ चालू राख्नुहोस्, समस्या पुनरुत्पादन गर्नुहोस्, त्यसपछि रेकर्डिङ बन्द गर्नुहोस्।</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">उपकरण सेटिङहरू</string>
     <string name="device_settings_subtitle_profile_prefix">प्रोफाइल: %s</string>
-    <string name="device_settings_info_name_label">नाम</string>
     <string name="device_settings_info_bt_name_label">ब्लुटुथ उपकरण लेबल</string>
     <string name="device_settings_info_model_label">मोडेल</string>
     <string name="device_settings_info_manufacturer_label">निर्माता</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">पछि गर्ने</string>
     <string name="review_app_body">के तपाई CAPod को लागि एक समीक्षा दिन चाहनुहुन्छ? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">माइक्रोफोन</string>
     <string name="device_settings_microphone_mode_description">कुन इयरबड माइक्रोफोनको रूपमा प्रयोग गरिन्छ</string>
     <string name="device_settings_microphone_mode_auto">स्वतः</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Layanan Google Play tidak tersedia.</string>
-    <string name="upgrades_no_purchases_found_check_account">Tidak ada pembelian yang ditemukan. Apakah Anda menggunakan akun yang benar?</string>
     <string name="upgrades_gplay_billing_error_label">Kesalahan Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Terjadi kesalahan di Google Play. Silakan coba lagi nanti atau mulai ulang ponsel Anda.\n\nKesalahan: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Kesalahan Penagihan Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Terjadi kesalahan saat meminta detail pembelian Anda dari Google Play. Hapus cache Google Play dan mulai ulang ponsel Anda.\n\nKesalahan %s</string>
     <string name="upgrades_gplay_already_owned_label">Sudah membeli?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play melaporkan bahwa Anda sudah memiliki peningkatan ini, tetapi tidak dapat dipulihkan. Pastikan Anda menggunakan akun Google yang sama dengan yang digunakan untuk membeli. Sinkronisasi Play Store mungkin memerlukan waktu — coba mulai ulang perangkat, hapus cache Google Play, atau tunggu sebentar.</string>
-    <string name="upgrade_restore_action">Pulihkan pembelian</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_preamble">CAPod dikembangkan oleh satu orang. Melakukan peningkatan membuka fitur tambahan dan membantu menjaga aplikasi ini tetap ada.</string>
-    <string name="upgrade_screen_options_description">Fitur yang sama, harga yang berbeda. Langganan ini mencakup masa uji coba gratis dan dapat dibatalkan kapan saja.</string>
-    <string name="upgrade_screen_options_description_no_trial">Fitur yang sama, harga yang berbeda. Langganan dapat dibatalkan kapan saja.</string>
     <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis</string>
     <string name="upgrade_screen_subscription_action">Berlangganan tahunan</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/tahun</string>
     <string name="upgrade_screen_iap_action">Beli sekali</string>
-    <string name="upgrade_screen_iap_action_hint">Sekali bayar: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
-    <string name="upgrade_screen_restore_purchase_message">Tidak ada pembelian yang ditemukan. Apakah Anda menggunakan akun yang benar?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jika Anda baru saja membeli, mungkin perlu waktu sebentar agar Google Play tersinkronisasi.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Coba lagi dalam beberapa menit jika pembelian Anda tidak muncul.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pastikan Anda masuk dengan akun Google yang sama seperti yang digunakan untuk pembelian.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Beberapa akun dapat membingungkan Google Play. Memasang aplikasi melalui situs web Google Play memaksa penghubungan dengan akun tertentu.</string>
     <string name="upgrade_screen_restore_banner_title">Sudah membeli Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Sepertinya Anda pernah meningkatkan ke Pro di perangkat ini sebelumnya. Pulihkan pembelian Anda untuk membukanya kembali.</string>
     <string name="upgrade_screen_restore_success_message">Pembelian dipulihkan.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Anda memiliki CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Dibuka oleh langganan Anda. Terima kasih karena telah mendukung CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Dibuka oleh sekali bayar Anda. Terima kasih karena telah mendukung CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Langganan tahunan</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Langganan Anda aktif dan diatur untuk diperpanjang. Penagihan dikelola oleh Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Langganan Anda aktif, tetapi tidak diatur untuk diperpanjang. Pro akan tetap tersedia hingga periode saat ini berakhir.</string>
     <string name="upgrade_screen_owned_iap_title">Sekali bayar</string>

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">Wesprzyj</string>
-    <string name="foss_upgrade_alreadydonated_label">Już wsparłem</string>
-    <string name="foss_upgrade_no_money_label">Wydałem wszystkie pieniądze na AirPods</string>
     <string name="upgrade_foss_preamble">CAPod Foss jest bezpłatny i otwarto-źródłowy. Jeśli uważasz go za użyteczny, rozważ sponsorowanie rozwoju, aby pomóc kontynuować projekt.</string>
     <string name="upgrade_foss_sponsor_action">Wesprzyj rozwój</string>
     <string name="upgrade_foss_sponsor_subtitle">Bez reklam. Bez śledzenia. Bez uzależnienia od Google Play.</string>

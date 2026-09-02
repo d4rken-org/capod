@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Hindi available ang mga serbisyo ng Google Play.</string>
-    <string name="upgrades_no_purchases_found_check_account">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
     <string name="upgrades_gplay_billing_error_label">Error sa Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Nagkaroon ng error sa Google Play. Pakisubukan ulit mamaya o i-reboot ang iyong telepono.\n\nError: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Error sa Google Play Billing</string>
-    <string name="upgrades_gplay_billing_result_error_description">Nagkaroon ng error sa paghingi ng detalye ng iyong pagbili sa Google Play. I-clear ang Google Play cache at i-reboot ang iyong telepono.\n\nError %s</string>
     <string name="upgrades_gplay_already_owned_label">Nabili na?</string>
     <string name="upgrades_gplay_already_owned_description">Iniuulat ng Google Play na nasa iyo na ang upgrade na ito, ngunit hindi ito ma-restore. Siguraduhing ginagamit mo ang Google account na ginamit mo sa pagbili. Maaaring magtagal ang pag-sync ng Play Store — subukang i-restart ang device, i-clear ang cache ng Google Play, o maghintay lang.</string>
-    <string name="upgrade_restore_action">I-restore ang pagbili</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Kumuha ng %1$s</string>
     <string name="upgrade_preamble">Ginawa ang CAPod ng isang tao lang. Ang pag-upgrade ay nagbubukas ng karagdagang mga feature at tumutulong na mapanatiling buhay ang app.</string>
-    <string name="upgrade_screen_options_description">Pareho ang mga feature, magkaiba ang presyo. Kasama sa subscription ang libreng trial at maaari itong kanselahin anumang oras.</string>
-    <string name="upgrade_screen_options_description_no_trial">Pareho ang mga feature, magkaiba ang presyo. Maaaring kanselahin ang subscription anumang oras.</string>
     <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng trial</string>
     <string name="upgrade_screen_subscription_action">Mag-subscribe taun-taon</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/taon</string>
     <string name="upgrade_screen_iap_action">Bilhin nang minsan</string>
-    <string name="upgrade_screen_iap_action_hint">One-time na pagbili: %s</string>
     <string name="upgrade_screen_restore_purchase_action">I-restore ang pagbili</string>
-    <string name="upgrade_screen_restore_purchase_message">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Kung kararaan mo lang bumili, maaaring magtagal nang kaunti bago mag-sync ang Google Play.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Subukan muli sa loob ng ilang minuto kung hindi lumitaw ang iyong pagbili.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Siguraduhing naka-sign in ka sa parehong Google account na ginamit sa pagbili.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Maaaring makalito sa Google Play ang maraming account. Ang pag-install ng app sa pamamagitan ng Google Play website ay nagpipilit ng kaugnayan sa isang partikular na account.</string>
     <string name="upgrade_screen_restore_banner_title">Nabili mo na ang Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Mukhang nag-upgrade ka na sa Pro sa device na ito noon. I-restore ang iyong pagbili para ma-unlock ulit ito.</string>
     <string name="upgrade_screen_restore_success_message">Naibalik na ang pagbili.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Mayroon kang CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Na-unlock ng iyong subscription. Salamat sa pagsuporta sa CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Na-unlock ng iyong one-time na pagbili. Salamat sa pagsuporta sa CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Taunang subscription</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Aktibo ang iyong subscription at nakatakdang mag-renew. Ang billing ay pinamamahalaan ng Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Aktibo ang iyong subscription, ngunit hindi ito nakatakdang mag-renew. Mananatiling available ang Pro hanggang sa matapos ang kasalukuyang panahon.</string>
     <string name="upgrade_screen_owned_iap_title">One-time na pagbili</string>

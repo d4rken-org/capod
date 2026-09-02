@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Servìtzios Google Play non sunt disponìbiles.</string>
-    <string name="upgrades_no_purchases_found_check_account">Perunu achistu agatadu. Ses usende su contu giustu?</string>
     <string name="upgrades_gplay_billing_error_label">Errore de Google Play</string>
     <string name="upgrades_gplay_billing_error_description">B\'at àpidu un errore in Google Play. Proa torra prus a tardu o torra a allùere su telèfonu.\n\nErrore: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Errore de fatturatzione de Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">B\'at àpidu un errore cando si cherent is detàllios de s\'achistu a Google Play. Isbòida sa cache de Google Play e torra a allùere su telèfonu.\n\nErrore %s</string>
     <string name="upgrades_gplay_already_owned_label">Comporadu giai?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play informat chi tenes giai custu megioramentu, ma no est istadu possìbile lu ripristinare. Assegura·ti de impreare su contu Google chi as impreadu pro comporare. Sa sincronizatzione de su Play Store podet leare tempus — proa a torrare a allutu su dispositivu, a bogare sa memoria cache de Google Play o solu a aspetare.</string>
-    <string name="upgrade_restore_action">Recùpera su cùmperu</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Otine %1$s</string>
     <string name="upgrade_preamble">CAPod est isvilupada de una persona sola. Su megioramentu isblocat funtziones in prus e agiudat a mantènnere s\'aplicatzione bia.</string>
-    <string name="upgrade_screen_options_description">Matessi funtziones, prètzios diferentes. S\'abbonamentu includet una proa gratùita e podet èssere cantzelladu in cale si siat momentu.</string>
-    <string name="upgrade_screen_options_description_no_trial">Matessi funtziones, prètzios diferentes. S\'abbonamentu podet èssere cantzelladu in cale si siat momentu.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa gratùita</string>
     <string name="upgrade_screen_subscription_action">Abbòna·ti annualmente</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/annu</string>
     <string name="upgrade_screen_iap_action">Cùmpera una borta</string>
-    <string name="upgrade_screen_iap_action_hint">Cùmperu de una borta: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
-    <string name="upgrade_screen_restore_purchase_message">Perunu achistu agatadu. Ses usende su contu giustu?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Si as cumperadu de reghente, Google Play podet leare unu pagu de tempus pro sincronizare.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Torra a proare in pagos minutos si su cùmperu tuo no cumparit.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Assegura·ti de àere fatu s\'aciesu cun su matessi contu Google impreadu pro su cùmperu.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Contos mùltiplos podent cunfùndere Google Play. Instalende s\'aplicatzione dae su situ web de Google Play si fortzat s\'assotziatzione cun unu contu ispetzìficu.</string>
     <string name="upgrade_screen_restore_banner_title">As giai cumperadu Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Parit chi as giai atualizadu a Pro in custu dispositivu in antis. Ripristina su cùmperu tuo pro l\'isblocare torra.</string>
     <string name="upgrade_screen_restore_success_message">Cùmperu ripristinadu.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Tenes CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Isblocadu dae s\'abbonamentu tuo. Gràtzias pro sustènnere CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Isblocadu dae su cùmperu tuo de una borta. Gràtzias pro sustènnere CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Abbonamentu annuale</string>
     <string name="upgrade_screen_owned_sub_renewing_body">S\'abbonamentu tuo est atívu e programadu pro si rennovare. Sa fatturatzione est ghestida dae Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">S\'abbonamentu tuo est atívu, ma no est programadu pro si rennovare. Pro abarrat disponìbile finas a sa fine de su períodu atuale.</string>
     <string name="upgrade_screen_owned_iap_title">Cùmperu de una borta</string>

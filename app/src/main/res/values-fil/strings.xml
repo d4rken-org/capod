@@ -3,7 +3,6 @@
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos Na</string>
     <string name="general_cancel_action">Kanselahin</string>
-    <string name="general_copy_action">Kopyahin</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
     <string name="general_retry_action">Subukan ulit</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Suriin</string>
     <string name="general_close_action">Isara</string>
     <string name="general_dismiss_action">Huwag pansinin</string>
-    <string name="general_edit_action">Baguhin</string>
     <string name="general_save_action">I-save</string>
     <string name="general_guide_action">Gabay</string>
     <string name="general_continue_action">Magpatuloy</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">I-resume ang musika kapag suot mo ulit ang iyong pods, pero tanging kung ang Auto pause ang huminto nito. Ang mga pause na ikaw mismo ang nag-trigger (telepono, AirPods stem, tulog) ay nananatiling naka-pause.</string>
     <string name="settings_start_music_on_wear_label">Simulan ang musika kapag suot</string>
     <string name="settings_start_music_on_wear_description">Palaging sinusubukang i-play ang musika kapag nilagay mo ang iyong pods, kahit pagkatapos ng manu-manong pause.</string>
-    <string name="settings_eardetection_info_label">Paalala sa ear detection</string>
     <string name="settings_eardetection_info_description">Kung ang ear detection ay gumagana lang para sa isang pod, ito ay limitasyon ng Apple. Tanging ang \"pangunahing pod\" (ginagamit para sa mikropono) lang ang nadedetect. I-configure sa mga Apple device: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
-    <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
     <string name="settings_autoconnect_description">Kung hindi awtomatikong kumokonekta ang Android, maaari din namin itong hilingin. Napapanatili nito ang CAPod monitoring sa background palagi.</string>
     <string name="settings_autoconnect_info_android12">Ang auto connect ay umaasa sa isang tampok ng system na pinipigilan ng Android 12 at mas bago. Maaaring hindi ito gumana sa iyong device.</string>
     <string name="settings_autoconnect_condition_label">Kondisyon ng auto connect</string>
-    <string name="settings_autoconnect_condition_description">Kailan tayo dapat sumubok kumonekta sa iyong device?</string>
     <string name="settings_devices_label">Mga Device</string>
     <string name="settings_devices_description">Pamahalaan ang iyong mga device.</string>
     <string name="settings_reaction_label">Mga Reaksyon</string>
-    <string name="settings_category_yourdevice_label">Iyong device</string>
     <string name="settings_category_compatibility_options_title">Mga opsyon sa compatibility</string>
     <string name="settings_category_compatibility_options_description">Huwag galawin kung gumagana ang lahat ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">I-disable ang hardware filtering</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Nagsisimula…</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari mong ibahagi.</string>
-    <string name="debug_debuglog_size_label">Sukat</string>
-    <string name="debug_debuglog_size_compressed_label">Sukat na naka-compress</string>
-    <string name="debug_notification_channel_label">Mga notipikasyon ng debug</string>
-    <string name="debug_debuglog_file_label">Naka-record na log file</string>
-    <string name="debug_debuglog_recording_progress">Nagre-record ng debug log</string>
     <string name="debug_debuglog_record_action">I-record ang debug log</string>
     <string name="debug_debuglog_stop_action">Itigil ang pagre-record</string>
     <string name="debug_debuglog_sensitive_information_message">Ang nabuong file ay naglalaman ng sensitibong impormasyon (hal. mga detalye ng Bluetooth device). Ibahagi lamang ito sa mga pinagkakatiwalaang partido.</string>
     <string name="settings_debuglog_explanation">Ang feature na ito ay nagre-record ng lahat ng ginagawa ng app sa isang naibabahaging file. Ang nabuong file ay naglalaman ng sensitibong impormasyon (hal. mga detalye ng Bluetooth device). Ibahagi lamang ito sa mga pinagkakatiwalaang partido (hal. isang developer na nag-troubleshoot ng isang isyu).</string>
-    <string name="settings_support_installid_label">Install ID</string>
-    <string name="settings_support_installid_desc">Ang mga awtomatikong ulat ng error ay anonymous. Ibahagi ang iyong install ID kung kailangan ng developer na mahanap ang iyong mga ulat ng error.</string>
     <string name="settings_support_label">Suporta</string>
     <string name="settings_support_description">Kung kailangan mo ng tulong.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Burahin ang natutunan na datos?</string>
     <string name="device_battery_estimate_reset_confirm_message">Makakalimutan ng CAPod ang sinusukat na paggamit ng kuryente, bilis ng pag-charge, at oras ng pakikinig ng device na ito, at magsisimula muli mula sa rated na buhay ng baterya.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
-    <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
-    <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
-    <string name="settings_compatibility_mode_label">Compatibility mode</string>
-    <string name="settings_compatibility_mode_description">I-disable ang mga optimization para mapabuti ang compatibility. Subukan ito kung wala kang nakikitang data.</string>
     <string name="help_translate_label">Pagsasalin</string>
     <string name="help_translate_description">Tumulong sa pagsasalin ng app na ito sa iyong paboritong wika.</string>
     <string name="translators_thanks_title">Mga Tagasalin</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Tagumpay</string>
     <string name="troubleshooter_ble_result_success_body">Natatanggap ng CAPod ang mga BLE advertisement broadcast.</string>
     <string name="troubleshooter_ble_result_failure_title">Hindi matagumpay</string>
-    <string name="troubleshooter_ble_result_failure_body">Nabigo ang pag-troubleshoot. Walang kumbinasyon ng mga opsyon sa compatibility ang nakatulong.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Hindi nakatanggap ng anumang BLE data ang iyong telepono. Maaari mong subukang muli ang test na ito sa isang mataong lugar para makita kung matatanggap ang mga data source (maliban sa iyong mga headphone). Ang hindi pagtanggap ng data ay tumutukoy sa isang isyu sa operating system ng iyong telepono.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Nakatanggap ng BLE data ang iyong telepono, ngunit hindi nagmula ang data sa anumang suportadong device. Naka-on ba ang iyong mga headphone? Sinusuportahan ba ng CAPod ang iyong headphone?</string>
-    <string name="troubleshooter_ble_result_failure_action">Subukang muli</string>
-    <string name="troubleshoot_action">I-troubleshoot</string>
     <string name="onboarding_body1">Nagdaragdag ang app na ito ng suporta para sa mga partikular na feature ng AirPod sa Android.</string>
     <string name="onboarding_body2">Hindi lahat ng Android device ay ganap na sumusuporta sa mga dagdag na feature ng AirPod. Nangangailangan ang iyong operating system ng wastong gumaganang implementasyon ng Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Walang mga ad ang CAPod at hindi nangongolekta ng iyong data.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Nakakonekta ang iyong device, ngunit hindi nakakatanggap ng live data ang CAPod mula rito. Maaaring kailanganin ng iyong telepono ng opsyon sa compatibility — maaaring subukang hanapin ito nang awtomatiko ng troubleshooter.</string>
     <string name="overview_troubleshoot_suggestion_action">Patakbuhin ang troubleshooter</string>
     <string name="overview_unmatched_devices_label">Mga hindi nakatugmang device</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d device na walang katugmang profile</item>
-        <item quantity="other">%d mga device na walang katugmang profile</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Natukoy ang %d katabing device na walang katugmang profile. Ipakita ito para sa mga available na detalye. Kung sa iyo ito, magdagdag ng profile mula sa Mga Device para makilala ito.</item>
         <item quantity="other">Natukoy ang %d katabing device na walang katugmang mga profile. Ipakita ang mga ito para sa mga available na detalye. Kung sa iyo ang isa, magdagdag ng profile mula sa Mga Device para makilala ito.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">Ginagamit ng CAPod ang \"access sa lokasyon sa background\" para paganahin ang mga feature tulad ng \"Ipakita ang PopUp\" at \"AutoConnect\" habang sarado ang app. Pinapayagan ng access sa lokasyon sa background ang app na makatanggap ng data ng Bluetooth Low Energy habang nasa background. HINDI gagamitin ng app na ito ang data ng Bluetooth para matukoy ang iyong lokasyon.</string>
     <string name="permission_ignore_battery_optimizations_label">I-disable ang mga battery optimization</string>
     <string name="permission_ignore_battery_optimizations_description">Pinipigilan ng mga battery optimization ang app na ito na mapagkakatiwalaang makatanggap ng data ng Bluetooth habang nasa background ang app.</string>
-    <string name="permission_required_title">Kailangan ang sumusunod na pahintulot:</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
     <string name="permission_system_alert_window_description">Payagan ang CAPod na mag-draw sa ibabaw ng ibang mga app para maging posible ang feature na \"Ipakita ang PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kapag nakita</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Nasa tainga</string>
     <string name="pods_dual_left_label">Kaliwang pod</string>
     <string name="pods_dual_right_label">Kanang pod</string>
-    <string name="pods_dual_left_short_label">K</string>
-    <string name="pods_dual_right_short_label">K</string>
-    <string name="pods_case_label">Case</string>
     <string name="battery_unavailable_label">Hindi available ang baterya</string>
     <string name="battery_state_low_cd">Mababa ang baterya</string>
     <string name="battery_state_critical_cd">Kritikal na mababa ang baterya</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Aktibong direktang koneksyon</string>
     <string name="signal_indicator_bars_cd">Lakas ng signal: %1$d sa 4 na bar</string>
     <string name="signal_indicator_disconnected_cd">Signal: hindi nakakonekta</string>
-    <string name="pods_yours">Sa iyo</string>
     <string name="headset_being_worn_label">Nakasuot</string>
     <string name="headset_not_being_worn_label">Hindi nakasuot</string>
     <string name="pods_case_unknown_state">Hindi kilalang estado</string>
-    <string name="last_seen_x">Huling nakita: %s</string>
-    <string name="first_seen_x">Unang nakita: %s</string>
     <string name="battery_cached_label">Huling kilala · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$d h</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Minimum na Kalidad ng Signal</string>
     <string name="profiles_signal_quality_description">Tukuyin lang ang mga device na may lakas ng signal na mas mataas sa threshold na ito. Ang mas mababang halaga ay nagpapalawak ng saklaw ng pagtukoy ngunit maaaring magdulot ng mga maling positibo. Huwag itong itakda ng masyadong mataas - ang pagtanggap ng Bluetooth ay karaniwang mahina at nagbabago depende sa distansya at mga hadlang.</string>
     <string name="profiles_identitykey_label">Identity Key</string>
-    <string name="profilessettings_maindevice_identitykey_description">Ang Identity Resolving Key (IRK) ng iyong device, na tumutulong sa CAPod na makilala ito sa mga kalapit na device.</string>
     <string name="profiles_maindevice_identitykey_explanation">Madalas nagpapalit ang AirPods ng kanilang Bluetooth address para sa privacy. Tinutulungan ng IRK ang CAPod na makilala ang iyong device. Kailangan mo ng isang beses na access sa isang MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ang encryption key ng iyong device, na nagpapahintulot sa CAPod na kunin ang detalyadong impormasyon ng status.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Nagpapadala ang AirPods ng status message, na ang bahagi ay naka-encrypt. Pinapayagan ng encryption key ang CAPod na i-decrypt ang buong mensahe. Kailangan mo ng isang beses na access sa isang MacBook.</string>
     <string name="profiles_key_invalid_format">Hindi wastong format ng key</string>
     <string name="profiles_key_expected_format">Inaasahang format: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Mayroon kang mga hindi na-save na pagbabago. Ano ang gusto mong gawin?</string>
     <string name="general_save_and_exit_action">I-save &amp; Lumabas</string>
     <string name="general_discard_action">I-discard</string>
-    <string name="general_keep_editing_action">Magpatuloy sa pag-edit</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Masyadong maikli ang recording</string>
     <string name="debug_debuglog_short_recording_message">Ang debug log ay kailangang makuha ang isyu habang nangyayari ito. Patuloy na i-record, i-reproduce ang problema, pagkatapos ay itigil ang recording.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Mga Setting ng Device</string>
     <string name="device_settings_subtitle_profile_prefix">Profile: %s</string>
-    <string name="device_settings_info_name_label">Pangalan</string>
     <string name="device_settings_info_bt_name_label">Label ng Bluetooth Device</string>
     <string name="device_settings_info_model_label">Modelo</string>
     <string name="device_settings_info_manufacturer_label">Tagagawa</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Siguro mamaya</string>
     <string name="review_app_body">Gusto ba ninyong mag-iwan ng pagsusuri para sa CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>
     <string name="device_settings_microphone_mode_description">Kung aling earbud ang ginagamit bilang mikropono</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>

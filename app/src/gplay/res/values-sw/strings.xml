@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Huduma za Google Play hazipatikani.</string>
-    <string name="upgrades_no_purchases_found_check_account">Hakuna manunuzi yaliyopatikana. Je, unatumia akaunti sahihi?</string>
     <string name="upgrades_gplay_billing_error_label">Hitilafu ya Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Kulikuwa na hitilafu katika Google Play. Tafadhali jaribu tena baadaye au uzime na uwashe simu yako.\n\nHitilafu: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Hitilafu ya malipo ya Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Kulikuwa na hitilafu wakati wa kuomba maelezo ya ununuzi wako kutoka Google Play. Futa kashe ya Google Play na uzime na uwashe simu yako.\n\nHitilafu %s</string>
     <string name="upgrades_gplay_already_owned_label">Je, umeshanunua?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play inaripoti kuwa tayari unamiliki uboreshaji huu, lakini haukuweza kurejeshwa. Hakikisha unatumia akaunti ya Google uliyotumia kununua. Usawazishaji wa Play Store unaweza kuchukua muda — jaribu kuwasha upya kifaa, kufuta hifadhi ya Google Play au kusubiri tu.</string>
-    <string name="upgrade_restore_action">Rejesha ununuzi</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Pata %1$s</string>
     <string name="upgrade_preamble">CAPod inatengenezwa na mtu mmoja tu. Kuboresha kunafungua vipengele vya ziada na kusaidia kuendeleza programu hii.</string>
-    <string name="upgrade_screen_options_description">Vipengele sawa, bei tofauti. Usajili unajumuisha jaribio la bure na unaweza kughairiwa wakati wowote.</string>
-    <string name="upgrade_screen_options_description_no_trial">Vipengele sawa, bei tofauti. Usajili unaweza kughairiwa wakati wowote.</string>
     <string name="upgrade_screen_subscription_trial_action">Anza jaribio la bure</string>
     <string name="upgrade_screen_subscription_action">Jisajili kila mwaka</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/mwaka</string>
     <string name="upgrade_screen_iap_action">Nunua mara moja</string>
-    <string name="upgrade_screen_iap_action_hint">Ununuzi wa mara moja: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
-    <string name="upgrade_screen_restore_purchase_message">Hakuna manunuzi yaliyopatikana. Je, unatumia akaunti sahihi?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ikiwa umenunua hivi karibuni, inaweza kuchukua muda kidogo kwa Google Play kusawazisha.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Jaribu tena baada ya dakika chache ikiwa ununuzi wako haujaonekana.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Hakikisha umeingia na akaunti ile ile ya Google uliyotumia kununua.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Akaunti nyingi zinaweza kuchanganya Google Play. Kusakinisha programu kupitia tovuti ya Google Play kunalazimisha uhusiano na akaunti mahususi.</string>
     <string name="upgrade_screen_restore_banner_title">Je, tayari umenunua Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Inaonekana ulishaboresha hadi Pro kwenye kifaa hiki hapo awali. Rejesha ununuzi wako ili kuifungua tena.</string>
     <string name="upgrade_screen_restore_success_message">Ununuzi umerejeshwa.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Una CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Imefunguliwa na usajili wako. Asante kwa kuunga mkono CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Imefunguliwa na ununuzi wako wa mara moja. Asante kwa kuunga mkono CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Usajili wa kila mwaka</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Usajili wako unatumika na umewekwa kujiongeza upya. Malipo yanasimamiwa na Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Usajili wako unatumika, lakini haujawekwa kujiongeza upya. Pro itaendelea kupatikana hadi kipindi cha sasa kitakapomalizika.</string>
     <string name="upgrade_screen_owned_iap_title">Ununuzi wa mara moja</string>

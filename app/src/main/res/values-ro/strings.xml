@@ -3,7 +3,6 @@
     <string name="general_share_action">Distribuie</string>
     <string name="general_done_action">Efectuat</string>
     <string name="general_cancel_action">Anulare</string>
-    <string name="general_copy_action">Copiază</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_upgrade_action">Actualizare</string>
     <string name="general_retry_action">Reîncearcă</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Verifică</string>
     <string name="general_close_action">Închide</string>
     <string name="general_dismiss_action">Respinge</string>
-    <string name="general_edit_action">Editează</string>
     <string name="general_save_action">Salvare</string>
     <string name="general_guide_action">Ghid</string>
     <string name="general_continue_action">Continuă</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Reia muzica când porți din nou căștile, dar numai dacă Auto pauză a oprit-o. Pauzele pe care le-ai declanșat tu (telefon, tijă AirPods, somn) rămân în pauză.</string>
     <string name="settings_start_music_on_wear_label">Pornește muzica la purtare</string>
     <string name="settings_start_music_on_wear_description">Încearcă întotdeauna să redea muzica când îți pui căștile, chiar și după o pauză manuală.</string>
-    <string name="settings_eardetection_info_label">Notă despre detectarea urechii</string>
     <string name="settings_eardetection_info_description">Dacă detectarea urechii funcționează doar pentru o cască, aceasta este o limitare Apple. Doar \"căștile principale\" (folosite pentru microfon) sunt detectate. Configurați pe dispozitivele Apple: Setări → Bluetooth → AirPods → Microfon.</string>
-    <string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
-    <string name="settings_signal_minimum_description">Calitatea minimă a semnalului pe care trebuie să o aibă un dispozitiv trebuie să fie considerată a dvs.</string>
     <string name="settings_autoconnect_label">Conectare automată</string>
     <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îi putem cere și noi. Aceasta menține monitorizarea CAPod în fundal în permanență.</string>
     <string name="settings_autoconnect_info_android12">Conectarea automată se bazează pe o funcție de sistem restricționată în Android 12 și versiunile mai noi. Este posibil să nu funcționeze pe dispozitivul tău.</string>
     <string name="settings_autoconnect_condition_label">Condiția de conectare automată</string>
-    <string name="settings_autoconnect_condition_description">Când ar trebui să încercăm să ne conectăm la dispozitivul dvs.?</string>
     <string name="settings_devices_label">Dispozitive</string>
     <string name="settings_devices_description">Gestionați dispozitivele dvs.</string>
     <string name="settings_reaction_label">Reacții</string>
-    <string name="settings_category_yourdevice_label">Dispozitivul tău</string>
     <string name="settings_category_compatibility_options_title">Opțiuni de compatibilitate</string>
     <string name="settings_category_compatibility_options_description">Nu atingeți dacă totul funcționează ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Dezactivați filtrarea hardware-ului</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Se inițiază…</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
     <string name="support_debuglog_desc">Înregistrați tot ce face aplicația într-un fișier text pe care îl puteți partaja.</string>
-    <string name="debug_debuglog_size_label">Dimensiune</string>
-    <string name="debug_debuglog_size_compressed_label">Dimensiune comprimată</string>
-    <string name="debug_notification_channel_label">Notificări de depanare</string>
-    <string name="debug_debuglog_file_label">Fișier jurnal înregistrat</string>
-    <string name="debug_debuglog_recording_progress">Înregistrare jurnal de depanare</string>
     <string name="debug_debuglog_record_action">Înregistrare jurnal de depanare</string>
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (de exemplu, detalii despre dispozitivul Bluetooth). Partajați-l numai cu terți de încredere.</string>
     <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, detalii despre dispozitivul Bluetooth). Partajați-l numai cu terți de încredere (de exemplu, un dezvoltator care depanează o problemă).</string>
-    <string name="settings_support_installid_label">ID de instalare</string>
-    <string name="settings_support_installid_desc">Rapoartele automate de eroare sunt anonime. Partajați ID-ul de instalare dacă dezvoltatorul trebuie să vă găsească rapoartele de eroare.</string>
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Dacă ai nevoie de ajutor.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Resetezi datele învățate?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod va uita consumul măsurat al acestui dispozitiv, viteza de încărcare și timpul de ascultare, și va porni din nou de la durata de viață a bateriei nominale.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
-    <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
-    <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
-    <string name="settings_compatibility_mode_label">Mod de compatibilitate</string>
-    <string name="settings_compatibility_mode_description">Dezactivați optimizările pentru a îmbunătăți compatibilitatea. Încercați acest lucru dacă nu vedeți nicio dată.</string>
     <string name="help_translate_label">Traducere</string>
     <string name="help_translate_description">Ajută la traducerea acestei aplicații în limba ta preferată.</string>
     <string name="translators_thanks_title">Traducători</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Succes</string>
     <string name="troubleshooter_ble_result_success_body">Emisiunile de reclame BLE sunt recepționate de CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Eșuat</string>
-    <string name="troubleshooter_ble_result_failure_body">Depanarea eșuată. Nici una din opțiunile de compatibilitate, nu a ajutat.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Telefonul dvs. nu a primit deloc date BLE. Puteți reîncerca acest test într-o zonă aglomerată pentru a vedea dacă sursele de date (altele decât căștile) pot fi recepționate. Nicio dată primită indică o problemă cu sistemul de operare al telefonului dvs.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonul dvs. a recepționat date BLE, dar datele nu provin de la niciun dispozitiv suportat. Căștile tale sunt pornite? CAPod suportă căștile dvs.?</string>
-    <string name="troubleshooter_ble_result_failure_action">Încearcă din nou</string>
-    <string name="troubleshoot_action">Depanare</string>
     <string name="onboarding_body1">Această aplicație adaugă suport pentru caracteristicile specifice AirPod pentru Android.</string>
     <string name="onboarding_body2">Nu toate dispozitivele Android acceptă pe deplin funcțiile suplimentare AirPod. Sistemul dvs. de operare necesită o implementare Bluetooth Energie Scăzută (BLE) care funcționează corect.</string>
     <string name="onboarding_body3">CAPod nu conține reclame și nu colectează datele dumneavoastră.</string>
@@ -207,11 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Dispozitivul tău este conectat, dar CAPod nu primește date în timp real de la acesta. Este posibil ca telefonul tău să aibă nevoie de o opțiune de compatibilitate — depuratorul poate încerca să găsească una automat.</string>
     <string name="overview_troubleshoot_suggestion_action">Rulează depuratorul</string>
     <string name="overview_unmatched_devices_label">Dispozitive fără corespondență</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d dispozitiv fără profil corespunzător</item>
-        <item quantity="few">%d dispozitive fără profil corespunzător</item>
-        <item quantity="other">%d de dispozitive fără profil corespunzător</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">A fost detectat %d dispozitiv din apropiere fără un profil corespunzător. Afișează-l pentru detalii disponibile. Dacă este al tău, adaugă un profil din Dispozitive pentru a-l recunoaște.</item>
         <item quantity="few">Au fost detectate %d dispozitive din apropiere fără profiluri corespunzătoare. Afișează-le pentru detalii disponibile. Dacă unul este al tău, adaugă un profil din Dispozitive pentru a-l recunoaște.</item>
@@ -234,7 +208,6 @@
     <string name="permission_background_location_description">CAPod folosește \"Accesul la locația în fundal\" pentru a activa funcții precum \"Afișare popup\" și \"Conectare automată\" când aplicația este închisă. Accesul la locația în fundal permite aplicației să primească date Bluetooth Energie Scăzută în fundal. Această aplicație NU va folosi datele Bluetooth pentru a vă determina locația.</string>
     <string name="permission_ignore_battery_optimizations_label">Dezactivare optimizări baterie</string>
     <string name="permission_ignore_battery_optimizations_description">Optimizările bateriei împiedică această aplicație să primească în mod fiabil date Bluetooth când aplicația este în fundal.</string>
-    <string name="permission_required_title">Următoarea permisiune este necesară:</string>
     <string name="permission_system_alert_window_label">Fereastră alertă sistem</string>
     <string name="permission_system_alert_window_description">Permiteți CAPod să deseneze peste alte aplicații pentru a face posibilă funcția \"Afișare PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Când este detectat</string>
@@ -242,9 +215,6 @@
     <string name="settings_reaction_autoconnect_inear_label">În ureche</string>
     <string name="pods_dual_left_label">Cască stângă</string>
     <string name="pods_dual_right_label">Cască dreaptă</string>
-    <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Carcasă</string>
     <string name="battery_unavailable_label">Baterie indisponibilă</string>
     <string name="battery_state_low_cd">Baterie scăzută</string>
     <string name="battery_state_critical_cd">Baterie critic de scăzută</string>
@@ -299,12 +269,9 @@
     <string name="signal_badge_aap_cd">Conexiune directă activă</string>
     <string name="signal_indicator_bars_cd">Putere semnal: %1$d din 4 bare</string>
     <string name="signal_indicator_disconnected_cd">Semnal: deconectat</string>
-    <string name="pods_yours">Al tău</string>
     <string name="headset_being_worn_label">Este purtat</string>
     <string name="headset_not_being_worn_label">Nu este purtat</string>
     <string name="pods_case_unknown_state">Stare necunoscută</string>
-    <string name="last_seen_x">Ultima detectare: %s</string>
-    <string name="first_seen_x">Prima detectare: %s</string>
     <string name="battery_cached_label">Ultimul cunoscut · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -334,10 +301,8 @@
     <string name="profiles_signal_quality_title">Calitate Minimă a Semnalului</string>
     <string name="profiles_signal_quality_description">Detectați doar dispozitivele cu puterea semnalului peste acest prag. Valorile mai mici cresc raza de detectare, dar pot cauza fals pozitive. Nu setați prea mare - recepția Bluetooth este în general slabă și variază în funcție de distanță și obstacole.</string>
     <string name="profiles_identitykey_label">Cheie de Identitate</string>
-    <string name="profilessettings_maindevice_identitykey_description">Cheia de Rezolvare a Identității (IRK) a dispozitivului dvs., care ajută CAPod să-l identifice printre dispozitivele din apropiere.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods-urile își schimbă frecvent adresa Bluetooth pentru confidențialitate. IRK-ul ajută CAPod să recunoască dispozitivul dvs. Aveți nevoie de acces unic la un MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Cheie de Criptare</string>
-    <string name="profiles_maindevice_encryptionkey_description">Cheia de criptare a dispozitivului dvs., care permite CAPod să obțină informații detaliate despre stare.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods-urile trimit un mesaj de stare, o parte din care este criptat. Cheia de criptare permite CAPod să decripteze mesajul complet. Aveți nevoie de acces unic la un MacBook.</string>
     <string name="profiles_key_invalid_format">Format cheie invalid</string>
     <string name="profiles_key_expected_format">Format așteptat: %1$s</string>
@@ -370,7 +335,6 @@
     <string name="general_unsaved_changes_message">Aveți modificări nesalvate. Ce doriți să faceți?</string>
     <string name="general_save_and_exit_action">Salvare &amp; Ieșire</string>
     <string name="general_discard_action">Renunță</string>
-    <string name="general_keep_editing_action">Continuă Editarea</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Înregistrare prea scurtă</string>
     <string name="debug_debuglog_short_recording_message">Un jurnal de depanare trebuie să surprindă problema în timp ce apare. Continuați înregistrarea, reproduceți problema, apoi opriți înregistrarea.</string>
@@ -444,7 +408,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Setări dispozitiv</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Nume</string>
     <string name="device_settings_info_bt_name_label">Etichetă dispozitiv Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producător</string>
@@ -524,7 +487,6 @@
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Ți-ar plăcea să lași o recenzie pentru CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
     <string name="device_settings_microphone_mode_description">Care cășcă este folosită ca microfon</string>
     <string name="device_settings_microphone_mode_auto">Automat</string>

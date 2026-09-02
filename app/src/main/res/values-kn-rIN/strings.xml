@@ -3,7 +3,6 @@
     <string name="general_share_action">ಹಂಚಿಕೊಳ್ಳಿ</string>
     <string name="general_done_action">ಮುಗಿದಿದೆ</string>
     <string name="general_cancel_action">ರದ್ದುಮಾಡಿ</string>
-    <string name="general_copy_action">ನಕಲಿಸಿ</string>
     <string name="general_thank_you_label">ಧನ್ಯವಾದಗಳು</string>
     <string name="general_upgrade_action">ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
     <string name="general_retry_action">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">ಪರಿಶೀಲಿಸಿ</string>
     <string name="general_close_action">ಮುಚ್ಚಿ</string>
     <string name="general_dismiss_action">ತಿರಸ್ಕರಿಸಿ</string>
-    <string name="general_edit_action">ಸಂಪಾದಿಸಿ</string>
     <string name="general_save_action">ಉಳಿಸಿ</string>
     <string name="general_guide_action">ಮಾರ್ಗದರ್ಶಿ</string>
     <string name="general_continue_action">ಮುಂದುವರಿಸಿ</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">ನಿಮ್ಮ ಪಾಡ್‌ಗಳನ್ನು ಮತ್ತೆ ಧರಿಸಿದಾಗ ಸಂಗೀತವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ, ಆದರೆ ಆಟೋ ಪಾಸ್ ನಿಲ್ಲಿಸಿದ್ದರೆ ಮಾತ್ರ. ನೀವೇ ಪ್ರಚೋದಿಸಿದ ವಿರಾಮಗಳು (ಫೋನ್, AirPods ಸ್ಟೆಮ್, ನಿದ್ರೆ) ವಿರಾಮದಲ್ಲಿ ಉಳಿಯುತ್ತವೆ.</string>
     <string name="settings_start_music_on_wear_label">ಧರಿಸಿದಾಗ ಸಂಗೀತ ಪ್ರಾರಂಭಿಸಿ</string>
     <string name="settings_start_music_on_wear_description">ನಿಮ್ಮ ಪಾಡ್‌ಗಳನ್ನು ಹಾಕಿಕೊಂಡಾಗ ಯಾವಾಗಲೂ ಸಂಗೀತ ಪ್ಲೇ ಮಾಡಲು ಪ್ರಯತ್ನಿಸುತ್ತದೆ, ಮ್ಯಾನ್ಯುವಲ್ ವಿರಾಮದ ನಂತರವೂ ಸಹ.</string>
-    <string name="settings_eardetection_info_label">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಟಿಪ್ಪಣಿ</string>
     <string name="settings_eardetection_info_description">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಒಂದು ಪಾಡ್‌ಗೆ ಮಾತ್ರ ಕೆಲಸ ಮಾಡಿದರೆ, ಇದು Apple ಮಿತಿಯಾಗಿದೆ. \"ಪ್ರಾಥಮಿಕ ಪಾಡ್\" (ಮೈಕ್ರೋಫೋನ್‌ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ) ಮಾತ್ರ ಗುರುತಿಸಲಾಗುತ್ತದೆ. Apple ಸಾಧನಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ: ಸೆಟ್ಟಿಂಗ್‌ಗಳು → Bluetooth → AirPods → ಮೈಕ್ರೋಫೋನ್.</string>
-    <string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
-    <string name="settings_signal_minimum_description">ನಿಮ್ಮದೆಂದು ಪರಿಗಣಿಸಲು ಸಾಧನವು ಹೊಂದಿರಬೇಕಾದ ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ.</string>
     <string name="settings_autoconnect_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
     <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಿಸದಿದ್ದರೆ, ನಾವು ಅದನ್ನು ಕೇಳಬಹುದು. ಇದರಿಂದ CAPod ಯಾವಾಗಲೂ ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಮಾನಿಟರಿಂಗ್ ಮುಂದುವರಿಸುತ್ತದೆ.</string>
     <string name="settings_autoconnect_info_android12">ಆಟೋ ಕನೆಕ್ಟ್ Android 12 ಮತ್ತು ಹೊಸ ಆವೃತ್ತಿಗಳು ನಿರ್ಬಂಧಿಸುವ ಸಿಸ್ಟಮ್ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಅವಲಂಬಿಸಿದೆ. ಇದು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಕಾರ್ಯ ನಿರ್ವಹಿಸದಿರಬಹುದು.</string>
     <string name="settings_autoconnect_condition_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ ಸ್ಥಿತಿ</string>
-    <string name="settings_autoconnect_condition_description">ನಾವು ಯಾವಾಗ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಬೇಕು?</string>
     <string name="settings_devices_label">ಸಾಧನಗಳು</string>
     <string name="settings_devices_description">ನಿಮ್ಮ ಸಾಧನಗಳನ್ನು ನಿರ್ವಹಿಸಿ.</string>
     <string name="settings_reaction_label">ಪ್ರತಿಕ್ರಿಯೆಗಳು</string>
-    <string name="settings_category_yourdevice_label">ನಿಮ್ಮ ಸಾಧನ</string>
     <string name="settings_category_compatibility_options_title">ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳು</string>
     <string name="settings_category_compatibility_options_description">ಎಲ್ಲವೂ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದರೆ ಮುಟ್ಟಬೇಡಿ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ಹಾರ್ಡ್‌ವೇರ್ ಫಿಲ್ಟರಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…</string>
     <string name="support_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
     <string name="support_debuglog_desc">ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಪಠ್ಯ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
-    <string name="debug_debuglog_size_label">ಗಾತ್ರ</string>
-    <string name="debug_debuglog_size_compressed_label">ಸಂಕುಚಿತ ಗಾತ್ರ</string>
-    <string name="debug_notification_channel_label">ಡೀಬಗ್ ಅಧಿಸೂಚನೆಗಳು</string>
-    <string name="debug_debuglog_file_label">ರೆಕಾರ್ಡ್ ಮಾಡಿದ ಲಾಗ್ ಫೈಲ್</string>
-    <string name="debug_debuglog_recording_progress">ಡೀಬಗ್ ಲಾಗ್ ರೆಕಾರ್ಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="debug_debuglog_record_action">ಡೀಬಗ್ ಲಾಗ್ ರೆಕಾರ್ಡ್ ಮಾಡಿ</string>
     <string name="debug_debuglog_stop_action">ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ</string>
     <string name="debug_debuglog_sensitive_information_message">ರಚಿಸಲಾದ ಫೈಲ್ ಸೂಕ್ಷ್ಮ ಮಾಹಿತಿಯನ್ನು (ಉದಾ. Bluetooth ಸಾಧನದ ವಿವರಗಳು) ಒಳಗೊಂಡಿದೆ. ಅದನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಪಕ್ಷಗಳೊಂದಿಗೆ ಮಾತ್ರ ಹಂಚಿಕೊಳ್ಳಿ.</string>
     <string name="settings_debuglog_explanation">ಈ ವೈಶಿಷ್ಟ್ಯವು ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡುತ್ತದೆ. ರಚಿಸಲಾದ ಫೈಲ್ ಸೂಕ್ಷ್ಮ ಮಾಹಿತಿಯನ್ನು (ಉದಾ. Bluetooth ಸಾಧನದ ವಿವರಗಳು) ಒಳಗೊಂಡಿದೆ. ಅದನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಪಕ್ಷಗಳೊಂದಿಗೆ ಮಾತ್ರ ಹಂಚಿಕೊಳ್ಳಿ (ಉದಾ. ಸಮಸ್ಯೆಯನ್ನು ನಿವಾರಿಸುತ್ತಿರುವ ಡೆವಲಪರ್).</string>
-    <string name="settings_support_installid_label">ಇನ್‌ಸ್ಟಾಲ್ ಐಡಿ</string>
-    <string name="settings_support_installid_desc">ಸ್ವಯಂಚಾಲಿತ ದೋಷ ವರದಿಗಳು ಅನಾಮಧೇಯವಾಗಿವೆ. ಡೆವಲಪರ್‌ಗೆ ನಿಮ್ಮ ದೋಷ ವರದಿಗಳನ್ನು ಹುಡುಕಬೇಕಾದರೆ ನಿಮ್ಮ ಇನ್‌ಸ್ಟಾಲ್ ಐಡಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.</string>
     <string name="settings_support_label">ಬೆಂಬಲ</string>
     <string name="settings_support_description">ನಿಮಗೆ ಸ್ವಲ್ಪ ಸಹಾಯ ಬೇಕಾದರೆ.</string>
     <string name="settings_wiki_label">ವಿಕಿ</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">ಕಲಿತ ಮಾಹಿತಿ ಮರುಸೆಟ್ ಮಾಡಬೇಕೇ?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod ಈ ಸಾಧನದ ಅಳೆದ ಡ್ರೈನ್, ಚಾರ್ಜಿಂಗ ವೇಗ ಮತ್ತು ಶ್ರವಣ ಸಮಯವನ್ನು ಮರೆಯುತ್ತದೆ ಮತ್ತು ರೇಟ್ ಮಾಡಿದ ಬ್ಯಾಟರಿ ಆಯುಷ್ಯದಿಂದ ಮತ್ತೆ ಪ್ರಾರಂಭಿಸುತ್ತದೆ.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
-    <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
-    <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
-    <string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
-    <string name="settings_compatibility_mode_description">ಹೊಂದಾಣಿಕೆಯನ್ನು ಸುಧಾರಿಸಲು ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ನೀವು ಯಾವುದೇ ಡೇಟಾವನ್ನು ನೋಡದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="help_translate_label">ಅನುವಾದ</string>
     <string name="help_translate_description">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ನೆಚ್ಚಿನ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಸಹಾಯ ಮಾಡಿ.</string>
     <string name="translators_thanks_title">ಅನುವಾದಕರು</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">ಯಶಸ್ಸು</string>
     <string name="troubleshooter_ble_result_success_body">BLE ಜಾಹೀರಾತು ಪ್ರಸಾರಗಳನ್ನು CAPod ಸ್ವೀಕರಿಸುತ್ತಿದೆ.</string>
     <string name="troubleshooter_ble_result_failure_title">ವಿಫಲವಾಗಿದೆ</string>
-    <string name="troubleshooter_ble_result_failure_body">ಸಮಸ್ಯೆ ನಿವಾರಣೆ ವಿಫಲವಾಗಿದೆ. ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳ ಯಾವುದೇ ಸಂಯೋಜನೆಯು ಸಹಾಯ ಮಾಡಲಿಲ್ಲ.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">ನಿಮ್ಮ ಫೋನ್ ಯಾವುದೇ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಲಿಲ್ಲ. ಡೇಟಾ ಮೂಲಗಳನ್ನು (ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಹೊರತುಪಡಿಸಿ) ಸ್ವೀಕರಿಸಬಹುದೇ ಎಂದು ನೋಡಲು ನೀವು ಈ ಪರೀಕ್ಷೆಯನ್ನು ಜನನಿಬಿಡ ಪ್ರದೇಶದಲ್ಲಿ ಮರುಪ್ರಯತ್ನಿಸಬಹುದು. ಯಾವುದೇ ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸದಿರುವುದು ನಿಮ್ಮ ಫೋನ್‌ನ ಆಪರೇಟಿಂಗ್ ಸಿಸ್ಟಮ್‌ನಲ್ಲಿನ ಸಮಸ್ಯೆಯನ್ನು ಸೂಚಿಸುತ್ತದೆ.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">ನಿಮ್ಮ ಫೋನ್ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಿದೆ, ಆದರೆ ಡೇಟಾ ಯಾವುದೇ ಬೆಂಬಲಿತ ಸಾಧನದಿಂದ ಬರುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳು ಆನ್ ಆಗಿವೆಯೇ? CAPod ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?</string>
-    <string name="troubleshooter_ble_result_failure_action">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
-    <string name="troubleshoot_action">ಸಮಸ್ಯೆ ನಿವಾರಿಸಿ</string>
     <string name="onboarding_body1">ಈ ಅಪ್ಲಿಕೇಶನ್ Android ಗೆ AirPod ನಿರ್ದಿಷ್ಟ ವೈಶಿಷ್ಟ್ಯಗಳಿಗೆ ಬೆಂಬಲವನ್ನು ಸೇರಿಸುತ್ತದೆ.</string>
     <string name="onboarding_body2">ಎಲ್ಲಾ Android ಸಾಧನಗಳು ಹೆಚ್ಚುವರಿ AirPod ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ ಆಪರೇಟಿಂಗ್ ಸಿಸ್ಟಮ್‌ಗೆ ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಬ್ಲೂಟೂತ್-ಕಡಿಮೆ-ಶಕ್ತಿಯ ಅನುಷ್ಠಾನದ ಅಗತ್ಯವಿದೆ.</string>
     <string name="onboarding_body3">CAPod ಯಾವುದೇ ಜಾಹೀರಾತುಗಳನ್ನು ಹೊಂದಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">ನಿಮ್ಮ ಸಾಧನ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ, ಆದರೆ CAPod ಅದರಿಂದ ಯಾವುದೇ ಲೈವ್ ಡೇಟಾ ಸ್ವೀಕರಿಸುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಯ ಅಗತ್ಯವಿರಬಹುದು — ಸಮಸ್ಯೆ ನಿವಾರಕ ಒಂದನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹುಡುಕಲು ಪ್ರಯತ್ನಿಸಬಹುದು.</string>
     <string name="overview_troubleshoot_suggestion_action">ಸಮಸ್ಯೆ ನಿವಾರಕ ರನ್ ಮಾಡಿ</string>
     <string name="overview_unmatched_devices_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳು</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನ</item>
-        <item quantity="other">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನಗಳು</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d ಸಮೀಪದ ಸಾಧನವು ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದೆ ಪತ್ತೆಯಾಗಿದೆ. ಲಭ್ಯವಿರುವ ವಿವರಗಳಿಗಾಗಿ ಅದನ್ನು ತೋರಿಸಿ. ಇದು ನಿಮ್ಮದಾಗಿದ್ದರೆ, ಅದನ್ನು ಗುರುತಿಸಲು ಸಾಧನಗಳಿಂದ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಿ.</item>
         <item quantity="other">%d ಸಮೀಪದ ಸಾಧನಗಳು ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್‌ಗಳಿಲ್ಲದೆ ಪತ್ತೆಯಾಗಿವೆ. ಲಭ್ಯವಿರುವ ವಿವರಗಳಿಗಾಗಿ ಅವುಗಳನ್ನು ತೋರಿಸಿ. ಒಂದು ನಿಮ್ಮದಾಗಿದ್ದರೆ, ಅದನ್ನು ಗುರುತಿಸಲು ಸಾಧನಗಳಿಂದ ಪ್ರೊಫೈಲ್ ಸೇರಿಸಿ.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">ಅಪ್ಲಿಕೇಶನ್ ಮುಚ್ಚಿರುವಾಗ \"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ಮತ್ತು \"ಸ್ವಯಂ-ಸಂಪರ್ಕ\" ನಂತಹ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು CAPod \"ಹಿನ್ನೆಲೆ ಸ್ಥಳ ಪ್ರವೇಶ\" ಬಳಸುತ್ತದೆ. ಹಿನ್ನೆಲೆ ಸ್ಥಳ ಪ್ರವೇಶವು ಅಪ್ಲಿಕೇಶನ್ ಹಿನ್ನೆಲೆಯಲ್ಲಿರುವಾಗ Bluetooth Low Energy ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ನಿರ್ಧರಿಸಲು Bluetooth ಡೇಟಾವನ್ನು ಬಳಸುವುದಿಲ್ಲ.</string>
     <string name="permission_ignore_battery_optimizations_label">ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="permission_ignore_battery_optimizations_description">ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳು ಅಪ್ಲಿಕೇಶನ್ ಹಿನ್ನೆಲೆಯಲ್ಲಿರುವಾಗ Bluetooth ಡೇಟಾವನ್ನು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಸ್ವೀಕರಿಸುವುದನ್ನು ತಡೆಯುತ್ತವೆ.</string>
-    <string name="permission_required_title">ಕೆಳಗಿನ ಅನುಮತಿ ಅಗತ್ಯವಿದೆ:</string>
     <string name="permission_system_alert_window_label">ಸಿಸ್ಟಮ್ ಅಲರ್ಟ್ ವಿಂಡೋ</string>
     <string name="permission_system_alert_window_description">\"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಾಧ್ಯವಾಗಿಸಲು CAPod ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ಕಂಡಾಗ</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
     <string name="pods_dual_left_label">ಎಡ ಪಾಡ್</string>
     <string name="pods_dual_right_label">ಬಲ ಪಾಡ್</string>
-    <string name="pods_dual_left_short_label">ಎ</string>
-    <string name="pods_dual_right_short_label">ಬ</string>
-    <string name="pods_case_label">ಕೇಸ್</string>
     <string name="battery_unavailable_label">ಬ್ಯಾಟರಿ ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="battery_state_low_cd">ಬ್ಯಾಟರಿ ಕಡಿಮೆ</string>
     <string name="battery_state_critical_cd">ಬ್ಯಾಟರಿ ತುಂಬಾ ಕಡಿಮೆ</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">ನೇರ ಸಂಪರ್ಕ ಸಕ್ರಿಯವಾಗಿದೆ</string>
     <string name="signal_indicator_bars_cd">ಸಿಗ್ನಲ್ ಶಕ್ತಿ: 4 ಬಾರ್‌ಗಳಲ್ಲಿ %1$d</string>
     <string name="signal_indicator_disconnected_cd">ಸಿಗ್ನಲ್: ಸಂಪರ್ಕ ಕಡಿತವಾಗಿದೆ</string>
-    <string name="pods_yours">ನಿಮ್ಮದು</string>
     <string name="headset_being_worn_label">ಧರಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="headset_not_being_worn_label">ಧರಿಸಲಾಗಿಲ್ಲ</string>
     <string name="pods_case_unknown_state">ಅಜ್ಞಾತ ಸ್ಥಿತಿ</string>
-    <string name="last_seen_x">ಕೊನೆಯ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
-    <string name="first_seen_x">ಮೊದಲ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
     <string name="battery_cached_label">ಕೊನೆಯಾಗಿ ತಿಳಿದಿದ್ದು · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dಘಂ %2$dನಿ</string>
     <string name="battery_time_remaining_format_h">%1$dಘಂ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
     <string name="profiles_signal_quality_description">ಈ ಮಿತಿಗಿಂತ ಹೆಚ್ಚಿನ ಸಿಗ್ನಲ್ ಸಾಮರ್ಥ್ಯವಿರುವ ಸಾಧನಗಳನ್ನು ಮಾತ್ರ ಗುರುತಿಸಿ. ಕಡಿಮೆ ಮೌಲ್ಯಗಳು ಗುರುತಿಸುವಿಕೆ ವ್ಯಾಪ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತವೆ ಆದರೆ ತಪ್ಪು ಗುರುತಿಸುವಿಕೆಗಳನ್ನು ಉಂಟುಮಾಡಬಹುದು. ಇದನ್ನು ತುಂಬಾ ಹೆಚ್ಚಿಗೆ ಹೊಂದಿಸಬೇಡಿ - Bluetooth ಸ್ವೀಕರಣವು ಸಾಮಾನ್ಯವಾಗಿ ಕಳಪೆಯಾಗಿರುತ್ತದೆ ಮತ್ತು ದೂರ ಹಾಗೂ ಅಡೆತಡೆಗಳೊಂದಿಗೆ ಬದಲಾಗುತ್ತದೆ.</string>
     <string name="profiles_identitykey_label">ಗುರುತಿನ ಕೀ</string>
-    <string name="profilessettings_maindevice_identitykey_description">ನಿಮ್ಮ ಸಾಧನದ ಗುರುತಿನ ರೆಸಲ್ವಿಂಗ್ ಕೀ (IRK), ಇದು ಹತ್ತಿರದ ಸಾಧನಗಳ ನಡುವೆ CAPod ಅದನ್ನು ಗುರುತಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ಗೌಪ್ಯತೆಗಾಗಿ ತಮ್ಮ Bluetooth ವಿಳಾಸವನ್ನು ಆಗಾಗ ಬದಲಾಯಿಸುತ್ತವೆ. IRK ನಿಮ್ಮ ಸಾಧನವನ್ನು CAPod ಗುರುತಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನಿಮಗೆ ಒಮ್ಮೆ MacBook ಪ್ರವೇಶ ಬೇಕು.</string>
     <string name="profiles_maindevice_encryptionkey_label">ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ</string>
-    <string name="profiles_maindevice_encryptionkey_description">ನಿಮ್ಮ ಸಾಧನದ ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ, ಇದು CAPod ಗೆ ವಿವರವಾದ ಸ್ಥಿತಿ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಅನುಮತಿಸುತ್ತದೆ.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ಸ್ಥಿತಿ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತವೆ, ಅದರ ಭಾಗವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಆಗಿರುತ್ತದೆ. ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ ಪೂರ್ಣ ಸಂದೇಶವನ್ನು CAPod ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಅನುಮತಿಸುತ್ತದೆ. ನಿಮಗೆ ಒಮ್ಮೆ MacBook ಪ್ರವೇಶ ಬೇಕು.</string>
     <string name="profiles_key_invalid_format">ಅಮಾನ್ಯ ಕೀ ಸ್ವರೂಪ</string>
     <string name="profiles_key_expected_format">ನಿರೀಕ್ಷಿತ ಸ್ವರೂಪ: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">ನೀವು ಉಳಿಸದ ಬದಲಾವಣೆಗಳನ್ನು ಹೊಂದಿದ್ದೀರಿ. ನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?</string>
     <string name="general_save_and_exit_action">ಉಳಿಸಿ &amp; ನಿರ್ಗಮಿಸಿ</string>
     <string name="general_discard_action">ತಿರಸ್ಕರಿಸಿ</string>
-    <string name="general_keep_editing_action">ಸಂಪಾದನೆ ಮುಂದುವರಿಸಿ</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ರೆಕಾರ್ಡಿಂಗ್ ತುಂಬಾ ಚಿಕ್ಕದು</string>
     <string name="debug_debuglog_short_recording_message">ಡೀಬಗ್ ಲಾಗ್ ಸಮಸ್ಯೆ ಸಂಭವಿಸುವಾಗ ಅದನ್ನು ಕಾಪ್ಚರ್ ಮಾಡಬೇಕು. ರೆಕಾರ್ಡಿಂಗ್ ಮುಂದುವರಿಸಿ, ಸಮಸ್ಯೆಯನ್ನು ಪುನರಾವರ್ತಿಸಿ, ನಂತರ ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">ಸಾಧನ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
     <string name="device_settings_subtitle_profile_prefix">ಪ್ರೊಫೈಲ್: %s</string>
-    <string name="device_settings_info_name_label">ಹೆಸರು</string>
     <string name="device_settings_info_bt_name_label">ಬ್ಲೂಟೂತ್ ಸಾಧನ ಲೇಬಲ್</string>
     <string name="device_settings_info_model_label">ಮಾದರಿ</string>
     <string name="device_settings_info_manufacturer_label">ತಯಾರಕ</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">ಬಹುಶಃ ನಂತರ</string>
     <string name="review_app_body">CAPod ಗೆ ವಿಮರ್ಶೆ ನೀಡಲು ನೀವು ಬಯಸುವಿರಾ? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">ಸಾಮಾನ್ಯ</string>
     <string name="device_settings_microphone_mode_label">ಮೈಕ್ರೊಫೋನ್</string>
     <string name="device_settings_microphone_mode_description">ಮೈಕ್ರೊಫೋನ್ ಆಗಿ ಯಾವ ಇಯರ್‌ಬಡ್ ಬಳಸಲಾಗುತ್ತದೆ</string>
     <string name="device_settings_microphone_mode_auto">ಆಟೋ</string>

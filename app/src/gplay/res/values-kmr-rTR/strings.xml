@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Xizmetên Google Play ne berdest in.</string>
-    <string name="upgrades_no_purchases_found_check_account">Kirîn nehatin dîtin. Hûn hesabê rast bikar tînin?</string>
     <string name="upgrades_gplay_billing_error_label">Çewtiya Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Di Google Play de çewtiyek çêbû. Ji kerema xwe paşê dîsa biceribîne an jî têlefona xwe ji nû ve bide destpêkirin.\n\nÇewtî: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Çewtiya Fatûrekirina Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Dema ku ji Google Play agahdariyên kirîna we hat xwestin çewtiyek çêbû. Pêşbîra Google Play paqij bikin û têlefona xwe ji nû ve bide destpêkirin.\n\nÇewtî %s</string>
     <string name="upgrades_gplay_already_owned_label">Jixwe kirriye?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play radigihîne ku vê nûvekirinê jixwe di destê te de ye, lê ew nehat vegerandin. Piştrast bike ku tu bi hesabê Google yê ku pê kirriye têkevî. Senkronîzasyona Play Store dibe ku demê bigire — biceribîne ku cîhazê ji nû ve bidî destpêkirin, cache\'ya Google Play paqij bike an tenê bisekine.</string>
-    <string name="upgrade_restore_action">Kirînê vegerîne</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Wergir %1$s</string>
     <string name="upgrade_preamble">CAPod ji aliyê kesekî yekane ve tê pêşxistin. Nûvekirin taybetmendiyên zêde vedike û dibe alîkar ku sepan berdewam bimîne.</string>
-    <string name="upgrade_screen_options_description">Heman taybetmendî, buhayên cuda. Abonetî ceribandineke belaş vedihewîne û her dem dikare bê betalkirin.</string>
-    <string name="upgrade_screen_options_description_no_trial">Heman taybetmendî, buhayên cuda. Abonetî her dem dikare bê betalkirin.</string>
     <string name="upgrade_screen_subscription_trial_action">Ceribandina belaş dest pê bike</string>
     <string name="upgrade_screen_subscription_action">Bi salane bibe abone</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/sal</string>
     <string name="upgrade_screen_iap_action">Carekê bikire</string>
-    <string name="upgrade_screen_iap_action_hint">Kirîna carekî: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Kirînê vegerîne</string>
-    <string name="upgrade_screen_restore_purchase_message">Kirîn nehatin dîtin. Hûn hesabê rast bikar tînin?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Heke te vê dawiyê kirriye, dibe ku demek bigire ku Google Play were senkronîzekirin.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Heke kirîna te xuya nabe, piştî çend deqeyan dîsa biceribîne.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Piştrast bike ku tu bi heman hesabê Google yê ku pê kirî, têkevî.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Gelek hesab dikarin Google Play tevlihîv bikin. Sazkirina sepanê bi rêya malpera Google Play, girêdana bi hesabekî diyarkirî re mecbûrî dike.</string>
     <string name="upgrade_screen_restore_banner_title">Jixwe Pro kirriye?</string>
     <string name="upgrade_screen_restore_banner_body">Xuya ye ku te berê li ser vê cîhazê xwe Pro kiriye. Kirîna xwe vegerîne da ku dîsa were vekirin.</string>
     <string name="upgrade_screen_restore_success_message">Kirîn hate vegerandin.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">CAPod Pro li ba te ye!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Bi aboneya te hat vekirin. Spas ji bo piştgiriya te ya CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Bi kirîna te ya carekî hat vekirin. Spas ji bo piştgiriya te ya CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Aboneya salane</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Aboneya te çalak e û hatiye mêhengkirin ku were nûkirin. Faturekirin ji aliyê Google Play ve tê rêvebirin.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Aboneya te çalak e, lê ji bo nûkirinê nehatiye mêhengkirin. Pro heta dawiya dema heyî berdest dimîne.</string>
     <string name="upgrade_screen_owned_iap_title">Kirîna carekî</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play услуге нису доступне.</string>
-    <string name="upgrades_no_purchases_found_check_account">Није пронађена ниједна куповина. Да ли користите прави налог?</string>
     <string name="upgrades_gplay_billing_error_label">Грешка Google Play-а</string>
     <string name="upgrades_gplay_billing_error_description">Дошло је до грешке у Google Play-у. Покушајте поново касније или рестартујте телефон.\n\nГрешка: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Грешка наплате Google Play-а</string>
-    <string name="upgrades_gplay_billing_result_error_description">Дошло је до грешке при захтевању детаља о вашој куповини од Google Play-а. Обришите кеш Google Play-а и рестартујте телефон.\n\nГрешка %s</string>
     <string name="upgrades_gplay_already_owned_label">Већ сте купили?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play пријављује да већ поседујете ову надоградњу, али није могла да се обнови. Проверите да ли користите Google налог са којим сте извршили куповину. Синхронизација Play продавнице може потрајати — покушајте да рестартујете уређај, обришете кеш Google Play-а или једноставно сачекате.</string>
-    <string name="upgrade_restore_action">Врати куповину</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Узмите %1$s</string>
     <string name="upgrade_preamble">CAPod развија једна особа. Надоградња откључава додатне функције и помаже да апликација опстане.</string>
-    <string name="upgrade_screen_options_description">Исте функције, различите цене. Претплата укључује бесплатан пробни период и може се отказати у сваком тренутку.</string>
-    <string name="upgrade_screen_options_description_no_trial">Исте функције, различите цене. Претплата се може отказати у сваком тренутку.</string>
     <string name="upgrade_screen_subscription_trial_action">Започните бесплатан пробни период</string>
     <string name="upgrade_screen_subscription_action">Претплатите се годишње</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/год.</string>
     <string name="upgrade_screen_iap_action">Купите једном</string>
-    <string name="upgrade_screen_iap_action_hint">Једнократна куповина: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Врати куповину</string>
-    <string name="upgrade_screen_restore_purchase_message">Није пронађена ниједна куповина. Да ли користите прави налог?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Ако сте недавно извршили куповину, синхронизација са Google Play-ом може потрајати.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Покушајте поново за неколико минута ако се куповина не појави.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Проверите да ли сте пријављени на исти Google налог који сте користили за куповину.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Више налога може збунити Google Play. Инсталирање апликације преко Google Play веб сајта приморава повезивање са одређеним налогом.</string>
     <string name="upgrade_screen_restore_banner_title">Већ сте купили Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Изгледа да сте раније надоградили на Pro на овом уређају. Обновите куповину да бисте га поново откључали.</string>
     <string name="upgrade_screen_restore_success_message">Куповина обновљена.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Имате CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Откључано вашом претплатом. Хвала вам што подржавате CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Откључано вашом једнократном куповином. Хвала вам што подржавате CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Годишња претплата</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Ваша претплата је активна и подешена да се обнавља. Наплатом управља Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Ваша претплата је активна, али није подешена да се обнавља. Pro остаје доступан до краја текућег периода.</string>
     <string name="upgrade_screen_owned_iap_title">Једнократна куповина</string>

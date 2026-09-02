@@ -3,7 +3,6 @@
     <string name="general_share_action">שתף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_cancel_action">בטל</string>
-    <string name="general_copy_action">העתק</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_upgrade_action">שידרוג</string>
     <string name="general_retry_action">נסה שוב</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">בדיקה</string>
     <string name="general_close_action">סגור</string>
     <string name="general_dismiss_action">דחה</string>
-    <string name="general_edit_action">עריכה</string>
     <string name="general_save_action">שמור</string>
     <string name="general_guide_action">מדריך</string>
     <string name="general_continue_action">המשך</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">ממשיך מוזיקה כשאתה חוזר לענוד את האוזניות, אך רק אם הפסקה אוטומטית עצרה אותה. הפסקות שהפעלת בעצמך (טלפון, גבעול AirPods, שינה) נשארות מושהות.</string>
     <string name="settings_start_music_on_wear_label">הפעל מוזיקה בלבישה</string>
     <string name="settings_start_music_on_wear_description">תמיד מנסה להשמיע מוזיקה כשאתה מניח את האוזניות, גם לאחר הפסקה ידנית.</string>
-    <string name="settings_eardetection_info_label">הערה לגבי זיהוי אוזן</string>
     <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string>
-    <string name="settings_signal_minimum_label">איכות אות מינימלית</string>
-    <string name="settings_signal_minimum_description">איכות האות המינימלית שמכשיר צריך להתחשב עבורך.</string>
     <string name="settings_autoconnect_label">חיבור אוטומטי</string>
     <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אפשר לבקש ממנו בעצמנו. כך המעקב של CAPod ממשיך לפעול ברקע כל הזמן.</string>
     <string name="settings_autoconnect_info_android12">חיבור אוטומטי מסתמך על תכונת מערכת שאנדרואיד 12 ומעלה מגבילה. ייתכן שלא תפעל במכשיר שלך.</string>
     <string name="settings_autoconnect_condition_label">מצב חיבור אוטומטי</string>
-    <string name="settings_autoconnect_condition_description">מתי עלינו לנסות להתחבר למכשיר שלך?</string>
     <string name="settings_devices_label">מכשירים</string>
     <string name="settings_devices_description">ניהול המכשירים שלך.</string>
     <string name="settings_reaction_label">תגובות</string>
-    <string name="settings_category_yourdevice_label">המכשיר שלך</string>
     <string name="settings_category_compatibility_options_title">מצב תאימות</string>
     <string name="settings_category_compatibility_options_description">אל תיגע אם הכל עובד ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ביטול סינון בחומרה</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">מתחיל…</string>
     <string name="support_debuglog_label">יומן ניפוי באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
-    <string name="debug_debuglog_size_label">מידה</string>
-    <string name="debug_debuglog_size_compressed_label">גודל דחיסה</string>
-    <string name="debug_notification_channel_label">ניפוי באגים</string>
-    <string name="debug_debuglog_file_label">קובץ לוג מוקלט</string>
-    <string name="debug_debuglog_recording_progress">מקליט יומן ניפוי באגים</string>
     <string name="debug_debuglog_record_action">הקלט יומן ניפוי באגים</string>
     <string name="debug_debuglog_stop_action">עצור הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים.</string>
     <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיות).</string>
-    <string name="settings_support_installid_label">מזהה התקנה</string>
-    <string name="settings_support_installid_desc">דוחות שגיאה אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאות שלך.</string>
     <string name="settings_support_label">תמיכה</string>
     <string name="settings_support_description">אם אתה צריך קצת עזרה.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">לאפס את הנתונים שנלמדו?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod תשכח את ניקוז הציוד שנמדד, מהירות הטעינה וזמן ההקשבה, והתחלה מחדש מחיי הסוללה המדורגים.</string>
     <string name="settings_acknowledgements_label">תודות</string>
-    <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
-    <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
-    <string name="settings_compatibility_mode_label">מצב תאימות</string>
-    <string name="settings_compatibility_mode_description">נטרול אופטימיזציה לשיפור התאימות. נסו את זה אם לא מוצגים נתונים כלל.</string>
     <string name="help_translate_label">תרגום</string>
     <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>
     <string name="translators_thanks_title">מתרגמים</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">הצלחה</string>
     <string name="troubleshooter_ble_result_success_body">שידורי פרסומת BLE מתקבלים על ידי CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">לא מוצלח</string>
-    <string name="troubleshooter_ble_result_failure_body">פתרון הבעיות נכשל. שום שילוב של אפשרויות תאימות לא עזר.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">הטלפון שלך לא קיבל נתוני BLE בכלל. אתה יכול לנסות שוב את הבדיקה הזו באזור צפוף כדי לראות אם ניתן לקבל מקורות נתונים נוספים (מלבד האוזניות שלך). אין מידע שמתקבל מצביע על בעיה במערכת ההפעלה של הטלפון שלך.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">טלפון שלך קיבל נתוני BLE, אך הנתונים אינם מגיעים ממכשיר אשר נתמך. האם האוזניות שלך מופעלות? האם CAPod תומך באוזניות שלך?</string>
-    <string name="troubleshooter_ble_result_failure_action">נסה שנית</string>
-    <string name="troubleshoot_action">פתרון בעיות</string>
     <string name="onboarding_body1">אפליקציה זו מוסיפה תמיכה בתכונות ספציפיות של AirPod לאנדרואיד.</string>
     <string name="onboarding_body2">לא כל מכשירי האנדרואיד תומכים באופן מלא בתכונות הנוספות של AirPod. מערכת ההפעלה שלך דורשת יישום תקין של Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">ב-CAPod אין מודעות ואיננו אוספים נתונים שלך.</string>
@@ -207,11 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">המכשיר שלך מחובר, אך CAPod אינו מקבל ממנו נתונים חיים. הטלפון שלך עשוי להזדקק לאפשרות תאימות — פותר הבעיות יכול לנסות למצוא אחת אוטומטית.</string>
     <string name="overview_troubleshoot_suggestion_action">הפעל פותר בעיות</string>
     <string name="overview_unmatched_devices_label">מכשירים ללא התאמה</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">מכשיר %d ללא פרופיל תואם</item>
-        <item quantity="two">%d מכשירים ללא פרופיל תואם</item>
-        <item quantity="other">%d מכשירים ללא פרופיל תואם</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d מכשיר קרוב זוהה ללא פרופיל תואם. הציגו אותו לפרטים זמינים. אם הוא שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
         <item quantity="two">%d מכשירים קרובים זוהו ללא פרופילים תואמים. הציגו אותם לפרטים זמינים. אם אחד מהם שלכם, הוסיפו פרופיל מתוך מכשירים כדי לזהות אותו.</item>
@@ -234,7 +208,6 @@
     <string name="permission_background_location_description">CAPod משתמש ב\"גישה למיקום ברקע\" כדי לאפשר תכונות כמו \"הצג חלון קופץ\" ו\"חיבור אוטומטי\" כאשר האפליקציה סגורה. גישה למיקום ברקע מאפשרת לאפליקציה לקבל נתוני Bluetooth Low Energy כשהיא ברקע. אפליקציה זו לא תשתמש בנתוני Bluetooth כדי לקבוע את מיקומך.</string>
     <string name="permission_ignore_battery_optimizations_label">השבתת אופטימיזציית סוללה</string>
     <string name="permission_ignore_battery_optimizations_description">אופטימיזציית סוללה מונעת מאפליקציה זו לקבל נתוני Bluetooth באופן אמין כשהיא ברקע.</string>
-    <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
     <string name="permission_system_alert_window_label">חלון התראת מערכת</string>
     <string name="permission_system_alert_window_description">אפשר ל-CAPod לצייר מעל אפליקציות אחרות כדי לאפשר את תכונת \"הצג חלון קופץ\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">כשנראה</string>
@@ -242,9 +215,6 @@
     <string name="settings_reaction_autoconnect_inear_label">באוזן</string>
     <string name="pods_dual_left_label">אוזניה שמאלית</string>
     <string name="pods_dual_right_label">אוזניה ימנית</string>
-    <string name="pods_dual_left_short_label">ש</string>
-    <string name="pods_dual_right_short_label">י</string>
-    <string name="pods_case_label">מארז</string>
     <string name="battery_unavailable_label">הסוללה אינה זמינה</string>
     <string name="battery_state_low_cd">סוללה נמוכה</string>
     <string name="battery_state_critical_cd">סוללה במצב קריטי</string>
@@ -299,12 +269,9 @@
     <string name="signal_badge_aap_cd">חיבור ישיר פעיל</string>
     <string name="signal_indicator_bars_cd">עוצמת אות: %1$d מתוך 4 פסים</string>
     <string name="signal_indicator_disconnected_cd">אות: מנותק</string>
-    <string name="pods_yours">שלך</string>
     <string name="headset_being_worn_label">מורכב</string>
     <string name="headset_not_being_worn_label">לא מורכב</string>
     <string name="pods_case_unknown_state">מצב לא ידוע</string>
-    <string name="last_seen_x">נראה לאחרונה: %s</string>
-    <string name="first_seen_x">נראה לראשונה: %s</string>
     <string name="battery_cached_label">אחרון ידוע · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dש %2$dד</string>
     <string name="battery_time_remaining_format_h">%1$dש</string>
@@ -334,10 +301,8 @@
     <string name="profiles_signal_quality_title">איכות אות מינימלית</string>
     <string name="profiles_signal_quality_description">זהה רק מכשירים עם עוצמת אות מעל סף זה. ערכים נמוכים יותר מגדילים את טווח הזיהוי אך עלולים לגרום לזיהויים שגויים. אל תגדיר ערך גבוה מדי - קליטת Bluetooth בדרך כלל חלשה ומשתנה עם המרחק והמכשולים.</string>
     <string name="profiles_identitykey_label">מפתח זיהוי</string>
-    <string name="profilessettings_maindevice_identitykey_description">מפתח פענוח הזהות (IRK) של המכשיר שלך, שעוזר ל-CAPod לזהות אותו בין מכשירים קרובים.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods משנים לעיתים קרובות את כתובת ה-Bluetooth שלהם לצורכי פרטיות. ה-IRK עוזר ל-CAPod לזהות את המכשיר שלך. נדרשת גישה חד-פעמית ל-MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">מפתח הצפנה</string>
-    <string name="profiles_maindevice_encryptionkey_description">מפתח ההצפנה של המכשיר שלך, המאפשר ל-CAPod לאחזר מידע מפורט על המצב.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods שולחים הודעת מצב, שחלקה מוצפן. מפתח ההצפנה מאפשר ל-CAPod לפענח את ההודעה המלאה. נדרשת גישה חד-פעמית ל-MacBook.</string>
     <string name="profiles_key_invalid_format">פורמט מפתח לא חוקי</string>
     <string name="profiles_key_expected_format">פורמט צפוי: %1$s</string>
@@ -370,7 +335,6 @@
     <string name="general_unsaved_changes_message">יש לך שינויים שלא נשמרו. מה תרצה לעשות?</string>
     <string name="general_save_and_exit_action">שמור וצא</string>
     <string name="general_discard_action">בטל</string>
-    <string name="general_keep_editing_action">המשך לערוך</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ההקלטה קצרה מדי</string>
     <string name="debug_debuglog_short_recording_message">יומן איתור הבאגים צריך ללכוד את הבעיה בעת התרחשותה. המשך בהקלטה, שחזר על הבעיה, ולאחר מכן עצור את ההקלטה.</string>
@@ -444,7 +408,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">הגדרות מכשיר</string>
     <string name="device_settings_subtitle_profile_prefix">פרופיל: %s</string>
-    <string name="device_settings_info_name_label">שם</string>
     <string name="device_settings_info_bt_name_label">תווית התקן בלוטות\'</string>
     <string name="device_settings_info_model_label">דגם</string>
     <string name="device_settings_info_manufacturer_label">יצרן</string>
@@ -524,7 +487,6 @@
     <string name="review_app_dismiss_action">אולי מאוחר יותר</string>
     <string name="review_app_body">להשאיר ביקורת ל-CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">כללי</string>
     <string name="device_settings_microphone_mode_label">מיקרופון</string>
     <string name="device_settings_microphone_mode_description">איזה אוזנייה משמשת כמיקרופון</string>
     <string name="device_settings_microphone_mode_auto">אוטומטי</string>

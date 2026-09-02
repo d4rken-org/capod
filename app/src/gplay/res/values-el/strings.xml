@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Οι υπηρεσίες Google Play δεν είναι διαθέσιμες.</string>
-    <string name="upgrades_no_purchases_found_check_account">Δε βρέθηκαν αγορές. Χρησιμοποιείτε τον σωστό λογαριασμό;</string>
     <string name="upgrades_gplay_billing_error_label">Σφάλμα Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Παρουσιάστηκε σφάλμα στο Google Play. Παρακαλώ προσπαθήστε ξανά αργότερα ή επανεκκινήστε το τηλέφωνό σας.\n\nΣφάλμα: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Σφάλμα χρέωσης Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Παρουσιάστηκε σφάλμα κατά την αίτηση των στοιχείων αγοράς σας από το Google Play. Εκκαθαρίστε την προσωρινή μνήμη του Google Play και επανεκκινήστε το τηλέφωνό σας.\n\nΣφάλμα %s</string>
     <string name="upgrades_gplay_already_owned_label">Ήδη αγορασμένο?</string>
     <string name="upgrades_gplay_already_owned_description">Το Google Play αναφέρει ότι έχετε ήδη αυτήν την αναβάθμιση, αλλά δεν ήταν δυνατή η επαναφορά της. Βεβαιωθείτε ότι χρησιμοποιείτε τον λογαριασμό Google με τον οποίο κάνατε την αγορά. Ο συγχρονισμός του Play Store ενδέχεται να χρειαστεί χρόνο — δοκιμάστε να επανεκκινήσετε, να διαγράψετε την κρυφή μνήμη του Google Play ή απλώς να περιμένετε.</string>
-    <string name="upgrade_restore_action">Επαναφορά αγοράς</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Αποκτήστε %1$s</string>
     <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά να διατηρείται η εφαρμογή ζωντανή.</string>
-    <string name="upgrade_screen_options_description">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή περιλαμβάνει δωρεάν δοκιμή και μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
-    <string name="upgrade_screen_options_description_no_trial">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
     <string name="upgrade_screen_subscription_trial_action">Έναρξη δωρεάν δοκιμής</string>
     <string name="upgrade_screen_subscription_action">Ετήσια συνδρομή</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/έτος</string>
     <string name="upgrade_screen_iap_action">Αγορά εφάπαξ</string>
-    <string name="upgrade_screen_iap_action_hint">Εφάπαξ αγορά: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
-    <string name="upgrade_screen_restore_purchase_message">Δε βρέθηκαν αγορές. Χρησιμοποιείτε τον σωστό λογαριασμό;</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Αν κάνατε πρόσφατα την αγορά, ενδέχεται να χρειαστεί λίγος χρόνος για να συγχρονιστεί το Google Play.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Δοκιμάστε ξανά σε λίγα λεπτά αν η αγορά σας δεν εμφανίζεται.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Βεβαιωθείτε ότι έχετε συνδεθεί με τον ίδιο λογαριασμό Google που χρησιμοποιήσατε για την αγορά.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Πολλαπλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Η εγκατάσταση της εφαρμογής μέσω του ιστοτόπου Google Play επιβάλλει τη συσχέτιση με έναν συγκεκριμένο λογαριασμό.</string>
     <string name="upgrade_screen_restore_banner_title">Έχετε ήδη αγοράσει το Pro;</string>
     <string name="upgrade_screen_restore_banner_body">Φαίνεται ότι έχετε αναβαθμίσει σε Pro σε αυτήν τη συσκευή στο παρελθόν. Επαναφέρετε την αγορά σας για να το ξεκλειδώσετε ξανά.</string>
     <string name="upgrade_screen_restore_success_message">Η αγορά επαναφέρθηκε.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Έχετε το CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Ξεκλειδώθηκε από τη συνδρομή σας. Ευχαριστούμε που υποστηρίζετε το CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Ξεκλειδώθηκε από την εφάπαξ αγορά σας. Ευχαριστούμε που υποστηρίζετε το CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Ετήσια συνδρομή</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Η συνδρομή σας είναι ενεργή και έχει οριστεί να ανανεωθεί. Η χρέωση διαχειρίζεται από το Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Η συνδρομή σας είναι ενεργή, αλλά δεν έχει οριστεί να ανανεωθεί. Το Pro παραμένει διαθέσιμο μέχρι να λήξει η τρέχουσα περίοδος.</string>
     <string name="upgrade_screen_owned_iap_title">Εφάπαξ αγορά</string>

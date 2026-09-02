@@ -3,7 +3,6 @@
     <string name="general_share_action">Megosztás</string>
     <string name="general_done_action">Kész</string>
     <string name="general_cancel_action">Mégsem</string>
-    <string name="general_copy_action">Másolás</string>
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_upgrade_action">Frissítés</string>
     <string name="general_retry_action">Újra próbálkozás</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Ellenőrzés</string>
     <string name="general_close_action">Bezár</string>
     <string name="general_dismiss_action">Elvetés</string>
-    <string name="general_edit_action">Szerkesztés</string>
     <string name="general_save_action">Mentés</string>
     <string name="general_guide_action">Útmutató</string>
     <string name="general_continue_action">Tovább</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Folytatja a zenét, ha újra felveszed a fülhallgatót, de csak akkor, ha az Auto szünet állította le. A te magad által kiváltott szünetek (telefon, AirPods szár, alvás) szüneteltetett állapotban maradnak.</string>
     <string name="settings_start_music_on_wear_label">Zene indítása felvételkor</string>
     <string name="settings_start_music_on_wear_description">Mindig megpróbál zenét lejátszani, ha felveszed a fülhallgatót, még kézi szünet után is.</string>
-    <string name="settings_eardetection_info_label">Fülészlelési megjegyzés</string>
     <string name="settings_eardetection_info_description">Ha a fülészlelés csak az egyik fülhallgatóval működik, ez egy Apple korlátozás. Csak az \"elsődleges fülhallgató\" (mikrofonhoz használt) érzékelhető. Beállítás Apple eszközökön: Beállítások → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_signal_minimum_label">Minimális jelerősség</string>
-    <string name="settings_signal_minimum_description">Vegye figyelembe a minimális jelerősséget, amelyre egy eszköznek szüksége van.</string>
     <string name="settings_autoconnect_label">Automatikus csatlakozás</string>
     <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan, mi is kérhetjük tőle. Ez azt biztosítja, hogy a CAPod mindig figyel a háttérben.</string>
     <string name="settings_autoconnect_info_android12">Az automatikus csatlakozás olyan rendszerfunkcióra támaszkodik, amelyet az Android 12 és újabb verziók korlátoznak. Előfordulhat, hogy nem működik az eszközödön.</string>
     <string name="settings_autoconnect_condition_label">Automatikus csatlakozás állapota</string>
-    <string name="settings_autoconnect_condition_description">Mikor próbáljunk meg csatlakozni az eszközéhez?</string>
     <string name="settings_devices_label">Eszközök</string>
     <string name="settings_devices_description">Eszközök kezelése.</string>
     <string name="settings_reaction_label">Reakciók</string>
-    <string name="settings_category_yourdevice_label">Eszközei</string>
     <string name="settings_category_compatibility_options_title">Kompatibilitási opciók</string>
     <string name="settings_category_compatibility_options_description">Ezekhez ne nyúljon, ha minden jól műkődik ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Hardveres szűrés letiltása</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Indítás alatt…</string>
     <string name="support_debuglog_label">Hibakeresési napló</string>
     <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
-    <string name="debug_debuglog_size_label">Méret</string>
-    <string name="debug_debuglog_size_compressed_label">Tömörített méret</string>
-    <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
-    <string name="debug_debuglog_file_label">Rögzített naplófájl</string>
-    <string name="debug_debuglog_recording_progress">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A generált fájl érzékeny információkat tartalmaz (pl. a Bluetooth-eszköz adatait). Csak megbízható felekkel ossza meg.</string>
     <string name="settings_debuglog_explanation">Ez a funkció egy megosztható fájlba rögzíti mindazt, amit az alkalmazás csinál. A létrehozott fájl bizalmas információkat tartalmaz (például Bluetooth-eszköz adatait). Csak megbízható felekkel ossza meg (pl. egy fejlesztővel, aki egy probléma megoldását végzi).</string>
-    <string name="settings_support_installid_label">Telepítési azonosító</string>
-    <string name="settings_support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg az azonosítót, ha fejlesztőnek meg kell keresnie a hibajelentésedet.</string>
     <string name="settings_support_label">Támogatás</string>
     <string name="settings_support_description">Ha segítségre van szüksége.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Megtanult adatok alaphelyzetbe állítása?</string>
     <string name="device_battery_estimate_reset_confirm_message">A CAPod elfelejti az eszköz mért fogyasztását, töltési sebességét és figyelési idejét, majd a névleges akkumulátor-élettartamtól kezd újra.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
-    <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
-    <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
-    <string name="settings_compatibility_mode_description">A kompatibilitás javítása érdekében letiltja az optimalizálást. Próbálja ki ezt, ha nem lát semmilyen adatot.</string>
     <string name="help_translate_label">Fordítás</string>
     <string name="help_translate_description">Segítsen nekünk hogy az alkalmazás le legyen fordítva az Ön nyelvére.</string>
     <string name="translators_thanks_title">Fordító</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Siker</string>
     <string name="troubleshooter_ble_result_success_body">A CAPod fogadja a BLE állapotinformációkat.</string>
     <string name="troubleshooter_ble_result_failure_title">Nem sikerült</string>
-    <string name="troubleshooter_ble_result_failure_body">A hibaelhárítás nem sikerült. A kompatibilitási opciók nem segítettek.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">A telefon egyáltalán nem kapott BLE-adatokat. Megpróbálhatja újra ezt a tesztet egy zsúfolt területen, hogy lássa (hogy a fülhallgatóján kívül) más adatforrások is fogadhatók-e. Ha nem érkezik adat, az a telefon operációs rendszerével kapcsolatos problémára utal.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">A telefon BLE-adatokat fogadott, de az adatok nem egy támogatott eszközről származnak. Be van kapcsolva a fülhallgatója? Támogatja a CAPod a fülhallgatóját?</string>
-    <string name="troubleshooter_ble_result_failure_action">Próbálja újra</string>
-    <string name="troubleshoot_action">Hibaelhárító</string>
     <string name="onboarding_body1">Ez az alkalmazás AirPod specifikus funkciók támogatását adja hozzá az Android rendszerhez.</string>
     <string name="onboarding_body2">Nem minden Android eszköz támogatja teljes mértékben az extra AirPod szolgáltatásokat. Az eszköz operációs rendszere megfelelően működő Bluetooth-Low-Energy megvalósítást igényel.</string>
     <string name="onboarding_body3">A CAPod nem tartalmaz hirdetéseket, és nem gyűjti az adataidat.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Az eszköz csatlakoztatva van, de a CAPod nem kap élő adatot tőle. Előfordulhat, hogy a telefonodnak kompatibilitási beállításra van szüksége – a hibaelőárító automatikusan megpróbálhat egyet találni.</string>
     <string name="overview_troubleshoot_suggestion_action">Hibaelőárító futtatása</string>
     <string name="overview_unmatched_devices_label">Nem párosított eszközök</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d eszköz párosított profil nélkül</item>
-        <item quantity="other">%d eszköz párosított profil nélkül</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d közeli eszközt észleltünk illeszkedő profil nélkül. Nyisd meg a rendelkezésre álló részletekért. Ha a tiéd, adj hozzá egy profilt az Eszközök menüben, hogy felismerje.</item>
         <item quantity="other">%d közeli eszközt észleltünk illeszkedő profilok nélkül. Nyisd meg őket a rendelkezésre álló részletekért. Ha valamelyik a tiéd, adj hozzá egy profilt az Eszközök menüben, hogy felismerje.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">A CAPod a \"háttérbeli helyhozzáférést\" használja az olyan funkciók engedélyezéséhez, mint az \"Előugró ablak megjelenítése\" és az \"Automatikus csatlakozás\", miközben az alkalmazás zárva van. A háttérbeli helyhozzáférés lehetővé teszi az alkalmazás számára, hogy a háttérben is fogadja a Bluetooth Low Energy adatokat. Ez az alkalmazás NEM fogja a Bluetooth-adatokat a tartózkodási hely meghatározására használni.</string>
     <string name="permission_ignore_battery_optimizations_label">Akkumulátor-optimalizálás kikapcsolása</string>
     <string name="permission_ignore_battery_optimizations_description">Az akkumulátor-optimalizálás megakadályozza, hogy ez az alkalmazás megbízhatóan fogadja a Bluetooth-adatokat a háttérben.</string>
-    <string name="permission_required_title">A következő engedély szükséges:</string>
     <string name="permission_system_alert_window_label">Rendszer figyelmeztető ablak</string>
     <string name="permission_system_alert_window_description">Engedélyezze a CAPod-nak, hogy más alkalmazások fölé rajzoljon az \"Előugró ablak megjelenítése\" funkció lehetővé tételéhez.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Amikor észlelhető</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Fülben</string>
     <string name="pods_dual_left_label">Bal fülhallgató</string>
     <string name="pods_dual_right_label">Jobb fülhallgató</string>
-    <string name="pods_dual_left_short_label">B</string>
-    <string name="pods_dual_right_short_label">J</string>
-    <string name="pods_case_label">Tok</string>
     <string name="battery_unavailable_label">Az akkumulátor nem elérhető</string>
     <string name="battery_state_low_cd">Akkumulátor alacsony</string>
     <string name="battery_state_critical_cd">Akkumulátor kritikusan alacsony</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Közvetlen kapcsolat aktív</string>
     <string name="signal_indicator_bars_cd">Jelszint: %1$d / 4 sáv</string>
     <string name="signal_indicator_disconnected_cd">Jel: lecsatlakoztatva</string>
-    <string name="pods_yours">Saját</string>
     <string name="headset_being_worn_label">Viselve</string>
     <string name="headset_not_being_worn_label">Nincs viselve</string>
     <string name="pods_case_unknown_state">Ismeretlen állapot</string>
-    <string name="last_seen_x">Utoljára látva: %s</string>
-    <string name="first_seen_x">Először látva: %s</string>
     <string name="battery_cached_label">Utoljára ismert · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dó %2$dp</string>
     <string name="battery_time_remaining_format_h">%1$dó</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Minimális jelerősség</string>
     <string name="profiles_signal_quality_description">Csak az e küszöbérték feletti jelerősségű eszközöket észleli. Az alacsonyabb értékek növelik az észlelési hatótávolságot, de hamis pozitívumokat okozhatnak. Ne állítsa túl magasra - a Bluetooth vétel általában gyenge, és a távolsággal és az akadályokkal változik.</string>
     <string name="profiles_identitykey_label">Azonosítókulcs</string>
-    <string name="profilessettings_maindevice_identitykey_description">Az eszköze azonosítófeloldó kulcsa (IRK), amely segíti a CAPod-ot az eszköz azonosításában a közeli eszközök között.</string>
     <string name="profiles_maindevice_identitykey_explanation">Az AirPods gyakran változtatja a Bluetooth-címét az adatvédelem érdekében. Az IRK segít a CAPod-nak felismerni az eszközét. Egyszeri hozzáférés szükséges egy MacBookhoz.</string>
     <string name="profiles_maindevice_encryptionkey_label">Titkosítási kulcs</string>
-    <string name="profiles_maindevice_encryptionkey_description">Az eszköze titkosítási kulcsa, amely lehetővé teszi a CAPod számára a részletes állapotinformációk lekérését.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Az AirPods egy állapotüzenetet küld, amelynek egy része titkosított. A titkosítási kulcs lehetővé teszi a CAPod számára a teljes üzenet visszafejtését. Egyszeri hozzáférés szükséges egy MacBookhoz.</string>
     <string name="profiles_key_invalid_format">Érvénytelen kulcsformátum</string>
     <string name="profiles_key_expected_format">Várt formátum: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Nem mentett változtatásai vannak. Mit szeretne tenni?</string>
     <string name="general_save_and_exit_action">Mentés és kilépés</string>
     <string name="general_discard_action">Elvetés</string>
-    <string name="general_keep_editing_action">Szerkesztés folytatása</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">A felvétel túll rövid</string>
     <string name="debug_debuglog_short_recording_message">A hibanaplónak rögzítenie kell a problémát, miután az előfordul. Folytasd a rögzítést, reprodukáld a problémát, majd állítsd le a rögzítést.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Eszközbeállítások</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Név</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-eszköz neve</string>
     <string name="device_settings_info_model_label">Modell</string>
     <string name="device_settings_info_manufacturer_label">Gyártó</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Talán később</string>
     <string name="review_app_body">Szeretnél véleményt hagyni a CAPodról? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Általános</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Melyik fülhallgató van mikrofonként használva</string>
     <string name="device_settings_microphone_mode_auto">Automatikus</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play کی سروسز دستیاب نہیں ہیں۔</string>
-    <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ درست اکاؤنٹ استعمال کر رہے ہیں؟</string>
     <string name="upgrades_gplay_billing_error_label">Google Play خرابی</string>
     <string name="upgrades_gplay_billing_error_description">Google Play میں ایک خرابی پیش آئی۔ براہ کرم بعد میں دوبارہ کوشش کریں یا اپنا فون ری بوٹ کریں۔\n\nخرابی: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play بلنگ خرابی</string>
-    <string name="upgrades_gplay_billing_result_error_description">آپ کی خریداری کی تفصیلات کے لیے Google Play سے پوچھتے وقت ایک خرابی پیش آئی۔ Google Play کیش صاف کریں اور اپنا فون ری بوٹ کریں۔\n\nخرابی %s</string>
     <string name="upgrades_gplay_already_owned_label">پہلے ہی خرید چکے ہیں؟</string>
     <string name="upgrades_gplay_already_owned_description">گوگل پلے کے مطابق آپ پہلے ہی یہ اپ گریڈ خرید چکے ہیں، لیکن اسے بحال نہیں کیا جا سکا۔ یقینی بنائیں کہ آپ وہی گوگل اکاؤنٹ استعمال کر رہے ہیں جس سے آپ نے خریداری کی تھی۔ پلے سٹور کی ہم آہنگی میں وقت لگ سکتا ہے — دوبارہ شروع کرنے، گوگل پلے کیشے صاف کرنے یا محض انتظار کرنے کی کوشش کریں۔</string>
-    <string name="upgrade_restore_action">خریداری بحال کریں</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s حاصل کریں</string>
     <string name="upgrade_preamble">CAPod ایک ہی شخص کی طرف سے تیار کیا گیا ہے۔ اپ گریڈ کرنے سے اضافی خصوصیات کھلتی ہیں اور ایپ کو زندہ رکھنے میں مدد ملتی ہے۔</string>
-    <string name="upgrade_screen_options_description">وہی خصوصیات، مختلف قیمتیں۔ سبسکرپشن میں مفت ٹرائل شامل ہے اور اسے کسی بھی وقت منسوخ کیا جا سکتا ہے۔</string>
-    <string name="upgrade_screen_options_description_no_trial">وہی خصوصیات، مختلف قیمتیں۔ سبسکرپشن کو کسی بھی وقت منسوخ کیا جا سکتا ہے۔</string>
     <string name="upgrade_screen_subscription_trial_action">مفت ٹرائل شروع کریں</string>
     <string name="upgrade_screen_subscription_action">سالانہ سبسکرائب کریں</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/سال</string>
     <string name="upgrade_screen_iap_action">ایک بار خریدیں</string>
-    <string name="upgrade_screen_iap_action_hint">ایک بار کی خریداری: %s</string>
     <string name="upgrade_screen_restore_purchase_action">خریداری بحال کریں</string>
-    <string name="upgrade_screen_restore_purchase_message">کوئی خریداری نہیں ملی۔ کیا آپ درست اکاؤنٹ استعمال کر رہے ہیں؟</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">اگر آپ نے حال ہی میں خریدا ہے، تو گوگل پلے کو ہم آہنگ کرنے میں کچھ وقت لگ سکتا ہے۔</string>
     <string name="upgrade_screen_restore_sync_patience_hint">اگر آپ کی خریداری ظاہر نہیں ہوتی تو چند منٹ میں دوبارہ کوشش کریں۔</string>
     <string name="upgrade_screen_restore_multiaccount_hint">یقینی بنائیں کہ آپ وہی گوگل اکاؤنٹ سے سائن ان ہیں جو خریداری کے لیے استعمال ہوا تھا۔</string>
-    <string name="upgrade_screen_restore_webinstall_hint">متعدد اکاؤنٹس گوگل پلے کو الجھن میں ڈال سکتے ہیں۔ گوگل پلے ویب سائٹ کے ذریعے ایپ انسٹال کرنا ایک مخصوص اکاؤنٹ کے ساتھ تعلق لازمی بنا دیتا ہے۔</string>
     <string name="upgrade_screen_restore_banner_title">پہلے ہی Pro خرید چکے ہیں؟</string>
     <string name="upgrade_screen_restore_banner_body">ایسا لگتا ہے کہ آپ نے پہلے اس ڈیوائس پر Pro میں اپ گریڈ کیا تھا۔ اسے دوبارہ انلاک کرنے کے لیے اپنی خریداری بحال کریں۔</string>
     <string name="upgrade_screen_restore_success_message">خریداری بحال ہو گئی۔</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">آپ کے پاس CAPod Pro ہے!</string>
     <string name="upgrade_screen_owned_hero_sub_body">آپ کے سبسکرپشن سے ان لاک ہوا۔ CAPod کی حمایت کرنے کا شکریہ!</string>
     <string name="upgrade_screen_owned_hero_iap_body">آپ کی ایک بار کی خریداری سے ان لاک ہوا۔ CAPod کی حمایت کرنے کا شکریہ!</string>
-    <string name="upgrade_screen_owned_sub_title">سالانہ سبسکرپشن</string>
     <string name="upgrade_screen_owned_sub_renewing_body">آپ کا سبسکرپشن فعال ہے اور تجدید ہونے کے لیے طے ہے۔ بلنگ گوگل پلے کے ذریعے سنبھالے جاتی ہے۔</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">آپ کا سبسکرپشن فعال ہے، لیکن تجدید ہونے کے لیے طے نہیں۔ Pro موجودہ مدت کے ختم ہونے تک دستیاب رہتا ہے۔</string>
     <string name="upgrade_screen_owned_iap_title">ایک بار کی خریداری</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">አጋራ</string>
     <string name="general_done_action">ተከናውኗል</string>
     <string name="general_cancel_action">ሰርዝ</string>
-    <string name="general_copy_action">ቅዳ</string>
     <string name="general_thank_you_label">አመሰግናለሁ</string>
     <string name="general_upgrade_action">አሻሽል</string>
     <string name="general_retry_action">ድጋሚ ሞክር</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">ፈትሽ</string>
     <string name="general_close_action">ዝጋ</string>
     <string name="general_dismiss_action">አስወግድ</string>
-    <string name="general_edit_action">አርትዕ</string>
     <string name="general_save_action">አስቀምጥ</string>
     <string name="general_guide_action">መመሪያ</string>
     <string name="general_continue_action">ቀጥል</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">ፖዶቹን እንደገና ሲያጠቁ ሙዚቃን ቀጥል፣ ግን ራስ-አቆም ካቆመው ብቻ። ራስዎ ያቆሙት (ስልክ፣ የ AirPods ቀጭኑ፣ ወይም እንቅልፍ) ቆሞ ይቆያል።</string>
     <string name="settings_start_music_on_wear_label">ሲያጠቁ ሙዚቃ ጀምር</string>
     <string name="settings_start_music_on_wear_description">ፖዶቹን ሲያጠቁ ሁልጊዜ ሙዚቃ ለማጫወት ይሞክራል፣ እጅ ሲቆም ካቆሙ በኋላ እንኳን።</string>
-    <string name="settings_eardetection_info_label">የጆሮ ማወቂያ ማስታወሻ</string>
     <string name="settings_eardetection_info_description">የጆሮ ማወቂያ ለአንድ ፖድ ብቻ የሚሰራ ከሆነ ይህ የApple ገደብ ነው። \"ዋና ፖድ\" (ለማይክሮፎን የሚጠቅም) ብቻ ይታወቃል። በApple መሳሪያዎች ላይ ያዋቅሩ: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
-    <string name="settings_signal_minimum_description">አንድ መሣሪያ የእርስዎ ተደርጎ እንዲቆጠር ሊኖረው የሚገባው ዝቅተኛው የሲግናል ጥራት።</string>
     <string name="settings_autoconnect_label">ራስ-ሰር ግንኙነት</string>
     <string name="settings_autoconnect_description">Android ራሱ ከወቅቶ ስናገናኝ ካልቻለ፣ እኛም ሊጠየቅ ይችላሉ። ይህ CAPod ወደ ጀርባ ሙሉ ጊዜ ተከታተሎ ያቆየዋል።</string>
     <string name="settings_autoconnect_info_android12">ራስ-ሰር ግንኙነት Android 12 እና ከዚያ በኋላ ባሉ ስሪቶች ላይ ገደብ የሚደረግበት የስርዓት ባህሪ ላይ ይተማመናል። በእርስዎ መሳሪያ ላይ ላይሰራ ይችላል።</string>
     <string name="settings_autoconnect_condition_label">ራስ-ሰር የግንኙነት ሁኔታ</string>
-    <string name="settings_autoconnect_condition_description">ከመሳሪያዎ ጋር ለመገናኘት መቼ መሞከር አለብን?</string>
     <string name="settings_devices_label">መሳሪያዎች</string>
     <string name="settings_devices_description">መሳሪያዎችዎን ያስተዳድሩ።</string>
     <string name="settings_reaction_label">ግብረመልሶች</string>
-    <string name="settings_category_yourdevice_label">የእርስዎ መሣሪያ</string>
     <string name="settings_category_compatibility_options_title">የተኳኋኝነት አማራጮች</string>
     <string name="settings_category_compatibility_options_description">ሁሉም ነገር የሚሰራ ከሆነ አይንኩ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">የሃርድዌር ማጣሪያን አሰናክል</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">ጀምሮ ነው…</string>
     <string name="support_debuglog_label">የማረሚያ ምዝግብ</string>
     <string name="support_debuglog_desc">መተግበሪያው የሚያደርገውን ሁሉ ሊያጋሩት በሚችሉት የጽሑፍ ፋይል ውስጥ ይመዝግቡ።</string>
-    <string name="debug_debuglog_size_label">መጠን</string>
-    <string name="debug_debuglog_size_compressed_label">የተጨመቀ መጠን</string>
-    <string name="debug_notification_channel_label">የማረሚያ ማሳወቂያዎች</string>
-    <string name="debug_debuglog_file_label">የተመዘገበ የሎግ ፋይል</string>
-    <string name="debug_debuglog_recording_progress">የማረሚያ ምዝግብ በመቅዳት ላይ</string>
     <string name="debug_debuglog_record_action">የማረሚያ ምዝግብ ቅዳ</string>
     <string name="debug_debuglog_stop_action">መቅዳት አቁም</string>
     <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ሚስጥራዊ መረጃ (ለምሳሌ የብሉቱዝ መሣሪያ ዝርዝሮች) ይዟል። ለታመኑ ወገኖች ብቻ ያጋሩት።</string>
     <string name="settings_debuglog_explanation">ይህ ባህሪ መተግበሪያው የሚያደርገውን ሁሉ ሊጋራ በሚችል ፋይል ውስጥ ይመዘግባል። የተፈጠረው ፋይል ሚስጥራዊ መረጃ (ለምሳሌ የብሉቱዝ መሣሪያ ዝርዝሮች) ይዟል። ለታመኑ ወገኖች ብቻ ያጋሩት (ለምሳሌ ችግርን እያስተካከለ ላለ ገንቢ)።</string>
-    <string name="settings_support_installid_label">የመጫኛ መለያ</string>
-    <string name="settings_support_installid_desc">ራስ-ሰር የስህተት ሪፖርቶች ስም-አልባ ናቸው። ገንቢው የእርስዎን የስህተት ሪፖርቶች ማግኘት ከፈለገ የመጫኛ መለያዎን ያጋሩ።</string>
     <string name="settings_support_label">ድጋፍ</string>
     <string name="settings_support_description">ጥቂት እርዳታ ከፈለጉ።</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">የተማረውን ዳታ ዳግም ያስጀምራሉ?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod ይህ መሳሪያ የተለካው ወደዳ፣ ሙሎት ፍጥነት እና ማዳመጥ ጊዜን ይረሳል እና ተወሰነ ባትሪ ዕድሜ ሪጀምራል።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
-    <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
-    <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
-    <string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
-    <string name="settings_compatibility_mode_description">ተኳኋኝነትን ለማሻሻል ማመቻቸቶችን አሰናክል። ምንም መረጃ ካላዩ ይህንን ይሞክሩ።</string>
     <string name="help_translate_label">ትርጉም</string>
     <string name="help_translate_description">ይህንን መተግበሪያ ወደ እርስዎ ተወዳጅ ቋንቋ ለመተርጎም ያግዙ።</string>
     <string name="translators_thanks_title">ተርጓሚዎች</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">ስኬት</string>
     <string name="troubleshooter_ble_result_success_body">የBLE ማስታወቂያ ስርጭቶች በCAPod እየተቀበሉ ነው።</string>
     <string name="troubleshooter_ble_result_failure_title">ያልተሳካ</string>
-    <string name="troubleshooter_ble_result_failure_body">ችግር መፍታት አልተሳካም። ምንም አይነት የተኳኋኝነት አማራጮች ጥምረት አልረዳም።</string>
     <string name="troubleshooter_ble_result_failure_phone_body">ስልክዎ ምንም አይነት የBLE መረጃ አልተቀበለም። የመረጃ ምንጮች (ከጆሮ ማዳመጫዎ ውጪ) መቀበል መቻላቸውን ለማየት ይህንን ሙከራ በተጨናነቀ ቦታ እንደገና መሞከር ይችላሉ። ምንም መረጃ አለመቀበሉ የስልክዎ ኦፐሬቲንግ ሲስተም ላይ ችግር እንዳለ ያመለክታል።</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">ስልክዎ የBLE መረጃ ተቀብሏል፣ ነገር ግን መረጃው ከማንኛውም የሚደገፍ መሣሪያ የመጣ አይደለም። የጆሮ ማዳመጫዎችዎ በርተዋል? CAPod የእርስዎን የጆሮ ማዳመጫ ይደግፋል?</string>
-    <string name="troubleshooter_ble_result_failure_action">እንደገና ሞክር</string>
-    <string name="troubleshoot_action">ችግር ፍታ</string>
     <string name="onboarding_body1">ይህ መተግበሪያ ለኤርፖድ የተለዩ ባህሪያትን ለአንድሮይድ ይጨምራል።</string>
     <string name="onboarding_body2">ሁሉም የአንድሮይድ መሳሪያዎች ተጨማሪ የኤርፖድ ባህሪያትን ሙሉ በሙሉ አይደግፉም። የእርስዎ ኦፐሬቲንግ ሲስተም በትክክል የሚሰራ የብሉቱዝ-ዝቅተኛ-ኃይል ትግበራ ይፈልጋል።</string>
     <string name="onboarding_body3">CAPod ምንም ማስታወቂያ የለውም እና የእርስዎን መረጃ አይሰበስብም።</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">መሳሪያህ ተገናኝቷል፣ ግን CAPod ከእሱ ምንም ቀጥታ ዳታ አይቀበልም። ስልክህ የተኳሃኝነት አማራጭ ሊፈልግ ይችላል — ችግር ፈቺው በራስ-ሰር ለማግኘት ሊሞክር ይችላል።</string>
     <string name="overview_troubleshoot_suggestion_action">ችግር ፈቺን አስጀምር</string>
     <string name="overview_unmatched_devices_label">ያልተዛመዱ መሣሪያዎች</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">ተዛማጅ መገለጫ የሌለው %d መሣሪያ</item>
-        <item quantity="other">ተዛማጅ መገለጫ የሌላቸው %d መሣሪያዎች</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">ከመገለጫ ጋር የማይዛመድ %d አቅራቢያ ያለ መሣሪያ ተገኝቷል። ዝርዝሮችን ለማየት አሳይ። የእርስዎ ከሆነ፣ ለማወቅ ከመሣሪያዎች መገለጫ ያክሉ።</item>
         <item quantity="other">ከመገለጫዎች ጋር የማይዛመዱ %d አቅራቢያ ያሉ መሣሪያዎች ተገኝተዋል። ዝርዝሮችን ለማየት አሳያቸው። አንዱ የእርስዎ ከሆነ፣ ለማወቅ ከመሣሪያዎች መገለጫ ያክሉ።</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod መተግበሪያው ሲዘጋ \"ብቅ-ባይ አሳይ\" እና \"ራስ-ሰር ግንኙነት\" ያሉ ባህሪያትን ለማንቃት \"የዳራ አካባቢ ተደራሽነት\" ይጠቀማል። የዳራ አካባቢ ተደራሽነት መተግበሪያው በዳራ ውስጥ ሳለ Bluetooth Low Energy መረጃ እንዲቀበል ያስችለዋል። ይህ መተግበሪያ የእርስዎን አካባቢ ለመወሰን የBluetooth መረጃ አይጠቀምም።</string>
     <string name="permission_ignore_battery_optimizations_label">የባትሪ ማመቻቸቶችን አሰናክል</string>
     <string name="permission_ignore_battery_optimizations_description">የባትሪ ማመቻቸቶች ይህ መተግበሪያ በዳራ ውስጥ ሳለ በአስተማማኝ ሁኔታ Bluetooth መረጃ እንዳይቀበል ይከለክላል።</string>
-    <string name="permission_required_title">የሚከተለው ፈቃድ ያስፈልጋል:</string>
     <string name="permission_system_alert_window_label">የስርዓት ማስጠንቀቂያ መስኮት</string>
     <string name="permission_system_alert_window_description">\"ብቅ-ባይ አሳይ\" ባህሪውን ለማስቻል CAPod በሌሎች መተግበሪያዎች ላይ እንዲሳል ፍቀድ።</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ሲታይ</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">በጆሮ ውስጥ</string>
     <string name="pods_dual_left_label">ግራ ፖድ</string>
     <string name="pods_dual_right_label">ቀኝ ፖድ</string>
-    <string name="pods_dual_left_short_label">ግ</string>
-    <string name="pods_dual_right_short_label">ቀ</string>
-    <string name="pods_case_label">ኬዝ</string>
     <string name="battery_unavailable_label">ባትሪ አይገኝም</string>
     <string name="battery_state_low_cd">ባትሪ ዝቅ</string>
     <string name="battery_state_critical_cd">ባትሪ በጣም ዝቅ</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">ቀጥተኛ ግንኙነት ንቁ ነው</string>
     <string name="signal_indicator_bars_cd">የምልክት ጥንካሬ: ከ4 አሞሌዎች %1$d</string>
     <string name="signal_indicator_disconnected_cd">ምልክት: ተቋርጧል</string>
-    <string name="pods_yours">የእርስዎ</string>
     <string name="headset_being_worn_label">ተለብሷል</string>
     <string name="headset_not_being_worn_label">አልተለበሰም</string>
     <string name="pods_case_unknown_state">ያልታወቀ ሁኔታ</string>
-    <string name="last_seen_x">ለመጨረሻ ጊዜ የታየው: %s</string>
-    <string name="first_seen_x">ለመጀመሪያ ጊዜ የታየው: %s</string>
     <string name="battery_cached_label">የመጨረሻ ታወቀ · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dሰ %2$dደ</string>
     <string name="battery_time_remaining_format_h">%1$dሰ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">ዝቅተኛ የሲግናል ጥራት</string>
     <string name="profiles_signal_quality_description">ከዚህ ገደብ በላይ የሲግናል ጥንካሬ ያላቸውን መሣሪያዎች ብቻ ይፈልጉ። ዝቅተኛ እሴቶች የፍለጋ ክልልን ይጨምራሉ ግን ውሸታም ውጤቶችን ሊያስከትሉ ይችላሉ። ይህንን በጣም ከፍ አያድርጉ - Bluetooth ምልክት በአጠቃላይ ደካማ ነው እና ከርቀት እና ከእንቅፋቶች ጋር ይለያያል።</string>
     <string name="profiles_identitykey_label">የማንነት ቁልፍ</string>
-    <string name="profilessettings_maindevice_identitykey_description">CAPod ከቅርብ መሣሪያዎች መካከል እንዲለየው የሚረዳ የመሣሪያዎ ማንነት መፍቻ ቁልፍ (IRK)።</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ለግላዊነት ብዙ ጊዜ የBluetooth አድራሻቸውን ይቀይራሉ። IRK CAPod መሣሪያዎን እንዲያውቅ ይረዳል። አንድ ጊዜ MacBook ላይ ተደራሽነት ያስፈልግዎታል።</string>
     <string name="profiles_maindevice_encryptionkey_label">የመመሰጫ ቁልፍ</string>
-    <string name="profiles_maindevice_encryptionkey_description">CAPod ዝርዝር የሁኔታ መረጃ እንዲያስገኝ የሚፈቅድ የመሣሪያዎ የመመሰጫ ቁልፍ።</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods የሁኔታ መልዕክት ይልካሉ፣ ክፍሉ የተመሰጠረ ነው። የመመሰጫ ቁልፉ CAPod ሙሉ መልዕክቱን እንዲፈታ ያስችለዋል። አንድ ጊዜ MacBook ላይ ተደራሽነት ያስፈልግዎታል።</string>
     <string name="profiles_key_invalid_format">ልክ ያልሆነ የቁልፍ ቅርጸት</string>
     <string name="profiles_key_expected_format">የሚጠበቅ ቅርጸት: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">ያልተቀመጡ ለውጦች አሉዎት። ምን ማድረግ ይፈልጋሉ?</string>
     <string name="general_save_and_exit_action">አስቀምጥ እና ውጣ</string>
     <string name="general_discard_action">ጣል</string>
-    <string name="general_keep_editing_action">ማረም ቀጥል</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ቀረጻ በጣም አጭር ነው</string>
     <string name="debug_debuglog_short_recording_message">የዲባግ ምዝግብ ማስታወሻ ችግሩ ሲከሰት ሊቀዳ ያስፈልጋል። ቀረጻ ቀጥሎ፣ ችግሩን እንደገና አስተውሎ፣ ቀረጻውን አቁም።</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">የመሣሪያ ቅንብሮች</string>
     <string name="device_settings_subtitle_profile_prefix">መገለጫ: %s</string>
-    <string name="device_settings_info_name_label">ስም</string>
     <string name="device_settings_info_bt_name_label">የብሉቱዝ መሳሪያ ስያሜ</string>
     <string name="device_settings_info_model_label">ሞዴል</string>
     <string name="device_settings_info_manufacturer_label">አምራች</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
     <string name="review_app_body">ለCAPod ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">አጠቃላይ</string>
     <string name="device_settings_microphone_mode_label">ማይክሮፎን</string>
     <string name="device_settings_microphone_mode_description">የትኛው ኢርባድ እንደ ማይክሮፎን ጥቅም ላይ እንደሚውል</string>
     <string name="device_settings_microphone_mode_auto">ራስ-ሰር</string>

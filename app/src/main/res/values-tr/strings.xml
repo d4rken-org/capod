@@ -3,7 +3,6 @@
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamam</string>
     <string name="general_cancel_action">İptal</string>
-    <string name="general_copy_action">Kopyala</string>
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_upgrade_action">Güncelle</string>
     <string name="general_retry_action">Yeniden Dene</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Kontrol et</string>
     <string name="general_close_action">Kapat</string>
     <string name="general_dismiss_action">Yoksay</string>
-    <string name="general_edit_action">Düzenle</string>
     <string name="general_save_action">Kaydet</string>
     <string name="general_guide_action">Rehber</string>
     <string name="general_continue_action">Devam et</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Podlarını tekrar takınca müziği devam ettir, ancak yalnızca Otomatik duraklat durdurduysa. Kendin tetiklediğin duraklamalar (telefon, AirPods sapı, uyku) duraklamaya devam eder.</string>
     <string name="settings_start_music_on_wear_label">Takınca müziği başlat</string>
     <string name="settings_start_music_on_wear_description">Podlarını takınca, manuel duraklamadan sonra bile müzik çalmayı her zaman dener.</string>
-    <string name="settings_eardetection_info_label">Kulak algılama notu</string>
     <string name="settings_eardetection_info_description">Kulak algılama yalnızca bir kulaklık için çalışıyorsa bu bir Apple sınırlamasıdır. Yalnızca \"birincil kulaklık\" (mikrofon için kullanılan) algılanır. Apple cihazlarında yapılandırın: Ayarlar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_signal_minimum_label">Minimum sinyal kalitesi</string>
-    <string name="settings_signal_minimum_description">Bir aygıtın size ait olduğunun anlaşılması için sahip olması gereken minimum sinyal kalitesi.</string>
     <string name="settings_autoconnect_label">Otomatik bağlan</string>
     <string name="settings_autoconnect_description">Android otomatik olarak bağlanmazsa, biz de bağlanmasını isteyebiliriz. Bu, CAPod\'un her zaman arka planda izlemeye devam etmesini sağlar.</string>
     <string name="settings_autoconnect_info_android12">Otomatik bağlanma Android 12 ve daha yenisinde olan bir sistem özelliğine dayanır. Bu cihazınızda çalışmayabilir.</string>
     <string name="settings_autoconnect_condition_label">Otomatik bağlantı şartı</string>
-    <string name="settings_autoconnect_condition_description">Aygıtınıza ne zaman bağlanmayı denemeliyiz?</string>
     <string name="settings_devices_label">Cihazlar</string>
     <string name="settings_devices_description">Cihazlarınızı yönetin.</string>
     <string name="settings_reaction_label">Tepkiler</string>
-    <string name="settings_category_yourdevice_label">Aygıtınız</string>
     <string name="settings_category_compatibility_options_title">Uyumluluk seçenekleri</string>
     <string name="settings_category_compatibility_options_description">Eğer her şey düzgün çalışıyorsa lütfen dokunma ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Donanım filtrelemeyi kapat</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Başlatılıyor…</string>
     <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
     <string name="support_debuglog_desc">Uygulamanın yaptığı her şeyi paylaşabileceğiniz bir metin dosyasına kaydeder.</string>
-    <string name="debug_debuglog_size_label">Boyut</string>
-    <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
-    <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
-    <string name="debug_debuglog_file_label">Kayıtlı günlük dosyası</string>
-    <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler içerir (örn. Bluetooth cihaz detayları). Yalnızca güvenilir taraflarla paylaşın.</string>
     <string name="settings_debuglog_explanation">Bu özellik, uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler içerir (örn. Bluetooth cihaz detayları). Bu dosyayı yalnızca güvenilir taraflarla paylaşın (örneğin, bir sorunu gideren geliştirici).</string>
-    <string name="settings_support_installid_label">Kurulum Kimliği</string>
-    <string name="settings_support_installid_desc">Otomatik hata raporları anonimdir. Geliştiricinin hata raporlarınızı bulması gerekiyorsa kurulum kimliğinizi paylaşabilirsiniz.</string>
     <string name="settings_support_label">Destek</string>
     <string name="settings_support_description">Yardıma ihtiyacınız olursa.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Öğrenilen Verileri Sıfırla?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod bu cihazın ölçülen pil tükenme hızını, şarj hızını ve dinleme süresini unutacak ve orijinal pil ömründen yeniden başlayacak.</string>
     <string name="settings_acknowledgements_label">Teşekkürler</string>
-    <string name="settings_debug_autoreports_label">Otomatik hata raporları</string>
-    <string name="settings_debug_autoreports_description">Sorunları otomatik olarak bildirir, ör. uygulama çökmesiyle ilgili ayrıntılı bilgiler. Böylece nasıl düzelteceğimi bulabilirim.</string>
-    <string name="settings_compatibility_mode_label">Uyumluluk modu</string>
-    <string name="settings_compatibility_mode_description">Uyumluluğu iyileştirmek için optimizasyonları devre dışı bırakın. Herhangi bir veri görmüyorsanız bunu deneyin.</string>
     <string name="help_translate_label">Çeviri</string>
     <string name="help_translate_description">Uygulamayı favori dilinize tercüme etmeye yardımcı olun.</string>
     <string name="translators_thanks_title">Çevirmenler</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Başarılı</string>
     <string name="troubleshooter_ble_result_success_body">BLE reklam yayınları CAPod tarafından alınmaktadır.</string>
     <string name="troubleshooter_ble_result_failure_title">Başarısız</string>
-    <string name="troubleshooter_ble_result_failure_body">Sorun giderme başarısız oldu. Uyumluluk seçeneklerinin hiçbir kombinasyonu yardımcı olmadı.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Telefonunuz hiç BLE verisi almadı. Veri kaynaklarının (kulaklığınız dışında) alınıp alınamayacağını görmek için bu testi kalabalık bir alanda tekrar deneyebilirsiniz. Alınan hiçbir veri, telefonunuzun işletim sistemiyle ilgili bir soruna işaret etmez.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonunuz BLE verilerini aldı, ancak veriler desteklenen herhangi bir aygıttan gelmiyor. Kulaklığınız açık mı? CAPod kulaklığınızı destekliyor mu?</string>
-    <string name="troubleshooter_ble_result_failure_action">Tekrar deneyin</string>
-    <string name="troubleshoot_action">Sorun giderme</string>
     <string name="onboarding_body1">Bu uygulama Android\'e AirPod\'a özgü özellikler için destek ekler.</string>
     <string name="onboarding_body2">Tüm Android cihazlar ekstra AirPod özelliklerini tam olarak desteklemez. İşletim sisteminiz doğru çalışan bir Bluetooth-Düşük Enerji uygulaması gerektirir.</string>
     <string name="onboarding_body3">CAPod\'da reklam yoktur ve verilerinizi toplamaz.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Cihazınız bağlı, ancak CAPod ondan canlı veri almıyor. Telefonunuzun bir uyumluluk seçeneğine ihtiyacı olabilir — sorun giderici otomatik olarak bir tane bulmaya çalışabilir.</string>
     <string name="overview_troubleshoot_suggestion_action">Sorun gidericiyi çalıştır</string>
     <string name="overview_unmatched_devices_label">Eşleşmeyen cihazlar</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d cihaz eşleşen profil olmadan</item>
-        <item quantity="other">%d cihaz eşleşen profil olmadan</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Eşleşen bir profili olmayan %d yakın cihaz tespit edildi. Mevcut ayrıntıları görmek için gösterin. Senin cihazınsa, tanınması için Cihazlar bölümünden bir profil ekle.</item>
         <item quantity="other">Eşleşen profili olmayan %d yakın cihaz tespit edildi. Mevcut ayrıntıları görmek için gösterin. Biri seninse, tanınması için Cihazlar bölümünden bir profil ekle.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod, uygulama kapalıyken \"Açılır pencere göster\" ve \"Otomatik bağlan\" gibi özellikleri etkinleştirmek için \"arka plan konum erişimi\" kullanır. Arka plan konum erişimi, uygulamanın arka plandayken Bluetooth Low Energy verilerini almasına olanak tanır. Bu uygulama konumunuzu belirlemek için Bluetooth verilerini KULLANMAYACAKTIR.</string>
     <string name="permission_ignore_battery_optimizations_label">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="permission_ignore_battery_optimizations_description">Pil optimizasyonları, bu uygulamanın arka planda güvenilir bir şekilde Bluetooth verilerini almasını engeller.</string>
-    <string name="permission_required_title">Aşağıdaki izin gereklidir:</string>
     <string name="permission_system_alert_window_label">Sistem Uyarı Penceresi</string>
     <string name="permission_system_alert_window_description">\"Açılır Pencere Göster\" özelliğini mümkün kılmak için CAPod\'un diğer uygulamaların üzerine çizmesine izin verin.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Görüldüğünde</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Kulakta</string>
     <string name="pods_dual_left_label">Sol kulaklık</string>
     <string name="pods_dual_right_label">Sağ kulaklık</string>
-    <string name="pods_dual_left_short_label">L</string>
-    <string name="pods_dual_right_short_label">R</string>
-    <string name="pods_case_label">Kutu</string>
     <string name="battery_unavailable_label">Batarya mevcut değil</string>
     <string name="battery_state_low_cd">Pil düşük</string>
     <string name="battery_state_critical_cd">Pil kritik seviyede</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Doğrudan bağlantı etkin</string>
     <string name="signal_indicator_bars_cd">Sinyal gücü: 4 çubuktan %1$d</string>
     <string name="signal_indicator_disconnected_cd">Sinyal: bağlantı kesildi</string>
-    <string name="pods_yours">Sizin</string>
     <string name="headset_being_worn_label">Takılı</string>
     <string name="headset_not_being_worn_label">Takılı değil</string>
     <string name="pods_case_unknown_state">Bilinmeyen durum</string>
-    <string name="last_seen_x">Son görülme: %s</string>
-    <string name="first_seen_x">İlk görülme: %s</string>
     <string name="battery_cached_label">Son bilinen · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dsa %2$ddk</string>
     <string name="battery_time_remaining_format_h">%1$dsa</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Minimum Sinyal Kalitesi</string>
     <string name="profiles_signal_quality_description">Yalnızca sinyal gücü bu eşiğin üzerinde olan cihazları algıla. Düşük değerler algılama menzilini artırır ancak yanlış pozitiflere neden olabilir. Bunu çok yüksek ayarlamayın - Bluetooth alımı genellikle zayıftır ve mesafe ile engellerle değişir.</string>
     <string name="profiles_identitykey_label">Kimlik Anahtarı</string>
-    <string name="profilessettings_maindevice_identitykey_description">CAPod\'un yakındaki cihazlar arasında tanımlamasına yardımcı olan cihazınızın Kimlik Çözümleme Anahtarı (IRK).</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods gizlilik için Bluetooth adresini sık sık değiştirir. IRK, CAPod\'un cihazınızı tanımasına yardımcı olur. Bir kereye mahsus MacBook erişimine ihtiyacınız vardır.</string>
     <string name="profiles_maindevice_encryptionkey_label">Şifreleme Anahtarı</string>
-    <string name="profiles_maindevice_encryptionkey_description">CAPod\'un ayrıntılı durum bilgilerini almasına olanak tanıyan cihazınızın şifreleme anahtarı.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods bir durum mesajı gönderir, bunun bir kısmı şifrelenmiştir. Şifreleme anahtarı CAPod\'un tam mesajı çözmesine olanak tanır. Bir kereye mahsus MacBook erişimine ihtiyacınız vardır.</string>
     <string name="profiles_key_invalid_format">Geçersiz anahtar biçimi</string>
     <string name="profiles_key_expected_format">Beklenen biçim: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Kaydedilmemiş değişiklikleriniz var. Ne yapmak istersiniz?</string>
     <string name="general_save_and_exit_action">Kaydet ve Çık</string>
     <string name="general_discard_action">At</string>
-    <string name="general_keep_editing_action">Düzenlemeye Devam Et</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Kayıt çok kısa</string>
     <string name="debug_debuglog_short_recording_message">Bir hata ayıklama kaydı sorunu gerçekleşirken yakalaması gerekir. Kaydetmeye devam edin, sorunu yeniden oluşturun, ardından kaydı durdurun.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Cihaz Ayarları</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Ad</string>
     <string name="device_settings_info_bt_name_label">Bluetooth Cihaz Adı</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Üretici</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">CAPod\'e bir inceleme bırakmak ister misiniz? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Genel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Hangi kulakiçinin mikrofon olarak kullanıldığı</string>
     <string name="device_settings_microphone_mode_auto">Otomatik</string>

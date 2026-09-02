@@ -3,7 +3,6 @@
     <string name="general_share_action">పంచుకోండి</string>
     <string name="general_done_action">పూర్తయింది</string>
     <string name="general_cancel_action">రద్దు చేయి</string>
-    <string name="general_copy_action">కాపీ చేయి</string>
     <string name="general_thank_you_label">ధన్యవాదాలు</string>
     <string name="general_upgrade_action">నవీకరించు</string>
     <string name="general_retry_action">రిట్రై</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">తనిఖీ చేయి</string>
     <string name="general_close_action">మూసివేయి</string>
     <string name="general_dismiss_action">తీసివేయండి</string>
-    <string name="general_edit_action">సవరించండి</string>
     <string name="general_save_action">సేవ్ చేయి</string>
     <string name="general_guide_action">మార్గదర్శి</string>
     <string name="general_continue_action">కొనసాగించు</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">మీరు మళ్ళీ పాడ్స్ ధరించినప్పుడు సంగీతాన్ని కొనసాగించు, కానీ ఆటో పాజ్ ఆపినప్పుడు మాత్రమే. మీరు స్వయంగా చేసిన పాజ్‌లు (ఫోన్, AirPods స్టెమ్, స్లీప్) పాజ్‌లో ఉంటాయి.</string>
     <string name="settings_start_music_on_wear_label">ధరించినప్పుడు సంగీతం ప్రారంభించు</string>
     <string name="settings_start_music_on_wear_description">మీరు పాడ్స్ పెట్టుకున్నప్పుడు మాన్యువల్ పాజ్ తర్వాత కూడా సంగీతం వినిపించడానికి ఎల్లప్పుడూ ప్రయత్నిస్తుంది.</string>
-    <string name="settings_eardetection_info_label">చెవి గుర్తింపు గమనిక</string>
     <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string>
-    <string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
-    <string name="settings_signal_minimum_description">ఒక పరికరం మీదిగా పరిగణించబడటానికి అవసరమైన కనీస సిగ్నల్ నాణ్యత.</string>
     <string name="settings_autoconnect_label">ఆటో కనెక్ట్</string>
     <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మనం దానికి కూడా అడగగలం. దీనివల్ల CAPod ఎప్పుడూ నేపథ్యంలో పర్యవేక్షిస్తూనే ఉంటుంది.</string>
     <string name="settings_autoconnect_info_android12">స్వయంచాలక కనెక్ట్ Android 12 మరియు అంతకు తర్వాతి వెర్షన్‌లు పరిమితం చేసే సిస్టమ్ ఫీచర్‌పై ఆధారపడుతుంది. ఇది మీ పరికరంలో పని చేయకపోవచ్చు.</string>
     <string name="settings_autoconnect_condition_label">ఆటో కనెక్ట్ షరతు</string>
-    <string name="settings_autoconnect_condition_description">మేము మీ పరికరానికి ఎప్పుడు కనెక్ట్ చేయడానికి ప్రయత్నించాలి?</string>
     <string name="settings_devices_label">పరికరాలు</string>
     <string name="settings_devices_description">మీ పరికరాలను నిర్వహించండి.</string>
     <string name="settings_reaction_label">ప్రతిచర్యలు</string>
-    <string name="settings_category_yourdevice_label">మీ పరికరం</string>
     <string name="settings_category_compatibility_options_title">అనుకూలత ఎంపికలు</string>
     <string name="settings_category_compatibility_options_description">అన్నీ పని చేస్తే తాకవద్దు ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">హార్డ్‌వేర్ ఫిల్టరింగ్‌ను నిలిపివేయండి</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">ప్రారంభిస్తోంది…</string>
     <string name="support_debuglog_label">డీబగ్ లాగ్</string>
     <string name="support_debuglog_desc">యాప్ చేస్తున్న ప్రతిదాన్ని మీరు షేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రికార్డ్ చేయండి.</string>
-    <string name="debug_debuglog_size_label">పరిమాణం</string>
-    <string name="debug_debuglog_size_compressed_label">కంప్రెస్డ్ పరిమాణం</string>
-    <string name="debug_notification_channel_label">డీబగ్ నోటిఫికేషన్‌లు</string>
-    <string name="debug_debuglog_file_label">రికార్డ్ చేయబడిన లాగ్ ఫైల్</string>
-    <string name="debug_debuglog_recording_progress">డీబగ్ లాగ్ రికార్డ్ అవుతోంది</string>
     <string name="debug_debuglog_record_action">డీబగ్ లాగ్ రికార్డ్ చేయి</string>
     <string name="debug_debuglog_stop_action">రికార్డింగ్ ఆపు</string>
     <string name="debug_debuglog_sensitive_information_message">ఉత్పత్తి చేయబడిన ఫైల్ సున్నితమైన సమాచారాన్ని కలిగి ఉంది (ఉదా. బ్లూటూత్ పరికర వివరాలు). దీన్ని విశ్వసనీయ పార్టీలతో మాత్రమే పంచుకోండి.</string>
     <string name="settings_debuglog_explanation">ఈ ఫీచర్ యాప్ చేస్తున్న ప్రతిదాన్ని షేర్ చేయగల ఫైల్‌లో రికార్డ్ చేస్తుంది. ఉత్పత్తి చేయబడిన ఫైల్ సున్నితమైన సమాచారాన్ని కలిగి ఉంది (ఉదా. బ్లూటూత్ పరికర వివరాలు). దీన్ని విశ్వసనీయ పార్టీలతో మాత్రమే పంచుకోండి (ఉదా. సమస్యను పరిష్కరిస్తున్న డెవలపర్).</string>
-    <string name="settings_support_installid_label">ఇన్‌స్టాల్ ID</string>
-    <string name="settings_support_installid_desc">స్వయంచాలక లోపం నివేదికలు అనామధేయమైనవి. డెవలపర్‌కు మీ లోపం నివేదికలను కనుగొనవలసి వస్తే మీ ఇన్‌స్టాల్ IDని పంచుకోండి.</string>
     <string name="settings_support_label">మద్దతు</string>
     <string name="settings_support_description">మీకు కొంత సహాయం అవసరమైతే.</string>
     <string name="settings_wiki_label">వికీ</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">నేర్చిన డేటాను రీసెట్ చేయాలా?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod ఈ పరికరం యొక్క కొలిచిన డ్రెయిన్, చార్జింగ్ వేగం మరియు వినికిడి సమయం మరచిపోతుంది మరియు రేట్ చేయబడిన బ్యాటరీ జీవితం నుండి ప్రారంభించుకుంటుంది</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
-    <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
-    <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
-    <string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
-    <string name="settings_compatibility_mode_description">అనుకూలతను మెరుగుపరచడానికి ఆప్టిమైజేషన్‌లను నిలిపివేయండి. మీరు ఏ డేటాను చూడకపోతే దీన్ని ప్రయత్నించండి.</string>
     <string name="help_translate_label">అనువాదం</string>
     <string name="help_translate_description">ఈ యాప్‌ను మీ ఇష్టమైన భాషలోకి అనువదించడంలో సహాయపడండి.</string>
     <string name="translators_thanks_title">అనువాదకులు</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">విజయం</string>
     <string name="troubleshooter_ble_result_success_body">BLE ప్రకటన ప్రసారాలు CAPod ద్వారా స్వీకరించబడుతున్నాయి.</string>
     <string name="troubleshooter_ble_result_failure_title">విఫలమైంది</string>
-    <string name="troubleshooter_ble_result_failure_body">ట్రబుల్షూటింగ్ విఫలమైంది. అనుకూలత ఎంపికల ఏ కలయిక సహాయపడలేదు.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">మీ ఫోన్ ఏ BLE డేటాను అస్సలు స్వీకరించలేదు. డేటా మూలాలు (మీ హెడ్‌ఫోన్‌లు కాకుండా) స్వీకరించవచ్చో లేదో చూడటానికి మీరు రద్దీగా ఉండే ప్రాంతంలో ఈ పరీక్షను మళ్లీ ప్రయత్నించవచ్చు. ఏ డేటా స్వీకరించబడకపోవడం మీ ఫోన్ ఆపరేటింగ్ సిస్టమ్‌తో సమస్యను సూచిస్తుంది.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">మీ ఫోన్ BLE డేటాను స్వీకరించింది, కానీ డేటా ఏ మద్దతు ఉన్న పరికరం నుండి రాలేదు. మీ హెడ్‌ఫోన్‌లు ఆన్ చేయబడి ఉన్నాయా? CAPod మీ హెడ్‌ఫోన్‌కు మద్దతు ఇస్తుందా?</string>
-    <string name="troubleshooter_ble_result_failure_action">మళ్ళీ ప్రయత్నించు</string>
-    <string name="troubleshoot_action">ట్రబుల్షూట్</string>
     <string name="onboarding_body1">ఈ యాప్ Androidకి AirPod నిర్దిష్ట ఫీచర్‌లకు మద్దతును జోడిస్తుంది.</string>
     <string name="onboarding_body2">అన్ని Android పరికరాలు AirPod అదనపు ఫీచర్‌లకు పూర్తిగా మద్దతు ఇవ్వవు. మీ ఆపరేటింగ్ సిస్టమ్‌కు సరిగ్గా పనిచేసే బ్లూటూత్-తక్కువ-శక్తి అమలు అవసరం.</string>
     <string name="onboarding_body3">CAPodలో ప్రకటనలు లేవు మరియు మీ డేటాను సేకరించదు.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">మీ పరికరం కనెక్ట్ అయింది, కానీ CAPod దాని నుండి ఏ లైవ్ డేటాను అందుకోవడం లేదు. మీ ఫోన్‌కు ఒక అనుకూలత ఎంపిక అవసరం కావచ్చు — ట్రబుల్షూటర్ స్వయంచాలకంగా ఒకటి కనుగొనడానికి ప్రయత్నించగలదు.</string>
     <string name="overview_troubleshoot_suggestion_action">ట్రబుల్షూటర్ అమలు చేయి</string>
     <string name="overview_unmatched_devices_label">సరిపోలని పరికరాలు</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">సరిపోలే ప్రొఫైల్ లేని %d పరికరం</item>
-        <item quantity="other">సరిపోలే ప్రొఫైల్ లేని %d పరికరాలు</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d సమీపంలోని పరికరం సరిపోలే ప్రొఫైల్ లేకుండా గుర్తించబడింది. అందుబాటులో ఉన్న వివరాల కోసం దాన్ని చూపించండి. ఇది మీదైతే, దాన్ని గుర్తించడానికి పరికరాల నుండి ఒక ప్రొఫైల్‌ను జోడించండి.</item>
         <item quantity="other">%d సమీపంలోని పరికరాలు సరిపోలే ప్రొఫైల్‌లు లేకుండా గుర్తించబడ్డాయి. అందుబాటులో ఉన్న వివరాల కోసం వాటిని చూపించండి. వాటిలో ఒకటి మీదైతే, దాన్ని గుర్తించడానికి పరికరాల నుండి ఒక ప్రొఫైల్‌ను జోడించండి.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">యాప్ మూసివేయబడినప్పుడు \"పాపప్ చూపించు\" మరియు \"ఆటో కనెక్ట్\" వంటి ఫీచర్లను ఎనేబుల్ చేయడానికి CAPod \"నేపథ్య లొకేషన్ యాక్సెస్\" ఉపయోగిస్తుంది. నేపథ్య లొకేషన్ యాక్సెస్ యాప్ నేపథ్యంలో ఉన్నప్పుడు బ్లూటూత్ తక్కువ శక్తి డేటాను స్వీకరించడానికి అనుమతిస్తుంది. ఈ యాప్ మీ లొకేషన్‌ను నిర్ణయించడానికి బ్లూటూత్ డేటాను ఉపయోగించదు.</string>
     <string name="permission_ignore_battery_optimizations_label">బ్యాటరీ ఆప్టిమైజేషన్‌లను నిలిపివేయి</string>
     <string name="permission_ignore_battery_optimizations_description">బ్యాటరీ ఆప్టిమైజేషన్‌లు యాప్ నేపథ్యంలో ఉన్నప్పుడు బ్లూటూత్ డేటాను నమ్మకంగా స్వీకరించడాన్ని నిరోధిస్తాయి.</string>
-    <string name="permission_required_title">కింది అనుమతి అవసరం:</string>
     <string name="permission_system_alert_window_label">సిస్టమ్ అలర్ట్ విండో</string>
     <string name="permission_system_alert_window_description">\"పాపప్ చూపించు\" ఫీచర్‌ను సాధ్యం చేయడానికి ఇతర యాప్‌ల మీద గీయడానికి CAPodను అనుమతించండి.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">కనిపించినప్పుడు</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">చెవిలో</string>
     <string name="pods_dual_left_label">ఎడమ పాడ్</string>
     <string name="pods_dual_right_label">కుడి పాడ్</string>
-    <string name="pods_dual_left_short_label">ఎ</string>
-    <string name="pods_dual_right_short_label">కు</string>
-    <string name="pods_case_label">కేస్</string>
     <string name="battery_unavailable_label">బ్యాటరీ అందుబాటులో లేదు</string>
     <string name="battery_state_low_cd">బ్యాటరీ తక్కువగా ఉంది</string>
     <string name="battery_state_critical_cd">బ్యాటరీ అత్యంత తక్కువగా ఉంది</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">నేరుగా కనెక్షన్ సక్రియంగా ఉంది</string>
     <string name="signal_indicator_bars_cd">సిగ్నల్ బలం: 4 బార్‌లలో %1$d</string>
     <string name="signal_indicator_disconnected_cd">సిగ్నల్: డిస్‌కనెక్ట్ అయింది</string>
-    <string name="pods_yours">మీది</string>
     <string name="headset_being_worn_label">ధరించబడుతోంది</string>
     <string name="headset_not_being_worn_label">ధరించబడటం లేదు</string>
     <string name="pods_case_unknown_state">తెలియని స్థితి</string>
-    <string name="last_seen_x">చివరిగా చూడబడింది: %s</string>
-    <string name="first_seen_x">మొదటిసారి చూడబడింది: %s</string>
     <string name="battery_cached_label">చివరిగా తెలిసినది · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">కనీస సిగ్నల్ నాణ్యత</string>
     <string name="profiles_signal_quality_description">ఈ థ్రెషోల్డ్ కంటే ఎక్కువ సిగ్నల్ బలం ఉన్న పరికరాలను మాత్రమే గుర్తించండి. తక్కువ విలువలు గుర్తింపు పరిధిని పెంచుతాయి కానీ తప్పుడు సానుకూలతలను కలిగిస్తాయి. దీన్ని చాలా ఎక్కువగా సెట్ చేయకండి — బ్లూటూత్ రిసెప్షన్ సాధారణంగా బలహీనంగా ఉంటుంది మరియు దూరం మరియు అడ్డంకులతో మారుతుంది.</string>
     <string name="profiles_identitykey_label">గుర్తింపు కీ</string>
-    <string name="profilessettings_maindevice_identitykey_description">మీ పరికరం యొక్క Identity Resolving Key (IRK), ఇది సమీపంలోని పరికరాల మధ్య CAPod దాన్ని గుర్తించడంలో సహాయపడుతుంది.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods గోప్యత కోసం తమ బ్లూటూత్ చిరునామాను తరచుగా మారుస్తాయి. IRK మీ పరికరాన్ని CAPod గుర్తించడంలో సహాయపడుతుంది. మీకు MacBookకు ఒకసారి యాక్సెస్ అవసరం.</string>
     <string name="profiles_maindevice_encryptionkey_label">ఎన్‌క్రిప్షన్ కీ</string>
-    <string name="profiles_maindevice_encryptionkey_description">మీ పరికరం యొక్క ఎన్‌క్రిప్షన్ కీ, ఇది CAPod వివరమైన స్థితి సమాచారాన్ని తీసుకోవడానికి అనుమతిస్తుంది.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ఒక స్థితి సందేశాన్ని పంపుతాయి, దానిలో కొంత భాగం ఎన్‌క్రిప్ట్ చేయబడింది. ఎన్‌క్రిప్షన్ కీ CAPod పూర్తి సందేశాన్ని డీక్రిప్ట్ చేయడానికి అనుమతిస్తుంది. మీకు MacBookకు ఒకసారి యాక్సెస్ అవసరం.</string>
     <string name="profiles_key_invalid_format">చెల్లని కీ ఫార్మాట్</string>
     <string name="profiles_key_expected_format">ఆశించిన ఫార్మాట్: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">మీకు సేవ్ చేయని మార్పులు ఉన్నాయి. మీరు ఏమి చేయాలనుకుంటున్నారు?</string>
     <string name="general_save_and_exit_action">సేవ్ చేసి &amp; నిష్క్రమించు</string>
     <string name="general_discard_action">విస్మరించు</string>
-    <string name="general_keep_editing_action">ఎడిట్ చేయడం కొనసాగించు</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">రికార్డింగ్ చాలా తక్కువలో ఉంది</string>
     <string name="debug_debuglog_short_recording_message">సమస్య జరుగుతున్నప్పుడే డీబగ్ లాగ్ అన్ని క్యాప్చర్ చేయాలి. రికార్డింగ్ కొనసాగించండి, సమస్యను పునరుత్పత్తించండి, తర్వాత రికార్డింగ్ ఆపండి.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">పరికర సెట్టింగ్‌లు</string>
     <string name="device_settings_subtitle_profile_prefix">ప్రొఫైల్: %s</string>
-    <string name="device_settings_info_name_label">పేరు</string>
     <string name="device_settings_info_bt_name_label">బ్లూటూత్ పరికరం లేబుల్</string>
     <string name="device_settings_info_model_label">మోడల్</string>
     <string name="device_settings_info_manufacturer_label">తయారీదారు</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">బహుశా తర్వాత</string>
     <string name="review_app_body">మీరు CAPod కోసం సమీక్ష వ్రాయాలనుకుంటారా? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>
     <string name="device_settings_microphone_mode_description">మైక్రోఫోన్‌గా ఏ ఇయర్‌బడ్ ఉపయోగించబడుతుందో</string>
     <string name="device_settings_microphone_mode_auto">ఆటో</string>

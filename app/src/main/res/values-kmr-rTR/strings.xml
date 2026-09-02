@@ -3,7 +3,6 @@
     <string name="general_share_action">Parve bike</string>
     <string name="general_done_action">Qediya</string>
     <string name="general_cancel_action">Betal bike</string>
-    <string name="general_copy_action">Kopî bike</string>
     <string name="general_thank_you_label">Spas</string>
     <string name="general_upgrade_action">Nûjen bike</string>
     <string name="general_retry_action">Dîsan hewl bide</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Kontrol bike</string>
     <string name="general_close_action">Bigire</string>
     <string name="general_dismiss_action">Biser Bixe</string>
-    <string name="general_edit_action">Biguherîne</string>
     <string name="general_save_action">Tomar bike</string>
     <string name="general_guide_action">Rêber</string>
     <string name="general_continue_action">Berdewam bike</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Gava ku ji nû ve podên xwe li xwe dikî muzîkê berdewam bike, lê tenê heke Auto pause ew rawestandibe. Rawestandinên ku xwe kirine (têlefon, AirPods stem, xew) rawestayî dimînin.</string>
     <string name="settings_start_music_on_wear_label">Muzîkê li ser li xwe kirinê dest pê bike</string>
     <string name="settings_start_music_on_wear_description">Her hewl dide ku muzîkê lêbixe gava tu podên xwe li xwe dikî, tewra piştî rawestandinek destan.</string>
-    <string name="settings_eardetection_info_label">Nîşeya tespîtkirina guhê</string>
     <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string>
-    <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
-    <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
     <string name="settings_autoconnect_label">Girêdana otomatîk</string>
     <string name="settings_autoconnect_description">Heke Android bixwe girênebike, em jî dê bipirsînin. Ev CAPod di paşxan de her demê bixweber vê tikan dike.</string>
     <string name="settings_autoconnect_info_android12">Girêdana xweser li ser taybetmendiyek pergalê ye ku Android 12 û nûtir sînor dike. Dibe ku li ser amûra we nexebite.</string>
     <string name="settings_autoconnect_condition_label">Şertê girêdana otomatîk</string>
-    <string name="settings_autoconnect_condition_description">Kengê divê em hewl bidin ku bi amûra we ve girêbidin?</string>
     <string name="settings_devices_label">Amûr</string>
     <string name="settings_devices_description">Amûrên xwe birêve bibin.</string>
     <string name="settings_reaction_label">Bertek</string>
-    <string name="settings_category_yourdevice_label">Amûra we</string>
     <string name="settings_category_compatibility_options_title">Vebijarkên lihevhatinê</string>
     <string name="settings_category_compatibility_options_description">Heke her tişt baş dixebite dest nedin ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Parzûnkirina hardware neçalak bike</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Destpêkirin…</string>
     <string name="support_debuglog_label">Tomara çareserkirinê</string>
     <string name="support_debuglog_desc">Her tiştê ku sepan dike di pelek nivîskî de tomar bike ku hûn dikarin parve bikin.</string>
-    <string name="debug_debuglog_size_label">Mezinahî</string>
-    <string name="debug_debuglog_size_compressed_label">Mezinahiya pêçandî</string>
-    <string name="debug_notification_channel_label">Agahdariyên çareserkirinê</string>
-    <string name="debug_debuglog_file_label">Pela tomara tomarkirî</string>
-    <string name="debug_debuglog_recording_progress">Tomara çareserkirinê tê tomarkirin</string>
     <string name="debug_debuglog_record_action">Tomara çareserkirinê tomar bike</string>
     <string name="debug_debuglog_stop_action">Tomarkirinê rawestîne</string>
     <string name="debug_debuglog_sensitive_information_message">Pela hatî çêkirin agahdariya hestiyar dihewîne (mînak hûrguliyên amûra Bluetooth). Wê tenê bi aliyên pêbawer re parve bikin.</string>
     <string name="settings_debuglog_explanation">Ev taybetmendî her tiştê ku sepan dike di pelek parvekirî de tomar dike. Pela hatî çêkirin agahdariya hestiyar dihewîne (mînak hûrguliyên amûra Bluetooth). Wê tenê bi aliyên pêbawer re parve bikin (mînak pêşvebirek ku pirsgirêkek çareser dike).</string>
-    <string name="settings_support_installid_label">Nasnameya sazkirinê</string>
-    <string name="settings_support_installid_desc">Raporên xeletiyan ên otomatîk nenas in. Nasnameya xwe ya sazkirinê parve bikin heke pêşvebir hewce bike ku raporên xeletiyên we bibîne.</string>
     <string name="settings_support_label">Piştgirî</string>
     <string name="settings_support_description">Heke hûn hewceyê hin alîkariyê ne.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Daneyên Fêrkirî Sifir Bike?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod wê xurina pîvandî ya vî amûrê, leza barkirînê û demê guhdariyê ji bîr bike, û ji jiyana pîlandinê ya rêz dîsa destpê bike.</string>
     <string name="settings_acknowledgements_label">Spasdarî</string>
-    <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
-    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
-    <string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
-    <string name="settings_compatibility_mode_description">Ji bo baştirkirina lihevhatinê xweşbîniyan neçalak bikin. Heke hûn tu daneyan nabînin vê biceribînin.</string>
     <string name="help_translate_label">Werger</string>
     <string name="help_translate_description">Alîkariya wergerandina vê sepanê li zimanê xwe yê bijare bikin.</string>
     <string name="translators_thanks_title">Wergêr</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Serketî</string>
     <string name="troubleshooter_ble_result_success_body">Weşanên reklaman ên BLE ji hêla CAPod ve tên wergirtin.</string>
     <string name="troubleshooter_ble_result_failure_title">Neserketî</string>
-    <string name="troubleshooter_ble_result_failure_body">Çareserkirina pirsgirêkan bi ser neket. Tu tevliheviyek vebijarkên lihevhatinê alîkar nebû.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Têlefona we qet daneyên BLE wernegirt. Hûn dikarin vê ceribandinê li deverek qerebalix dîsa biceribînin da ku bibînin ka çavkaniyên daneyan (ji bilî guhêrên we) dikarin werin wergirtin. Wergirtina tu daneyan pirsgirêkek bi pergala xebitandinê ya têlefona we nîşan dide.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Têlefona we daneyên BLE wergirt, lê dane ji tu amûrek piştgirîkirî nayên. Gelo guhêrên we vekirî ne? Gelo CAPod guhêrên we piştgirî dike?</string>
-    <string name="troubleshooter_ble_result_failure_action">Dîsa biceribîne</string>
-    <string name="troubleshoot_action">Pirsgirêkan çareser bike</string>
     <string name="onboarding_body1">Ev sepan piştgiriyê ji bo taybetmendiyên taybet ên AirPod li Android zêde dike.</string>
     <string name="onboarding_body2">Ne hemî amûrên Android bi tevahî taybetmendiyên zêde yên AirPod piştgirî dikin. Pergala xebitandinê ya we pêkanînek Bluetooth-Kêm-Enerjiyê ya ku rast dixebite hewce dike.</string>
     <string name="onboarding_body3">CAPod reklam tune û daneyên we berhev nake.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Amûra te girêdayî ye, lê CAPod daneya zindî ji wê nagire. Dibe ku telefona te vebijarkek lihevhatinê hewce bike — çareserkerê pirsgirîkan dikare bixweber yek bibîne.</string>
     <string name="overview_troubleshoot_suggestion_action">Çareserkerê pirsgirîkan bixebitîne</string>
     <string name="overview_unmatched_devices_label">Amûrên nehevgirtî</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d amûr bê profîla hevgirtî</item>
-        <item quantity="other">%d amûr bê profîla hevgirtî</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d cîhazek nêzîk hate dîtin ku profîleke lihevhatî tune bû. Ji bo hûrgiliyên berdest nîşanî bide wê. Heke ew a te ye, ji rûpela Cîhazan profîlek zêde bike da ku were nasîn.</item>
         <item quantity="other">%d cîhazên nêzîk hatin dîtin ku profîlên wan ên lihevhatî tune bûn. Ji bo hûrgiliyên berdest nîşanî bide wan. Heke yek ji wan a te ye, ji rûpela Cîhazan profîlek zêde bike da ku were nasîn.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod \"gihîştina cihê paşîn\" bikar tîne da ku taybetmendiyên wekî \"Pop-up nîşan bide\" û \"Girêdana otomatîk\" dema ku sepan girtî ye çalak bike. Gihîştina cihê paşîn dihêle ku sepan di paşîn de daneyên Bluetooth Low Energy bistîne. Ev sepan daneyên Bluetooth ji bo destnîşankirina cihê we bikar NAYÎNE.</string>
     <string name="permission_ignore_battery_optimizations_label">Xweşbîniyên bataryayê neçalak bike</string>
     <string name="permission_ignore_battery_optimizations_description">Xweşbîniyên bataryayê rê li vê sepanê digirin ku dema di paşîn de daneyên Bluetooth bi pêbawerî bistîne.</string>
-    <string name="permission_required_title">Destûra jêrîn hewce ye:</string>
     <string name="permission_system_alert_window_label">Pencereya Hişyariya Pergalê</string>
     <string name="permission_system_alert_window_description">Destûrê bidin CAPod ku li ser sepanên din xêz bike da ku taybetmendiya \"Pop-Up Nîşan Bide\" gengaz bike.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Dema tê dîtin</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Di guhê de</string>
     <string name="pods_dual_left_label">Poda çepê</string>
     <string name="pods_dual_right_label">Poda rastê</string>
-    <string name="pods_dual_left_short_label">Ç</string>
-    <string name="pods_dual_right_short_label">R</string>
-    <string name="pods_case_label">Qapax</string>
     <string name="battery_unavailable_label">Batarya berdest nêne</string>
     <string name="battery_state_low_cd">Pîlandin kêm e</string>
     <string name="battery_state_critical_cd">Pîlandin zor kêm e</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Girêdana rasterast çalak e</string>
     <string name="signal_indicator_bars_cd">Hêza nîşanê: %1$d ji 4 baran</string>
     <string name="signal_indicator_disconnected_cd">Nîşan: bêpêwendî</string>
-    <string name="pods_yours">Ya we</string>
     <string name="headset_being_worn_label">Tê lixwekirin</string>
     <string name="headset_not_being_worn_label">Nayê lixwekirin</string>
     <string name="pods_case_unknown_state">Rewşa nenas</string>
-    <string name="last_seen_x">Cara dawîn hat dîtin: %s</string>
-    <string name="first_seen_x">Cara yekem hat dîtin: %s</string>
     <string name="battery_cached_label">Dawî zanëbû · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Qalîteya Sînyala Herî Kêm</string>
     <string name="profiles_signal_quality_description">Tenê amûrên bi hêza sînyalê li jor vê bendê tespît bikin. Nirxên kêmtir rêza tespîtkirinê zêde dikin lê dibe ku encamên erênî yên derew bibin. Wê pir bilind mekin - wergirtina Bluetooth bi giştî xirab e û bi dûrahî û astengan re diguhere.</string>
     <string name="profiles_identitykey_label">Mifteya Nasnameyê</string>
-    <string name="profilessettings_maindevice_identitykey_description">Kilîta Çareserkirina Nasnameya (IRK) amûra we, ku alîkariya CAPod dike ku wê di nav amûrên nêzîk de nas bike.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ji bo nepenîtiyê pir caran navnîşana xwe ya Bluetooth diguherînin. IRK alîkariya CAPod dike ku amûra we nas bike. Ji we re carekê gihîştina MacBook-ê hewce ye.</string>
     <string name="profiles_maindevice_encryptionkey_label">Mifteya Şîfrelêdanê</string>
-    <string name="profiles_maindevice_encryptionkey_description">Kilîta şîfrekirinê ya amûra we, ku dihêle CAPod agahdariya rewşê ya berfireh bistîne.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods peyamek rewşê dişîne ku beşek wê şîfrekirî ye. Kilîta şîfrekirinê dihêle CAPod peyama tevahî veşîfre bike. Ji we re carekê gihîştina MacBook-ê hewce ye.</string>
     <string name="profiles_key_invalid_format">Formata kilîtê nederbasdar e</string>
     <string name="profiles_key_expected_format">Formata çaverêkirî: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Guhertinên we yên netomarkirî hene. Hûn dixwazin çi bikin?</string>
     <string name="general_save_and_exit_action">Tomar bike &amp; derkeve</string>
     <string name="general_discard_action">Bavêje</string>
-    <string name="general_keep_editing_action">Guherandinê bidomîne</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Tomarkirî pir kurte</string>
     <string name="debug_debuglog_short_recording_message">Têketinek debugê divê pirsgirêkê bigire dema ku ew diqewime. Tomarkirinê berdewam bike, pirsgirêkê dubare bike, paşê tomarkirinê rawestîne.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Mîhengen Cîhazê</string>
     <string name="device_settings_subtitle_profile_prefix">Profîl: %s</string>
-    <string name="device_settings_info_name_label">Nav</string>
     <string name="device_settings_info_bt_name_label">Navê Amûra Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Çêker</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Belkî paşê</string>
     <string name="review_app_body">Dixwazî tu CAPod nirx bikî? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Giştî</string>
     <string name="device_settings_microphone_mode_label">Mîkrofon</string>
     <string name="device_settings_microphone_mode_description">Kîjan guhêrk wek mîkrofon tê bikar anîn</string>
     <string name="device_settings_microphone_mode_auto">Xweber</string>

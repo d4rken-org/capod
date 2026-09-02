@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Ils servezzans da Google Play n\'èn betg disponibels.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nagins acquists chattads. Utiliseschas ti il conto gist?</string>
     <string name="upgrades_gplay_billing_error_label">Errur da Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Igl ha dà ina errur en Google Play. Emprova per plaschair pli tard u reavvia tes telefon.\n\nErrur: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Errur da facturaziun da Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Igl ha dà ina errur cun la dumonda dals detagls da tes acquist tar Google Play. Stizza il cache da Google Play e reavvia tes telefon.\n\nErrur %s</string>
     <string name="upgrades_gplay_already_owned_label">Gia cumprà?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play rapporta che ti possedas gia quest upgrade, ma el n\'ha betg pudì vegnir restaurà. Controllescha che ti utiliseschias il conto Google cun il qual ti has cumprà. La sincronisaziun da Play Store po durar in pau temp — emprova da reaviar il apparat, svidar la cache da Google Play u simplamain spetgar.</string>
-    <string name="upgrade_restore_action">Restaurar la cumpra</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obtegnair %1$s</string>
     <string name="upgrade_preamble">CAPod vegn sviluppà da ina persuna suletta. In upgrade sblochescha funcziuns supplementaras ed ajuda a mantegnair l\'app en vita.</string>
-    <string name="upgrade_screen_options_description">Medemas funcziuns, autra tarifa. L\'abunament includa in emprova gratuita e po vegnir annullà da tut temp.</string>
-    <string name="upgrade_screen_options_description_no_trial">Medemas funcziuns, autra tarifa. L\'abunament po vegnir annullà da tut temp.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumenzar l\'emprova gratuita</string>
     <string name="upgrade_screen_subscription_action">S\'abunar mintg\'onn</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/onn</string>
     <string name="upgrade_screen_iap_action">Cumprar ina giada</string>
-    <string name="upgrade_screen_iap_action_hint">Cumpra unica: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Restaurar la cumpra</string>
-    <string name="upgrade_screen_restore_purchase_message">Nagins acquists chattads. Utiliseschas ti il conto gist?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Sche ti has cumprà dacurt, po quai durar in mument enfin che Google Play sincroniseschia.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Emprova anc ina giada en paucas minutas sche tia cumpra n\'emprova betg.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Controllescha che ti sajas annunzià cun il medem conto Google ch\'ins ha duvrà per la cumpra.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Plirs contos pon confunder Google Play. L\'installaziun da l\'app tras la website da Google Play sfortscha l\'associaziun cun in conto specific.</string>
     <string name="upgrade_screen_restore_banner_title">Già cumprà Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Ei para che ti hajas già fatg l\'upgrade a Pro sin quest apparat. Restaura tia cumpra per la sblochar danovamain.</string>
     <string name="upgrade_screen_restore_success_message">Cumpra restaurada.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Ti has CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Sblocca tras tes abunament. Grazia per sustegnair CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Sblocca tras tia cumpra unica. Grazia per sustegnair CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Abunament annual</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Tes abunament è activ ed è configurà per sa renovar. La facturaziun vegn administrada da Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Tes abunament è activ, ma n\'è betg configurà per sa renovar. Pro resta disponibel enfin la fin dal perioda actuala.</string>
     <string name="upgrade_screen_owned_iap_title">Cumpra unica</string>

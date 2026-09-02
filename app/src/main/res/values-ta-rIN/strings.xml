@@ -3,7 +3,6 @@
     <string name="general_share_action">பகிர்</string>
     <string name="general_done_action">முடிந்தது</string>
     <string name="general_cancel_action">ரத்துசெய்</string>
-    <string name="general_copy_action">நகலெடு</string>
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
     <string name="general_retry_action">மீண்டும் முயல்</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">சரிபார்</string>
     <string name="general_close_action">மூடு</string>
     <string name="general_dismiss_action">நிராகரி</string>
-    <string name="general_edit_action">திருத்து</string>
     <string name="general_save_action">சேமி</string>
     <string name="general_guide_action">வழிகாட்டி</string>
     <string name="general_continue_action">தொடர்க</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">உங்கள் போட்களை மீண்டும் அணிந்தால் இசையை தொடரும், ஆனால் Auto pause மட்டுமே நிறுத்தியிருந்தால். நீங்களே நிறுத்திய இடைநிறுத்தங்கள் (தொலைபேசி, AirPods stem, தூக்கம்) நிறுத்தப்பட்டே இருக்கும்.</string>
     <string name="settings_start_music_on_wear_label">அணியும்போது இசையை தொடங்கு</string>
     <string name="settings_start_music_on_wear_description">நீங்கள் போட்களை அணிந்தால் எப்போதும் இசையை இயக்க முயற்சிக்கும், கைமுறை இடைநிறுத்தத்திற்கு பிறகும் கூட.</string>
-    <string name="settings_eardetection_info_label">காது கண்டறிதல் குறிப்பு</string>
     <string name="settings_eardetection_info_description">காது கண்டறிதல் ஒரு பாட்க்கு மட்டுமே வேலை செய்தால், இது Apple வரம்பு. \"முதன்மை பாட்\" (ஒலிபெருக்கிக்கு பயன்படுத்தப்படும்) மட்டுமே கண்டறியப்படும். Apple சாதனங்களில் அமைக்கவும்: அமைப்புகள் → புளூடூத் → AirPods → ஒலிபெருக்கி.</string>
-    <string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
-    <string name="settings_signal_minimum_description">ஒரு சாதனம் உங்களுடையதாகக் கருதப்படுவதற்குத் தேவையான குறைந்தபட்ச சிக்னல் தரம்.</string>
     <string name="settings_autoconnect_label">தானியங்கு இணைப்பு</string>
     <string name="settings_autoconnect_description">Android தானாக இணைக்கவில்லை என்றால், நாம் அதை கேட்கலாம். இது CAPod கண்காணிப்பை எப்போதும் பின்னணியில் வைக்கிறது.</string>
     <string name="settings_autoconnect_info_android12">ஆட்டோ கனெக்ட் Android 12 மற்றும் புதிய பதிப்புகளில் கட்டுப்படுத்தப்பட்ட ஒரு கணினி அம்சத்தை நம்பியுள்ளது. இது உங்கள் சாதனத்தில் வேலை செய்யாமல் போகலாம்.</string>
     <string name="settings_autoconnect_condition_label">தானியங்கு இணைப்பு நிபந்தனை</string>
-    <string name="settings_autoconnect_condition_description">உங்கள் சாதனத்துடன் எப்போது இணைக்க முயற்சிக்க வேண்டும்?</string>
     <string name="settings_devices_label">சாதனங்கள்</string>
     <string name="settings_devices_description">உங்கள் சாதனங்களை நிர்வகிக்கவும்.</string>
     <string name="settings_reaction_label">எதிர்வினைகள்</string>
-    <string name="settings_category_yourdevice_label">உங்கள் சாதனம்</string>
     <string name="settings_category_compatibility_options_title">இணக்கத்தன்மை விருப்பங்கள்</string>
     <string name="settings_category_compatibility_options_description">எல்லாம் வேலை செய்தால் தொடாதே ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">வன்பொருள் வடிகட்டலை முடக்கு</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">தொடங்குகிறது…</string>
     <string name="support_debuglog_label">பிழைத்திருத்த பதிவு</string>
     <string name="support_debuglog_desc">ஆப்ஸ் செய்யும் அனைத்தையும் நீங்கள் பகிரக்கூடிய ஒரு உரைக் கோப்பில் பதிவுசெய்க.</string>
-    <string name="debug_debuglog_size_label">அளவு</string>
-    <string name="debug_debuglog_size_compressed_label">சுருக்கப்பட்ட அளவு</string>
-    <string name="debug_notification_channel_label">பிழைத்திருத்த அறிவிப்புகள்</string>
-    <string name="debug_debuglog_file_label">பதிவுசெய்யப்பட்ட பதிவு கோப்பு</string>
-    <string name="debug_debuglog_recording_progress">பிழைத்திருத்த பதிவைப் பதிவுசெய்கிறது</string>
     <string name="debug_debuglog_record_action">பிழைத்திருத்த பதிவைப் பதிவுசெய்</string>
     <string name="debug_debuglog_stop_action">பதிவை நிறுத்து</string>
     <string name="debug_debuglog_sensitive_information_message">உருவாக்கப்பட்ட கோப்பில் முக்கியமான தகவல்கள் உள்ளன (எ.கா. புளூடூத் சாதன விவரங்கள்). நம்பகமான தரப்பினருடன் மட்டுமே பகிரவும்.</string>
     <string name="settings_debuglog_explanation">இந்த அம்சம் ஆப்ஸ் செய்யும் அனைத்தையும் பகிரக்கூடிய கோப்பில் பதிவுசெய்கிறது. உருவாக்கப்பட்ட கோப்பில் முக்கியமான தகவல்கள் உள்ளன (எ.கா. புளூடூத் சாதன விவரங்கள்). நம்பகமான தரப்பினருடன் மட்டுமே பகிரவும் (எ.கா. ஒரு சிக்கலைச் சரிசெய்யும் டெவலப்பர்).</string>
-    <string name="settings_support_installid_label">நிறுவல் ஐடி</string>
-    <string name="settings_support_installid_desc">தானியங்கி பிழை அறிக்கைகள் அநாமதேயமானவை. டெவலப்பர் உங்கள் பிழை அறிக்கைகளைக் கண்டுபிடிக்க வேண்டும் என்றால் உங்கள் நிறுவல் ஐடியைப் பகிரவும்.</string>
     <string name="settings_support_label">ஆதரவு</string>
     <string name="settings_support_description">உங்களுக்கு உதவி தேவைப்பட்டால்.</string>
     <string name="settings_wiki_label">விக்கி</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">கற்ற தரவைக் மீட்டமைக்கவுமா?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod இந்த சாதனத்தின் அளந்த வெளியேற்றம், சார்ஜ் வேகம் மற்றும் கேட்கும் நேரத்தை மறந்துவிடும், மதிப்பிடப்பட்ட பேட்டரி ஆயுளிலிருந்து மீண்டும் தொடங்கும்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
-    <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
-    <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
-    <string name="settings_compatibility_mode_label">இணக்கத்தன்மை முறை</string>
-    <string name="settings_compatibility_mode_description">இணக்கத்தன்மையை மேம்படுத்த மேம்படுத்தல்களை முடக்கு. நீங்கள் எந்தத் தரவையும் பார்க்கவில்லை என்றால் இதை முயற்சிக்கவும்.</string>
     <string name="help_translate_label">மொழிபெயர்ப்பு</string>
     <string name="help_translate_description">இந்த ஆப்ஸை உங்களுக்குப் பிடித்த மொழியில் மொழிபெயர்க்க உதவுங்கள்.</string>
     <string name="translators_thanks_title">மொழிபெயர்ப்பாளர்கள்</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">வெற்றி</string>
     <string name="troubleshooter_ble_result_success_body">BLE விளம்பர ஒளிபரப்புகள் CAPod ஆல் பெறப்படுகின்றன.</string>
     <string name="troubleshooter_ble_result_failure_title">தோல்வியுற்றது</string>
-    <string name="troubleshooter_ble_result_failure_body">சிக்கல் தீர்க்க முடியவில்லை. இணக்கத்தன்மை விருப்பங்களின் எந்தவொரு கலவையும் உதவவில்லை.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">உங்கள் தொலைபேசி எந்த BLE தரவையும் பெறவில்லை. தரவு மூலங்களை (உங்கள் ஹெட்ஃபோன்களைத் தவிர) பெற முடியுமா என்பதைப் பார்க்க, நெரிசலான பகுதியில் இந்தச் சோதனையை மீண்டும் முயற்சிக்கலாம். எந்தத் தரவும் பெறப்படாதது உங்கள் தொலைபேசியின் இயக்க முறைமையில் ஒரு சிக்கலைக் குறிக்கிறது.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">உங்கள் தொலைபேசி BLE தரவைப் பெற்றது, ஆனால் தரவு எந்தவொரு ஆதரிக்கப்பட்ட சாதனத்திலிருந்தும் வரவில்லை. உங்கள் ஹெட்ஃபோன்கள் இயக்கப்பட்டுள்ளதா? CAPod உங்கள் ஹெட்ஃபோனை ஆதரிக்கிறதா?</string>
-    <string name="troubleshooter_ble_result_failure_action">மீண்டும் முயற்சிக்கவும்</string>
-    <string name="troubleshoot_action">சிக்கல் தீர்க்கவும்</string>
     <string name="onboarding_body1">இந்த ஆப்ஸ் ஆண்ட்ராய்டில் AirPod குறிப்பிட்ட அம்சங்களுக்கான ஆதரவைச் சேர்க்கிறது.</string>
     <string name="onboarding_body2">எல்லா ஆண்ட்ராய்டு சாதனங்களும் கூடுதல் AirPod அம்சங்களை முழுமையாக ஆதரிக்காது. உங்கள் இயக்க முறைமைக்கு சரியாக வேலை செய்யும் புளூடூத்-குறைந்த-ஆற்றல் செயலாக்கம் தேவை.</string>
     <string name="onboarding_body3">CAPod இல் விளம்பரங்கள் இல்லை மற்றும் உங்கள் தரவைச் சேகரிக்காது.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">உங்கள் சாதனம் இணைக்கப்பட்டுள்ளது, ஆனால் CAPod அதிலிருந்து நேரடி தரவு எதுவும் பெறவில்லை. உங்கள் தொலைபேசிக்கு இணக்கத்தன்மை விருப்பம் தேவைப்படலாம் — சிக்கல் தீர்ப்பான் தானாக ஒன்றை கண்டுபிடிக்க முயற்சிக்கும்.</string>
     <string name="overview_troubleshoot_suggestion_action">சிக்கல் தீர்ப்பானை இயக்கு</string>
     <string name="overview_unmatched_devices_label">பொருந்தாத சாதனங்கள்</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">பொருந்தும் சுயவிவரம் இல்லாத %d சாதனம்</item>
-        <item quantity="other">பொருந்தும் சுயவிவரம் இல்லாத %d சாதனங்கள்</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d அருகிலுள்ள சாதனம் பொருந்தும் சுயவிவரம் இல்லாமல் கண்டறியப்பட்டது. கிடைக்கும் விவரங்களுக்கு அதைக் காட்டவும். இது உங்களுடையது எனில், அதை அடையாளம் காண சாதனங்களில் இருந்து ஒரு சுயவிவரத்தைச் சேர்க்கவும்.</item>
         <item quantity="other">%d அருகிலுள்ள சாதனங்கள் பொருந்தும் சுயவிவரங்கள் இல்லாமல் கண்டறியப்பட்டன. கிடைக்கும் விவரங்களுக்கு அவற்றைக் காட்டவும். ஒன்று உங்களுடையது எனில், அதை அடையாளம் காண சாதனங்களில் இருந்து ஒரு சுயவிவரத்தைச் சேர்க்கவும்.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">ஆப்ஸ் மூடப்பட்டிருக்கும்போது \"பாப்அப் காட்டு\" மற்றும் \"தானியங்கு இணைப்பு\" போன்ற அம்சங்களை இயக்க CAPod \"பின்னணி இருப்பிட அணுகல்\" பயன்படுத்துகிறது. பின்னணி இருப்பிட அணுகல் ஆப்ஸ் பின்னணியில் இருக்கும்போது புளூடூத் குறைந்த ஆற்றல் தரவைப் பெற அனுமதிக்கிறது. இந்த ஆப்ஸ் உங்கள் இருப்பிடத்தைத் தீர்மானிக்க புளூடூத் தரவைப் பயன்படுத்தாது.</string>
     <string name="permission_ignore_battery_optimizations_label">பேட்டரி மேம்படுத்தல்களை முடக்கு</string>
     <string name="permission_ignore_battery_optimizations_description">பேட்டரி மேம்படுத்தல்கள் ஆப்ஸ் பின்னணியில் இருக்கும்போது புளூடூத் தரவை நம்பகமாகப் பெறுவதைத் தடுக்கின்றன.</string>
-    <string name="permission_required_title">பின்வரும் அனுமதி தேவை:</string>
     <string name="permission_system_alert_window_label">கணினி எச்சரிக்கை சாளரம்</string>
     <string name="permission_system_alert_window_description">\"பாப்அப் காட்டு\" அம்சத்தை சாத்தியமாக்க CAPod-ஐ பிற ஆப்ஸ்களின் மேல் வரைய அனுமதிக்கவும்.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">கண்டறியும்போது</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">காதில்</string>
     <string name="pods_dual_left_label">இடது பாட்</string>
     <string name="pods_dual_right_label">வலது பாட்</string>
-    <string name="pods_dual_left_short_label">இ</string>
-    <string name="pods_dual_right_short_label">வ</string>
-    <string name="pods_case_label">கேஸ்</string>
     <string name="battery_unavailable_label">பேட்டரி கிடைக்கவில்லை</string>
     <string name="battery_state_low_cd">பேட்டரி குறைவு</string>
     <string name="battery_state_critical_cd">பேட்டரி மிக குறைவு</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">நேரடி இணைப்பு செயலில் உள்ளது</string>
     <string name="signal_indicator_bars_cd">சிக்னல் வலிமை: 4 பார்களில் %1$d</string>
     <string name="signal_indicator_disconnected_cd">சிக்னல்: துண்டிக்கப்பட்டது</string>
-    <string name="pods_yours">உங்களுடையது</string>
     <string name="headset_being_worn_label">அணியப்படுகிறது</string>
     <string name="headset_not_being_worn_label">அணியப்படவில்லை</string>
     <string name="pods_case_unknown_state">தெரியாத நிலை</string>
-    <string name="last_seen_x">கடைசியாகக் காணப்பட்டது: %s</string>
-    <string name="first_seen_x">முதலில் காணப்பட்டது: %s</string>
     <string name="battery_cached_label">கடைசியாக அறியப்பட்டது · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">குறைந்தபட்ச சிக்னல் தரம்</string>
     <string name="profiles_signal_quality_description">இந்த வரம்பிற்கு மேல் சிக்னல் வலிமை கொண்ட சாதனங்களை மட்டுமே கண்டறியவும். குறைந்த மதிப்புகள் கண்டறிதல் வரம்பை அதிகரிக்கும் ஆனால் தவறான கண்டறிதல்களை ஏற்படுத்தலாம். இதை மிகவும் அதிகமாக அமைக்காதீர்கள் — புளூடூத் வரவேற்பு பொதுவாக மோசமானது மற்றும் தூரம் மற்றும் தடைகளுடன் மாறுபடும்.</string>
     <string name="profiles_identitykey_label">அடையாள விசை</string>
-    <string name="profilessettings_maindevice_identitykey_description">உங்கள் சாதனத்தின் Identity Resolving Key (IRK), இது அருகிலுள்ள சாதனங்களில் CAPod அதை அடையாளம் காண உதவுகிறது.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods தனியுரிமைக்காக தங்கள் புளூடூத் முகவரியை அடிக்கடி மாற்றுகின்றன. IRK உங்கள் சாதனத்தை CAPod அங்கீகரிக்க உதவுகிறது. உங்களுக்கு MacBook-க்கு ஒரு முறை அணுகல் தேவை.</string>
     <string name="profiles_maindevice_encryptionkey_label">குறியாக்க விசை</string>
-    <string name="profiles_maindevice_encryptionkey_description">உங்கள் சாதனத்தின் குறியாக்க விசை, இது CAPod-ஐ விரிவான நிலைத் தகவலைப் பெற அனுமதிக்கிறது.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ஒரு நிலைச் செய்தியை அனுப்புகின்றன, அதன் ஒரு பகுதி குறியாக்கம் செய்யப்பட்டுள்ளது. குறியாக்க விசை CAPod-ஐ முழு செய்தியையும் மறைகுறியாக்க அனுமதிக்கிறது. உங்களுக்கு MacBook-க்கு ஒரு முறை அணுகல் தேவை.</string>
     <string name="profiles_key_invalid_format">தவறான விசை வடிவம்</string>
     <string name="profiles_key_expected_format">எதிர்பார்க்கப்படும் வடிவம்: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?</string>
     <string name="general_save_and_exit_action">சேமி &amp; வெளியேறு</string>
     <string name="general_discard_action">நிராகரி</string>
-    <string name="general_keep_editing_action">தொடர்ந்து திருத்து</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ரெகார்டிங் மிகவும் குறுகியது</string>
     <string name="debug_debuglog_short_recording_message">ஒரு பிழைதிருத்தல் பதிவு பிரச்சினை நிகழ்கிற்றபோது பதிவு செய்ய வேண்டும். ரெகார்டிங் தொடர்ந்து, பிரச்சினையை மீண்டும் உருவாக்கி, பின் ரெகார்டிங்ஐ நிறுத்தவும்.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">சாதன அமைப்புகள்</string>
     <string name="device_settings_subtitle_profile_prefix">சுயவிவரம்: %s</string>
-    <string name="device_settings_info_name_label">பெயர்</string>
     <string name="device_settings_info_bt_name_label">Bluetooth சாதன பெயர்</string>
     <string name="device_settings_info_model_label">மாடல்</string>
     <string name="device_settings_info_manufacturer_label">உற்பத்தியாளர்</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
     <string name="review_app_body">நீங்கள் CAPod க்கு மதிப்புரை வழங்க விரும்புகிறீர்களா? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>
     <string name="device_settings_microphone_mode_description">எந்த ஈர்பட் மைக்ரோஃபோனாக பயன்படுத்தப்படுகிறது</string>
     <string name="device_settings_microphone_mode_auto">தானியங்கி</string>

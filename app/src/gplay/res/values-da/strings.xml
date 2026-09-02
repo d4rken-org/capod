@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play-tjenester er ikke tilgængelige.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ingen køb fundet. Bruger du den rigtige konto?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play-fejl</string>
     <string name="upgrades_gplay_billing_error_description">Der opstod en fejl i Google Play. Prøv venligst igen senere, eller genstart din telefon.\n\nFejl: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfejl</string>
-    <string name="upgrades_gplay_billing_result_error_description">Der opstod en fejl under forespørgsel af dine købsoplysninger fra Google Play. Ryd Google Play-cachen, og genstart din telefon.\n\nFejl %s</string>
     <string name="upgrades_gplay_already_owned_label">Allerede købt?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play rapporterer, at du allerede ejer denne opgradering, men den kunne ikke gendannes. Sørg for, at du bruger den Google-konto, du købte med. Synkronisering med Play Store kan tage tid — prøv at genstarte, ryd Google Play-cachen, eller vent blot.</string>
-    <string name="upgrade_restore_action">Gendan køb</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Få %1$s</string>
     <string name="upgrade_preamble">CAPod udvikles af én person. En opgradering låser ekstra funktioner op og hjælper med at holde appen i live.</string>
-    <string name="upgrade_screen_options_description">Samme funktioner, forskellig prisfastsættelse. Abonnementet inkluderer en gratis prøveperiode og kan opsiges når som helst.</string>
-    <string name="upgrade_screen_options_description_no_trial">Samme funktioner, forskellig prisfastsættelse. Abonnementet kan opsiges når som helst.</string>
     <string name="upgrade_screen_subscription_trial_action">Start gratis prøveperiode</string>
     <string name="upgrade_screen_subscription_action">Abonner årligt</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/år</string>
     <string name="upgrade_screen_iap_action">Køb én gang</string>
-    <string name="upgrade_screen_iap_action_hint">Engangskøb: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Gendan køb</string>
-    <string name="upgrade_screen_restore_purchase_message">Ingen køb fundet. Bruger du den rigtige konto?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Hvis du for nylig har foretaget et køb, kan det tage et øjeblik, før Google Play synkroniserer.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Prøv igen om et par minutter, hvis dit køb ikke vises.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Sørg for, at du er logget ind med den samme Google-konto, som blev brugt til købet.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Flere konti kan forvirre Google Play. Installation af appen via Google Play-webstedet gennemtvinger tilknytningen til en bestemt konto.</string>
     <string name="upgrade_screen_restore_banner_title">Allerede købt Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Det ser ud til, at du tidligere har opgraderet til Pro på denne enhed. Gendan dit køb for at låse det op igen.</string>
     <string name="upgrade_screen_restore_success_message">Køb gendannet.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Du har CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Låst op af dit abonnement. Tak fordi du støtter CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Låst op af dit engangskøb. Tak fordi du støtter CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Årligt abonnement</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Dit abonnement er aktivt og indstillet til at blive fornyet. Fakturering håndteres af Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Dit abonnement er aktivt, men ikke indstillet til at blive fornyet. Pro forbliver tilgængeligt, indtil den nuværende periode udløber.</string>
     <string name="upgrade_screen_owned_iap_title">Engangskøb</string>
