@@ -7,6 +7,8 @@ import kotlin.math.floor
 /** How many more times the case can recharge both earbuds, and how firm that number is. */
 data class CaseCharges(
     val count: Int,
+    /** The low end of the reading's interval, unrounded — what [count] and [display] are derived from. */
+    val fraction: Float,
     val display: Display,
     val adequacy: Adequacy,
 ) {
@@ -77,5 +79,13 @@ fun caseCharges(spec: PodModel.CaseSpec?, reading: BatteryReading?): CaseCharges
         else -> floored
     }
 
-    return CaseCharges(count = count, display = display, adequacy = adequacy)
+    return CaseCharges(count = count, fraction = lowest, display = display, adequacy = adequacy)
 }
+
+/**
+ * [CaseCharges.fraction] cut to one decimal instead of rounded, so a case the card calls short of a
+ * full charge can never read "1.0". The epsilon absorbs binary float error only: a 2.0 spec at 35%
+ * lands on 0.69999999 and still has to read 0.7.
+ */
+val CaseCharges.displayFraction: Float
+    get() = floor(fraction * 10f + 1e-4f) / 10f

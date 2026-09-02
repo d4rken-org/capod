@@ -109,7 +109,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="88%" />
+                android:maxWidth="144dp"
+                tools:text="88% · 0.8 charges" />
 
             <LinearLayout
                 android:layout_width="36dp"

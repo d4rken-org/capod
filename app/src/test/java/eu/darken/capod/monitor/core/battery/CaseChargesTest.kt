@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core.battery
 
 import eu.darken.capod.monitor.core.BatteryReading
 import eu.darken.capod.pods.core.apple.PodModel
+import io.kotest.matchers.floats.plusOrMinus
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
@@ -147,5 +148,55 @@ class CaseChargesTest : BaseTest() {
         val floored = charges(lowerBound, 0f, decile)!!
         floored.display shouldBe CaseCharges.Display.EMPTY
         floored.adequacy shouldBe CaseCharges.Adequacy.NOT_ENOUGH
+    }
+
+    @Test
+    fun `the fraction is the count before flooring`() {
+        // AirPods Pro 3 ships a 2.0 case, so 42% is short of a single pair charge
+        val pro3 = PodModel.CaseSpec(fullPairRecharges = 2.0f)
+        charges(pro3, 0.42f, percent)!!.fraction shouldBe (0.84f plusOrMinus 0.001f)
+        charges(exact, 0.42f, percent)!!.fraction shouldBe (1.68f plusOrMinus 0.001f)
+        charges(lowerBound, 1.0f, percent)!!.fraction shouldBe (3.8f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `the fraction takes the low end of a coarse reading`() {
+        // 4.0 x 0.40 = 1.6, not the 2.0 the decile interval also permits
+        charges(exact, 0.40f, decile)!!.fraction shouldBe (1.6f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `the fraction of an empty case is zero`() {
+        charges(exact, 0f, percent)!!.fraction shouldBe (0f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `the shown decimal never reads as a charge the card denies`() {
+        // 4.0 x 0.24 = 0.96 — to the nearest tenth that prints "1.0" under a "less than one" card
+        val short = charges(exact, 0.24f, percent)!!
+        short.display shouldBe CaseCharges.Display.LESS_THAN_ONE
+        short.displayFraction shouldBe (0.9f plusOrMinus 0.001f)
+
+        val pro3 = charges(PodModel.CaseSpec(fullPairRecharges = 2.0f), 0.48f, percent)!!
+        pro3.display shouldBe CaseCharges.Display.LESS_THAN_ONE
+        pro3.displayFraction shouldBe (0.9f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `the shown decimal survives float representation error`() {
+        // 2.0 x 0.35 lands on 0.69999999, which must not cut down to 0.6
+        val spec = PodModel.CaseSpec(fullPairRecharges = 2.0f)
+        charges(spec, 0.35f, percent)!!.displayFraction shouldBe (0.7f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `a lower bound spec keeps a floor it can honour`() {
+        // 3.8 x 0.20 = 0.76, so "0.8+" would promise more than the reading guarantees
+        charges(lowerBound, 0.20f, percent)!!.displayFraction shouldBe (0.7f plusOrMinus 0.001f)
+    }
+
+    @Test
+    fun `a whole charge still shows as one`() {
+        charges(exact, 0.25f, percent)!!.displayFraction shouldBe (1.0f plusOrMinus 0.001f)
     }
 }

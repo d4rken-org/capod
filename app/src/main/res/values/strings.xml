@@ -292,6 +292,10 @@
     <string name="battery_case_charges_state_enough_cd">Enough for a full charge</string>
     <string name="battery_case_charges_state_not_enough_cd">Not enough for a full charge</string>
     <string name="battery_case_charges_state_uncertain_cd">May not be enough for a full charge</string>
+    <!-- Compact form of the same count for the expanded notification's case row, e.g. "0.8 charges". The number is pre-formatted with one decimal, so it is plural even at "1.0". -->
+    <string name="battery_case_charges_short">%1$s charges</string>
+    <!-- Same, for models whose published case figure is only a lower bound, e.g. "1.6+ charges". -->
+    <string name="battery_case_charges_short_at_least">%1$s+ charges</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
     <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
