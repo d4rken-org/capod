@@ -1,5 +1,5 @@
-🐛 Veaparandused, 🚀 jõudluse täiustused, võib-olla isegi ✨ uued funktsioonid.
+Vigade parandused ja väikesed täiustused, et sinu AirPodsid näitaksid telefonis endiselt õiget aku taset.
 
-Muudatuste logi: https://capod.darken.eu/changelog
+Mis selles versioonis muutus: capod.darken.eu/changelog
 
-Teadmiseks: ma olen siin üksi – tänan mõistva suhtumise eest, kui vastused veidi aega võtavad. ¯\_(ツ)_/¯
+Kas pärast uuendamist läks miski katki või käitub see imelikult? Anna mulle teada Seaded > Abi kaudu. See on ühe inimese projekt, seega vastamine võib veidi aega võtta, aga iga teade loetakse läbi.

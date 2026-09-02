@@ -1,5 +1,5 @@
-🐛 Popravki hroščev, 🚀 izboljšave delovanja, morda celo ✨ nove funkcije.
+Popravki napak in manjše izboljšave, da tvoje AirPods na telefonu še naprej prikazujejo pravilno stanje baterije.
 
-Dnevnik sprememb: https://capod.darken.eu/changelog
+Kaj je novega v tej različici: capod.darken.eu/changelog
 
-Info: Tukaj sem samo jaz — hvala za razumevanje, če odgovori malce potrajajo. ¯\_(ツ)_/¯
+Se je po posodobitvi kaj pokvarilo ali obnaša nenavadno? Sporoči mi prek Nastavitve > Podpora. Gre za projekt enega samega razvijalca, zato lahko odgovor traja malo dlje, a vsako sporočilo preberem.

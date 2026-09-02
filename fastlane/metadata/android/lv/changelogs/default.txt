@@ -1,5 +1,5 @@
-🐛 Kļūdu labojumi, 🚀 veiktspējas uzlabojumi, varbūt pat ✨ jaunas funkcijas.
+Kļūdu labojumi un nelieli uzlabojumi, lai tavi AirPods tālrunī joprojām rādītu pareizu bateriju uzlādes līmeni.
 
-Izmaiņu žurnāls: https://capod.darken.eu/changelog
+Kas mainīts šajā versijā: capod.darken.eu/changelog
 
-FYI: Es šeit esmu viens — paldies par sapratni, ja atbildes nedaudz aizkavējas. ¯\_(ツ)_/¯
+Kaut kas pēc atjaunināšanas salūzis vai uzvedas dīvaini? Uzraksti man sadaļā Iestatījumi > Atbalsts. Šis ir viena cilvēka veidots projekts, tāpēc atbilde var aizņemt kādu laiku, taču katrs ziņojums tiek izlasīts.

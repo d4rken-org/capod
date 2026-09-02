@@ -1,5 +1,5 @@
-🐛 Poprawki błędów, 🚀 ulepszenia wydajności, a może nawet ✨ nowe funkcje.
+Poprawki błędów i drobne usprawnienia, dzięki którym twoje AirPods nadal pokazują prawidłowy poziom baterii na telefonie.
 
-Dziennik zmian: https://capod.darken.eu/changelog
+Co się zmieniło w tej wersji: capod.darken.eu/changelog
 
-FYI: Jestem tu sam — dziękuję za wyrozumiałość, jeśli odpowiedzi trochę potrwają. ¯\_(ツ)_/¯
+Coś się zepsuło albo działa dziwnie po aktualizacji? Daj mi znać przez Ustawienia > Wsparcie. To projekt jednoosobowy, więc odpowiedź może trochę potrwać, ale każde zgłoszenie zostaje przeczytane.

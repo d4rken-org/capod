@@ -1,5 +1,5 @@
-🐛 Sửa lỗi, 🚀 tăng hiệu suất, thậm chí có thể có ✨ tính năng mới.
+Sửa lỗi và một số cải tiến nhỏ, giúp AirPods của bạn luôn hiển thị đúng mức pin trên điện thoại.
 
-Nhật ký thay đổi: https://capod.darken.eu/changelog
+Những gì đã thay đổi trong phiên bản này: capod.darken.eu/changelog
 
-Lưu ý: Chỉ có mình tôi ở đây — cảm ơn bạn đã thông cảm nếu câu trả lời hơi chậm một chút. ¯\_(ツ)_/¯
+Có gì đó bị lỗi hoặc hoạt động bất thường sau khi cập nhật? Hãy cho tôi biết qua Cài đặt > Hỗ trợ. Đây là dự án một người làm, nên phản hồi có thể mất chút thời gian, nhưng mọi báo cáo đều được đọc.

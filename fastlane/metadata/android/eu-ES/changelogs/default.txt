@@ -1,5 +1,5 @@
-🐛 Akatsen konponketak, 🚀 errendimenduaren hobekuntzak, agian baita ✨ eginbide berriak ere.
+Akatsen zuzenketak eta hobekuntza txiki batzuk, AirPods aurikularrek bateriaren maila zuzena telefonoan erakusten jarrai dezaten.
 
-Aldaketen erregistroa: https://capod.darken.eu/changelog
+Bertsio honetan zer aldatu den: capod.darken.eu/changelog
 
-Oharra: Ni bakarrik nago hemen — eskerrik asko ulertzeagatik erantzunak pixka bat behar badute. ¯\_(ツ)_/¯
+Zerbait apurtu da edo arraro dabil eguneratu ondoren? Jakinarazi niri Ezarpenak > Laguntza atalaren bidez. Proiektu hau pertsona bakar batek egiten du, beraz erantzuteko denbora pixka bat behar izan daiteke, baina txosten guztiak irakurtzen dira.

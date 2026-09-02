@@ -1,5 +1,5 @@
-🐛 Correccións de erros, 🚀 melloras de rendemento, e quizais mesmo ✨ novas funcionalidades.
+Correccións de erros e pequenas melloras, para que os teus AirPods sigan mostrando os niveis de batería correctos no teu teléfono.
 
-Rexistro de cambios: https://capod.darken.eu/changelog
+O que cambiou nesta versión: capod.darken.eu/changelog
 
-Para túa información: Só estou eu aquí — grazas pola túa comprensión se as respostas tardan un pouco. ¯\_(ツ)_/¯
+Algo rompeu ou compórtase de forma estraña despois de actualizar? Avísame a través de Configuración > Soporte. É un proxecto dunha soa persoa, así que as respostas poden tardar un pouco, pero leo todos os informes.

@@ -1,5 +1,5 @@
-🐛 Opravy chyb, 🚀 vylepšení výkonu, možná i ✨ nové funkce.
+Opravy chyb a drobná vylepšení, díky kterým budou tvoje AirPods na telefonu dál ukazovat správný stav baterie.
 
-Seznam změn: https://capod.darken.eu/changelog
+Co se změnilo v této verzi: capod.darken.eu/changelog
 
-Pro informaci: Jsem tu jen já — děkuji za pochopení, pokud odpovědi chvíli potrvají. ¯\_(ツ)_/¯
+Po aktualizaci se něco pokazilo nebo chová divně? Napiš mi přes Nastavení > Podpora. Je to projekt jednoho člověka, takže odpověď může chvíli trvat, ale každé hlášení si přečtu.
