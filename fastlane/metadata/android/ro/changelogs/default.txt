@@ -1,5 +1,5 @@
-🐛 Corecții de erori, 🚀 îmbunătățiri de performanță, poate chiar ✨ funcții noi.
+Remedieri de erori și mici îmbunătățiri, ca AirPods-urile tale să continue să afișeze nivelul corect al bateriei pe telefon.
 
-Jurnal de modificări: https://capod.darken.eu/changelog
+Ce s-a schimbat în această versiune: capod.darken.eu/changelog
 
-Info: Sunt doar eu aici — mulțumesc pentru înțelegere dacă răspunsurile durează puțin. ¯\_(ツ)_/¯
+S-a stricat ceva sau se comportă ciudat după actualizare? Spune-mi prin Setări > Suport. E un proiect făcut de o singură persoană, așa că răspunsurile pot dura puțin, dar fiecare raport este citit.

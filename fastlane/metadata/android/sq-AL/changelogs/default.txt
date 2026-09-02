@@ -1,5 +1,5 @@
-🐛 Rregullime gabimesh, 🚀 përmirësime të performancës, ndoshta edhe ✨ veçori të reja.
+Rregullime gabimesh dhe përmirësime të vogla, që AirPods të vazhdojnë të tregojnë saktë nivelet e baterisë në telefonin tënd.
 
-Regjistri i ndryshimeve: https://capod.darken.eu/changelog
+Çfarë ndryshoi në këtë version: capod.darken.eu/changelog
 
-Për informacion: Këtu jam vetëm unë — faleminderit për mirëkuptimin nëse përgjigjet vonojnë pak. ¯\_(ツ)_/¯
+Diçka u prish ose sillet në mënyrë të çuditshme pas përditësimit? Më trego përmes Cilësimet > Mbështetje. Është një projekt i një personi të vetëm, ndaj përgjigjet mund të vonojnë pak, por çdo raport lexohet.

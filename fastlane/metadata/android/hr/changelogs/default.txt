@@ -1,5 +1,5 @@
-🐛 Ispravci grešaka, 🚀 poboljšanja performansi, možda čak i ✨ nove značajke.
+Ispravci grešaka i manja poboljšanja, kako bi tvoji AirPodsi i dalje prikazivali točnu razinu baterije na telefonu.
 
-Dnevnik promjena: https://capod.darken.eu/changelog
+Što se promijenilo u ovoj verziji: capod.darken.eu/changelog
 
-Info: Ovdje sam samo ja — hvala na razumijevanju ako odgovori potraju. ¯\_(ツ)_/¯
+Nešto se pokvarilo ili čudno radi nakon ažuriranja? Javi mi putem Postavke > Podrška. To je projekt koji vodim sam, pa odgovori mogu malo potrajati, ali svaku prijavu pročitam.

@@ -1,5 +1,5 @@
-🐛 Klaidų pataisymai, 🚀 našumo patobulinimai, galbūt net ✨ naujos funkcijos.
+Klaidų pataisymai ir smulkūs patobulinimai, kad tavo AirPods telefone ir toliau rodytų teisingą baterijos lygį.
 
-Pakeitimų žurnalas: https://capod.darken.eu/changelog
+Kas pasikeitė šioje versijoje: capod.darken.eu/changelog
 
-FYI: Čia esu tik aš – ačiū už supratingumą, jei atsakymai šiek tiek užtruks. ¯\_(ツ)_/¯
+Kažkas sugedo ar veikia keistai atnaujinus? Parašyk man per Nustatymai > Pagalba. Tai vieno žmogaus projektas, todėl atsakymo gali tekti šiek tiek palaukti, bet kiekvienas pranešimas perskaitomas.

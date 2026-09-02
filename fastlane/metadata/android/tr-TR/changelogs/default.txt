@@ -1,5 +1,5 @@
-🐛 Hata düzeltmeleri, 🚀 performans iyileştirmeleri, hatta belki ✨ yeni özellikler.
+Hata düzeltmeleri ve küçük iyileştirmeler yapıldı, böylece AirPods'un telefonunda doğru pil seviyelerini göstermeye devam etsin.
 
-Değişiklik günlüğü: https://capod.darken.eu/changelog
+Bu sürümde neler değişti: capod.darken.eu/changelog
 
-Not: Burada tek başımayım - yanıtlar biraz gecikirse anlayışınız için teşekkürler. ¯\_(ツ)_/¯
+Güncellemeden sonra bir şeyler bozuldu mu ya da tuhaf davranıyor mu? Ayarlar > Destek üzerinden bana bildir. Tek kişilik bir proje olduğu için yanıtlar biraz zaman alabilir, ama her bildirim okunuyor.

@@ -1,5 +1,5 @@
-🐛 Villuleiðréttingar, 🚀 frammistöðuaukning, kannski jafnvel ✨ nýir eiginleikar.
+Villuleiðréttingar og smávægilegar úrbætur, svo AirPods þín sýni áfram réttar rafhlöðustöður í símanum þínum.
 
-Breytingaskrá: https://capod.darken.eu/changelog
+Hvað breyttist í þessari útgáfu: capod.darken.eu/changelog
 
-Til upplýsinga: Það er bara ég hér — takk fyrir skilninginn ef svör taka smá stund. ¯\_(ツ)_/¯
+Er eitthvað bilað eða skrýtið eftir uppfærsluna? Láttu mig vita í gegnum Stillingar > Aðstoð. Ég er einn í þessu verkefni, svo svör geta tekið smá stund, en ég les allar ábendingar.
