@@ -7,12 +7,17 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.CaseCharges
+import eu.darken.capod.monitor.core.battery.caseCharges
+import eu.darken.capod.monitor.core.battery.displayFraction
 import eu.darken.capod.monitor.core.battery.displayMinutes
+import eu.darken.capod.monitor.core.batteryCaseReading
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
 import eu.darken.capod.pods.core.apple.ble.isKnownBattery
+import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
@@ -114,7 +119,10 @@ class MonitorNotificationViewFactory @Inject constructor(
             setImageViewResource(R.id.pod_case_icon, device.caseIcon)
             val casePercent = device.batteryCase
             setProgressBar(R.id.pod_case_progress, 100, percentToInt(casePercent), false)
-            setTextViewText(R.id.pod_case_label, formatBatteryPercent(context, casePercent))
+            setTextViewText(
+                R.id.pod_case_label,
+                formatBatteryPercent(context, casePercent) + caseChargesSuffix(device)
+            )
             setViewVisibility(R.id.pod_case_charging, if (device.isCaseCharging == true) View.VISIBLE else View.GONE)
         }
 
@@ -167,5 +175,23 @@ class MonitorNotificationViewFactory @Inject constructor(
 
     private fun estimateSuffix(pod: BatteryEstimate.Pod?, charging: Boolean): String =
         pod?.displayMinutes(charging)?.let { " · ${formatBatteryDurationShort(context, it)}" } ?: ""
+
+    /**
+     * How many more full pair charges the case holds, e.g. " · 0.8 charges". Empty when the model
+     * publishes no case figure, so the row keeps showing the percentage alone.
+     */
+    private fun caseChargesSuffix(device: PodDevice): String {
+        val spec = device.model.caseSpec ?: return ""
+        val charges = caseCharges(spec, device.batteryCaseReading) ?: return ""
+        val amount = String.format(Locale.getDefault(), "%.1f", charges.displayFraction)
+        // An empty case has nothing for an open ended spec to undersell, so it drops the "+".
+        val resId =
+            if (spec.isLowerBound && charges.display != CaseCharges.Display.EMPTY) {
+                R.string.battery_case_charges_short_at_least
+            } else {
+                R.string.battery_case_charges_short
+            }
+        return " · ${context.getString(resId, amount)}"
+    }
 
 }
