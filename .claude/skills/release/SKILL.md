@@ -72,13 +72,13 @@ bats tools/release/bump.bats
 
 | Tag suffix | FOSS APK | GitHub release | Fastlane lane | Play track | Rollout |
 |---|---|---|---|---|---|
-| `-beta*` | `assembleFossBeta` | pre-release | `beta` | `beta` | 10% |
-| `-rc*` | `assembleFossRelease` | full release | `production` | **`beta`** | 10% |
+| `-beta*` | `assembleFossBeta` | pre-release | `beta` | `beta` | 100% |
+| `-rc*` | `assembleFossRelease` | full release | `production` | **`beta`** | 100% |
 
 `release-tag.yml` accepts only `v<M.m.p>-rcN` or `v<M.m.p>-betaN` — any other suffix fails
 `validate-tag` before a build starts. There is no third channel.
 
-`lane :production` in `Fastfile` uploads to Play's **beta** track at 10% — manually promoted to production via Play Console.
+`lane :production` in `Fastfile` uploads to Play's **beta** track at 100% — manually promoted to production via Play Console.
 
 ## Rollback
 
