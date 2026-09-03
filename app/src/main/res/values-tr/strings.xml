@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Tüm Android cihazlar ekstra AirPod özelliklerini tam olarak desteklemez. İşletim sisteminiz doğru çalışan bir Bluetooth-Düşük Enerji uygulaması gerektirir.</string>
     <string name="onboarding_body3">CAPod\'da reklam yoktur ve verilerinizi toplamaz.</string>
     <string name="onboarding_body4">Ekstra özellikler kazanmak ve geliştirmeyi desteklemek için CAPod Pro\'ya yükseltebilirsiniz.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Hata</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Batarya mevcut değil</string>
     <string name="battery_state_low_cd">Pil düşük</string>
     <string name="battery_state_critical_cd">Pil kritik seviyede</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">Her iki kulaklık için ~%d tam şarj</item>
         <item quantity="other">Her iki kulaklık için ~%d tam şarj</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Her iki kulaklık için birden az tam şarj</string>
     <string name="battery_case_charges_empty">Kutu boş, kulaklıklarınız için hiç şarj kalmadı</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Her iki kulaklık için kaç tam şarj kalacağı belirsiz</string>
     <string name="battery_case_charges_state_enough_cd">Tam şarj için yeterli</string>
     <string name="battery_case_charges_state_not_enough_cd">Tam şarj için yeterli değil</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$ddk</string>
     <string name="permission_post_notifications_label">Bildirimleri göster</string>
     <string name="permission_post_notifications_description">"CAPod'un AirPods hakkında bildirimler göstermesine izin verin, ör. bağlıyken mevcut durumları."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Yapılandırılmış cihaz profili yok</string>
     <string name="profiles_empty_description">Özel ayarlar ve önceliklerle birden fazla cihazı yönetmek için cihaz profilleri oluşturun.</string>
     <string name="profiles_add_action">Profil ekle</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Kapalı</string>
     <string name="profiles_signal_quality_max_label">Katı</string>
     <string name="profiles_priority_hint">Profil sırası önceliği belirler. Profilleri yeniden sıralamak için sürükleyin - listede daha yukarıdaki profiller birden fazla cihaz eşleştiğinde öncelik alır.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Tema modu</string>
     <string name="ui_theme_mode_system_label">Sistem</string>
     <string name="ui_theme_mode_dark_label">Koyu</string>
     <string name="ui_theme_mode_light_label">Aydınlık</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Tema stili</string>
     <string name="ui_theme_style_default_label">Varsayılan</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Orta kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Yüksek kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Tema rengi</string>
     <string name="ui_theme_color_blue_label">Mavi</string>
     <string name="ui_theme_color_green_label">Yeşil</string>
     <string name="ui_theme_color_amber_label">Kehribar</string>
     <string name="ui_theme_color_disabled_materialyou">Duvar kağıdı renklerini kullanır</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Görünüm</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Kaydedilmemiş Değişiklikler</string>
     <string name="general_unsaved_changes_message">Kaydedilmemiş değişiklikleriniz var. Ne yapmak istersiniz?</string>
     <string name="general_save_and_exit_action">Kaydet ve Çık</string>
     <string name="general_discard_action">At</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Kayıt çok kısa</string>
     <string name="debug_debuglog_short_recording_message">Bir hata ayıklama kaydı sorunu gerçekleşirken yakalaması gerekir. Kaydetmeye devam edin, sorunu yeniden oluşturun, ardından kaydı durdurun.</string>
     <string name="debug_debuglog_short_recording_continue">Kaydetmeye devam et</string>
     <string name="debug_debuglog_short_recording_stop">Yine de durdur</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Hata Ayıklama Günlüğü</string>
     <string name="debug_debuglog_screen_subtitle">Sorun giderme için hata ayıklama bilgilerini dışa aktar</string>
     <string name="debug_debuglog_screen_sensitive_title">Hassas Bilgiler</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Sil</string>
     <string name="debug_debuglog_screen_keep_action">Tut</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d hata ayıklama kaydı (%2$s)</item>
         <item quantity="other">%1$d hata ayıklama kayıtları (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Başarısız: günlük dosyası eksik</string>
     <string name="support_debuglog_failed_corrupt_zip">Başarısız: zip dosyası bozuk</string>
     <string name="support_debuglog_failed_zip_failed">Başarısız: sıkıştırma başarısız oldu</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Geliştiriciyle iletişim kur</string>
     <string name="support_contact_desc">Geliştiriciye e-posta göndermek için bir form doldurun.</string>
     <string name="support_contact_welcome">Her mesajı kendim okuyorum ve yanıtlamak için elimden gelenin en iyisini yapıyorum, ancak bunu tek başıma yaptığım için biraz zaman alabilir. Sabrınız için teşekkür ederim.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Bu cihazda e-posta uygulaması bulunamadı.</string>
     <string name="support_contact_debuglog_delete_title">Hata ayıklama kaydı silinsin mi?</string>
     <string name="support_contact_debuglog_delete_message">Bu hata ayıklama kaydı kalıcı olarak silinecek.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Kayıt gönderildi mi?</string>
     <string name="support_debuglog_sent_message">Hata ayıklama kaydı başarılı bir şekilde gönderildi mi? Kayıt silinecektir.</string>
     <string name="support_contact_sent_title">E-posta gönderildi mi?</string>
     <string name="support_contact_sent_message">E-posta başarılı bir şekilde gönderildi mi? Eklenmiş hata ayıklama kaydı silinecektir.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Cihaz Ayarları</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth Cihaz Adı</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Değerlendir</string>
     <string name="review_app_dismiss_action">Belki daha sonra</string>
     <string name="review_app_body">CAPod\'e bir inceleme bırakmak ister misiniz? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Hangi kulakiçinin mikrofon olarak kullanıldığı</string>
     <string name="device_settings_microphone_mode_auto">Otomatik</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Medya oynatılıyor</string>
     <string name="device_settings_noise_control_label">Gürültü Kontrolü</string>
     <string name="device_settings_eq_label">Ekolayzer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Basma Kontrolleri</string>
     <string name="press_controls_nav_description">Basma davranışını ayarlayın ve basmalara eylem atayın</string>
     <string name="press_controls_description">Basmaların nasıl algılandığını ayarlayın, arama düğmesi davranışını seçin ve basmalara eylem atayın. Atanan eylemler yalnızca bu cihaza uygulanır ve uygulamanın AirPods yerine basmaları yakalamasını sağlar.</string>

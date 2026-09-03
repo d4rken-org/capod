@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Si vifaa vyote vya Android vinavyosaidia kikamilifu vipengele vya ziada vya AirPod. Mfumo wako wa uendeshaji unahitaji utekelezaji sahihi wa Bluetooth ya Nishati ya Chini.</string>
     <string name="onboarding_body3">CAPod haina matangazo na haikusanyi data yako.</string>
     <string name="onboarding_body4">Unaweza kuboresha hadi CAPod Pro kupata vipengele vya ziada na kusaidia maendeleo.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Haipatikani</string>
     <string name="general_error_label">Hitilafu</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Betri haipatikani</string>
     <string name="battery_state_low_cd">Betri iko chini</string>
     <string name="battery_state_critical_cd">Betri iko chini sana</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d chaji kamili zaidi kwa vipokea sauti vyote viwili</item>
         <item quantity="other">~%d chaji kamili zaidi kwa vipokea sauti vyote viwili</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Chini ya chaji kamili moja zaidi kwa vipokea sauti vyote viwili</string>
     <string name="battery_case_charges_empty">Kasha ni tupu, hakuna chaji zilizobaki kwa vipokea sauti vyako</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Haijulikani ni chaji ngapi kamili zilizobaki kwa vipokea sauti vyote viwili</string>
     <string name="battery_case_charges_state_enough_cd">Inatosha kwa chaji kamili</string>
     <string name="battery_case_charges_state_not_enough_cd">Haitoshi kwa chaji kamili</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Onyesha arifa</string>
     <string name="permission_post_notifications_description">"Ruhusu CAPod kuonyesha arifa kuhusu AirPods zako, k.m. hali yao ya sasa wakati zimeunganishwa."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Hakuna wasifu wa vifaa uliowekwa</string>
     <string name="profiles_empty_description">Unda wasifu wa vifaa ili kusimamia vifaa vingi na mipangilio na vipaumbele maalum.</string>
     <string name="profiles_add_action">Ongeza wasifu</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Imezimwa</string>
     <string name="profiles_signal_quality_max_label">Mkali</string>
     <string name="profiles_priority_hint">Mpangilio wa wasifu unaamua kipaumbele. Buruta wasifu ili kupanga upya — wasifu wa juu zaidi katika orodha una kipaumbele wakati vifaa vingi vinapolingana.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Modi ya mandhari</string>
     <string name="ui_theme_mode_system_label">Mfumo</string>
     <string name="ui_theme_mode_dark_label">Giza</string>
     <string name="ui_theme_mode_light_label">Mwanga</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Mtindo wa mandhari</string>
     <string name="ui_theme_style_default_label">Msingi</string>
     <string name="ui_theme_style_materialyou_label">Nyenzo Yako</string>
     <string name="ui_theme_style_medium_contrast_label">Tofauti ya kati</string>
     <string name="ui_theme_style_high_contrast_label">Tofauti ya juu</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Rangi ya mandhari</string>
     <string name="ui_theme_color_blue_label">Bluu</string>
     <string name="ui_theme_color_green_label">Kijani</string>
     <string name="ui_theme_color_amber_label">Amberini</string>
     <string name="ui_theme_color_disabled_materialyou">Inatumia rangi za ukuta wa skrini</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Muonekano</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mabadiliko Yasiyohifadhiwa</string>
     <string name="general_unsaved_changes_message">Una mabadiliko yasiyohifadhiwa. Ungependa kufanya nini?</string>
     <string name="general_save_and_exit_action">Hifadhi &amp; Ondoka</string>
     <string name="general_discard_action">Tupa</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Rekodi fupi mno</string>
     <string name="debug_debuglog_short_recording_message">Kumbukumbu ya utatuzi inahitaji kunasa tatizo linapotokea. Endelea kurekodi, rudia tatizo, kisha simamisha rekodi.</string>
     <string name="debug_debuglog_short_recording_continue">Endelea kurekodi</string>
     <string name="debug_debuglog_short_recording_stop">Simamisha hata hivyo</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Kumbukumbu ya Utatuzi</string>
     <string name="debug_debuglog_screen_subtitle">Hamisha taarifa za utatuzi kwa utatuzi wa matatizo</string>
     <string name="debug_debuglog_screen_sensitive_title">Taarifa Nyeti</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Futa</string>
     <string name="debug_debuglog_screen_keep_action">Hifadhi</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">kumbukumbu ya utatuzi %1$d (%2$s)</item>
         <item quantity="other">kumbukumbu za utatuzi %1$d (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Imeshindwa: faili ya kumbukumbu haipo</string>
     <string name="support_debuglog_failed_corrupt_zip">Imeshindwa: faili ya zip imeharibika</string>
     <string name="support_debuglog_failed_zip_failed">Imeshindwa: usagaji umeshindwa</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Wasiliana na msanidi programu</string>
     <string name="support_contact_desc">Jaza fomu kutuma msanidi programu barua pepe.</string>
     <string name="support_contact_welcome">Ninasoma kila ujumbe mwenyewe na najaribu kujibu kadri niwezavyo, lakini kwa kuwa ninafanya kazi hii peke yangu, inaweza kuchukua muda kidogo. Asante kwa uvumilivu wako.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Hakuna programu ya barua pepe iliyopatikana kwenye kifaa hiki.</string>
     <string name="support_contact_debuglog_delete_title">Futa kumbukumbu ya utatuzi?</string>
     <string name="support_contact_debuglog_delete_message">Kumbukumbu hii ya utatuzi itafutwa kabisa.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Kumbukumbu imetumwa?</string>
     <string name="support_debuglog_sent_message">Je, kumbukumbu ya utatuzi ilitumwa kwa mafanikio? Kumbukumbu itafutwa.</string>
     <string name="support_contact_sent_title">Barua pepe imetumwa?</string>
     <string name="support_contact_sent_message">Je, barua pepe ilitumwa kwa mafanikio? Kumbukumbu ya utatuzi iliyoambatanishwa itafutwa.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Mipangilio ya Kifaa</string>
     <string name="device_settings_subtitle_profile_prefix">Profaili: %s</string>
     <string name="device_settings_info_bt_name_label">Lebo ya Kifaa cha Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Mapitio</string>
     <string name="review_app_dismiss_action">Labda baadaye</string>
     <string name="review_app_body">Je, ungependa kuacha mapitio ya CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Maikrofoni</string>
     <string name="device_settings_microphone_mode_description">Kipokea sauti kipi kinatumika kama maikrofoni</string>
     <string name="device_settings_microphone_mode_auto">Otomatiki</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Inacheza media</string>
     <string name="device_settings_noise_control_label">Udhibiti wa Kelele</string>
     <string name="device_settings_eq_label">Ikwalaiza</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Udhibiti wa Kubonyeza</string>
     <string name="press_controls_nav_description">Rekebisha tabia ya kubonyeza na ramani ya mabonyezo kwa vitendo</string>
     <string name="press_controls_description">Rekebisha jinsi mabonyezo yanavyotambuliwa, chagua tabia ya kitufe cha simu, na ramani mabonyezo kwa vitendo. Vitendo vilivyopangwa vinatumika kwa kifaa hiki pekee na huruhusu programu kukamata bonyezo badala ya AirPods kuishughulikia kwa kawaida.</string>

@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ikke alle Android-enheter støtter de ekstra AirPod-funksjonene fullt ut. Operativsystemet ditt krever en fungerende Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har ingen annonser og samler ikke inn dataene dine.</string>
     <string name="onboarding_body4">Du kan oppgradere til CAPod Pro for å få ekstra funksjoner og støtte utviklingen.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Feil</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Batteri ikke tilgjengelig</string>
     <string name="battery_state_low_cd">Lavt batterinivå</string>
     <string name="battery_state_critical_cd">Kritisk lavt batterinivå</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d full lading til for begge ørepluggene</item>
         <item quantity="other">~%d fulle ladinger til for begge ørepluggene</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Mindre enn én full lading til for begge ørepluggene</string>
     <string name="battery_case_charges_empty">Etuiet er tomt, ingen ladinger igjen til ørepluggene dine</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Usikkert hvor mange fulle ladinger som er igjen for begge ørepluggene</string>
     <string name="battery_case_charges_state_enough_cd">Nok til en full lading</string>
     <string name="battery_case_charges_state_not_enough_cd">Ikke nok til en full lading</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Vis varslinger</string>
     <string name="permission_post_notifications_description">"Tillat CAPod å vise varslinger om AirPods, f.eks. nåværende status mens de er tilkoblet."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Ingen enhetsprofiler konfigurert</string>
     <string name="profiles_empty_description">Opprett enhetsprofiler for å administrere flere enheter med egne innstillinger og prioriteringer.</string>
     <string name="profiles_add_action">Legg til profil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Av</string>
     <string name="profiles_signal_quality_max_label">Streng</string>
     <string name="profiles_priority_hint">Profilrekkefølgen bestemmer prioritet. Dra profiler for å omorganisere dem - profiler høyere i listen har forrang når flere enheter matcher.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Tema-modus</string>
     <string name="ui_theme_mode_system_label">System</string>
     <string name="ui_theme_mode_dark_label">Mørkt</string>
     <string name="ui_theme_mode_light_label">Lyst</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Tema-stil</string>
     <string name="ui_theme_style_default_label">Standard</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Middels kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Høy kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Temafarge</string>
     <string name="ui_theme_color_blue_label">Blå</string>
     <string name="ui_theme_color_green_label">Grønn</string>
     <string name="ui_theme_color_amber_label">Rav</string>
     <string name="ui_theme_color_disabled_materialyou">Bruker bakgrunnsfarger</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Utseende</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ulagrede endringer</string>
     <string name="general_unsaved_changes_message">Du har ulagrede endringer. Hva vil du gjøre?</string>
     <string name="general_save_and_exit_action">Lagre og avslutt</string>
     <string name="general_discard_action">Forkast</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Opptak for kort</string>
     <string name="debug_debuglog_short_recording_message">En feillogg må fange opp problemet mens det skjer. Fortsett opptaket, reproduser problemet, og stopp deretter opptaket.</string>
     <string name="debug_debuglog_short_recording_continue">Fortsett opptak</string>
     <string name="debug_debuglog_short_recording_stop">Stopp uansett</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Feilsøkingslogg</string>
     <string name="debug_debuglog_screen_subtitle">Eksporter feilsøkingsinformasjon for feilsøking</string>
     <string name="debug_debuglog_screen_sensitive_title">Sensitiv informasjon</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Slett</string>
     <string name="debug_debuglog_screen_keep_action">Behold</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d feillogg (%2$s)</item>
         <item quantity="other">%1$d feillogger (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Feilet: loggfilen mangler</string>
     <string name="support_debuglog_failed_corrupt_zip">Feilet: zip-filen er korrupt</string>
     <string name="support_debuglog_failed_zip_failed">Feilet: komprimering mislyktes</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Kontakt utvikleren</string>
     <string name="support_contact_desc">Fyll ut et skjema for å sende utvikleren en e-post.</string>
     <string name="support_contact_welcome">Jeg leser hver melding selv og gjør mitt beste for å svare, men siden jeg jobber med dette alene, kan det ta litt tid. Takk for tålmodigheten.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Ingen e-postapp funnet på denne enheten.</string>
     <string name="support_contact_debuglog_delete_title">Slett feillogg?</string>
     <string name="support_contact_debuglog_delete_message">Denne feilloggen vil bli permanent slettet.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Logg sendt?</string>
     <string name="support_debuglog_sent_message">Ble feilsøkingsloggen sendt? Loggen vil bli slettet.</string>
     <string name="support_contact_sent_title">E-post sendt?</string>
     <string name="support_contact_sent_message">Ble e-posten sendt? Den vedlagte feilsøkingsloggen vil bli slettet.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Enhetsinnstillinger</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-enhetsnavn</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Anmeldelse</string>
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi CAPod en anmeldelse? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Hvilken ørepropp som brukes som mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Spiller av media</string>
     <string name="device_settings_noise_control_label">Støykontroll</string>
     <string name="device_settings_eq_label">Equalizer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Trykkkontroller</string>
     <string name="press_controls_nav_description">Juster trykkoppførsel og tilordne trykk til handlinger</string>
     <string name="press_controls_description">Juster hvordan trykk oppdages, velg oppringningsknappoppførsel og tilordne trykk til handlinger. Tilordnede handlinger gjelder kun for denne enheten og lar appen avskjære trykket i stedet for at AirPods håndterer det naturlig.</string>

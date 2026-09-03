@@ -162,10 +162,7 @@ AL_Cool_T</string>
     <string name="onboarding_body2">Не все устройства Android полностью поддерживают дополнительные функции AirPod. Вашей операционной системе требуется корректно работающая версия Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не содержит рекламы и не собирает Ваши данные.</string>
     <string name="onboarding_body4">Вы можете обновиться до CAPod Pro для дополнительных функций и поддержки разработки.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Недоступно</string>
     <string name="general_error_label">Ошибка</string>
@@ -219,9 +216,8 @@ AL_Cool_T</string>
     <string name="pods_dual_left_label">Левый наушник</string>
     <string name="pods_dual_right_label">Правый наушник</string>
     <string name="battery_unavailable_label">Заряд недоступен</string>
-    <string name="battery_state_low_cd">Низкий уровень батареи</string>
-    <string name="battery_state_critical_cd">Критически низкий уровень батареи</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <string name="battery_state_low_cd">Низкий заряд батареи</string>
+    <string name="battery_state_critical_cd">Критически низкий заряд батареи</string>
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d дополнительная полная зарядка для обоих наушников</item>
         <item quantity="few">~%d дополнительные полные зарядки для обоих наушников</item>
@@ -235,8 +231,7 @@ AL_Cool_T</string>
         <item quantity="other">Минимум %d дополнительных полных зарядок для обоих наушников</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">Менее одной полной зарядки для обоих наушников</string>
-    <string name="battery_case_charges_empty">Чехол разряжен, нет зарядок для наушников</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
+    <string name="battery_case_charges_empty">Чехол разряжен, нет зарядки для наушников</string>
     <string name="battery_case_charges_uncertain">Неясно, сколько полных зарядок осталось для обоих наушников</string>
     <string name="battery_case_charges_state_enough_cd">Достаточно для полной зарядки</string>
     <string name="battery_case_charges_state_not_enough_cd">Недостаточно для полной зарядки</string>
@@ -283,7 +278,6 @@ AL_Cool_T</string>
     <string name="battery_time_remaining_format_m">%1$d мин</string>
     <string name="permission_post_notifications_label">Показывать уведомления</string>
     <string name="permission_post_notifications_description">"Разрешить CAPod показывать уведомления о Ваших AirPods, например текущий статус при подключении."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Профили устройства не настроены</string>
     <string name="profiles_empty_description">Создайте профили устройств для управления несколькими устройствами с пользовательскими настройками и приоритетами.</string>
     <string name="profiles_add_action">Добавить профиль</string>
@@ -316,36 +310,29 @@ AL_Cool_T</string>
     <string name="profiles_signal_quality_min_label">Выкл</string>
     <string name="profiles_signal_quality_max_label">Строго</string>
     <string name="profiles_priority_hint">Порядок сортировки определяет приоритет. Перетащите профили для их сортировки - профили выше в списке имеют приоритет, когда несколько устройств совпадают.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Настройка темы</string>
     <string name="ui_theme_mode_system_label">Системная</string>
     <string name="ui_theme_mode_dark_label">Темная</string>
     <string name="ui_theme_mode_light_label">Светлая</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Стиль темы</string>
     <string name="ui_theme_style_default_label">По умолчанию</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Средний контраст</string>
     <string name="ui_theme_style_high_contrast_label">Высокий контраст</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Цвет темы</string>
     <string name="ui_theme_color_blue_label">Синий</string>
     <string name="ui_theme_color_green_label">Зелёный</string>
     <string name="ui_theme_color_amber_label">Янтарный</string>
     <string name="ui_theme_color_disabled_materialyou">Использовать цвета обоев</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Внешний вид</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Несохранённые изменения</string>
     <string name="general_unsaved_changes_message">У вас есть несохранённые изменения. Что вы хотите сделать?</string>
     <string name="general_save_and_exit_action">Сохранить и выйти</string>
     <string name="general_discard_action">Отменить</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Запись слишком короткая</string>
     <string name="debug_debuglog_short_recording_message">Для захвата проблемы журнал отладки должен фиксировать её в момент возникновения. Продолжайте запись, воспроизведите проблему, затем остановите запись.</string>
     <string name="debug_debuglog_short_recording_continue">Продолжить запись</string>
     <string name="debug_debuglog_short_recording_stop">Всё равно остановить</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Журнал отладки</string>
     <string name="debug_debuglog_screen_subtitle">Экспорт данных отладки для диагностики</string>
     <string name="debug_debuglog_screen_sensitive_title">Конфиденциальная информация</string>
@@ -359,7 +346,6 @@ AL_Cool_T</string>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Удалить</string>
     <string name="debug_debuglog_screen_keep_action">Оставить</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">Журналов отладки: %1$d (%2$s)</item>
         <item quantity="few">Журналов отладки: %1$d (%2$s)</item>
@@ -379,7 +365,6 @@ AL_Cool_T</string>
     <string name="support_debuglog_failed_missing_log">Ошибка: файл журнала отсутствует</string>
     <string name="support_debuglog_failed_corrupt_zip">Ошибка: zip-файл повреждён</string>
     <string name="support_debuglog_failed_zip_failed">Ошибка: сжатие не удалось</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Связаться с разработчиком</string>
     <string name="support_contact_desc">Заполните форму, чтобы отправить разработчику письмо.</string>
     <string name="support_contact_welcome">Я лично читаю каждое сообщение и стараюсь ответить, но поскольку я работаю над этим в одиночку, это может занять некоторое время. Спасибо за терпение.</string>
@@ -408,12 +393,10 @@ AL_Cool_T</string>
     <string name="support_contact_no_email_app">На этом устройстве не найдено приложение электронной почты.</string>
     <string name="support_contact_debuglog_delete_title">Удалить журнал отладки?</string>
     <string name="support_contact_debuglog_delete_message">Этот журнал отладки будет удалён безвозвратно.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Журнал отправлен?</string>
     <string name="support_debuglog_sent_message">Отладочный журнал был успешно отправлен? Журнал будет удалён.</string>
     <string name="support_contact_sent_title">Письмо отправлено?</string>
     <string name="support_contact_sent_message">Письмо с вложенным отладочным журналом было успешно отправлено? Журнал будет удалён.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Настройки устройства</string>
     <string name="device_settings_subtitle_profile_prefix">Профиль: %s</string>
     <string name="device_settings_info_bt_name_label">Название Bluetooth-устройства</string>
@@ -428,7 +411,7 @@ AL_Cool_T</string>
     <string name="device_settings_info_right_serial_label">Серийный номер правого наушника</string>
     <string name="device_settings_info_left_bonded_label">Левый сопряжён</string>
     <string name="device_settings_info_right_bonded_label">Правый сопряжён</string>
-    <string name="device_settings_info_battery_health_label">Примерное время прослушивания</string>
+    <string name="device_settings_info_battery_health_label">Расчетное время прослушивания</string>
     <string name="device_settings_info_battery_health_left_label">Время прослушивания левого наушника</string>
     <string name="device_settings_info_battery_health_right_label">Время прослушивания правого наушника</string>
     <string name="device_settings_info_battery_health_value">~%1$d%% от номинала</string>
@@ -494,7 +477,6 @@ AL_Cool_T</string>
     <string name="review_app_review_action">Отзыв</string>
     <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Хочешь оставить отзыв для CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Какой наушник используется как микрофон</string>
     <string name="device_settings_microphone_mode_auto">Авто</string>
@@ -543,7 +525,6 @@ AL_Cool_T</string>
     <string name="device_settings_connected_device_media">Воспроизводит медиа</string>
     <string name="device_settings_noise_control_label">Управление шумом</string>
     <string name="device_settings_eq_label">Эквалайзер</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Управление нажатиями</string>
     <string name="press_controls_nav_description">Настройте поведение нажатий и назначьте действия нажатиям</string>
     <string name="press_controls_description">Настройте обнаружение нажатий, выберите поведение кнопки вызова и назначьте действия нажатиям. Назначенные действия применяются только для этого устройства и позволяют приложению перехватывать нажатие вместо встроенной обработки AirPods.</string>

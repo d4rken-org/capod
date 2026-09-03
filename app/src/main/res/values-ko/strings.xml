@@ -161,10 +161,7 @@
     <string name="onboarding_body2">모든 Android 기기가 추가 AirPod 기능을 완벽하게 지원하는 것은 아닙니다. 운영 체제에는 올바르게 작동하는 Bluetooth Low Energy 구현이 필요합니다.</string>
     <string name="onboarding_body3">CAPod에는 광고가 없으며 데이터를 수집하지 않습니다.</string>
     <string name="onboarding_body4">추가 기능을 얻고 개발을 지원하려면 CAPod Pro로 업그레이드할 수 있습니다.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">값 없음</string>
     <string name="general_error_label">오류</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">배터리 사용 불가</string>
     <string name="battery_state_low_cd">배터리 부족</string>
     <string name="battery_state_critical_cd">배터리 극히 부족</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">~%d회 추가 완전 충전</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">추가 완전 충전이 1회 미만입니다</string>
     <string name="battery_case_charges_empty">케이스가 비어 있고 더 이상 이어버드를 충전할 수 없습니다</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">남은 완전 충전 횟수를 확실히 알 수 없습니다</string>
     <string name="battery_case_charges_state_enough_cd">완전 충전 가능</string>
     <string name="battery_case_charges_state_not_enough_cd">완전 충전 불가능</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$d분</string>
     <string name="permission_post_notifications_label">알림 표시</string>
     <string name="permission_post_notifications_description">"CAPod이 현재 연결 상태 등 AirPods에 대한 알림을 표시할 수 있도록 허용합니다."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">기기 프로필이 설정되지 않음</string>
     <string name="profiles_empty_description">여러 기기를 설정하고 우선순위를 지정하기 위해 기기 프로필을 생성하세요.</string>
     <string name="profiles_add_action">프로필 추가</string>
@@ -305,36 +299,29 @@
     <string name="profiles_signal_quality_max_label">엄격</string>
     <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
 리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">테마 모드</string>
     <string name="ui_theme_mode_system_label">기기 테마 사용</string>
     <string name="ui_theme_mode_dark_label">어두운 테마</string>
     <string name="ui_theme_mode_light_label">밝은 테마</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">테마 스타일</string>
     <string name="ui_theme_style_default_label">기본</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">중간 대비</string>
     <string name="ui_theme_style_high_contrast_label">높은 대비</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">테마 색상</string>
     <string name="ui_theme_color_blue_label">파란색</string>
     <string name="ui_theme_color_green_label">녹색</string>
     <string name="ui_theme_color_amber_label">호박색</string>
     <string name="ui_theme_color_disabled_materialyou">바탕화면 색상 사용</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">외관</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">저장되지 않은 변경 사항</string>
     <string name="general_unsaved_changes_message">저장되지 않은 변경 사항이 있습니다. 어떻게 하시겠습니까?</string>
     <string name="general_save_and_exit_action">저장 &amp; 종료</string>
     <string name="general_discard_action">무시</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">녹음 너무 짧음</string>
     <string name="debug_debuglog_short_recording_message">디버그 로그는 문제가 발생하는 동안 켜져 있어야 합니다. 녹음을 계속하고 문제를 재현한 다음 녹음을 중지하세요.</string>
     <string name="debug_debuglog_short_recording_continue">녹음 계속</string>
     <string name="debug_debuglog_short_recording_stop">그래도 중지</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">디버그 로그</string>
     <string name="debug_debuglog_screen_subtitle">문제 해결을 위한 디버그 정보 내보내기</string>
     <string name="debug_debuglog_screen_sensitive_title">민감한 정보</string>
@@ -345,7 +332,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">삭제</string>
     <string name="debug_debuglog_screen_keep_action">유지</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d개 디버그 로그 (%2$s)</item>
     </plurals>
@@ -362,7 +348,6 @@
     <string name="support_debuglog_failed_missing_log">실패: 로그 파일이 없습니다</string>
     <string name="support_debuglog_failed_corrupt_zip">실패: zip 파일이 손상되었습니다</string>
     <string name="support_debuglog_failed_zip_failed">실패: 압축 실패</string>
-    <!-- Contact form -->
     <string name="support_contact_label">개발자에게 연락</string>
     <string name="support_contact_desc">개발자에게 이메일을 보낼 양식을 작성하세요.</string>
     <string name="support_contact_welcome">모든 메시지를 직접 확인하고 최선을 다해 답변드리지만, 혼자 작업하기 때문에 시간이 조금 걸릴 수 있습니다. 양해 부탁드립니다.</string>
@@ -388,12 +373,10 @@
     <string name="support_contact_no_email_app">이 기기에서 이메일 앱을 찾을 수 없습니다.</string>
     <string name="support_contact_debuglog_delete_title">디버그 로그를 삭제하시겠습니까?</string>
     <string name="support_contact_debuglog_delete_message">이 디버그 로그는 영구적으로 삭제됩니다.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">로그가 전송되었나요?</string>
     <string name="support_debuglog_sent_message">디버그 로그가 성공적으로 전송되었나요? 로그가 삭제됩니다.</string>
     <string name="support_contact_sent_title">이메일이 전송되었나요?</string>
     <string name="support_contact_sent_message">이메일이 성공적으로 전송되었나요? 첨부된 디버그 로그가 삭제됩니다.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">기기 설정</string>
     <string name="device_settings_subtitle_profile_prefix">프로필: %s</string>
     <string name="device_settings_info_bt_name_label">블루투스 기기 레이블</string>
@@ -474,7 +457,6 @@
     <string name="review_app_review_action">리뷰</string>
     <string name="review_app_dismiss_action">다음에 해요</string>
     <string name="review_app_body">CAPod 리뷰를 남겨주시겠어요? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">마이크</string>
     <string name="device_settings_microphone_mode_description">마이크로 사용할 이어버드</string>
     <string name="device_settings_microphone_mode_auto">자동</string>
@@ -523,7 +505,6 @@
     <string name="device_settings_connected_device_media">미디어 재생 중</string>
     <string name="device_settings_noise_control_label">소음 제어</string>
     <string name="device_settings_eq_label">이켈라이저</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">누르기 제어</string>
     <string name="press_controls_nav_description">누르기 동작을 조정하고 누르기를 작업에 매핑</string>
     <string name="press_controls_description">누르기가 감지되는 방식을 조정하고, 통화 버튼 동작을 선택하고, 누르기를 작업에 매핑합니다. 매핑된 작업은 이 기기에만 적용되며 AirPods가 기본적으로 처리하는 대신 앱이 누르기를 가로차도록 합니다.</string>

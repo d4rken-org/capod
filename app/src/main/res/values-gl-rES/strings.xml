@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Non todos os dispositivos Android admiten completamente as funcións adicionais de AirPod. O teu sistema operativo require unha implementación de Bluetooth de baixa enerxía que funcione correctamente.</string>
     <string name="onboarding_body3">CAPod non ten anuncios e non recompila os teus datos.</string>
     <string name="onboarding_body4">Podes actualizar a CAPod Pro para obter funcións adicionais e apoiar o desenvolvemento.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Erro</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Batería non dispoñible</string>
     <string name="battery_state_low_cd">Batería baixa</string>
     <string name="battery_state_critical_cd">Batería criticamente baixa</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d máis carga completa para os dous auriculares</item>
         <item quantity="other">~%d máis cargas completas para os dous auriculares</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Menos dunha máis carga completa para os dous auriculares</string>
     <string name="battery_case_charges_empty">A caixa está baleira, non quedan cargas para os teus auriculares</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Non está clara cantas cargas completas quedan para os dous auriculares</string>
     <string name="battery_case_charges_state_enough_cd">Abondo para unha carga completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Non hai abondo para unha carga completa</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mostrar notificacións</string>
     <string name="permission_post_notifications_description">"Permitir que CAPod mostre notificacións sobre os teus AirPods, p. ex., o seu estado actual mentres están conectados."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Sen perfís de dispositivo configurados</string>
     <string name="profiles_empty_description">Crea perfís de dispositivo para xestionar varios dispositivos con axustes e prioridades personalizados.</string>
     <string name="profiles_add_action">Engadir perfil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Desactivado</string>
     <string name="profiles_signal_quality_max_label">Estrito</string>
     <string name="profiles_priority_hint">A orde dos perfís determina a prioridade. Arrastra os perfís para reordenalos: os perfís máis altos da lista teñen prioridade cando coinciden varios dispositivos.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Modo de tema</string>
     <string name="ui_theme_mode_system_label">Sistema</string>
     <string name="ui_theme_mode_dark_label">Escuro</string>
     <string name="ui_theme_mode_light_label">Claro</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Estilo de tema</string>
     <string name="ui_theme_style_default_label">Predeterminado</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Contraste medio</string>
     <string name="ui_theme_style_high_contrast_label">Contraste alto</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Cor do tema</string>
     <string name="ui_theme_color_blue_label">Azul</string>
     <string name="ui_theme_color_green_label">Verde</string>
     <string name="ui_theme_color_amber_label">Ámbar</string>
     <string name="ui_theme_color_disabled_materialyou">Usa as cores do fondo de pantalla</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Aparencia</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Cambios sen gardar</string>
     <string name="general_unsaved_changes_message">Tes cambios sen gardar. Que queres facer?</string>
     <string name="general_save_and_exit_action">Gardar e saír</string>
     <string name="general_discard_action">Descartar</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Gravación demasiado curta</string>
     <string name="debug_debuglog_short_recording_message">Un rexistro de depuración necesita capturar o problema mentres ocorre. Mantén a gravación, reproduce o problema e logo deten a gravación.</string>
     <string name="debug_debuglog_short_recording_continue">Continuar gravando</string>
     <string name="debug_debuglog_short_recording_stop">Deter de todos xeitos</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Rexistro de depuración</string>
     <string name="debug_debuglog_screen_subtitle">Exportar información de depuración para diagnóstico</string>
     <string name="debug_debuglog_screen_sensitive_title">Información sensible</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Eliminar</string>
     <string name="debug_debuglog_screen_keep_action">Gardar</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d rexistro de depuración (%2$s)</item>
         <item quantity="other">%1$d rexistros de depuración (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Fallou: falta o ficheiro de rexistro</string>
     <string name="support_debuglog_failed_corrupt_zip">Fallou: o ficheiro zip está corrompido</string>
     <string name="support_debuglog_failed_zip_failed">Fallou: a compresión fallou</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Contactar co desenvolvedor</string>
     <string name="support_contact_desc">Enche un formulario para enviarlle un correo electrónico ao desenvolvedor.</string>
     <string name="support_contact_welcome">Leo cada mensaxe persoalmente e fago o posible por responder, pero como traballo nisto só, pode levar algo de tempo. Grazas pola túa paciencia.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Non se atopou ningunha aplicación de correo neste dispositivo.</string>
     <string name="support_contact_debuglog_delete_title">Eliminar rexistro de depuración?</string>
     <string name="support_contact_debuglog_delete_message">Este rexistro de depuración eliminarase de forma permanente.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Rexistro enviado?</string>
     <string name="support_debuglog_sent_message">Enviouse correctamente o rexistro de depuración? O rexistro será eliminado.</string>
     <string name="support_contact_sent_title">Correo electrónico enviado?</string>
     <string name="support_contact_sent_message">Enviouse correctamente o correo electrónico? O rexistro de depuración adxunto será eliminado.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Configuración do dispositivo</string>
     <string name="device_settings_subtitle_profile_prefix">Perfil: %s</string>
     <string name="device_settings_info_bt_name_label">Etiqueta do dispositivo Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Valorar</string>
     <string name="review_app_dismiss_action">Quizais máis tarde</string>
     <string name="review_app_body">Gustaríalle deixar unha valoración para CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Micrófono</string>
     <string name="device_settings_microphone_mode_description">Cal auricular se usa como micrófono</string>
     <string name="device_settings_microphone_mode_auto">Automático</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Reproducindo medios</string>
     <string name="device_settings_noise_control_label">Control de ruído</string>
     <string name="device_settings_eq_label">Ecualizador</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Controis de pulsación</string>
     <string name="press_controls_nav_description">Axusta o comportamento das pulsacións e asigna pulsacións a accións</string>
     <string name="press_controls_description">Axusta como se detectan as pulsacións, escolle o comportamento do botón de chamada e asigna pulsacións a accións. As accións asignadas só se aplican a este dispositivo e permiten que a aplicación intercepte a pulsación en lugar de que os AirPods a xestionen de forma nativa.</string>

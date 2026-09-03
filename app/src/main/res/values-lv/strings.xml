@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ne visas Android ierīces pilnībā atbalsta papildu AirPod funkcijas. Jūsu operētājsistēmai ir nepieciešama pareizi funkcionējoša Bluetooth Low Energy implementācija.</string>
     <string name="onboarding_body3">CAPod nesatur reklāmas un neapkopo jūsu datus.</string>
     <string name="onboarding_body4">Jūs varat jaunināt uz CAPod Pro, lai iegūtu papildu funkcijas un atbalstītu izstrādi.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Kļūda</string>
@@ -218,7 +215,6 @@
     <string name="battery_unavailable_label">Akumulātors nav pieejams</string>
     <string name="battery_state_low_cd">Baterija zema</string>
     <string name="battery_state_critical_cd">Baterija kritiski zema</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="zero">Vēl ~%d pilnas uzlādes abiem austiņām</item>
         <item quantity="one">Vēl ~%d pilna uzlāde abiem austiņām</item>
@@ -231,7 +227,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Mazāk nekā viena pilna uzlāde abiem austiņām</string>
     <string name="battery_case_charges_empty">Futlārs ir tukšs, nav atlicis uzlāžu austiņām</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Nav skaidrs, cik pilnu uzlāžu ir atlicis abiem austiņām</string>
     <string name="battery_case_charges_state_enough_cd">Pietiek pilnai uzlādei</string>
     <string name="battery_case_charges_state_not_enough_cd">Nepietiek pilnai uzlādei</string>
@@ -278,7 +273,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Rādīt paziņojumus</string>
     <string name="permission_post_notifications_description">"Atļaujiet CAPod rādīt paziņojumus par jūsu AirPods, piem., to pašreizējo statusu, kamēr tie ir savienoti."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Nav konfigurēti ierīču profili</string>
     <string name="profiles_empty_description">Izveidojiet ierīču profilus, lai pārvaldītu vairākas ierīces ar pielāgotiem iestatījumiem un prioritātēm.</string>
     <string name="profiles_add_action">Pievienot profilu</string>
@@ -311,36 +305,29 @@
     <string name="profiles_signal_quality_min_label">Izslēgts</string>
     <string name="profiles_signal_quality_max_label">Stingrs</string>
     <string name="profiles_priority_hint">Profilu secība nosaka prioritāti. Velciet profilus, lai tos pārkārtotu - profili augstāk sarakstā ir prioritāri, kad atbilst vairākas ierīces.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Motīva režīms</string>
     <string name="ui_theme_mode_system_label">Sistēma</string>
     <string name="ui_theme_mode_dark_label">Tumšs</string>
     <string name="ui_theme_mode_light_label">Gaišs</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Motīva stils</string>
     <string name="ui_theme_style_default_label">Noklusējuma</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Vidējs kontrasts</string>
     <string name="ui_theme_style_high_contrast_label">Augsts kontrasts</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Tēmas krāsa</string>
     <string name="ui_theme_color_blue_label">Zils</string>
     <string name="ui_theme_color_green_label">Zaļs</string>
     <string name="ui_theme_color_amber_label">Dzintara</string>
     <string name="ui_theme_color_disabled_materialyou">Izmanto tapetes krāsas</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Izskats</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nesaglabātas izmaiņas</string>
     <string name="general_unsaved_changes_message">Jums ir nesaglabātas izmaiņas. Ko vēlaties darīt?</string>
     <string name="general_save_and_exit_action">Saglabāt &amp; iziet</string>
     <string name="general_discard_action">Atmest</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Ieraksts ir pārāk īss</string>
     <string name="debug_debuglog_short_recording_message">Atklāšanas žurnālam jāuztver problēma tās norišanas laikā. Turpiniet ierakstu, reproduciet problēmu un pēc tam apstiediniet ierakstu.</string>
     <string name="debug_debuglog_short_recording_continue">Turpināt ierakstu</string>
     <string name="debug_debuglog_short_recording_stop">Jāapstājas tā vai tā</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Atklāšanas žurnāls</string>
     <string name="debug_debuglog_screen_subtitle">Eksportēt atklāšanas informāciju problēmu novēršanai</string>
     <string name="debug_debuglog_screen_sensitive_title">Jutīga informācija</string>
@@ -353,7 +340,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Dzēst</string>
     <string name="debug_debuglog_screen_keep_action">Saglabāt</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="zero">%1$d atkļūdošanas žurnālu (%2$s)</item>
         <item quantity="one">%1$d atkļūdošanas žurnāls (%2$s)</item>
@@ -372,7 +358,6 @@
     <string name="support_debuglog_failed_missing_log">Neizdeviās: žurnālfails trūkst</string>
     <string name="support_debuglog_failed_corrupt_zip">Neizdeviās: zip fails ir bojāts</string>
     <string name="support_debuglog_failed_zip_failed">Neizdeviās: kompresija neizdeviās</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Sazināties ar izstrādātāju</string>
     <string name="support_contact_desc">Aizpildīt veidlapu, lai nosūtītu izstrādātājam e-pastu.</string>
     <string name="support_contact_welcome">Katru ziņojumu lasu pats un daru visu iespējamo, lai atbildētu, taču tā kā strādāju pie šī viens pats, var paiet mazliet laika. Paldies par pacietību.</string>
@@ -400,12 +385,10 @@
     <string name="support_contact_no_email_app">Šajā ierīcē nav atrasta neviena e-pasta lietotne.</string>
     <string name="support_contact_debuglog_delete_title">Dzēst atklāšanas žurnālu?</string>
     <string name="support_contact_debuglog_delete_message">Šis atklāšanas žurnāls tiks neatgriezeniski dzēsts.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Žurnāls nosūtīts?</string>
     <string name="support_debuglog_sent_message">Vai atkļūdošanas žurnāls tika veiksmīgi nosūtīts? Žurnāls tiks dzēsts.</string>
     <string name="support_contact_sent_title">E-pasts nosūtīts?</string>
     <string name="support_contact_sent_message">Vai e-pasts tika veiksmīgi nosūtīts? Pievienotais atkļūdošanas žurnāls tiks dzēsts.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Ierīces iestatījumi</string>
     <string name="device_settings_subtitle_profile_prefix">Profils: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth ierīces nosaukums</string>
@@ -486,7 +469,6 @@
     <string name="review_app_review_action">Atsauksme</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlies atstāt CAPod atsauksmi? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofons</string>
     <string name="device_settings_microphone_mode_description">Kura austiņa tiek izmantota kā mikrofons</string>
     <string name="device_settings_microphone_mode_auto">Automātiski</string>
@@ -535,7 +517,6 @@
     <string name="device_settings_connected_device_media">Atskaņo multividi</string>
     <string name="device_settings_noise_control_label">Troksņa vadība</string>
     <string name="device_settings_eq_label">Ekvālaizators</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Nospieduma vadīklas</string>
     <string name="press_controls_nav_description">Pielāgot nospiešanas uzvedību un kartēt nospiešanas uz darbībām</string>
     <string name="press_controls_description">Pielāgojiet, kā tiek atpazītas nospiešanas, izvēlieties zvaņa pogas uzvedību un kartējiet nospiešanas uz darbībām. Kartētās darbības attiecas tikai uz šo ierīci un ļauj lietotnei pārtvert nospiešanu, nevis ļaut AirPods to apstrādāt vietēji.</string>

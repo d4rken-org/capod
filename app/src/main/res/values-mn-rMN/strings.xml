@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Бүх Android төхөөрөмж AirPod-н нэмэлт функцуудыг бүрэн дэмждэггүй. Таны үйлдлийн системд зөв ажилладаг Bluetooth-Low-Energy-н хэрэгжилт шаардлагатай.</string>
     <string name="onboarding_body3">CAPod-д зар сурталчилгаа байхгүй бөгөөд таны өгөгдлийг цуглуулдаггүй.</string>
     <string name="onboarding_body4">Нэмэлт функцуудыг авах, хөгжүүлэлтийг дэмжихийн тулд CAPod Pro руу шинэчилж болно.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Байхгүй</string>
     <string name="general_error_label">Алдаа</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Батарей мэдэгдэхгүй байна</string>
     <string name="battery_state_low_cd">Батерей сулбай байна</string>
     <string name="battery_state_critical_cd">Батерей маш сулбай байна</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">хоёр чихэвчийн ~%d цэнэгийн боломж үлдсэн</item>
         <item quantity="other">хоёр чихэвчийн ~%d цэнэгийн боломж үлдсэн</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Хоёр чихэвчийн нэг цэнэгээс бага боломж үлдсэн</string>
     <string name="battery_case_charges_empty">Цэнэглүүр хоосон, чихэвчүүдийн цэнэглэх боломж үлдээгүй</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Хоёр чихэвчийн хичнээн цэнэглэх боломж үлдсэнийг мэдэхгүй байна</string>
     <string name="battery_case_charges_state_enough_cd">Нэг цэнэгийн хувьд хангалттай</string>
     <string name="battery_case_charges_state_not_enough_cd">Нэг цэнэгийн хувьд хангалтгүй</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dм</string>
     <string name="permission_post_notifications_label">Мэдэгдэл харуулах</string>
     <string name="permission_post_notifications_description">"CAPod-д таны AirPods-ийн талаарх мэдэгдлүүдийг, жишээ нь холбогдсон үеийн одоогийн төлөвийг харуулах зөвшөөрөл олгоно уу."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Төхөөрөмжийн профайл тохируулаагүй</string>
     <string name="profiles_empty_description">Олон төхөөрөмжийг тохиргоо, ач холбогдлын дагуу удирдахын тулд төхөөрөмжийн профайл үүсгэнэ үү.</string>
     <string name="profiles_add_action">Профайл нэмэх</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Унтраалттай</string>
     <string name="profiles_signal_quality_max_label">Хатуу</string>
     <string name="profiles_priority_hint">Профайлын дараалал нь ач холбогдлыг тодорхойлно. Профайлуудыг дахин эрэмбэлэхийн тулд чирнэ үү - жагсаалтад дээр байгаа профайлууд олон төхөөрөмж тохирох үед давуу эрхтэй.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Загварын горим</string>
     <string name="ui_theme_mode_system_label">Систем</string>
     <string name="ui_theme_mode_dark_label">Харанхуй</string>
     <string name="ui_theme_mode_light_label">Гэрэлтэй</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Загварын хэв маяг</string>
     <string name="ui_theme_style_default_label">Үндсэн</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Дунд зэргийн тод байдал</string>
     <string name="ui_theme_style_high_contrast_label">Өндөр тод байдал</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Загварын өнгө</string>
     <string name="ui_theme_color_blue_label">Цэнхэр</string>
     <string name="ui_theme_color_green_label">Ногоон</string>
     <string name="ui_theme_color_amber_label">Хув</string>
     <string name="ui_theme_color_disabled_materialyou">Ханын цаасны өнгийг ашиглана</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Гадаад төрх</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Хадгалаагүй өөрчлөлтүүд</string>
     <string name="general_unsaved_changes_message">Танд хадгалаагүй өөрчлөлтүүд байна. Та юу хийхийг хүсэж байна вэ?</string>
     <string name="general_save_and_exit_action">Хадгалаад гарах</string>
     <string name="general_discard_action">Цуцлах</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Бичлэг хэтэрхий богино</string>
     <string name="debug_debuglog_short_recording_message">Дибаг лог нь асуудал гарах үед бичиж авах ёстой. Бичлэгийг үргэлжүүлж, асуудлыг давтан гаргаад, дараа нь бичлэгийг зогсоо.</string>
     <string name="debug_debuglog_short_recording_continue">Бичлэгийг үргэлжүүлэх</string>
     <string name="debug_debuglog_short_recording_stop">Ямар ч байсан зогсох</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Дибаг лог</string>
     <string name="debug_debuglog_screen_subtitle">Алдааг засахад зориулсан дибаг мэдээллийг экспортлох</string>
     <string name="debug_debuglog_screen_sensitive_title">Нууц мэдээлэл</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Устгах</string>
     <string name="debug_debuglog_screen_keep_action">Хадгалах</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d дибаг лог (%2$s)</item>
         <item quantity="other">%1$d дибаг лог (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Амжилтгүй: лог файл олдсонгүй</string>
     <string name="support_debuglog_failed_corrupt_zip">Амжилтгүй: zip файл гэмтсэн байна</string>
     <string name="support_debuglog_failed_zip_failed">Амжилтгүй: шахалт амжилтгүй боллоо</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Хөгжүүлэгчтэй холбоо барих</string>
     <string name="support_contact_desc">Хөгжүүлэгчид имэйл илгээхийн тулд маягтыг бөглөнө үү.</string>
     <string name="support_contact_welcome">Би бүх мессежийг өөрөө уншиж, хариулахыг хичээдэг, гэхдээ дангаараа ажилладаг тул бага зэрэг хугацаа шаардагдаж болно. Тэвчээртэй байсанд баярлалаа.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Энэ төхөөрөмжд имэйл апп олдсонгүй.</string>
     <string name="support_contact_debuglog_delete_title">Дибаг логийг устгах уу?</string>
     <string name="support_contact_debuglog_delete_message">Энэ дибаг лог бүрмөсөн устгагдах болно.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Лог илгээсэн үү?</string>
     <string name="support_debuglog_sent_message">Дебаг лог амжилттай илгээгдсэн үү? Лог устгагдах болно.</string>
     <string name="support_contact_sent_title">Имэйл илгээсэн үү?</string>
     <string name="support_contact_sent_message">Имэйл амжилттай илгээгдсэн үү? Хавсаргасан дебаг лог устгагдах болно.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Төхөөрөмжийн тохиргоо</string>
     <string name="device_settings_subtitle_profile_prefix">Профайл: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth төхөөрөмжийн нэр</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа нь магадгүй</string>
     <string name="review_app_body">CAPod-д үнэлгээ үлдэхийг хүсч байна уу? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Микрофон болгон ашиглах чихэвч</string>
     <string name="device_settings_microphone_mode_auto">Автомат</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Медиа тоглуулж байна</string>
     <string name="device_settings_noise_control_label">Чимээ хяналт</string>
     <string name="device_settings_eq_label">Эквалайзер</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Даралтын хяналт</string>
     <string name="press_controls_nav_description">Даралтын зан тохиргуулах</string>
     <string name="press_controls_description">Даралтыг илрүүлэх, дуудлахын товчоог сонгох, даралтыг үйлдлэлтэй холбогдуулах. Тохиргосон үйлдлэл зөвхөн AirPods-ийг дэмжихгүйгээр апп даралтыг өөрөлтөг гардаг.</string>

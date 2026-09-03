@@ -161,10 +161,7 @@
     <string name="onboarding_body2">ሁሉም የአንድሮይድ መሳሪያዎች ተጨማሪ የኤርፖድ ባህሪያትን ሙሉ በሙሉ አይደግፉም። የእርስዎ ኦፐሬቲንግ ሲስተም በትክክል የሚሰራ የብሉቱዝ-ዝቅተኛ-ኃይል ትግበራ ይፈልጋል።</string>
     <string name="onboarding_body3">CAPod ምንም ማስታወቂያ የለውም እና የእርስዎን መረጃ አይሰበስብም።</string>
     <string name="onboarding_body4">ተጨማሪ ባህሪያትን ለማግኘት እና ልማትን ለመደገፍ ወደ CAPod Pro ማሻሻል ይችላሉ።</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">አይገኝም</string>
     <string name="general_error_label">ስህተት</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">ባትሪ አይገኝም</string>
     <string name="battery_state_low_cd">ባትሪ ዝቅ</string>
     <string name="battery_state_critical_cd">ባትሪ በጣም ዝቅ</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d ተጨማሪ ሙሉ ሙሎት ለሁለቱ ማዳመጫ</item>
         <item quantity="other">~%d ተጨማሪ ሙሉ ሙሎቶች ለሁለቱ ማዳመጫ</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">ከአንድ ሙሉ ሙሎት ያነሰ ለሁለቱ ማዳመጫ</string>
     <string name="battery_case_charges_empty">ሳጥኑ ባዶ ነው ፣ ማዳመጫዎ ሙሎት ቀርቶ የለም</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">ለሁለቱ ማዳመጫ ምን ያህል ሙሉ ሙሎት ቀርቷል እርግጠኛ አይደለም</string>
     <string name="battery_case_charges_state_enough_cd">ሙሉ ሙሎት ሞቅ ነው</string>
     <string name="battery_case_charges_state_not_enough_cd">ሙሉ ሙሎት ሞቅ አይደለም</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dደ</string>
     <string name="permission_post_notifications_label">ማሳወቂያዎችን አሳይ</string>
     <string name="permission_post_notifications_description">"CAPod ስለ AirPodsዎ ማሳወቂያዎችን እንዲያሳይ ፍቀድ፣ ለምሳሌ ሲገናኙ የአሁኑ ሁኔታቸውን።"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">ምንም የመሣሪያ መገለጫዎች አልተዋቀሩም</string>
     <string name="profiles_empty_description">ብዙ መሣሪያዎችን በብጁ ቅንብሮች እና ቅድሚያ ለማስተዳደር የመሣሪያ መገለጫዎችን ይፍጠሩ።</string>
     <string name="profiles_add_action">መገለጫ ጨምር</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">ጠፍቷል</string>
     <string name="profiles_signal_quality_max_label">ጥብቅ</string>
     <string name="profiles_priority_hint">የመገለጫ ቅደም ተከተል ቅድሚያ ይወስናል። መገለጫዎችን ለማስተካከል ይጎትቱ - በዝርዝሩ ውስጥ ከፍ ያሉ መገለጫዎች ብዙ መሣሪያዎች ሲዛመዱ ቅድሚያ ይሰጣቸዋል።</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">የወጭታ ሁነታ</string>
     <string name="ui_theme_mode_system_label">ሲስተም</string>
     <string name="ui_theme_mode_dark_label">ጥቁር</string>
     <string name="ui_theme_mode_light_label">ብርሃን</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">የወጭታ ዘይቤ</string>
     <string name="ui_theme_style_default_label">ነባሪ</string>
     <string name="ui_theme_style_materialyou_label">ማቴሪያል ዩ</string>
     <string name="ui_theme_style_medium_contrast_label">መካከለኛ ንፅፅር</string>
     <string name="ui_theme_style_high_contrast_label">ከፍተኛ ንፅፅር</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">የጭብጥ ቀለም</string>
     <string name="ui_theme_color_blue_label">ሰማያዊ</string>
     <string name="ui_theme_color_green_label">አረንጓዴ</string>
     <string name="ui_theme_color_amber_label">ህብረ-ቀለማዊ</string>
     <string name="ui_theme_color_disabled_materialyou">የዳሰሳ ምስል ቀለሞችን ይጠቀማል</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">ገጽታ</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ያልተቀመጡ ለውጦች</string>
     <string name="general_unsaved_changes_message">ያልተቀመጡ ለውጦች አሉዎት። ምን ማድረግ ይፈልጋሉ?</string>
     <string name="general_save_and_exit_action">አስቀምጥ እና ውጣ</string>
     <string name="general_discard_action">ጣል</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ቀረጻ በጣም አጭር ነው</string>
     <string name="debug_debuglog_short_recording_message">የዲባግ ምዝግብ ማስታወሻ ችግሩ ሲከሰት ሊቀዳ ያስፈልጋል። ቀረጻ ቀጥሎ፣ ችግሩን እንደገና አስተውሎ፣ ቀረጻውን አቁም።</string>
     <string name="debug_debuglog_short_recording_continue">ቀረጻ ቀጥሎ</string>
     <string name="debug_debuglog_short_recording_stop">ቢሆንም አቁም</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">የዲባግ ምዝግብ</string>
     <string name="debug_debuglog_screen_subtitle">ለችግር ፍቺ የዲባግ መረጃ ወደ ውጪ ላክ</string>
     <string name="debug_debuglog_screen_sensitive_title">ሚስጥራዊ መረጃ</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">ሰርዝ</string>
     <string name="debug_debuglog_screen_keep_action">ያዝ</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d የዲባግ ምዝግብ (%2$s)</item>
         <item quantity="other">%1$d የዲባግ ምዝገቦች (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">አልሆነም፡ የምዝግብ ፋይል ጀፍቷል</string>
     <string name="support_debuglog_failed_corrupt_zip">አልሆነም፡ zip ፋይሉ ተበላሺቷል</string>
     <string name="support_debuglog_failed_zip_failed">አልሆነም፡ ማኳናደፍ አልተሳካም</string>
-    <!-- Contact form -->
     <string name="support_contact_label">ገንቢውን አግኝ</string>
     <string name="support_contact_desc">ለገንቢው ኢሜይል ለመላክ ቅጸ ይምሉ።</string>
     <string name="support_contact_welcome">እያንዳንዱን መልዕክት በእኙ ራሰ አነባለሁ እና ምላሽ ለመስጀት ምሉ ጥረቱን አደርጋለሁ፣ ነገር ግን ብቻዩን ስሰራ ትንሽ ጊዜ ሊወስድ ይችላል። ትዕግስትዎ ስላሳዩ አመሰግናለሁ።</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">በዚህ መሳሪያ ላይ ምንም የኢሜይል መተግበሪያ አልተገኝም።</string>
     <string name="support_contact_debuglog_delete_title">የዲባግ ምዝግብ ይሰረዝ?</string>
     <string name="support_contact_debuglog_delete_message">ይህ የዲባግ ምዝግብ ዘወተር ይሰረዛል።</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">ምዝግብ ማስታወሻ ተልኳል?</string>
     <string name="support_debuglog_sent_message">የዲባግ ምዝግብ ማስታወሻ በተሳካ ሁኔታ ተልኳል? ምዝግብ ማስታወሻው ይሰረዛል።</string>
     <string name="support_contact_sent_title">ኢሜይል ተልኳል?</string>
     <string name="support_contact_sent_message">ኢሜይሉ በተሳካ ሁኔታ ተልኳል? ተያይዞ የቀረበው የዲባግ ምዝግብ ማስታወሻ ይሰረዛል።</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">የመሣሪያ ቅንብሮች</string>
     <string name="device_settings_subtitle_profile_prefix">መገለጫ: %s</string>
     <string name="device_settings_info_bt_name_label">የብሉቱዝ መሳሪያ ስያሜ</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">ግምገማ</string>
     <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
     <string name="review_app_body">ለCAPod ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">ማይክሮፎን</string>
     <string name="device_settings_microphone_mode_description">የትኛው ኢርባድ እንደ ማይክሮፎን ጥቅም ላይ እንደሚውል</string>
     <string name="device_settings_microphone_mode_auto">ራስ-ሰር</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">ሜድያ እያጫወተ</string>
     <string name="device_settings_noise_control_label">ጳጳታ ቅጥጥር</string>
     <string name="device_settings_eq_label">ኣዯካሉ</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">የጫና ቁጥጥሮች</string>
     <string name="press_controls_nav_description">የጫና ባህሪን ያስተካክሉ እና ጫናወችን ወደ ድርጊቶች ያስሩ</string>
     <string name="press_controls_description">ጫናወች እንዴት እንደሚታወቁ ያስተካክሉ፣ የጊሪ-ቅሉፍ ባህሪ ይምረጡ፣ እና ጫናወችን ወደ ድርጊቶች ያስሩ። የታሰሩ ድርጊቶች ለዚህ መሳሪያ ብቻ ይተገበራሉ እና ጫናው AirPods ይዖው ከመያዑ ይልቅ አፕ እንዲያዘ ያስችላሉ።</string>

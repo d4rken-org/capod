@@ -161,10 +161,7 @@
     <string name="onboarding_body2">لا تدعم جميع الأجهزة التي تعمل بنظام أندرويد مزايا أيربودز الإضافية بشكلٍ كامل. يتطلّب نظام التشغيل الخاصّ بك تطبيقًا صحيحًا لتقنية بلوتوث منخفضة الطاقة.</string>
     <string name="onboarding_body3">لا يحتوي كابود على إعلانات ولا يجمع بياناتك.</string>
     <string name="onboarding_body4">يمكنك الترقية إلى النسخة الاحترافية من كابود للحصول على مزايا إضافيةٍ ودعم التطوير.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">كابود</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s – %2$s</string>
     <string name="general_value_not_available_label">غ/م</string>
     <string name="general_error_label">خطأ</string>
@@ -222,16 +219,15 @@
     <string name="pods_dual_left_label">السمّاعة اليسرى</string>
     <string name="pods_dual_right_label">السمّاعة اليمنى</string>
     <string name="battery_unavailable_label">البطّارية غير متوفّرة</string>
-    <string name="battery_state_low_cd">البطارية منخفضة</string>
-    <string name="battery_state_critical_cd">البطارية منخفضة جدًا</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
+    <string name="battery_state_low_cd">مستوى البطّارية منخفض</string>
+    <string name="battery_state_critical_cd">مستوى البطّارية منخفضٌ للغاية</string>
     <plurals name="battery_case_charges_approx">
-        <item quantity="zero">~%d شحنة كاملة إضافية لكلتا السماعتين</item>
-        <item quantity="one">~%d شحنة كاملة إضافية لكلتا السماعتين</item>
-        <item quantity="two">~%d شحنة كاملة إضافية لكلتا السماعتين</item>
-        <item quantity="few">~%d شحنات كاملة إضافية لكلتا السماعتين</item>
-        <item quantity="many">~%d شحنة كاملة إضافية لكلتا السماعتين</item>
-        <item quantity="other">~%d شحنة كاملة إضافية لكلتا السماعتين</item>
+        <item quantity="zero">لن تحتاج بعد الآن إلى شحن كلتا السمّاعتين بالكامل</item>
+        <item quantity="one">شَحنةٌ كاملةٌ إضافيةٌ تقريبًا لكلتا السمّاعتين</item>
+        <item quantity="two">شَحنتان كاملتان إضافيتان تقريبًا لكلتا السمّاعتين</item>
+        <item quantity="few">%d شَحناتٍ كاملةٍ إضافيةٍ تقريبًا لكلتا السمّاعتين</item>
+        <item quantity="many">%d شَحنةً كاملةً إضافيةً تقريبًا لكلتا السمّاعتين</item>
+        <item quantity="other">%d شَحنةٌ كاملةٌ إضافيةٌ تقريبًا لكلتا السمّاعتين</item>
     </plurals>
     <plurals name="battery_case_charges_at_least">
         <item quantity="zero">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
@@ -243,7 +239,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">أقل من شحنة كاملة إضافية لكلتا السماعتين</string>
     <string name="battery_case_charges_empty">العلبة فارغة، لا توجد شحنات متبقية لسماعتيك</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">غير متأكد من عدد الشحنات الكاملة المتبقية لكلتا السماعتين</string>
     <string name="battery_case_charges_state_enough_cd">يكفي لشحنة كاملة</string>
     <string name="battery_case_charges_state_not_enough_cd">لا يكفي لشحنة كاملة</string>
@@ -290,7 +285,6 @@
     <string name="battery_time_remaining_format_m">%1$dد</string>
     <string name="permission_post_notifications_label">إظهار الإشعارات</string>
     <string name="permission_post_notifications_description">"السماح لـ CAPod بعرض إشعارات حول AirPods، مثل حالتها الحالية أثناء الاتصال."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">لم يتم تكوين ملفات تعريف الأجهزة</string>
     <string name="profiles_empty_description">أنشئ ملفات تعريف للأجهزة لإدارة أجهزة متعددة بإعدادات وأولويات مخصصة.</string>
     <string name="profiles_add_action">إضافة ملف تعريف</string>
@@ -323,36 +317,29 @@
     <string name="profiles_signal_quality_min_label">إيقاف</string>
     <string name="profiles_signal_quality_max_label">صارم</string>
     <string name="profiles_priority_hint">يحدد ترتيب الملف التعريفي الأولوية. اسحب الملفات التعريفية لإعادة ترتيبها - الملفات الأعلى في القائمة لها الأسبقية عند تطابق أجهزة متعددة.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">وضع السمة</string>
     <string name="ui_theme_mode_system_label">النظام</string>
     <string name="ui_theme_mode_dark_label">مظلم</string>
     <string name="ui_theme_mode_light_label">مضيء</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">نمط السمة</string>
     <string name="ui_theme_style_default_label">الافتراضي</string>
     <string name="ui_theme_style_materialyou_label">المواد التي تصممها</string>
     <string name="ui_theme_style_medium_contrast_label">تباين متوسط</string>
     <string name="ui_theme_style_high_contrast_label">تباين عالي</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">لون السمة</string>
     <string name="ui_theme_color_blue_label">أزرق</string>
     <string name="ui_theme_color_green_label">أخضر</string>
     <string name="ui_theme_color_amber_label">كهرماني</string>
     <string name="ui_theme_color_disabled_materialyou">يستخدم ألوان الخلفية</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">المظهر</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">تغييرات غير محفوظة</string>
     <string name="general_unsaved_changes_message">لديك تغييرات غير محفوظة. ماذا تريد أن تفعل؟</string>
     <string name="general_save_and_exit_action">حفظ والخروج</string>
     <string name="general_discard_action">تجاهل</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">التسجيل قصير جداً</string>
     <string name="debug_debuglog_short_recording_message">يجب أن يلتقط سجل التصحيح المشكلة أثناء حدوثها. استمر التسجيل، أعد إنتاج المشكلة، ثم أوقف التسجيل.</string>
     <string name="debug_debuglog_short_recording_continue">متابعة التسجيل</string>
     <string name="debug_debuglog_short_recording_stop">أوقف على أي حال</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">سجل التصحيح</string>
     <string name="debug_debuglog_screen_subtitle">تصدير معلومات التصحيح لاستكشاف الأخطاء</string>
     <string name="debug_debuglog_screen_sensitive_title">معلومات حساسة</string>
@@ -368,7 +355,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">حذف</string>
     <string name="debug_debuglog_screen_keep_action">احتفاظ</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="zero">%1$d سجلات تصحيح (%2$s)</item>
         <item quantity="one">%1$d سجل تصحيح (%2$s)</item>
@@ -390,7 +376,6 @@
     <string name="support_debuglog_failed_missing_log">فشل: ملف السجل مفقود</string>
     <string name="support_debuglog_failed_corrupt_zip">فشل: ملف zip تالف</string>
     <string name="support_debuglog_failed_zip_failed">فشل: فشل الضغط</string>
-    <!-- Contact form -->
     <string name="support_contact_label">تواصل مع المطور</string>
     <string name="support_contact_desc">املأ نموذجاً لإرسال بريد إلكتروني إلى المطور.</string>
     <string name="support_contact_welcome">أقرأ كل رسالة بنفسي وأبذل قصارى جهدي للرد، ولكن بما أنني أعمل على هذا بمفردي، قد يستغرق الأمر بعض الوقت. شكراً لصبرك.</string>
@@ -421,12 +406,10 @@
     <string name="support_contact_no_email_app">لم يُعثَر على تطبيق بريدٍ إلكترونيٍّ على هذا الجهاز.</string>
     <string name="support_contact_debuglog_delete_title">حذف سجل التصحيح؟</string>
     <string name="support_contact_debuglog_delete_message">سيتم حذف سجل التصحيح هذا نهائياً.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">هل تم إرسال السجل؟</string>
     <string name="support_debuglog_sent_message">هل تم إرسال سجل التصحيح بنجاح؟ سيتم حذف السجل.</string>
     <string name="support_contact_sent_title">هل تم إرسال البريد الإلكتروني؟</string>
     <string name="support_contact_sent_message">هل تم إرسال البريد الإلكتروني بنجاح؟ سيتم حذف سجل التصحيح المرفق.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">إعدادات الجهاز</string>
     <string name="device_settings_subtitle_profile_prefix">الملف الشخصي: %s</string>
     <string name="device_settings_info_bt_name_label">تسمية جهاز البلوتوث</string>
@@ -507,7 +490,6 @@
     <string name="review_app_review_action">مراجعة</string>
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ CAPod؟ ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">ميكروفون</string>
     <string name="device_settings_microphone_mode_description">سمّاعة الأذن المستخدمة كميكروفون</string>
     <string name="device_settings_microphone_mode_auto">تلقائي</string>
@@ -556,7 +538,6 @@
     <string name="device_settings_connected_device_media">تشغيل الوسائط</string>
     <string name="device_settings_noise_control_label">التحكم بالضوضاء</string>
     <string name="device_settings_eq_label">المعادل الصوتي</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">عناصر التحكم بالضغط</string>
     <string name="press_controls_nav_description">ضبط سلوك الضغط وتعيين الضغطات للإجراءات</string>
     <string name="press_controls_description">ضبط كيفية اكتشاف الضغطات، واختيار سلوك زر الاتصال، وتعيين الضغطات للإجراءات. تنطبق الإجراءات المعيّنة على هذا الجهاز فقط وتسمح للتطبيق باعتراض الضغط بدلاً من معالجته بشكل أصلي بواسطة AirPods.</string>

@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Не всі Android пристрої повністю підтримують додаткові функції AirPod. Ваша операційна система повинна підтримувати коректну реалізацію Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не містить реклами та не збирає ваші дані.</string>
     <string name="onboarding_body4">Ви можете оновитись до CAPod Pro, щоб отримати підтримку додаткових функцій та підтримати розробку.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Н/Д</string>
     <string name="general_error_label">Помилка</string>
@@ -220,7 +217,6 @@
     <string name="battery_unavailable_label">Акумулятор недоступний</string>
     <string name="battery_state_low_cd">Низька батарея</string>
     <string name="battery_state_critical_cd">Критично низька батарея</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d ще повна зарядка для обох навушників</item>
         <item quantity="few">~%d ще повні зарядки для обох навушників</item>
@@ -235,7 +231,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Менше однієї ще повної зарядки для обох навушників</string>
     <string name="battery_case_charges_empty">Футляр порожній, немає зарядок для твоїх навушників</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Невідомо, скільки ще повних зарядок залишилось для обох навушників</string>
     <string name="battery_case_charges_state_enough_cd">Достатньо для повної зарядки</string>
     <string name="battery_case_charges_state_not_enough_cd">Недостатньо для повної зарядки</string>
@@ -282,7 +277,6 @@
     <string name="battery_time_remaining_format_m">%1$d хв</string>
     <string name="permission_post_notifications_label">Показувати сповіщення</string>
     <string name="permission_post_notifications_description">"Дозволити CAPod показувати сповіщення про ваші AirPods, наприклад, їхній поточний статус під час підключення."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Профілі пристроїв не налаштовано</string>
     <string name="profiles_empty_description">Створіть профілі пристроїв, щоб керувати кількома пристроями з власними налаштуваннями та пріоритетами.</string>
     <string name="profiles_add_action">Додати профіль</string>
@@ -315,36 +309,29 @@
     <string name="profiles_signal_quality_min_label">Вимкнено</string>
     <string name="profiles_signal_quality_max_label">Суворий</string>
     <string name="profiles_priority_hint">Порядок профілів визначає пріоритет. Перетягуйте профілі, щоб змінити їхній порядок — профілі, що знаходяться вище у списку, мають пріоритет, коли знайдено кілька відповідних пристроїв.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Тема додатку</string>
     <string name="ui_theme_mode_system_label">Системна</string>
     <string name="ui_theme_mode_dark_label">Темна</string>
     <string name="ui_theme_mode_light_label">Світла</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Стиль теми</string>
     <string name="ui_theme_style_default_label">За умовчанням</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Середній контраст</string>
     <string name="ui_theme_style_high_contrast_label">Високий контраст</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Колір теми</string>
     <string name="ui_theme_color_blue_label">Синій</string>
     <string name="ui_theme_color_green_label">Зелений</string>
     <string name="ui_theme_color_amber_label">Бурштиновий</string>
     <string name="ui_theme_color_disabled_materialyou">Використовує кольори шпалер</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Зовнішній вигляд</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незбережені зміни</string>
     <string name="general_unsaved_changes_message">У вас є незбережені зміни. Що ви хочете зробити?</string>
     <string name="general_save_and_exit_action">Зберегти та вийти</string>
     <string name="general_discard_action">Відхилити</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Запис занадто короткий</string>
     <string name="debug_debuglog_short_recording_message">Журнал налагодження має зафіксувати проблему під час її виникнення. Продовжуйте запис, відтворіть проблему, а потім зупиніть запис.</string>
     <string name="debug_debuglog_short_recording_continue">Продовжити запис</string>
     <string name="debug_debuglog_short_recording_stop">Зупинити все одно</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Журнал налагодження</string>
     <string name="debug_debuglog_screen_subtitle">Експортувати інформацію налагодження для усунення несправностей</string>
     <string name="debug_debuglog_screen_sensitive_title">Конфіденційна інформація</string>
@@ -358,7 +345,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Видалити</string>
     <string name="debug_debuglog_screen_keep_action">Залишити</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d журнал налагодження (%2$s)</item>
         <item quantity="few">%1$d журнали налагодження (%2$s)</item>
@@ -378,7 +364,6 @@
     <string name="support_debuglog_failed_missing_log">Помилка: файл журналу відсутній</string>
     <string name="support_debuglog_failed_corrupt_zip">Помилка: zip-файл пошкоджений</string>
     <string name="support_debuglog_failed_zip_failed">Помилка: стиснення не вдалося</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Зв\'язатися з розробником</string>
     <string name="support_contact_desc">Заповніть форму, щоб надіслати розробнику електронного листа.</string>
     <string name="support_contact_welcome">Я особисто читаю кожне повідомлення і намагаюся відповідати, але оскільки я працюю над цим один, це може зайняти трохи часу. Дякую за терпіння.</string>
@@ -407,12 +392,10 @@
     <string name="support_contact_no_email_app">На цьому пристрої не знайдено жодного додатка електронної пошти.</string>
     <string name="support_contact_debuglog_delete_title">Видалити журнал налагодження?</string>
     <string name="support_contact_debuglog_delete_message">Цей журнал налагодження буде остаточно видалено.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Журнал надіслано?</string>
     <string name="support_debuglog_sent_message">Журнал налагодження було успішно надіслано? Журнал буде видалено.</string>
     <string name="support_contact_sent_title">Електронний лист надіслано?</string>
     <string name="support_contact_sent_message">Електронний лист було успішно надіслано? Прикріплений журнал налагодження буде видалено.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Налаштування пристрою</string>
     <string name="device_settings_subtitle_profile_prefix">Профіль: %s</string>
     <string name="device_settings_info_bt_name_label">Мітка пристрою Bluetooth</string>
@@ -493,7 +476,6 @@
     <string name="review_app_review_action">Огляд</string>
     <string name="review_app_dismiss_action">Можливо пізніше</string>
     <string name="review_app_body">Бажаєш залишити відгук про CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Мікрофон</string>
     <string name="device_settings_microphone_mode_description">Який навушник використовується як мікрофон</string>
     <string name="device_settings_microphone_mode_auto">Авто</string>
@@ -542,7 +524,6 @@
     <string name="device_settings_connected_device_media">Відтворення медіа</string>
     <string name="device_settings_noise_control_label">Керування шумом</string>
     <string name="device_settings_eq_label">Еквалайзер</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Керування натисканнями</string>
     <string name="press_controls_nav_description">Налаштуйте поведінку натискань та призначте натискання діям</string>
     <string name="press_controls_description">Налаштуйте виявлення натискань, оберіть поведінку кнопки виклику та призначте натискання діям. Призначені дії застосовуються лише до цього пристрою та дозволяють додатку перехоплювати натискання замість нативної обробки AirPods.</string>

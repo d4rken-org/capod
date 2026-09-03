@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Akuwona wonke amadivayisi e-Android asekela ngokugcwele izici ezengeziwe ze-AirPod. Uhlelo lwakho lokusebenza ludinga ukusebenza kwe-Bluetooth-Low-Energy okusebenza kahle.</string>
     <string name="onboarding_body3">I-CAPod ayinazo izikhangiso futhi ayiqoqi idatha yakho.</string>
     <string name="onboarding_body4">Ungathuthukela ku-CAPod Pro ukuze uthole izici ezengeziwe futhi usekele ukuthuthukiswa.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Ayitholakali</string>
     <string name="general_error_label">Iphutha</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Ibhethri ayitholakali</string>
     <string name="battery_state_low_cd">I-Batari iphansi</string>
     <string name="battery_state_critical_cd">I-Batari iphansi kakhulu</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d elingeni eliphelele kumakhulethi womabili</item>
         <item quantity="other">~%d amalinga aphelele kumakhulethi womabili</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Okungaphansi kwelingeni eliphelele kumakhulethi womabili</string>
     <string name="battery_case_charges_empty">Icala lingenalutho, azikho ilingeni eliphelele kumakhulethi akho</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Ayikwazi ukucoca ukuthi ingakanani amalinga aphelele esele kumakhulethi womabili</string>
     <string name="battery_case_charges_state_enough_cd">Kwaanele ngalingeni eliphelele</string>
     <string name="battery_case_charges_state_not_enough_cd">Ayianele ngalingeni eliphelele</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Bonisa izaziso</string>
     <string name="permission_post_notifications_description">"Vumela i-CAPod ukuthi ibonise izaziso mayelana nama-AirPods akho, isb. isimo sawo samanje ngenkathi exhunyiwe."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Azikho amaphrofayili edivayisi alungiselelwe</string>
     <string name="profiles_empty_description">Dala amaphrofayili edivayisi ukuze uphathe amadivayisi amaningi ngezilungiselelo ezingokwezifiso nokubaluleka.</string>
     <string name="profiles_add_action">Engeza iphrofayili</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Valiwe</string>
     <string name="profiles_signal_quality_max_label">Eqinile</string>
     <string name="profiles_priority_hint">Uhlelo lwamaphrofayili lunquma ukubaluleka. Hudula amaphrofayili ukuze uwahlelele kabusha - amaphrofayili aphezulu ohlwini athatha iqhaza elikhulu lapho amadivayisi amaningi ehambisana.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Imodi yendlela yokubuka</string>
     <string name="ui_theme_mode_system_label">Uhlelo</string>
     <string name="ui_theme_mode_dark_label">Okumnyama</string>
     <string name="ui_theme_mode_light_label">Okukhanyayo</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Isitayela sendlela yokubuka</string>
     <string name="ui_theme_style_default_label">Okuzenzakalelayo</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Ukuphikisana okukhukhulayo</string>
     <string name="ui_theme_style_high_contrast_label">Ukuphikisana okuphezulu</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Umbala wetheme</string>
     <string name="ui_theme_color_blue_label">Luhlaza okwesibhakabhaka</string>
     <string name="ui_theme_color_green_label">Luhlaza</string>
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Isebenzisa imibala yesithombe semuva</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Ukubonakala</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Izinguquko Ezingalondoloziwe</string>
     <string name="general_unsaved_changes_message">Unezinguquko ezingalondoloziwe. Ufuna ukwenzani?</string>
     <string name="general_save_and_exit_action">Londoloza &amp; Phuma</string>
     <string name="general_discard_action">Lahla</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Ukurekhoda kufushane kakhulu</string>
     <string name="debug_debuglog_short_recording_message">Irekhodi lokususa iziphazamiso lidinga ukubamba inkinga ngesikhathi senzeka. Qhubeka nokurekhosha, phinda inkinga, bese unqamula ukurekhosha.</string>
     <string name="debug_debuglog_short_recording_continue">Qhubeka nokurekhosha</string>
     <string name="debug_debuglog_short_recording_stop">Nqamula noma kunjalo</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Irekhodi Lokususa Iziphazamiso</string>
     <string name="debug_debuglog_screen_subtitle">Thekelisa ulwazi lokususa iziphazamiso ukuze kulungiswe</string>
     <string name="debug_debuglog_screen_sensitive_title">Ulwazi Oluyimfihlo</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Susa</string>
     <string name="debug_debuglog_screen_keep_action">Gcina</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d irekhodi lokususa iziphazamiso (%2$s)</item>
         <item quantity="other">%1$d amarekhodi okususa iziphazamiso (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Kwehlulekile: ifayela lerekhodi alikhona</string>
     <string name="support_debuglog_failed_corrupt_zip">Kwehlulekile: ifayela le-zip lonakele</string>
     <string name="support_debuglog_failed_zip_failed">Kwehlulekile: ukucindezela kwehlulekile</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Xhumana nomqambi</string>
     <string name="support_contact_desc">Gcwalisa ifomu ukuze uthumele umqambi i-imeyili.</string>
     <string name="support_contact_welcome">Ngifunda wonke umyalezo ngokwami futhi ngenza konke okusemandleni ami ukuphendula, kodwa njengoba ngisebenza ngiyedwa, kungathatha isikhashana. Ngiyabonga ngesibekezelo sakho.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Ayikho uhlelo lwe-imeyili olatholakele kuleli divayisi.</string>
     <string name="support_contact_debuglog_delete_title">Susa irekhodi lokususa iziphazamiso?</string>
     <string name="support_contact_debuglog_delete_message">Leli rekhodi lokususa iziphazamiso lizosuswwa ngokuphelele.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Ilog ithunyelwe?</string>
     <string name="support_debuglog_sent_message">Ingabe ilog yokususa amaphutha ithunyelwe ngempumelelo? Ilog izosuswa.</string>
     <string name="support_contact_sent_title">I-imeyili ithunyelwe?</string>
     <string name="support_contact_sent_message">Ingabe i-imeyili ithunyelwe ngempumelelo? Ilog yokususa amaphutha enamathiselwe izosuswa.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Izilungiselelo Zedivayisi</string>
     <string name="device_settings_subtitle_profile_prefix">Iphrofayili: %s</string>
     <string name="device_settings_info_bt_name_label">Ilebuli Ledivayisi ye-Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Buyekeza</string>
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
     <string name="review_app_body">Ungathanda ukushiyela i-CAPod ukubuyekeza? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Imakrofoni</string>
     <string name="device_settings_microphone_mode_description">Ikhiye yezindlebe elisetshenziselwa i-microphone</string>
     <string name="device_settings_microphone_mode_auto">Ngokuzenzakalela</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Idlala imidiya</string>
     <string name="device_settings_noise_control_label">Ukuvimba Umsindo</string>
     <string name="device_settings_eq_label">I-Equalizer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Izilawuli Zokuchofoza</string>
     <string name="press_controls_nav_description">Lungisa ukusebenza kokuchofoza futhi ukhomba izinyathelo ezikuchofozweni</string>
     <string name="press_controls_description">Lungisa ukuthi ukuchofoza kuphenywa kanjani, ukhethe ukusebenza kwenkinobho yezingcingo, futhi ukhomba izinyathelo ezikuchofozweni. Izinyathelo ezikhombiwe zisebenza kule divayisi kuphela futhi zivumela uhlelo lokusebenza ukuphila ukuchofoza esikhundleni se-AirPods esikubambela ngokwemvelo.</string>

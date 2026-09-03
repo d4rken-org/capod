@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Barcha Android qurilmalari AirPod qo\'shimcha xususiyatlarini to\'liq qo\'llab-quvvatlamaydi. Operatsion tizimingiz to\'g\'ri ishlaydigan Bluetooth-Low-Energy amalga oshirishni talab qiladi.</string>
     <string name="onboarding_body3">CAPod\'da reklamalar yo\'q va u sizning ma\'lumotlaringizni yig\'maydi.</string>
     <string name="onboarding_body4">Qo\'shimcha xususiyatlarni olish va rivojlanishni qo\'llab-quvvatlash uchun CAPod Pro\'ga yangilashingiz mumkin.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Xato</string>
@@ -216,14 +213,12 @@
     <string name="battery_unavailable_label">Batareya mavjud emas</string>
     <string name="battery_state_low_cd">Batareya past</string>
     <string name="battery_state_critical_cd">Batareya juda past</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">Ikkala quloqtasiga uchun yana ~%d to\'liq zaryad</item>
         <item quantity="other">Ikkala quloqtasiga uchun yana ~%d to\'liq zaryad</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">Ikkala quloqtasiga uchun bitta to\'liq zaryadlanishdan kam</string>
     <string name="battery_case_charges_empty">Quti bo\'sh, quloqtasiga uchun zaryad qolmadi</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Ikkala quloqtasiga uchun qancha to\'liq zaryadlanish qolganini noma\'lum</string>
     <string name="battery_case_charges_state_enough_cd">To\'liq zaryadlanish uchun etarli</string>
     <string name="battery_case_charges_state_not_enough_cd">To\'liq zaryadlanish uchun etarli emas</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$dminut</string>
     <string name="permission_post_notifications_label">Bildirishnomalarni ko\'rsatish</string>
     <string name="permission_post_notifications_description">"CAPod'ga AirPods haqida bildirishnomalarni ko'rsatish ruxsatini bering, masalan, ulangan paytdagi joriy holati."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Qurilma profillari sozlanmagan</string>
     <string name="profiles_empty_description">Maxsus sozlamalar va ustuvorliklar bilan bir nechta qurilmani boshqarish uchun qurilma profillari yarating.</string>
     <string name="profiles_add_action">Profil qo\'shish</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">O\'chiq</string>
     <string name="profiles_signal_quality_max_label">Qat\'iy</string>
     <string name="profiles_priority_hint">Profillar tartibi ustuvorlikni belgilaydi. Profillarni qayta tartiblash uchun torting - ro\'yxatda yuqoriroq joylashgan profillar bir nechta qurilma mos kelganda ustunlik qiladi.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Mavzu rejimi</string>
     <string name="ui_theme_mode_system_label">Tizim</string>
     <string name="ui_theme_mode_dark_label">Qorong\'i</string>
     <string name="ui_theme_mode_light_label">Yorug\'</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Mavzu uslubi</string>
     <string name="ui_theme_style_default_label">Standart</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">O\'rtacha kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Yuqori kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Mavzu rangi</string>
     <string name="ui_theme_color_blue_label">Ko\'k</string>
     <string name="ui_theme_color_green_label">Yashil</string>
     <string name="ui_theme_color_amber_label">Sariq-to\'q</string>
     <string name="ui_theme_color_disabled_materialyou">Fon rasmi ranglarini ishlatadi</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Ko\'rinish</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Saqlanmagan o\'zgarishlar</string>
     <string name="general_unsaved_changes_message">Sizda saqlanmagan o\'zgarishlar bor. Nima qilmoqchisiz?</string>
     <string name="general_save_and_exit_action">Saqlash va chiqish</string>
     <string name="general_discard_action">Bekor qilish</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Yozuv juda qisqa</string>
     <string name="debug_debuglog_short_recording_message">Debug jurnali muammo yuz berganda uni qayd etishi kerak. Yozishni davom eting, muammoni qayta yarating, so\'ngra yozishni to\'xtating.</string>
     <string name="debug_debuglog_short_recording_continue">Yozishni davom ettirish</string>
     <string name="debug_debuglog_short_recording_stop">Baribir to\'xtatish</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Debug jurnali</string>
     <string name="debug_debuglog_screen_subtitle">Nosozliklarni bartaraf etish uchun debug ma\'lumotlarini eksport qilish</string>
     <string name="debug_debuglog_screen_sensitive_title">Maxfiy ma\'lumotlar</string>
@@ -344,7 +331,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">O\'chirish</string>
     <string name="debug_debuglog_screen_keep_action">Saqlash</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d debug jurnali (%2$s)</item>
         <item quantity="other">%1$d debug jurnali (%2$s)</item>
@@ -362,7 +348,6 @@
     <string name="support_debuglog_failed_missing_log">Muvaffaqiyatsiz: jurnal fayli topilmadi</string>
     <string name="support_debuglog_failed_corrupt_zip">Muvaffaqiyatsiz: zip fayli buzilgan</string>
     <string name="support_debuglog_failed_zip_failed">Muvaffaqiyatsiz: siqish muvaffaqiyatsiz tugadi</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Dasturchi bilan bog\'lanish</string>
     <string name="support_contact_desc">Dasturchiga elektron pochta yuborish uchun formani to\'ldiring.</string>
     <string name="support_contact_welcome">Men har bir xabarni o\'zim o\'qiyman va javob berishga harakat qilaman, lekin yolg\'iz ishlaganimda bu bir oz vaqt olishi mumkin. Sabr-toqatingiz uchun rahmat.</string>
@@ -389,12 +374,10 @@
     <string name="support_contact_no_email_app">Bu qurilmada elektron pochta ilovasi topilmadi.</string>
     <string name="support_contact_debuglog_delete_title">Debug jurnalini o\'chirish?</string>
     <string name="support_contact_debuglog_delete_message">Bu debug jurnali doimiy ravishda o\'chiriladi.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Jurnal yuborildi?</string>
     <string name="support_debuglog_sent_message">Debug jurnali muvaffaqiyatli yuborildi? Jurnal o\'chiriladi.</string>
     <string name="support_contact_sent_title">Elektron pochta yuborildi?</string>
     <string name="support_contact_sent_message">Elektron pochta muvaffaqiyatli yuborildi? Ilova qilingan debug jurnali o\'chiriladi.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Qurilma sozlamalari</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth qurilma yorlig\'i</string>
@@ -475,7 +458,6 @@
     <string name="review_app_review_action">Ko\'rib chiqish</string>
     <string name="review_app_dismiss_action">Balki keyinroq</string>
     <string name="review_app_body">CAPod ga sharh qoldirishni xohlaysizmi? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Qaysi quloqlik mikrofon sifatida ishlatiladi</string>
     <string name="device_settings_microphone_mode_auto">Avtomatik</string>
@@ -524,7 +506,6 @@
     <string name="device_settings_connected_device_media">Media ijro etilmoqda</string>
     <string name="device_settings_noise_control_label">Shovqin nazorati</string>
     <string name="device_settings_eq_label">Ekvalayzер</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Bosish boshqaruvi</string>
     <string name="press_controls_nav_description">Bosish xatti-harakatini sozlang va bosishlarga amallar belgilang</string>
     <string name="press_controls_description">Bosishlar qanday aniqlanishini sozlang, qo\'ng\'iroq tugmasi xatti-harakatini tanlang va bosishlarga amallar belgilang. Belgilangan amallar faqat ushbu qurilmaga tegishli bo\'lib, ilovaga bosishni AirPods o\'zi boshqarish o\'rniga ushlab olish imkonini beradi.</string>

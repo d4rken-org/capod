@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ne podržavaju svi Android uređaji u potpunosti dodatne značajke AirPoda. Vaš operativni sustav zahtijeva ispravno funkcionirajuću implementaciju Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nema oglasa i ne prikuplja vaše podatke.</string>
     <string name="onboarding_body4">Možete nadograditi na CAPod Pro kako biste dobili dodatne značajke i podržali razvoj.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Pogreška</string>
@@ -218,7 +215,6 @@
     <string name="battery_unavailable_label">Baterija nije dostupna</string>
     <string name="battery_state_low_cd">Baterija slaba</string>
     <string name="battery_state_critical_cd">Baterija kritično slaba</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d dodatno puno napunjavanje za obje slušalice</item>
         <item quantity="few">~%d dodatnog punog napunjavanja za obje slušalice</item>
@@ -231,7 +227,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Manje od jednog punog napunjavanja za obje slušalice</string>
     <string name="battery_case_charges_empty">Kutija je prazna, nema preostalih napunjavanja za vaše slušalice</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Nije jasno koliko je punih napunjavanja ostalo za obje slušalice</string>
     <string name="battery_case_charges_state_enough_cd">Dovoljno za jedno napunjavanje</string>
     <string name="battery_case_charges_state_not_enough_cd">Nije dovoljno za jedno napunjavanje</string>
@@ -278,7 +273,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Prikaži obavijesti</string>
     <string name="permission_post_notifications_description">"Dopustite CAPod-u prikazivanje obavijesti o vašim AirPods, npr. njihov trenutni status dok su povezane."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Nema konfiguriranih profila uređaja</string>
     <string name="profiles_empty_description">Stvorite profile uređaja za upravljanje više uređaja s prilagođenim postavkama i prioritetima.</string>
     <string name="profiles_add_action">Dodaj profil</string>
@@ -311,36 +305,29 @@
     <string name="profiles_signal_quality_min_label">Isključeno</string>
     <string name="profiles_signal_quality_max_label">Strogo</string>
     <string name="profiles_priority_hint">Redoslijed profila određuje prioritet. Povucite profile za promjenu redoslijeda - profili viši na popisu imaju prednost kada se podudara više uređaja.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Način teme</string>
     <string name="ui_theme_mode_system_label">Sustav</string>
     <string name="ui_theme_mode_dark_label">Tamna</string>
     <string name="ui_theme_mode_light_label">Svijetla</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Stil teme</string>
     <string name="ui_theme_style_default_label">Zadano</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Srednji kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Visoki kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Boja teme</string>
     <string name="ui_theme_color_blue_label">Plava</string>
     <string name="ui_theme_color_green_label">Zelena</string>
     <string name="ui_theme_color_amber_label">Jantar</string>
     <string name="ui_theme_color_disabled_materialyou">Koristi boje pozadine</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Izgled</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nespremljene promjene</string>
     <string name="general_unsaved_changes_message">Imate nespremljene promjene. Što želite učiniti?</string>
     <string name="general_save_and_exit_action">Spremi &amp; izađi</string>
     <string name="general_discard_action">Odbaci</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Snimanje prekratko</string>
     <string name="debug_debuglog_short_recording_message">Debug zapisnik mora zabilježiti problem dok se događa. Nastavite snimanje, reproducirašte problem, a zatim zaustavite snimanje.</string>
     <string name="debug_debuglog_short_recording_continue">Nastavite snimanje</string>
     <string name="debug_debuglog_short_recording_stop">Svejedno zaustavi</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Zapisnik za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_screen_subtitle">Izvezi debug informacije za rješavanje problema</string>
     <string name="debug_debuglog_screen_sensitive_title">Osjetljive informacije</string>
@@ -353,7 +340,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Izbriši</string>
     <string name="debug_debuglog_screen_keep_action">Zadrži</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d debug zapisnik (%2$s)</item>
         <item quantity="few">%1$d debug zapisnika (%2$s)</item>
@@ -372,7 +358,6 @@
     <string name="support_debuglog_failed_missing_log">Nije uspjelo: datoteka zapisnika nedostaje</string>
     <string name="support_debuglog_failed_corrupt_zip">Nije uspjelo: zip datoteka je oštećena</string>
     <string name="support_debuglog_failed_zip_failed">Nije uspjelo: komprimiranje nije uspjelo</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Kontaktirajte razvijatelja</string>
     <string name="support_contact_desc">Ispunite obrazac kako biste razvijatelju poslali e-poštu.</string>
     <string name="support_contact_welcome">Sam čitam svaku poruku i trudim se odgovoriti, ali budući radim sam, može potrajati malo. Hvala na strpljenju.</string>
@@ -400,12 +385,10 @@
     <string name="support_contact_no_email_app">Na ovom uređaju nije pronađena aplikacija za e-poštu.</string>
     <string name="support_contact_debuglog_delete_title">Izbrišite debug zapisnik?</string>
     <string name="support_contact_debuglog_delete_message">Ovaj debug zapisnik će biti trajno izbrisan.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Dnevnik poslan?</string>
     <string name="support_debuglog_sent_message">Je li dnevnik otklanjanja pogrešaka uspješno poslan? Dnevnik će biti izbrisan.</string>
     <string name="support_contact_sent_title">E-pošta poslana?</string>
     <string name="support_contact_sent_message">Je li e-pošta uspješno poslana? Priloženi dnevnik otklanjanja pogrešaka bit će izbrisan.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Postavke uređaja</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Oznaka Bluetooth uređaja</string>
@@ -486,7 +469,6 @@
     <string name="review_app_review_action">Ocijeni</string>
     <string name="review_app_dismiss_action">Možda kasnije</string>
     <string name="review_app_body">Želiš li ostaviti recenziju za CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Koja slušalica se koristi kao mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Automatski</string>
@@ -535,7 +517,6 @@
     <string name="device_settings_connected_device_media">Reprodukcija medija</string>
     <string name="device_settings_noise_control_label">Kontrola buke</string>
     <string name="device_settings_eq_label">Ekvilajzer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Kontrole pritiska</string>
     <string name="press_controls_nav_description">Podesite ponašanje pritiska i dodijelite pritiske radnjama</string>
     <string name="press_controls_description">Podesite kako se pritisci otkrivaju, odaberite ponašanje gumba za poziv i dodijelite pritiske radnjama. Dodijeljene radnje primjenjuju se samo na ovaj uređaj i omogućuju aplikaciji da presreće pritisak umjesto da ga AirPods obradjuju izvorno.</string>

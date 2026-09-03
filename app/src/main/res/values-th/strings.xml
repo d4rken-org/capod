@@ -161,10 +161,7 @@
     <string name="onboarding_body2">อุปกรณ์ Android บางรุ่นไม่รองรับคุณสมบัติพิเศษของ AirPod ทั้งหมด ระบบปฏิบัติการของคุณต้องมีการใช้งาน Bluetooth Low Energy ที่ทำงานได้อย่างถูกต้อง</string>
     <string name="onboarding_body3">CAPod ไม่มีโฆษณาและไม่รวบรวมข้อมูลของคุณ</string>
     <string name="onboarding_body4">คุณสามารถอัปเกรดเป็น CAPod Pro เพื่อรับคุณสมบัติเพิ่มเติมและสนับสนุนการพัฒนา</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">ไม่พร้อมใช้งาน</string>
     <string name="general_error_label">ข้อผิดพลาด</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">แบตเตอรี่ไม่พร้อมใช้งาน</string>
     <string name="battery_state_low_cd">แบตเตอรี่เหลือน้อย</string>
     <string name="battery_state_critical_cd">แบตเตอรี่เหลือน้อยมาก</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">ชาร์จเต็มได้อีกประมาณ %d ครั้งสำหรับหูฟังทั้งสองข้าง</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">ชาร์จเต็มได้อีกไม่ถึงหนึ่งครั้งสำหรับหูฟังทั้งสองข้าง</string>
     <string name="battery_case_charges_empty">เคสหมดแบตเตอรี่ ไม่มีการชาร์จเหลือสำหรับหูฟังของคุณ</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">ไม่แน่ใจว่าชาร์จเต็มได้อีกกี่ครั้งสำหรับหูฟังทั้งสองข้าง</string>
     <string name="battery_case_charges_state_enough_cd">เพียงพอสำหรับการชาร์จเต็มหนึ่งครั้ง</string>
     <string name="battery_case_charges_state_not_enough_cd">ไม่เพียงพอสำหรับการชาร์จเต็มหนึ่งครั้ง</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$dนาที</string>
     <string name="permission_post_notifications_label">แสดงการแจ้งเตือน</string>
     <string name="permission_post_notifications_description">"อนุญาตให้ CAPod แสดงการแจ้งเตือนเกี่ยวกับ AirPods ของคุณ เช่น สถานะปัจจุบันขณะเชื่อมต่อ"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">ไม่มีโปรไฟล์อุปกรณ์ที่กำหนดค่า</string>
     <string name="profiles_empty_description">สร้างโปรไฟล์อุปกรณ์เพื่อจัดการอุปกรณ์หลายเครื่องด้วยการตั้งค่าและลำดับความสำคัญที่กำหนดเอง</string>
     <string name="profiles_add_action">เพิ่มโปรไฟล์</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">ปิด</string>
     <string name="profiles_signal_quality_max_label">เข้มงวด</string>
     <string name="profiles_priority_hint">ลำดับโปรไฟล์กำหนดลำดับความสำคัญ ลากโปรไฟล์เพื่อจัดเรียงใหม่ - โปรไฟล์ที่อยู่สูงกว่าในรายการจะมีความสำคัญมากกว่าเมื่ออุปกรณ์หลายเครื่องตรงกัน</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">โหมดธีม</string>
     <string name="ui_theme_mode_system_label">ระบบ</string>
     <string name="ui_theme_mode_dark_label">มืด</string>
     <string name="ui_theme_mode_light_label">สว่าง</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">สไตล์ธีม</string>
     <string name="ui_theme_style_default_label">ค่าเริ่มต้น</string>
     <string name="ui_theme_style_materialyou_label">วัสดุ ของคุณ</string>
     <string name="ui_theme_style_medium_contrast_label">ความเปรียบต่างปานกลาง</string>
     <string name="ui_theme_style_high_contrast_label">ความเปรียบต่างสูง</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">สีธีม</string>
     <string name="ui_theme_color_blue_label">สีน้ำเงิน</string>
     <string name="ui_theme_color_green_label">สีเขียว</string>
     <string name="ui_theme_color_amber_label">สีอำพัน</string>
     <string name="ui_theme_color_disabled_materialyou">ใช้สีสายตา</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">รูปลักษณ์</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">การเปลี่ยนแปลงที่ไม่ได้บันทึก</string>
     <string name="general_unsaved_changes_message">คุณมีการเปลี่ยนแปลงที่ไม่ได้บันทึก คุณต้องการทำอะไร?</string>
     <string name="general_save_and_exit_action">บันทึก &amp; ออก</string>
     <string name="general_discard_action">ทิ้ง</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">การบันทึกสั้นเกินไป</string>
     <string name="debug_debuglog_short_recording_message">ไฟล์ล็อกดีบักต้องจับปัญหาขณะที่เกิดขึ้น บันทึกต่อไป สร้างปัญหาซ้ำแล้วหยุดการบันทึก</string>
     <string name="debug_debuglog_short_recording_continue">บันทึกต่อไป</string>
     <string name="debug_debuglog_short_recording_stop">หยุดอยู่ดี</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">บันทึกดีบัก</string>
     <string name="debug_debuglog_screen_subtitle">ส่งออกข้อมูลดีบักสำหรับการแก้ไขปัญหา</string>
     <string name="debug_debuglog_screen_sensitive_title">ข้อมูลที่อ่อนไหว</string>
@@ -343,7 +330,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">ลบ</string>
     <string name="debug_debuglog_screen_keep_action">เก็บไว้</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d ไฟล์ล็อกดีบัก (%2$s)</item>
     </plurals>
@@ -360,7 +346,6 @@
     <string name="support_debuglog_failed_missing_log">ล้มเหลว: ไม่พบไฟล์ล็อก</string>
     <string name="support_debuglog_failed_corrupt_zip">ล้มเหลว: ไฟล์ zip เสียหาย</string>
     <string name="support_debuglog_failed_zip_failed">ล้มเหลว: การบีบอัดล้มเหลว</string>
-    <!-- Contact form -->
     <string name="support_contact_label">ติดต่อนักพัฒนา</string>
     <string name="support_contact_desc">กรอกแบบฟอร์มเพื่อส่งอีเมลให้นักพัฒนา</string>
     <string name="support_contact_welcome">ผมอ่านข้อความทุกข้อความด้วยตนเองและพยายามตอบกลับ แต่เนื่องจากทำงานคนเดียว อาจใช้เวลาสักหน่อย ขอบคุณสำหรับความอดทน</string>
@@ -386,12 +371,10 @@
     <string name="support_contact_no_email_app">ไม่พบแอปอีเมลในอุปกรณ์นี้</string>
     <string name="support_contact_debuglog_delete_title">ลบไฟล์ล็อกดีบัก?</string>
     <string name="support_contact_debuglog_delete_message">ไฟล์ล็อกดีบักนี้จะถูกลบอย่างถาวร</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">ส่งบันทึกแล้วใช่ไหม?</string>
     <string name="support_debuglog_sent_message">บันทึกการดีบักถูกส่งสำเร็จหรือไม่? บันทึกจะถูกลบออก</string>
     <string name="support_contact_sent_title">ส่งอีเมลแล้วใช่ไหม?</string>
     <string name="support_contact_sent_message">อีเมลถูกส่งสำเร็จหรือไม่? บันทึกการดีบักที่แนบมาจะถูกลบออก</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">การตั้งค่าอุปกรณ์</string>
     <string name="device_settings_subtitle_profile_prefix">โปรไฟล์: %s</string>
     <string name="device_settings_info_bt_name_label">ชื่ออุปกรณ์บลูทูธ</string>
@@ -472,7 +455,6 @@
     <string name="review_app_review_action">รีวิว</string>
     <string name="review_app_dismiss_action">อาจในคราวหน้า</string>
     <string name="review_app_body">คุณต้องการให้คะแนน CAPod หรือไม่? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>
     <string name="device_settings_microphone_mode_description">หูฟังข้างใดที่ใช้เป็นไมโครโฟน</string>
     <string name="device_settings_microphone_mode_auto">อัตโนมัติ</string>
@@ -521,7 +503,6 @@
     <string name="device_settings_connected_device_media">กำลังเล่นมีเดีย</string>
     <string name="device_settings_noise_control_label">การควบคุมเสียงรบกวน</string>
     <string name="device_settings_eq_label">อีควอไลเซอร์</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">การควบคุมการกด</string>
     <string name="press_controls_nav_description">ปรับพฤติกรรมการกดและกำหนดการกดให้กับการกระทำ</string>
     <string name="press_controls_description">ปรับวิธีตรวจจับการกด เลือกพฤติกรรมปุ่มการโทร และกำหนดการกดให้กับการกระทำ การกระทำที่กำหนดใช้กับอุปกรณ์นี้เท่านั้น และให้แอปสกัดการกดแทนที่ AirPods จะจัดการเอง</string>
