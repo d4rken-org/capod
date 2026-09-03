@@ -161,10 +161,7 @@
     <string name="onboarding_body2">تمام اینڈرائیڈ آلات ایئر پوڈ کی اضافی خصوصیات کو مکمل طور پر سپورٹ نہیں کرتے ہیں۔ آپ کے آپریٹنگ سسٹم کو صحیح طریقے سے کام کرنے والے بلوٹوتھ-لو-انرجی نفاذ کی ضرورت ہے۔</string>
     <string name="onboarding_body3">CAPod میں کوئی اشتہار نہیں ہے اور یہ آپ کا ڈیٹا جمع نہیں کرتا ہے۔</string>
     <string name="onboarding_body4">آپ اضافی خصوصیات حاصل کرنے اور ترقی کی حمایت کرنے کے لئے CAPod Pro میں اپ گریڈ کر سکتے ہیں۔</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">دستیاب نہیں</string>
     <string name="general_error_label">خرابی</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">بیٹری دستیاب نہیں</string>
     <string name="battery_state_low_cd">بیٹری کم ہے</string>
     <string name="battery_state_critical_cd">بیٹری انتہائی کم ہے</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">دونوں ایئربڈز کے لیے ~%d مزید مکمل چارج</item>
         <item quantity="other">دونوں ایئربڈز کے لیے ~%d مزید مکمل چارجز</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">دونوں ایئربڈز کے لیے ایک سے کم مکمل چارج</string>
     <string name="battery_case_charges_empty">کیس خالی ہے، آپ کی ایئربڈز کے لیے کوئی چارج باقی نہیں ہے</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">یقین نہیں کہ دونوں ایئربڈز کے لیے کتنے مکمل چارجز باقی ہیں</string>
     <string name="battery_case_charges_state_enough_cd">ایک مکمل چارج کے لیے کافی ہے</string>
     <string name="battery_case_charges_state_not_enough_cd">ایک مکمل چارج کے لیے کافی نہیں ہے</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dمنٹ</string>
     <string name="permission_post_notifications_label">اطلاعات دکھائیں</string>
     <string name="permission_post_notifications_description">"CAPod کو آپ کے AirPods کے بارے میں اطلاعات دکھانے کی اجازت دیں، مثلاً منسلک ہونے پر ان کی موجودہ حیثیت۔"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">کوئی آلہ پروفائل ترتیب نہیں دیا گیا</string>
     <string name="profiles_empty_description">حسب ضرورت سیٹنگز اور ترجیحات کے ساتھ متعدد آلات کا نظم کرنے کے لئے آلہ پروفائل بنائیں۔</string>
     <string name="profiles_add_action">پروفائل شامل کریں</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">بند</string>
     <string name="profiles_signal_quality_max_label">سخت</string>
     <string name="profiles_priority_hint">پروفائل کی ترتیب ترجیح کا تعین کرتی ہے۔ پروفائلز کو دوبارہ ترتیب دینے کے لئے گھسیٹیں - فہرست میں اوپر والے پروفائلز کو ترجیح ملتی ہے جب متعدد آلات مماثل ہوں۔</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">تھیم موڈ</string>
     <string name="ui_theme_mode_system_label">سسٹم</string>
     <string name="ui_theme_mode_dark_label">ڈارک</string>
     <string name="ui_theme_mode_light_label">لائٹ</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">تھیم اسٹائل</string>
     <string name="ui_theme_style_default_label">ڈیفالٹ</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">درمیانہ تضاد</string>
     <string name="ui_theme_style_high_contrast_label">زیادہ تضاد</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">تھیم رنگ</string>
     <string name="ui_theme_color_blue_label">نیلا</string>
     <string name="ui_theme_color_green_label">ہرا</string>
     <string name="ui_theme_color_amber_label">زرد</string>
     <string name="ui_theme_color_disabled_materialyou">وال پیپر کے رنگ استعمال کرتا ہے</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">ظاہری شکل</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">غیر محفوظ تبدیلیاں</string>
     <string name="general_unsaved_changes_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں۔ آپ کیا کرنا چاہیں گے؟</string>
     <string name="general_save_and_exit_action">محفوظ کریں اور باہر نکلیں</string>
     <string name="general_discard_action">رد کریں</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ریکارڈنگ بہت مختصر</string>
     <string name="debug_debuglog_short_recording_message">ڈیبگ لاگ کو مسئلے کے وقوع کے دوران ریکارڈ کرنا ہوتا ہے۔ ریکارڈنگ جاری رکھیں، مسئلہ دوبارہ پیدا کریں، پھر ریکارڈنگ بند کریں۔</string>
     <string name="debug_debuglog_short_recording_continue">ریکارڈنگ جاری رکھیں</string>
     <string name="debug_debuglog_short_recording_stop">بہرحال رکیں</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">ڈیبگ لاگ</string>
     <string name="debug_debuglog_screen_subtitle">ٹربل شوٹنگ کے لیے ڈیبگ معلومات برآمد کریں</string>
     <string name="debug_debuglog_screen_sensitive_title">حساس معلومات</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">حذف کریں</string>
     <string name="debug_debuglog_screen_keep_action">رکھیں</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d ڈیبگ لاگ (%2$s)</item>
         <item quantity="other">%1$d ڈیبگ لاگز (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">ناکام: لاگ فائل موجود نہیں</string>
     <string name="support_debuglog_failed_corrupt_zip">ناکام: زیپ فائل خراب ہے</string>
     <string name="support_debuglog_failed_zip_failed">ناکام: کمپریشن ناکام ہوئی</string>
-    <!-- Contact form -->
     <string name="support_contact_label">ڈویلپر سے رابطہ کریں</string>
     <string name="support_contact_desc">ڈویلپر کو ایمیل بھیجنے کے لیے ایک فارم بھریں۔</string>
     <string name="support_contact_welcome">میں ہر پیغام خود پۚتا ہوں اور جواب دینے کی پوری کوشش کرتا ہوں، لیکن چوںکہ میں یہ کام اکیلے کرتا ہوں، تھوڑا وقت لگ سکتا ہے۔ اپنے صبر کا شکریہ۔</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">اس ڑیوائس پر کوئی ایمیل ایپ نہیں ملی۔</string>
     <string name="support_contact_debuglog_delete_title">ڈیبگ لاگ حذف کریں؟</string>
     <string name="support_contact_debuglog_delete_message">یہ ڈیبگ لاگ ہمیشہ کے لیے حذف ہو جائے گی۔</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">لاگ بھیجا گیا؟</string>
     <string name="support_debuglog_sent_message">کیا ڈیبگ لاگ کامیابی سے بھیجا گیا؟ لاگ حذف کر دیا جائے گا۔</string>
     <string name="support_contact_sent_title">ای میل بھیجی گئی؟</string>
     <string name="support_contact_sent_message">کیا ای میل کامیابی سے بھیجی گئی؟ منسلک ڈیبگ لاگ حذف کر دیا جائے گا۔</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">ڈیوائس کی ترتیبات</string>
     <string name="device_settings_subtitle_profile_prefix">پروفائل: %s</string>
     <string name="device_settings_info_bt_name_label">بلوٹوتھ ڈیوائس لیبل</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">ریویو</string>
     <string name="review_app_dismiss_action">شاید بعد میں</string>
     <string name="review_app_body">کیا آپ CAPod کے لیے ریویو چھوڑنا چاہیں گے؟ ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>
     <string name="device_settings_microphone_mode_description">کون سا ایئربڈ مائیکروفون کے طور پر استعمال ہوتا ہے</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">میڈیا چل رہا ہے</string>
     <string name="device_settings_noise_control_label">شور کنٹرول</string>
     <string name="device_settings_eq_label">ایکولائزر</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">پریس کنٹرولز</string>
     <string name="press_controls_nav_description">پریس کے طرز عمل درست کریں اور پریسز کو ایکشنز سے میپ کریں</string>
     <string name="press_controls_description">طے کریں کہ پریسز کیسے شناخت ہوتی ہیں، کال بٹن کا طرز عمل منتخب کریں، اور پریسز کو ایکشنز سے میپ کریں۔ میپڈ ایکشنز صرف اس ڈیوائس پر لاگو ہوتی ہیں اور ایپ کو AirPods کی بجائے پریس انٹرسیپٹ کرنے دیتی ہیں۔</string>

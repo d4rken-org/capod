@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Android gailu guztiek ez dituzte AirPod-en ezaugarri gehigarriak guztiz onartzen. Zure sistema eragileak Bluetooth-Energia-Baxuko inplementazio zuzen bat behar du.</string>
     <string name="onboarding_body3">CAPod-ek ez du iragarkirik eta ez ditu zure datuak biltzen.</string>
     <string name="onboarding_body4">CAPod Pro-ra bertsio-berritu dezakezu ezaugarri gehigarriak lortzeko eta garapena laguntzeko.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">E/E</string>
     <string name="general_error_label">Errorea</string>
@@ -214,7 +211,6 @@
     <string name="pods_dual_left_label">Ezkerreko pod-a</string>
     <string name="pods_dual_right_label">Eskuineko pod-a</string>
     <string name="battery_unavailable_label">Bateria ez dago erabilgarri</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d karga gehiago auriculareentzat</item>
         <item quantity="other">~%d karga gehiago auriculareentzat</item>
@@ -224,7 +220,6 @@
         <item quantity="other">Gutxienez %d karga gehiago auriculareentzat</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">Karga osoa baino gutxiago auriculareentzat gelditzen</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Ez dago argi zenbat karga gelditzen diren auriculareentzat</string>
     <string name="battery_case_charges_state_enough_cd">Karga osoa izateko nahikoa</string>
     <string name="battery_case_charges_state_not_enough_cd">Karga osoa izateko ez nahikoa</string>
@@ -271,7 +266,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Erakutsi jakinarazpenak</string>
     <string name="permission_post_notifications_description">"Baimendu CAPod-i zure AirPods-ei buruzko jakinarazpenak erakustea, adib. konektatuta dauden bitartean euren egungo egoera."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Ez da gailu-profilik konfiguratu</string>
     <string name="profiles_empty_description">Sortu gailu-profilak gailu anitz kudeatzeko ezarpen eta lehentasun pertsonalizatuekin.</string>
     <string name="profiles_add_action">Gehitu profila</string>
@@ -304,36 +298,29 @@
     <string name="profiles_signal_quality_min_label">Itzalita</string>
     <string name="profiles_signal_quality_max_label">Zorrotza</string>
     <string name="profiles_priority_hint">Profilen ordenak lehentasuna zehazten du. Arrastatu profilak berrordenatzeko - zerrendan gorago dauden profilek lehentasuna dute gailu anitz bat datozenean.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Gai modua</string>
     <string name="ui_theme_mode_system_label">Sistema</string>
     <string name="ui_theme_mode_dark_label">Iluna</string>
     <string name="ui_theme_mode_light_label">Argia</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Gai estiloa</string>
     <string name="ui_theme_style_default_label">Lehenetsia</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Kontraste ertaina</string>
     <string name="ui_theme_style_high_contrast_label">Kontraste altua</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Gai kolorea</string>
     <string name="ui_theme_color_blue_label">Urdina</string>
     <string name="ui_theme_color_green_label">Berdea</string>
     <string name="ui_theme_color_amber_label">Anbarra</string>
     <string name="ui_theme_color_disabled_materialyou">Horma-papereko koloreak erabiltzen ditu</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Itxura</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Gorde gabeko aldaketak</string>
     <string name="general_unsaved_changes_message">Gorde gabeko aldaketak dituzu. Zer egin nahi duzu?</string>
     <string name="general_save_and_exit_action">Gorde &amp; Irten</string>
     <string name="general_discard_action">Baztertu</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Grabaketa motzegi</string>
     <string name="debug_debuglog_short_recording_message">Arazketa erregistro batek arazoa gertatzen ari den bitartean harrapatu behar du. Jarraitu grabatzen, erreproduzitu arazoa, eta gero gelditu grabaketa.</string>
     <string name="debug_debuglog_short_recording_continue">Jarraitu grabatzen</string>
     <string name="debug_debuglog_short_recording_stop">Gelditu hala ere</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
     <string name="debug_debuglog_screen_subtitle">Esportatu arazketa informazioa arazoak konpontzeko</string>
     <string name="debug_debuglog_screen_sensitive_title">Informazio sentikorra</string>
@@ -345,7 +332,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Ezabatu</string>
     <string name="debug_debuglog_screen_keep_action">Gorde</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d arazketa erregistro (%2$s)</item>
         <item quantity="other">%1$d arazketa erregistro (%2$s)</item>
@@ -363,7 +349,6 @@
     <string name="support_debuglog_failed_missing_log">Huts egin du: erregistro fitxategia falta da</string>
     <string name="support_debuglog_failed_corrupt_zip">Huts egin du: zip fitxategia hondatuta dago</string>
     <string name="support_debuglog_failed_zip_failed">Huts egin du: konpresiooak huts egin du</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Jarri harremanetan garatzailearekin</string>
     <string name="support_contact_desc">Bete formulario bat garatzaileari mezu elektroniko bat bidaltzeko.</string>
     <string name="support_contact_welcome">Mezu guztiak neronek irakurtzen ditut eta erantzuten saiatzen naiz, baina bakarrik lan egiten dudanez, denbora pixka bat behar izaten da. Eskerrik asko zure pazientziagatik.</string>
@@ -390,12 +375,10 @@
     <string name="support_contact_no_email_app">Ez da mezu elektroniko aplikaziorik aurkitu gailu honetan.</string>
     <string name="support_contact_debuglog_delete_title">Arazketa erregistroa ezabatu?</string>
     <string name="support_contact_debuglog_delete_message">Arazketa erregistro hau betirako ezabatuko da.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Loga bidali da?</string>
     <string name="support_debuglog_sent_message">Arazketa-loga behar bezala bidali al da? Loga ezabatuko da.</string>
     <string name="support_contact_sent_title">Mezu elektronikoa bidali da?</string>
     <string name="support_contact_sent_message">Mezu elektronikoa behar bezala bidali al da? Erantsitako arazketa-loga ezabatuko da.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Gailuaren ezarpenak</string>
     <string name="device_settings_subtitle_profile_prefix">Profila: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth gailuaren etiketa</string>
@@ -475,7 +458,6 @@
     <string name="review_app_review_action">Berrikuspen</string>
     <string name="review_app_dismiss_action">Agian geroago</string>
     <string name="review_app_body">CAPod-i berrikuspen bat utzi nahi diozu? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofonoa</string>
     <string name="device_settings_microphone_mode_description">Zein entzungailu erabiltzen den mikrofono gisa</string>
     <string name="device_settings_microphone_mode_auto">Automatikoa</string>
@@ -524,7 +506,6 @@
     <string name="device_settings_connected_device_media">Multimedia erreproduzitzen</string>
     <string name="device_settings_noise_control_label">Zarata-kontrola</string>
     <string name="device_settings_eq_label">Ekualizatzailea</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Sakatzeko kontrolak</string>
     <string name="press_controls_nav_description">Doitu sakatze portaera eta esleitu sakatzeei ekintzak</string>
     <string name="press_controls_description">Doitu nola detektatzen diren sakatzeek, aukeratu deiak erantzuteko botoiaren portaera eta esleitu sakatzeei ekintzak. Esleitutako ekintzak gailu honetan bakarrik aplikatzen dira eta aplikazioari sakatzea kontrolatzeko aukera ematen diote, AirPods-ek jatorriz kudeatu ordez.</string>

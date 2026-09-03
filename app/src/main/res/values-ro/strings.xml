@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Nu toate dispozitivele Android acceptă pe deplin funcțiile suplimentare AirPod. Sistemul dvs. de operare necesită o implementare Bluetooth Energie Scăzută (BLE) care funcționează corect.</string>
     <string name="onboarding_body3">CAPod nu conține reclame și nu colectează datele dumneavoastră.</string>
     <string name="onboarding_body4">Puteți face upgrade la CAPod Pro pentru a obține funcții suplimentare și pentru a sprijini dezvoltarea.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Eroare</string>
@@ -218,7 +215,6 @@
     <string name="battery_unavailable_label">Baterie indisponibilă</string>
     <string name="battery_state_low_cd">Baterie scăzută</string>
     <string name="battery_state_critical_cd">Baterie critic de scăzută</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d încărcare completă în plus pentru ambele căști</item>
         <item quantity="few">~%d încărcări complete în plus pentru ambele căști</item>
@@ -231,7 +227,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Mai puțin de o încărcare completă în plus pentru ambele căști</string>
     <string name="battery_case_charges_empty">Carcasa este goală, nu mai există încărcări pentru căștile tale</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Nu se știe sigur câte încărcări complete au mai rămas pentru ambele căști</string>
     <string name="battery_case_charges_state_enough_cd">Suficient pentru o încărcare completă</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuficient pentru o încărcare completă</string>
@@ -278,7 +273,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Afișare notificări</string>
     <string name="permission_post_notifications_description">"Permiteți CAPod să afișeze notificări despre AirPods-urile dvs., de ex. starea curentă în timp ce sunt conectate."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Niciun profil de dispozitiv configurat</string>
     <string name="profiles_empty_description">Creați profiluri de dispozitive pentru a gestiona mai multe dispozitive cu setări și priorități personalizate.</string>
     <string name="profiles_add_action">Adăugare profil</string>
@@ -311,36 +305,29 @@
     <string name="profiles_signal_quality_min_label">Oprit</string>
     <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">Ordinea profilurilor determină prioritatea. Trageți profilurile pentru a le reordona - profilurile mai sus în listă au prioritate când mai multe dispozitive corespund.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Mod temă</string>
     <string name="ui_theme_mode_system_label">Sistem</string>
     <string name="ui_theme_mode_dark_label">Întunecat</string>
     <string name="ui_theme_mode_light_label">Luminos</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Stil temă</string>
     <string name="ui_theme_style_default_label">Implicit</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Contrast mediu</string>
     <string name="ui_theme_style_high_contrast_label">Contrast ridicat</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Culoarea temei</string>
     <string name="ui_theme_color_blue_label">Albastru</string>
     <string name="ui_theme_color_green_label">Verde</string>
     <string name="ui_theme_color_amber_label">Chihlimbar</string>
     <string name="ui_theme_color_disabled_materialyou">Folosește culorile fundalului</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Aspect</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modificări Nesalvate</string>
     <string name="general_unsaved_changes_message">Aveți modificări nesalvate. Ce doriți să faceți?</string>
     <string name="general_save_and_exit_action">Salvare &amp; Ieșire</string>
     <string name="general_discard_action">Renunță</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Înregistrare prea scurtă</string>
     <string name="debug_debuglog_short_recording_message">Un jurnal de depanare trebuie să surprindă problema în timp ce apare. Continuați înregistrarea, reproduceți problema, apoi opriți înregistrarea.</string>
     <string name="debug_debuglog_short_recording_continue">Continuați înregistrarea</string>
     <string name="debug_debuglog_short_recording_stop">Opriți oricum</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
     <string name="debug_debuglog_screen_subtitle">Exportați informații de depanare pentru rezolvarea problemelor</string>
     <string name="debug_debuglog_screen_sensitive_title">Informații sensibile</string>
@@ -353,7 +340,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Șterge</string>
     <string name="debug_debuglog_screen_keep_action">Păstrează</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d jurnal de depanare (%2$s)</item>
         <item quantity="few">%1$d jurnale de depanare (%2$s)</item>
@@ -372,7 +358,6 @@
     <string name="support_debuglog_failed_missing_log">Eșuat: fișierul jurnal lipsește</string>
     <string name="support_debuglog_failed_corrupt_zip">Eșuat: fișierul zip este corupt</string>
     <string name="support_debuglog_failed_zip_failed">Eșuat: comprimarea a eșuat</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Contactați dezvoltatorul</string>
     <string name="support_contact_desc">Completați un formular pentru a trimite un e-mail dezvoltatorului.</string>
     <string name="support_contact_welcome">Citesc personal fiecare mesaj și fac tot posibilul să răspund, dar deoarece lucrez singur la asta, poate dura puțin. Mulțumesc pentru răbdare.</string>
@@ -400,12 +385,10 @@
     <string name="support_contact_no_email_app">Nu s-a gasit nicio aplicatie de e-mail pe acest dispozitiv.</string>
     <string name="support_contact_debuglog_delete_title">Stergeti jurnalul de depanare?</string>
     <string name="support_contact_debuglog_delete_message">Acest jurnal de depanare va fi sters permanent.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Jurnalul a fost trimis?</string>
     <string name="support_debuglog_sent_message">Jurnalul de depanare a fost trimis cu succes? Jurnalul va fi șters.</string>
     <string name="support_contact_sent_title">E-mailul a fost trimis?</string>
     <string name="support_contact_sent_message">E-mailul a fost trimis cu succes? Jurnalul de depanare atașat va fi șters.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Setări dispozitiv</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Etichetă dispozitiv Bluetooth</string>
@@ -486,7 +469,6 @@
     <string name="review_app_review_action">Revizuire</string>
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Ți-ar plăcea să lași o recenzie pentru CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Microfon</string>
     <string name="device_settings_microphone_mode_description">Care cășcă este folosită ca microfon</string>
     <string name="device_settings_microphone_mode_auto">Automat</string>
@@ -535,7 +517,6 @@
     <string name="device_settings_connected_device_media">Redă media</string>
     <string name="device_settings_noise_control_label">Control zgomot</string>
     <string name="device_settings_eq_label">Egalizator</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Controale apăsare</string>
     <string name="press_controls_nav_description">Reglează comportamentul apăsărilor și mapează apăsările la acțiuni</string>
     <string name="press_controls_description">Reglează cum sunt detectate apăsările, alege comportamentul butonului de apel și mapează apăsările la acțiuni. Acțiunile mapate se aplică doar acestui dispozitiv și permit aplicației să intercepteze apăsarea în loc ca AirPods să o gestioneze nativ.</string>

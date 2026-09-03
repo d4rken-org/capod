@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Betg tut ils apparats Android sustegnan cumplainamain las funcziuns supplementaras dad AirPods. Voss sistem operativ dovra in\'implementaziun da Bluetooth-Low-Energy che funcziuna correctamain.</string>
     <string name="onboarding_body3">CAPod n\'ha nagina reclama e na collecziunescha betg Vossas datas.</string>
     <string name="onboarding_body4">Vus pudais actualisar sin CAPod Pro per obtegnair funcziuns supplementaras e sustegnair il svilup.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Errur</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Battaria betg disponibla</string>
     <string name="battery_state_low_cd">Bateria bassa</string>
     <string name="battery_state_critical_cd">Bateria criticamain bassa</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">Anc ~%d chargia entira per ils dus auriculars</item>
         <item quantity="other">Anc ~%d chargias entiras per ils dus auriculars</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Damain ch\'ina chargia entira dapli per ils dus auriculars</string>
     <string name="battery_case_charges_empty">La chascha è vida, naginas chargias restan per tes auriculars</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Betg segir quantas chargias entiras che restan per ils dus auriculars</string>
     <string name="battery_case_charges_state_enough_cd">Avunda per ina chargia entira</string>
     <string name="battery_case_charges_state_not_enough_cd">Betg avunda per ina chargia entira</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Mussar notificaziuns</string>
     <string name="permission_post_notifications_description">"Permetter a CAPod da mussar notificaziuns davart Voss AirPods, p.ex. il stadi actual durant ch'els èn connectads."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Nagins profils d\'apparat configurads</string>
     <string name="profiles_empty_description">Creai profils d\'apparat per administrar plirs apparats cun configuraziuns e prioritads persunalisadas.</string>
     <string name="profiles_add_action">Agiuntar profil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Davent</string>
     <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">L\'urden dals profils determinà la prioritad. Tirai ils profils per ils reordinar - profils pli aut en la glista han la precendenza cura che plirs apparats correspundan.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Modus dal tema</string>
     <string name="ui_theme_mode_system_label">Sistema</string>
     <string name="ui_theme_mode_dark_label">Tschaiver</string>
     <string name="ui_theme_mode_light_label">Cler</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Stil dal tema</string>
     <string name="ui_theme_style_default_label">Standard</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Contrast mez</string>
     <string name="ui_theme_style_high_contrast_label">Contrast aut</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Colur dal tema</string>
     <string name="ui_theme_color_blue_label">Blau</string>
     <string name="ui_theme_color_green_label">Verd</string>
     <string name="ui_theme_color_amber_label">Ambra</string>
     <string name="ui_theme_color_disabled_materialyou">Utilisescha ils colurs dal fund da visur</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Apparenza</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Midadas betg memorisadas</string>
     <string name="general_unsaved_changes_message">Vus avais midadas betg memorisadas. Tge vulais Vus far?</string>
     <string name="general_save_and_exit_action">Memorisar &amp; Serrar</string>
     <string name="general_discard_action">Bandunar</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Registraziun memia curta</string>
     <string name="debug_debuglog_short_recording_message">In protocol da debug sto captar il problem durant che el occorra. Cuntinuescha la registraziun, repruduescha il problem, lur stoppa la registraziun.</string>
     <string name="debug_debuglog_short_recording_continue">Cuntinuar la registraziun</string>
     <string name="debug_debuglog_short_recording_stop">Stopper d\'incumbensa</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Protocol da debug</string>
     <string name="debug_debuglog_screen_subtitle">Exportar infurmaziuns da debug per la soluziun da problems</string>
     <string name="debug_debuglog_screen_sensitive_title">Infurmaziuns sensitivas</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Stritgar</string>
     <string name="debug_debuglog_screen_keep_action">Mantegnair</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d protocol da debug (%2$s)</item>
         <item quantity="other">%1$d protocols da debug (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Fallì: la datoteca da protocol manca</string>
     <string name="support_debuglog_failed_corrupt_zip">Fallì: la datoteca zip è corrumpida</string>
     <string name="support_debuglog_failed_zip_failed">Fallì: la cumpressiun ha fallì</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Contactar il sviluppader</string>
     <string name="support_contact_desc">Emple in furmular per trametter al sviluppader in e-mail.</string>
     <string name="support_contact_welcome">Jau less mintga messadi persunalmain ed empruv da respunder, ma perquai che jau lavur sin quai be da solo, po dar ina pitschna d\'aura. Grazia per tia pazienza.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Nagin app d\'e-mail chattà sin quest apparat.</string>
     <string name="support_contact_debuglog_delete_title">Stritgar il protocol da debug?</string>
     <string name="support_contact_debuglog_delete_message">Quest protocol da debug vegn stritgà definitivamain.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Protocol tramess?</string>
     <string name="support_debuglog_sent_message">È il protocol da debug vegnì tramess cun success? Il protocol vegn stizzà.</string>
     <string name="support_contact_sent_title">E-mail tramessa?</string>
     <string name="support_contact_sent_message">È l\'e-mail vegnida tramessa cun success? Il protocol da debug allegà vegn stizzà.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Parameters da l\'apparat</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Designaziun da l\'apparat Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Recenziun</string>
     <string name="review_app_dismiss_action">Forsa pli tard</string>
     <string name="review_app_body">Vuless ti laschar ina recenziun per CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Microfon</string>
     <string name="device_settings_microphone_mode_description">Tge tschappin è utilisà sco microfon</string>
     <string name="device_settings_microphone_mode_auto">Automatic</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">En reproducziun da media</string>
     <string name="device_settings_noise_control_label">Controlla dal bumbac</string>
     <string name="device_settings_eq_label">Egalisader</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Controlla da pressiun</string>
     <string name="press_controls_nav_description">Regler il cumportament da pressiun e assignar pressiuns ad acziuns</string>
     <string name="press_controls_description">Regler co che pressiuns vegnan detectadas, tscherner il cumportament dal buttun per cloms e assignar pressiuns ad acziuns. Las acziuns assignadas valan mo per quest apparat e laschan l\'app interceptar la pressiun empau che las AirPods la tratteschan nativamente.</string>

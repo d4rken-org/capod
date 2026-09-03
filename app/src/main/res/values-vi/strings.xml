@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Không phải tất cả các thiết bị Android đều hỗ trợ đầy đủ các tính năng bổ sung của AirPod. Hệ điều hành của bạn yêu cầu triển khai Bluetooth-Năng lượng thấp hoạt động chính xác.</string>
     <string name="onboarding_body3">CAPod không có quảng cáo và không thu thập dữ liệu của bạn.</string>
     <string name="onboarding_body4">Bạn có thể nâng cấp lên CAPod Pro để có thêm các tính năng và hỗ trợ phát triển.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Không có</string>
     <string name="general_error_label">Lỗi</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">Pin không khả dụng</string>
     <string name="battery_state_low_cd">Pin yếu</string>
     <string name="battery_state_critical_cd">Pin rất yếu</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">~%d lần sạc đầy nữa cho cả hai tai nghe</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Chưa đủ một lần sạc đầy nữa cho cả hai tai nghe</string>
     <string name="battery_case_charges_empty">Hộp trống, không còn lần sạc nào cho tai nghe của bạn</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Không chắc có bao nhiêu lần sạc đầy còn lại cho cả hai tai nghe</string>
     <string name="battery_case_charges_state_enough_cd">Đủ cho một lần sạc đầy</string>
     <string name="battery_case_charges_state_not_enough_cd">Không đủ cho một lần sạc đầy</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Hiển thị thông báo</string>
     <string name="permission_post_notifications_description">"Cho phép CAPod hiển thị thông báo về AirPods của bạn, ví dụ trạng thái hiện tại của chúng khi đang kết nối."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Chưa cấu hình hồ sơ thiết bị</string>
     <string name="profiles_empty_description">Tạo hồ sơ thiết bị để quản lý nhiều thiết bị với cài đặt và mức ưu tiên tùy chỉnh.</string>
     <string name="profiles_add_action">Thêm hồ sơ</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">Tắt</string>
     <string name="profiles_signal_quality_max_label">Nghiêm ngặt</string>
     <string name="profiles_priority_hint">Thứ tự hồ sơ quyết định mức ưu tiên. Kéo để sắp xếp lại hồ sơ - hồ sơ ở vị trí cao hơn trong danh sách sẽ được ưu tiên khi có nhiều thiết bị khớp.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Giao diện</string>
     <string name="ui_theme_mode_system_label">Hệ thống</string>
     <string name="ui_theme_mode_dark_label">Tối</string>
     <string name="ui_theme_mode_light_label">Sáng</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Kiểu giao diện</string>
     <string name="ui_theme_style_default_label">Mặc định</string>
     <string name="ui_theme_style_materialyou_label">Cá nhân</string>
     <string name="ui_theme_style_medium_contrast_label">Độ tương phản trung bình</string>
     <string name="ui_theme_style_high_contrast_label">Độ tương phản cao</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Màu giao diện</string>
     <string name="ui_theme_color_blue_label">Xanh dương</string>
     <string name="ui_theme_color_green_label">Xanh lá</string>
     <string name="ui_theme_color_amber_label">Vàng hổ phách</string>
     <string name="ui_theme_color_disabled_materialyou">Sử dụng màu hình nền</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Giao diện</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Thay đổi chưa lưu</string>
     <string name="general_unsaved_changes_message">Bạn có các thay đổi chưa lưu. Bạn muốn làm gì?</string>
     <string name="general_save_and_exit_action">Lưu và thoát</string>
     <string name="general_discard_action">Bỏ thay đổi</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Bản ghi quá ngắn</string>
     <string name="debug_debuglog_short_recording_message">Nhật ký gỡ lỗi cần ghi lại sự cố khi nó xảy ra. Tiếp tục ghi, tái hiện vấn đề, sau đó dừng ghi.</string>
     <string name="debug_debuglog_short_recording_continue">Tiếp tục ghi âm</string>
     <string name="debug_debuglog_short_recording_stop">Vẫn dừng lại</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_screen_subtitle">Xuất thông tin gỡ lỗi để khắc phục sự cố</string>
     <string name="debug_debuglog_screen_sensitive_title">Thông tin nhạy cảm</string>
@@ -343,7 +330,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Xoá</string>
     <string name="debug_debuglog_screen_keep_action">Giữ lại</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d nhật ký gỡ lỗi (%2$s)</item>
     </plurals>
@@ -360,7 +346,6 @@
     <string name="support_debuglog_failed_missing_log">Thất bại: không tìm thấy tệp nhật ký</string>
     <string name="support_debuglog_failed_corrupt_zip">Thất bại: tệp zip bị hỏng</string>
     <string name="support_debuglog_failed_zip_failed">Thất bại: nén không thành công</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Liên hệ nhà phát triển</string>
     <string name="support_contact_desc">Điền vào biểu mẫu để gửi email cho nhà phát triển.</string>
     <string name="support_contact_welcome">Tôi tự mình đọc từng tin nhắn và cố gắng hết sức để trả lời. Vì tôi tự mình xử lý việc phát triển, sửa lỗi, và hỗ trợ một mình, nên có thể mất một chút thời gian. Cảm ơn sự kiên nhẫn của bạn.</string>
@@ -386,12 +371,10 @@
     <string name="support_contact_no_email_app">Không tìm thấy ứng dụng email trên thiết bị này.</string>
     <string name="support_contact_debuglog_delete_title">Xóa nhật ký gỡ lỗi?</string>
     <string name="support_contact_debuglog_delete_message">Nhật ký gỡ lỗi này sẽ bị xóa vĩnh viễn.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Đã gửi log?</string>
     <string name="support_debuglog_sent_message">Log gỡ lỗi đã được gửi thành công chưa? Log sẽ bị xóa.</string>
     <string name="support_contact_sent_title">Đã gửi email?</string>
     <string name="support_contact_sent_message">Email đã được gửi thành công chưa? Log gỡ lỗi đính kèm sẽ bị xóa.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Cài đặt thiết bị</string>
     <string name="device_settings_subtitle_profile_prefix">Cấu hình: %s</string>
     <string name="device_settings_info_bt_name_label">Nhãn thiết bị Bluetooth</string>
@@ -472,7 +455,6 @@
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho CAPod không? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Microphone</string>
     <string name="device_settings_microphone_mode_description">Tai nghe nào được dùng làm microphone</string>
     <string name="device_settings_microphone_mode_auto">Tự động</string>
@@ -521,7 +503,6 @@
     <string name="device_settings_connected_device_media">Đang phát media</string>
     <string name="device_settings_noise_control_label">Kiểm soát tiếng ồn</string>
     <string name="device_settings_eq_label">Bộ cân bằng âm</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Điều khiển nhấn</string>
     <string name="press_controls_nav_description">Tiếnh chỉnh hành vi nhấn và ánh xạ nhấn thành hành động</string>
     <string name="press_controls_description">Tiếnh chỉnh cách phát hiện nhấn, chọn hành vi nút gọi và ánh xạ nhấn thành hành động. Hành động được ánh xạ chỉ áp dụng cho thiết bị này và cho phép ứng dụng chặn nhấn thay vì để AirPods xử lý theo cách thông thường.</string>

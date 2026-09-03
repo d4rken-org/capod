@@ -161,10 +161,7 @@
     <string name="onboarding_body2">ყველა Android მოწყობილობა სრულად არ უჭერს მხარს AirPod-ის დამატებით ფუნქციებს. თქვენს ოპერაციულ სისტემას სჭირდება Bluetooth-Low-Energy-ის სწორად მომუშავე იმპლემენტაცია.</string>
     <string name="onboarding_body3">CAPod-ს არ აქვს რეკლამები და არ აგროვებს თქვენს მონაცემებს.</string>
     <string name="onboarding_body4">შეგიძლიათ განაახლოთ CAPod Pro-ზე დამატებითი ფუნქციების მისაღებად და განვითარების მხარდასაჭერად.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">მიუწვდომელი</string>
     <string name="general_error_label">შეცდომა</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">ბატარეა მიუწვდომელია</string>
     <string name="battery_state_low_cd">დაბალი ბატარეა</string>
     <string name="battery_state_critical_cd">კრიტიკულად დაბალი ბატარეა</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d სრული დატენვა ორივე აირფონისთვის</item>
         <item quantity="other">~%d სრული დატენვა ორივე აირფონისთვის</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">ერთზე ნაკლები სრული დატენვა ორივე აირფონისთვის</string>
     <string name="battery_case_charges_empty">ყუთი ცარიელია, აირფონებისთვის დატენვა აღარ რჩება</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">გაურკვეველია რამდენი სრული დატენვა დარჩა ორივე აირფონისთვის</string>
     <string name="battery_case_charges_state_enough_cd">საკმარი სრული დატენვისთვის</string>
     <string name="battery_case_charges_state_not_enough_cd">საკმარი არ არის სრული დატენვისთვის</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dწთ</string>
     <string name="permission_post_notifications_label">შეტყობინებების ჩვენება</string>
     <string name="permission_post_notifications_description">"დაუშვით, რომ CAPod აჩვენებდეს შეტყობინებებს თქვენი AirPods-ის შესახებ, მაგალითად მათ მიმდინარე სტატუსს დაკავშირებისას."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">მოწყობილობის პროფილები კონფიგურირებული არ არის</string>
     <string name="profiles_empty_description">რამდენიმე მოწყობილობის სამართავად და მორგებული პარამეტრებისა და პრიორიტეტების გამოსაყენებლად შექმენით მოწყობილობის პროფილები.</string>
     <string name="profiles_add_action">პროფილის დამატება</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">გამორტული</string>
     <string name="profiles_signal_quality_max_label">მკაცრი</string>
     <string name="profiles_priority_hint">პროფილების მიმდევრობა განსაზღვრავს პრიორიტეტს. მიმდევრობის შესაცვლელად პროფილები გადაათრიეთ - სიაში უფრო მაღლა მყოფ პროფილებს უპირატესობა ენიჭება, როცა რამდენიმე მოწყობილობა ემთხვევა.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">თემის რეჟიმი</string>
     <string name="ui_theme_mode_system_label">სისტემა</string>
     <string name="ui_theme_mode_dark_label">მუქი</string>
     <string name="ui_theme_mode_light_label">ღია</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">თემის სტილი</string>
     <string name="ui_theme_style_default_label">ნაგულისხმევი</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">საშუალო კონტრასტი</string>
     <string name="ui_theme_style_high_contrast_label">მაღალი კონტრასტი</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">თემის ფერი</string>
     <string name="ui_theme_color_blue_label">ალისფერი</string>
     <string name="ui_theme_color_green_label">მწვანე</string>
     <string name="ui_theme_color_amber_label">ყვითელი</string>
     <string name="ui_theme_color_disabled_materialyou">იყენებს ფონის ფერებს</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">გარეგნობა</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">შეუნახავი ცვლილებები</string>
     <string name="general_unsaved_changes_message">გაქვთ შეუნახავი ცვლილებები. როგორ გსურთ გაგრძელება?</string>
     <string name="general_save_and_exit_action">შენახვა და გასვლა</string>
     <string name="general_discard_action">გაუქმება</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ჩანაწერი ძალიან მოკლე</string>
     <string name="debug_debuglog_short_recording_message">გამართვის ჟურნალმა პრობლემა უნდა დააფიქსიროს მის დროს. განაგრძეთ ჩაწერა, გაიმეორეთ პრობლემა, შემდეგ შეაჩერეთ ჩაწერა.</string>
     <string name="debug_debuglog_short_recording_continue">ჩაწერის გაგრძელება</string>
     <string name="debug_debuglog_short_recording_stop">მიუხედავად შეჩერება</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">გამართვის ჟურნალი</string>
     <string name="debug_debuglog_screen_subtitle">გამართვის ინფორმაციის ექსპორტი პრობლემების გადასაჭრელად</string>
     <string name="debug_debuglog_screen_sensitive_title">მგრძნობიარე ინფორმაცია</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">წაშლა</string>
     <string name="debug_debuglog_screen_keep_action">შენარჩუნება</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d გამართვის ჟურნალი (%2$s)</item>
         <item quantity="other">%1$d გამართვის ჟურნალი (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">ჩაიშალდა: ჟურნალის ფაილი არ არის</string>
     <string name="support_debuglog_failed_corrupt_zip">ჩაიშალდა: zip ფაილი დაზიანებულია</string>
     <string name="support_debuglog_failed_zip_failed">ჩაიშალდა: შეკუმშვა ჩაიშალდა</string>
-    <!-- Contact form -->
     <string name="support_contact_label">დეველოპერთან დაკავშირება</string>
     <string name="support_contact_desc">შეავსეთ დეველოპერისათვის ელ. ფოსტის გასაგზავნელად ფორმი.</string>
     <string name="support_contact_welcome">მე პირადად ვკითხულობ ყოველ შეტყობინებას და ვცდილობ ვუპასუხო, მაგრამ ვინაიდან ამაზე მარტო ვმუშაობ, გარკვეული დრო შეიძლება დასჭირდეს. გმადლობთ მოთმინებისთვის.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">ამ მოწყობისზე ელ. ფოსტის აპლიკაცია არ არის.</string>
     <string name="support_contact_debuglog_delete_title">გამართვის ჟურნალის წაშლა?</string>
     <string name="support_contact_debuglog_delete_message">ეს გამართვის ჟურნალი სამუდამოდ წიშლება.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">ლოგი გაიგზავნა?</string>
     <string name="support_debuglog_sent_message">დებაგის ლოგი წარმატებით გაიგზავნა? ლოგი წაიშლება.</string>
     <string name="support_contact_sent_title">ელფოსტა გაიგზავნა?</string>
     <string name="support_contact_sent_message">ელფოსტა წარმატებით გაიგზავნა? თანდართული დებაგის ლოგი წაიშლება.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">მოწყობილობის პარამეტრები</string>
     <string name="device_settings_subtitle_profile_prefix">პროფილი: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth მოწყობილობის სახელი</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">მიმოხილვა</string>
     <string name="review_app_dismiss_action">შესაძლოა მოგვიანებით</string>
     <string name="review_app_body">გნებავთ დატოვოთ CAPod-ს მიმოხილვა? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">მიკროფონი</string>
     <string name="device_settings_microphone_mode_description">რომელი ყურსასმენი გამოიყენება მიკროფონად</string>
     <string name="device_settings_microphone_mode_auto">ავტო</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">მედია უკრავს</string>
     <string name="device_settings_noise_control_label">ხმაურის კონტროლი</string>
     <string name="device_settings_eq_label">ეკვალაიზერი</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">დაწყების მართვა</string>
     <string name="press_controls_nav_description">დაარეგულირეთ დაწყების სუნთი და დააკავშირეთ დაწყები მოქმედებსთან</string>
     <string name="press_controls_description">დაარეგულირეთ დაწყების აღმოჩენა, აირჩიეთ დარღვის ბუტონის სუნთი, და დააკავშირეთ დაწყები მოქმედებსთან. დააკავშირებული მოქმედები ეხმარება მხოლოდ ამ მოწყობილობაზე და აპლიკაციას საშუალებას AirPods-ის ნაცვლიდ დამუშავების ნაცვლად.</string>

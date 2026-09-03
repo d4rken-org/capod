@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
     <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
     <string name="onboarding_body4">Lisavõimaluste saamiseks ja arendamise toetamiseks soetage CAPod Pro.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%2$s %1$s</string>
     <string name="general_value_not_available_label">Pole saadaval</string>
     <string name="general_error_label">Viga</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Aku pole saadaval</string>
     <string name="battery_state_low_cd">Aku madal</string>
     <string name="battery_state_critical_cd">Aku kriitiliselt madal</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d täielik laadimiskord mõlemale kõrvaklapile</item>
         <item quantity="other">~%d täielikku laadimiskorda mõlemale kõrvaklapile</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Vähem kui üks täielik laadimiskord mõlemale kõrvaklapile</string>
     <string name="battery_case_charges_empty">Kest on tühi, laadimiskordaid kõrvaklapidele enam ei ole</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Ei ole selge, kui palju täielikke laadimiskordade on jäänud mõlemale kõrvaklapile</string>
     <string name="battery_case_charges_state_enough_cd">Piisavalt täielikuks laadimiseks</string>
     <string name="battery_case_charges_state_not_enough_cd">Ei ole piisavalt täielikuks laadimiseks</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Näita teateid</string>
     <string name="permission_post_notifications_description">"Luba CAPodil näidata AirPodsi teateid, nt praegust olekut ühendatud olles."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Puuduvad seadistatud seadme profiilid</string>
     <string name="profiles_empty_description">Looge seadme profiilid, et hallata mitu seadet enda kujundatud seadete ja tähtsusega.</string>
     <string name="profiles_add_action">Lisa profiil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Väljas</string>
     <string name="profiles_signal_quality_max_label">Range</string>
     <string name="profiles_priority_hint">Profiili asukoht määrab olulisuse. Profiilide asukoha muutmiseks lohistage neid. Nimekirja eesosas olevad profiilid on eelisjärjekorras mitme samasuguse seadme puhul.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Teema režiim</string>
     <string name="ui_theme_mode_system_label">Süsteem</string>
     <string name="ui_theme_mode_dark_label">Tume</string>
     <string name="ui_theme_mode_light_label">Hele</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Teema stiil</string>
     <string name="ui_theme_style_default_label">Tavaline</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Keskmine kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Kõrge kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Teema värv</string>
     <string name="ui_theme_color_blue_label">Sinine</string>
     <string name="ui_theme_color_green_label">Roheline</string>
     <string name="ui_theme_color_amber_label">Merevaik</string>
     <string name="ui_theme_color_disabled_materialyou">Kasutab taustapildi värve</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Välimus</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Salvestamata muudatused</string>
     <string name="general_unsaved_changes_message">Muudatused on salvestamata. Mida tahaksite teha?</string>
     <string name="general_save_and_exit_action">Salvesta ja välju</string>
     <string name="general_discard_action">Hülga</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Salvestis on liiga lühike</string>
     <string name="debug_debuglog_short_recording_message">Vealogi peab jäädvustama probleemi selle toimumise ajal. Jätkake salvestamist, korrake probleemi ja seejärel peatage salvestamine.</string>
     <string name="debug_debuglog_short_recording_continue">Jätka salvestamist</string>
     <string name="debug_debuglog_short_recording_stop">Peata ikkagi</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Silumislogi</string>
     <string name="debug_debuglog_screen_subtitle">Ekspordi silumisteave tõrkeülesleidmiseks</string>
     <string name="debug_debuglog_screen_sensitive_title">Tundlik teave</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Delete</string>
     <string name="debug_debuglog_screen_keep_action">Säilita</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d silumislogi (%2$s)</item>
         <item quantity="other">%1$d silumislogi (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Nurjus: logifail puudub</string>
     <string name="support_debuglog_failed_corrupt_zip">Nurjus: zip-fail on rikutud</string>
     <string name="support_debuglog_failed_zip_failed">Nurjus: tihendamine läks aia taha</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Suhtle arendajaga</string>
     <string name="support_contact_desc">Täida ankeet, et saata arendajale meil.</string>
     <string name="support_contact_welcome">Loen iga sõnumi ise läbi ja püüan oma parima vastata, kuid kuna töötan selle kallal üksi, võib see natuke aega võtta. Tänan kannatuse eest.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Sellel seadmel ei leitud meilirakendust.</string>
     <string name="support_contact_debuglog_delete_title">Kustuta silumislogi?</string>
     <string name="support_contact_debuglog_delete_message">See silumislogi kustutatakse jäädavalt.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Logi saadetud?</string>
     <string name="support_debuglog_sent_message">Kas silumislogi saadeti edukalt? Logi kustutatakse.</string>
     <string name="support_contact_sent_title">Meil saadetud?</string>
     <string name="support_contact_sent_message">Kas meil saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Seadme seaded</string>
     <string name="device_settings_subtitle_profile_prefix">Profiil: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetoothi seadme silt</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Arvustus</string>
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
     <string name="review_app_body">Kas soovid kommenteerida CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Kumba kõrvaklappi kasutatakse mikrofonina</string>
     <string name="device_settings_microphone_mode_auto">Automaatne</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Esitab meediat</string>
     <string name="device_settings_noise_control_label">Mürakontroll</string>
     <string name="device_settings_eq_label">Ekvalaiser</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Vajutuse juhtelemendid</string>
     <string name="press_controls_nav_description">Häälesta vajutuskäitumist ja mäaarake vajutustele toimingud</string>
     <string name="press_controls_description">Häälestage, kuidas vajutused tuvastatakse, valige kõnenuppu käitumine ja määrake vajutustele toimingud. Määratud toimingud kehtivad ainult sellele seadmele ja lasevad rakendusel vajutust mõjutada, mitte AirPodsidel seda käsitseda.</string>

@@ -161,10 +161,7 @@
     <string name="onboarding_body2">সব অ্যান্ড্রয়েড ডিভাইস সম্পূর্ণরূপে অতিরিক্ত AirPod বৈশিষ্ট্য সমর্থন করে না। আপনার অপারেটিং সিস্টেমের একটি সঠিকভাবে কাজ করা ব্লুটুথ-লো-এনার্জি বাস্তবায়ন প্রয়োজন।</string>
     <string name="onboarding_body3">CAPod-এ কোনো বিজ্ঞাপন নেই এবং আপনার ডেটা সংগ্রহ করে না।</string>
     <string name="onboarding_body4">অতিরিক্ত বৈশিষ্ট্য পেতে এবং উন্নয়ন সমর্থন করতে আপনি CAPod Pro-তে আপগ্রেড করতে পারেন।</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">প্রযোজ্য নয়</string>
     <string name="general_error_label">ত্রুটি</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">ব্যাটারি অনুপলব্ধ</string>
     <string name="battery_state_low_cd">ব্যাটারি কম</string>
     <string name="battery_state_critical_cd">ব্যাটারি অত্যন্ত কম</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">উভয় ইয়ারবাডের জন্য আরও ~%d সম্পূর্ণ চার্জ</item>
         <item quantity="other">উভয় ইয়ারবাডের জন্য আরও ~%d সম্পূর্ণ চার্জ</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">উভয় ইয়ারবাডের জন্য একটি সম্পূর্ণ চার্জের কম</string>
     <string name="battery_case_charges_empty">কেস খালি, আপনার ইয়ারবাডের জন্য কোন চার্জ বাকি নেই</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">উভয় ইয়ারবাডের জন্য কত সম্পূর্ণ চার্জ বাকি আছে তা নিশ্চিত নই</string>
     <string name="battery_case_charges_state_enough_cd">একটি সম্পূর্ণ চার্জের জন্য যথেষ্ট</string>
     <string name="battery_case_charges_state_not_enough_cd">একটি সম্পূর্ণ চার্জের জন্য যথেষ্ট নয়</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dমি</string>
     <string name="permission_post_notifications_label">বিজ্ঞপ্তি দেখান</string>
     <string name="permission_post_notifications_description">"CAPod-কে আপনার AirPods সম্পর্কে বিজ্ঞপ্তি দেখানোর অনুমতি দিন, যেমন সংযুক্ত থাকাকালীন তাদের বর্তমান অবস্থা।"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">কোনো ডিভাইস প্রোফাইল কনফিগার করা হয়নি</string>
     <string name="profiles_empty_description">কাস্টম সেটিংস এবং অগ্রাধিকার সহ একাধিক ডিভাইস পরিচালনা করতে ডিভাইস প্রোফাইল তৈরি করুন।</string>
     <string name="profiles_add_action">প্রোফাইল যোগ করুন</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">বন্ধ</string>
     <string name="profiles_signal_quality_max_label">কঠোর</string>
     <string name="profiles_priority_hint">প্রোফাইল ক্রম অগ্রাধিকার নির্ধারণ করে। প্রোফাইলগুলি পুনর্বিন্যাস করতে টানুন - তালিকায় উপরের প্রোফাইলগুলি একাধিক ডিভাইস মিলে গেলে অগ্রাধিকার পায়।</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">থিমের ধরন</string>
     <string name="ui_theme_mode_system_label">সিস্টেম</string>
     <string name="ui_theme_mode_dark_label">গাঢ়</string>
     <string name="ui_theme_mode_light_label">হালকা</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">থিম স্টাইল</string>
     <string name="ui_theme_style_default_label">পূর্ব-নির্ধারিত</string>
     <string name="ui_theme_style_materialyou_label">ম্যাটেরিয়াল ইউ</string>
     <string name="ui_theme_style_medium_contrast_label">মধ্যম কন্ট্রাস্ট</string>
     <string name="ui_theme_style_high_contrast_label">উচ্চ কন্ট্রাস্ট</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">থিম রঙ</string>
     <string name="ui_theme_color_blue_label">নীল</string>
     <string name="ui_theme_color_green_label">সবুজ</string>
     <string name="ui_theme_color_amber_label">অ্যাম্বার</string>
     <string name="ui_theme_color_disabled_materialyou">ওয়ালপেপার রঙ ব্যবহার করে</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">উপস্থিতি</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">অসংরক্ষিত পরিবর্তন</string>
     <string name="general_unsaved_changes_message">আপনার অসংরক্ষিত পরিবর্তন আছে। আপনি কী করতে চান?</string>
     <string name="general_save_and_exit_action">সংরক্ষণ করুন এবং প্রস্থান করুন</string>
     <string name="general_discard_action">বাতিল করুন</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">রেকর্ডিং খুব সামান্য</string>
     <string name="debug_debuglog_short_recording_message">সমস্যা ঘটার সময় ডিবাগ লগকে তা ধারণ করতে হবে। রেকর্ডিং চালিয়ে রাখুন, সমস্যাটি পুনরুৎপাদন করুন, তারপর রেকর্ডিং থামান।</string>
     <string name="debug_debuglog_short_recording_continue">রেকর্ডিং জারি রাখুন</string>
     <string name="debug_debuglog_short_recording_stop">যাই হোক থামান</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">ডিবাগ লগ</string>
     <string name="debug_debuglog_screen_subtitle">সমস্যা সমাধানের জন্য ডিবাগ তথ্য রপ্তানি করুন</string>
     <string name="debug_debuglog_screen_sensitive_title">সংবেদনশীল তথ্য</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">মুছে ফেলুন</string>
     <string name="debug_debuglog_screen_keep_action">রাখুন</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$dটি ডিবাগ লগ (%2$s)</item>
         <item quantity="other">%1$dটি ডিবাগ লগ (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">ব্যর্থ: লগ ফাইল বিদ্যমান নেই</string>
     <string name="support_debuglog_failed_corrupt_zip">ব্যর্থ: zip ফাইল দূষিত</string>
     <string name="support_debuglog_failed_zip_failed">ব্যর্থ: সংকোচন ব্যর্থ হয়েছে</string>
-    <!-- Contact form -->
     <string name="support_contact_label">ডেভেলপারের সাথে যোগাযোগ করুন</string>
     <string name="support_contact_desc">ডেভেলপারকে ইমেইল পাঠাতে একটি ফর্ম পূরণ করুন।</string>
     <string name="support_contact_welcome">আমি প্রতিটি বার্তা নিজে পড়ি এবং যথাসাধ্য সাড়া দিই, তবে যেহেতু আমি একা কাজ করি, সাড়া দিতে কিছু সময় লাগতে পারে। আপনার ধৈর্য্যের জন্য ধন্যবাদ।</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">এই ডিভাইসে কোনো ইমেইল অ্যাপ পাওয়া যায়নি।</string>
     <string name="support_contact_debuglog_delete_title">ডিবাগ লগ মুছে ফেলবেন?</string>
     <string name="support_contact_debuglog_delete_message">এই ডিবাগ লগ স্থায়ীভাবে মুছে ফেলা হবে।</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">লগ পাঠানো হয়েছে?</string>
     <string name="support_debuglog_sent_message">ডিবাগ লগটি সফলভাবে পাঠানো হয়েছে? লগটি মুছে ফেলা হবে।</string>
     <string name="support_contact_sent_title">ইমেইল পাঠানো হয়েছে?</string>
     <string name="support_contact_sent_message">ইমেইলটি সফলভাবে পাঠানো হয়েছে? সংযুক্ত ডিবাগ লগটি মুছে ফেলা হবে।</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">ডিভাইস সেটিংস</string>
     <string name="device_settings_subtitle_profile_prefix">প্রোফাইল: %s</string>
     <string name="device_settings_info_bt_name_label">ব্লুটুথ ডিভাইস লেবেল</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">পর্যালোচনা করুন</string>
     <string name="review_app_dismiss_action">হয়তো পরে</string>
     <string name="review_app_body">আপনি কি CAPodকে একটি পর্যালোচনা দিতে চান? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">মাইক্রোফোন</string>
     <string name="device_settings_microphone_mode_description">কোন ইয়ারবাড মাইক্রোফোন হিসেবে ব্যবহার করা হয়</string>
     <string name="device_settings_microphone_mode_auto">স্বয়ংক্রিয়</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">মিডিয়া প্লে করছে</string>
     <string name="device_settings_noise_control_label">নয়েজ কন্ট্রোল</string>
     <string name="device_settings_eq_label">ইকোয়ালাইজার</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">প্রেস কন্ট্রোল</string>
     <string name="press_controls_nav_description">প্রেস আচরণ সামঞ্জস্য করুন এবং প্রেসগুলি অ্যাকশনে ম্যাপ করুন</string>
     <string name="press_controls_description">প্রেস কীভাবে সনাক্ত করা হয় তা সামঞ্জস্য করুন, কল-বাটনের আচরণ বেছে নিন এবং প্রেসগুলি অ্যাকশনে ম্যাপ করুন। ম্যাপ করা অ্যাকশনগুলি শুধুমাত্র এই ডিভাইসে প্রয়োজ্য এবং AirPods এটি নেটিভলি পরিচালনার পরিবর্তে অ্যাপকে প্রেস ইন্টারসেপ্ট করতে দেয়।</string>

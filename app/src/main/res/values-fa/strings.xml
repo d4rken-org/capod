@@ -161,10 +161,7 @@
     <string name="onboarding_body2">همه دستگاه‌های Android به‌طور کامل از ویژگی‌های اضافی AirPod پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی بلوتوث کم‌مصرف که به‌درستی کار کند نیاز دارد.</string>
     <string name="onboarding_body3">CAPod هیچ تبلیغی ندارد و داده‌های شما را جمع‌آوری نمی‌کند.</string>
     <string name="onboarding_body4">می‌توانید برای دریافت ویژگی‌های اضافی و حمایت از توسعه، به CAPod Pro ارتقا دهید.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">ندارد</string>
     <string name="general_error_label">خطا</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">باتری در دسترس نیست</string>
     <string name="battery_state_low_cd">باتری کم</string>
     <string name="battery_state_critical_cd">باتری بسیار کم</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d شارژ کامل بیشتر برای هر دو گوشواره</item>
         <item quantity="other">~%d شارژ کامل بیشتر برای هر دو گوشواره</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">کمتر از یک شارژ کامل بیشتر برای هر دو گوشواره</string>
     <string name="battery_case_charges_empty">محفظه خالی است، هیچ شارژی برای گوشواره‌های شما باقی نمانده</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">مطمئن نیستم چند شارژ کامل برای هر دو گوشواره باقی مانده</string>
     <string name="battery_case_charges_state_enough_cd">کافی برای یک شارژ کامل</string>
     <string name="battery_case_charges_state_not_enough_cd">برای یک شارژ کامل کافی نیست</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$d د</string>
     <string name="permission_post_notifications_label">نمایش اعلان‌ها</string>
     <string name="permission_post_notifications_description">"به CAPod اجازه دهید اعلان‌هایی درباره AirPods شما نشان دهد، مثلاً وضعیت فعلی آن‌ها هنگام اتصال."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">هیچ پروفایل دستگاهی پیکربندی نشده</string>
     <string name="profiles_empty_description">پروفایل‌های دستگاه ایجاد کنید تا چندین دستگاه را با تنظیمات و اولویت‌های سفارشی مدیریت کنید.</string>
     <string name="profiles_add_action">افزودن پروفایل</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">خاموش</string>
     <string name="profiles_signal_quality_max_label">سختگیرانه</string>
     <string name="profiles_priority_hint">ترتیب پروفایل‌ها اولویت را تعیین می‌کند. پروفایل‌ها را بکشید تا مرتب‌سازی مجدد شوند - پروفایل‌های بالاتر در لیست وقتی چندین دستگاه مطابقت دارند اولویت دارند.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">حالت طرح‌زمینه</string>
     <string name="ui_theme_mode_system_label">سیستم</string>
     <string name="ui_theme_mode_dark_label">تاریک</string>
     <string name="ui_theme_mode_light_label">روشن</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">سبک طرح‌زمینه</string>
     <string name="ui_theme_style_default_label">پیش فرض</string>
     <string name="ui_theme_style_materialyou_label">متریال شما</string>
     <string name="ui_theme_style_medium_contrast_label">کنتراست متوسط</string>
     <string name="ui_theme_style_high_contrast_label">کنتراست بالا</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">رنگ پوسته</string>
     <string name="ui_theme_color_blue_label">آبی</string>
     <string name="ui_theme_color_green_label">سبز</string>
     <string name="ui_theme_color_amber_label">کهربی</string>
     <string name="ui_theme_color_disabled_materialyou">از رنگ‌های تصویر پس‌زمینه استفاده می‌کند</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">ظاهر</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">تغییرات ذخیره‌نشده</string>
     <string name="general_unsaved_changes_message">شما تغییرات ذخیره‌نشده دارید. می‌خواهید چه کاری انجام دهید؟</string>
     <string name="general_save_and_exit_action">ذخیره و خروج</string>
     <string name="general_discard_action">دور انداختن</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ضبط خیلی کوتاه بود</string>
     <string name="debug_debuglog_short_recording_message">گزارش اشکال‌زدایی باید مشکل را در همان لحظه‌ای که رخ می‌دهد ثبت کند. ضبط را ادامه دهید، مشکل را دوباره ایجاد کنید، سپس ضبط را متوقف کنید.</string>
     <string name="debug_debuglog_short_recording_continue">ادامه ضبط</string>
     <string name="debug_debuglog_short_recording_stop">در هر حال متوقف شو</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">گزارش خطا</string>
     <string name="debug_debuglog_screen_subtitle">خروج اطلاعات اشکال‌زدایی برای عیب‌یابی</string>
     <string name="debug_debuglog_screen_sensitive_title">اطلاعات حساس</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">حذف</string>
     <string name="debug_debuglog_screen_keep_action">نگه‌داشتن</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d گزارش اشکال‌زدایی (%2$s)</item>
         <item quantity="other">%1$d گزارش اشکال‌زدایی (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">شکست: فایل گزارش موجود نیست</string>
     <string name="support_debuglog_failed_corrupt_zip">شکست: فایل zip آسیب‌دیده است</string>
     <string name="support_debuglog_failed_zip_failed">شکست: فشرده‌سازی ناموفق شد</string>
-    <!-- Contact form -->
     <string name="support_contact_label">تماس با توسعه‌دهنده</string>
     <string name="support_contact_desc">فرمی را پر کنید تا برای توسعه‌دهنده ایمیل ارسال شود.</string>
     <string name="support_contact_welcome">هر پیامی را خودم می‌خوانم و سعی می‌کنم پاسخ دهم، اما چون تنها کار می‌کنم ممکن است کمی طول بکشد. ممنون صبر شما.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">هیچ برنامه ایمیلی در این دستگاه یافت نشد.</string>
     <string name="support_contact_debuglog_delete_title">حذف گزارش اشکال‌زدایی؟</string>
     <string name="support_contact_debuglog_delete_message">این گزارش اشکال‌زدایی به طور دائمی حذف خواهد شد.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">لاگ ارسال شد؟</string>
     <string name="support_debuglog_sent_message">آیا لاگ اشکال‌زدایی با موفقیت ارسال شد؟ لاگ حذف خواهد شد.</string>
     <string name="support_contact_sent_title">ایمیل ارسال شد؟</string>
     <string name="support_contact_sent_message">آیا ایمیل با موفقیت ارسال شد؟ لاگ اشکال‌زدایی پیوست‌شده حذف خواهد شد.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">تنظیمات دستگاه</string>
     <string name="device_settings_subtitle_profile_prefix">پروفایل: %s</string>
     <string name="device_settings_info_bt_name_label">برچسب دستگاه بلوتوث</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">مرور</string>
     <string name="review_app_dismiss_action">شاید بعداً</string>
     <string name="review_app_body">آیا می خواهید نظری برای CAPod بگذارید؟ ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">میکروفون</string>
     <string name="device_settings_microphone_mode_description">کدام ایرباد به عنوان میکروفون استفاده می‌شود</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">در حال پخش رسانه</string>
     <string name="device_settings_noise_control_label">کنترل نویز</string>
     <string name="device_settings_eq_label">اکوالایزر</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">کنترل‌های فشار</string>
     <string name="press_controls_nav_description">تنظیم رفتار فشار و نگاشت فشارها به اقدامات</string>
     <string name="press_controls_description">تنظیم نحوه تشخیص فشارها، انتخاب رفتار دکمه تماس و نگاشت فشارها به اقدامات. اقدامات نگاشت‌شده فقط برای این دستگاه اعمال می‌شوند و به برنامه اجازه می‌دهند فشار را رهگیری کند به جای اینکه AirPods آن را به‌صورت بومی مدیریت کند.</string>

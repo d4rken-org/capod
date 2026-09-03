@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ekki öll Android tæki styðja að fullu viðbótar AirPod eiginleika. Stýrikerfið þitt krefst rétt virkandi Bluetooth-Low-Energy útfærslu.</string>
     <string name="onboarding_body3">CAPod hefur engar auglýsingar og safnar ekki gögnunum þínum.</string>
     <string name="onboarding_body4">Þú getur uppfært í CAPod Pro til að fá viðbótareiginleika og styðja við þróun.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Ekki tiltækt</string>
     <string name="general_error_label">Villa</string>
@@ -261,7 +258,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Sýna tilkynningar</string>
     <string name="permission_post_notifications_description">"Leyfðu CAPod að sýna tilkynningar um AirPods, t.d. núverandi stöðu þeirra á meðan þau eru tengd."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Engin tækjasnið stillt</string>
     <string name="profiles_empty_description">Búðu til tækjasnið til að hafa umsjón með mörgum tækjum með sérsniðnum stillingum og forgangsstillingum.</string>
     <string name="profiles_add_action">Bæta við sniði</string>
@@ -294,36 +290,29 @@
     <string name="profiles_signal_quality_min_label">Af</string>
     <string name="profiles_signal_quality_max_label">Strangt</string>
     <string name="profiles_priority_hint">Röð sniða ákvarðar forgang. Dragðu snið til að endurraða þeim — snið ofar á listanum hafa forgang þegar mörg tæki passa.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Þem-stilling</string>
     <string name="ui_theme_mode_system_label">Kerfi</string>
     <string name="ui_theme_mode_dark_label">Mörkur</string>
     <string name="ui_theme_mode_light_label">Ljóst</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Þem-stjóll</string>
     <string name="ui_theme_style_default_label">Sjálfgefinn</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Miðlungs skarðsætni</string>
     <string name="ui_theme_style_high_contrast_label">Há skarðsætni</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Þem-litur</string>
     <string name="ui_theme_color_blue_label">Blár</string>
     <string name="ui_theme_color_green_label">Grænn</string>
     <string name="ui_theme_color_amber_label">Gulrauður</string>
     <string name="ui_theme_color_disabled_materialyou">Notar liti bakgrunnsmyndar</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Utsýni</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Óvistaðar breytingar</string>
     <string name="general_unsaved_changes_message">Þú ert með óvistaðar breytingar. Hvað viltu gera?</string>
     <string name="general_save_and_exit_action">Vista &amp; Hætta</string>
     <string name="general_discard_action">Henda</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Upptökun of stutt</string>
     <string name="debug_debuglog_short_recording_message">Villuloki þarf að taka upp vandamálið meðan það gerist. Haltu áfram að taka upp, endurskapa vandamálið og stöðvaðu síðan upptökuna.</string>
     <string name="debug_debuglog_short_recording_continue">Halda áfram upptöku</string>
     <string name="debug_debuglog_short_recording_stop">Stoppa úvis</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Kembingarskrá</string>
     <string name="debug_debuglog_screen_subtitle">Flytja út villuleitarupplýsingar til úrræðaleitar</string>
     <string name="debug_debuglog_screen_sensitive_title">Viðkvæmar upplýsingar</string>
@@ -335,7 +324,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Eyða</string>
     <string name="debug_debuglog_screen_keep_action">Halda</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d kembingarskrá (%2$s)</item>
         <item quantity="other">%1$d kembingarskrár (%2$s)</item>
@@ -353,7 +341,6 @@
     <string name="support_debuglog_failed_missing_log">Mistókst: skráarskrá vantar</string>
     <string name="support_debuglog_failed_corrupt_zip">Mistókst: zip-skrá er skemmd</string>
     <string name="support_debuglog_failed_zip_failed">Mistókst: þjöppun mistókst</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Hafa samband við þróunarmann</string>
     <string name="support_contact_desc">Fylltu út eyðublað til að senda þróunarmanni tölvupóst.</string>
     <string name="support_contact_welcome">Ég les hvert einasta skilaboð sjálfur og geri mitt besta til að svara, en þar sem ég vinn að þessu einn, getur það tekið smá tíma. Takk fyrir þolinmæðina.</string>
@@ -380,12 +367,10 @@
     <string name="support_contact_no_email_app">Ekkert tölvupóstforrit fundiðst á þessum tæki.</string>
     <string name="support_contact_debuglog_delete_title">Eyða kembingarskrá?</string>
     <string name="support_contact_debuglog_delete_message">Þessum villuloka verður eytt til frambúðar.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Fannst skráin?</string>
     <string name="support_debuglog_sent_message">Var villuleitarskráin send? Skráin verður eytt.</string>
     <string name="support_contact_sent_title">Var tölvupósturinn sendur?</string>
     <string name="support_contact_sent_message">Var tölvupósturinn sendur? Villuleitarskráin sem fylgdi verður eytt.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Tæki stillingar</string>
     <string name="device_settings_subtitle_profile_prefix">Prófíll: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-tækjaheiti</string>
@@ -466,7 +451,6 @@
     <string name="review_app_review_action">Umsögn</string>
     <string name="review_app_dismiss_action">Kannski síðar</string>
     <string name="review_app_body">Viltu skilja eftir umsögn um CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>
     <string name="device_settings_microphone_mode_description">Hvaða hlustunartæki er notað sem hljóðnemi</string>
     <string name="device_settings_microphone_mode_auto">Sjálfvirkt</string>
@@ -515,7 +499,6 @@
     <string name="device_settings_connected_device_media">Spilar mijól</string>
     <string name="device_settings_noise_control_label">Hávaðastjórn</string>
     <string name="device_settings_eq_label">Jöfnun</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Þrlýstingastýringar</string>
     <string name="press_controls_nav_description">Stilltu þrlýstingshegðun og varpáðu þrlýstingum á aðgerðir</string>
     <string name="press_controls_description">Stilltu hvernig þrlýstingar eru greind, veldu hegðun hringiknapps, og varpáðu þrlýstingum á aðgerðir. Vörpuð aðgerð gildir aðeins fyrir þetta tæki og leyfir forritinu að grípa þrlýstinginn í stað þess að AirPods meðhöndli hann innbyggð.</string>

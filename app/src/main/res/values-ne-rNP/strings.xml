@@ -161,10 +161,7 @@
     <string name="onboarding_body2">सबै एन्ड्रोइड उपकरणहरूले अतिरिक्त AirPod सुविधाहरूलाई पूर्ण रूपमा समर्थन गर्दैनन्। तपाईंको अपरेटिङ सिस्टमलाई सही रूपमा काम गर्ने ब्लुटुथ-कम-ऊर्जा कार्यान्वयन आवश्यक छ।</string>
     <string name="onboarding_body3">CAPod मा कुनै विज्ञापन छैन र तपाईंको डाटा सङ्कलन गर्दैन।</string>
     <string name="onboarding_body4">थप सुविधाहरू प्राप्त गर्न र विकासलाई समर्थन गर्न तपाईं CAPod Pro मा अपग्रेड गर्न सक्नुहुन्छ।</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">उपलब्ध छैन</string>
     <string name="general_error_label">त्रुटि</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">ब्याट्री उपलब्ध छैन</string>
     <string name="battery_state_low_cd">ब्याटरी कम</string>
     <string name="battery_state_critical_cd">ब्याटरी अत्यन्त कम</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">दुवै इयरबडका लागि ~%d थप पूर्ण चार्ज</item>
         <item quantity="other">दुवै इयरबडका लागि ~%d थप पूर्ण चार्जहरू</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">दुवै इयरबडका लागि एउटा भन्दा कम थप पूर्ण चार्ज</string>
     <string name="battery_case_charges_empty">केस खाली छ, तिम्रा इयरबडका लागि कुनै चार्ज बाँकी छैन</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">दुवै इयरबडका लागि कति पूर्ण चार्ज बाँकी छ भन्ने निश्चित छैन</string>
     <string name="battery_case_charges_state_enough_cd">पूर्ण चार्जका लागि पर्याप्त</string>
     <string name="battery_case_charges_state_not_enough_cd">पूर्ण चार्जका लागि पर्याप्त छैन</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dमि</string>
     <string name="permission_post_notifications_label">सूचनाहरू देखाउनुहोस्</string>
     <string name="permission_post_notifications_description">"CAPod लाई तपाईंको AirPods बारे सूचनाहरू देखाउन अनुमति दिनुहोस्, जस्तै जडान भएको बेला तिनीहरूको हालको स्थिति।"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">कुनै उपकरण प्रोफाइल कन्फिगर गरिएको छैन</string>
     <string name="profiles_empty_description">अनुकूलन सेटिङहरू र प्राथमिकताहरू सहित बहु उपकरणहरू व्यवस्थापन गर्न उपकरण प्रोफाइलहरू सिर्जना गर्नुहोस्।</string>
     <string name="profiles_add_action">प्रोफाइल थप्नुहोस्</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">बन्द</string>
     <string name="profiles_signal_quality_max_label">कडा</string>
     <string name="profiles_priority_hint">प्रोफाइल क्रमले प्राथमिकता निर्धारण गर्छ। प्रोफाइलहरूलाई पुन: क्रमबद्ध गर्न तान्नुहोस् — सूचीमा माथि रहेका प्रोफाइलहरूले बहु उपकरणहरू मेल खाँदा प्राथमिकता पाउँछन्।</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">थिम मोड</string>
     <string name="ui_theme_mode_system_label">सिस्टम</string>
     <string name="ui_theme_mode_dark_label">अँध्यारो</string>
     <string name="ui_theme_mode_light_label">उज्यालो</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">थिम शैली</string>
     <string name="ui_theme_style_default_label">पूर्वनिर्धारित</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">मध्यम कन्ट्रास्ट</string>
     <string name="ui_theme_style_high_contrast_label">उच्च कन्ट्रास्ट</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">थिम रङ्ग</string>
     <string name="ui_theme_color_blue_label">नीलो</string>
     <string name="ui_theme_color_green_label">हरियो</string>
     <string name="ui_theme_color_amber_label">एम्बर</string>
     <string name="ui_theme_color_disabled_materialyou">वालपेपर रङ्गहरू प्रयोग गर्छ</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">देखावट</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">नसुरक्षित परिवर्तनहरू</string>
     <string name="general_unsaved_changes_message">तपाईंसँग नसुरक्षित परिवर्तनहरू छन्। तपाईं के गर्न चाहनुहुन्छ?</string>
     <string name="general_save_and_exit_action">सुरक्षित गर्नुहोस् &amp; बाहिर जानुहोस्</string>
     <string name="general_discard_action">खारेज गर्नुहोस्</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">रेकर्डिङ धेरै छोटो छ</string>
     <string name="debug_debuglog_short_recording_message">डिबग लगले समस्या हुँदाकै क्याप्चर गर्नु पर्दछ। रेकर्डिङ चालू राख्नुहोस्, समस्या पुनरुत्पादन गर्नुहोस्, त्यसपछि रेकर्डिङ बन्द गर्नुहोस्।</string>
     <string name="debug_debuglog_short_recording_continue">रेकर्डिङ जारी राख्नुहोस्</string>
     <string name="debug_debuglog_short_recording_stop">देखावथापि रोक्नुहोस्</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">डिबग लग</string>
     <string name="debug_debuglog_screen_subtitle">समस्या निवारणको लागि डिबग जानकारी निर्यात गर्नुहोस्</string>
     <string name="debug_debuglog_screen_sensitive_title">संवेदनशील जानकारी</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">मेटाउनुहोस्</string>
     <string name="debug_debuglog_screen_keep_action">राख्नुहोस्</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d डिबग लग (%2$s)</item>
         <item quantity="other">%1$d डिबग लगहरू (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">सफल भएन: लग फाइल फेला पर्छैन</string>
     <string name="support_debuglog_failed_corrupt_zip">सफल भएन: zip फाइल दूषित छ</string>
     <string name="support_debuglog_failed_zip_failed">सफल भएन: सङ्कुचन सफल भएन</string>
-    <!-- Contact form -->
     <string name="support_contact_label">डेभलपरलाई सम्पर्क गर्नुहोस्</string>
     <string name="support_contact_desc">डेभलपरलाई इमेल पठाउनको लागि फोरम भर्नुहोस्।</string>
     <string name="support_contact_welcome">म प्रत्येक सन्देश आफैंले पढ्छु र जवाफ दिनको पूरा कोशिश गर्छु, तर म एकलै काम गर्ने हुनाले केही समय लाग्न सक्छ। धैर्यको लागि धन्यवाद।</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">यो उपकरणमा कुनै इमेल एप फेला परिएन।</string>
     <string name="support_contact_debuglog_delete_title">डिबग लग मेट्ने?</string>
     <string name="support_contact_debuglog_delete_message">यो डिबग लग स्थायी रूपमा मेटिनेछ।</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">लग पठाइयो?</string>
     <string name="support_debuglog_sent_message">डिबग लग सफलतापूर्वक पठाइयो? लग मेटिनेछ।</string>
     <string name="support_contact_sent_title">इमेल पठाइयो?</string>
     <string name="support_contact_sent_message">इमेल सफलतापूर्वक पठाइयो? संलग्न डिबग लग मेटिनेछ।</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">उपकरण सेटिङहरू</string>
     <string name="device_settings_subtitle_profile_prefix">प्रोफाइल: %s</string>
     <string name="device_settings_info_bt_name_label">ब्लुटुथ उपकरण लेबल</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">समीक्षा</string>
     <string name="review_app_dismiss_action">पछि गर्ने</string>
     <string name="review_app_body">के तपाई CAPod को लागि एक समीक्षा दिन चाहनुहुन्छ? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">माइक्रोफोन</string>
     <string name="device_settings_microphone_mode_description">कुन इयरबड माइक्रोफोनको रूपमा प्रयोग गरिन्छ</string>
     <string name="device_settings_microphone_mode_auto">स्वतः</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">मिडिया बजाउँदै</string>
     <string name="device_settings_noise_control_label">शोर नियन्त्रण</string>
     <string name="device_settings_eq_label">इक्वलाइजर</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">थिचाइ नियन्त्रण</string>
     <string name="press_controls_nav_description">थिचाइ व्यवहार ठीक गर्नुहोस् र थिचाइलाई कार्यहरूसँग म्याप गर्नुहोस्</string>
     <string name="press_controls_description">थिचाइहरू कसरी पत्ता लगाइन्छन् ट्युन गर्नुहोस्, कल-बटन व्यवहार छान्नुहोस्, र थिचाइलाई कार्यहरूसँग म्याप गर्नुहोस्। म्याप गरिएका कार्यहरू यस उपकरणमा मात्र लागू हुन्छन् र अपलाई AirPods ले मूल रूपमा ह्यान्डल गर्नुको सट्टा थिचाइ अवरोध गर्न दिन्छन्।</string>

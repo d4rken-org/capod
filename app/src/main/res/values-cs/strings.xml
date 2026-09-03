@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ne všechna zařízení s Androidem plně podporují speciální funkce AirPods.</string>
     <string name="onboarding_body3">CAPod neobsahuje žádné reklamy a neshromažďuje vaše údaje.</string>
     <string name="onboarding_body4">Chcete-li získat speciální funkce a podpořit vývoj, můžete přejít na verzi CAPod Pro.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Chyba</string>
@@ -220,7 +217,6 @@
     <string name="battery_unavailable_label">Baterie nedostupná</string>
     <string name="battery_state_low_cd">Baterie je slabá</string>
     <string name="battery_state_critical_cd">Baterie je kriticky slabá</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">Ještě přibližně %d plné nabití pro obě sluchátka</item>
         <item quantity="few">Ještě přibližně %d plná nabití pro obě sluchátka</item>
@@ -235,7 +231,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Méně než jedno další plné nabití pro obě sluchátka</string>
     <string name="battery_case_charges_empty">Pouzdro je prázdné, pro sluchátka nezbylo žádné nabití</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Není jisté, kolik plných nabití zbývá pro obě sluchátka</string>
     <string name="battery_case_charges_state_enough_cd">Dost na plné nabití</string>
     <string name="battery_case_charges_state_not_enough_cd">Nestačí na plné nabití</string>
@@ -282,7 +277,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Zobrazit oznámení</string>
     <string name="permission_post_notifications_description">"Povolte aplikaci CAPod zobrazovat oznámení o sluchátkách AirPods, např. o jejich aktuálním stavu během připojení."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Není nakonfigurován žádný profil zařízení</string>
     <string name="profiles_empty_description">Vytvořte profily zařízení pro správu více zařízení s vlastními nastaveními a prioritami.</string>
     <string name="profiles_add_action">Přidat profil</string>
@@ -315,36 +309,29 @@
     <string name="profiles_signal_quality_min_label">Vypnuto</string>
     <string name="profiles_signal_quality_max_label">Přísný</string>
     <string name="profiles_priority_hint">Pořadí profilů určuje prioritu. Přetáhněte profily a změňte jejich pořadí - profily výše v seznamu mají přednost, pokud se shoduje více zařízení.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Režim motivu</string>
     <string name="ui_theme_mode_system_label">Systémový</string>
     <string name="ui_theme_mode_dark_label">Tmavý</string>
     <string name="ui_theme_mode_light_label">Světlý</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Styl motivu</string>
     <string name="ui_theme_style_default_label">Výchozí</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Střední kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Vysoký kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Barva motivu</string>
     <string name="ui_theme_color_blue_label">Modrá</string>
     <string name="ui_theme_color_green_label">Zelená</string>
     <string name="ui_theme_color_amber_label">Jantarová</string>
     <string name="ui_theme_color_disabled_materialyou">Používá barvy tapety</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Vzhled</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neuložené změny</string>
     <string name="general_unsaved_changes_message">Máte neuložené změny. Co chcete provést?</string>
     <string name="general_save_and_exit_action">Uložit a ukončit</string>
     <string name="general_discard_action">Zahodit</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Záznam je příliš krátký</string>
     <string name="debug_debuglog_short_recording_message">Log ladění musí zachytit problém v okamžiku, kdy nastane. Pokračujte v zaznamenávání, reprodukujte problém a poté zaznamenávání ukončete.</string>
     <string name="debug_debuglog_short_recording_continue">Pokračovat v záznamu</string>
     <string name="debug_debuglog_short_recording_stop">Přesto ukončit</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Log ladění</string>
     <string name="debug_debuglog_screen_subtitle">Exportovat ladicí informace pro řešení problémů</string>
     <string name="debug_debuglog_screen_sensitive_title">Citlivé informace</string>
@@ -358,7 +345,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Smazat</string>
     <string name="debug_debuglog_screen_keep_action">Ponechat</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d log ladění (%2$s)</item>
         <item quantity="few">%1$d logy ladění (%2$s)</item>
@@ -378,7 +364,6 @@
     <string name="support_debuglog_failed_missing_log">Chyba: soubor logu chybí</string>
     <string name="support_debuglog_failed_corrupt_zip">Chyba: soubor zip je poškozený</string>
     <string name="support_debuglog_failed_zip_failed">Chyba: komprimování selhalo</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Kontaktovat vývojáře</string>
     <string name="support_contact_desc">Vyplňte formulář a odešlete vývojáři e-mail.</string>
     <string name="support_contact_welcome">Všechny zprávy čtu sám a snažím se na ně odpovídat, ale protože na tom pracuji sám, může to chvíli trvat. Děkuji za trpělivost.</string>
@@ -407,12 +392,10 @@
     <string name="support_contact_no_email_app">V tomto zařízení nebyla nalezena žádná e-mailová aplikace.</string>
     <string name="support_contact_debuglog_delete_title">Smazat log ladění?</string>
     <string name="support_contact_debuglog_delete_message">Tento log ladění bude trvale smazán.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Log odeslán?</string>
     <string name="support_debuglog_sent_message">Byl log ladění úspěšně odeslán? Log bude smazán.</string>
     <string name="support_contact_sent_title">E-mail odeslán?</string>
     <string name="support_contact_sent_message">Byl e-mail úspěšně odeslán? Přiložený log ladění bude smazán.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Nastavení zařízení</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Název zařízení Bluetooth</string>
@@ -493,7 +476,6 @@
     <string name="review_app_review_action">Posoudit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chceš ohodnotit CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Které sluchátko je použito jako mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Autom.</string>
@@ -542,7 +524,6 @@
     <string name="device_settings_connected_device_media">Přehrává média</string>
     <string name="device_settings_noise_control_label">Ovládání zvuku</string>
     <string name="device_settings_eq_label">Ekvalizér</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Ovládání stisku</string>
     <string name="press_controls_nav_description">Nastavte chování stisku a přiřaďte stisky k akcím</string>
     <string name="press_controls_description">Nastavte, jak jsou stisky detekovány, zvolte chování tlačítka hovoru a přiřaďte stisky k akcím. Přiřazené akce platí pouze pro toto zařízení a umožňují aplikaci zachytit stisk místo toho, aby jej AirPods zpracovaly nativně.</string>

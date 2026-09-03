@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Inte alla Android-enheter stöder fullt ut de extra AirPod-funktionerna. Ditt operativsystem kräver en korrekt fungerande Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har inga annonser och samlar inte in dina data.</string>
     <string name="onboarding_body4">Du kan uppgradera till CAPod Pro för att få extra funktioner och stödja utvecklingen.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Ej tillgängligt</string>
     <string name="general_error_label">Fel</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Batteri ej tillgängligt</string>
     <string name="battery_state_low_cd">Batterinivån är låg</string>
     <string name="battery_state_critical_cd">Kritiskt låg batterinivå</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d ytterligare fulladdning för båda öronsnäckorna</item>
         <item quantity="other">~%d ytterligare fulladdningar för båda öronsnäckorna</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Mindre än en fulladdning kvar för båda öronsnäckorna</string>
     <string name="battery_case_charges_empty">Fodralet är tomt, inga laddningar kvar för dina öronsnäckor</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Osäkert hur många fulladdningar som finns kvar för båda öronsnäckorna</string>
     <string name="battery_case_charges_state_enough_cd">Tillräckligt för en fulladdning</string>
     <string name="battery_case_charges_state_not_enough_cd">Inte tillräckligt för en fulladdning</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dmin</string>
     <string name="permission_post_notifications_label">Visa aviseringar</string>
     <string name="permission_post_notifications_description">"Tillåt CAPod att visa aviseringar om dina AirPods, t.ex. deras aktuella status när de är anslutna."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Inga enhetsprofiler konfigurerade</string>
     <string name="profiles_empty_description">Skapa enhetsprofiler för att hantera flera enheter med anpassade inställningar och prioriteringar.</string>
     <string name="profiles_add_action">Lägg till profil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Av</string>
     <string name="profiles_signal_quality_max_label">Strikt</string>
     <string name="profiles_priority_hint">Profilordning bestämmer prioritet. Dra profiler för att ändra ordning — profiler högre upp i listan har företräde när flera enheter matchar.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Tema-läge</string>
     <string name="ui_theme_mode_system_label">System</string>
     <string name="ui_theme_mode_dark_label">Mörk</string>
     <string name="ui_theme_mode_light_label">Ljus</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Tema-stil</string>
     <string name="ui_theme_style_default_label">Standard</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Medel kontrast</string>
     <string name="ui_theme_style_high_contrast_label">Hög kontrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Temafärg</string>
     <string name="ui_theme_color_blue_label">Blå</string>
     <string name="ui_theme_color_green_label">Grön</string>
     <string name="ui_theme_color_amber_label">Brons</string>
     <string name="ui_theme_color_disabled_materialyou">Använder tapetfärger</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Utseende</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Osparade ändringar</string>
     <string name="general_unsaved_changes_message">Du har osparade ändringar. Vad vill du göra?</string>
     <string name="general_save_and_exit_action">Spara &amp; Avsluta</string>
     <string name="general_discard_action">Kassera</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Inspelningen är för kort</string>
     <string name="debug_debuglog_short_recording_message">En felsökningslogg måste fånga problemet medan det inträffar. Fortsätt spela in, återskapa problemet och stoppa sedan inspelningen.</string>
     <string name="debug_debuglog_short_recording_continue">Fortsätt spela in</string>
     <string name="debug_debuglog_short_recording_stop">Stoppa ändå</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Felsökningslogg</string>
     <string name="debug_debuglog_screen_subtitle">Exportera felsökningsinformation för felavsökning</string>
     <string name="debug_debuglog_screen_sensitive_title">Känslig information</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Radera</string>
     <string name="debug_debuglog_screen_keep_action">Behåll</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d felsökningslogg (%2$s)</item>
         <item quantity="other">%1$d felsökningsloggar (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Misslyckades: loggfilen saknas</string>
     <string name="support_debuglog_failed_corrupt_zip">Misslyckades: zip-filen är skadad</string>
     <string name="support_debuglog_failed_zip_failed">Misslyckades: komprimering misslyckades</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Kontakta utvecklaren</string>
     <string name="support_contact_desc">Fyll i ett formulär för att skicka ett e-postmeddelande till utvecklaren.</string>
     <string name="support_contact_welcome">Jag läser varje meddelande själv och gör mitt bästa för att svara, men eftersom jag arbetar med detta ensam kan det ta lite tid. Tack för ditt tålamod.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Ingen e-postapp hittades på den här enheten.</string>
     <string name="support_contact_debuglog_delete_title">Ta bort felsökningslogg?</string>
     <string name="support_contact_debuglog_delete_message">Denna felsökningslogg kommer att tas bort permanent.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Logg skickad?</string>
     <string name="support_debuglog_sent_message">Skickades felsökningsloggen? Loggen kommer att raderas.</string>
     <string name="support_contact_sent_title">E-post skickad?</string>
     <string name="support_contact_sent_message">Skickades e-postmeddelandet? Den bifogade felsökningsloggen kommer att raderas.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Enhetsinställningar</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-enhetsetikett</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Recensera</string>
     <string name="review_app_dismiss_action">Kanske senare</string>
     <string name="review_app_body">Skulle du vilja lämna CAPod en recension? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Vilket öronsnäcka som används som mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Spelar media</string>
     <string name="device_settings_noise_control_label">Brusstyrning</string>
     <string name="device_settings_eq_label">Equalizer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Tryckkontroller</string>
     <string name="press_controls_nav_description">Ställ in tryckkänslighet och mappa tryck till åtgärder</string>
     <string name="press_controls_description">Ställ in hur tryck identifieras, välj samtalsknapps-beteende och mappa tryck till åtgärder. Mappade åtgärder gäller bara den här enheten och låter appen fånga upp trycket istället för att AirPods hanterar det inbyggt.</string>

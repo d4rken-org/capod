@@ -161,10 +161,7 @@
     <string name="onboarding_body2">并非所有 Android 设备都充分支持额外的 AirPod 功能。您的操作系统必须正确处理低功耗蓝牙的相关内容。</string>
     <string name="onboarding_body3">CAPod 不含广告且不会收集您的数据。</string>
     <string name="onboarding_body4">您可以升级 CAPod Pro 以获得额外功能和支持开发者。</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">错误</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">电量不可用</string>
     <string name="battery_state_low_cd">电池电量低</string>
     <string name="battery_state_critical_cd">电池电量严重不足</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">还可为两只耳塞完全充电约 %d 次</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">无法再为两只耳塞充满电</string>
     <string name="battery_case_charges_empty">保护壳电量已用尽，无法再为您的耳塞充电</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">不确定还能为两只耳塞完全充电多少次</string>
     <string name="battery_case_charges_state_enough_cd">足以完全充电</string>
     <string name="battery_case_charges_state_not_enough_cd">不足以完全充电</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$d分钟</string>
     <string name="permission_post_notifications_label">显示通知</string>
     <string name="permission_post_notifications_description">"允许 CAPod 显示有关您 AirPods 的通知，例如其连接时的当前状态"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">未配置设备配置文件</string>
     <string name="profiles_empty_description">创建设备配置文件来管理具有自定义设置和优先级的多个设备。</string>
     <string name="profiles_add_action">添加配置文件</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">关闭</string>
     <string name="profiles_signal_quality_max_label">严格</string>
     <string name="profiles_priority_hint">配置文件排序决定优先级。拖动配置文件以重新排序——当多个设备匹配时，列表中的配置文件优先于优先级别。</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">主题样式</string>
     <string name="ui_theme_mode_system_label">跟随系统</string>
     <string name="ui_theme_mode_dark_label">深色模式</string>
     <string name="ui_theme_mode_light_label">浅色模式</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">主题样式</string>
     <string name="ui_theme_style_default_label">默认</string>
     <string name="ui_theme_style_materialyou_label">Material You 风格</string>
     <string name="ui_theme_style_medium_contrast_label">中度对比度</string>
     <string name="ui_theme_style_high_contrast_label">高对比度</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">主题颜色</string>
     <string name="ui_theme_color_blue_label">蓝色</string>
     <string name="ui_theme_color_green_label">绿色</string>
     <string name="ui_theme_color_amber_label">琥珀色</string>
     <string name="ui_theme_color_disabled_materialyou">使用壁纸颜色</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">外观</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">未保存的更改</string>
     <string name="general_unsaved_changes_message">您有未保存的更改。您想做什么？</string>
     <string name="general_save_and_exit_action">保存并退出</string>
     <string name="general_discard_action">放弃</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">录制时间太短</string>
     <string name="debug_debuglog_short_recording_message">调试日志需要在问题发生时进行录制。请保持录制，复现问题，然后停止录制。</string>
     <string name="debug_debuglog_short_recording_continue">继续录制</string>
     <string name="debug_debuglog_short_recording_stop">还是停止</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">调试日志</string>
     <string name="debug_debuglog_screen_subtitle">导出调试信息以供排查</string>
     <string name="debug_debuglog_screen_sensitive_title">敏感信息</string>
@@ -343,7 +330,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">删除</string>
     <string name="debug_debuglog_screen_keep_action">保留</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d 条调试日志（%2$s）</item>
     </plurals>
@@ -360,7 +346,6 @@
     <string name="support_debuglog_failed_missing_log">失败：日志文件不存在</string>
     <string name="support_debuglog_failed_corrupt_zip">失败：zip 文件已损坏</string>
     <string name="support_debuglog_failed_zip_failed">失败：压缩失败</string>
-    <!-- Contact form -->
     <string name="support_contact_label">联系开发者</string>
     <string name="support_contact_desc">填写表单向开发者发送邮件。</string>
     <string name="support_contact_welcome">我亲自阅读每条消息并尽力回复，但由于我是一个人开发，可能需要一点时间。感谢您的耐心。</string>
@@ -386,12 +371,10 @@
     <string name="support_contact_no_email_app">此设备上未找到邮件应用。</string>
     <string name="support_contact_debuglog_delete_title">删除调试日志？</string>
     <string name="support_contact_debuglog_delete_message">此调试日志将被永久删除。</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">日志已发送？</string>
     <string name="support_debuglog_sent_message">调试日志是否已成功发送？该日志将被删除。</string>
     <string name="support_contact_sent_title">邮件已发送？</string>
     <string name="support_contact_sent_message">邮件是否已成功发送？附带的调试日志将被删除。</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">设备设置</string>
     <string name="device_settings_subtitle_profile_prefix">配置文件：%s</string>
     <string name="device_settings_info_bt_name_label">蓝牙设备标签</string>
@@ -472,7 +455,6 @@
     <string name="review_app_review_action">评论</string>
     <string name="review_app_dismiss_action">稍后再说</string>
     <string name="review_app_body">想给 CAPod 写一条评论吗？❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">麦克风</string>
     <string name="device_settings_microphone_mode_description">用作麦克风的耳机</string>
     <string name="device_settings_microphone_mode_auto">自动</string>
@@ -521,7 +503,6 @@
     <string name="device_settings_connected_device_media">正在播放媒体</string>
     <string name="device_settings_noise_control_label">降噪控制</string>
     <string name="device_settings_eq_label">均衡器</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">按键控制</string>
     <string name="press_controls_nav_description">调整按压行为并将按压映射到动作</string>
     <string name="press_controls_description">调整按压的检测方式，选择通话按键行为，并将按压映射到动作。已映射的动作仅适用于此设备，让应用拦截按压，而非由 AirPods 原生处理。</string>

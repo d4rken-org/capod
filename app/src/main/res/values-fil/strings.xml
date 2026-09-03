@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Hindi lahat ng Android device ay ganap na sumusuporta sa mga dagdag na feature ng AirPod. Nangangailangan ang iyong operating system ng wastong gumaganang implementasyon ng Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Walang mga ad ang CAPod at hindi nangongolekta ng iyong data.</string>
     <string name="onboarding_body4">Maaari kang mag-upgrade sa CAPod Pro para makakuha ng mga dagdag na feature at suportahan ang development.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Hindi Available</string>
     <string name="general_error_label">Error</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Hindi available ang baterya</string>
     <string name="battery_state_low_cd">Mababa ang baterya</string>
     <string name="battery_state_critical_cd">Kritikal na mababa ang baterya</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d pang buong charge para sa magkabilang earbud</item>
         <item quantity="other">~%d pang buong charge para sa magkabilang earbud</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Kulang sa isang buong charge na lang para sa magkabilang earbud</string>
     <string name="battery_case_charges_empty">Walang laman ang case, wala nang natitirang charge para sa iyong mga earbud</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Hindi sigurado kung ilang buong charge pa ang natitira para sa magkabilang earbud</string>
     <string name="battery_case_charges_state_enough_cd">Sapat para sa isang buong charge</string>
     <string name="battery_case_charges_state_not_enough_cd">Hindi sapat para sa isang buong charge</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$d m</string>
     <string name="permission_post_notifications_label">Ipakita ang mga notipikasyon</string>
     <string name="permission_post_notifications_description">"Payagan ang CAPod na magpakita ng mga notipikasyon tungkol sa iyong AirPods, hal. ang kanilang kasalukuyang status habang konektado."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Walang naka-configure na mga device profile</string>
     <string name="profiles_empty_description">Gumawa ng mga device profile para pamahalaan ang maraming device na may custom na mga setting at priority.</string>
     <string name="profiles_add_action">Magdagdag ng profile</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Naka-off</string>
     <string name="profiles_signal_quality_max_label">Mahigpit</string>
     <string name="profiles_priority_hint">Ang pagkakasunod-sunod ng profile ang nagtatakda ng priority. I-drag ang mga profile para i-reorder - ang mga profile na mas mataas sa listahan ang may mas mataas na priority kapag maraming device ang nakatugma.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Mode ng tema</string>
     <string name="ui_theme_mode_system_label">Sistema</string>
     <string name="ui_theme_mode_dark_label">Dilim</string>
     <string name="ui_theme_mode_light_label">Liwanag</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Estilo ng tema</string>
     <string name="ui_theme_style_default_label">Default</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Katamtamang contrast</string>
     <string name="ui_theme_style_high_contrast_label">Mataas na contrast</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Kulay ng tema</string>
     <string name="ui_theme_color_blue_label">Asul</string>
     <string name="ui_theme_color_green_label">Berde</string>
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Gumagamit ng mga kulay ng wallpaper</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Hitsura</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mga Hindi Na-save na Pagbabago</string>
     <string name="general_unsaved_changes_message">Mayroon kang mga hindi na-save na pagbabago. Ano ang gusto mong gawin?</string>
     <string name="general_save_and_exit_action">I-save &amp; Lumabas</string>
     <string name="general_discard_action">I-discard</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Masyadong maikli ang recording</string>
     <string name="debug_debuglog_short_recording_message">Ang debug log ay kailangang makuha ang isyu habang nangyayari ito. Patuloy na i-record, i-reproduce ang problema, pagkatapos ay itigil ang recording.</string>
     <string name="debug_debuglog_short_recording_continue">Magpatuloy sa pag-record</string>
     <string name="debug_debuglog_short_recording_stop">Itigil kahit paano</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Debug Log</string>
     <string name="debug_debuglog_screen_subtitle">I-export ang debug na impormasyon para sa troubleshooting</string>
     <string name="debug_debuglog_screen_sensitive_title">Sensitibong Impormasyon</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Burahin</string>
     <string name="debug_debuglog_screen_keep_action">Panatilihin</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d debug log (%2$s)</item>
         <item quantity="other">%1$d mga debug log (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Nabigo: nawawala ang log file</string>
     <string name="support_debuglog_failed_corrupt_zip">Nabigo: sira ang zip file</string>
     <string name="support_debuglog_failed_zip_failed">Nabigo: nabigo ang compression</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Makipag-ugnayan sa developer</string>
     <string name="support_contact_desc">Punan ang isang form para magpadala ng email sa developer.</string>
     <string name="support_contact_welcome">Personally kong binabasa ang bawat mensahe at ginagawa ko ang lahat para sumagot, ngunit dahil nag-iisa akong nagtatrabaho dito, maaaring tumagal ng kaunting oras. Salamat sa iyong pasensya.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Walang email app na nahanap sa device na ito.</string>
     <string name="support_contact_debuglog_delete_title">Tanggalin ang debug log?</string>
     <string name="support_contact_debuglog_delete_message">Ang debug log na ito ay permanenteng matatanggal.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Naipadala na ang log?</string>
     <string name="support_debuglog_sent_message">Matagumpay bang naipadala ang debug log? Ang log ay matatanggal.</string>
     <string name="support_contact_sent_title">Naipadala na ang email?</string>
     <string name="support_contact_sent_message">Matagumpay bang naipadala ang email? Ang kalakip na debug log ay matatanggal.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Mga Setting ng Device</string>
     <string name="device_settings_subtitle_profile_prefix">Profile: %s</string>
     <string name="device_settings_info_bt_name_label">Label ng Bluetooth Device</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Pagsusuri</string>
     <string name="review_app_dismiss_action">Siguro mamaya</string>
     <string name="review_app_body">Gusto ba ninyong mag-iwan ng pagsusuri para sa CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikropono</string>
     <string name="device_settings_microphone_mode_description">Kung aling earbud ang ginagamit bilang mikropono</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Nagpe-play ng media</string>
     <string name="device_settings_noise_control_label">Noise Control</string>
     <string name="device_settings_eq_label">Equalizer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Mga Kontrol sa Pagpindot</string>
     <string name="press_controls_nav_description">I-tune ang gawi ng pagpindot at mag-map ng mga pindot sa mga aksyon</string>
     <string name="press_controls_description">I-tune kung paano nadi-detect ang mga pindot, piliin ang gawi ng call button, at mag-map ng mga pindot sa mga aksyon. Ang mga naka-map na aksyon ay nalalapat sa device na ito lamang at pinapayagan ang app na i-intercept ang pindot sa halip na hawakain ito ng AirPods nang natural.</string>

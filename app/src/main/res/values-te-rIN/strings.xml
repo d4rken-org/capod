@@ -161,10 +161,7 @@
     <string name="onboarding_body2">అన్ని Android పరికరాలు AirPod అదనపు ఫీచర్‌లకు పూర్తిగా మద్దతు ఇవ్వవు. మీ ఆపరేటింగ్ సిస్టమ్‌కు సరిగ్గా పనిచేసే బ్లూటూత్-తక్కువ-శక్తి అమలు అవసరం.</string>
     <string name="onboarding_body3">CAPodలో ప్రకటనలు లేవు మరియు మీ డేటాను సేకరించదు.</string>
     <string name="onboarding_body4">అదనపు ఫీచర్లను పొందడానికి మరియు అభివృద్ధికి మద్దతు ఇవ్వడానికి మీరు CAPod Proకి అప్‌గ్రేడ్ చేయవచ్చు.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">అందుబాటులో లేదు</string>
     <string name="general_error_label">లోపం</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">బ్యాటరీ అందుబాటులో లేదు</string>
     <string name="battery_state_low_cd">బ్యాటరీ తక్కువగా ఉంది</string>
     <string name="battery_state_critical_cd">బ్యాటరీ అత్యంత తక్కువగా ఉంది</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">ఇరు ఇయర్‌బడ్‌ల కోసం ~%d పూర్తి చార్జ్ మిగిలి ఉంది</item>
         <item quantity="other">ఇరు ఇయర్‌బడ్‌ల కోసం ~%d పూర్తి చార్జ్‌లు మిగిలి ఉన్నాయి</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">ఇరు ఇయర్‌బడ్‌ల కోసం ఒక పూర్తి చార్జ్ కంటే తక్కువ మిగిలి ఉంది</string>
     <string name="battery_case_charges_empty">కేస్ ఖాళీగా ఉంది, మీ ఇయర్‌బడ్‌ల కోసం చార్జ్‌లు మిగలలేదు</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">ఇరు ఇయర్‌బడ్‌ల కోసం ఎన్ని పూర్తి చార్జ్‌లు మిగిలి ఉన్నాయో ఖచ్చితంగా తెలియదు</string>
     <string name="battery_case_charges_state_enough_cd">పూర్తి చార్జ్‌కు సరిపోతుంది</string>
     <string name="battery_case_charges_state_not_enough_cd">పూర్తి చార్జ్‌కు సరిపోదు</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">నోటిఫికేషన్‌లు చూపించు</string>
     <string name="permission_post_notifications_description">"మీ AirPods గురించి నోటిఫికేషన్‌లు చూపించడానికి CAPodను అనుమతించండి, ఉదా. కనెక్ట్ అయినప్పుడు వాటి ప్రస్తుత స్థితి."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">పరికర ప్రొఫైల్‌లు కాన్ఫిగర్ చేయబడలేదు</string>
     <string name="profiles_empty_description">అనుకూల సెట్టింగ్‌లు మరియు ప్రాధాన్యతలతో బహుళ పరికరాలను నిర్వహించడానికి పరికర ప్రొఫైల్‌లను సృష్టించండి.</string>
     <string name="profiles_add_action">ప్రొఫైల్ జోడించు</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">ఆఫ్</string>
     <string name="profiles_signal_quality_max_label">కట్టుదిట్టంగా</string>
     <string name="profiles_priority_hint">ప్రొఫైల్ క్రమం ప్రాధాన్యతను నిర్ణయిస్తుంది. ప్రొఫైల్‌లను పునఃక్రమం చేయడానికి లాగండి — జాబితాలో ఎక్కువగా ఉన్న ప్రొఫైల్‌లు బహుళ పరికరాలు సరిపోలినప్పుడు ప్రాధాన్యత పొందుతాయి.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">థీమ్ మోడ్</string>
     <string name="ui_theme_mode_system_label">సిస్టం</string>
     <string name="ui_theme_mode_dark_label">డార్క్</string>
     <string name="ui_theme_mode_light_label">లైట్</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">థీమ్ స్టైల్</string>
     <string name="ui_theme_style_default_label">డిఫాల్ట్</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">మధ్యమ కాంట్రాస్ట్</string>
     <string name="ui_theme_style_high_contrast_label">అధిక కాంట్రాస్ట్</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">థీమ్ రంగు</string>
     <string name="ui_theme_color_blue_label">నీలం</string>
     <string name="ui_theme_color_green_label">ఆకుపచ్చ</string>
     <string name="ui_theme_color_amber_label">అంబర్</string>
     <string name="ui_theme_color_disabled_materialyou">వాల్‌పేపర్ రంగులను ఉపయోగిస్తుంది</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">రూపం</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">సేవ్ చేయని మార్పులు</string>
     <string name="general_unsaved_changes_message">మీకు సేవ్ చేయని మార్పులు ఉన్నాయి. మీరు ఏమి చేయాలనుకుంటున్నారు?</string>
     <string name="general_save_and_exit_action">సేవ్ చేసి &amp; నిష్క్రమించు</string>
     <string name="general_discard_action">విస్మరించు</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">రికార్డింగ్ చాలా తక్కువలో ఉంది</string>
     <string name="debug_debuglog_short_recording_message">సమస్య జరుగుతున్నప్పుడే డీబగ్ లాగ్ అన్ని క్యాప్చర్ చేయాలి. రికార్డింగ్ కొనసాగించండి, సమస్యను పునరుత్పత్తించండి, తర్వాత రికార్డింగ్ ఆపండి.</string>
     <string name="debug_debuglog_short_recording_continue">రికార్డింగ్ కొనసాగించండి</string>
     <string name="debug_debuglog_short_recording_stop">అయినా ఆపండి</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">డీబగ్ లాగ్</string>
     <string name="debug_debuglog_screen_subtitle">ప్రాబ్లం నివారణ కోసం డీబగ్ సమాచారం ఎక్స్పోర్ట్ చేయండి</string>
     <string name="debug_debuglog_screen_sensitive_title">సంవేదనాత్మక సమాచారం</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">తొలగించండి</string>
     <string name="debug_debuglog_screen_keep_action">ఉంచు</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d డీబగ్ లాగ్ (%2$s)</item>
         <item quantity="other">%1$d డీబగ్ లాగ్‌లు (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">విఫలమైంది: లాగ్ ఫైల్ కనుగొనలేదు</string>
     <string name="support_debuglog_failed_corrupt_zip">విఫలమైంది: zip ఫైల్ దెబ్బతింది</string>
     <string name="support_debuglog_failed_zip_failed">విఫలమైంది: సంకుచన విఫలమైంది</string>
-    <!-- Contact form -->
     <string name="support_contact_label">డెవలపర్‌ను సంప్రదించండి</string>
     <string name="support_contact_desc">డెవలపర్‌కు ఇమెయిల్ పంపించడానికి ఒక ఫార్‌ను పూర్తి చేయండి.</string>
     <string name="support_contact_welcome">ప్రతి సందేశాన్ని నేను స్వయంగా చదివి స్పందించడానికి నా వీలున్నంత ప్రయత్నిస్తాను, కానీ నేను ఇక్కడ ఒంటరిగా పని చేస్తాను కాబట్టి కొంచెం సమయం పట్టవచ్చు. మీ సహనంకు ధన్యవాదాలు.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">ఈ పరికరంలో ఇమెయిల్ ఆప్ కనుగొనబడలేదు.</string>
     <string name="support_contact_debuglog_delete_title">డీబగ్ లాగ్ తొలగించాలా?</string>
     <string name="support_contact_debuglog_delete_message">ఈ డీబగ్ లాగ్ శాశ్వతంగా తొలగించబడుతుంది.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">లాగ్ పంపబడిందా?</string>
     <string name="support_debuglog_sent_message">డీబగ్ లాగ్ విజయవంతంగా పంపబడిందా? లాగ్ తొలగించబడుతుంది.</string>
     <string name="support_contact_sent_title">ఇమెయిల్ పంపబడిందా?</string>
     <string name="support_contact_sent_message">ఇమెయిల్ విజయవంతంగా పంపబడిందా? జతచేసిన డీబగ్ లాగ్ తొలగించబడుతుంది.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">పరికర సెట్టింగ్‌లు</string>
     <string name="device_settings_subtitle_profile_prefix">ప్రొఫైల్: %s</string>
     <string name="device_settings_info_bt_name_label">బ్లూటూత్ పరికరం లేబుల్</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">సమీక్ష</string>
     <string name="review_app_dismiss_action">బహుశా తర్వాత</string>
     <string name="review_app_body">మీరు CAPod కోసం సమీక్ష వ్రాయాలనుకుంటారా? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>
     <string name="device_settings_microphone_mode_description">మైక్రోఫోన్‌గా ఏ ఇయర్‌బడ్ ఉపయోగించబడుతుందో</string>
     <string name="device_settings_microphone_mode_auto">ఆటో</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">మీడియా ప్లే చేస్తోంది</string>
     <string name="device_settings_noise_control_label">నాయిస్ కంట్రోల్</string>
     <string name="device_settings_eq_label">ఈక్వలైజర్</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">ప్రెస్ కంట్రోల్‌స్</string>
     <string name="press_controls_nav_description">నొక్కు ప్రవర్తనను సరిచేసి, నొక్కులను చర్యలకు మ్యాప్ చేయండి</string>
     <string name="press_controls_description">నొక్కులు ఎలా గుర్తించబడతాయన్నది సర్దుచేసి, కాల్-బటన్ ప్రవర్తనను ఎంచుకొండి, మరియు నొక్కులను చర్యలకు మ్యాప్ చేయండి. మ్యాప్ చేసిన చర్యలు ఈ పరికరానికి మాత్రమే వర్తిస్తాయి మరియు AirPods స్వాభావికంగా నిర్వహించుక౏నే బదులు యాప్ నొక్కును వ్యవధికరిస్తాయి.</string>

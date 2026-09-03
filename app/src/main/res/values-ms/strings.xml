@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Tidak semua peranti Android menyokong sepenuhnya ciri AirPod tambahan. Sistem pengendalian anda memerlukan pelaksanaan Bluetooth Tenaga Rendah yang berfungsi dengan betul.</string>
     <string name="onboarding_body3">CAPod tiada iklan dan tidak mengumpul data anda.</string>
     <string name="onboarding_body4">Anda boleh menaik taraf kepada CAPod Pro untuk mendapatkan ciri tambahan dan menyokong pembangunan.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Tidak tersedia</string>
     <string name="general_error_label">Ralat</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">Bateri tidak tersedia</string>
     <string name="battery_state_low_cd">Bateri lemah</string>
     <string name="battery_state_critical_cd">Bateri kritikal rendah</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">~%d lagi pengecasan penuh untuk kedua-dua fon telinga</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Kurang daripada satu lagi pengecasan penuh untuk kedua-dua fon telinga</string>
     <string name="battery_case_charges_empty">Kotak kosong, tiada pengecasan berbaki untuk fon telinga kamu</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Tidak pasti berapa banyak pengecasan penuh yang berbaki untuk kedua-dua fon telinga</string>
     <string name="battery_case_charges_state_enough_cd">Cukup untuk satu pengecasan penuh</string>
     <string name="battery_case_charges_state_not_enough_cd">Tidak cukup untuk satu pengecasan penuh</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Tunjukkan pemberitahuan</string>
     <string name="permission_post_notifications_description">"Benarkan CAPod menunjukkan pemberitahuan tentang AirPods anda, cth. status semasa mereka semasa disambungkan."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Tiada profil peranti dikonfigurasikan</string>
     <string name="profiles_empty_description">Cipta profil peranti untuk mengurus berbilang peranti dengan tetapan dan keutamaan tersuai.</string>
     <string name="profiles_add_action">Tambah profil</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">Mati</string>
     <string name="profiles_signal_quality_max_label">Ketat</string>
     <string name="profiles_priority_hint">Susunan profil menentukan keutamaan. Seret profil untuk menyusun semula - profil yang lebih tinggi dalam senarai diutamakan apabila berbilang peranti sepadan.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Mod tema</string>
     <string name="ui_theme_mode_system_label">Sistem</string>
     <string name="ui_theme_mode_dark_label">Gelap</string>
     <string name="ui_theme_mode_light_label">Cerah</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Gaya tema</string>
     <string name="ui_theme_style_default_label">Lalai</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Kontras sederhana</string>
     <string name="ui_theme_style_high_contrast_label">Kontras tinggi</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Warna tema</string>
     <string name="ui_theme_color_blue_label">Biru</string>
     <string name="ui_theme_color_green_label">Hijau</string>
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Menggunakan warna kertas dinding</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Penampilan</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Perubahan Tidak Disimpan</string>
     <string name="general_unsaved_changes_message">Anda mempunyai perubahan yang tidak disimpan. Apa yang anda ingin lakukan?</string>
     <string name="general_save_and_exit_action">Simpan &amp; Keluar</string>
     <string name="general_discard_action">Buang</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Rakaman terlalu pendek</string>
     <string name="debug_debuglog_short_recording_message">Log debug perlu menangkap isu semasa ia berlaku. Teruskan rakaman, reproduksi masalah, kemudian hentikan rakaman.</string>
     <string name="debug_debuglog_short_recording_continue">Teruskan rakaman</string>
     <string name="debug_debuglog_short_recording_stop">Hentikan juga</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
     <string name="debug_debuglog_screen_subtitle">Eksport maklumat debug untuk penyelesaian masalah</string>
     <string name="debug_debuglog_screen_sensitive_title">Maklumat Sensitif</string>
@@ -343,7 +330,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Padam</string>
     <string name="debug_debuglog_screen_keep_action">Simpan</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d log debug (%2$s)</item>
     </plurals>
@@ -360,7 +346,6 @@
     <string name="support_debuglog_failed_missing_log">Gagal: fail log tidak ditemui</string>
     <string name="support_debuglog_failed_corrupt_zip">Gagal: fail zip rosak</string>
     <string name="support_debuglog_failed_zip_failed">Gagal: pemampatan gagal</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Hubungi pembangun</string>
     <string name="support_contact_desc">Isi borang untuk menghantar e-mel kepada pembangun.</string>
     <string name="support_contact_welcome">Saya membaca setiap mesej sendiri dan berusaha membalas, tetapi kerana saya bekerja sendirian, ia mungkin mengambil sedikit masa. Terima kasih atas kesabaran anda.</string>
@@ -386,12 +371,10 @@
     <string name="support_contact_no_email_app">Tiada aplikasi e-mel ditemui pada peranti ini.</string>
     <string name="support_contact_debuglog_delete_title">Padam log debug?</string>
     <string name="support_contact_debuglog_delete_message">Log debug ini akan dipadam secara kekal.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Log dihantar?</string>
     <string name="support_debuglog_sent_message">Adakah log debug berjaya dihantar? Log akan dipadamkan.</string>
     <string name="support_contact_sent_title">E-mel dihantar?</string>
     <string name="support_contact_sent_message">Adakah e-mel berjaya dihantar? Log debug yang dilampirkan akan dipadamkan.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Tetapan Peranti</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
     <string name="device_settings_info_bt_name_label">Label Peranti Bluetooth</string>
@@ -472,7 +455,6 @@
     <string name="review_app_review_action">Ulas aplikasi</string>
     <string name="review_app_dismiss_action">Tidak, terima kasih</string>
     <string name="review_app_body">Adakah anda ingin meninggalkan ulasan untuk CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Earbud mana yang digunakan sebagai mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -521,7 +503,6 @@
     <string name="device_settings_connected_device_media">Memainkan media</string>
     <string name="device_settings_noise_control_label">Kawalan Hingar</string>
     <string name="device_settings_eq_label">Penyama</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Kawalan Tekan</string>
     <string name="press_controls_nav_description">Laraskan gelagat tekan dan petakan tekanan kepada tindakan</string>
     <string name="press_controls_description">Laraskan cara tekanan dikesan, pilih gelagat butang panggilan, dan petakan tekanan kepada tindakan. Tindakan yang dipetakan hanya digunakan pada peranti ini dan membenarkan apl memintas tekanan sebagai ganti AirPods mengendalikannya secara asli.</string>

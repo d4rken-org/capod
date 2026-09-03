@@ -161,10 +161,7 @@
     <string name="onboarding_body2">មិនមែនឧបករណ៍ Android ទាំងអស់គាំទ្រមុខងារបន្ថែមរបស់ AirPod ពេញលេញនោះទេ។ ប្រព័ន្ធប្រតិបត្តិការរបស់អ្នកត្រូវការការអនុវត្ត Bluetooth-Low-Energy ដែលដំណើរការបានត្រឹមត្រូវ។</string>
     <string name="onboarding_body3">CAPod មិនមានការផ្សាយពាណិជ្ជកម្ម ហើយមិនប្រមូលទិន្នន័យរបស់អ្នកទេ។</string>
     <string name="onboarding_body4">អ្នកអាចដំឡើងកំណែទៅ CAPod Pro ដើម្បីទទួលបានមុខងារបន្ថែម និងគាំទ្រការអភិវឌ្ឍន៍។</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">មិនមាន</string>
     <string name="general_error_label">កំហុស</string>
@@ -214,7 +211,6 @@
     <string name="battery_unavailable_label">ថ្មមិនអាចប្រើបាន</string>
     <string name="battery_state_low_cd">ថ្មទាប</string>
     <string name="battery_state_critical_cd">ថ្មក្រិតិកាល</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="other">ការសាកពេញលេញប្រហែល %d ដងទៀតសម្រាប់ឆ្នាយទាំងពីរ</item>
     </plurals>
@@ -223,7 +219,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">មិនដល់ការសាកពេញលេញម្ដងទៀតសម្រាប់ឆ្នាយទាំងពីរ</string>
     <string name="battery_case_charges_empty">ស៊ុមទទេ គ្មានការសាកនៅសល់សម្រាប់ឆ្នាយរបស់អ្នក</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">មិនច្បាស់ថាមានការសាកពេញលេញប៉ុន្មានដងនៅសល់សម្រាប់ឆ្នាយទាំងពីរ</string>
     <string name="battery_case_charges_state_enough_cd">គ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
     <string name="battery_case_charges_state_not_enough_cd">មិនគ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
@@ -270,7 +265,6 @@
     <string name="battery_time_remaining_format_m">%1$dន</string>
     <string name="permission_post_notifications_label">បង្ហាញការជូនដំណឹង</string>
     <string name="permission_post_notifications_description">"អនុញ្ញាតឱ្យ CAPod បង្ហាញការជូនដំណឹងអំពី AirPods របស់អ្នក ឧ. ស្ថានភាពបច្ចុប្បន្នរបស់ពួកគេខណៈពេលភ្ជាប់។"</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">មិនមានទម្រង់ឧបករណ៍បានកំណត់រចនាសម្ព័ន្ធ</string>
     <string name="profiles_empty_description">បង្កើតទម្រង់ឧបករណ៍ដើម្បីគ្រប់គ្រងឧបករណ៍ច្រើនជាមួយការកំណត់ និងអាទិភាពផ្ទាល់ខ្លួន។</string>
     <string name="profiles_add_action">បន្ថែមទម្រង់</string>
@@ -303,36 +297,29 @@
     <string name="profiles_signal_quality_min_label">បិទ</string>
     <string name="profiles_signal_quality_max_label">តឹងរ៉ឹង</string>
     <string name="profiles_priority_hint">លំដាប់ទម្រង់កំណត់អាទិភាព។ អូសទម្រង់ដើម្បីរៀបចំឡើងវិញ — ទម្រង់ដែលខ្ពស់ជាងក្នុងបញ្ជីមានអាទិភាពនៅពេលឧបករណ៍ច្រើនត្រូវគ្នា។</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">ម៉ូតផ្ទៃស្បែក</string>
     <string name="ui_theme_mode_system_label">ប្រព័ន្ធ</string>
     <string name="ui_theme_mode_dark_label">ងងឹត</string>
     <string name="ui_theme_mode_light_label">ភ្លឺ</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">រចនាបថផ្ទៃស្បែក</string>
     <string name="ui_theme_style_default_label">បុរេជម្រើស</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">កម្រិតផ្ទុយកម្រិតមធ្យម</string>
     <string name="ui_theme_style_high_contrast_label">កម្រិតផ្ទុយខ្ពស់</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">ពណ៌ theme</string>
     <string name="ui_theme_color_blue_label">ពណ៌ខឹវ</string>
     <string name="ui_theme_color_green_label">ពណ៌បែតង</string>
     <string name="ui_theme_color_amber_label">ពណ៌លើងតឹកក្រូច</string>
     <string name="ui_theme_color_disabled_materialyou">ប្រើពណ៌ wallpaper</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">រូបរាង</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ការផ្លាស់ប្តូរមិនបានរក្សាទុក</string>
     <string name="general_unsaved_changes_message">អ្នកមានការផ្លាស់ប្តូរមិនបានរក្សាទុក។ តើអ្នកចង់ធ្វើអ្វី?</string>
     <string name="general_save_and_exit_action">រក្សាទុក &amp; ចាកចេញ</string>
     <string name="general_discard_action">បោះបង់</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ការកត់ត្រាខ្លីពេក</string>
     <string name="debug_debuglog_short_recording_message">កំណត់ហេតុបំបាត់កំហុសត្រូវចាប្យកបញ្ហានៅពេលវាកើតើង។ បន្តការកត់ត្រា ធ្វើឥ្សរិយបញ្ហាកើតើងម្តងតឹត ហើយបន្ទាប់មកបញ្ជប់ការកត់ត្រា។</string>
     <string name="debug_debuglog_short_recording_continue">បន្តការកត់ត្រា</string>
     <string name="debug_debuglog_short_recording_stop">បញ្ជប់តោះជាយ៉ាងណា</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">កំណត់ហេតុបំបាត់កំហុស</string>
     <string name="debug_debuglog_screen_subtitle">នាំចើញព័ត៌មានបំបាត់កំហុសសម្រាប់ការដោះស្រាយបញ្ហា</string>
     <string name="debug_debuglog_screen_sensitive_title">ព័ត៌មានរសើប</string>
@@ -343,7 +330,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">លុប</string>
     <string name="debug_debuglog_screen_keep_action">រក្សា</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d កំណត់ហេតុបំបាត់កំហុស (%2$s)</item>
     </plurals>
@@ -360,7 +346,6 @@
     <string name="support_debuglog_failed_missing_log">បរាជ័យ: ឡកសារ log បាត់</string>
     <string name="support_debuglog_failed_corrupt_zip">បរាជ័យ: ឡកសារ zip ខូច</string>
     <string name="support_debuglog_failed_zip_failed">បរាជ័យ: ការបង់ហាប់បានបរាជ័យ</string>
-    <!-- Contact form -->
     <string name="support_contact_label">តំនាក់តំនងអ្នកអភិវឌ្ឍន៍</string>
     <string name="support_contact_desc">បំពើញតម្រង់បែបតដើម្បីផ្ញើអឹមែលតោអ្នកអភិវឌ្ឍន៍។</string>
     <string name="support_contact_welcome">ខ្ញុមអានសារគ្រប់ពេលដោយខ្លួនឡង ហើយខ្ញុមព្យាយាម១្លើយឥ្សរិយបានល្ឡ ប៉ុន្តែដោយសារខ្ញុមធ្វើការម្នាកឡង វាអាចចំណាយពេលបន្តិច។ អរគុណចំពោះការអត់ធ្មត់របស់អ្នក។</string>
@@ -386,12 +371,10 @@
     <string name="support_contact_no_email_app">រកមិនហើញកម្មវិធីអឹមែលនៅលើឧបករណ៍នេហ។</string>
     <string name="support_contact_debuglog_delete_title">លុបកំណត់ហេតុបំបាត់កំហុស?</string>
     <string name="support_contact_debuglog_delete_message">កំណត់ហេតុបំបាត់កំហុសនេហនឹងត្រូវលុបចោលជាអចិន្ត្រៀយ៍។</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">បានផ្ញើកំណត់ហេតុ?</string>
     <string name="support_debuglog_sent_message">តើកំណត់ហេតុបំបាត់កំហុសត្រូវបានផ្ញើដោយជោគជ័យឬទេ? កំណត់ហេតុនឹងត្រូវបានលុប។</string>
     <string name="support_contact_sent_title">បានផ្ញើអ៊ីមែល?</string>
     <string name="support_contact_sent_message">តើអ៊ីមែលត្រូវបានផ្ញើដោយជោគជ័យឬទេ? កំណត់ហេតុបំបាត់កំហុសដែលភ្ជាប់មកនឹងត្រូវបានលុប។</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">ការកំណត់ឧបករណ៍</string>
     <string name="device_settings_subtitle_profile_prefix">ប្រវត្តិរូប: %s</string>
     <string name="device_settings_info_bt_name_label">ស្លាកឧបករណ៍ Bluetooth</string>
@@ -472,7 +455,6 @@
     <string name="review_app_review_action">ពិនិត្យឡើងវិញ</string>
     <string name="review_app_dismiss_action">ប្រហែលពេលក្រោយ</string>
     <string name="review_app_body">តើអ្នកចង់ដាក់ពិនិត្យលើ CAPod ដែរឬទេ? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">មីក្រូហ្វូន</string>
     <string name="device_settings_microphone_mode_description">កាស​ណា​ដែល​ប្រើ​ជា​មីក្រូហ្វូន</string>
     <string name="device_settings_microphone_mode_auto">ស្វ័យប្រវត្តិ</string>
@@ -521,7 +503,6 @@
     <string name="device_settings_connected_device_media">កំពុងចាក់មេឌៀ</string>
     <string name="device_settings_noise_control_label">ការគ្រប់គ្រងសំឡេងរំខាន</string>
     <string name="device_settings_eq_label">ប្រប័ន្ធ Equalizer</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">ការគ្រប់គ្រងការចុច</string>
     <string name="press_controls_nav_description">កំណត់ឥរិយាបថការចុច និងផ្គូផ្គងការចុចទៅសកម្មភាព</string>
     <string name="press_controls_description">កំណត់របឰបរកឡើញការចុច ជ្រើររើសឥរិយាបថបូតុងហោលតូរស័ភ្ទ និងផ្គូផ្គងការចុចទៅសកម្មភាព។ សកម្មភាពដែលបានផ្គូផ្គងអនុវត្តចំពោះឧបករណ៍នេះប័ណ្ណៃ ហើយនិងអនុញ្ញាតអ្យកម្មវិធីស្ទាក់ចាប់ការចុចជំនួសឱ្យ AirPods ដោះស្រួលវាដោយធម្មជាតិ។</string>

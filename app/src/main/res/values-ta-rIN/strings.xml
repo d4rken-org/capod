@@ -161,10 +161,7 @@
     <string name="onboarding_body2">எல்லா ஆண்ட்ராய்டு சாதனங்களும் கூடுதல் AirPod அம்சங்களை முழுமையாக ஆதரிக்காது. உங்கள் இயக்க முறைமைக்கு சரியாக வேலை செய்யும் புளூடூத்-குறைந்த-ஆற்றல் செயலாக்கம் தேவை.</string>
     <string name="onboarding_body3">CAPod இல் விளம்பரங்கள் இல்லை மற்றும் உங்கள் தரவைச் சேகரிக்காது.</string>
     <string name="onboarding_body4">கூடுதல் அம்சங்களைப் பெறவும் மேம்பாட்டை ஆதரிக்கவும் நீங்கள் CAPod Pro க்கு மேம்படுத்தலாம்.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">கிடைக்கவில்லை</string>
     <string name="general_error_label">பிழை</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">பேட்டரி கிடைக்கவில்லை</string>
     <string name="battery_state_low_cd">பேட்டரி குறைவு</string>
     <string name="battery_state_critical_cd">பேட்டரி மிக குறைவு</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் ~%d முழு சார்ஜ்</item>
         <item quantity="other">இரண்டு ஈர்பட்டிகளுக்கும் இன்னும் ~%d முழு சார்ஜ்கள்</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">இரண்டு ஈர்பட்டிகளுக்கும் ஒரு முழு சார்ஜிற்குக் குறைவு</string>
     <string name="battery_case_charges_empty">கேஸ் காலியாக உள்ளது, உங்கள் ஈர்பட்டிக்கு சார்ஜ் இல்லை</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">இரண்டு ஈர்பட்டிகளுக்கும் எவ்வளவு முழு சார்ஜ் மீதமுள்ளது என்பது தெரியவில்லை</string>
     <string name="battery_case_charges_state_enough_cd">முழு சார்ஜிற்குத் போதுமானது</string>
     <string name="battery_case_charges_state_not_enough_cd">முழு சார்ஜிற்குப் போதுமற்றது</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">அறிவிப்புகளைக் காட்டு</string>
     <string name="permission_post_notifications_description">"உங்கள் AirPods பற்றிய அறிவிப்புகளைக் காட்ட CAPod-ஐ அனுமதிக்கவும், எ.கா. இணைக்கப்பட்டிருக்கும்போது அவற்றின் தற்போதைய நிலை."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">சாதன சுயவிவரங்கள் அமைக்கப்படவில்லை</string>
     <string name="profiles_empty_description">தனிப்பயன் அமைப்புகள் மற்றும் முன்னுரிமைகளுடன் பல சாதனங்களை நிர்வகிக்க சாதன சுயவிவரங்களை உருவாக்கவும்.</string>
     <string name="profiles_add_action">சுயவிவரத்தைச் சேர்</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">ஆத்</string>
     <string name="profiles_signal_quality_max_label">கடுமையான</string>
     <string name="profiles_priority_hint">சுயவிவர வரிசை முன்னுரிமையை தீர்மானிக்கிறது. சுயவிவரங்களை மறுவரிசைப்படுத்த இழுக்கவும் — பட்டியலில் உயர்ந்த சுயவிவரங்கள் பல சாதனங்கள் பொருந்தும்போது முன்னுரிமை பெறும்.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">தீம் மோட்</string>
     <string name="ui_theme_mode_system_label">அமைப்பாளர்</string>
     <string name="ui_theme_mode_dark_label">இருள்</string>
     <string name="ui_theme_mode_light_label">வெளிச்சம்</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">தீம் போக்கு</string>
     <string name="ui_theme_style_default_label">இயல்புநிலை</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">மேட்டியம் கோண்டிராஸ்ட்</string>
     <string name="ui_theme_style_high_contrast_label">அதிக கோண்டிராஸ்ட்</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">தீம் நிறம்</string>
     <string name="ui_theme_color_blue_label">நீலம்</string>
     <string name="ui_theme_color_green_label">பசும்</string>
     <string name="ui_theme_color_amber_label">அம்பர்</string>
     <string name="ui_theme_color_disabled_materialyou">வோல்பேப்பர் நிறங்களை பயன்படுத்துகிறது</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">தோற்றம்</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">சேமிக்கப்படாத மாற்றங்கள்</string>
     <string name="general_unsaved_changes_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?</string>
     <string name="general_save_and_exit_action">சேமி &amp; வெளியேறு</string>
     <string name="general_discard_action">நிராகரி</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ரெகார்டிங் மிகவும் குறுகியது</string>
     <string name="debug_debuglog_short_recording_message">ஒரு பிழைதிருத்தல் பதிவு பிரச்சினை நிகழ்கிற்றபோது பதிவு செய்ய வேண்டும். ரெகார்டிங் தொடர்ந்து, பிரச்சினையை மீண்டும் உருவாக்கி, பின் ரெகார்டிங்ஐ நிறுத்தவும்.</string>
     <string name="debug_debuglog_short_recording_continue">ரெகார்டிங் தொடரவும்</string>
     <string name="debug_debuglog_short_recording_stop">எல்லாவிட்டாலும் நிறுத்தவும்</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">பிழைதிருத்தல் பதிவு</string>
     <string name="debug_debuglog_screen_subtitle">தொழில்நுட்ப பிரச்சினைகளுக்காக பிழைதிருத்தல் தகவல்களை ஏற்றுமதி செய்யவும்</string>
     <string name="debug_debuglog_screen_sensitive_title">உணர்திரு தகவல்</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">நீக்கு</string>
     <string name="debug_debuglog_screen_keep_action">வைத்திரு</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d பிழைதிருத்தல் பதிவு (%2$s)</item>
         <item quantity="other">%1$d பிழைதிருத்தல் பதிவுகள் (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">தோல்வி: பதிவு கோப்பு காணக்கிளையவில்லை</string>
     <string name="support_debuglog_failed_corrupt_zip">தோல்வி: zip கோப்பு செய்திடப்பட்டது</string>
     <string name="support_debuglog_failed_zip_failed">தோல்வி: சுருக்கம் தோல்வியடைநதது</string>
-    <!-- Contact form -->
     <string name="support_contact_label">டெவலப்பரை தொடர்பு கொள்கவும்</string>
     <string name="support_contact_desc">டெவலப்பருக்கு மின்னஞ்சல் அனுப்பட ஒரு படிவத்தை நிர்ப்பலும்.</string>
     <string name="support_contact_welcome">ஓர் செய்தியையும் நானே படிக்கிறேன் மற்றும் பதிலளிக்க முற்படுகிறேன், ஆனால் தனியாக பணியேற்றப்படியால் சிறிது நேரம் ஆகலாம். பொறுமைக்கு நன்றி.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">இந்த சாதனத்தில் மின்னஞ்சல் பயன்பாடு ஏதும் காணப்படவில்லை.</string>
     <string name="support_contact_debuglog_delete_title">பிழைதிருத்தல் பதிவை நீக்கவுமா?</string>
     <string name="support_contact_debuglog_delete_message">இந்த பிழைதிருத்தல் பதிவு நிரந்தரமாக நீக்கப்படும்.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">பதிவு அனுப்பப்பட்டதா?</string>
     <string name="support_debuglog_sent_message">பிழைத்திருத்த பதிவு வெற்றிகரமாக அனுப்பப்பட்டதா? பதிவு நீக்கப்படும்.</string>
     <string name="support_contact_sent_title">மின்னஞ்சல் அனுப்பப்பட்டதா?</string>
     <string name="support_contact_sent_message">மின்னஞ்சல் வெற்றிகரமாக அனுப்பப்பட்டதா? இணைக்கப்பட்ட பிழைத்திருத்த பதிவு நீக்கப்படும்.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">சாதன அமைப்புகள்</string>
     <string name="device_settings_subtitle_profile_prefix">சுயவிவரம்: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth சாதன பெயர்</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">மதிப்பாய்வு</string>
     <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
     <string name="review_app_body">நீங்கள் CAPod க்கு மதிப்புரை வழங்க விரும்புகிறீர்களா? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>
     <string name="device_settings_microphone_mode_description">எந்த ஈர்பட் மைக்ரோஃபோனாக பயன்படுத்தப்படுகிறது</string>
     <string name="device_settings_microphone_mode_auto">தானியங்கி</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">மீடியா இயக்குகிறது</string>
     <string name="device_settings_noise_control_label">இரைச்சல் கட்டுப்பாடு</string>
     <string name="device_settings_eq_label">ஈக்வலைசர்</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">அழுத்த கட்டுப்பாடுகள்</string>
     <string name="press_controls_nav_description">அழுத்த நடத்தையை சரிசெய்து செயல்களுக்கு அழுத்தங்களை வரைபடமாக்கு</string>
     <string name="press_controls_description">அழுத்தங்கள் எப்படி கண்டறியப்படுகின்றன என்பதை சரிசெய்யவும், அழைப்பு-பொத்தான் நடத்தையை தேர்வு செய்யவும், மற்றும் அழுத்தங்களை செயல்களுக்கு வரைபடமாக்கவும். வரைபடமாக்கப்பட்ட செயல்கள் இந்த சாதனத்தில் மட்டுமே பொருந்தும் மற்றும் AirPods அதை இயல்பாக கையாள்வதற்கு பதிலாக பயன்பாடு அழுத்தத்தை இடைமறிக்க அனுமதிக்கும்.</string>

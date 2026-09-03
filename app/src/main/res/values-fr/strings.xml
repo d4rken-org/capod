@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Tous les appareils Android ne prennent pas en charge les fonctions supplémentaires des AirPods. Votre système d’exploitation a besoin d’une mise en œuvre fonctionnelle du système à basse énergie Bluetooth.</string>
     <string name="onboarding_body3">CAPod ne présente aucune publicité et ne recueille pas vos données.</string>
     <string name="onboarding_body4">Vous pouvez passer à CAPod Pro pour obtenir des fonctions supplémentaires et soutenir le développement.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N.D.</string>
     <string name="general_error_label">Erreur</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Batterie indisponible</string>
     <string name="battery_state_low_cd">Batterie faible</string>
     <string name="battery_state_critical_cd">Batterie critique</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d charge complète de plus pour les deux écouteurs</item>
         <item quantity="other">~%d charges complètes de plus pour les deux écouteurs</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Moins d\'une charge complète de plus pour les deux écouteurs</string>
     <string name="battery_case_charges_empty">Le boîtier est vide, plus aucune charge disponible pour tes écouteurs</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Impossible de déterminer combien de charges complètes il reste pour les deux écouteurs</string>
     <string name="battery_case_charges_state_enough_cd">Suffisant pour une charge complète</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuffisant pour une charge complète</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Afficher les notifications</string>
     <string name="permission_post_notifications_description">"Permettre à CAPod d’afficher des notifications au sujet des AirPods, p. ex. leur état actuel quand ils sont connectés."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Aucun profil d’appareil n’est configuré</string>
     <string name="profiles_empty_description">Créer des profils d’appareils pour gérer plusieurs appareils avec des priorités et des paramètres personnalisés.</string>
     <string name="profiles_add_action">Ajouter un profil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Désactivé</string>
     <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">L\'ordre de profil détermine la priorité. Faites glisser les profils pour les réorganiser - les profils plus élevés dans la liste ont la priorité lorsque plusieurs appareils correspondent.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Mode du thème</string>
     <string name="ui_theme_mode_system_label">Système</string>
     <string name="ui_theme_mode_dark_label">Sombre</string>
     <string name="ui_theme_mode_light_label">Clair</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Style du thème</string>
     <string name="ui_theme_style_default_label">Par défaut</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Contraste moyen</string>
     <string name="ui_theme_style_high_contrast_label">Contraste élevé</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Couleur du thème</string>
     <string name="ui_theme_color_blue_label">Bleu</string>
     <string name="ui_theme_color_green_label">Vert</string>
     <string name="ui_theme_color_amber_label">Ambre</string>
     <string name="ui_theme_color_disabled_materialyou">Utilise les couleurs du fond d’écran</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Apparence</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Des changements ne sont pas enregistrés</string>
     <string name="general_unsaved_changes_message">Des changements ne sont pas enregistrés. Que voulez-vous faire ?</string>
     <string name="general_save_and_exit_action">Enregistrer et fermer</string>
     <string name="general_discard_action">Abandonner</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">L’enregistrement est trop court</string>
     <string name="debug_debuglog_short_recording_message">Un journal de débogage doit capturer le problème au moment où il se produit. Poursuivez l’enregistrement, reproduisez le problème, puis arrêtez l’enregistrement.</string>
     <string name="debug_debuglog_short_recording_continue">Poursuivre l’enregistrement</string>
     <string name="debug_debuglog_short_recording_stop">Arrêter quand même</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Journal de débogage</string>
     <string name="debug_debuglog_screen_subtitle">Exporter les renseignements de débogage pour le dépannage</string>
     <string name="debug_debuglog_screen_sensitive_title">Information sensible</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Supprimer</string>
     <string name="debug_debuglog_screen_keep_action">Conserver</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d journal de débogage (%2$s)</item>
         <item quantity="other">%1$d journaux de débogage (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Échec : le fichier journal manque</string>
     <string name="support_debuglog_failed_corrupt_zip">Échec : le fichier zip est corrompu</string>
     <string name="support_debuglog_failed_zip_failed">Échec : la compression a échoué</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Contacter le développeur</string>
     <string name="support_contact_desc">Remplissez un formulaire pour envoyer un courriel au développeur.</string>
     <string name="support_contact_welcome">Je lis chaque message et fais de mon mieux pour répondre. Comme j’assure seul le développement, cela peut prendre un peu de temps. Merci pour votre patience.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Aucune appli de courriel n’a été trouvée sur cet appareil.</string>
     <string name="support_contact_debuglog_delete_title">Supprimer le journal de débogage ?</string>
     <string name="support_contact_debuglog_delete_message">Ce journal de débogage sera supprimé irrémédiablement.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Le journal a-t-il été envoyé ?</string>
     <string name="support_debuglog_sent_message">Le journal de débogage a-t-il été envoyé ? Il sera supprimé.</string>
     <string name="support_contact_sent_title">Le courriel a été envoyé ?</string>
     <string name="support_contact_sent_message">Le courriel a-t-il été envoyé ? Le journal de débogage joint sera supprimé.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Paramètres de l’appareil</string>
     <string name="device_settings_subtitle_profile_prefix">Profil : %s</string>
     <string name="device_settings_info_bt_name_label">Étiquette de l’appareil Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Évaluation</string>
     <string name="review_app_dismiss_action">Plus tard, peut-être</string>
     <string name="review_app_body">Veux-tu évaluer CAPod ? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Microphone</string>
     <string name="device_settings_microphone_mode_description">Quel écouteur est utilisé comme microphone</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Lecture média</string>
     <string name="device_settings_noise_control_label">Contrôle du bruit</string>
     <string name="device_settings_eq_label">Égaliseur</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Commandes de pression</string>
     <string name="press_controls_nav_description">Ajuster le comportement des pressions et associer des pressions à des actions</string>
     <string name="press_controls_description">Ajustez la détection des pressions, choisissez le comportement du bouton d’appel et associez des pressions à des actions. Les actions associées s’appliquent uniquement à cet appareil et permettent à l’appli d’intercepter la pression au lieu que les AirPods la gèrent nativement.</string>

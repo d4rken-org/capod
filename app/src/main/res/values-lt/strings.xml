@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Ne visi „Android\" įrenginiai visiškai palaiko papildomas „AirPod\" funkcijas. Jūsų operacinei sistemai reikalinga tinkamai veikianti „Bluetooth-Low-Energy\" implementacija.</string>
     <string name="onboarding_body3">CAPod neturi skelbimų ir nerenka jūsų duomenų.</string>
     <string name="onboarding_body4">Galite naujinti į „CAPod Pro\", kad gautumėte papildomų funkcijų ir palaikytumėte plėtrą.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Nėra</string>
     <string name="general_error_label">Klaida</string>
@@ -220,7 +217,6 @@
     <string name="battery_unavailable_label">Baterija neprieinama</string>
     <string name="battery_state_low_cd">Baterija žema</string>
     <string name="battery_state_critical_cd">Baterija kritiškai žema</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d daugiau pilno krūvio abiem ausukams</item>
         <item quantity="few">~%d daugiau pilnų krūvių abiem ausukams</item>
@@ -235,7 +231,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Mažiau nei vienas pilnas krūvis abiem ausukams</string>
     <string name="battery_case_charges_empty">Dėžutė tuščia, nėra likusio krūvio ausukams</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Nežinoma, kiek pilnų krūvių liko abiem ausukams</string>
     <string name="battery_case_charges_state_enough_cd">Pakankamai pilnam įkrovimui</string>
     <string name="battery_case_charges_state_not_enough_cd">Nepakaks pilnam įkrovimui</string>
@@ -282,7 +277,6 @@
     <string name="battery_time_remaining_format_m">%1$dmin</string>
     <string name="permission_post_notifications_label">Rodyti pranešimus</string>
     <string name="permission_post_notifications_description">"Leiskite CAPod rodyti pranešimus apie jūsų „AirPods\", pvz., jų dabartinę būseną prisijungus."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Nėra sukonfigūruotų įrenginių profilių</string>
     <string name="profiles_empty_description">Sukurkite įrenginių profilius, kad galėtumėte valdyti kelis įrenginius su pasirinktiniais nustatymais ir prioritetais.</string>
     <string name="profiles_add_action">Pridėti profilį</string>
@@ -315,36 +309,29 @@
     <string name="profiles_signal_quality_min_label">Išjungta</string>
     <string name="profiles_signal_quality_max_label">Griežtas</string>
     <string name="profiles_priority_hint">Profilių tvarka nustato prioritetą. Vilkite profilius, kad juos pertvarktumėte – aukščiau sąraše esantys profiliai turi pirmenybę, kai sutampa keli įrenginiai.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Temos režimas</string>
     <string name="ui_theme_mode_system_label">Sistemos</string>
     <string name="ui_theme_mode_dark_label">Tamsi</string>
     <string name="ui_theme_mode_light_label">Šviesi</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Temos stilius</string>
     <string name="ui_theme_style_default_label">Numatytasis</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Vidutinis kontrastas</string>
     <string name="ui_theme_style_high_contrast_label">Didelis kontrastas</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Temos spalva</string>
     <string name="ui_theme_color_blue_label">Mėlyna</string>
     <string name="ui_theme_color_green_label">Žalia</string>
     <string name="ui_theme_color_amber_label">Gintarinė</string>
     <string name="ui_theme_color_disabled_materialyou">Naudoja fono paveikslėlio spalvas</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Išvaizda</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neišsaugoti pakeitimai</string>
     <string name="general_unsaved_changes_message">Turite neišsaugotų pakeitimų. Ką norėtumėte daryti?</string>
     <string name="general_save_and_exit_action">Išsaugoti ir išeiti</string>
     <string name="general_discard_action">Atmesti</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Irašas per trumpas</string>
     <string name="debug_debuglog_short_recording_message">Derinimo žurnalas turi užfiksuoti problemą jos metu. Tęskite įrašymą, atkurkite problemą, tada sustabdykite įrašymą.</string>
     <string name="debug_debuglog_short_recording_continue">Tęsti įrašymą</string>
     <string name="debug_debuglog_short_recording_stop">Sustabdyti vis tiek</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Derinimo žurnalas</string>
     <string name="debug_debuglog_screen_subtitle">Eksportuoti derinimo informaciją trikčių diagnostikai</string>
     <string name="debug_debuglog_screen_sensitive_title">Neskelbtina informacija</string>
@@ -358,7 +345,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Trinti</string>
     <string name="debug_debuglog_screen_keep_action">Išlaikyti</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d derinimo žurnalas (%2$s)</item>
         <item quantity="few">%1$d derinimo žurnalai (%2$s)</item>
@@ -378,7 +364,6 @@
     <string name="support_debuglog_failed_missing_log">Nepavyko: žurnalo failas nerastas</string>
     <string name="support_debuglog_failed_corrupt_zip">Nepavyko: zip failas sugadintas</string>
     <string name="support_debuglog_failed_zip_failed">Nepavyko: suspaudimas nepavyko</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Susisiekti su kūrėju</string>
     <string name="support_contact_desc">Užpildykite formą, kad siųstumėte kūrėjui el. laišką.</string>
     <string name="support_contact_welcome">Aš asmeniškai skaitau kiekvieną žinutę ir stengiuosi atsakyti, tačiau kadangi dirbu vienas, tai gali užtrukti. Dėkojame už jūsų kantrybe.</string>
@@ -407,12 +392,10 @@
     <string name="support_contact_no_email_app">Šiame įrenginyje nerasta el. pašto programų.</string>
     <string name="support_contact_debuglog_delete_title">Ištrinti derinimo žurnalą?</string>
     <string name="support_contact_debuglog_delete_message">Šis derinimo žurnalas bus ištrintas neatstatomai.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Žurnalas išsiųstas?</string>
     <string name="support_debuglog_sent_message">Ar derinimo žurnalas buvo sėkmingai išsiųstas? Žurnalas bus ištrintas.</string>
     <string name="support_contact_sent_title">El. laiškas išsiųstas?</string>
     <string name="support_contact_sent_message">Ar el. laiškas buvo sėkmingai išsiųstas? Pridėtas derinimo žurnalas bus ištrintas.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Įrenginio nustatymai</string>
     <string name="device_settings_subtitle_profile_prefix">Profilis: %s</string>
     <string name="device_settings_info_bt_name_label">Bluetooth įrenginio žnyma</string>
@@ -493,7 +476,6 @@
     <string name="review_app_review_action">Recenzija</string>
     <string name="review_app_dismiss_action">Galbūt vėliau</string>
     <string name="review_app_body">Ar norėtumėte palikti CAPod recenziją? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>
     <string name="device_settings_microphone_mode_description">Kuris ausinis naudojamas kaip mikrofonas</string>
     <string name="device_settings_microphone_mode_auto">Automatinis</string>
@@ -542,7 +524,6 @@
     <string name="device_settings_connected_device_media">Groja medija</string>
     <string name="device_settings_noise_control_label">Triukšmo valdymas</string>
     <string name="device_settings_eq_label">Ekvalaizeris</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Paspaudimo valdikliai</string>
     <string name="press_controls_nav_description">Tinkinti paspaudimo elgseną ir priskirti paspaudimams veiksmus</string>
     <string name="press_controls_description">Tinkinkite, kaip aptinkami paspaudimai, pasirinkite skambinimo mygtuko elgseną ir priskirkite paspaudimams veiksmus. Priskirti veiksmai taikomi tik šiam įrenginiui ir leidžia programai perimti paspaudimą vietoj to, kad tai darytų pačios AirPods.</string>

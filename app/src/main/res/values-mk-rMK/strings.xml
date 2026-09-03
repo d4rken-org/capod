@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Не сите Android уреди целосно ги поддржуваат дополнителните функции на AirPod. Вашиот оперативен систем бара правилно функционирачка имплементација на Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod нема реклами и не ги собира вашите податоци.</string>
     <string name="onboarding_body4">Можете да надградите на CAPod Pro за да добиете дополнителни функции и да го поддржите развојот.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">Н/Д</string>
     <string name="general_error_label">Грешка</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Батеријата не е достапна</string>
     <string name="battery_state_low_cd">Слаба батерија</string>
     <string name="battery_state_critical_cd">Критично слаба батерија</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d уште полно полнење за двете слушалки</item>
         <item quantity="other">~%d уште полни полнења за двете слушалки</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Помалку од уште едно полно полнење за двете слушалки</string>
     <string name="battery_case_charges_empty">Кутијата е празна, нема преостанати полнења за вашите слушалки</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Не е сигурно колку полни полнења преостанале за двете слушалки</string>
     <string name="battery_case_charges_state_enough_cd">Доволно за едно полно полнење</string>
     <string name="battery_case_charges_state_not_enough_cd">Недоволно за едно полно полнење</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dм</string>
     <string name="permission_post_notifications_label">Прикажи известувања</string>
     <string name="permission_post_notifications_description">"Дозволете CAPod да прикажува известувања за вашите AirPods, на пр. нивниот тековен статус додека се поврзани."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Нема конфигурирани профили на уреди</string>
     <string name="profiles_empty_description">Создајте профили на уреди за управување со повеќе уреди со прилагодени поставки и приоритети.</string>
     <string name="profiles_add_action">Додај профил</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Исклучено</string>
     <string name="profiles_signal_quality_max_label">Строго</string>
     <string name="profiles_priority_hint">Редоследот на профилите го одредува приоритетот. Влечете профили за да ги преуредите - профилите повисоко на листата имаат предност кога повеќе уреди се совпаѓаат.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Режим на тема</string>
     <string name="ui_theme_mode_system_label">Систем</string>
     <string name="ui_theme_mode_dark_label">Темна</string>
     <string name="ui_theme_mode_light_label">Светла</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Стил на тема</string>
     <string name="ui_theme_style_default_label">Подразбирано</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_theme_style_medium_contrast_label">Среден контраст</string>
     <string name="ui_theme_style_high_contrast_label">Висок контраст</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Боја на тема</string>
     <string name="ui_theme_color_blue_label">Сина</string>
     <string name="ui_theme_color_green_label">Зелена</string>
     <string name="ui_theme_color_amber_label">Килибара</string>
     <string name="ui_theme_color_disabled_materialyou">Користи бои од тапетот</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Изглед</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незачувани промени</string>
     <string name="general_unsaved_changes_message">Имате незачувани промени. Што сакате да направите?</string>
     <string name="general_save_and_exit_action">Зачувај &amp; Излези</string>
     <string name="general_discard_action">Отфрли</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Снимањето е прекусо</string>
     <string name="debug_debuglog_short_recording_message">Дневникот за дијагностика треба да го забележи проблемот додека се случува. Продолжете со снимање, репродуцирајте го проблемот, па стопирајте го снимањето.</string>
     <string name="debug_debuglog_short_recording_continue">Продолжи со снимање</string>
     <string name="debug_debuglog_short_recording_stop">Стопирај сепак</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Дневник за дијагностика</string>
     <string name="debug_debuglog_screen_subtitle">Извози дијагностички информации за отстранување проблеми</string>
     <string name="debug_debuglog_screen_sensitive_title">Сензитивни информации</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Избриши</string>
     <string name="debug_debuglog_screen_keep_action">Задржи</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d дијагностички дневник (%2$s)</item>
         <item quantity="other">%1$d дијагностички дневници (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Неуспешно: датотеката со дневник недостасува</string>
     <string name="support_debuglog_failed_corrupt_zip">Неуспешно: zip датотеката е оштетена</string>
     <string name="support_debuglog_failed_zip_failed">Неуспешно: компресирањето не успеа</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Контактирајте го развивачот</string>
     <string name="support_contact_desc">Пополнете формулар за да му пратите е-пошта на развивачот.</string>
     <string name="support_contact_welcome">Читам секада порака лично и се трудам да одговорам, но бидејќи дека работам сам на ова, може да потрае малку повеќе време. Благодарам за вашето трпение.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Не е пронајдена апликација за е-пошта на овој уред.</string>
     <string name="support_contact_debuglog_delete_title">Да се избрише дијагностичкиот дневник?</string>
     <string name="support_contact_debuglog_delete_message">Овој дијагностички дневник ќе биде трајно избришан.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Логот е испратен?</string>
     <string name="support_debuglog_sent_message">Дали логот за дебагирање е успешно испратен? Логот ќе биде избришан.</string>
     <string name="support_contact_sent_title">Е-поштата е испратена?</string>
     <string name="support_contact_sent_message">Дали е-поштата е успешно испратена? Приложениот лог за дебагирање ќе биде избришан.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Поставки на уредот</string>
     <string name="device_settings_subtitle_profile_prefix">Профил: %s</string>
     <string name="device_settings_info_bt_name_label">Назив на Блуетут уред</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Рецензија</string>
     <string name="review_app_dismiss_action">Можеби подоцна</string>
     <string name="review_app_body">Дали сакаш да оставиш рецензија за CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Кој слушалец се користи како микрофон</string>
     <string name="device_settings_microphone_mode_auto">Автоматски</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Репродуцира медиум</string>
     <string name="device_settings_noise_control_label">Контрола на бучава</string>
     <string name="device_settings_eq_label">Еквализатор</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Контроли за притискање</string>
     <string name="press_controls_nav_description">Подесувајте го однесувањето на притискањата и поврзете притискања кон акции</string>
     <string name="press_controls_description">Подесувајте како се детектираат притискањата, изберете однесување на копчето за повик, и поврзете притискања кон акции. Поврзаните акции се однесуваат само на овој уред и и дозволуваат на апликацијата да го пресретне притискањето наместо AirPods да го обработуваат вородно.</string>

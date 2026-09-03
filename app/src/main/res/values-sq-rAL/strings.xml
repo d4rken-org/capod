@@ -161,10 +161,7 @@
     <string name="onboarding_body2">Jo të gjitha pajisjet Android mbështesin plotësisht veçoritë shtesë të AirPod. Sistemi juaj operativ kërkon një implementim të saktë të Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nuk ka reklama dhe nuk mbledh të dhënat tuaja.</string>
     <string name="onboarding_body4">Mund të përmirësoni në CAPod Pro për të fituar veçori shtesë dhe për të mbështetur zhvillimin.</string>
-    <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS").
-         Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Gabim</string>
@@ -216,7 +213,6 @@
     <string name="battery_unavailable_label">Bateria e padisponueshme</string>
     <string name="battery_state_low_cd">Bateria e ulët</string>
     <string name="battery_state_critical_cd">Bateria në nivel kritik</string>
-    <!-- Case charges: how often the case can still fully recharge BOTH earbuds. Not charge cycles, and not a statement that anything is charging right now. -->
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d më shumë ngarkesë e plotë për të dy kufjet</item>
         <item quantity="other">~%d më shumë ngarkesë të plota për të dy kufjet</item>
@@ -227,7 +223,6 @@
     </plurals>
     <string name="battery_case_charges_less_than_one">Më pak se një ngarkesë e plotë për të dy kufjet</string>
     <string name="battery_case_charges_empty">Kutia është bosh, nuk ka më ngarkesë për kufjet tuaja</string>
-    <!-- Shown when the case reading is too coarse to name any number of charges. Must not mention a count. -->
     <string name="battery_case_charges_uncertain">Nuk jam i sigurt sa ngarkesë të plota kanë mbetur për të dy kufjet</string>
     <string name="battery_case_charges_state_enough_cd">Mjaft për një ngarkesë të plotë</string>
     <string name="battery_case_charges_state_not_enough_cd">Nuk mjafton për një ngarkesë të plotë</string>
@@ -274,7 +269,6 @@
     <string name="battery_time_remaining_format_m">%1$dm</string>
     <string name="permission_post_notifications_label">Shfaq njoftimet</string>
     <string name="permission_post_notifications_description">"Lejoni CAPod të shfaqë njoftimet rreth AirPods tuaja, p.sh. statusin e tyre aktual ndërsa janë të lidhura."</string>
-    <!-- Device profiles -->
     <string name="profiles_empty_title">Asnjë profil pajisje i konfiguruar</string>
     <string name="profiles_empty_description">Krijoni profile pajisjesh për të menaxhuar pajisje të shumta me cilësime dhe prioritete të personalizuara.</string>
     <string name="profiles_add_action">Shto profil</string>
@@ -307,36 +301,29 @@
     <string name="profiles_signal_quality_min_label">Jo</string>
     <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">Rendi i profileve përcakton prioritetin. Tërhiqni profilet për t\'i rirenditur - profilet më lart në listë kanë përparësi kur përputhen pajisje të shumta.</string>
-    <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Tema e aplikacionit</string>
     <string name="ui_theme_mode_system_label">Sistemi</string>
     <string name="ui_theme_mode_dark_label">Errësirë</string>
     <string name="ui_theme_mode_light_label">Dritë</string>
-    <!-- Theme Style -->
     <string name="ui_theme_style_label">Stili i temës</string>
     <string name="ui_theme_style_default_label">Bazike</string>
     <string name="ui_theme_style_materialyou_label">Materia dhe Ju</string>
     <string name="ui_theme_style_medium_contrast_label">Kontrast mesatar</string>
     <string name="ui_theme_style_high_contrast_label">Kontrast i lartë</string>
-    <!-- Theme Color -->
     <string name="ui_theme_color_label">Ngjyra e temës</string>
     <string name="ui_theme_color_blue_label">Blu</string>
     <string name="ui_theme_color_green_label">Gjelbrë</string>
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Përdor ngjyrat e sfondit</string>
-    <!-- Settings categories -->
     <string name="settings_category_appearance_label">Pamja</string>
-    <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ndryshime të paruajtura</string>
     <string name="general_unsaved_changes_message">Keni ndryshime të paruajtura. Çfarë dëshironi të bëni?</string>
     <string name="general_save_and_exit_action">Ruaj &amp; dil</string>
     <string name="general_discard_action">Hidh poshtë</string>
-    <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Regjistrim shumë i shkurtër</string>
     <string name="debug_debuglog_short_recording_message">Një regjistrim debug duhet të kapë problemin ndërkohë që ndodh. Vazhdoni të regjistroni, riprodhoni problemin, pastaj ndaloni regjistrimin.</string>
     <string name="debug_debuglog_short_recording_continue">Vazhdo regjistrimin</string>
     <string name="debug_debuglog_short_recording_stop">Ndalo gjithsesi</string>
-    <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Regjistri i korrigjimit</string>
     <string name="debug_debuglog_screen_subtitle">Eksporto informacionin e korrigjimit për zgjidhjen e problemeve</string>
     <string name="debug_debuglog_screen_sensitive_title">Informacion i ndjeshëm</string>
@@ -348,7 +335,6 @@
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Fshije</string>
     <string name="debug_debuglog_screen_keep_action">Mbaj</string>
-    <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d regjistër korrigjimi (%2$s)</item>
         <item quantity="other">%1$d regjistër korrigjimi (%2$s)</item>
@@ -366,7 +352,6 @@
     <string name="support_debuglog_failed_missing_log">Dështoi: skedari i regjistrit mungon</string>
     <string name="support_debuglog_failed_corrupt_zip">Dështoi: skedari zip është i korruptuar</string>
     <string name="support_debuglog_failed_zip_failed">Dështoi: kompresimi dështoi</string>
-    <!-- Contact form -->
     <string name="support_contact_label">Kontakto zhvilluesin</string>
     <string name="support_contact_desc">Plotëso një formular për të dërguar zhvilluesit një email.</string>
     <string name="support_contact_welcome">I lexoj çdo mesazh vetë dhe bëj çmos të përgjigjem, por meqë punoj vetëm në këtë, mund të duhet pak kohë. Faleminderit për durim.</string>
@@ -393,12 +378,10 @@
     <string name="support_contact_no_email_app">Asnië aplikacion emaili nuk u gjet në këtë pajisje.</string>
     <string name="support_contact_debuglog_delete_title">Fshi regjistrin e korrigjimit?</string>
     <string name="support_contact_debuglog_delete_message">Ky regjistër korrigjimi do të fshihet përgjithmonë.</string>
-    <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Regjistri u dërgua?</string>
     <string name="support_debuglog_sent_message">A u dërgua regjistri i korrigjimit me sukses? Regjistri do të fshihet.</string>
     <string name="support_contact_sent_title">Email-i u dërgua?</string>
     <string name="support_contact_sent_message">A u dërgua email-i me sukses? Regjistri i korrigjimit i bashkëngjitur do të fshihet.</string>
-    <!-- Device Settings -->
     <string name="device_settings_title">Cilësimet e pajisjes</string>
     <string name="device_settings_subtitle_profile_prefix">Profili: %s</string>
     <string name="device_settings_info_bt_name_label">Etiketa e pajisjes Bluetooth</string>
@@ -479,7 +462,6 @@
     <string name="review_app_review_action">Rishikimi</string>
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
     <string name="review_app_body">Dëshironi t\'i lini një koment CAPod? ❤️</string>
-    <!-- New device settings -->
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
     <string name="device_settings_microphone_mode_description">Cili kufjezë përdoret si mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Automatik</string>
@@ -528,7 +510,6 @@
     <string name="device_settings_connected_device_media">Duke luajtur media</string>
     <string name="device_settings_noise_control_label">Kontrolli i zhurmës</string>
     <string name="device_settings_eq_label">Ekualizues</string>
-    <!-- Press Controls -->
     <string name="press_controls_title">Kontrollet e Shtypjes</string>
     <string name="press_controls_nav_description">Rregulloni sjelljen e shtypjes dhe hartoni shtypjet në veprime</string>
     <string name="press_controls_description">Rregulloni si zbulohen shtypjet, zgjidhni sjelljen e butonit të thirrjes dhe hartoni shtypjet në veprime. Veprimet e hartuara vlejnë vetëm për këtë pajisje dhe lejojnë aplikacionin të ndërhyjë në shtypje në vend se AirPods ta trajtojë nativisht.</string>
