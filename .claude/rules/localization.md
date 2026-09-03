@@ -21,3 +21,5 @@ When adding new user-facing strings:
 - `troubleshooter_ble_result_failure_title` (status/error title)
 
 Common prefixes currently in use: `device_`, `settings_`, `support_`, `profiles_`, `press_`, `general_`, `pods_`, `upgrade_`, `widget_`, `debug_`, `permission_`, `troubleshooter_`, `overview_`, `anc_`, `onboarding_`. There is no `error_*` prefix — error labels live under the relevant feature (e.g. `general_error_label`, `troubleshooter_*_failure_*`).
+
+String context, character limits and file context are managed on Crowdin through the android-translation plugin's `crowdin-annotate` skill. XML comments in `values/strings.xml` no longer reach translators once a string's context has been written on Crowdin; change it there.
