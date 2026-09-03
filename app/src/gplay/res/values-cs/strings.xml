@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Služby Google Play nejsou k dispozici.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
     <string name="upgrades_gplay_billing_error_label">Chyba Google Play</string>
     <string name="upgrades_gplay_billing_error_description">V Google Play došlo k chybě. Zkuste to prosím znovu později nebo restartujte telefon.\n\nChyba: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Chyba fakturacie Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Při dotazování Google Play na podrobnosti o nákupu došlo k chybě. Smažte mezipaměť Google Play a restartujte telefon.\n\nChyba %s</string>
     <string name="upgrades_gplay_already_owned_label">Již zakoupeno?</string>
     <string name="upgrades_gplay_already_owned_description">Služba Google Play hlásí, že tento upgrade již vlastníte, ale nepodařilo se ho obnovit. Ujistěte se, že používáte účet Google, se kterým jste nákup provedli. Synchronizace Obchodu Play může nějakou dobu trvat — zkuste restartovat zařízení, vymazat mezipaměť Obchodu Google Play nebo prostě počkat.</string>
-    <string name="upgrade_restore_action">Obnovit nákup</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Získat %1$s</string>
     <string name="upgrade_preamble">CAPod vyvíjí jediná osoba. Upgrade odemkne další funkce a pomůže udržet aplikaci naživu.</string>
-    <string name="upgrade_screen_options_description">Stejné funkce, různé ceny. Předplatné zahrnuje bezplatnou zkušební dobu a lze jej kdykoli zrušit.</string>
-    <string name="upgrade_screen_options_description_no_trial">Stejné funkce, jiná cena. Předplatné lze kdykoli zrušit.</string>
     <string name="upgrade_screen_subscription_trial_action">Spustit zkušební verzi</string>
     <string name="upgrade_screen_subscription_action">Předplatit na rok</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/rok</string>
     <string name="upgrade_screen_iap_action">Koupit jednou</string>
-    <string name="upgrade_screen_iap_action_hint">Jednorázový nákup: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovit nákup</string>
-    <string name="upgrade_screen_restore_purchase_message">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Pokud jste produkt zakoupili nedávno, synchronizace Google Play může chvíli trvat.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Pokud se váš nákup nezobrazí, zkuste to znovu za několik minut.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ujistěte se, že jste přihlášeni ke stejnému účtu Google, který jste použili při nákupu.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Více účtů může zmást Google Play. Instalace aplikace přes web Obchodu Google Play vynutí přiřazení ke konkrétnímu účtu.</string>
     <string name="upgrade_screen_restore_banner_title">Už jste si koupili Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Vypadá to, že jste na tomto zařízení už dříve upgradovali na Pro. Obnovte svůj nákup a odemkněte ho znovu.</string>
     <string name="upgrade_screen_restore_success_message">Nákup obnoven.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Máte CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Odemčeno vaším předplatným. Děkujeme za podporu CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Odemčeno vaším jednorázovým nákupem. Děkujeme za podporu CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Roční předplatné</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Vaše předplatné je aktivní a nastavené na obnovování. Fakturaci spravuje Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Vaše předplatné je aktivní, ale není nastaveno na obnovování. Pro zůstane dostupné až do konce aktuálního období.</string>
     <string name="upgrade_screen_owned_iap_title">Jednorázový nákup</string>

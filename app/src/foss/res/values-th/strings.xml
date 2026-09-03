@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">บริจาค</string>
-    <string name="foss_upgrade_alreadydonated_label">ฉันบริจาคแล้ว</string>
-    <string name="foss_upgrade_no_money_label">ฉันใช้เงินทั้งหมดไปกับ AirPods</string>
     <string name="upgrade_foss_preamble">CAPod FOSS เป็นฟรีและโอเพนซอร์ส หากคุณเห็นว่ามีประโยชน์ ลองสนับสนุนการพัฒนาเพื่อช่วยให้โครงการดำเนินต่อไป</string>
     <string name="upgrade_foss_sponsor_action">สปอนเซอร์การพัฒนา</string>
     <string name="upgrade_foss_sponsor_subtitle">ไม่มีโฆษณา ไม่ติดตาม ไม่ผูกขาด Google Play</string>

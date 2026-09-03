@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">የGoogle Play አገልግሎቶች አይገኙም።</string>
-    <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
     <string name="upgrades_gplay_billing_error_label">የGoogle Play ስህተት</string>
     <string name="upgrades_gplay_billing_error_description">በGoogle Play ላይ ስህተት ነበር። እባክዎ ቆይተው ይሞክሩ ወይም ስልክዎን እንደገና ያስጀምሩ።\n\nስህተት: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">የGoogle Play ክፍያ ስህተት</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Play የግዢ ዝርዝሮችዎን ሲጠይቅ ስህተት ነበር። የGoogle Play መሸጎጫውን ያጽዱ እና ስልክዎን እንደገና ያስጀምሩ።\n\nስህተት %s</string>
     <string name="upgrades_gplay_already_owned_label">አስቀድመው ገዝተዋል?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play ይህን ማሻሻያ አስቀድመው እንደያዙ ዘግቧል፣ ነገር ግን መመለስ አልተቻለም። በገዙበት የGoogle መለያ እየተጠቀሙ መሆኑን ያረጋግጡ። የPlay Store ማመሳሰል ጊዜ ሊወስድ ይችላል — እንደገና ለማስጀመር፣ የGoogle Play መሸጎጫን ለማጽዳት ወይም በቀላሉ ለመጠበቅ ይሞክሩ።</string>
-    <string name="upgrade_restore_action">ግዢን ወደነበረበት መልስ</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ያግኑ</string>
     <string name="upgrade_preamble">CAPod የሚዘጋጀው በአንድ ሰው ብቻ ነው። ማሻሻል ተጨማሪ ባህሪያትን ይከፍታል እንዲሁም መተግበሪያውን ሕያው ለማድረግ ይረዳል።</string>
-    <string name="upgrade_screen_options_description">ተመሳሳይ ባህሪያት፣ የተለያየ ዋጋ አሰጣጥ። ምዝገባው ነጻ የሙከራ ጊዜ ያካትታል እና በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
-    <string name="upgrade_screen_options_description_no_trial">ተመሳሳይ ባህሪያት፣ የተለያየ ዋጋ አሰጣጥ። ምዝገባው በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
     <string name="upgrade_screen_subscription_trial_action">ነጻ ሙከራ ጀምር</string>
     <string name="upgrade_screen_subscription_action">በዓመት ይመዝገቡ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ዓመት</string>
     <string name="upgrade_screen_iap_action">አንዴ ይግዙ</string>
-    <string name="upgrade_screen_iap_action_hint">የአንድ ጊዜ ግዢ፦ %s</string>
     <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
-    <string name="upgrade_screen_restore_purchase_message">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">በቅርቡ ገዝተው ከሆነ፣ Google Play ለማመሳሰል ትንሽ ጊዜ ሊወስድ ይችላል።</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ግዢዎ ካልታየ በጥቂት ደቂቃዎች ውስጥ እንደገና ይሞክሩ።</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ለግዢው ጥቅም ላይ በዋለው ተመሳሳይ የGoogle መለያ መግባትዎን ያረጋግጡ።</string>
-    <string name="upgrade_screen_restore_webinstall_hint">ብዙ መለያዎች Google Playን ማምታታት ይችላሉ። መተግበሪያውን በGoogle Play ድርጣቢያ በኩል መጫን ከተወሰነ መለያ ጋር ግንኙነትን ያስገድዳል።</string>
     <string name="upgrade_screen_restore_banner_title">Pro አስቀድመው ገዝተዋል?</string>
     <string name="upgrade_screen_restore_banner_body">ቀደም ሲል በዚህ መሣሪያ ወደ Pro እንዳሻሻሉ ይመስላል። እንደገና ለመክፈት ግዢዎን ይመልሱ።</string>
     <string name="upgrade_screen_restore_success_message">ግዢ ተመልሷል።</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">CAPod Pro አለዎት!</string>
     <string name="upgrade_screen_owned_hero_sub_body">በምዝገባዎ ተከፍቷል። CAPod ን ስለደገፉ እናመሰግናለን!</string>
     <string name="upgrade_screen_owned_hero_iap_body">በአንድ ጊዜ ግዢዎ ተከፍቷል። CAPod ን ስለደገፉ እናመሰግናለን!</string>
-    <string name="upgrade_screen_owned_sub_title">ዓመታዊ ምዝገባ</string>
     <string name="upgrade_screen_owned_sub_renewing_body">ምዝገባዎ ንቁ ነው እና ለማደስ ተዘጋጅቶል። ክፍያ በGoogle Play ይተዳደራል።</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">ምዝገባዎ ንቁ ነው፣ ነገር ግን ለማደስ አልተዘጋጀም። አሑን ያለው ጊዜ እስክያለቅ ድረስ Pro ይገኛል።</string>
     <string name="upgrade_screen_owned_iap_title">አንድ ጊዜ ግዢ</string>

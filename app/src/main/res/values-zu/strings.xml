@@ -3,7 +3,6 @@
     <string name="general_share_action">Yabelana</string>
     <string name="general_done_action">Kwenziwe</string>
     <string name="general_cancel_action">Khansela</string>
-    <string name="general_copy_action">Kopisha</string>
     <string name="general_thank_you_label">Ngiyabonga</string>
     <string name="general_upgrade_action">Thuthukisa</string>
     <string name="general_retry_action">Zama futhi</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Hlola</string>
     <string name="general_close_action">Vala</string>
     <string name="general_dismiss_action">Lahla</string>
-    <string name="general_edit_action">Hlela</string>
     <string name="general_save_action">Londoloza</string>
     <string name="general_guide_action">Umhlahlandlela</string>
     <string name="general_continue_action">Qhubeka</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Qalisa umculo lapho uphinde ugqoke amaphodi akho, kodwa kuphela uma i-Auto pause iwamisa. Ukumisa okwenziwe nguwe (ucingo, i-AirPods stem, ukulala) kuhlala kumisiwe.</string>
     <string name="settings_start_music_on_wear_label">Qalisa umculo lapho ugqoka</string>
     <string name="settings_start_music_on_wear_description">Ihlale izama ukudlala umculo lapho ubeka amaphodi akho, ngisho nangokumiswa ngesandla.</string>
-    <string name="settings_eardetection_info_label">Inothi lokutholwa kwendlebe</string>
     <string name="settings_eardetection_info_description">Uma ukutholwa kwendlebe kusebenza kuphela nge-pod eyodwa, lokhu kuwumkhawulo we-Apple. Kuphela \"i-pod eyinhloko\" (esetshenziswa yemakrofoni) etholakala. Lungiselela kumadivayisi e-Apple: Izilungiselelo → Bluetooth → AirPods → Imakrofoni.</string>
-    <string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
-    <string name="settings_signal_minimum_description">Izinga elincane lesignali okufanele idivayisi ibe nalo ukuze ibhekwe njengeyakho.</string>
     <string name="settings_autoconnect_label">Xhuma ngokuzenzakalela</string>
     <string name="settings_autoconnect_description">Uma i-Android ingaxhumi ngokuzenzakalelayo, singayicela ukuba yenze njalo. Lokhu kugcina i-CAPod iqhubeka iqapha ngemuva ngaso sonke isikhathi.</string>
     <string name="settings_autoconnect_info_android12">Ukuxhumeka okuzenzakalelayo kusekelwa isici sesistimu esivimba i-Android 12 neyintsha. Kungenzeka singasebenzi kudivayisi yakho.</string>
     <string name="settings_autoconnect_condition_label">Isimo sokuxhuma ngokuzenzakalela</string>
-    <string name="settings_autoconnect_condition_description">Kufanele sizame nini ukuxhuma kudivayisi yakho?</string>
     <string name="settings_devices_label">Amadivayisi</string>
     <string name="settings_devices_description">Phatha amadivayisi akho.</string>
     <string name="settings_reaction_label">Ukusabela</string>
-    <string name="settings_category_yourdevice_label">Idivayisi yakho</string>
     <string name="settings_category_compatibility_options_title">Izinketho zokuhambisana</string>
     <string name="settings_category_compatibility_options_description">Ungathinti uma konke kusebenza ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Khubaza ukuhlunga kwehadiwe</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Iyaqala...</string>
     <string name="support_debuglog_label">Ilogi yokulungisa amaphutha</string>
     <string name="support_debuglog_desc">Rekhoda konke okwenziwa uhlelo lokusebenza kufayela lombhalo ongabelana ngalo.</string>
-    <string name="debug_debuglog_size_label">Usayizi</string>
-    <string name="debug_debuglog_size_compressed_label">Usayizi ocindezelwe</string>
-    <string name="debug_notification_channel_label">Izaziso zokulungisa amaphutha</string>
-    <string name="debug_debuglog_file_label">Ifayela lelogi elirekhodiwe</string>
-    <string name="debug_debuglog_recording_progress">Kurekhodwa ilogi yokulungisa amaphutha</string>
     <string name="debug_debuglog_record_action">Rekhoda ilogi yokulungisa amaphutha</string>
     <string name="debug_debuglog_stop_action">Misa ukurekhoda</string>
     <string name="debug_debuglog_sensitive_information_message">Ifayela elakhiwe liqukethe ulwazi olubucayi (isb. imininingwane yedivayisi ye-Bluetooth). Yabelana ngalo kuphela namaqembu athembekile.</string>
     <string name="settings_debuglog_explanation">Lesi sici sirekhoda konke okwenziwa uhlelo lokusebenza kufayela elingabelanwa. Ifayela elakhiwe liqukethe ulwazi olubucayi (isb. imininingwane yedivayisi ye-Bluetooth). Yabelana ngalo kuphela namaqembu athembekile (isb. unjiniyela oxazulula inkinga).</string>
-    <string name="settings_support_installid_label">I-ID Yokufaka</string>
-    <string name="settings_support_installid_desc">Imibiko yamaphutha ezenzakalelayo ayaziwa. Yabelana nge-ID yakho yokufaka uma unjiniyela edinga ukuthola imibiko yakho yamaphutha.</string>
     <string name="settings_support_label">Ukusekela</string>
     <string name="settings_support_description">Uma udinga usizo.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Ziphindezele imininingwane efundwe?</string>
     <string name="device_battery_estimate_reset_confirm_message">I-CAPod izokhohlwa umkhulu omlinganisiwe, isivinini sokuchaja, esikhathi sokumamela, nokaqala kabusha kusuka ekubhalweni kweBatari.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
-    <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
-    <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
-    <string name="settings_compatibility_mode_label">Imodi yokuhambisana</string>
-    <string name="settings_compatibility_mode_description">Khubaza ukuthuthukiswa ukuze uthuthukise ukuhambisana. Zama lokhu uma ungaboni noma iyiphi idatha.</string>
     <string name="help_translate_label">Ukuhumusha</string>
     <string name="help_translate_description">Siza ukuhumusha lolu hlelo lokusebenza olimini lwakho oluthandayo.</string>
     <string name="translators_thanks_title">Abahumushi</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Impumelelo</string>
     <string name="troubleshooter_ble_result_success_body">Ukusakazwa kwezikhangiso ze-BLE kuyamukelwa yi-CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Akuphumelelanga</string>
-    <string name="troubleshooter_ble_result_failure_body">Ukuxazulula izinkinga kwehlulekile. Ayikho inhlanganisela yezinketho zokuhambisana esizile.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ifoni yakho ayitholanga noma iyiphi idatha ye-BLE nhlobo. Ungaphinda uzame lokhu kuhlolwa endaweni enabantu abaningi ukuze ubone ukuthi imithombo yedatha (ngaphandle kwamahedfoni akho) ingamukelwa yini. Ukungatholakali kwedatha kukhomba inkinga ngohlelo lokusebenza lwefoni yakho.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ifoni yakho ithole idatha ye-BLE, kodwa idatha ayiveli kunoma iyiphi idivayisi esekelwayo. Ingabe amahedfoni akho avuliwe? Ingabe i-CAPod iyayisekela ihedfoni yakho?</string>
-    <string name="troubleshooter_ble_result_failure_action">Zama futhi</string>
-    <string name="troubleshoot_action">Xazulula inkinga</string>
     <string name="onboarding_body1">Lolu hlelo lokusebenza lwengeza ukusekelwa kwezici ezithile ze-AirPod ku-Android.</string>
     <string name="onboarding_body2">Akuwona wonke amadivayisi e-Android asekela ngokugcwele izici ezengeziwe ze-AirPod. Uhlelo lwakho lokusebenza ludinga ukusebenza kwe-Bluetooth-Low-Energy okusebenza kahle.</string>
     <string name="onboarding_body3">I-CAPod ayinazo izikhangiso futhi ayiqoqi idatha yakho.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Idivayisi yakho ixhunyiwe, kodwa i-CAPod ayamukeli idatha ephilayo evela kuyona. Ifoni yakho ingadinga inketho yokufanelana — isixazululi sezinkinga singazama ukuthola enye ngokuzenzakalela.</string>
     <string name="overview_troubleshoot_suggestion_action">Qalisa isixazululi sezinkinga</string>
     <string name="overview_unmatched_devices_label">Amadivayisi angahambisani</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">Idivayisi engu-%d engenayo iphrofayili ehambisanayo</item>
-        <item quantity="other">Amadivayisi angu-%d angenayo iphrofayili ehambisanayo</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Kutholwe idivayisi engu-%d eseduze engenayo iphrofayela efanayo. Yiveze ukuze ubone imininingwane etholakalayo. Uma ingeyakho, engeza iphrofayela kusuka ku-Amadivayisi ukuze uyiqaphele.</item>
         <item quantity="other">Kutholwe amadivayisi angu-%d aseduze angenayo amaphrofayela afanayo. Awaveze ukuze ubone imininingwane etholakalayo. Uma elinye lingelakho, engeza iphrofayela kusuka ku-Amadivayisi ukuze ulazi.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">I-CAPod isebenzisa \"ukufinyelela indawo yangemuva\" ukuze ivule izici ezinjenge-\"Bonisa isigelekeqe\" ne-\"Xhuma ngokuzenzakalela\" ngenkathi uhlelo lokusebenza luvaliwe. Ukufinyelela indawo yangemuva kuvumela uhlelo lokusebenza ukuthi lwamukele idatha ye-Bluetooth Low Energy ngenkathi lusemva. Lolu hlelo lokusebenza NGEKE lusebenzise idatha ye-Bluetooth ukuthola indawo yakho.</string>
     <string name="permission_ignore_battery_optimizations_label">Khubaza ukuthuthukiswa kwebhethri</string>
     <string name="permission_ignore_battery_optimizations_description">Ukuthuthukiswa kwebhethri kuvimbela lolu hlelo lokusebenza ukuthi lwamukele ngokuthembekile idatha ye-Bluetooth ngenkathi uhlelo lokusebenza lusemva.</string>
-    <string name="permission_required_title">Imvume elandelayo iyadingeka:</string>
     <string name="permission_system_alert_window_label">Iwindi Lesexwayiso Sohlelo</string>
     <string name="permission_system_alert_window_description">Vumela i-CAPod ukuthi idwebe phezu kwezinye izinhlelo zokusebenza ukwenza isici \"Bonisa isigelekeqe\" sikwazi ukusebenza.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Uma ibonwe</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Endlebeni</string>
     <string name="pods_dual_left_label">I-pod yangakwesobunxele</string>
     <string name="pods_dual_right_label">I-pod yangakwesokudla</string>
-    <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">K</string>
-    <string name="pods_case_label">Ikesi</string>
     <string name="battery_unavailable_label">Ibhethri ayitholakali</string>
     <string name="battery_state_low_cd">I-Batari iphansi</string>
     <string name="battery_state_critical_cd">I-Batari iphansi kakhulu</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Ukuxhumana okuqondile kusebenza</string>
     <string name="signal_indicator_bars_cd">Amandla enguqulo: %1$d kwama-4 amabha</string>
     <string name="signal_indicator_disconnected_cd">Isiginali: akuxhunyiwe</string>
-    <string name="pods_yours">Okwakho</string>
     <string name="headset_being_worn_label">Kuyagqokwa</string>
     <string name="headset_not_being_worn_label">Akugqokiwe</string>
     <string name="pods_case_unknown_state">Isimo esingaziwa</string>
-    <string name="last_seen_x">Ibonwe kokugcina: %s</string>
-    <string name="first_seen_x">Ibonwe okokuqala: %s</string>
     <string name="battery_cached_label">Owayeziwa ekugcineni · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Izinga Elincane Lesignali</string>
     <string name="profiles_signal_quality_description">Thola kuphela amadivayisi anamandla esignali angaphezu kwalo mkhawulo. Amanani aphansi andisa ibanga lokuthola kodwa angadala ukuthola okungamanga. Ungasetha lokhu kuphezulu kakhulu - ukwamukelwa kwe-Bluetooth ngokuvamile kuphansi futhi kuhluka ngebanga nezithiyo.</string>
     <string name="profiles_identitykey_label">Ukhiye Wokuzazisa</string>
-    <string name="profilessettings_maindevice_identitykey_description">Ukhiye Wokuxazulula Ubuwena (IRK) wedivayisi yakho, osiza i-CAPod ukuthi iyibone phakathi kwamadivayisi aseduze.</string>
     <string name="profiles_maindevice_identitykey_explanation">Ama-AirPods ashintsha ikheli lawo le-Bluetooth njalo ngenxa yobumfihlo. I-IRK isiza i-CAPod ukuthi ibbone idivayisi yakho. Udinga ukufinyelela i-MacBook kanye.</string>
     <string name="profiles_maindevice_encryptionkey_label">Ukhiye Wokubethela</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ukhiye wokubethela wedivayisi yakho, ovumela i-CAPod ukuthi ithole ulwazi lwesimo oluningiliziwe.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Ama-AirPods athumela umlayezo wesimo, ingxenye yawo ebethelwe. Ukhiye wokubethela uvumela i-CAPod ukuthi ikhumule umlayezo wonke. Udinga ukufinyelela i-MacBook kanye.</string>
     <string name="profiles_key_invalid_format">Ifomathi yokhiye engavumelekile</string>
     <string name="profiles_key_expected_format">Ifomathi elindelekile: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Unezinguquko ezingalondoloziwe. Ufuna ukwenzani?</string>
     <string name="general_save_and_exit_action">Londoloza &amp; Phuma</string>
     <string name="general_discard_action">Lahla</string>
-    <string name="general_keep_editing_action">Qhubeka Uhlela</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Ukurekhoda kufushane kakhulu</string>
     <string name="debug_debuglog_short_recording_message">Irekhodi lokususa iziphazamiso lidinga ukubamba inkinga ngesikhathi senzeka. Qhubeka nokurekhosha, phinda inkinga, bese unqamula ukurekhosha.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Izilungiselelo Zedivayisi</string>
     <string name="device_settings_subtitle_profile_prefix">Iphrofayili: %s</string>
-    <string name="device_settings_info_name_label">Igama</string>
     <string name="device_settings_info_bt_name_label">Ilebuli Ledivayisi ye-Bluetooth</string>
     <string name="device_settings_info_model_label">Imodeli</string>
     <string name="device_settings_info_manufacturer_label">Umdali</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
     <string name="review_app_body">Ungathanda ukushiyela i-CAPod ukubuyekeza? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Okujwayelekile</string>
     <string name="device_settings_microphone_mode_label">Imakrofoni</string>
     <string name="device_settings_microphone_mode_description">Ikhiye yezindlebe elisetshenziselwa i-microphone</string>
     <string name="device_settings_microphone_mode_auto">Ngokuzenzakalela</string>

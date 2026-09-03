@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">De Google Play-diensten zijn niet beschikbaar.</string>
-    <string name="upgrades_no_purchases_found_check_account">Geen aankopen gevonden. Gebruik je de juiste rekening?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play Fout</string>
     <string name="upgrades_gplay_billing_error_description">Er is een fout opgetreden in Google Play. Probeer het later opnieuw of start je telefoon opnieuw op.\n\nFout: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play Factureringsfout</string>
-    <string name="upgrades_gplay_billing_result_error_description">Er is een fout opgetreden bij het opvragen van je aankoopgegevens bij Google Play. Wis de cache van Google Play en start je telefoon opnieuw op.\n\nFout %s</string>
     <string name="upgrades_gplay_already_owned_label">Reeds gekocht?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play meldt dat je deze upgrade al bezit, maar deze kon niet worden hersteld. Zorg ervoor dat je het Google-account gebruikt waarmee je hebt gekocht. Synchronisatie van de Play Store kan tijd kosten — probeer opnieuw op te starten, de cache van Google Play te wissen of gewoon te wachten.</string>
-    <string name="upgrade_restore_action">Herstel aankoop</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Haal %1$s</string>
     <string name="upgrade_preamble">CAPod wordt ontwikkeld door één persoon. Upgraden ontgrendelt extra functies en helpt de app in leven te houden.</string>
-    <string name="upgrade_screen_options_description">Dezelfde functies, verschillende prijzen. Het abonnement bevat een gratis proefperiode en kan op elk moment worden opgezegd.</string>
-    <string name="upgrade_screen_options_description_no_trial">Dezelfde functies, andere prijzen. Het abonnement kan op elk moment worden opgezegd.</string>
     <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode</string>
     <string name="upgrade_screen_subscription_action">Jaarlijks abonneren</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/jaar</string>
     <string name="upgrade_screen_iap_action">Eenmalig kopen</string>
-    <string name="upgrade_screen_iap_action_hint">Eenmalige aankoop: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
-    <string name="upgrade_screen_restore_purchase_message">Geen aankopen gevonden. Gebruikt je wel het juiste account?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Als je de app onlangs hebt gekocht, kan het even duren voordat Google Play de gegevens synchroniseert.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Probeer het over een paar minuten opnieuw als je aankoop niet verschijnt.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Zorg ervoor dat je bent aangemeld met hetzelfde Google-account dat is gebruikt voor de aankoop.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Meerdere accounts kunnen Google Play in verwarring brengen. Door de app via de website van Google Play te installeren, wordt de koppeling met een specifiek account afgedwongen.</string>
     <string name="upgrade_screen_restore_banner_title">Heb je de Pro-versie al gekocht?</string>
     <string name="upgrade_screen_restore_banner_body">Het lijkt erop dat je dit apparaat eerder al hebt geüpgraded naar Pro. Herstel je aankoop om het opnieuw te ontgrendelen.</string>
     <string name="upgrade_screen_restore_success_message">Aankoop hersteld.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Je hebt CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Ontgrendeld door je abonnement. Bedankt voor het steunen van CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Ontgrendeld door je eenmalige aankoop. Bedankt voor het steunen van CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Jaarlijks abonnement</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Je abonnement is actief en wordt automatisch verlengd. De facturering wordt beheerd door Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Je abonnement is actief, maar wordt niet verlengd. Pro blijft beschikbaar tot het einde van de huidige periode.</string>
     <string name="upgrade_screen_owned_iap_title">Eenmalige aankoop</string>

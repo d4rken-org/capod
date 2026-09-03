@@ -3,7 +3,6 @@
     <string name="general_share_action">اشتراک‌گذاری</string>
     <string name="general_done_action">انجام شد</string>
     <string name="general_cancel_action">لغو</string>
-    <string name="general_copy_action">کپی</string>
     <string name="general_thank_you_label">متشکرم</string>
     <string name="general_upgrade_action">ارتقا</string>
     <string name="general_retry_action">تلاش مجدد</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
     <string name="general_dismiss_action">نادیده گرفتن</string>
-    <string name="general_edit_action">ویرایش</string>
     <string name="general_save_action">ذخیره</string>
     <string name="general_guide_action">راهنما</string>
     <string name="general_continue_action">ادامه</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">موسیقی را هنگام پوشیدن مجدد پادها از سر می‌گیرد، اما تنها اگر توقف خودکار آن را متوقف کرده باشد. توقف‌هایی که خودتان ایجاد کردید (تلفن، دکمه AirPods، خواب) همچنان متوقف می‌مانند.</string>
     <string name="settings_start_music_on_wear_label">شروع موسیقی هنگام پوشیدن</string>
     <string name="settings_start_music_on_wear_description">همیشه سعی می‌کند هنگام گذاشتن پادها موسیقی پخش کند، حتی پس از توقف دستی.</string>
-    <string name="settings_eardetection_info_label">توجه درباره تشخیص گوش</string>
     <string name="settings_eardetection_info_description">اگر تشخیص گوش فقط برای یک پاد کار می‌کند، این محدودیت Apple است. فقط \"پاد اصلی\" (که برای میکروفون استفاده می‌شود) تشخیص داده می‌شود. در دستگاه‌های Apple تنظیم کنید: تنظیمات → بلوتوث → AirPods → میکروفون.</string>
-    <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
-    <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
     <string name="settings_autoconnect_description">اگر اندروید به‌طور خودکار متصل نشد، ما هم می‌توانیم از آن بخواهیم. این کار باعث می‌شود CAPod همیشه در پس‌زمینه نظارت را ادامه دهد.</string>
     <string name="settings_autoconnect_info_android12">اتصال خودکار به یک ویژگی سیستمی متکی است که اندروید ۱۲ و نسخه‌های جدیدتر آن را محدود کرده‌اند. ممکن است روی دستگاه شما کار نکند.</string>
     <string name="settings_autoconnect_condition_label">شرط اتصال خودکار</string>
-    <string name="settings_autoconnect_condition_description">چه زمانی باید سعی کنیم به دستگاه شما متصل شویم؟</string>
     <string name="settings_devices_label">دستگاه‌ها</string>
     <string name="settings_devices_description">مدیریت دستگاه‌های شما.</string>
     <string name="settings_reaction_label">واکنش‌ها</string>
-    <string name="settings_category_yourdevice_label">دستگاه شما</string>
     <string name="settings_category_compatibility_options_title">گزینه‌های سازگاری</string>
     <string name="settings_category_compatibility_options_description">اگر همه چیز کار می‌کند، دست نزنید ؛)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">غیرفعال کردن فیلتر سخت‌افزاری</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">درحال راه‌اندازی…</string>
     <string name="support_debuglog_label">گزارش اشکال‌زدایی</string>
     <string name="support_debuglog_desc">تمام کارهایی که برنامه انجام می‌دهد را در یک فایل متنی که می‌توانید به اشتراک بگذارید، ضبط کنید.</string>
-    <string name="debug_debuglog_size_label">اندازه</string>
-    <string name="debug_debuglog_size_compressed_label">اندازه فشرده‌شده</string>
-    <string name="debug_notification_channel_label">اعلان‌های اشکال‌زدایی</string>
-    <string name="debug_debuglog_file_label">فایل گزارش ضبط‌شده</string>
-    <string name="debug_debuglog_recording_progress">در حال ضبط گزارش اشکال‌زدایی</string>
     <string name="debug_debuglog_record_action">ضبط گزارش اشکال‌زدایی</string>
     <string name="debug_debuglog_stop_action">توقف ضبط</string>
     <string name="debug_debuglog_sensitive_information_message">فایل تولیدشده حاوی اطلاعات حساس است (مثلاً جزئیات دستگاه بلوتوث). آن را فقط با افراد مورداعتماد به اشتراک بگذارید.</string>
     <string name="settings_debuglog_explanation">این ویژگی تمام کارهایی که برنامه انجام می‌دهد را در یک فایل قابل اشتراک‌گذاری ضبط می‌کند. فایل تولیدشده حاوی اطلاعات حساس است (مثلاً جزئیات دستگاه بلوتوث). آن را فقط با افراد مورداعتماد به اشتراک بگذارید (مثلاً توسعه‌دهنده‌ای که در حال عیب‌یابی یک مشکل است).</string>
-    <string name="settings_support_installid_label">شناسه نصب</string>
-    <string name="settings_support_installid_desc">گزارش‌های خطای خودکار ناشناس هستند. اگر توسعه‌دهنده نیاز به یافتن گزارش‌های خطای شما دارد، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="settings_support_label">پشتیبانی</string>
     <string name="settings_support_description">اگر به کمک نیاز دارید.</string>
     <string name="settings_wiki_label">ویکی</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">بازنشانی داده‌های یادگیری‌شده؟</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod داده‌های اندازه‌گیری‌شده این دستگاه (تخلیه، سرعت شارژ و زمان پخش) را فراموش خواهد کرد و دوباره از عمر اسمی باتری شروع خواهد کرد.</string>
     <string name="settings_acknowledgements_label">قدردانی‌ها</string>
-    <string name="settings_debug_autoreports_label">گزارش‌های خطای خودکار</string>
-    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string>
-    <string name="settings_compatibility_mode_label">حالت سازگاری</string>
-    <string name="settings_compatibility_mode_description">بهینه‌سازی‌ها را برای بهبود سازگاری غیرفعال کنید. اگر هیچ داده‌ای نمی‌بینید، این را امتحان کنید.</string>
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
     <string name="translators_thanks_title">مترجمان</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">موفقیت</string>
     <string name="troubleshooter_ble_result_success_body">پخش‌های تبلیغاتی BLE توسط CAPod دریافت می‌شوند.</string>
     <string name="troubleshooter_ble_result_failure_title">ناموفق</string>
-    <string name="troubleshooter_ble_result_failure_body">عیب‌یابی ناموفق بود. هیچ ترکیبی از گزینه‌های سازگاری کمکی نکرد.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">تلفن شما اصلاً هیچ داده BLE دریافت نکرد. می‌توانید این آزمایش را در یک منطقه شلوغ دوباره امتحان کنید تا ببینید آیا می‌توان منابع داده (غیر از هدفون شما) را دریافت کرد. عدم دریافت هیچ داده‌ای نشان‌دهنده مشکلی در سیستم‌عامل تلفن شما است.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">تلفن شما داده‌های BLE دریافت کرد، اما داده‌ها از هیچ دستگاه پشتیبانی‌شده‌ای نمی‌آیند. آیا هدفون شما روشن است؟ آیا CAPod از هدفون شما پشتیبانی می‌کند؟</string>
-    <string name="troubleshooter_ble_result_failure_action">دوباره امتحان کنید</string>
-    <string name="troubleshoot_action">عیب‌یابی</string>
     <string name="onboarding_body1">این برنامه پشتیبانی از ویژگی‌های خاص AirPod را به Android اضافه می‌کند.</string>
     <string name="onboarding_body2">همه دستگاه‌های Android به‌طور کامل از ویژگی‌های اضافی AirPod پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی بلوتوث کم‌مصرف که به‌درستی کار کند نیاز دارد.</string>
     <string name="onboarding_body3">CAPod هیچ تبلیغی ندارد و داده‌های شما را جمع‌آوری نمی‌کند.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">دستگاه شما متصل است، اما CAPod هیچ داده زنده‌ای از آن دریافت نمی‌کند. ممکن است تلفن شما به یک گزینه سازگاری نیاز داشته باشد — عیب‌یاب می‌تواند به‌طور خودکار تلاش کند آن را پیدا کند.</string>
     <string name="overview_troubleshoot_suggestion_action">اجرای عیب‌یاب</string>
     <string name="overview_unmatched_devices_label">دستگاه‌های بدون تطابق</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d دستگاه بدون پروفایل منطبق</item>
-        <item quantity="other">%d دستگاه بدون پروفایل منطبق</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d دستگاه نزدیک بدون پروفایل منطبق شناسایی شد. برای مشاهده جزئیات موجود، آن را نمایش دهید. اگر مال شماست، از بخش «دستگاه‌ها» یک پروفایل اضافه کنید تا شناسایی شود.</item>
         <item quantity="other">%d دستگاه نزدیک بدون پروفایل منطبق شناسایی شدند. برای مشاهده جزئیات موجود، آن‌ها را نمایش دهید. اگر یکی از آن‌ها مال شماست، از بخش «دستگاه‌ها» یک پروفایل اضافه کنید تا شناسایی شود.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod از \"دسترسی به مکان در پس‌زمینه\" برای فعال‌سازی ویژگی‌هایی مانند \"نمایش پاپ‌آپ\" و \"اتصال خودکار\" در زمان بسته بودن برنامه استفاده می‌کند. دسترسی به مکان در پس‌زمینه به برنامه اجازه می‌دهد داده‌های بلوتوث کم‌مصرف را در پس‌زمینه دریافت کند. این برنامه از داده‌های بلوتوث برای تعیین مکان شما استفاده نخواهد کرد.</string>
     <string name="permission_ignore_battery_optimizations_label">غیرفعال کردن بهینه‌سازی باتری</string>
     <string name="permission_ignore_battery_optimizations_description">بهینه‌سازی باتری مانع دریافت قابل اعتماد داده‌های بلوتوث توسط این برنامه در پس‌زمینه می‌شود.</string>
-    <string name="permission_required_title">مجوز زیر مورد نیاز است:</string>
     <string name="permission_system_alert_window_label">پنجره هشدار سیستم</string>
     <string name="permission_system_alert_window_description">به CAPod اجازه دهید روی سایر برنامه‌ها نمایش دهد تا ویژگی \"نمایش پاپ‌آپ\" ممکن شود.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">وقتی دیده شود</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">در گوش</string>
     <string name="pods_dual_left_label">پاد چپ</string>
     <string name="pods_dual_right_label">پاد راست</string>
-    <string name="pods_dual_left_short_label">چ</string>
-    <string name="pods_dual_right_short_label">ر</string>
-    <string name="pods_case_label">کیس</string>
     <string name="battery_unavailable_label">باتری در دسترس نیست</string>
     <string name="battery_state_low_cd">باتری کم</string>
     <string name="battery_state_critical_cd">باتری بسیار کم</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">اتصال مستقیم فعال است</string>
     <string name="signal_indicator_bars_cd">قدرت سیگنال: %1$d از ۴ میله</string>
     <string name="signal_indicator_disconnected_cd">سیگنال: قطع شده</string>
-    <string name="pods_yours">مال شما</string>
     <string name="headset_being_worn_label">در حال استفاده</string>
     <string name="headset_not_being_worn_label">در حال استفاده نیست</string>
     <string name="pods_case_unknown_state">وضعیت ناشناخته</string>
-    <string name="last_seen_x">آخرین مشاهده: %s</string>
-    <string name="first_seen_x">اولین مشاهده: %s</string>
     <string name="battery_cached_label">آخرین · %s</string>
     <string name="battery_time_remaining_format_hm">%1$d س %2$d د</string>
     <string name="battery_time_remaining_format_h">%1$d س</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">حداقل کیفیت سیگنال</string>
     <string name="profiles_signal_quality_description">فقط دستگاه‌هایی با قدرت سیگنال بالاتر از این آستانه شناسایی شوند. مقادیر پایین‌تر محدوده شناسایی را افزایش می‌دهند اما ممکن است مثبت‌های کاذب ایجاد کنند. این مقدار را خیلی بالا تنظیم نکنید - دریافت بلوتوث عموماً ضعیف است و با فاصله و موانع متفاوت است.</string>
     <string name="profiles_identitykey_label">کلید هویت</string>
-    <string name="profilessettings_maindevice_identitykey_description">کلید حل هویت (IRK) دستگاه شما، که به CAPod کمک می‌کند آن را در بین دستگاه‌های نزدیک شناسایی کند.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods مکرراً آدرس بلوتوث خود را برای حفظ حریم خصوصی تغییر می‌دهند. IRK به CAPod کمک می‌کند دستگاه شما را بشناسد. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
     <string name="profiles_maindevice_encryptionkey_label">کلید رمزنگاری</string>
-    <string name="profiles_maindevice_encryptionkey_description">کلید رمزنگاری دستگاه شما، که به CAPod اجازه می‌دهد اطلاعات وضعیت دقیق را بازیابی کند.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods یک پیام وضعیت ارسال می‌کنند که بخشی از آن رمزنگاری شده است. کلید رمزنگاری به CAPod اجازه می‌دهد پیام کامل را رمزگشایی کند. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
     <string name="profiles_key_invalid_format">فرمت کلید نامعتبر</string>
     <string name="profiles_key_expected_format">فرمت مورد انتظار: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">شما تغییرات ذخیره‌نشده دارید. می‌خواهید چه کاری انجام دهید؟</string>
     <string name="general_save_and_exit_action">ذخیره و خروج</string>
     <string name="general_discard_action">دور انداختن</string>
-    <string name="general_keep_editing_action">ادامه ویرایش</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ضبط خیلی کوتاه بود</string>
     <string name="debug_debuglog_short_recording_message">گزارش اشکال‌زدایی باید مشکل را در همان لحظه‌ای که رخ می‌دهد ثبت کند. ضبط را ادامه دهید، مشکل را دوباره ایجاد کنید، سپس ضبط را متوقف کنید.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">تنظیمات دستگاه</string>
     <string name="device_settings_subtitle_profile_prefix">پروفایل: %s</string>
-    <string name="device_settings_info_name_label">نام</string>
     <string name="device_settings_info_bt_name_label">برچسب دستگاه بلوتوث</string>
     <string name="device_settings_info_model_label">مدل</string>
     <string name="device_settings_info_manufacturer_label">سازنده</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">شاید بعداً</string>
     <string name="review_app_body">آیا می خواهید نظری برای CAPod بگذارید؟ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">میکروفون</string>
     <string name="device_settings_microphone_mode_description">کدام ایرباد به عنوان میکروفون استفاده می‌شود</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>

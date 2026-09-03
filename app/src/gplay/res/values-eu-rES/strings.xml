@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play zerbitzuak ez daude erabilgarri.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ez da erosketarik aurkitu. Kontu egokia erabiltzen ari zara?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play errorea</string>
     <string name="upgrades_gplay_billing_error_description">Errore bat gertatu da Google Play-n. Mesedez, saiatu berriro geroago edo berrabiarazi telefonoa.\n\nErrorea: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play fakturazio errorea</string>
-    <string name="upgrades_gplay_billing_result_error_description">Errore bat gertatu da Google Play-ri zure erosketa xehetasunak eskatzean. Garbitu Google Play-ren cachea eta berrabiarazi telefonoa.\n\nErrorea %s</string>
     <string name="upgrades_gplay_already_owned_label">Dagoeneko erosi duzu?</string>
     <string name="upgrades_gplay_already_owned_description">Google Playk dio dagoeneko eguneratze hau baduzula, baina ezin izan da leheneratu. Ziurtatu erosketa egiteko erabili zenuen Google kontua erabiltzen ari zarela. Play Storeren sinkronizazioak denbora har dezake — saiatu berrabiarazten, Google Play-ren katxea garbitzen edo, besterik gabe, itxaroten.</string>
-    <string name="upgrade_restore_action">Berreskuratu erosketa</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Lortu %1$s</string>
     <string name="upgrade_preamble">CAPod pertsona bakar batek garatzen du. Eguneratzeak eginbide gehigarriak desblokeatzen ditu eta aplikazioa bizirik mantentzen laguntzen du.</string>
-    <string name="upgrade_screen_options_description">Eginbide berdinak, prezio ezberdinak. Harpidetzak doako probaldi bat dakar eta edonoiz utz daiteke.</string>
-    <string name="upgrade_screen_options_description_no_trial">Eginbide berdinak, prezio ezberdinak. Harpidetza edonoiz utz daiteke.</string>
     <string name="upgrade_screen_subscription_trial_action">Hasi doako probaldia</string>
     <string name="upgrade_screen_subscription_action">Harpidetu urtero</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/urte</string>
     <string name="upgrade_screen_iap_action">Erosi behin</string>
-    <string name="upgrade_screen_iap_action_hint">Erosketa bakarra: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Berreskuratu erosketa</string>
-    <string name="upgrade_screen_restore_purchase_message">Ez da erosketarik aurkitu. Kontu egokia erabiltzen ari zara?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Duela gutxi erosi baduzu, litekeena da Google Playk sinkronizatzeko denbora behar izatea.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Saiatu berriro minutu batzuk barru zure erosketa agertzen ez bada.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ziurtatu erosketa egiteko erabilitako Google kontu berarekin saioa hasita duzula.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Kontu anitzek Google Play nahas dezakete. Aplikazioa Google Play webgunearen bidez instalatzeak kontu jakin batekin lotzea behartzen du.</string>
     <string name="upgrade_screen_restore_banner_title">Dagoeneko Pro erosi duzu?</string>
     <string name="upgrade_screen_restore_banner_body">Badirudi lehenago gailu honetan Pro bertsiora eguneratu zenuela. Leheneratu zure erosketa berriro desblokeatzeko.</string>
     <string name="upgrade_screen_restore_success_message">Erosketa leheneratu da.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">CAPod Pro daukazu!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Zure harpidetzak desblokeatu du. Eskerrik asko CAPod babesteagatik!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Zure aldi bateko erosketak desblokeatu du. Eskerrik asko CAPod babesteagatik!</string>
-    <string name="upgrade_screen_owned_sub_title">Urteko harpidetza</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Zure harpidetza aktibo dago eta berritzeko ezarrita. Fakturazioa Google Playk kudeatzen du.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Zure harpidetza aktibo dago, baina ez dago berritzeko ezarrita. Pro eskuragarri egongo da uneko epea amaitu arte.</string>
     <string name="upgrade_screen_owned_iap_title">Erosketa bakarra</string>

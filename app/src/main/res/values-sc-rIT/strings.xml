@@ -3,7 +3,6 @@
     <string name="general_share_action">Cumpartzi</string>
     <string name="general_done_action">Fatu</string>
     <string name="general_cancel_action">Annulla</string>
-    <string name="general_copy_action">Còpia</string>
     <string name="general_thank_you_label">Gràtzias</string>
     <string name="general_upgrade_action">Agioma</string>
     <string name="general_retry_action">Torra pro</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Controlla</string>
     <string name="general_close_action">Serra</string>
     <string name="general_dismiss_action">Serrare</string>
-    <string name="general_edit_action">Modificare</string>
     <string name="general_save_action">Sarva</string>
     <string name="general_guide_action">Ghia</string>
     <string name="general_continue_action">Sighi</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Torrat a sonat sa mùsica cando torras a pònnere sos pods, ma petzi si sa pausa automàtica l\'at interrùmpida. Sas pausas chi as fatu tue etotu (telèfonu, mànicu AirPods, repòsu) restant in pausa.</string>
     <string name="settings_start_music_on_wear_label">Ativia sa mùsica cando los pones</string>
     <string name="settings_start_music_on_wear_description">Proat semper a sonat sa mùsica cando pones sos pods, fintzas a pustis de una pausa manuale.</string>
-    <string name="settings_eardetection_info_label">Nota subra su riconoschimentu de s\'origra</string>
     <string name="settings_eardetection_info_description">Si su riconoschimentu de s\'origra funtzionat isceti pro una corfita, custa est una limitatzione de Apple. Isceti sa \"corfita printzipale\" (impreada pro su micròfonu) est riconnota. Cunfigura in dispositivos Apple: Impostatziones → Bluetooth → AirPods → Micròfonu.</string>
-    <string name="settings_signal_minimum_label">Calidade mìnima de su signale</string>
-    <string name="settings_signal_minimum_description">Sa calidade mìnima de su signale chi unu dispositivu depet àere pro èssere cunsideradu tuo.</string>
     <string name="settings_autoconnect_label">Cullegamentu automàticu</string>
     <string name="settings_autoconnect_description">Si Android no si connectit automaticamente, li podimus pedire nois etotu. Custu mantenet CAPod a controllare in su sfondu de continu.</string>
     <string name="settings_autoconnect_info_android12">Sa connessione automàtica si basat in una funzionalidade de su sistema chi Android 12 e versiones prus modernas limitant. Podet no funtzionare in su dispositivu tuo.</string>
     <string name="settings_autoconnect_condition_label">Conditzione de cullegamentu automàticu</string>
-    <string name="settings_autoconnect_condition_description">Cando demus proare a nos cullegare a su dispositivu tuo?</string>
     <string name="settings_devices_label">Dispositivos</string>
     <string name="settings_devices_description">Gestisci is dispositivos tuos.</string>
     <string name="settings_reaction_label">Reatziones</string>
-    <string name="settings_category_yourdevice_label">Su dispositivu tuo</string>
     <string name="settings_category_compatibility_options_title">Opsiones de cumpatibilidade</string>
     <string name="settings_category_compatibility_options_description">Non toches si totu funtzionat ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Disativa filtràgiu hardware</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Acominzande…</string>
     <string name="support_debuglog_label">Registru de debug</string>
     <string name="support_debuglog_desc">Registra totu su chi s\'app est faghende in unu file de testu chi podes cumpartzire.</string>
-    <string name="debug_debuglog_size_label">Mannària</string>
-    <string name="debug_debuglog_size_compressed_label">Mannària cumpressada</string>
-    <string name="debug_notification_channel_label">Notìficas de debug</string>
-    <string name="debug_debuglog_file_label">File de registru registradu</string>
-    <string name="debug_debuglog_recording_progress">Registrende registru de debug</string>
     <string name="debug_debuglog_record_action">Registra registru de debug</string>
     <string name="debug_debuglog_stop_action">Frima registratzione</string>
     <string name="debug_debuglog_sensitive_information_message">Su file generadu cuntenet informatziones sensìbiles (es. detàllios de su dispositivu Bluetooth). Cumpartzi·ddu isceti cun partes afidàbiles.</string>
     <string name="settings_debuglog_explanation">Custa funtzione registrat totu su chi s\'app est faghende in unu file cumpartzìbile. Su file generadu cuntenet informatziones sensìbiles (es. detàllios de su dispositivu Bluetooth). Cumpartzi·ddu isceti cun partes afidàbiles (es. un\'isvilupadore chi est risolvende unu problema).</string>
-    <string name="settings_support_installid_label">ID de installatzione</string>
-    <string name="settings_support_installid_desc">Is reportes de errores automàticos sunt anònimos. Cumpartzi s\'ID de installatzione tuo si s\'isvilupadore tenet bisòngiu de agatare is reportes de errores tuos.</string>
     <string name="settings_support_label">Sustènnidu</string>
     <string name="settings_support_description">Si tenes bisòngiu de agiudu.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Reimitzializa is datos imparatos?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod at a scordinare su conisimentu misuadu de su dispositivu, sa velocidade de carriga e su tempus de ascultare, e at a recomentziare dae sa vida de bateria valuada.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
-    <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
-    <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
-    <string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
-    <string name="settings_compatibility_mode_description">Disativa otimizatziones pro megiorare sa cumpatibilidade. Proa custu si non ses bidende perunu datu.</string>
     <string name="help_translate_label">Tradutzione</string>
     <string name="help_translate_description">Agiuda a traduire custa app in sa limba tua preferida.</string>
     <string name="translators_thanks_title">Tradutores</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Sutzessu</string>
     <string name="troubleshooter_ble_result_success_body">CAPod est retzende is trasmissiones de advertisement BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Sena sutzessu</string>
-    <string name="troubleshooter_ble_result_failure_body">Sa risolutzione de problemas est fallida. Peruna cumbinatzione de optziones de cumpatibilidade at agiudadu.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Su telèfonu tuo no at retzidu perunu datu BLE. Podes torrare a proare custu test in un\'àrea prena de gente pro bìdere si si podent retzire fontes de datos (diversas dae is corfitas tuas). Su fatu chi no si retzat perunu datu ìndicat unu problema cun su sistema operativu de su telèfonu tuo.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Su telèfonu tuo at retzidu datos BLE, ma is datos non benint dae perunu dispositivu suportadu. Is corfitas tuas sunt allutas? CAPod suportat sa corfita tua?</string>
-    <string name="troubleshooter_ble_result_failure_action">Proa torra</string>
-    <string name="troubleshoot_action">Risòlve problemas</string>
     <string name="onboarding_body1">Custa app agiunghet suportu pro funtziones ispetzìficas de is AirPods a Android.</string>
     <string name="onboarding_body2">No totu is dispositivos Android suportant in prenu is funtziones extra de is AirPods. Su sistema operativu tuo recheret un\'implementatzione Bluetooth-Low-Energy chi funtzionet in manera curreta.</string>
     <string name="onboarding_body3">CAPod no tenet publitzidade e no arregollit is datos tuos.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Su tuo dispositivu est connètidu, ma CAPod non est retzende datos in diretta dae isse. Su tuo telèfonu podet avere bisòngiu de una opzione de compatibilidade — su risolvidore de problemas podet probare a nd\'agatare una autòmaticamente.</string>
     <string name="overview_troubleshoot_suggestion_action">Esèghit su risolvidore de problemas</string>
     <string name="overview_unmatched_devices_label">Dispositivos sena currispondèntzia</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d dispositivu sena profilu currispondente</item>
-        <item quantity="other">%d dispositivos sena profilu currispondente</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Est istadu detetadu %d dispositivu acurtzu chene profilu currispondente. Ammustra·lu pro nde bider is detàllios. Si est su tuo, agiunghe unu profilu dae Dispositivos pro lu reconnoschere.</item>
         <item quantity="other">Sunt istados detetados %d dispositivos acurtzu chene profilos currispondentes. Ammustra·los pro nde bider is detàllios. Si unu est su tuo, agiunghe unu profilu dae Dispositivos pro lu reconnoschere.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod imperat s\'\"atzessu a sa positzione in segundu pianu\" pro ativare funtziones comente \"Mustra popup\" e \"Cullegamentu automàticu\" cando s\'app est serrada. S\'atzessu a sa positzione in segundu pianu permitit a s\'app de retzire datos Bluetooth Low Energy cando est in segundu pianu. Custa app NON at a impreare datos Bluetooth pro determinare sa positzione tua.</string>
     <string name="permission_ignore_battery_optimizations_label">Disativa otimizatziones de bateria</string>
     <string name="permission_ignore_battery_optimizations_description">Is otimizatziones de bateria impedint a custa app de retzire datos Bluetooth in manera fidàbile cando est in segundu pianu.</string>
-    <string name="permission_required_title">Su permissu in fata est netzessàriu:</string>
     <string name="permission_system_alert_window_label">Ventana de alerta de su sistema</string>
     <string name="permission_system_alert_window_description">Permiti a CAPod de disegnare subra àteras apps pro rèndere possìbile sa funtzione \"Mustra PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cando est bidu</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">In s\'origra</string>
     <string name="pods_dual_left_label">Corfita manca</string>
     <string name="pods_dual_right_label">Corfita dereta</string>
-    <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Càscia</string>
     <string name="battery_unavailable_label">Batteria non disponibile</string>
     <string name="battery_state_low_cd">Bateria bassa</string>
     <string name="battery_state_critical_cd">Bateria criticamente bassa</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Culleghiamentu direttu ativu</string>
     <string name="signal_indicator_bars_cd">Fortza de su sinnale: %1$d de 4 barras</string>
     <string name="signal_indicator_disconnected_cd">Sinnale: disconnetidu</string>
-    <string name="pods_yours">Tuo</string>
     <string name="headset_being_worn_label">Indossadu</string>
     <string name="headset_not_being_worn_label">Non indossadu</string>
     <string name="pods_case_unknown_state">Istadu disconnotu</string>
-    <string name="last_seen_x">Bidu s\'ùrtima borta: %s</string>
-    <string name="first_seen_x">Bidu sa prima borta: %s</string>
     <string name="battery_cached_label">Úrtiùmu connotu · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dò %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dò</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Calidade mìnima de su signale</string>
     <string name="profiles_signal_quality_description">Rileva isceti dispositivos cun fortza de signale subra de custu lìmite. Valores prus bàscios augmentant su rayu de rilevamentu ma podent causare falsos positivos. Non pongas custu tropu artu - sa retzetzione Bluetooth est generalmente dèbile e bàriat cun sa distàntzia e is ostàculos.</string>
     <string name="profiles_identitykey_label">Crae de identidade</string>
-    <string name="profilessettings_maindevice_identitykey_description">Sa crae de risolutzione de identidade (IRK) de su dispositivu tuo, chi agiudat a CAPod a ddu identificare intre dispositivos acanta.</string>
     <string name="profiles_maindevice_identitykey_explanation">Is AirPods càmbiant a s\'ispissu s\'indiritzu Bluetooth issoro pro sa riservadesa. S\'IRK agiudat a CAPod a riconnòschere su dispositivu tuo. Bisòngiat de atzessu una borta isceti a unu MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Crae de tzifradra</string>
-    <string name="profiles_maindevice_encryptionkey_description">Sa crae de tzifradra de su dispositivu tuo, chi permitit a CAPod de recuperare informatziones de istadu detalliadas.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Is AirPods imbiant unu messàgiu de istadu, una parte de su cale est tzifradu. Sa crae de tzifradra permitit a CAPod de detzifrare su messàgiu cumpletu. Bisòngiat de atzessu una borta isceti a unu MacBook.</string>
     <string name="profiles_key_invalid_format">Formadu de crae non vàlidu</string>
     <string name="profiles_key_expected_format">Formadu previstu: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Tenes modìficas non sarvadas. Ite boles fàghere?</string>
     <string name="general_save_and_exit_action">Sarva e essi</string>
     <string name="general_discard_action">Iscarta</string>
-    <string name="general_keep_editing_action">Sighi a modificare</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Registratzione tropu curza</string>
     <string name="debug_debuglog_short_recording_message">Unu log de debug depit capturare su problema mentres sutzedit. Continua a registrare, reproduzi su problema, pustis fermada sa registratzione.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Impostatziones de su dispositivo</string>
     <string name="device_settings_subtitle_profile_prefix">Profilu: %s</string>
-    <string name="device_settings_info_name_label">Nùmene</string>
     <string name="device_settings_info_bt_name_label">Eticheta de su Dispositivu Bluetooth</string>
     <string name="device_settings_info_model_label">Modello</string>
     <string name="device_settings_info_manufacturer_label">Fabricante</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Forsis prus a tardu</string>
     <string name="review_app_body">Boles làssare una revisione a CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
     <string name="device_settings_microphone_mode_description">Cale auricolari est usadu comente micròfonu</string>
     <string name="device_settings_microphone_mode_auto">Automàticu</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play სერვისები მიუწვდომელია.</string>
-    <string name="upgrades_no_purchases_found_check_account">შენაძენები ვერ მოიძებნა. იყენებთ სწორ ანგარიშს?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play-ის შეცდომა</string>
     <string name="upgrades_gplay_billing_error_description">Google Play-ში მოხდა შეცდომა. სცადეთ მოგვიანებით ან გადატვირთეთ ტელეფონი.\n\nშეცდომა: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play ბილინგის შეცდომა</string>
-    <string name="upgrades_gplay_billing_result_error_description">შეცდომა მოხდა Google Play-დან შენაძენის დეტალების მოთხოვნისას. გაასუფთავეთ Google Play-ის ქეში და გადატვირთეთ ტელეფონი.\n\nშეცდომა %s</string>
     <string name="upgrades_gplay_already_owned_label">უკვე შეძენილია?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play იტყობინება, რომ ეს განახლება უკვე შეძენილი გაქვთ, მაგრამ მისი აღდგენა ვერ მოხერხდა. დარწმუნდით, რომ იყენებთ იმ Google ანგარიშს, რომლითაც შეიძინეთ. Play Store-ის სინქრონიზაციას შეიძლება დრო დასჭირდეს — სცადეთ გადატვირთვა, Google Play-ის ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>
-    <string name="upgrade_restore_action">შეძენის აღდგენა</string>
     <string name="upgrade_badge_label">პრო</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">მიიღეთ %1$s</string>
     <string name="upgrade_preamble">CAPod-ს ერთი ადამიანი ავითარებს. განახლება ხსნის დამატებით ფუნქციებს და ეხმარება აპლიკაციის ცოცხლად შენარჩუნებაში.</string>
-    <string name="upgrade_screen_options_description">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერა მოიცავს უფასო საცდელ პერიოდს და მისი გაუქმება შესაძლებელია ნებისმიერ დროს.</string>
-    <string name="upgrade_screen_options_description_no_trial">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერის გაუქმება შესაძლებელია ნებისმიერ დროს.</string>
     <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო საცდელი ვერსიით</string>
     <string name="upgrade_screen_subscription_action">გამოიწერეთ წლიურად</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/წელი</string>
     <string name="upgrade_screen_iap_action">ერთჯერადი შეძენა</string>
-    <string name="upgrade_screen_iap_action_hint">ერთჯერადი შესყიდვა: %s</string>
     <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
-    <string name="upgrade_screen_restore_purchase_message">შენაძენები ვერ მოიძებნა. იყენებთ სწორ ანგარიშს?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">თუ ახლახან შეიძინეთ, Google Play-ს სინქრონიზაციისთვის შეიძლება გარკვეული დრო დასჭირდეს.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">თუ თქვენი შესყიდვა არ გამოჩნდა, სცადეთ ხელახლა რამდენიმე წუთში.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">დარწმუნდით, რომ შესული ხართ იმავე Google ანგარიშით, რომლითაც შესყიდვა განახორციელეთ.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">რამდენიმე ანგარიშმა შეიძლება Google Play დააბნიოს. აპლიკაციის Google Play-ის ვებგვერდის საშუალებით დაყენება აიძულებს კონკრეტულ ანგარიშთან დაკავშირებას.</string>
     <string name="upgrade_screen_restore_banner_title">უკვე შეიძინეთ Pro?</string>
     <string name="upgrade_screen_restore_banner_body">როგორც ჩანს, ამ მოწყობილობაზე ადრე უკვე განაახლეთ Pro-მდე. აღადგინეთ თქვენი შესყიდვა მის ხელახლა გასახსნელად.</string>
     <string name="upgrade_screen_restore_success_message">შესყიდვა აღდგენილია.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">თქვენ გაქვთ CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">გახსნილია თქვენი გამოწერით. მადლობა CAPod-ის მხარდაჭერისთვის!</string>
     <string name="upgrade_screen_owned_hero_iap_body">გახსნილია თქვენი ერთჯერადი შესყიდვით. მადლობა CAPod-ის მხარდაჭერისთვის!</string>
-    <string name="upgrade_screen_owned_sub_title">წლიური გამოწერა</string>
     <string name="upgrade_screen_owned_sub_renewing_body">თქვენი გამოწერა აქტიურია და განახლდება ავტომატურად. ბილინგს მართავს Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">თქვენი გამოწერა აქტიურია, მაგრამ არ არის დაყენებული განახლებაზე. Pro ხელმისაწვდომი დარჩება მიმდინარე პერიოდის დასრულებამდე.</string>
     <string name="upgrade_screen_owned_iap_title">ერთჯერადი შეძენა</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play 服務無法使用。</string>
-    <string name="upgrades_no_purchases_found_check_account">未找到訂單，確定帳戶無誤？</string>
     <string name="upgrades_gplay_billing_error_label">Google Play 錯誤</string>
     <string name="upgrades_gplay_billing_error_description">Google Play 發生錯誤。請稍後再試或重新啟動手機。\n\n錯誤：%s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play 結帳錯誤</string>
-    <string name="upgrades_gplay_billing_result_error_description">向 Google Play 請求購買明細時發生錯誤。請清除 Google Play 快取並重新啟動手機。\n\n錯誤：%s</string>
     <string name="upgrades_gplay_already_owned_label">已經購買？</string>
     <string name="upgrades_gplay_already_owned_description">Google Play 顯示你已經擁有此升級項目，但無法還原。請確保你使用購買時所用的 Google 帳戶。Play 商店同步可能需要一些時間——你可以嘗試重新啟動裝置、清除 Google Play 快取，或耐心等候。</string>
-    <string name="upgrade_restore_action">恢復購買</string>
     <string name="upgrade_badge_label">專業版</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">取得 %1$s</string>
     <string name="upgrade_preamble">CAPod 由一個人開發。升級可解鎖額外功能，並有助維持應用程式繼續運作。</string>
-    <string name="upgrade_screen_options_description">功能相同，定價不同。訂閱方案包含免費試用，並可隨時取消。</string>
-    <string name="upgrade_screen_options_description_no_trial">功能相同，定價不同。訂閱方案可隨時取消。</string>
     <string name="upgrade_screen_subscription_trial_action">開始免費試用</string>
     <string name="upgrade_screen_subscription_action">按年訂閱</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/年</string>
     <string name="upgrade_screen_iap_action">一次性購買</string>
-    <string name="upgrade_screen_iap_action_hint">一次性購買：%s</string>
     <string name="upgrade_screen_restore_purchase_action">恢復購買</string>
-    <string name="upgrade_screen_restore_purchase_message">未找到訂單，確定帳戶無誤？</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">如果你最近才購買，Google Play 可能需要一些時間才能同步。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">如果購買記錄未有顯示，請於幾分鐘後再試。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">請確保你使用購買時所用的同一個 Google 帳戶登入。</string>
-    <string name="upgrade_screen_restore_webinstall_hint">多個帳戶可能會令 Google Play 混淆。透過 Google Play 網站安裝應用程式，可強制與特定帳戶建立關聯。</string>
     <string name="upgrade_screen_restore_banner_title">已經購買 Pro？</string>
     <string name="upgrade_screen_restore_banner_body">看來你之前曾在此裝置升級至 Pro。還原購買以再次解鎖。</string>
     <string name="upgrade_screen_restore_success_message">購買已還原。</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">你已擁有 CAPod Pro！</string>
     <string name="upgrade_screen_owned_hero_sub_body">由你的訂閱解鎖。感謝你支持 CAPod！</string>
     <string name="upgrade_screen_owned_hero_iap_body">由你的一次性購買解鎖。感謝你支持 CAPod！</string>
-    <string name="upgrade_screen_owned_sub_title">年度訂閱</string>
     <string name="upgrade_screen_owned_sub_renewing_body">你的訂閱有效，並設定為自動續訂。帳單由 Google Play 管理。</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">你的訂閱有效，但未設定自動續訂。Pro 將維持可用，直到目前計費周期結束。</string>
     <string name="upgrade_screen_owned_iap_title">一次購買</string>

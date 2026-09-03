@@ -3,7 +3,6 @@
     <string name="general_share_action">Shiriki</string>
     <string name="general_done_action">Nimemaliza</string>
     <string name="general_cancel_action">Ghairi</string>
-    <string name="general_copy_action">Nakili</string>
     <string name="general_thank_you_label">Asante</string>
     <string name="general_upgrade_action">Boresha</string>
     <string name="general_retry_action">Jaribu Tena</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Angalia</string>
     <string name="general_close_action">Funga</string>
     <string name="general_dismiss_action">Ondoa</string>
-    <string name="general_edit_action">Hariri</string>
     <string name="general_save_action">Hifadhi</string>
     <string name="general_guide_action">Mwongozo</string>
     <string name="general_continue_action">Endelea</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Endelea kucheza muziki unapovaa pods zako tena, lakini tu kama Kusimama kiotomatiki kuliisimamisha. Kusimama ulikoanzisha mwenyewe (simu, mpini wa AirPods, kulala) kunabaki.</string>
     <string name="settings_start_music_on_wear_label">Anza muziki unapovaa</string>
     <string name="settings_start_music_on_wear_description">Hujaribu kucheza muziki kila unapovaa pods zako, hata baada ya kusimama kwa mikono.</string>
-    <string name="settings_eardetection_info_label">Maelezo ya utambuzi wa sikio</string>
     <string name="settings_eardetection_info_description">Ikiwa utambuzi wa sikio unafanya kazi kwa ganda moja tu, hii ni kizuizi cha Apple. Ganda \"kuu\" pekee (linalotumiwa kwa kipaza sauti) linatambuliwa. Sanidi kwenye vifaa vya Apple: Mipangilio → Bluetooth → AirPods → Kipaza sauti.</string>
-    <string name="settings_signal_minimum_label">Ubora wa chini wa mawimbi</string>
-    <string name="settings_signal_minimum_description">Ubora wa chini wa mawimbi ambao kifaa kinahitaji kuwa nao ili kuzingatiwa kuwa chako.</string>
     <string name="settings_autoconnect_label">Unganisha kiotomatiki</string>
     <string name="settings_autoconnect_description">Iwapo Android haiunganishi kiotomatiki, tunaweza kuiomba pia. Hii inaweka CAPod ikifuatilia nyuma ya pazia kila wakati.</string>
     <string name="settings_autoconnect_info_android12">Uunganisho wa kiotomatiki unategemea kipengele cha mfumo ambacho Android 12 na toleo jipya huzuia. Huenda usifanye kazi kwenye kifaa chako.</string>
     <string name="settings_autoconnect_condition_label">Sharti la kuunganisha kiotomatiki</string>
-    <string name="settings_autoconnect_condition_description">Lini tujaribu kuunganisha kwenye kifaa chako?</string>
     <string name="settings_devices_label">Vifaa</string>
     <string name="settings_devices_description">Simamia vifaa vyako.</string>
     <string name="settings_reaction_label">Matendo</string>
-    <string name="settings_category_yourdevice_label">Kifaa chako</string>
     <string name="settings_category_compatibility_options_title">Chaguo za uoanifu</string>
     <string name="settings_category_compatibility_options_description">Usiguse ikiwa kila kitu kinafanya kazi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Zima uchujaji wa maunzi</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Inaanza...</string>
     <string name="support_debuglog_label">Kumbukumbu ya utatuzi</string>
     <string name="support_debuglog_desc">Rekodi kila kitu ambacho programu inafanya kwenye faili ya maandishi unayoweza kushiriki.</string>
-    <string name="debug_debuglog_size_label">Ukubwa</string>
-    <string name="debug_debuglog_size_compressed_label">Ukubwa uliobanwa</string>
-    <string name="debug_notification_channel_label">Arifa za utatuzi</string>
-    <string name="debug_debuglog_file_label">Faili ya kumbukumbu iliyorekodiwa</string>
-    <string name="debug_debuglog_recording_progress">Inarekodi kumbukumbu ya utatuzi</string>
     <string name="debug_debuglog_record_action">Rekodi kumbukumbu ya utatuzi</string>
     <string name="debug_debuglog_stop_action">Acha kurekodi</string>
     <string name="debug_debuglog_sensitive_information_message">Faili iliyotengenezwa ina taarifa nyeti (k.m. maelezo ya kifaa cha Bluetooth). Shiriki tu na wahusika wanaoaminika.</string>
     <string name="settings_debuglog_explanation">Kipengele hiki hurekodi kila kitu ambacho programu inafanya kwenye faili inayoweza kushirikiwa. Faili iliyotengenezwa ina taarifa nyeti (k.m. maelezo ya kifaa cha Bluetooth). Shiriki tu na wahusika wanaoaminika (k.m. msanidi programu anayetatua tatizo).</string>
-    <string name="settings_support_installid_label">Kitambulisho cha Usakinishaji</string>
-    <string name="settings_support_installid_desc">Ripoti za hitilafu za kiotomatiki hazijulikani. Shiriki kitambulisho chako cha usakinishaji ikiwa msanidi programu anahitaji kupata ripoti zako za hitilafu.</string>
     <string name="settings_support_label">Msaada</string>
     <string name="settings_support_description">Ikiwa unahitaji msaada.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Weka upya data iliyojifunza?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod itasahau kupungua kwa betri kulikopimwa, kasi ya chaji, na muda wa kusikiliza wa kifaa hiki, na kuanza tena kutoka kwa maisha ya betri yaliyokadiriwa.</string>
     <string name="settings_acknowledgements_label">Shukrani</string>
-    <string name="settings_debug_autoreports_label">Ripoti za hitilafu za kiotomatiki</string>
-    <string name="settings_debug_autoreports_description">Huripoti matatizo kiotomatiki, k.m. maelezo kuhusu kuacha kufanya kazi kwa programu ili niweze kujua jinsi ya kuyarekebisha.</string>
-    <string name="settings_compatibility_mode_label">Hali ya uoanifu</string>
-    <string name="settings_compatibility_mode_description">Zima uboreshaji ili kuboresha uoanifu. Jaribu hii ikiwa huoni data yoyote.</string>
     <string name="help_translate_label">Tafsiri</string>
     <string name="help_translate_description">Saidia kutafsiri programu hii katika lugha yako uipendayo.</string>
     <string name="translators_thanks_title">Watafsiri</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Imefanikiwa</string>
     <string name="troubleshooter_ble_result_success_body">Matangazo ya BLE yanapokewa na CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Haikufanikiwa</string>
-    <string name="troubleshooter_ble_result_failure_body">Utatuzi haukufanikiwa. Hakuna mchanganyiko wa chaguo za uoanifu ulisaidia.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Simu yako haikupokea data yoyote ya BLE. Unaweza kujaribu tena jaribio hili katika eneo lenye watu wengi kuona ikiwa vyanzo vya data (zaidi ya vipokea sauti vyako) vinaweza kupokewa. Kutopokea data yoyote kunaashiria tatizo na mfumo wa uendeshaji wa simu yako.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Simu yako ilipokea data ya BLE, lakini data haitoki kwenye kifaa chochote kinachoungwa mkono. Je, vipokea sauti vyako vimewashwa? Je, CAPod inasaidia kipokea sauti chako?</string>
-    <string name="troubleshooter_ble_result_failure_action">Jaribu tena</string>
-    <string name="troubleshoot_action">Tatua matatizo</string>
     <string name="onboarding_body1">Programu hii inaongeza usaidizi kwa vipengele maalum vya AirPod kwenye Android.</string>
     <string name="onboarding_body2">Si vifaa vyote vya Android vinavyosaidia kikamilifu vipengele vya ziada vya AirPod. Mfumo wako wa uendeshaji unahitaji utekelezaji sahihi wa Bluetooth ya Nishati ya Chini.</string>
     <string name="onboarding_body3">CAPod haina matangazo na haikusanyi data yako.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Kifaa chako kimeunganishwa, lakini CAPod haipokei data yoyote ya moja kwa moja kutoka kwake. Simu yako inaweza kuhitaji chaguo la uoanifu — kitatuzi cha matatizo kinaweza kujaribu kupata moja kiotomatiki.</string>
     <string name="overview_troubleshoot_suggestion_action">Endesha kitatuzi cha matatizo</string>
     <string name="overview_unmatched_devices_label">Vifaa visivyolingana</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">Kifaa %d bila wasifu unaolingana</item>
-        <item quantity="other">Vifaa %d bila wasifu unaolingana</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Kifaa %d kilicho karibu kimegunduliwa bila wasifu unaolingana. Kionyeshe kwa maelezo yanayopatikana. Ikiwa ni chako, ongeza wasifu kutoka kwa Vifaa ili kukitambua.</item>
         <item quantity="other">Vifaa %d vilivyo karibu vimegunduliwa bila wasifu unaolingana. Vionyeshe kwa maelezo yanayopatikana. Ikiwa kimoja ni chako, ongeza wasifu kutoka kwa Vifaa ili kukitambua.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod inatumia \"ufikiaji wa eneo kwa usuli wa nyuma\" kuwezesha vipengele kama \"Onyesha kidirisha\" na \"Unganisha kiotomatiki\" wakati programu imefungwa. Ufikiaji wa eneo kwa usuli wa nyuma inaruhusu programu kupokea data ya Bluetooth Low Energy wakati iko nyuma. Programu hii HAITATUMIA data ya Bluetooth kubainisha eneo lako.</string>
     <string name="permission_ignore_battery_optimizations_label">Zima uboreshaji wa betri</string>
     <string name="permission_ignore_battery_optimizations_description">Uboreshaji wa betri unazuia programu hii kupokea kwa uhakika data ya Bluetooth wakati programu iko nyuma.</string>
-    <string name="permission_required_title">Ruhusa ifuatayo inahitajika:</string>
     <string name="permission_system_alert_window_label">Dirisha la Arifa ya Mfumo</string>
     <string name="permission_system_alert_window_description">Ruhusu CAPod kuchora juu ya programu nyingine ili kuwezesha kipengele cha \"Onyesha Kidirisha\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kinapopatikana</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Ndani ya sikio</string>
     <string name="pods_dual_left_label">Ganda la kushoto</string>
     <string name="pods_dual_right_label">Ganda la kulia</string>
-    <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">K</string>
-    <string name="pods_case_label">Kipochi</string>
     <string name="battery_unavailable_label">Betri haipatikani</string>
     <string name="battery_state_low_cd">Betri iko chini</string>
     <string name="battery_state_critical_cd">Betri iko chini sana</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Muunganisho wa moja kwa moja unaofanya kazi</string>
     <string name="signal_indicator_bars_cd">Nguvu ya ishara: %1$d kati ya baa 4</string>
     <string name="signal_indicator_disconnected_cd">Ishara: imekatika</string>
-    <string name="pods_yours">Chako</string>
     <string name="headset_being_worn_label">Inavaliwa</string>
     <string name="headset_not_being_worn_label">Haivaliwi</string>
     <string name="pods_case_unknown_state">Hali isiyojulikana</string>
-    <string name="last_seen_x">Mara ya mwisho kuonekana: %s</string>
-    <string name="first_seen_x">Mara ya kwanza kuonekana: %s</string>
     <string name="battery_cached_label">Inayojulikana mwisho · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Ubora wa Chini wa Mawimbi</string>
     <string name="profiles_signal_quality_description">Tambua vifaa vyenye nguvu ya mawimbi juu ya kizingiti hiki tu. Thamani za chini huongeza anuwai ya utambuzi lakini zinaweza kusababisha matokeo ya uwongo. Usiweke juu sana — mapokeo ya Bluetooth kwa ujumla ni dhaifu na yanabadilika kwa umbali na vizuizi.</string>
     <string name="profiles_identitykey_label">Ufunguo wa Utambulisho</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) ya kifaa chako, ambayo husaidia CAPod kukitambua miongoni mwa vifaa vilivyo karibu.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods mara kwa mara hubadilisha anwani yao ya Bluetooth kwa faragha. IRK husaidia CAPod kutambua kifaa chako. Unahitaji ufikiaji wa mara moja wa MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Ufunguo wa Usimbaji</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ufunguo wa usimbaji wa kifaa chako, ambao unaruhusu CAPod kupata maelezo ya kina ya hali.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods hutuma ujumbe wa hali, sehemu ambayo imesimbwa. Ufunguo wa usimbaji unaruhusu CAPod kusimbua ujumbe kamili. Unahitaji ufikiaji wa mara moja wa MacBook.</string>
     <string name="profiles_key_invalid_format">Muundo batili wa ufunguo</string>
     <string name="profiles_key_expected_format">Muundo unaotarajiwa: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Una mabadiliko yasiyohifadhiwa. Ungependa kufanya nini?</string>
     <string name="general_save_and_exit_action">Hifadhi &amp; Ondoka</string>
     <string name="general_discard_action">Tupa</string>
-    <string name="general_keep_editing_action">Endelea Kuhariri</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Rekodi fupi mno</string>
     <string name="debug_debuglog_short_recording_message">Kumbukumbu ya utatuzi inahitaji kunasa tatizo linapotokea. Endelea kurekodi, rudia tatizo, kisha simamisha rekodi.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Mipangilio ya Kifaa</string>
     <string name="device_settings_subtitle_profile_prefix">Profaili: %s</string>
-    <string name="device_settings_info_name_label">Jina</string>
     <string name="device_settings_info_bt_name_label">Lebo ya Kifaa cha Bluetooth</string>
     <string name="device_settings_info_model_label">Mfano</string>
     <string name="device_settings_info_manufacturer_label">Mtengenezaji</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Labda baadaye</string>
     <string name="review_app_body">Je, ungependa kuacha mapitio ya CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Jumla</string>
     <string name="device_settings_microphone_mode_label">Maikrofoni</string>
     <string name="device_settings_microphone_mode_description">Kipokea sauti kipi kinatumika kama maikrofoni</string>
     <string name="device_settings_microphone_mode_auto">Otomatiki</string>

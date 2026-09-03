@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play-dienste is nie beskikbaar nie.</string>
-    <string name="upgrades_no_purchases_found_check_account">Geen aankope gevind nie. Gebruik jy die regte rekening?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play-fout</string>
     <string name="upgrades_gplay_billing_error_description">Daar was \'n fout in Google Play. Probeer asseblief later weer of herbegin jou foon.\n\nFout: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfout</string>
-    <string name="upgrades_gplay_billing_result_error_description">Daar was \'n fout toe Google Play om jou aankoopbesonderhede gevra is. Maak die Google Play-kas skoon en herbegin jou foon.\n\nFout %s</string>
     <string name="upgrades_gplay_already_owned_label">Reeds gekoop?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play meld dat jy reeds hierdie opgradering besit, maar dit kon nie herstel word nie. Maak seker jy gebruik die Google-rekening waarmee jy gekoop het. Play Store-sinkronisasie kan tyd neem — probeer herbegin, maak die Google Play-kas skoon, of wag eenvoudig \'n rukkie.</string>
-    <string name="upgrade_restore_action">Herstel aankoop</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Kry %1$s</string>
     <string name="upgrade_preamble">CAPod word deur een persoon ontwikkel. Opgradering ontsluit ekstra kenmerke en help om die toepassing lewend te hou.</string>
-    <string name="upgrade_screen_options_description">Dieselfde kenmerke, verskillende pryse. Die intekening sluit \'n gratis proeftydperk in en kan te eniger tyd gekanselleer word.</string>
-    <string name="upgrade_screen_options_description_no_trial">Dieselfde kenmerke, verskillende pryse. Die intekening kan te eniger tyd gekanselleer word.</string>
     <string name="upgrade_screen_subscription_trial_action">Begin gratis proeftydperk</string>
     <string name="upgrade_screen_subscription_action">Teken jaarliks in</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/jaar</string>
     <string name="upgrade_screen_iap_action">Koop eenmalig</string>
-    <string name="upgrade_screen_iap_action_hint">Eenmalige aankoop: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
-    <string name="upgrade_screen_restore_purchase_message">Geen aankope gevind nie. Gebruik jy die regte rekening?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">As jy onlangs gekoop het, kan dit \'n rukkie neem vir Google Play om te sinkroniseer.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Probeer weer oor \'n paar minute as jou aankoop nie verskyn nie.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Maak seker jy is aangemeld met dieselfde Google-rekening wat vir die aankoop gebruik is.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Veelvuldige rekeninge kan Google Play verwar. Deur die toepassing via die Google Play-webwerf te installeer, word die assosiasie met \'n spesifieke rekening afgedwing.</string>
     <string name="upgrade_screen_restore_banner_title">Reeds Pro gekoop?</string>
     <string name="upgrade_screen_restore_banner_body">Dit lyk asof jy voorheen op hierdie toestel na Pro opgegradeer het. Herstel jou aankoop om dit weer te ontsluit.</string>
     <string name="upgrade_screen_restore_success_message">Aankoop herstel.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Jy het CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Ontsluit deur jou intekening. Dankie dat jy CAPod ondersteun!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Ontsluit deur jou eenmalige aankoop. Dankie dat jy CAPod ondersteun!</string>
-    <string name="upgrade_screen_owned_sub_title">Jaarlikse intekening</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Jou intekening is aktief en gestel om te hernu. Fakturering word deur Google Play bestuur.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Jou intekening is aktief, maar nie gestel om te hernu nie. Pro bly beskikbaar totdat die huidige tydperk eindig.</string>
     <string name="upgrade_screen_owned_iap_title">Eenmalige aankoop</string>

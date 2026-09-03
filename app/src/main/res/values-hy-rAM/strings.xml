@@ -3,7 +3,6 @@
     <string name="general_share_action">Կիսվել</string>
     <string name="general_done_action">Պատրաստ է</string>
     <string name="general_cancel_action">Չեղարկել</string>
-    <string name="general_copy_action">Պատճենել</string>
     <string name="general_thank_you_label">Շնորհակալություն</string>
     <string name="general_upgrade_action">Թարմացնել</string>
     <string name="general_retry_action">Կրկնել</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Ստուգել</string>
     <string name="general_close_action">Փակել</string>
     <string name="general_dismiss_action">Մերժել</string>
-    <string name="general_edit_action">Խմբագրել</string>
     <string name="general_save_action">Պահպանել</string>
     <string name="general_guide_action">Ուղեցույց</string>
     <string name="general_continue_action">Շարունակել</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Վերսկսել երաժշտությունը, երբ կրկին կրում եք ականջակալները, բայց միայն եթե Ավտոդադարը դադարեցրել է այն: Ձեր ձեռքով կատարած դադարները (հեռախոս, AirPods ոտք, քուն) մնում են դադարած:</string>
     <string name="settings_start_music_on_wear_label">Երաժշտություն սկսել կրելիս</string>
     <string name="settings_start_music_on_wear_description">Միշտ փորձում է նվագել երաժշտություն, երբ կկրեք ականջակալները, նույնիսկ ձեռքով դադարից հետո:</string>
-    <string name="settings_eardetection_info_label">Ականջում հայտնաբերման նշում</string>
     <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string>
-    <string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
-    <string name="settings_signal_minimum_description">Ազդանշանի նվազագույն որակը, որը պետք է ունենա սարքը՝ ձերը համարվելու համար։</string>
     <string name="settings_autoconnect_label">Ինքնամիացում</string>
     <string name="settings_autoconnect_description">Եթե Android-ը ինքնաբերաբար չի միանում, մենք կարող ենք այն հարցնել նաև: Սա պահում է CAPod մոնիտորինգը ֆոնային ռեժիմում ամբողջ ժամանակ:</string>
     <string name="settings_autoconnect_info_android12">Ավտոմատ կապը հիմնված է համակարգի հատկության վրա, որը Android 12-ը և ավելի նոր տարբերակները սահմանափակում են: Հնարավոր է այն չաշխատի ձեր սարքում:</string>
     <string name="settings_autoconnect_condition_label">Ինքնամիացման պայման</string>
-    <string name="settings_autoconnect_condition_description">Ե՞րբ պետք է փորձենք միանալ ձեր սարքին։</string>
     <string name="settings_devices_label">Սարքեր</string>
     <string name="settings_devices_description">Կառավարեք ձեր սարքերը։</string>
     <string name="settings_reaction_label">Արձագանքներ</string>
-    <string name="settings_category_yourdevice_label">Ձեր սարքը</string>
     <string name="settings_category_compatibility_options_title">Համատեղելիության ընտրանքներ</string>
     <string name="settings_category_compatibility_options_description">Մի դիպչեք, եթե ամեն ինչ աշխատում է ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Անջատել սարքակազմային զտումը</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Մեկնարկում է…</string>
     <string name="support_debuglog_label">Կարգաբերման մատյան</string>
     <string name="support_debuglog_desc">Գրանցեք այն ամենը, ինչ անում է հավելվածը տեքստային ֆայլում, որը կարող եք կիսվել։</string>
-    <string name="debug_debuglog_size_label">Չափը</string>
-    <string name="debug_debuglog_size_compressed_label">Սեղմված չափը</string>
-    <string name="debug_notification_channel_label">Կարգաբերման ծանուցումներ</string>
-    <string name="debug_debuglog_file_label">Գրանցված մատյանի ֆայլ</string>
-    <string name="debug_debuglog_recording_progress">Կարգաբերման մատյանի գրանցում</string>
     <string name="debug_debuglog_record_action">Գրանցել կարգաբերման մատյանը</string>
     <string name="debug_debuglog_stop_action">Դադարեցնել գրանցումը</string>
     <string name="debug_debuglog_sensitive_information_message">Ստեղծված ֆայլը պարունակում է զգայուն տեղեկատվություն (օրինակ՝ Bluetooth սարքի մանրամասները)։ Կիսվեք այն միայն վստահելի կողմերի հետ։</string>
     <string name="settings_debuglog_explanation">Այս գործառույթը գրանցում է այն ամենը, ինչ անում է հավելվածը, համօգտագործվող ֆայլում։ Ստեղծված ֆայլը պարունակում է զգայուն տեղեկատվություն (օրինակ՝ Bluetooth սարքի մանրամասները)։ Կիսվեք այն միայն վստահելի կողմերի հետ (օրինակ՝ մշակողի հետ, որը լուծում է խնդիրը)։</string>
-    <string name="settings_support_installid_label">Տեղադրման ID</string>
-    <string name="settings_support_installid_desc">Սխալների ավտոմատ հաշվետվություններն անանուն են։ Կիսվեք ձեր տեղադրման ID-ով, եթե մշակողը պետք է գտնի ձեր սխալների հաշվետվությունները։</string>
     <string name="settings_support_label">Աջակցություն</string>
     <string name="settings_support_description">Եթե օգնության կարիք ունեք։</string>
     <string name="settings_wiki_label">Վիքի</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Վերականգնել սովորած տվյալները?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod-ը կմոռանա այս սարքի չափված լիցքազրկումը, լիցքավորման արագությունը և լսելու ժամանակը, և կսկսի նորից գնահատված մարտկոցի կյանքից:</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
-    <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
-    <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
-    <string name="settings_compatibility_mode_label">Համատեղելիության ռեժիմ</string>
-    <string name="settings_compatibility_mode_description">Անջատեք օպտիմիզացումները՝ համատեղելիությունը բարելավելու համար։ Փորձեք սա, եթե տվյալներ չեք տեսնում։</string>
     <string name="help_translate_label">Թարգմանություն</string>
     <string name="help_translate_description">Օգնեք թարգմանել այս հավելվածը ձեր սիրելի լեզվով։</string>
     <string name="translators_thanks_title">Թարգմանիչներ</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Հաջողություն</string>
     <string name="troubleshooter_ble_result_success_body">BLE գովազդային հեռարձակումները ստացվում են CAPod-ի կողմից։</string>
     <string name="troubleshooter_ble_result_failure_title">Անհաջող</string>
-    <string name="troubleshooter_ble_result_failure_body">Խնդիրների լուծումը ձախողվեց։ Համատեղելիության տարբերակների ոչ մի համակցություն չօգնեց։</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ձեր հեռախոսն ընդհանրապես BLE տվյալներ չի ստացել։ Կարող եք այս թեստն անցկացնել մարդաշատ վայրում՝ տեսնելու, թե արդյոք կարող են ստացվել տվյալների աղբյուրներ (բացի ձեր ականջակալներից)։ Տվյալներ չստանալը վկայում է ձեր հեռախոսի օպերացիոն համակարգի հետ կապված խնդրի մասին։</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ձեր հեռախոսը BLE տվյալներ է ստացել, սակայն տվյալները չեն գալիս որևէ աջակցվող սարքից։ Ձեր ականջակալները միացվա՞ծ են։ CAPod-ն աջակցո՞ւմ է ձեր ականջակալներին։</string>
-    <string name="troubleshooter_ble_result_failure_action">Կրկին փորձել</string>
-    <string name="troubleshoot_action">Լուծել խնդիրները</string>
     <string name="onboarding_body1">Այս հավելվածը Android-ին ավելացնում է AirPod-ի հատուկ գործառույթների աջակցություն։</string>
     <string name="onboarding_body2">Ոչ բոլոր Android սարքերն են լիովին աջակցում AirPod-ի լրացուցիչ գործառույթները։ Ձեր օպերացիոն համակարգը պահանջում է Bluetooth-Low-Energy-ի ճիշտ աշխատող իրականացում։</string>
     <string name="onboarding_body3">CAPod-ը գովազդ չունի և չի հավաքում ձեր տվյալները։</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Ձեր սարքը միացված է, սակայն CAPod-ը կենդանի տվյալներ չի ստանում դրանից: Ձեր հեռախոսը կարող է կոմպատիբիլության տարբերակի կարիք ունենալ — խնդիրների լուծիչը կարող է ավտոմատ կերպով գտնել համապատասխանը:</string>
     <string name="overview_troubleshoot_suggestion_action">Գործարկել խնդիրների լուծիչը</string>
     <string name="overview_unmatched_devices_label">Չհամապատասխանող սարքեր</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d սարք՝ առանց համապատասխան պրոֆիլի</item>
-        <item quantity="other">%d սարք՝ առանց համապատասխան պրոֆիլի</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d մոտակա սարք հայտնաբերվեց առանց համապատասխան պրոֆիլի: Ցուցադրեք մատչելի մանրամասների համար: Եթե այն ձերն է, ավելացրեք պրոֆիլ Սարքեր բաժնից՝ այն ճանաչելու համար:</item>
         <item quantity="other">%d մոտակա սարքեր հայտնաբերվեցին առանց համապատասխան պրոֆիլների: Ցուցադրեք դրանք մատչելի մանրամասների համար: Եթե դրանցից մեկը ձերն է, ավելացրեք պրոֆիլ Սարքեր բաժնից՝ այն ճանաչելու համար:</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod-ը օգտագործում է \"ֆոնային տեղադրության մուտք\" թույլտվությունը՝ \"Ցուցադրել բացվող պատուհան\" և \"Ինքնամիացում\" գործառույթները միացնելու համար, երբ հավելվածը փակ է։ Ֆոնային տեղադրության մուտքը հավելվածին թույլ է տալիս ստանալ Bluetooth Low Energy տվյալներ, երբ այն ֆոնային ռեժիմում է։ Այս հավելվածը ՉԻ օգտագործի Bluetooth տվյալները ձեր տեղադրությունը որոշելու համար։</string>
     <string name="permission_ignore_battery_optimizations_label">Անջատել մարտկոցի օպտիմիզացումները</string>
     <string name="permission_ignore_battery_optimizations_description">Մարտկոցի օպտիմիզացումները թույլ չեն տալիս այս հավելվածին հուսալիորեն ստանալ Bluetooth տվյալներ, երբ այն ֆոնային ռեժիմում է։</string>
-    <string name="permission_required_title">Հետևյալ թույլտվությունն անհրաժեշտ է՝</string>
     <string name="permission_system_alert_window_label">Համակարգային զգուշացման պատուհան</string>
     <string name="permission_system_alert_window_description">Թույլ տվեք CAPod-ին նկարել այլ հավելվածների վերևում՝ \"Ցուցադրել բացվող պատուհան\" գործառույթը հնարավոր դարձնելու համար։</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Երբ տեսնվում է</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Ականջում է</string>
     <string name="pods_dual_left_label">Ձախ ականջակալ</string>
     <string name="pods_dual_right_label">Աջ ականջակալ</string>
-    <string name="pods_dual_left_short_label">Ձ</string>
-    <string name="pods_dual_right_short_label">Ա</string>
-    <string name="pods_case_label">Պատյան</string>
     <string name="battery_unavailable_label">Մարտկոցը անհասանելի է</string>
     <string name="battery_state_low_cd">Մարտկոցի ցածր լիցք</string>
     <string name="battery_state_critical_cd">Մարտկոցի կրիտիկական ցածր լիցք</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Ուղղակի կապն ակտիվ է</string>
     <string name="signal_indicator_bars_cd">Ազդանշանի ուժ՝ %1$d 4-ից</string>
     <string name="signal_indicator_disconnected_cd">Ազդանշան՝ անջատված</string>
-    <string name="pods_yours">Ձերը</string>
     <string name="headset_being_worn_label">Կրվում է</string>
     <string name="headset_not_being_worn_label">Չի կրվում</string>
     <string name="pods_case_unknown_state">Անհայտ վիճակ</string>
-    <string name="last_seen_x">Վերջին անգամ տեսնված՝ %s</string>
-    <string name="first_seen_x">Առաջին անգամ տեսնված՝ %s</string>
     <string name="battery_cached_label">Վերջին հայտնի · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dժ %2$dր</string>
     <string name="battery_time_remaining_format_h">%1$dժ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Ազդանշանի նվազագույն որակ</string>
     <string name="profiles_signal_quality_description">Հայտնաբերել միայն այն սարքերը, որոնց ազդանշանի ուժը բարձր է այս շեմից։ Ցածր արժեքները մեծացնում են հայտնաբերման տարածությունը, բայց կարող են առաջացնել սխալ դրական արդյունքներ։ Սա չափազանց բարձր մի՛ դրեք՝ Bluetooth ընդունումն ընդհանրապես թույլ է և փոխվում է՝ կախված հեռավորությունից և խոչընդոտներից։</string>
     <string name="profiles_identitykey_label">Ինքնության բանալի</string>
-    <string name="profilessettings_maindevice_identitykey_description">Ձեր սարքի ինքնության լուծման բանալին (IRK), որը օգնում է CAPod-ին նույնականացնել այն մոտակա սարքերի շարքում։</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods-ները հաճախ են փոխում իրենց Bluetooth հասցեն՝ գաղտնիության նպատակներով։ IRK-ն օգնում է CAPod-ին ճանաչել ձեր սարքը։ Ձեզ անհրաժեշտ է միանվագ մուտք MacBook։</string>
     <string name="profiles_maindevice_encryptionkey_label">Գաղտնագրման բանալի</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ձեր սարքի գաղտնագրման բանալին, որը թույլ է տալիս CAPod-ին ստանալ մանրամասն վիճակի տեղեկատվություն։</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ները ուղարկում են վիճակի հաղորդագրություն, որի մի մասը գաղտնագրված է։ Գաղտնագրման բանալին թույլ է տալիս CAPod-ին վերծանել ամբողջ հաղորդագրությունը։ Ձեզ անհրաժեշտ է միանվագ մուտք MacBook։</string>
     <string name="profiles_key_invalid_format">Անվավեր բանալու ձևաչափ</string>
     <string name="profiles_key_expected_format">Ակնկալվող ձևաչափ՝ %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Դուք ունեք չպահպանված փոփոխություններ։ Ի՞նչ եք ցանկանում անել։</string>
     <string name="general_save_and_exit_action">Պահպանել &amp; Դուրս գալ</string>
     <string name="general_discard_action">Մերժել</string>
-    <string name="general_keep_editing_action">Շարունակել խմբագրումը</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Ձայնագրությունը շատ կարճ է</string>
     <string name="debug_debuglog_short_recording_message">Կարգաբերման մատյանը պետք է գրանցի խնդիրը դրա այն տեղի է ունենում: Շարունակեք Ձայնագրությունը, վերարտադրեք խնդիրը, ապա դադարեցրեք Ձայնագրությունը:</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Սարքի կարգավորումներ</string>
     <string name="device_settings_subtitle_profile_prefix">Պրոֆիլ՝ %s</string>
-    <string name="device_settings_info_name_label">Անուն</string>
     <string name="device_settings_info_bt_name_label">Bluetooth սարքի անուն</string>
     <string name="device_settings_info_model_label">Մոդել</string>
     <string name="device_settings_info_manufacturer_label">Արտադրող</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Գուցե ավելի ուշ</string>
     <string name="review_app_body">Ցանկանո՞ւմ եք կարծիք թողնել CAPod-ի համար? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Ընդհանուր</string>
     <string name="device_settings_microphone_mode_label">Խոսափող</string>
     <string name="device_settings_microphone_mode_description">Որ ականջակալն օգտագործվում է որպես խոսափող</string>
     <string name="device_settings_microphone_mode_auto">Ավտոմատ</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">บริการ Google Play ไม่พร้อมใช้งาน</string>
-    <string name="upgrades_no_purchases_found_check_account">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
     <string name="upgrades_gplay_billing_error_label">ข้อผิดพลาด Google Play</string>
     <string name="upgrades_gplay_billing_error_description">เกิดข้อผิดพลาดใน Google Play โปรดลองอีกครั้งในภายหลังหรือรีบูตโทรศัพท์ของคุณ\n\nข้อผิดพลาด: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">ข้อผิดพลาดการเรียกเก็บเงินของ Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">เกิดข้อผิดพลาดขณะขอรายละเอียดการสั่งซื้อของคุณจาก Google Play ล้างแคช Google Play แล้วรีบูตโทรศัพท์ของคุณ\n\nข้อผิดพลาด %s</string>
     <string name="upgrades_gplay_already_owned_label">ซื้อไปแล้วใช่ไหม</string>
     <string name="upgrades_gplay_already_owned_description">Google Play รายงานว่าคุณเป็นเจ้าของการอัปเกรดนี้อยู่แล้ว แต่ไม่สามารถกู้คืนได้ ตรวจสอบให้แน่ใจว่าคุณใช้บัญชี Google เดียวกับที่ใช้ซื้อ การซิงค์ข้อมูลของ Play Store อาจใช้เวลาสักครู่ — ลองรีสตาร์ทเครื่อง ล้างแคชของ Google Play หรือรอสักครู่</string>
-    <string name="upgrade_restore_action">กู้คืนการซื้อ</string>
     <string name="upgrade_badge_label">โปร</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">รับ %1$s</string>
     <string name="upgrade_preamble">CAPod พัฒนาโดยคนคนเดียว การอัปเกรดจะปลดล็อกฟีเจอร์เพิ่มเติมและช่วยให้แอปนี้ยังคงอยู่ต่อไป</string>
-    <string name="upgrade_screen_options_description">ฟีเจอร์เหมือนกัน แต่ราคาต่างกัน การสมัครสมาชิกมีช่วงทดลองใช้ฟรีและสามารถยกเลิกได้ทุกเมื่อ</string>
-    <string name="upgrade_screen_options_description_no_trial">ฟีเจอร์เหมือนกัน แต่ราคาต่างกัน การสมัครสมาชิกสามารถยกเลิกได้ทุกเมื่อ</string>
     <string name="upgrade_screen_subscription_trial_action">เริ่มทดลองใช้ฟรี</string>
     <string name="upgrade_screen_subscription_action">สมัครสมาชิกรายปี</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ปี</string>
     <string name="upgrade_screen_iap_action">ซื้อครั้งเดียว</string>
-    <string name="upgrade_screen_iap_action_hint">ซื้อครั้งเดียว: %s</string>
     <string name="upgrade_screen_restore_purchase_action">กู้คืนการซื้อ</string>
-    <string name="upgrade_screen_restore_purchase_message">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">หากคุณเพิ่งซื้อไป Google Play อาจต้องใช้เวลาสักครู่ในการซิงค์ข้อมูล</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ลองอีกครั้งในอีกไม่กี่นาทีหากการซื้อของคุณไม่ปรากฏ</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ตรวจสอบให้แน่ใจว่าคุณลงชื่อเข้าใช้ด้วยบัญชี Google เดียวกับที่ใช้ซื้อ</string>
-    <string name="upgrade_screen_restore_webinstall_hint">บัญชีหลายบัญชีอาจทำให้ Google Play สับสน การติดตั้งแอปผ่านเว็บไซต์ Google Play จะบังคับให้เชื่อมโยงกับบัญชีที่ระบุ</string>
     <string name="upgrade_screen_restore_banner_title">ซื้อ Pro ไปแล้วใช่ไหม</string>
     <string name="upgrade_screen_restore_banner_body">ดูเหมือนว่าคุณเคยอัปเกรดเป็น Pro บนอุปกรณ์นี้มาก่อน กู้คืนการซื้อของคุณเพื่อปลดล็อกอีกครั้ง</string>
     <string name="upgrade_screen_restore_success_message">กู้คืนการซื้อแล้ว</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">คุณมี CAPod Pro แล้ว!</string>
     <string name="upgrade_screen_owned_hero_sub_body">ปลดล็อกโดยการสมัครสมาชิกของคุณ ขอบคุณที่สนับสนุน CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">ปลดล็อกโดยการซื้อครั้งเดียวของคุณ ขอบคุณที่สนับสนุน CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">การสมัครสมาชิกรายปี</string>
     <string name="upgrade_screen_owned_sub_renewing_body">การสมัครสมาชิกของคุณใช้งานอยู่และตั้งค่าให้ต่ออายุ การเรียกเก็บเงินจัดการโดย Google Play</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">การสมัครสมาชิกของคุณใช้งานอยู่ แต่ไม่ได้ตั้งค่าให้ต่ออายุ Pro จะยังคงใช้งานได้จนกว่ารอบปัจจุบันจะสิ้นสุด</string>
     <string name="upgrade_screen_owned_iap_title">ซื้อครั้งเดียว</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">Sdílet</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_cancel_action">Zrušit</string>
-    <string name="general_copy_action">Kopírovat</string>
     <string name="general_thank_you_label">Děkuji Vám</string>
     <string name="general_upgrade_action">Upgradovat</string>
     <string name="general_retry_action">Opakovat</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Ověřit</string>
     <string name="general_close_action">Zavřít</string>
     <string name="general_dismiss_action">Zavřít</string>
-    <string name="general_edit_action">Upravit</string>
     <string name="general_save_action">Uložit</string>
     <string name="general_guide_action">Průvodce</string>
     <string name="general_continue_action">Pokračovat</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Obnoví přehrávání hudby po opětovném nasazení sluchátek, ale pouze pokud ji zastavilo Auto pozastavení. Pauzy, které jste spustili sami (telefon, ovladač AirPods, spánek), zůstanou pozastaveny.</string>
     <string name="settings_start_music_on_wear_label">Spustit hudbu při nasazení</string>
     <string name="settings_start_music_on_wear_description">Vždy se pokusí přehrát hudbu při nasazení sluchátek, i po ručním pozastavení.</string>
-    <string name="settings_eardetection_info_label">Poznámka k detekci ucha</string>
     <string name="settings_eardetection_info_description">Pokud detekce sluchátek funguje pouze pro jedno sluchátko, jedná se o omezení společnosti Apple. Detekováno je pouze \"primární sluchátko\" (používané jako mikrofon). Konfigurace na zařízeních Apple: Nastavení → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_signal_minimum_label">Minimální kvalita signálu</string>
-    <string name="settings_signal_minimum_description">Minimální kvalita signálu, kterou musí zařízení mít, aby bylo považováno za vaše.</string>
     <string name="settings_autoconnect_label">Automatické připojení</string>
     <string name="settings_autoconnect_description">Pokud se Android automaticky nepřipojí, můžeme ho o to požádat. Díky tomu CAPod stále monitoruje na pozadí.</string>
     <string name="settings_autoconnect_info_android12">Automatické připojení závisí na systémové funkci, kterou Android 12 a novější omezuje. Na vašem zařízení nemusí fungovat.</string>
     <string name="settings_autoconnect_condition_label">Stav automatického připojení</string>
-    <string name="settings_autoconnect_condition_description">Kdy se máme pokusit připojit k vašemu zařízení?</string>
     <string name="settings_devices_label">Zařízení</string>
     <string name="settings_devices_description">Správa zařízení.</string>
     <string name="settings_reaction_label">Reakce</string>
-    <string name="settings_category_yourdevice_label">Vaše zařízení</string>
     <string name="settings_category_compatibility_options_title">Možnosti kompatibility</string>
     <string name="settings_category_compatibility_options_description">Nedotýkejte se, pokud vše funguje ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Vypnout hardwarové filtrování</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Spouštění…</string>
     <string name="support_debuglog_label">Log ladění</string>
     <string name="support_debuglog_desc">Zaznamenávejte vše, co aplikace dělá, do textového souboru, který můžete sdílet.</string>
-    <string name="debug_debuglog_size_label">Velikost</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
-    <string name="debug_notification_channel_label">Oznámení o ladění</string>
-    <string name="debug_debuglog_file_label">Zaznamenaný log soubor</string>
-    <string name="debug_debuglog_recording_progress">Zaznamenávání logu ladění</string>
     <string name="debug_debuglog_record_action">Zaznamenat log ladění</string>
     <string name="debug_debuglog_stop_action">Ukončit zaznamenávání</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. podrobnosti o zařízení Bluetooth). Sdílejte ho pouze s důvěryhodnými stranami.</string>
     <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru pro sdílení. Vygenerovaný soubor obsahuje citlivé informace (např. detaily o zařízení Bluetooth). Sdílejte ho pouze s důvěryhodnými stranami (např. vývojář, který řeší problémy).</string>
-    <string name="settings_support_installid_label">ID instalace</string>
-    <string name="settings_support_installid_desc">Automatická hlášení chyb jsou anonymní. Sdílíte pouze své ID instalace, pokud vývojář potřebuje najít vaše chybová hlášení.</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Potřebujete-li pomoc.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Obnovit naučená data?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod zapomene naměřený úbytek, rychlost nabíjení a dobu poslechu tohoto zařízení a začne znovu od deklarované výdrže baterie.</string>
     <string name="settings_acknowledgements_label">Poděkování</string>
-    <string name="settings_debug_autoreports_label">Automatické hlášení chyb</string>
-    <string name="settings_debug_autoreports_description">Automatické hlášení chyb např. podrobnosti o pádech aplikace.</string>
-    <string name="settings_compatibility_mode_label">Režim kompatibility</string>
-    <string name="settings_compatibility_mode_description">Vypnutí optimalizace pro zlepšení kompatibility. Zkuste to, pokud se vám nezobrazují žádná data.</string>
     <string name="help_translate_label">Překlad</string>
     <string name="help_translate_description">Pomozte přeložit tuto aplikaci do svého oblíbeného jazyka.</string>
     <string name="translators_thanks_title">Překladatelé</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Úspěch</string>
     <string name="troubleshooter_ble_result_success_body">CAPod přijímá reklamní vysílání BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Neúspěšné</string>
-    <string name="troubleshooter_ble_result_failure_body">Řešení problémů se nezdařilo. Žádná kombinace možností kompatibility nepomohla.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Telefon nepřijal vůbec žádná data BLE. Tento test můžete zopakovat v přelidněném prostoru, abyste zjistili, zda lze přijímat i jiné zdroje dat (než vaše sluchátka). Nepřijímání dat ukazuje na problém s operačním systémem telefonu.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefon přijal data BLE, ale data nepocházejí z žádného podporovaného zařízení. Jsou sluchátka zapnutá? Podporuje CAPod vaše sluchátka?</string>
-    <string name="troubleshooter_ble_result_failure_action">Zkusit znovu</string>
-    <string name="troubleshoot_action">Vyřešit problém</string>
     <string name="onboarding_body1">Tato aplikace přidává do Androidu podporu specifických funkcí AirPods.</string>
     <string name="onboarding_body2">Ne všechna zařízení s Androidem plně podporují speciální funkce AirPods.</string>
     <string name="onboarding_body3">CAPod neobsahuje žádné reklamy a neshromažďuje vaše údaje.</string>
@@ -207,12 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Zařízení je připojeno, ale CAPod od něj nepřijímá žádná živá data. Váš telefon může potřebovat možnost kompatibility — řešení problémů ji může zkusit najít automaticky.</string>
     <string name="overview_troubleshoot_suggestion_action">Spustit řešení problémů</string>
     <string name="overview_unmatched_devices_label">Nepřiřazená zařízení</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d zařízení bez odpovídajícího profilu</item>
-        <item quantity="few">%d zařízení bez odpovídajícího profilu</item>
-        <item quantity="many">%d zařízení bez odpovídajícího profilu</item>
-        <item quantity="other">%d zařízení bez odpovídajícího profilu</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Bylo zjištěno %d blízké zařízení bez odpovídajícího profilu. Zobrazte je pro dostupné podrobnosti. Pokud je vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
         <item quantity="few">Byla zjištěna %d blízká zařízení bez odpovídajících profilů. Zobrazte je pro dostupné podrobnosti. Pokud je jedno vaše, přidejte profil v Zařízeních, abyste ho rozpoznali.</item>
@@ -237,7 +210,6 @@
     <string name="permission_background_location_description">Aplikace CAPod používá \"přístup k poloze na pozadí\" pro funkce jako \"Zobrazit vyskakovací okno\" a \"Automatické připojení\", když je aplikace zavřená. Přístup k poloze na pozadí umožňuje aplikaci přijímat data Bluetooth Low Energy, když je na pozadí. Tato aplikace NEPOUŽÍVÁ data Bluetooth k určování vaší polohy.</string>
     <string name="permission_ignore_battery_optimizations_label">Vypnout optimalizaci baterie</string>
     <string name="permission_ignore_battery_optimizations_description">Optimalizace baterie zabraňuje této aplikaci spolehlivě přijímat data Bluetooth, pokud běží na pozadí.</string>
-    <string name="permission_required_title">Je vyžadováno následující oprávnění:</string>
     <string name="permission_system_alert_window_label">Okno systémových upozornění</string>
     <string name="permission_system_alert_window_description">Aby bylo možné použít unkci \"Zobrazit vyskakovací okno\", je nutné umožnit aplikaci CAPod vykreslení přes jiné aplikace.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Když je vidět</string>
@@ -245,9 +217,6 @@
     <string name="settings_reaction_autoconnect_inear_label">V uchu</string>
     <string name="pods_dual_left_label">Levé sluchátko</string>
     <string name="pods_dual_right_label">Pravé sluchátko</string>
-    <string name="pods_dual_left_short_label">L</string>
-    <string name="pods_dual_right_short_label">P</string>
-    <string name="pods_case_label">Pouzdro</string>
     <string name="battery_unavailable_label">Baterie nedostupná</string>
     <string name="battery_state_low_cd">Baterie je slabá</string>
     <string name="battery_state_critical_cd">Baterie je kriticky slabá</string>
@@ -304,12 +273,9 @@
     <string name="signal_badge_aap_cd">Přímé připojení aktivní</string>
     <string name="signal_indicator_bars_cd">Síla signálu: %1$d ze 4 dílků</string>
     <string name="signal_indicator_disconnected_cd">Signál: odpojeno</string>
-    <string name="pods_yours">Vaše</string>
     <string name="headset_being_worn_label">Používá se</string>
     <string name="headset_not_being_worn_label">Nepoužíváno</string>
     <string name="pods_case_unknown_state">Neznámý stav</string>
-    <string name="last_seen_x">Naposledy spatřeno: %s</string>
-    <string name="first_seen_x">Poprvé spatřeno: %s</string>
     <string name="battery_cached_label">Poslední známé \u00B7 %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -339,10 +305,8 @@
     <string name="profiles_signal_quality_title">Minimální kvalita signálu</string>
     <string name="profiles_signal_quality_description">Detekujte pouze zařízení s intenzitou signálu nad touto prahovou hodnotou. Nižší hodnoty zvyšují dosah detekce, ale mohou způsobit falešné poplachy. Nenastavujte tuto hodnotu příliš vysoko - příjem signálu Bluetooth je obecně slabý a mění se v závislosti na vzdálenosti a překážkách.</string>
     <string name="profiles_identitykey_label">Klíč identity</string>
-    <string name="profilessettings_maindevice_identitykey_description">Klíč identity (IRK) vašeho zařízení, který pomáhá aplikaci CAPod identifikovat jej mezi okolními zařízeními.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods často mění svou Bluetooth adresu pro ochranu soukromí. IRK pomáhá aplikaci CAPod rozpoznat vaše zařízení. Potřebujete jednorázový přístup k MacBooku.</string>
     <string name="profiles_maindevice_encryptionkey_label">Šifrovací klíč</string>
-    <string name="profiles_maindevice_encryptionkey_description">Šifrovací klíč vašeho zařízení, který umožňuje aplikaci CAPod získat podrobné informace o stavu.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods odesílají zprávu o stavu, jejíž část je zašifrovaná. Šifrovací klíč umožňuje aplikaci CAPod dešifrovat celou zprávu. Potřebujete jednorázový přístup k MacBooku.</string>
     <string name="profiles_key_invalid_format">Neplatný formát klíče</string>
     <string name="profiles_key_expected_format">Očekávaný formát: %1$s</string>
@@ -375,7 +339,6 @@
     <string name="general_unsaved_changes_message">Máte neuložené změny. Co chcete provést?</string>
     <string name="general_save_and_exit_action">Uložit a ukončit</string>
     <string name="general_discard_action">Zahodit</string>
-    <string name="general_keep_editing_action">Pokračovat v úpravách</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Záznam je příliš krátký</string>
     <string name="debug_debuglog_short_recording_message">Log ladění musí zachytit problém v okamžiku, kdy nastane. Pokračujte v zaznamenávání, reprodukujte problém a poté zaznamenávání ukončete.</string>
@@ -452,7 +415,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Nastavení zařízení</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Název</string>
     <string name="device_settings_info_bt_name_label">Název zařízení Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Výrobce</string>
@@ -532,7 +494,6 @@
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chceš ohodnotit CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Obecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Které sluchátko je použito jako mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Autom.</string>

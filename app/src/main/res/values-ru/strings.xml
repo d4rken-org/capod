@@ -3,7 +3,6 @@
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
     <string name="general_cancel_action">Отмена</string>
-    <string name="general_copy_action">Копировать</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_upgrade_action">Улучшить</string>
     <string name="general_retry_action">Повторить</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
     <string name="general_dismiss_action">Отклонить</string>
-    <string name="general_edit_action">Редактировать</string>
     <string name="general_save_action">Сохранить</string>
     <string name="general_guide_action">Руководство</string>
     <string name="general_continue_action">Продолжить</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Возобновите музыку, когда снова надеваете наушники, но только если воспроизведение было остановлено функцией «Автопауза». Паузы, которые Вы поставили вручную (с телефона, AirPods или по таймеру сна), сохраняются.</string>
     <string name="settings_start_music_on_wear_label">Запускать музыку при надевании</string>
     <string name="settings_start_music_on_wear_description">Всегда пытается воспроизвести музыку, когда Вы надеваете наушники, даже после ручной паузы.</string>
-    <string name="settings_eardetection_info_label">Уведомление об обнаружении уха</string>
     <string name="settings_eardetection_info_description">Если обнаружение уха работает только для одного наушника, это ограничение Apple. Обнаруживается только \"основной наушник\" (используемый для микрофона). Настроить на устройствах Apple: Настройки → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
-    <string name="settings_signal_minimum_description">Минимальное качество сигнала, необходимое устройству, чтобы оно опознавалось как Ваше.</string>
     <string name="settings_autoconnect_label">Автоподключение</string>
     <string name="settings_autoconnect_description">Если Android не подключается автоматически, мы можем попросить его об этом. Благодаря этому CAPod постоянно следит за устройством в фоновом режиме.</string>
     <string name="settings_autoconnect_info_android12">Автоподключение использует системную функцию, ограниченную в Android 12 и новее. Может не работать на Вашем устройстве.</string>
     <string name="settings_autoconnect_condition_label">Условия автоподключения</string>
-    <string name="settings_autoconnect_condition_description">Когда мы должны пытаться подключить Ваше устройство?</string>
     <string name="settings_devices_label">Устройства</string>
     <string name="settings_devices_description">Управление устройствами.</string>
     <string name="settings_reaction_label">Реакции</string>
-    <string name="settings_category_yourdevice_label">Ваше устройство</string>
     <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
     <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Запуск…</string>
     <string name="support_debuglog_label">Журнал отладки</string>
     <string name="support_debuglog_desc">Запись всего, что делает приложение, в текстовый файл, которым можно поделиться.</string>
-    <string name="debug_debuglog_size_label">Размер</string>
-    <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
-    <string name="debug_notification_channel_label">Уведомления отладки</string>
-    <string name="debug_debuglog_file_label">Записанный файл журнала</string>
-    <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>
     <string name="debug_debuglog_record_action">Записать журнал отладки</string>
     <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, сведения об устройстве Bluetooth). Передавайте его только доверенным лицам.</string>
     <string name="settings_debuglog_explanation">Эта функция записывает все, что делает приложение, в общий файл. Созданный файл содержит конфиденциальную информацию (например, сведения об устройстве Bluetooth). Делитесь им только с доверенными сторонами (например, разработчиком, который устраняет проблему).</string>
-    <string name="settings_support_installid_label">ID установки</string>
-    <string name="settings_support_installid_desc">Автоматические отчёты об ошибках анонимны. Поделитесь Вашим ID установки, если разработчику нужен доступ к Вашим отчётам об ошибках.</string>
     <string name="settings_support_label">Поддержка</string>
     <string name="settings_support_description">Если нужна помощь.</string>
     <string name="settings_wiki_label">Вики</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Сбросить собранные данные?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod забудет измеренный расход, скорость зарядки и время прослушивания этого устройства и начнет заново с номинального времени батареи.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
-    <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
-    <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
-    <string name="settings_compatibility_mode_label">Режим совместимости</string>
-    <string name="settings_compatibility_mode_description">Отключите оптимизацию для улучшения совместимости. Попробуйте это, если не видите данных.</string>
     <string name="help_translate_label">Перевод</string>
     <string name="help_translate_description">Помогите перевести приложение на Ваш язык.</string>
     <string name="translators_thanks_title">Переводчики</string>
@@ -174,11 +156,8 @@ AL_Cool_T</string>
     <string name="troubleshooter_ble_result_success_title">Успешно</string>
     <string name="troubleshooter_ble_result_success_body">BLE рекламные трансляции принимаются на CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Ошибка</string>
-    <string name="troubleshooter_ble_result_failure_body">Не удалось устранить неполадки. Ни одна комбинация параметров совместимости не помогла.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ваш телефон не получал никаких BLE данных. Вы можете повторить этот тест в людном месте, чтобы проверить, могут ли быть получены данные (c других источников кроме наушников). Отсутствие полученных данных указывает на проблему с операционной системой Вашего телефона.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон получил BLE данные, но данные не поступают ни с одного поддерживаемого устройства. Ваши наушники включены? Поддерживает ли CAPod ваши наушники?</string>
-    <string name="troubleshooter_ble_result_failure_action">Попробуйте еще раз</string>
-    <string name="troubleshoot_action">Устранение неполадок</string>
     <string name="onboarding_body1">Приложение обеспечивает поддержку специфичных функций AirPod на Android.</string>
     <string name="onboarding_body2">Не все устройства Android полностью поддерживают дополнительные функции AirPod. Вашей операционной системе требуется корректно работающая версия Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не содержит рекламы и не собирает Ваши данные.</string>
@@ -208,12 +187,6 @@ AL_Cool_T</string>
     <string name="overview_troubleshoot_suggestion_description">Устройство подключено, но CAPod не получает от него данных в режиме реального времени. Возможно, твоему телефону нужна опция совместимости — помощник может попытаться найти её автоматически.</string>
     <string name="overview_troubleshoot_suggestion_action">Запустить помощник</string>
     <string name="overview_unmatched_devices_label">Несопряжённые устройства</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d устройство без соответствующего профиля</item>
-        <item quantity="few">%d устр. без соответствующего профиля</item>
-        <item quantity="many">%d устр. без соответствующего профиля</item>
-        <item quantity="other">%d устр. без соответствующего профиля</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Обнаружено %d устройство поблизости без подходящего профиля. Откройте его, чтобы увидеть доступные сведения. Если это Ваше устройство, добавьте профиль из раздела «Устройства», чтобы его распознать.</item>
         <item quantity="few">Обнаружено устройств поблизости без подходящего профиля: %d. Откройте их, чтобы увидеть доступные сведения. Если это Ваши устройства, добавьте профиль из раздела «Устройства», чтобы их распознать.</item>
@@ -238,7 +211,6 @@ AL_Cool_T</string>
     <string name="permission_background_location_description">CAPod использует разрешение \"Доступ к местоположению в фоне\" для включения таких функций, как \"Всплывающие окна\" и \"Автоподключение\", когда приложение закрыто. Фоновый доступ к местоположению позволяет приложению получать данные Bluetooth Low Energy в фоне. Это приложение НЕ будет использовать данные Bluetooth для определения Вашего местоположения.</string>
     <string name="permission_ignore_battery_optimizations_label">Отключить оптимизацию батареи</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимизация батареи не позволяет приложению должным образом получать данные Bluetooth, когда приложение работает в фоне.</string>
-    <string name="permission_required_title">Требуется следующее разрешение:</string>
     <string name="permission_system_alert_window_label">Окно системных предупреждений</string>
     <string name="permission_system_alert_window_description">Позволить CAPod наложение поверх других приложений для работы функции \"Всплывающие сообщения\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">При обнаружении</string>
@@ -246,9 +218,6 @@ AL_Cool_T</string>
     <string name="settings_reaction_autoconnect_inear_label">В ухе</string>
     <string name="pods_dual_left_label">Левый наушник</string>
     <string name="pods_dual_right_label">Правый наушник</string>
-    <string name="pods_dual_left_short_label">Л</string>
-    <string name="pods_dual_right_short_label">П</string>
-    <string name="pods_case_label">Футляр</string>
     <string name="battery_unavailable_label">Заряд недоступен</string>
     <string name="battery_state_low_cd">Низкий уровень батареи</string>
     <string name="battery_state_critical_cd">Критически низкий уровень батареи</string>
@@ -305,12 +274,9 @@ AL_Cool_T</string>
     <string name="signal_badge_aap_cd">Прямое соединение активно</string>
     <string name="signal_indicator_bars_cd">Уровень сигнала: %1$d из 4 делений</string>
     <string name="signal_indicator_disconnected_cd">Сигнал: отключено</string>
-    <string name="pods_yours">Ваше</string>
     <string name="headset_being_worn_label">Надеты</string>
     <string name="headset_not_being_worn_label">Не надеты</string>
     <string name="pods_case_unknown_state">Неизвестное состояние</string>
-    <string name="last_seen_x">Последние: %s</string>
-    <string name="first_seen_x">Первые: %s</string>
     <string name="battery_cached_label">Последнее известное · %s</string>
     <string name="battery_time_remaining_format_hm">%1$d ч %2$d мин</string>
     <string name="battery_time_remaining_format_h">%1$d ч</string>
@@ -340,10 +306,8 @@ AL_Cool_T</string>
     <string name="profiles_signal_quality_title">Минимальное качество сигнала</string>
     <string name="profiles_signal_quality_description">Определять только устройства с сигналом выше этого порога. Низкие значения увеличивают диапазон детекции, но могут привести к ложному срабатыванию. Не устанавливайте слишком высокое значение - приём Bluetooth обычно слабый и варьируется в зависимости от расстояния и препятствий.</string>
     <string name="profiles_identitykey_label">Ключ идентификации</string>
-    <string name="profilessettings_maindevice_identitykey_description">Идентификационный ключ (IRK), который помогает CAPod идентифицировать его между близлежащими устройствами.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods часто меняют Bluetooth-адрес для приватности. IRK помогает CAPod распознать Ваше устройство. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Ключ шифрования</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ключ шифрования Вашего устройства, который позволяет CAPod получать подробную информацию.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods отправляет сообщение о состоянии, часть которого зашифрована. Ключ шифрования позволяет CAPod расшифровать полное сообщение. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="profiles_key_invalid_format">Неверный формат ключа</string>
     <string name="profiles_key_expected_format">Правильный формат: %1$s</string>
@@ -376,7 +340,6 @@ AL_Cool_T</string>
     <string name="general_unsaved_changes_message">У вас есть несохранённые изменения. Что вы хотите сделать?</string>
     <string name="general_save_and_exit_action">Сохранить и выйти</string>
     <string name="general_discard_action">Отменить</string>
-    <string name="general_keep_editing_action">Продолжить редактирование</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Запись слишком короткая</string>
     <string name="debug_debuglog_short_recording_message">Для захвата проблемы журнал отладки должен фиксировать её в момент возникновения. Продолжайте запись, воспроизведите проблему, затем остановите запись.</string>
@@ -453,7 +416,6 @@ AL_Cool_T</string>
     <!-- Device Settings -->
     <string name="device_settings_title">Настройки устройства</string>
     <string name="device_settings_subtitle_profile_prefix">Профиль: %s</string>
-    <string name="device_settings_info_name_label">Название</string>
     <string name="device_settings_info_bt_name_label">Название Bluetooth-устройства</string>
     <string name="device_settings_info_model_label">Модель</string>
     <string name="device_settings_info_manufacturer_label">Производитель</string>
@@ -533,7 +495,6 @@ AL_Cool_T</string>
     <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Хочешь оставить отзыв для CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Общее</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Какой наушник используется как микрофон</string>
     <string name="device_settings_microphone_mode_auto">Авто</string>

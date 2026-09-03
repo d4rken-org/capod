@@ -3,7 +3,6 @@
     <string name="general_share_action">බෙදාගන්න</string>
     <string name="general_done_action">අහවරයි</string>
     <string name="general_cancel_action">අවලංගු කරන්න</string>
-    <string name="general_copy_action">පිටපත් කරන්න</string>
     <string name="general_thank_you_label">ඔබට ස්තූතියි</string>
     <string name="general_upgrade_action">යාවත්කාලීන කරන්න</string>
     <string name="general_retry_action">නැවතත්</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">පරීක්ෂා කරන්න</string>
     <string name="general_close_action">වසන්න</string>
     <string name="general_dismiss_action">ඉවතලන්න</string>
-    <string name="general_edit_action">සංස්කරණය කරන්න</string>
     <string name="general_save_action">සුරකින්න</string>
     <string name="general_guide_action">මාර්ගෝපදේශය</string>
     <string name="general_continue_action">ඉදිරියට යන්න</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">ඔබ නැවත ඔබේ pods පැළඳීමේදී සංගීතය නැවත ආරම්භ කරයි, නමුත් Auto pause එය නිවා ඇත්නම් පමණි. ඔබ ම ක්‍රියාත්මක කළ විරාමයන් (දුරකථනය, AirPods stem, නිදාගැනීම) විරාමයේ පවතී.</string>
     <string name="settings_start_music_on_wear_label">පැළඳීමේදී සංගීතය ආරම්භ කරන්න</string>
     <string name="settings_start_music_on_wear_description">ඔබ ඔබේ pods පැළඳූ විට, අතින් කළ විරාම ක්‍රියාවෙන් පසුවද, සංගීතය වාදනය කිරීමට සෑම විටම උත්සාහ කරයි.</string>
-    <string name="settings_eardetection_info_label">කන් හඳුනාගැනීමේ සටහන</string>
     <string name="settings_eardetection_info_description">කන් හඳුනාගැනීම එක් පොඩ් එකක් සඳහා පමණක් ක්‍රියා කරන්නේ නම්, මෙය Apple සීමාවකි. \"ප්‍රාථමික පොඩ්\" (මයික්‍රෆෝනය සඳහා භාවිතා වන) පමණක් හඳුනාගනී. Apple උපාංගවල සකසන්න: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
-    <string name="settings_signal_minimum_description">උපාංගයක් ඔබේ යැයි සැලකීමට තිබිය යුතු අවම සංඥා ගුණත්වය.</string>
     <string name="settings_autoconnect_label">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
     <string name="settings_autoconnect_description">Android ස්වයංක්‍රීයව සම්බන්ධ නොවන්නේ නම්, අපටත් එසේ කිරීමට ඉල්ලා සිටිය හැක. මෙය CAPod සෑම විටම පසුබිමින් නිරීක්ෂණය කරමින් තබයි.</string>
     <string name="settings_autoconnect_info_android12">ස්වයංක්‍රීය සම්බන්ධතාව Android 12 සහ නව අනුවාද සීමා කරන පද්ධති ලක්ෂණයක් මත රඳා පවතී. එය ඔබේ උපකරණයේ ක්‍රියා නොකරනු ඇත.</string>
     <string name="settings_autoconnect_condition_label">ස්වයංක්‍රීය සම්බන්ධ වීමේ තත්ත්වය</string>
-    <string name="settings_autoconnect_condition_description">අපි ඔබේ උපාංගයට සම්බන්ධ වීමට උත්සාහ කළ යුත්තේ කවදාද?</string>
     <string name="settings_devices_label">උපාංග</string>
     <string name="settings_devices_description">ඔබගේ උපාංග කළමනාකරණය කරන්න.</string>
     <string name="settings_reaction_label">ප්‍රතික්‍රියා</string>
-    <string name="settings_category_yourdevice_label">ඔබගේ උපාංගය</string>
     <string name="settings_category_compatibility_options_title">ගැළපුම් විකල්ප</string>
     <string name="settings_category_compatibility_options_description">සියල්ල ක්‍රියාත්මක නම් අත නොගසන්න ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">දෘඪාංග පෙරහන අක්‍රීය කරන්න</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">ආරම්භ කරමින් පවතී…</string>
     <string name="support_debuglog_label">දෝෂහරණ ලොගය</string>
     <string name="support_debuglog_desc">යෙදුම කරන සෑම දෙයක්ම ඔබට බෙදාගත හැකි පෙළ ගොනුවක සටහන් කරන්න.</string>
-    <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
-    <string name="debug_debuglog_size_compressed_label">සම්පීඩිත ප්‍රමාණය</string>
-    <string name="debug_notification_channel_label">දෝෂහරණ දැනුම්දීම්</string>
-    <string name="debug_debuglog_file_label">සටහන් කළ ලොග් ගොනුව</string>
-    <string name="debug_debuglog_recording_progress">දෝෂහරණ ලොගය සටහන් වෙමින් පවතී</string>
     <string name="debug_debuglog_record_action">දෝෂහරණ ලොගය සටහන් කරන්න</string>
     <string name="debug_debuglog_stop_action">සටහන් කිරීම නවත්වන්න</string>
     <string name="debug_debuglog_sensitive_information_message">ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා: බ්ලූටූත් උපාංග විස්තර) අඩංගු වේ. එය විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදා ගන්න.</string>
     <string name="settings_debuglog_explanation">මෙම විශේෂාංගය යෙදුම කරන සෑම දෙයක්ම බෙදාගත හැකි ගොනුවක සටහන් කරයි. ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා: බ්ලූටූත් උපාංග විස්තර) අඩංගු වේ. එය විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදා ගන්න (උදා: ගැටලුවක් නිරාකරණය කරන සංවර්ධකයෙකු).</string>
-    <string name="settings_support_installid_label">ස්ථාපන හැඳුනුම්පත</string>
-    <string name="settings_support_installid_desc">ස්වයංක්‍රීය දෝෂ වාර්තා නිර්නාමිකයි. සංවර්ධකයාට ඔබගේ දෝෂ වාර්තා සොයා ගැනීමට අවශ්‍ය නම් ඔබගේ ස්ථාපන හැඳුනුම්පත බෙදා ගන්න.</string>
     <string name="settings_support_label">සහාය</string>
     <string name="settings_support_description">ඔබට යම් උදව්වක් අවශ්‍ය නම්.</string>
     <string name="settings_wiki_label">විකිය</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">ඉගෙනගත් දත්ත ප්‍රතිසකසන්නද?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod මෙම උපකරණයේ මනින ලද පිටවීම, ආරෝපණ වේගය සහ ශ්‍රවණ කාලය අමතක කරයි, සහ ශ්‍රේණිගත බැටරි කාලයෙන් නැවතත් පටන් ගනී.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
-    <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
-    <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
-    <string name="settings_compatibility_mode_label">ගැළපුම් ප්‍රකාරය</string>
-    <string name="settings_compatibility_mode_description">ගැළපුම වැඩි දියුණු කිරීම සඳහා ප්‍රශස්තකරණයන් අක්‍රීය කරන්න. ඔබ කිසිදු දත්තයක් නොදකිනුයේ නම් මෙය උත්සාහ කරන්න.</string>
     <string name="help_translate_label">පරිවර්තනය</string>
     <string name="help_translate_description">මෙම යෙදුම ඔබගේ ප්‍රියතම භාෂාවට පරිවර්තනය කිරීමට උදව් වන්න.</string>
     <string name="translators_thanks_title">පරිවර්තකයින්</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">සාර්ථකයි</string>
     <string name="troubleshooter_ble_result_success_body">CAPod මගින් BLE වෙළඳ දැන්වීම් විකාශන ලැබෙමින් පවතී.</string>
     <string name="troubleshooter_ble_result_failure_title">අසාර්ථකයි</string>
-    <string name="troubleshooter_ble_result_failure_body">දෝෂ නිරාකරණය අසාර්ථක විය. ගැළපුම් විකල්ප කිසිදු සංයෝජනයක් උදව් කළේ නැත.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">ඔබගේ දුරකථනය කිසිදු BLE දත්තයක් ලබා ගත්තේ නැත. දත්ත මූලාශ්‍ර (ඔබගේ හෙඩ්ෆෝන් හැර) ලබා ගත හැකිදැයි බැලීමට ඔබට ජනාකීර්ණ ප්‍රදේශයක මෙම පරීක්ෂණය නැවත උත්සාහ කළ හැකිය. කිසිදු දත්තයක් නොලැබීම ඔබගේ දුරකථනයේ මෙහෙයුම් පද්ධතියේ ගැටලුවක් පෙන්නුම් කරයි.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">ඔබගේ දුරකථනය BLE දත්ත ලබා ගත් නමුත්, දත්ත කිසිදු සහාය දක්වන උපාංගයකින් පැමිණෙන්නේ නැත. ඔබගේ හෙඩ්ෆෝන් ක්‍රියාත්මකද? CAPod ඔබගේ හෙඩ්ෆෝනයට සහාය දක්වයිද?</string>
-    <string name="troubleshooter_ble_result_failure_action">නැවත උත්සාහ කරන්න</string>
-    <string name="troubleshoot_action">දෝෂ නිරාකරණය කරන්න</string>
     <string name="onboarding_body1">මෙම යෙදුම Android සඳහා AirPod විශේෂිත විශේෂාංග සඳහා සහාය එක් කරයි.</string>
     <string name="onboarding_body2">සියලුම Android උපාංග අමතර AirPod විශේෂාංග සම්පූර්ණයෙන්ම සහාය නොදක්වයි. ඔබගේ මෙහෙයුම් පද්ධතියට නිවැරදිව ක්‍රියාත්මක වන බ්ලූටූත්-අඩු-ශක්ති ක්‍රියාත්මක කිරීමක් අවශ්‍ය වේ.</string>
     <string name="onboarding_body3">CAPod හි දැන්වීම් නොමැති අතර ඔබගේ දත්ත රැස් නොකරයි.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">ඔබේ උපාංගය සම්බන්ද වී ඇත, නමුත් CAPod එයින් ජීවිත දත් ලබා ගනිමින් නොමැත. ඔබේ දුරකතනයට අනුකූලතා ළිකල්පයක් අවශ්‍ය ළිය හැක — දෝෂ නිරාකරණකය ස්වයංක්‍රීයව එකක් සොයා ගැනීමට උත්සාහ කළ හැක.</string>
     <string name="overview_troubleshoot_suggestion_action">දෝෂ නිරාකරණකය ධාවනය කරන්න</string>
     <string name="overview_unmatched_devices_label">නොගැලපෙන උපාංග</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">ගැලපෙන පැතිකඩක් නොමැති උපාංග %d ක්</item>
-        <item quantity="other">ගැලපෙන පැතිකඩක් නොමැති උපාංග %d ක්</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">නුදුරින් උපාංග %dක් ගැලපෙන පැතිකඩක් නොමැතිව අනාවරණය විය. පවතින විස්තර දැකීමට එය පෙන්වන්න. එය ඔබේ නම්, එය හඳුනා ගැනීමට උපාංග අංශයෙන් පැතිකඩක් එක් කරන්න.</item>
         <item quantity="other">නුදුරින් උපාංග %dක් ගැලපෙන පැතිකඩ නොමැතිව අනාවරණය විය. පවතින විස්තර දැකීමට ඒවා පෙන්වන්න. ඉන් එකක් ඔබේ නම්, එය හඳුනා ගැනීමට උපාංග අංශයෙන් පැතිකඩක් එක් කරන්න.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod \"පසුබිම් පිහිටුම් ප්‍රවේශය\" භාවිතා කරන්නේ යෙදුම වසා ඇති විට \"පොප්-අප් පෙන්වන්න\" සහ \"ස්වයංක්‍රීය සම්බන්ධතාව\" වැනි විශේෂාංග සක්‍රීය කිරීමට ය. පසුබිම් පිහිටුම් ප්‍රවේශය යෙදුමට පසුබිමේ සිටින විට Bluetooth Low Energy දත්ත ලබා ගැනීමට ඉඩ දෙයි. මෙම යෙදුම ඔබගේ පිහිටුම තීරණය කිරීමට Bluetooth දත්ත භාවිතා නොකරනු ඇත.</string>
     <string name="permission_ignore_battery_optimizations_label">බැටරි ප්‍රශස්තකරණ අක්‍රීය කරන්න</string>
     <string name="permission_ignore_battery_optimizations_description">බැටරි ප්‍රශස්තකරණ මෙම යෙදුම පසුබිමේ සිටින විට විශ්වාසදායක ලෙස Bluetooth දත්ත ලබා ගැනීම වළක්වයි.</string>
-    <string name="permission_required_title">පහත අවසරය අවශ්‍ය වේ:</string>
     <string name="permission_system_alert_window_label">පද්ධති ඇඟවුම් කවුළුව</string>
     <string name="permission_system_alert_window_description">\"පොප්-අප් පෙන්වන්න\" විශේෂාංගය හැකි කිරීමට CAPod හට වෙනත් යෙදුම් මත අඳින්නට ඉඩ දෙන්න.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">දුටු විට</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">කනේ</string>
     <string name="pods_dual_left_label">වම් පොඩ්</string>
     <string name="pods_dual_right_label">දකුණු පොඩ්</string>
-    <string name="pods_dual_left_short_label">ව</string>
-    <string name="pods_dual_right_short_label">ද</string>
-    <string name="pods_case_label">කවරය</string>
     <string name="battery_unavailable_label">බැටරිය නොමැත</string>
     <string name="battery_state_low_cd">බැටරිය අඩුයි</string>
     <string name="battery_state_critical_cd">බැටරිය බරපතල ලෙස අඩුයි</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">සෘජු සම්බන්ධතාව ක්‍රියාත්මකයි</string>
     <string name="signal_indicator_bars_cd">සංඥා ශක්තිය: තීරු 4 න් %1$d</string>
     <string name="signal_indicator_disconnected_cd">සංඥාව: විසන්ධි වී ඇත</string>
-    <string name="pods_yours">ඔබගේ</string>
     <string name="headset_being_worn_label">පැළඳ සිටී</string>
     <string name="headset_not_being_worn_label">පැළඳ නැත</string>
     <string name="pods_case_unknown_state">නොදන්නා තත්ත්වය</string>
-    <string name="last_seen_x">අවසන් වරට දුටු: %s</string>
-    <string name="first_seen_x">පළමු වරට දුටු: %s</string>
     <string name="battery_cached_label">අවසන් දන්නා · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dපෙ %2$dමි</string>
     <string name="battery_time_remaining_format_h">%1$dපෙ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">අවම සංඥා ගුණත්වය</string>
     <string name="profiles_signal_quality_description">මෙම සීමාවට ඉහළ සංඥා ශක්තිය ඇති උපාංග පමණක් හඳුනාගන්න. අඩු අගයන් හඳුනාගැනීමේ පරාසය වැඩි කරන නමුත් ව්‍යාජ ධනාත්මක ප්‍රතිඵල ඇති විය හැක. මෙය ඉතා ඉහළට සකසන්න එපා - Bluetooth ප්‍රතිග්‍රහණය සාමාන්‍යයෙන් දුර්වල වන අතර දුර සහ බාධක සමඟ වෙනස් වේ.</string>
     <string name="profiles_identitykey_label">අනන්‍යතා යතුර</string>
-    <string name="profilessettings_maindevice_identitykey_description">ඔබගේ උපාංගයේ අනන්‍යතා විසඳීමේ යතුර (IRK), CAPod හට ළඟ උපාංග අතර එය හඳුනා ගැනීමට උදව් වේ.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods රහස්‍යතාව සඳහා නිතර ඔවුන්ගේ Bluetooth ලිපිනය වෙනස් කරයි. IRK CAPod හට ඔබගේ උපාංගය හඳුනා ගැනීමට උදව් වේ. ඔබට එක් වරක් MacBook එකකට ප්‍රවේශය අවශ්‍ය වේ.</string>
     <string name="profiles_maindevice_encryptionkey_label">සංකේතන යතුර</string>
-    <string name="profiles_maindevice_encryptionkey_description">ඔබගේ උපාංගයේ සංකේතන යතුර, CAPod හට විස්තරාත්මක තත්ත්ව තොරතුරු ලබා ගැනීමට ඉඩ සලසයි.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods තත්ත්ව පණිවිඩයක් යවයි, එහි කොටසක් සංකේතනය කර ඇත. සංකේතන යතුර CAPod හට සම්පූර්ණ පණිවිඩය විකේතනය කිරීමට ඉඩ දෙයි. ඔබට එක් වරක් MacBook එකකට ප්‍රවේශය අවශ්‍ය වේ.</string>
     <string name="profiles_key_invalid_format">වලංගු නොවන යතුරු ආකෘතිය</string>
     <string name="profiles_key_expected_format">අපේක්ෂිත ආකෘතිය: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">ඔබට සුරැකීමට අවශ්‍ය වෙනස්කම් ඇත. ඔබ කුමක් කිරීමට කැමතිද?</string>
     <string name="general_save_and_exit_action">සුරකින්න සහ පිටවන්න</string>
     <string name="general_discard_action">ඉවතලන්න</string>
-    <string name="general_keep_editing_action">සංස්කරණය කරගෙන යන්න</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">රෙකර්ඩිං ඉතා කෙටිය</string>
     <string name="debug_debuglog_short_recording_message">දෝෂහරණ ලොගයක් ගැටළුව සිදුවෙද්දීම ග්‍රහණය කළ යුතුය. රෙකර්ඩිං දිගටම සිටිය, ගැටළුව නැවත ඇතිකරන්න, ඉන්පසු රෙකර්ඩිං නතර කරන්න.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">උපාංග සැකසුම්</string>
     <string name="device_settings_subtitle_profile_prefix">ස්වරූපය: %s</string>
-    <string name="device_settings_info_name_label">නම</string>
     <string name="device_settings_info_bt_name_label">Bluetooth උපකරණ ලේබලය</string>
     <string name="device_settings_info_model_label">ආකෘතිය</string>
     <string name="device_settings_info_manufacturer_label">නිෂ්පාදකයා</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">පසුව සමහර විට</string>
     <string name="review_app_body">ඔබ CAPod සඳහා සමාලෝචනයක් ලිවීමට කැමතිද? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>
     <string name="device_settings_microphone_mode_description">මයිකෝපොනය ලේස බාවිතා කරන්නේ earbud කුමක්ද</string>
     <string name="device_settings_microphone_mode_auto">ස්වයංක්‍රීය</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">Ndaj</string>
     <string name="general_done_action">U krye</string>
     <string name="general_cancel_action">Anulo</string>
-    <string name="general_copy_action">Kopjo</string>
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_upgrade_action">Përmirëso</string>
     <string name="general_retry_action">Provo përsëri</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Kontrollo</string>
     <string name="general_close_action">Mbyll</string>
     <string name="general_dismiss_action">Largoje</string>
-    <string name="general_edit_action">Redakto</string>
     <string name="general_save_action">Ruaj</string>
     <string name="general_guide_action">Udhëzues</string>
     <string name="general_continue_action">Vazhdo</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Riprend muzikën kur vesh sërish kufjet, por vetëm nëse pauzimi automatik e ndaloi. Pauzat që ke bërë vetë (telefon, tige AirPods, gjumë) mbeten të pauzuara.</string>
     <string name="settings_start_music_on_wear_label">Fillo muzikën kur vesh kufjet</string>
     <string name="settings_start_music_on_wear_description">Gjithmonë përpiqet të luajë muzikë kur vesh kufjet, madje edhe pas një pauze manuale.</string>
-    <string name="settings_eardetection_info_label">Shënim mbi zbulimin e veshit</string>
     <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string>
-    <string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
-    <string name="settings_signal_minimum_description">Cilësia minimale e sinjalit që një pajisje duhet të ketë për t\'u konsideruar e juaja.</string>
     <string name="settings_autoconnect_label">Lidhu automatikisht</string>
     <string name="settings_autoconnect_description">Nëse Android nuk lidhet automatikisht, ne mund t\'i kërkojmë ta bëjë këtë. Kjo e mban CAPod duke monitoruar në sfond gjatë gjithë kohës.</string>
     <string name="settings_autoconnect_info_android12">Lidhja automatike mbështetet në një funksion sistemi të cilin Android 12 dhe versionet më të reja e kufizojnë. Mund të mos funksionojë në pajisjen tuaj.</string>
     <string name="settings_autoconnect_condition_label">Kushti i lidhjes automatike</string>
-    <string name="settings_autoconnect_condition_description">Kur duhet të përpiqemi të lidhemi me pajisjen tuaj?</string>
     <string name="settings_devices_label">Pajisjet</string>
     <string name="settings_devices_description">Menaxhoni pajisjet tuaja.</string>
     <string name="settings_reaction_label">Reagimet</string>
-    <string name="settings_category_yourdevice_label">Pajisja juaj</string>
     <string name="settings_category_compatibility_options_title">Opsionet e përputhshmërisë</string>
     <string name="settings_category_compatibility_options_description">Mos i prekni nëse gjithçka funksionon ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Çaktivizo filtrimin e harduerit</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Po fillon…</string>
     <string name="support_debuglog_label">Regjistri i korrigjimit</string>
     <string name="support_debuglog_desc">Regjistro gjithçka që aplikacioni po bën në një skedar teksti që mund ta ndani.</string>
-    <string name="debug_debuglog_size_label">Madhësia</string>
-    <string name="debug_debuglog_size_compressed_label">Madhësia e kompresuar</string>
-    <string name="debug_notification_channel_label">Njoftimet e korrigjimit</string>
-    <string name="debug_debuglog_file_label">Skedari i regjistrit të regjistruar</string>
-    <string name="debug_debuglog_recording_progress">Po regjistrohet regjistri i korrigjimit</string>
     <string name="debug_debuglog_record_action">Regjistro regjistrin e korrigjimit</string>
     <string name="debug_debuglog_stop_action">Ndalo regjistrimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. detajet e pajisjes Bluetooth). Ndajeni vetëm me palë të besuara.</string>
     <string name="settings_debuglog_explanation">Kjo veçori regjistron gjithçka që aplikacioni po bën në një skedar të ndashëm. Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. detajet e pajisjes Bluetooth). Ndajeni vetëm me palë të besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
-    <string name="settings_support_installid_label">ID-ja e Instalimit</string>
-    <string name="settings_support_installid_desc">Raportet automatike të gabimeve janë anonime. Ndani ID-në tuaj të instalimit nëse zhvilluesi ka nevojë të gjejë raportet tuaja të gabimeve.</string>
     <string name="settings_support_label">Mbështetje</string>
     <string name="settings_support_description">Nëse keni nevojë për ndihmë.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Rivendosni të dhënat e mësuara?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod do të harrojë depletimin e matur të kësaj pajisjeje, shpejtësinë e ngarkimit dhe shëndetin e baterisë, dhe do të fillojë përsëri nga jeta nominale e baterisë.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
-    <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
-    <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
-    <string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
-    <string name="settings_compatibility_mode_description">Çaktivizo optimizimet për të përmirësuar përputhshmërinë. Provojeni këtë nëse nuk po shihni asnjë të dhënë.</string>
     <string name="help_translate_label">Përkthimi</string>
     <string name="help_translate_description">Ndihmoni në përkthimin e këtij aplikacioni në gjuhën tuaj të preferuar.</string>
     <string name="translators_thanks_title">Përkthyesit</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Sukses</string>
     <string name="troubleshooter_ble_result_success_body">Transmetimet e reklamave BLE po merren nga CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Pa sukses</string>
-    <string name="troubleshooter_ble_result_failure_body">Zgjidhja e problemeve dështoi. Asnjë kombinim i opsioneve të përputhshmërisë nuk ndihmoi.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Telefoni juaj nuk mori fare të dhëna BLE. Mund ta provoni përsëri këtë test në një zonë me shumë njerëz për të parë nëse mund të merren burime të dhënash (përveç kufjeve tuaja). Mosmarrja e të dhënave tregon një problem me sistemin operativ të telefonit tuaj.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni juaj mori të dhëna BLE, por të dhënat nuk vijnë nga asnjë pajisje e mbështetur. A janë ndezur kufjet tuaja? A i mbështet CAPod kufjet tuaja?</string>
-    <string name="troubleshooter_ble_result_failure_action">Provo përsëri</string>
-    <string name="troubleshoot_action">Zgjidh problemet</string>
     <string name="onboarding_body1">Ky aplikacion shton mbështetje për veçoritë specifike të AirPod në Android.</string>
     <string name="onboarding_body2">Jo të gjitha pajisjet Android mbështesin plotësisht veçoritë shtesë të AirPod. Sistemi juaj operativ kërkon një implementim të saktë të Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nuk ka reklama dhe nuk mbledh të dhënat tuaja.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Pajisja juaj është e lidhur, por CAPod nuk po merr të dhëna live prej saj. Telefoni juaj mund të ketë nevojë për një opsion përputhshmërie — zgjidhësi i problemeve mund të përpiqet të gjejë një automatikisht.</string>
     <string name="overview_troubleshoot_suggestion_action">Ekzekuto zgjidhësin e problemeve</string>
     <string name="overview_unmatched_devices_label">Pajisje të papërputhura</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d pajisje pa profil përputhës</item>
-        <item quantity="other">%d pajisje pa profil përputhës</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d pajisje e afërt u zbulua pa profil përkatës. Shfaqeni për detaje të disponueshme. Nëse është e juaja, shtoni një profil nga Pajisjet për ta njohur.</item>
         <item quantity="other">%d pajisje të afërta u zbuluan pa profile përkatëse. Shfaqini për detaje të disponueshme. Nëse ndonjëra është e juaja, shtoni një profil nga Pajisjet për ta njohur.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod përdor \"qasjen në vendndodhje në sfond\" për të mundësuar veçori si \"Shfaq popup\" dhe \"Lidhu automatikisht\" ndërsa aplikacioni është i mbyllur. Qasja në vendndodhje në sfond i lejon aplikacionit të marrë të dhëna Bluetooth Low Energy ndërsa është në sfond. Ky aplikacion NUK do të përdorë të dhënat Bluetooth për të përcaktuar vendndodhjen tuaj.</string>
     <string name="permission_ignore_battery_optimizations_label">Çaktivizo optimizimet e baterisë</string>
     <string name="permission_ignore_battery_optimizations_description">Optimizimet e baterisë e pengojnë këtë aplikacion nga marrja e besueshme e të dhënave Bluetooth ndërsa aplikacioni është në sfond.</string>
-    <string name="permission_required_title">Leja e mëposhtme kërkohet:</string>
     <string name="permission_system_alert_window_label">Dritare Alarmi Sistemi</string>
     <string name="permission_system_alert_window_description">Lejoni CAPod të vizatojë mbi aplikacionet e tjera për të mundësuar veçorinë \"Shfaq PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kur shihet</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Në vesh</string>
     <string name="pods_dual_left_label">Kufjja e majtë</string>
     <string name="pods_dual_right_label">Kufjja e djathtë</string>
-    <string name="pods_dual_left_short_label">M</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Kutia</string>
     <string name="battery_unavailable_label">Bateria e padisponueshme</string>
     <string name="battery_state_low_cd">Bateria e ulët</string>
     <string name="battery_state_critical_cd">Bateria në nivel kritik</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Lidhje direkte aktive</string>
     <string name="signal_indicator_bars_cd">Fuqia e sinjalit: %1$d nga 4 shtylla</string>
     <string name="signal_indicator_disconnected_cd">Sinjali: i shkëputur</string>
-    <string name="pods_yours">E juaja</string>
     <string name="headset_being_worn_label">Po mbahet</string>
     <string name="headset_not_being_worn_label">Nuk po mbahet</string>
     <string name="pods_case_unknown_state">Gjendje e panjohur</string>
-    <string name="last_seen_x">Parë për herë të fundit: %s</string>
-    <string name="first_seen_x">Parë për herë të parë: %s</string>
     <string name="battery_cached_label">E fundit e njohur · %s</string>
     <string name="battery_time_remaining_format_hm">%1$do %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$do</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Cilësia minimale e sinjalit</string>
     <string name="profiles_signal_quality_description">Zbulo vetëm pajisje me fuqinë e sinjalit mbi këtë prag. Vlerat më të ulëta rrisin gamën e zbulimit por mund të shkaktojnë pozitivë false. Mos e vendosni shumë lart - pritja Bluetooth është përgjithësisht e dobët dhe ndryshon me distancën dhe pengesat.</string>
     <string name="profiles_identitykey_label">Çelës Identiteti</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) i pajisjes suaj, i cili ndihmon CAPod ta identifikojë atë midis pajisjeve të afërta.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ndryshojnë shpesh adresën e tyre Bluetooth për privatësi. IRK ndihmon CAPod të njohë pajisjen tuaj. Ju nevojitet qasje njëherëshme në një MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Çelës Enkriptimi</string>
-    <string name="profiles_maindevice_encryptionkey_description">Çelësi i enkriptimit të pajisjes suaj, i cili lejon CAPod të marrë informacion të detajuar të statusit.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods dërgojnë një mesazh statusi, pjesa e të cilit është e enkriptuar. Çelësi i enkriptimit lejon CAPod të dekriptojë mesazhin e plotë. Ju nevojitet qasje njëherëshme në një MacBook.</string>
     <string name="profiles_key_invalid_format">Format i pavlefshëm i çelësit</string>
     <string name="profiles_key_expected_format">Formati i pritur: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Keni ndryshime të paruajtura. Çfarë dëshironi të bëni?</string>
     <string name="general_save_and_exit_action">Ruaj &amp; dil</string>
     <string name="general_discard_action">Hidh poshtë</string>
-    <string name="general_keep_editing_action">Vazhdo redaktimin</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Regjistrim shumë i shkurtër</string>
     <string name="debug_debuglog_short_recording_message">Një regjistrim debug duhet të kapë problemin ndërkohë që ndodh. Vazhdoni të regjistroni, riprodhoni problemin, pastaj ndaloni regjistrimin.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Cilësimet e pajisjes</string>
     <string name="device_settings_subtitle_profile_prefix">Profili: %s</string>
-    <string name="device_settings_info_name_label">Emri</string>
     <string name="device_settings_info_bt_name_label">Etiketa e pajisjes Bluetooth</string>
     <string name="device_settings_info_model_label">Modeli</string>
     <string name="device_settings_info_manufacturer_label">Prodhuesi</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
     <string name="review_app_body">Dëshironi t\'i lini një koment CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Gjenerik</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
     <string name="device_settings_microphone_mode_description">Cili kufjezë përdoret si mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Automatik</string>

@@ -3,7 +3,6 @@
     <string name="general_share_action">شارك</string>
     <string name="general_done_action">تمّ</string>
     <string name="general_cancel_action">ألغِ</string>
-    <string name="general_copy_action">انسخ</string>
     <string name="general_thank_you_label">شكرًا لك</string>
     <string name="general_upgrade_action">رقِّ</string>
     <string name="general_retry_action">أعِد المحاولة</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">افحص</string>
     <string name="general_close_action">أغلق</string>
     <string name="general_dismiss_action">تجاهَل</string>
-    <string name="general_edit_action">عدّل</string>
     <string name="general_save_action">احفظ</string>
     <string name="general_guide_action">الدليل</string>
     <string name="general_continue_action">تابع</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">يستأنف تشغيل الموسيقى عند ارتداء سمّاعات أيربودز مرّةً أخرى، ولكنْ فقط إذا أوقفها الإيقاف التلقائي. أمّا عمليات الإيقاف التي فعّلتها بنفسك (الهاتف، أو وضع سمّاعات أيربودز على قاعدة السمّاعات، أو وضع السكون) فتبقى متوقّفة.</string>
     <string name="settings_start_music_on_wear_label">شغّل الموسيقى عند ارتدائها</string>
     <string name="settings_start_music_on_wear_description">يحاول دائمًا تشغيل الموسيقى عند وضع سمّاعات الأذن، حتّى بعد إيقاف التشغيل يدويًّا.</string>
-    <string name="settings_eardetection_info_label">ملاحظة على راصد الأذن</string>
     <string name="settings_eardetection_info_description">إذا كان راصد الأذن يعمل مع سمّاعةٍ واحدةٍ فقط، فهذا قيدٌ من أبل. يتمّ رصد ”السمّاعة الرئيسة“ (المُستخدَمة للميكروفون) فقط. يمكنك ضبط الإعدادات على أجهزة أبل عبر: الإعدادات ← البلوتوث ← أيربودز ← الميكروفون.</string>
-    <string name="settings_signal_minimum_label">الحدّ الأدنى لجودة الإشارة</string>
-    <string name="settings_signal_minimum_description">الحدّ الأدنى لجودة الإشارة التي يجب أن يتمتّع بها الجهاز ليتمّ اعتباره ملكًا لك.</string>
     <string name="settings_autoconnect_label">الاتّصال التلقائي</string>
     <string name="settings_autoconnect_description">إذا لم يتّصل أندرويد تلقائيًّا، فيمكننا طلب ذلك منه أيضًا. هذا يُبقي نظام مراقبة كابود يعمل في الخلفية طوال الوقت.</string>
     <string name="settings_autoconnect_info_android12">تعتمد خاصّية الاتّصال التلقائي على مزيّةٍ نظاميةٍ يقيّدها أندرويد ١٢ والإصدارات الأحدث. قد لا تعمل هذه الخاصّية على جهازك.</string>
     <string name="settings_autoconnect_condition_label">شرط الاتّصال التلقائي</string>
-    <string name="settings_autoconnect_condition_description">متى يجب أن نحاول الاتّصال بجهازك؟</string>
     <string name="settings_devices_label">الأجهزة</string>
     <string name="settings_devices_description">أدِر أجهزتك.</string>
     <string name="settings_reaction_label">ردود الفعل</string>
-    <string name="settings_category_yourdevice_label">جهازك</string>
     <string name="settings_category_compatibility_options_title">خيارات التوافق</string>
     <string name="settings_category_compatibility_options_description">لا تلمسها إذا كان كلّ شيءٍ يعمل ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">تعطيل تصفية الأجهزة</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">يجري البدء…</string>
     <string name="support_debuglog_label">سجلّ تصحيح الأخطاء</string>
     <string name="support_debuglog_desc">يسجّل كلّما يفعله التطبيق في ملفٍّ نصيٍّ يمكنك مشاركته.</string>
-    <string name="debug_debuglog_size_label">الحجم</string>
-    <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
-    <string name="debug_notification_channel_label">إشعارات تصحيح الأخطاء</string>
-    <string name="debug_debuglog_file_label">ملفّ السجلّ المُسجَّل</string>
-    <string name="debug_debuglog_recording_progress">يجري تسجيل سجلّ تصحيح الأخطاء</string>
     <string name="debug_debuglog_record_action">سجّل سجلّ تصحيح الأخطاء</string>
     <string name="debug_debuglog_stop_action">أوقف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملفّ المُنشأ على معلوماتٍ حسّاسةٍ (مثل تفاصيل جهاز البلوتوث). لا تشاركه إلّا مع جهاتٍ موثوقة.</string>
     <string name="settings_debuglog_explanation">تسجّل هذه الخاصّية جميع أنشطة التطبيق في ملفٍّ قابلٍ للمشاركة. يحتوي الملفّ الناتج على معلوماتٍ حسّاسةٍ (مثل تفاصيل جهاز البلوتوث). لا تشاركه إلّا مع جهاتٍ موثوقةٍ (مثل مطوّرٍ يعمل على حلّ مشكلةٍ ما).</string>
-    <string name="settings_support_installid_label">معرّف التثبيت</string>
-    <string name="settings_support_installid_desc">تقارير الأخطاء التلقائية مجهولة المصدر. شارك معرّف التثبيت الخاصّ بك إذا احتاج المطوّر إلى العثور على تقارير الأخطاء الخاصّة بك.</string>
     <string name="settings_support_label">الدعم</string>
     <string name="settings_support_description">إذا كنت بحاجةٍ إلى بعض المساعدة.</string>
     <string name="settings_wiki_label">الموسوعة</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">هل ترغب في إعادة ضبط البيانات المُكتسَبة؟</string>
     <string name="device_battery_estimate_reset_confirm_message">سيتجاهل كابود معدّل استهلاك الطاقة المُقاس لهذا الجهاز، وسرعة الشحن، ووقت الاستماع، وسيبدأ من جديدٍ بناءً على عمر البطّارية المُقدَّر.</string>
     <string name="settings_acknowledgements_label">الشكر والتقدير</string>
-    <string name="settings_debug_autoreports_label">تقارير الأخطاء التلقائية</string>
-    <string name="settings_debug_autoreports_description">يبلغ تلقائيًّا عن المشاكل، على سبيل المثال: تفاصيل حول تعطّل التطبيق حتّى أتمكّن من معرفة كيفية إصلاحه.</string>
-    <string name="settings_compatibility_mode_label">وضع التوافق</string>
-    <string name="settings_compatibility_mode_description">يعطّل التحسينات لتحسين التوافق. جرّب هذا الحلّ إذا لم تكُن ترى أيّ بيانات.</string>
     <string name="help_translate_label">الترجمة</string>
     <string name="help_translate_description">ساعد في ترجمة هذا التطبيق إلى لغتك المُفضَّلة.</string>
     <string name="translators_thanks_title">المترجمون</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">نجاح</string>
     <string name="troubleshooter_ble_result_success_body">يتمّ استقبال عمليات بثّ إعلانات تقنية بلوتوث منخفضة الطاقة (BLE) بواسطة كابود.</string>
     <string name="troubleshooter_ble_result_failure_title">غير ناجح</string>
-    <string name="troubleshooter_ble_result_failure_body">فشلت عملية استكشاف الأخطاء وإصلاحها. لم تُجدِ أيٌّ من خيارات التوافق نفعًا.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">لم يستقبل هاتفك أيّ بياناتٍ عبر تقنية البلوتوث منخفضة الطاقة (BLE). يمكنك إعادة إجراء هذا الاختبار في منطقةٍ مزدحمةٍ لمعرفة ما إذا كان بالإمكان استقبال مصادر بياناتٍ أخرى (غير سمّاعات الرأس). يشير عدم استقبال أيّ بياناتٍ إلى وجود مشكلةٍ في نظام تشغيل هاتفك.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">استقبَل هاتفك بياناتٍ عبر تقنية بلوتوث منخفضة الطاقة (BLE)، لكنّ هذه البيانات لا تأتي من أيّ جهازٍ مدعوم. هل سمّاعات الرأس الخاصّة بك تعمل؟ هل يدعم كابود سمّاعات الرأس الخاصّة بك؟</string>
-    <string name="troubleshooter_ble_result_failure_action">حاول مرّةً أخرى</string>
-    <string name="troubleshoot_action">استكشف الأخطاء وأصلحها</string>
     <string name="onboarding_body1">يُضيف هذا التطبيق دعمًا لمزايا خاصّةٍ بسمّاعات أيربودز إلى أندرويد.</string>
     <string name="onboarding_body2">لا تدعم جميع الأجهزة التي تعمل بنظام أندرويد مزايا أيربودز الإضافية بشكلٍ كامل. يتطلّب نظام التشغيل الخاصّ بك تطبيقًا صحيحًا لتقنية بلوتوث منخفضة الطاقة.</string>
     <string name="onboarding_body3">لا يحتوي كابود على إعلانات ولا يجمع بياناتك.</string>
@@ -207,14 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">جهازك متّصلٌ، لكنّ كابود لا يستقبل أيّ بياناتٍ مباشِرةٍ منه. قد يحتاج هاتفك إلى خيار توافقٍ — يمكن لمستكشف الأخطاء ومصلحها محاولة عثور واحدٍ تلقائيًّا.</string>
     <string name="overview_troubleshoot_suggestion_action">شغّل مستكشف الأخطاء ومصلحها</string>
     <string name="overview_unmatched_devices_label">أجهزةٌ غير متطابقة</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="zero">لا توجد أجهزةٌ دون ملفّ تعريفٍ مطابق</item>
-        <item quantity="one">جهازٌ واحدٌ دون ملفّ تعريفٍ مطابق</item>
-        <item quantity="two">جهازان دون ملفّ تعريفٍ مطابق</item>
-        <item quantity="few">%d أجهزةٍ دون ملفّ تعريفٍ مطابق</item>
-        <item quantity="many">%d جهازًا دون ملفّ تعريفٍ مطابق</item>
-        <item quantity="other">%d جهازٍ دون ملفّ تعريفٍ مطابق</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="zero">لم يُعثَر على أيّ أجهزةٍ قريبةٍ دون ملفّات تعريفٍ مطابقة.</item>
         <item quantity="one">تمّ اكتشاف جهازٍ قريبٍ دون ملفّ تعريفٍ مطابق. اعرضه للاطّلاع على التفاصيل المُتاحة. إذا كان جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
@@ -243,7 +214,6 @@
     <string name="permission_background_location_description">يستخدم كابود خاصّية ”الوصول إلى الموقع في الخلفية“ لتمكين مزايا مثل ”إرسال إشعارٍ منبثق“ و”الاتّصال التلقائي“ حتّى عند إغلاق التطبيق. يسمح هذا الوصول للتطبيق باستقبال بيانات بلوتوث منخفضة الطاقة (BLE) في أثناء تشغيله في الخلفية. مع ذلك، لن يستخدم هذا التطبيق بيانات البلوتوث لتحديد موقعك.</string>
     <string name="permission_ignore_battery_optimizations_label">تعطيل تحسينات البطارية</string>
     <string name="permission_ignore_battery_optimizations_description">تعمل تحسينات البطّارية على منع هذا التطبيق من استقبال بيانات البلوتوث بشكلٍ موثوقٍ في أثناء تشغيل التطبيق في الخلفية.</string>
-    <string name="permission_required_title">يلزم الحصول على الإذن التالي:</string>
     <string name="permission_system_alert_window_label">نافذة تنبيه النظام</string>
     <string name="permission_system_alert_window_description">يسمح لكابود بالظهور فوق التطبيقات الأخرى لجعل مزيّة ”إرسال الإشعار المنبثق“ مُمكِنة.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">عند الرؤية</string>
@@ -251,9 +221,6 @@
     <string name="settings_reaction_autoconnect_inear_label">في الأذن</string>
     <string name="pods_dual_left_label">السمّاعة اليسرى</string>
     <string name="pods_dual_right_label">السمّاعة اليمنى</string>
-    <string name="pods_dual_left_short_label">يس</string>
-    <string name="pods_dual_right_short_label">يم</string>
-    <string name="pods_case_label">الحافظة</string>
     <string name="battery_unavailable_label">البطّارية غير متوفّرة</string>
     <string name="battery_state_low_cd">البطارية منخفضة</string>
     <string name="battery_state_critical_cd">البطارية منخفضة جدًا</string>
@@ -314,12 +281,9 @@
     <string name="signal_badge_aap_cd">الاتصال المباشر نشط</string>
     <string name="signal_indicator_bars_cd">قوة الإشارة: %1$d من 4 أشرطة</string>
     <string name="signal_indicator_disconnected_cd">الإشارة: غير متصلة</string>
-    <string name="pods_yours">ملكك</string>
     <string name="headset_being_worn_label">يتم ارتداؤها</string>
     <string name="headset_not_being_worn_label">لا يتم ارتداؤها</string>
     <string name="pods_case_unknown_state">حالة غير معروفة</string>
-    <string name="last_seen_x">آخر ظهور: %s</string>
-    <string name="first_seen_x">أول ظهور: %s</string>
     <string name="battery_cached_label">آخر معروف · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dس و%2$dد</string>
     <string name="battery_time_remaining_format_h">%1$dس</string>
@@ -349,10 +313,8 @@
     <string name="profiles_signal_quality_title">الحد الأدنى لجودة الإشارة</string>
     <string name="profiles_signal_quality_description">كشف الأجهزة التي تتجاوز قوة إشارتها هذا الحد فقط. القيم المنخفضة تزيد نطاق الكشف ولكنها قد تسبب نتائج إيجابية خاطئة. لا تضع هذا عاليًا جدًا - استقبال Bluetooth ضعيف بشكل عام ويتغير مع المسافة والعوائق.</string>
     <string name="profiles_identitykey_label">مفتاح الهوية</string>
-    <string name="profilessettings_maindevice_identitykey_description">مفتاح حل هوية جهازك (IRK)، الذي يساعد CAPod في التعرف عليه من بين الأجهزة القريبة.</string>
     <string name="profiles_maindevice_identitykey_explanation">تغير AirPods عنوان Bluetooth الخاص بها بشكل متكرر للخصوصية. يساعد IRK تطبيق CAPod في التعرف على جهازك. تحتاج إلى وصول لمرة واحدة إلى MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">مفتاح التشفير</string>
-    <string name="profiles_maindevice_encryptionkey_description">مفتاح تشفير جهازك، الذي يسمح لـ CAPod باسترداد معلومات الحالة التفصيلية.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">ترسل AirPods رسالة حالة، جزء منها مشفر. يسمح مفتاح التشفير لـ CAPod بفك تشفير الرسالة الكاملة. تحتاج إلى وصول لمرة واحدة إلى MacBook.</string>
     <string name="profiles_key_invalid_format">تنسيق مفتاح غير صالح</string>
     <string name="profiles_key_expected_format">التنسيق المتوقع: %1$s</string>
@@ -385,7 +347,6 @@
     <string name="general_unsaved_changes_message">لديك تغييرات غير محفوظة. ماذا تريد أن تفعل؟</string>
     <string name="general_save_and_exit_action">حفظ والخروج</string>
     <string name="general_discard_action">تجاهل</string>
-    <string name="general_keep_editing_action">متابعة التحرير</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">التسجيل قصير جداً</string>
     <string name="debug_debuglog_short_recording_message">يجب أن يلتقط سجل التصحيح المشكلة أثناء حدوثها. استمر التسجيل، أعد إنتاج المشكلة، ثم أوقف التسجيل.</string>
@@ -468,7 +429,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">إعدادات الجهاز</string>
     <string name="device_settings_subtitle_profile_prefix">الملف الشخصي: %s</string>
-    <string name="device_settings_info_name_label">الاسم</string>
     <string name="device_settings_info_bt_name_label">تسمية جهاز البلوتوث</string>
     <string name="device_settings_info_model_label">الطراز</string>
     <string name="device_settings_info_manufacturer_label">الشركة المصنّعة</string>
@@ -548,7 +508,6 @@
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
     <string name="review_app_body">هل ترغب في ترك تعليق لـ CAPod؟ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">عام</string>
     <string name="device_settings_microphone_mode_label">ميكروفون</string>
     <string name="device_settings_microphone_mode_description">سمّاعة الأذن المستخدمة كميكروفون</string>
     <string name="device_settings_microphone_mode_auto">تلقائي</string>

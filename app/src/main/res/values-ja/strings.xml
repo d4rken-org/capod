@@ -3,7 +3,6 @@
     <string name="general_share_action">共有</string>
     <string name="general_done_action">完了</string>
     <string name="general_cancel_action">キャンセル</string>
-    <string name="general_copy_action">コピー</string>
     <string name="general_thank_you_label">ありがとう</string>
     <string name="general_upgrade_action">アップグレード</string>
     <string name="general_retry_action">再試行</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">確認</string>
     <string name="general_close_action">閉じる</string>
     <string name="general_dismiss_action">閉じる</string>
-    <string name="general_edit_action">編集</string>
     <string name="general_save_action">保存</string>
     <string name="general_guide_action">ガイド</string>
     <string name="general_continue_action">続行</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">自動一時停止で停止した場合のみ、ポッドを再装着したときに音楽を再開します。自分で一時停止した場合（電話、AirPodsステム、スリープ）は一時停止のままになります。</string>
     <string name="settings_start_music_on_wear_label">装着時に音楽を開始</string>
     <string name="settings_start_music_on_wear_description">手動で一時停止した後でも、ポッドを装着したときに常に音楽の再生を試みます。</string>
-    <string name="settings_eardetection_info_label">耳検出に関する注意</string>
     <string name="settings_eardetection_info_description">耳検出が片方のpodでしか動作しない場合、これはAppleの制限です。検出されるのは「primary pod」（マイクに使われる側）だけです。Appleデバイスで設定してください: 設定 → Bluetooth → AirPods → マイク。</string>
-    <string name="settings_signal_minimum_label">最小信号品質</string>
-    <string name="settings_signal_minimum_description">デバイスがあなたのものと見なされるために必要な最小信号品質。</string>
     <string name="settings_autoconnect_label">自動接続</string>
     <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、CAPodから接続をリクエストすることができます。この機能をオンにすると、CAPodは常にバックグラウンドで監視を続けます。</string>
     <string name="settings_autoconnect_info_android12">自動接続はAndroid 12以降で制限されているシステム機能に依存しています。お使いのデバイスでは動作しない場合があります。</string>
     <string name="settings_autoconnect_condition_label">自動接続条件</string>
-    <string name="settings_autoconnect_condition_description">いつデバイスに接続しようとすべきですか？</string>
     <string name="settings_devices_label">デバイス</string>
     <string name="settings_devices_description">デバイスを管理します。</string>
     <string name="settings_reaction_label">リアクション</string>
-    <string name="settings_category_yourdevice_label">あなたのデバイス</string>
     <string name="settings_category_compatibility_options_title">互換性オプション</string>
     <string name="settings_category_compatibility_options_description">すべてが機能する場合は触れないでください ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ハードウェアフィルタリングを無効にする</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">起動中…</string>
     <string name="support_debuglog_label">デバッグログ</string>
     <string name="support_debuglog_desc">アプリが行っているすべてのことを、共有できるテキストファイルに記録します。</string>
-    <string name="debug_debuglog_size_label">サイズ</string>
-    <string name="debug_debuglog_size_compressed_label">圧縮サイズ</string>
-    <string name="debug_notification_channel_label">デバッグ通知</string>
-    <string name="debug_debuglog_file_label">記録されたログファイル</string>
-    <string name="debug_debuglog_recording_progress">デバッグログを記録中</string>
     <string name="debug_debuglog_record_action">デバッグログを記録</string>
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者とのみ共有してください。</string>
     <string name="settings_debuglog_explanation">この機能は、アプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
-    <string name="settings_support_installid_label">インストールID</string>
-    <string name="settings_support_installid_desc">自動エラーレポートは匿名です。開発者がエラーレポートを見つける必要がある場合は、インストールIDを共有してください。</string>
     <string name="settings_support_label">サポート</string>
     <string name="settings_support_description">ヘルプが必要な場合。</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">学習データをリセットしますか？</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPodはこのデバイスの測定済み放電、充電速度、リスニング時間を忘れて、定格バッテリー寿命からやり直します。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
-    <string name="settings_debug_autoreports_label">自動バグレポート</string>
-    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
-    <string name="settings_compatibility_mode_label">互換モード</string>
-    <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、これを試してください。</string>
     <string name="help_translate_label">翻訳</string>
     <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください。</string>
     <string name="translators_thanks_title">翻訳者</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">成功</string>
     <string name="troubleshooter_ble_result_success_body">BLEアドバタイズメントブロードキャストはCAPodによって受信されています。</string>
     <string name="troubleshooter_ble_result_failure_title">失敗</string>
-    <string name="troubleshooter_ble_result_failure_body">トラブルシューティングに失敗しました。互換性オプションの組み合わせは役に立ちませんでした。</string>
     <string name="troubleshooter_ble_result_failure_phone_body">お使いの電話機はBLEデータをまったく受信しませんでした。混雑した場所でこのテストを再試行して、データソース（ヘッドフォン以外）を受信できるかどうかを確認できます。データが受信されない場合は、電話機のオペレーティングシステムに問題があることを示しています。</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">お使いの電話機はBLEデータを受信しましたが、データはサポートされているどのデバイスからも送信されていません。ヘッドフォンはオンになっていますか？CAPodはヘッドフォンをサポートしていますか？</string>
-    <string name="troubleshooter_ble_result_failure_action">再試行</string>
-    <string name="troubleshoot_action">トラブルシューティング</string>
     <string name="onboarding_body1">このアプリは、AndroidにAirPod固有の機能のサポートを追加します。</string>
     <string name="onboarding_body2">すべてのAndroidデバイスが追加のAirPod機能を完全にサポートしているわけではありません。オペレーティングシステムには、正しく機能するBluetooth Low Energyの実装が必要です。</string>
     <string name="onboarding_body3">CAPodには広告がなく、データを収集しません。</string>
@@ -207,9 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">デバイスは接続されていますが、CAPodはライブデータを受信していません。互換性オプションが必要な場合があります—トラブルシューターが自動的に検索を試みます。</string>
     <string name="overview_troubleshoot_suggestion_action">トラブルシューターを実行</string>
     <string name="overview_unmatched_devices_label">一致しないデバイス</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="other">一致するプロファイルがないデバイス %d 台</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="other">近くで一致するプロファイルのないデバイスが%d件検出されました。詳細を確認するには表示してください。ご自身のデバイスであれば、「デバイス」からプロファイルを追加すると認識されます。</item>
     </plurals>
@@ -228,7 +204,6 @@
     <string name="permission_background_location_description">CAPodは、アプリが閉じている間に「ポップアップを表示」や「AutoConnect」などの機能を有効にするために「バックグラウンド位置情報アクセス」を使用します。バックグラウンド位置情報アクセスにより、アプリはバックグラウンドでもBluetooth Low Energyデータを受信できます。このアプリがBluetoothデータを使用して位置情報を特定することはありません。</string>
     <string name="permission_ignore_battery_optimizations_label">バッテリー最適化を無効化</string>
     <string name="permission_ignore_battery_optimizations_description">バッテリー最適化により、アプリがバックグラウンドでBluetoothデータを安定して受信できなくなります。</string>
-    <string name="permission_required_title">次の権限が必要です:</string>
     <string name="permission_system_alert_window_label">システムアラートウィンドウ</string>
     <string name="permission_system_alert_window_description">「ポップアップを表示」機能を有効にするため、CAPodが他のアプリの上に表示できるようにします。</string>
     <string name="settings_reaction_autoconnect_whenseen_label">検出時</string>
@@ -236,9 +211,6 @@
     <string name="settings_reaction_autoconnect_inear_label">装着時</string>
     <string name="pods_dual_left_label">左のpod</string>
     <string name="pods_dual_right_label">右のpod</string>
-    <string name="pods_dual_left_short_label">左</string>
-    <string name="pods_dual_right_short_label">右</string>
-    <string name="pods_case_label">ケース</string>
     <string name="battery_unavailable_label">バッテリー情報なし</string>
     <string name="battery_state_low_cd">バッテリー残量が少ない</string>
     <string name="battery_state_critical_cd">バッテリーが危機的に低い</string>
@@ -289,12 +261,9 @@
     <string name="signal_badge_aap_cd">直接接続中</string>
     <string name="signal_indicator_bars_cd">電波強度: 4バー中%1$d</string>
     <string name="signal_indicator_disconnected_cd">シグナル: 未接続</string>
-    <string name="pods_yours">あなたのデバイス</string>
     <string name="headset_being_worn_label">装着中</string>
     <string name="headset_not_being_worn_label">未装着</string>
     <string name="pods_case_unknown_state">不明な状態</string>
-    <string name="last_seen_x">最終確認: %s</string>
-    <string name="first_seen_x">初回確認: %s</string>
     <string name="battery_cached_label">最後の既知の位置 · %s</string>
     <string name="battery_time_remaining_format_hm">%1$d時間%2$d分</string>
     <string name="battery_time_remaining_format_h">%1$d時間</string>
@@ -324,10 +293,8 @@
     <string name="profiles_signal_quality_title">最小信号品質</string>
     <string name="profiles_signal_quality_description">このしきい値を超える信号強度のデバイスのみ検出します。値を下げると検出範囲は広がりますが、誤検出が増える可能性があります。高くしすぎないでください。Bluetooth受信は一般的に不安定で、距離や障害物によって変動します。</string>
     <string name="profiles_identitykey_label">識別キー</string>
-    <string name="profilessettings_maindevice_identitykey_description">あなたのデバイスのIdentity Resolving Key（IRK）。近くのデバイスの中からCAPodがあなたのデバイスを識別するのに役立ちます。</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPodsはプライバシー保護のためBluetoothアドレスを頻繁に変更します。IRKによりCAPodがあなたのデバイスを認識できます。MacBookへの一時的なアクセスが必要です。</string>
     <string name="profiles_maindevice_encryptionkey_label">暗号化キー</string>
-    <string name="profiles_maindevice_encryptionkey_description">あなたのデバイスの暗号鍵。CAPodが詳細な状態情報を取得できるようになります。</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPodsは状態メッセージを送信しますが、その一部は暗号化されています。暗号鍵によりCAPodはメッセージ全体を復号できます。MacBookへの一時的なアクセスが必要です。</string>
     <string name="profiles_key_invalid_format">無効な鍵形式です</string>
     <string name="profiles_key_expected_format">期待される形式: %1$s</string>
@@ -360,7 +327,6 @@
     <string name="general_unsaved_changes_message">未保存の変更があります。どうしますか？</string>
     <string name="general_save_and_exit_action">保存して終了</string>
     <string name="general_discard_action">破棄</string>
-    <string name="general_keep_editing_action">編集を続ける</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">記録時間が短すぎます</string>
     <string name="debug_debuglog_short_recording_message">デバッグログは問題発生中に記録する必要があります。記録を続けて問題を再現し、それから記録を停止してください。</string>
@@ -428,7 +394,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">デバイス設定</string>
     <string name="device_settings_subtitle_profile_prefix">プロファイル: %s</string>
-    <string name="device_settings_info_name_label">名前</string>
     <string name="device_settings_info_bt_name_label">Bluetoothデバイスラベル</string>
     <string name="device_settings_info_model_label">モデル</string>
     <string name="device_settings_info_manufacturer_label">メーカー</string>
@@ -508,7 +473,6 @@
     <string name="review_app_dismiss_action">また後で</string>
     <string name="review_app_body">CAPodをレビューしませんか？ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>
     <string name="device_settings_microphone_mode_description">マイクとして使用するイヤーバッド</string>
     <string name="device_settings_microphone_mode_auto">自動</string>

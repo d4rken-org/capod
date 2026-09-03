@@ -3,7 +3,6 @@
     <string name="general_share_action">Dela</string>
     <string name="general_done_action">Klar</string>
     <string name="general_cancel_action">Avbryt</string>
-    <string name="general_copy_action">Kopiera</string>
     <string name="general_thank_you_label">Tack</string>
     <string name="general_upgrade_action">Uppgradera</string>
     <string name="general_retry_action">Försök igen</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Kontrollera</string>
     <string name="general_close_action">Stäng</string>
     <string name="general_dismiss_action">Avfärda</string>
-    <string name="general_edit_action">Redigera</string>
     <string name="general_save_action">Spara</string>
     <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Fortsätt</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Återuppta musik när du tar på dig lurarna igen, men bara om Auto-paus stoppade den. Pauser du utlöste själv (telefon, AirPods-stam, sömn) förblir pausade.</string>
     <string name="settings_start_music_on_wear_label">Starta musik vid påtagning</string>
     <string name="settings_start_music_on_wear_description">Försöker alltid spela musik när du tar på dig lurarna, även efter en manuell paus.</string>
-    <string name="settings_eardetection_info_label">Örondetektionsnotering</string>
     <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
-    <string name="settings_signal_minimum_description">Den minsta signalkvalitet som en enhet måste ha för att betraktas som din.</string>
     <string name="settings_autoconnect_label">Anslut automatiskt</string>
     <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi be den att göra det. Då fortsätter CAPod att övervaka i bakgrunden hela tiden.</string>
     <string name="settings_autoconnect_info_android12">Automatisk anslutning förlitar sig på en systemfunktion som Android 12 och nyare begränsar. Det kanske inte fungerar på din enhet.</string>
     <string name="settings_autoconnect_condition_label">Villkor för automatisk anslutning</string>
-    <string name="settings_autoconnect_condition_description">När ska vi försöka ansluta till din enhet?</string>
     <string name="settings_devices_label">Enheter</string>
     <string name="settings_devices_description">Hantera dina enheter.</string>
     <string name="settings_reaction_label">Reaktioner</string>
-    <string name="settings_category_yourdevice_label">Din enhet</string>
     <string name="settings_category_compatibility_options_title">Kompatibilitetsalternativ</string>
     <string name="settings_category_compatibility_options_description">Rör inte om allt fungerar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Inaktivera maskinvarufiltrering</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Startar upp…</string>
     <string name="support_debuglog_label">Felsökningslogg</string>
     <string name="support_debuglog_desc">Spela in allt appen gör i en textfil som du kan dela.</string>
-    <string name="debug_debuglog_size_label">Storlek</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimerad storlek</string>
-    <string name="debug_notification_channel_label">Felsökningsaviseringar</string>
-    <string name="debug_debuglog_file_label">Inspelad loggfil</string>
-    <string name="debug_debuglog_recording_progress">Spelar in felsökningslogg</string>
     <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>
     <string name="debug_debuglog_stop_action">Stoppa inspelning</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. Bluetooth-enhetsdetaljer). Dela den endast med betrodda parter.</string>
     <string name="settings_debuglog_explanation">Denna funktion spelar in allt appen gör i en delbar fil. Den genererade filen innehåller känslig information (t.ex. Bluetooth-enhetsdetaljer). Dela den endast med betrodda parter (t.ex. en utvecklare som felsöker ett problem).</string>
-    <string name="settings_support_installid_label">Installations-ID</string>
-    <string name="settings_support_installid_desc">Automatiska felrapporter är anonyma. Dela ditt installations-ID om utvecklaren behöver hitta dina felrapporter.</string>
     <string name="settings_support_label">Support</string>
     <string name="settings_support_description">Om du behöver hjälp.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Återställ inlärd data?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod kommer att glömma denna enhets uppmätta förbrukning, laddningshastighet och lyssningstid, och börja om från den klassificerade batteritiden.</string>
     <string name="settings_acknowledgements_label">Tack till</string>
-    <string name="settings_debug_autoreports_label">Automatiska felrapporter</string>
-    <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitetsläge</string>
-    <string name="settings_compatibility_mode_description">Inaktivera optimeringar för att förbättra kompatibiliteten. Prova detta om du inte ser någon data.</string>
     <string name="help_translate_label">Översättning</string>
     <string name="help_translate_description">Hjälp till att översätta den här appen till ditt favoritspråk.</string>
     <string name="translators_thanks_title">Översättare</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Lyckades</string>
     <string name="troubleshooter_ble_result_success_body">BLE-annonssändningar tas emot av CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Misslyckades</string>
-    <string name="troubleshooter_ble_result_failure_body">Felsökningen misslyckades. Ingen kombination av kompatibilitetsalternativ hjälpte.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Din telefon tog inte emot någon BLE-data alls. Du kan försöka detta test igen i ett tätbefolkat område för att se om datakällor (andra än dina hörlurar) kan tas emot. Att ingen data tas emot pekar på ett problem med telefonens operativsystem.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Din telefon tog emot BLE-data, men data kommer inte från någon enhet som stöds. Är dina hörlurar påslagna? Stöder CAPod dina hörlurar?</string>
-    <string name="troubleshooter_ble_result_failure_action">Försök igen</string>
-    <string name="troubleshoot_action">Felsök</string>
     <string name="onboarding_body1">Denna app lägger till stöd för AirPod-specifika funktioner till Android.</string>
     <string name="onboarding_body2">Inte alla Android-enheter stöder fullt ut de extra AirPod-funktionerna. Ditt operativsystem kräver en korrekt fungerande Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har inga annonser och samlar inte in dina data.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Din enhet är ansluten, men CAPod tar inte emot några livedata från den. Din telefon kan behöva ett kompatibilitetsalternativ — felsökaren kan försöka hitta ett automatiskt.</string>
     <string name="overview_troubleshoot_suggestion_action">Kör felsökare</string>
     <string name="overview_unmatched_devices_label">Omatchade enheter</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d enhet utan matchande profil</item>
-        <item quantity="other">%d enheter utan matchande profil</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d enhet i närheten upptäcktes utan matchande profil. Visa den för tillgängliga detaljer. Om den är din lägger du till en profil under Enheter för att känna igen den.</item>
         <item quantity="other">%d enheter i närheten upptäcktes utan matchande profiler. Visa dem för tillgängliga detaljer. Om en av dem är din lägger du till en profil under Enheter för att känna igen den.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod använder \"platsåtkomst i bakgrunden\" för att aktivera funktioner som \"Visa popup\" och \"Anslut automatiskt\" medan appen är stängd. Platsåtkomst i bakgrunden tillåter appen att ta emot Bluetooth Low Energy-data medan den körs i bakgrunden. Denna app kommer INTE att använda Bluetooth-data för att bestämma din plats.</string>
     <string name="permission_ignore_battery_optimizations_label">Inaktivera batterioptimering</string>
     <string name="permission_ignore_battery_optimizations_description">Batterioptimering förhindrar denna app från att tillförlitligt ta emot Bluetooth-data medan appen körs i bakgrunden.</string>
-    <string name="permission_required_title">Följande behörighet krävs:</string>
     <string name="permission_system_alert_window_label">Visa över andra appar</string>
     <string name="permission_system_alert_window_description">Tillåt CAPod att rita över andra appar för att möjliggöra funktionen \"Visa popup\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">När den ses</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">I örat</string>
     <string name="pods_dual_left_label">Vänster snäcka</string>
     <string name="pods_dual_right_label">Höger snäcka</string>
-    <string name="pods_dual_left_short_label">V</string>
-    <string name="pods_dual_right_short_label">H</string>
-    <string name="pods_case_label">Fodral</string>
     <string name="battery_unavailable_label">Batteri ej tillgängligt</string>
     <string name="battery_state_low_cd">Batterinivån är låg</string>
     <string name="battery_state_critical_cd">Kritiskt låg batterinivå</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Direktanslutning aktiv</string>
     <string name="signal_indicator_bars_cd">Signalstyrka: %1$d av 4 staplar</string>
     <string name="signal_indicator_disconnected_cd">Signal: frånkopplad</string>
-    <string name="pods_yours">Din</string>
     <string name="headset_being_worn_label">Bärs</string>
     <string name="headset_not_being_worn_label">Bärs inte</string>
     <string name="pods_case_unknown_state">Okänt tillstånd</string>
-    <string name="last_seen_x">Senast sedd: %s</string>
-    <string name="first_seen_x">Först sedd: %s</string>
     <string name="battery_cached_label">Senast känd · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dmin</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Minsta signalkvalitet</string>
     <string name="profiles_signal_quality_description">Upptäck bara enheter med signalstyrka över detta tröskelvärde. Lägre värden ökar detektionsräckvidden men kan orsaka falska positiva. Ställ inte in detta för högt — Bluetooth-mottagning är generellt dålig och varierar med avstånd och hinder.</string>
     <string name="profiles_identitykey_label">Identitetsnyckel</string>
-    <string name="profilessettings_maindevice_identitykey_description">Din enhets Identity Resolving Key (IRK), som hjälper CAPod att identifiera den bland enheter i närheten.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ändrar ofta sin Bluetooth-adress av integritetsskäl. IRK hjälper CAPod att känna igen din enhet. Du behöver engångsåtkomst till en MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Krypteringsnyckel</string>
-    <string name="profiles_maindevice_encryptionkey_description">Din enhets krypteringsnyckel, som gör att CAPod kan hämta detaljerad statusinformation.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods skickar ett statusmeddelande, varav en del är krypterat. Krypteringsnyckeln gör att CAPod kan avkryptera hela meddelandet. Du behöver engångsåtkomst till en MacBook.</string>
     <string name="profiles_key_invalid_format">Ogiltigt nyckelformat</string>
     <string name="profiles_key_expected_format">Förväntat format: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Du har osparade ändringar. Vad vill du göra?</string>
     <string name="general_save_and_exit_action">Spara &amp; Avsluta</string>
     <string name="general_discard_action">Kassera</string>
-    <string name="general_keep_editing_action">Fortsätt redigera</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Inspelningen är för kort</string>
     <string name="debug_debuglog_short_recording_message">En felsökningslogg måste fånga problemet medan det inträffar. Fortsätt spela in, återskapa problemet och stoppa sedan inspelningen.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Enhetsinställningar</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Namn</string>
     <string name="device_settings_info_bt_name_label">Bluetooth-enhetsetikett</string>
     <string name="device_settings_info_model_label">Modell</string>
     <string name="device_settings_info_manufacturer_label">Tillverkare</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Kanske senare</string>
     <string name="review_app_body">Skulle du vilja lämna CAPod en recension? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Allmänt</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Vilket öronsnäcka som används som mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>

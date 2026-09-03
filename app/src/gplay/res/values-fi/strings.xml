@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play -palvelut eivät ole käytettävissä.</string>
-    <string name="upgrades_no_purchases_found_check_account">Ostoksia ei löytynyt. Käytätkö oikeaa tiliä?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play -virhe</string>
     <string name="upgrades_gplay_billing_error_description">Google Playssa tapahtui virhe. Yritä myöhemmin uudelleen tai käynnistä puhelimesi uudelleen.\n\nVirhe: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play -laskutusvirhe</string>
-    <string name="upgrades_gplay_billing_result_error_description">Ostotietojen hakemisessa Google Playsta tapahtui virhe. Tyhjennä Google Playn välimuisti ja käynnistä puhelimesi uudelleen.\n\nVirhe %s</string>
     <string name="upgrades_gplay_already_owned_label">Ostettu jo?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play ilmoittaa, että omistat jo tämän päivityksen, mutta sitä ei voitu palauttaa. Varmista, että käytät samaa Google-tiliä, jolla ostit sen. Play Kaupan synkronointi voi kestää hetken — kokeile laitteen uudelleenkäynnistystä, Google Play -välimuistin tyhjentämistä tai odota hetki.</string>
-    <string name="upgrade_restore_action">Palauta ostos</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Hanki %1$s</string>
     <string name="upgrade_preamble">CAPodia kehittää yksi henkilö. Päivittäminen avaa lisäominaisuuksia ja auttaa pitämään sovelluksen elossa.</string>
-    <string name="upgrade_screen_options_description">Samat ominaisuudet, eri hinnoittelu. Tilaukseen sisältyy maksuton kokeilujakso, ja sen voi peruuttaa milloin tahansa.</string>
-    <string name="upgrade_screen_options_description_no_trial">Samat ominaisuudet, eri hinnoittelu. Tilauksen voi peruuttaa milloin tahansa.</string>
     <string name="upgrade_screen_subscription_trial_action">Aloita maksuton kokeilu</string>
     <string name="upgrade_screen_subscription_action">Tilaa vuosittain</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/vuosi</string>
     <string name="upgrade_screen_iap_action">Osta kertaostoksena</string>
-    <string name="upgrade_screen_iap_action_hint">Kertaostos: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
-    <string name="upgrade_screen_restore_purchase_message">Ostoksia ei löytynyt. Käytätkö oikeaa tiliä?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Jos teit ostoksen äskettäin, Google Playn synkronointi voi kestää hetken.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Yritä uudelleen muutaman minuutin kuluttua, jos ostoksesi ei näy.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Varmista, että olet kirjautunut samalla Google-tilillä, jolla teit ostoksen.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Useat tilit voivat sekoittaa Google Playn. Sovelluksen asentaminen Google Play -verkkosivuston kautta pakottaa yhdistämisen tiettyyn tiliin.</string>
     <string name="upgrade_screen_restore_banner_title">Ostitko jo Pro-version?</string>
     <string name="upgrade_screen_restore_banner_body">Näyttää siltä, että olet päivittänyt Pro-versioon tällä laitteella aiemmin. Palauta ostoksesi avataksesi sen uudelleen.</string>
     <string name="upgrade_screen_restore_success_message">Ostos palautettu.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Sinulla on CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Avattu tilauksesi ansiosta. Kiitos, että tuet CAPodia!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Avattu kertaostoksesi ansiosta. Kiitos, että tuet CAPodia!</string>
-    <string name="upgrade_screen_owned_sub_title">Vuositilaus</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Tilauksesi on aktiivinen ja uusiutuu automaattisesti. Laskutusta hallinnoi Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Tilauksesi on aktiivinen, mutta ei uusiudu automaattisesti. Pro pysyy käytettävissä nykyisen jakson loppuun asti.</string>
     <string name="upgrade_screen_owned_iap_title">Kertaostos</string>

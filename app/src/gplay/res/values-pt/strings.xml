@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Os serviços do Google Play estão indisponíveis.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nenhuma compra encontrada. Está a usar a conta correta?</string>
     <string name="upgrades_gplay_billing_error_label">Erro do Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Ocorreu um erro no Google Play. Tente novamente mais tarde ou reinicie o telemóvel.\n\nErro: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Erro de faturação do Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Ocorreu um erro ao solicitar os detalhes da sua compra ao Google Play. Limpe a cache do Google Play e reinicie o telemóvel.\n\nErro %s</string>
     <string name="upgrades_gplay_already_owned_label">Já compraste?</string>
     <string name="upgrades_gplay_already_owned_description">O Google Play indica que já possuis esta atualização, mas não foi possível restaurá-la. Certifica-te de que estás a usar a conta Google com que efetuaste a compra. A sincronização da Play Store pode demorar algum tempo — tenta reiniciar, limpar a cache do Google Play ou simplesmente aguardar.</string>
-    <string name="upgrade_restore_action">Restaurar compra</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obter %1$s</string>
     <string name="upgrade_preamble">O CAPod é desenvolvido por uma única pessoa. A atualização desbloqueia funcionalidades extra e ajuda a manter a aplicação viva.</string>
-    <string name="upgrade_screen_options_description">As mesmas funcionalidades, preços diferentes. A subscrição inclui um período de avaliação gratuito e pode ser cancelada a qualquer momento.</string>
-    <string name="upgrade_screen_options_description_no_trial">As mesmas funcionalidades, preços diferentes. A subscrição pode ser cancelada a qualquer momento.</string>
     <string name="upgrade_screen_subscription_trial_action">Iniciar período de avaliação gratuito</string>
     <string name="upgrade_screen_subscription_action">Subscrever anualmente</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ano</string>
     <string name="upgrade_screen_iap_action">Comprar uma vez</string>
-    <string name="upgrade_screen_iap_action_hint">Compra única: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Restaurar compra</string>
-    <string name="upgrade_screen_restore_purchase_message">Nenhuma compra encontrada. Está a usar a conta correta?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Se compraste recentemente, o Google Play pode demorar algum tempo a sincronizar.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Tenta novamente dentro de alguns minutos se a tua compra não aparecer.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Certifica-te de que tens sessão iniciada com a mesma conta Google utilizada na compra.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Várias contas podem confundir o Google Play. Instalar a aplicação através do site do Google Play força a associação a uma conta específica.</string>
     <string name="upgrade_screen_restore_banner_title">Já compraste o Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Parece que já atualizaste para o Pro neste dispositivo antes. Restaura a tua compra para o desbloquear novamente.</string>
     <string name="upgrade_screen_restore_success_message">Compra restaurada.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Tens o CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Desbloqueado pela tua subscrição. Obrigado por apoiares o CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Desbloqueado pela tua compra única. Obrigado por apoiares o CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Subscrição anual</string>
     <string name="upgrade_screen_owned_sub_renewing_body">A tua subscrição está ativa e configurada para renovar. A faturação é gerida pelo Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">A tua subscrição está ativa, mas não está configurada para renovar. O Pro mantém-se disponível até ao final do período atual.</string>
     <string name="upgrade_screen_owned_iap_title">Compra única</string>

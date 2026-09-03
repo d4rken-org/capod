@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play ಸೇವೆಗಳು ಲಭ್ಯವಿಲ್ಲ.</string>
-    <string name="upgrades_no_purchases_found_check_account">ಯಾವುದೇ ಖರೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ. ನೀವು ಸರಿಯಾದ ಖಾತೆಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಾ?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play ದೋಷ</string>
     <string name="upgrades_gplay_billing_error_description">Google Play ನಲ್ಲಿ ದೋಷ ಸಂಭವಿಸಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.\n\nದೋಷ: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play ಬಿಲ್ಲಿಂಗ್ ದೋಷ</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Play ನಿಂದ ನಿಮ್ಮ ಖರೀದಿ ವಿವರಗಳನ್ನು ಕೇಳುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ. Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.\n\nದೋಷ %s</string>
     <string name="upgrades_gplay_already_owned_label">ಈಗಾಗಲೇ ಖರೀದಿಸಿದ್ದೀರಾ?</string>
     <string name="upgrades_gplay_already_owned_description">ನೀವು ಈ ಅಪ್‌ಗ್ರೇಡ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೊಂದಿದ್ದೀರಿ ಎಂದು Google Play ವರದಿ ಮಾಡುತ್ತದೆ, ಆದರೆ ಅದನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನೀವು ಖರೀದಿಸಿದ Google ಖಾತೆಯನ್ನೇ ಬಳಸುತ್ತಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. Play Store ಸಿಂಕ್ರೊನೈಸೇಶನ್‌ಗೆ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು — ಮರುಪ್ರಾರಂಭಿಸಲು, Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಲು ಅಥವಾ ಸ್ವಲ್ಪ ಕಾಯಲು ಪ್ರಯತ್ನಿಸಿ.</string>
-    <string name="upgrade_restore_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ಪಡೆಯಿರಿ</string>
     <string name="upgrade_preamble">CAPod ಅನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿ ಅಭಿವೃದ್ಧಿಪಡಿಸುತ್ತಾರೆ. ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದರಿಂದ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳು ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್ ಜೀವಂತವಾಗಿರಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
-    <string name="upgrade_screen_options_description">ಅದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯು ಉಚಿತ ಪ್ರಯೋಗವನ್ನು ಒಳಗೊಂಡಿದೆ ಮತ್ತು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಬಹುದು.</string>
-    <string name="upgrade_screen_options_description_no_trial">ಅದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯನ್ನು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಬಹುದು.</string>
     <string name="upgrade_screen_subscription_trial_action">ಉಚಿತ ಪ್ರಯೋಗ ಪ್ರಾರಂಭಿಸಿ</string>
     <string name="upgrade_screen_subscription_action">ವಾರ್ಷಿಕವಾಗಿ ಚಂದಾದಾರರಾಗಿ</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/ವರ್ಷ</string>
     <string name="upgrade_screen_iap_action">ಒಮ್ಮೆ ಖರೀದಿಸಿ</string>
-    <string name="upgrade_screen_iap_action_hint">ಒಂದು ಬಾರಿಯ ಖರೀದಿ: %s</string>
     <string name="upgrade_screen_restore_purchase_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
-    <string name="upgrade_screen_restore_purchase_message">ಯಾವುದೇ ಖರೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ. ನೀವು ಸರಿಯಾದ ಖಾತೆಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಾ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">ನೀವು ಇತ್ತೀಚೆಗೆ ಖರೀದಿಸಿದ್ದರೆ, Google Play ಸಿಂಕ್ ಆಗಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ನಿಮ್ಮ ಖರೀದಿ ಕಾಣಿಸದಿದ್ದರೆ ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ಖರೀದಿಗೆ ಬಳಸಿದ ಅದೇ Google ಖಾತೆಯೊಂದಿಗೆ ನೀವು ಸೈನ್ ಇನ್ ಆಗಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">ಬಹು ಖಾತೆಗಳು Google Play ಅನ್ನು ಗೊಂದಲಗೊಳಿಸಬಹುದು. Google Play ವೆಬ್‌ಸೈಟ್ ಮೂಲಕ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಸ್ಥಾಪಿಸುವುದರಿಂದ ನಿರ್ದಿಷ್ಟ ಖಾತೆಯೊಂದಿಗೆ ಸಂಬಂಧವನ್ನು ಬಲವಂತಪಡಿಸುತ್ತದೆ.</string>
     <string name="upgrade_screen_restore_banner_title">ಈಗಾಗಲೇ Pro ಖರೀದಿಸಿದ್ದೀರಾ?</string>
     <string name="upgrade_screen_restore_banner_body">ನೀವು ಈ ಹಿಂದೆ ಈ ಸಾಧನದಲ್ಲಿ Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿದಂತೆ ಕಾಣುತ್ತದೆ. ಅದನ್ನು ಮತ್ತೆ ಅನ್‌ಲಾಕ್ ಮಾಡಲು ನಿಮ್ಮ ಖರೀದಿಯನ್ನು ಮರುಸ್ಥಾಪಿಸಿ.</string>
     <string name="upgrade_screen_restore_success_message">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">ನಿಮ್ಮಲ್ಲಿ CAPod Pro ಇದೆ!</string>
     <string name="upgrade_screen_owned_hero_sub_body">ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯಿಂದ ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ. CAPod ಅನ್ನು ಬೆಂಬಲಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು!</string>
     <string name="upgrade_screen_owned_hero_iap_body">ನಿಮ್ಮ ಒಂದು ಬಾರಿಯ ಖರೀದಿಯಿಂದ ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ. CAPod ಅನ್ನು ಬೆಂಬಲಿಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು!</string>
-    <string name="upgrade_screen_owned_sub_title">ವಾರ್ಷಿಕ ಚಂದಾದಾರಿಕೆ</string>
     <string name="upgrade_screen_owned_sub_renewing_body">ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಸಕ್ರಿಯವಾಗಿದೆ ಮತ್ತು ನವೀಕರಿಸಲು ಹೊಂದಿಸಲಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು Google Play ನಿರ್ವಹಿಸುತ್ತದೆ.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಸಕ್ರಿಯವಾಗಿದೆ, ಆದರೆ ನವೀಕರಿಸಲು ಹೊಂದಿಸಿಲ್ಲ. ಪ್ರಸ್ತುತ ಅವಧಿ ಮುಗಿಯುವವರೆಗೆ Pro ಲಭ್ಯವಿರುತ್ತದೆ.</string>
     <string name="upgrade_screen_owned_iap_title">ಒಂದು ಬಾರಿಯ ಖರೀದಿ</string>

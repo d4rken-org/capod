@@ -3,7 +3,6 @@
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
     <string name="general_cancel_action">Batal</string>
-    <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Tingkatkan</string>
     <string name="general_retry_action">Coba Lagi</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Periksa</string>
     <string name="general_close_action">Tutup</string>
     <string name="general_dismiss_action">Tutup</string>
-    <string name="general_edit_action">Ubah</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_guide_action">Panduan</string>
     <string name="general_continue_action">Lanjutkan</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Lanjutkan musik saat memakai pods lagi, tetapi hanya jika Auto jeda yang menghentikannya. Jeda yang kamu picu sendiri (telepon, batang AirPods, tidur) tetap dijeda.</string>
     <string name="settings_start_music_on_wear_label">Mulai musik saat dipakai</string>
     <string name="settings_start_music_on_wear_description">Selalu mencoba memutar musik saat kamu memakai pods, bahkan setelah jeda manual.</string>
-    <string name="settings_eardetection_info_label">Catatan deteksi telinga</string>
     <string name="settings_eardetection_info_description">Jika deteksi telinga hanya berfungsi untuk satu pod, ini adalah batasan Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang terdeteksi. Konfigurasikan di perangkat Apple: Pengaturan → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
-    <string name="settings_signal_minimum_description">Kualitas sinyal minimum yang harus dimiliki perangkat agar dianggap milik Anda.</string>
     <string name="settings_autoconnect_label">Sambungkan otomatis</string>
     <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami dapat memintanya juga. Ini membuat CAPod terus memantau di latar belakang setiap saat.</string>
     <string name="settings_autoconnect_info_android12">Koneksi otomatis mengandalkan fitur sistem yang dibatasi oleh Android 12 dan yang lebih baru. Mungkin tidak berfungsi di perangkat Anda.</string>
     <string name="settings_autoconnect_condition_label">Kondisi sambung otomatis</string>
-    <string name="settings_autoconnect_condition_description">Kapan kami harus mencoba menyambung ke perangkat Anda?</string>
     <string name="settings_devices_label">Perangkat</string>
     <string name="settings_devices_description">Kelola perangkat Anda.</string>
     <string name="settings_reaction_label">Reaksi</string>
-    <string name="settings_category_yourdevice_label">Perangkat Anda</string>
     <string name="settings_category_compatibility_options_title">Opsi kompatibilitas</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Nonaktifkan pemfilteran perangkat keras</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Memulai...</string>
     <string name="support_debuglog_label">Log debug</string>
     <string name="support_debuglog_desc">Rekam semua yang dilakukan aplikasi dalam file teks yang dapat Anda bagikan.</string>
-    <string name="debug_debuglog_size_label">Ukuran</string>
-    <string name="debug_debuglog_size_compressed_label">Ukuran terkompresi</string>
-    <string name="debug_notification_channel_label">Notifikasi debug</string>
-    <string name="debug_debuglog_file_label">File log yang direkam</string>
-    <string name="debug_debuglog_recording_progress">Merekam log debug</string>
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Hentikan perekaman</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya detail perangkat Bluetooth). Bagikan hanya dengan pihak tepercaya.</string>
     <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya detail perangkat Bluetooth). Bagikan hanya dengan pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
-    <string name="settings_support_installid_label">ID Instalasi</string>
-    <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID instalasi Anda jika pengembang perlu menemukan laporan kesalahan Anda.</string>
     <string name="settings_support_label">Dukungan</string>
     <string name="settings_support_description">Jika Anda membutuhkan bantuan.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Setel Ulang Data Terbelajar?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod akan melupakan pengurasan, kecepatan pengisian, dan waktu mendengarkan perangkat yang telah diukur, serta memulai dari awal dengan daya tahan baterai yang dinilai.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
-    <string name="settings_debug_autoreports_label">Laporan bug otomatis</string>
-    <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string>
-    <string name="settings_compatibility_mode_label">Mode kompatibilitas</string>
-    <string name="settings_compatibility_mode_description">Nonaktifkan pengoptimalan untuk meningkatkan kompatibilitas. Coba ini jika Anda tidak melihat data apa pun.</string>
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan aplikasi ini ke bahasa favorit Anda.</string>
     <string name="translators_thanks_title">Penerjemah</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Sukses</string>
     <string name="troubleshooter_ble_result_success_body">Siaran iklan BLE diterima oleh CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Gagal</string>
-    <string name="troubleshooter_ble_result_failure_body">Pemecahan masalah gagal. Tidak ada kombinasi opsi kompatibilitas yang membantu.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ponsel Anda tidak menerima data BLE sama sekali. Anda dapat mencoba lagi pengujian ini di area yang ramai untuk melihat apakah sumber data (selain headphone Anda) dapat diterima. Tidak ada data yang diterima menunjukkan masalah dengan sistem operasi ponsel Anda.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telepon Anda menerima data BLE, tetapi data tersebut tidak berasal dari perangkat yang didukung. Apakah headphone Anda dihidupkan? Apakah CAPod mendukung headphone Anda?</string>
-    <string name="troubleshooter_ble_result_failure_action">Coba lagi</string>
-    <string name="troubleshoot_action">Pecahkan masalah</string>
     <string name="onboarding_body1">Aplikasi ini menambahkan dukungan untuk fitur khusus AirPod ke Android.</string>
     <string name="onboarding_body2">Tidak semua perangkat Android sepenuhnya mendukung fitur tambahan AirPod. Sistem operasi Anda memerlukan implementasi Bluetooth Hemat Energi yang berfungsi dengan baik.</string>
     <string name="onboarding_body3">CAPod tidak memiliki iklan dan tidak mengumpulkan data Anda.</string>
@@ -207,9 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Perangkat terhubung, tetapi CAPod tidak menerima data langsung darinya. Ponsel mungkin memerlukan opsi kompatibilitas — pemecah masalah dapat mencoba menemukannya secara otomatis.</string>
     <string name="overview_troubleshoot_suggestion_action">Jalankan pemecah masalah</string>
     <string name="overview_unmatched_devices_label">Perangkat tidak cocok</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="other">%d perangkat tanpa profil yang cocok</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="other">%d perangkat di sekitar terdeteksi tanpa profil yang cocok. Tampilkan untuk melihat detail yang tersedia. Jika salah satunya milik Anda, tambahkan profil dari Perangkat untuk mengenalinya.</item>
     </plurals>
@@ -228,7 +204,6 @@
     <string name="permission_background_location_description">CAPod menggunakan \"akses lokasi latar belakang\" untuk mengaktifkan fitur seperti \"Tampilkan popup\" dan \"Sambung otomatis\" saat aplikasi ditutup. Akses lokasi latar belakang memungkinkan aplikasi menerima data Bluetooth Low Energy saat berada di latar belakang. Aplikasi ini TIDAK akan menggunakan data Bluetooth untuk menentukan lokasi Anda.</string>
     <string name="permission_ignore_battery_optimizations_label">Nonaktifkan pengoptimalan baterai</string>
     <string name="permission_ignore_battery_optimizations_description">Pengoptimalan baterai mencegah aplikasi ini menerima data Bluetooth secara andal saat di latar belakang.</string>
-    <string name="permission_required_title">Izin berikut diperlukan:</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>
     <string name="permission_system_alert_window_description">Izinkan CAPod menggambar di atas aplikasi lain untuk memungkinkan fitur \"Tampilkan PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Saat terlihat</string>
@@ -236,9 +211,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Di telinga</string>
     <string name="pods_dual_left_label">Pod kiri</string>
     <string name="pods_dual_right_label">Pod kanan</string>
-    <string name="pods_dual_left_short_label">K</string>
-    <string name="pods_dual_right_short_label">Ka</string>
-    <string name="pods_case_label">Casing</string>
     <string name="battery_unavailable_label">Baterai tidak tersedia</string>
     <string name="battery_state_low_cd">Baterai rendah</string>
     <string name="battery_state_critical_cd">Baterai sangat rendah</string>
@@ -289,12 +261,9 @@
     <string name="signal_badge_aap_cd">Koneksi langsung aktif</string>
     <string name="signal_indicator_bars_cd">Kekuatan sinyal: %1$d dari 4 bar</string>
     <string name="signal_indicator_disconnected_cd">Sinyal: terputus</string>
-    <string name="pods_yours">Milik Anda</string>
     <string name="headset_being_worn_label">Sedang dipakai</string>
     <string name="headset_not_being_worn_label">Tidak dipakai</string>
     <string name="pods_case_unknown_state">Status tidak diketahui</string>
-    <string name="last_seen_x">Terakhir terlihat: %s</string>
-    <string name="first_seen_x">Pertama terlihat: %s</string>
     <string name="battery_cached_label">Terakhir diketahui · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dj %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dj</string>
@@ -324,10 +293,8 @@
     <string name="profiles_signal_quality_title">Kualitas Sinyal Minimum</string>
     <string name="profiles_signal_quality_description">Hanya deteksi perangkat dengan kekuatan sinyal di atas ambang batas ini. Nilai lebih rendah meningkatkan jangkauan deteksi tetapi dapat menyebabkan positif palsu. Jangan atur terlalu tinggi - penerimaan Bluetooth umumnya buruk dan bervariasi dengan jarak dan penghalang.</string>
     <string name="profiles_identitykey_label">Kunci Identitas</string>
-    <string name="profilessettings_maindevice_identitykey_description">Kunci Penyelesaian Identitas (IRK) perangkat Anda, yang membantu CAPod mengidentifikasinya di antara perangkat di sekitar.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods sering mengubah alamat Bluetooth mereka demi privasi. IRK membantu CAPod mengenali perangkat Anda. Anda memerlukan akses satu kali ke MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Kunci Enkripsi</string>
-    <string name="profiles_maindevice_encryptionkey_description">Kunci enkripsi perangkat Anda, yang memungkinkan CAPod mengambil informasi status terperinci.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods mengirim pesan status, yang sebagian dienkripsi. Kunci enkripsi memungkinkan CAPod mendekripsi pesan lengkap. Anda memerlukan akses satu kali ke MacBook.</string>
     <string name="profiles_key_invalid_format">Format kunci tidak valid</string>
     <string name="profiles_key_expected_format">Format yang diharapkan: %1$s</string>
@@ -360,7 +327,6 @@
     <string name="general_unsaved_changes_message">Anda memiliki perubahan yang belum disimpan. Apa yang ingin Anda lakukan?</string>
     <string name="general_save_and_exit_action">Simpan &amp; Keluar</string>
     <string name="general_discard_action">Buang</string>
-    <string name="general_keep_editing_action">Lanjutkan Mengedit</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Rekaman terlalu singkat</string>
     <string name="debug_debuglog_short_recording_message">Log debug perlu merekam masalah saat terjadi. Terus merekam, reproduksi masalah, lalu hentikan rekaman.</string>
@@ -428,7 +394,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Pengaturan Perangkat</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Nama</string>
     <string name="device_settings_info_bt_name_label">Label Perangkat Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Produsen</string>
@@ -508,7 +473,6 @@
     <string name="review_app_dismiss_action">Lain kali</string>
     <string name="review_app_body">Mau menulis ulasan untuk CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Umum</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
     <string name="device_settings_microphone_mode_description">Earbud mana yang digunakan sebagai mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Otomatis</string>

@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Amasevisi e-Google Play awakutholakali.</string>
-    <string name="upgrades_no_purchases_found_check_account">Akukho ukuthenga okutholakele. Ingabe usebenzisa i-akhawunti efanele?</string>
     <string name="upgrades_gplay_billing_error_label">Iphutha le-Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Kube nephutha ku-Google Play. Sicela uzame futhi ngemuva kwesikhathi noma uqalise kabusha ifoni yakho.\n\nIphutha: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Iphutha Lokukhokha le-Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Kube nephutha lapho kucelwa ku-Google Play imininingwane yokuthenga kwakho. Sula inqolobane ye-Google Play bese uqalisa kabusha ifoni yakho.\n\nIphutha %s</string>
     <string name="upgrades_gplay_already_owned_label">Usuvele wathenga?</string>
     <string name="upgrades_gplay_already_owned_description">I-Google Play ibika ukuthi usuvele unalolu shintsho olusheshisiwe, kodwa alukwazanga ukubuyiselwa. Qinisekisa ukuthi usebenzisa i-akhawunti ye-Google owathenga ngayo. Ukuvumelanisa kwe-Play Store kungase kuthathe isikhathi — zama ukuqala kabusha idivayisi, ukususa i-cache ye-Google Play noma ulinde nje.</string>
-    <string name="upgrade_restore_action">Buyisela ukuthenga</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Thola %1$s</string>
     <string name="upgrade_preamble">I-CAPod yenziwe umuntu oyedwa. Ukuthuthukisa kuvula izici ezengeziwe futhi kusize ukugcina uhlelo lokusebenza luphila.</string>
-    <string name="upgrade_screen_options_description">Izici ezifanayo, amanani ahlukene. Ukubhalisa kufaka ukuzama kwamahhala futhi kungakhanselwa noma nini.</string>
-    <string name="upgrade_screen_options_description_no_trial">Izici ezifanayo, amanani ahlukene. Ukubhalisa kungakhanselwa noma nini.</string>
     <string name="upgrade_screen_subscription_trial_action">Qala ukuzama kwamahhala</string>
     <string name="upgrade_screen_subscription_action">Bhalisa minyaka yonke</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/unyaka</string>
     <string name="upgrade_screen_iap_action">Thenga kanye</string>
-    <string name="upgrade_screen_iap_action_hint">Ukuthenga kube kanye: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Buyisela ukuthenga</string>
-    <string name="upgrade_screen_restore_purchase_message">Akukho ukuthenga okutholakele. Ingabe usebenzisa i-akhawunti efanele?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Uma usanda kuthenga, kungase kuthathe isikhashana ukuze i-Google Play ivumelanise.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Zama futhi emizuzwini embalwa uma ukuthenga kwakho kungabonakali.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Qinisekisa ukuthi ungene ngemvume nge-akhawunti ye-Google efanayo eyasetshenziswa ekutheneni.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Ama-akhawunti amaningi angadunga i-Google Play. Ukufaka uhlelo lokusebenza ngewebhusayithi ye-Google Play kuphoqa ukuhlobanisa ne-akhawunti ethile.</string>
     <string name="upgrade_screen_restore_banner_title">Usuvele wathenga i-Pro?</string>
     <string name="upgrade_screen_restore_banner_body">Kubonakala sengathi wake wathuthukisela ku-Pro kule divayisi ngaphambili. Buyisela ukuthenga kwakho ukuze uyivule futhi.</string>
     <string name="upgrade_screen_restore_success_message">Ukuthenga kubuyiselwe.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Une-CAPod Pro!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Kuvulwe ukubhalisa kwakho. Siyabonga ngokusekela i-CAPod!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Kuvulwe ukuthenga kwakho okwenziwa kanye. Siyabonga ngokusekela i-CAPod!</string>
-    <string name="upgrade_screen_owned_sub_title">Ukubhalisa kwaminyaka yonke</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Ukubhalisa kwakho kuyasebenza futhi kuhlelelwe ukuvuselelwa. Ukukhokhiswa kuphathwa yi-Google Play.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Ukubhalisa kwakho kuyasebenza, kodwa akuhlelelwe ukuvuselelwa. I-Pro ihlala itholakala kuze kuphele isikhathi samanje.</string>
     <string name="upgrade_screen_owned_iap_title">Ukuthenga kube kanye</string>

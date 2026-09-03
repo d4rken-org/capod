@@ -3,7 +3,6 @@
     <string name="general_share_action">Дели</string>
     <string name="general_done_action">Готово</string>
     <string name="general_cancel_action">Откажи</string>
-    <string name="general_copy_action">Копирај</string>
     <string name="general_thank_you_label">Хвала</string>
     <string name="general_upgrade_action">Надогради</string>
     <string name="general_retry_action">Покушај</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Провери</string>
     <string name="general_close_action">Затвори</string>
     <string name="general_dismiss_action">Одбаци</string>
-    <string name="general_edit_action">Уреди</string>
     <string name="general_save_action">Сачувај</string>
     <string name="general_guide_action">Водич</string>
     <string name="general_continue_action">Настави</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Настави музику када поново носиш слушалице, али само ако ју је аутоматска пауза зауставила. Паузе које си сам/а покренуо/ла (телефон, AirPods петељка, успавање) остају паузиране.</string>
     <string name="settings_start_music_on_wear_label">Покрени музику при ношењу</string>
     <string name="settings_start_music_on_wear_description">Увек покушава да пусти музику када ставиш слушалице, чак и после ручне паузе.</string>
-    <string name="settings_eardetection_info_label">Напомена о детекцији уха</string>
     <string name="settings_eardetection_info_description">Ако детекција уха ради само за једну слушалицу, то је ограничење Apple-а. Детектује се само \"примарна слушалица\" (која се користи за микрофон). Подесите на Apple уређајима: Подешавања → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_signal_minimum_label">Минимални квалитет сигнала</string>
-    <string name="settings_signal_minimum_description">Минимални квалитет сигнала који уређај мора да има да би се сматрао вашим.</string>
     <string name="settings_autoconnect_label">Аутоматско повезивање</string>
     <string name="settings_autoconnect_description">Ако Android не повезује аутоматски, можемо и ми да га замолимо. То одржава CAPod мониторинг активним у позадини све време.</string>
     <string name="settings_autoconnect_info_android12">Аутоматско повезивање ослања се на системску функцију коју Android 12 и новије верзије ограничавају. Можда неће радити на вашем уређају.</string>
     <string name="settings_autoconnect_condition_label">Услов за аутоматско повезивање</string>
-    <string name="settings_autoconnect_condition_description">Када би требало да покушамо да се повежемо са вашим уређајем?</string>
     <string name="settings_devices_label">Уређаји</string>
     <string name="settings_devices_description">Управљајте својим уређајима.</string>
     <string name="settings_reaction_label">Реакције</string>
-    <string name="settings_category_yourdevice_label">Ваш уређај</string>
     <string name="settings_category_compatibility_options_title">Опције компатибилности</string>
     <string name="settings_category_compatibility_options_description">Не дирајте ако све ради ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Онемогући хардверско филтрирање</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Покретање…</string>
     <string name="support_debuglog_label">Дневник отклањања грешака</string>
     <string name="support_debuglog_desc">Снимите све што апликација ради у текстуалну датотеку коју можете да делите.</string>
-    <string name="debug_debuglog_size_label">Величина</string>
-    <string name="debug_debuglog_size_compressed_label">Компримована величина</string>
-    <string name="debug_notification_channel_label">Обавештења за отклањање грешака</string>
-    <string name="debug_debuglog_file_label">Снимљена датотека дневника</string>
-    <string name="debug_debuglog_recording_progress">Снимање дневника отклањања грешака</string>
     <string name="debug_debuglog_record_action">Сними дневник отклањања грешака</string>
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. детаље о Bluetooth уређају). Делите је само са поузданим странама.</string>
     <string name="settings_debuglog_explanation">Ова функција снима све што апликација ради у датотеку која се може делити. Генерисана датотека садржи осетљиве информације (нпр. детаље о Bluetooth уређају). Делите је само са поузданим странама (нпр. програмером који отклања проблем).</string>
-    <string name="settings_support_installid_label">ID инсталације</string>
-    <string name="settings_support_installid_desc">Аутоматски извештаји о грешкама су анонимни. Поделите свој ID инсталације ако програмер треба да пронађе ваше извештаје о грешкама.</string>
     <string name="settings_support_label">Подршка</string>
     <string name="settings_support_description">Ако вам је потребна помоћ.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Ресетуј научене податке?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod ће заборавити измерену потрошњу овог уређаја, брзину пуњења и време слушања, и почети испочетка са номиналним животом батерије.</string>
     <string name="settings_acknowledgements_label">Захвалнице</string>
-    <string name="settings_debug_autoreports_label">Аутоматски извештаји о грешкама</string>
-    <string name="settings_debug_autoreports_description">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како бих могао да схватим како да то поправим.</string>
-    <string name="settings_compatibility_mode_label">Режим компатибилности</string>
-    <string name="settings_compatibility_mode_description">Онемогућите оптимизације да бисте побољшали компатибилност. Покушајте ово ако не видите никакве податке.</string>
     <string name="help_translate_label">Превод</string>
     <string name="help_translate_description">Помозите у превођењу ове апликације на ваш омиљени језик.</string>
     <string name="translators_thanks_title">Преводиоци</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Успех</string>
     <string name="troubleshooter_ble_result_success_body">CAPod прима BLE огласна емитовања.</string>
     <string name="troubleshooter_ble_result_failure_title">Неуспешно</string>
-    <string name="troubleshooter_ble_result_failure_body">Решавање проблема није успело. Ниједна комбинација опција компатибилности није помогла.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ваш телефон уопште није примио никакве BLE податке. Можете поново покушати овај тест на месту са пуно људи да бисте видели да ли се могу примити извори података (осим ваших слушалица). Непримање података указује на проблем са оперативним системом вашег телефона.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон је примио BLE податке, али подаци не долазе са подржаног уређаја. Да ли су ваше слушалице укључене? Да ли CAPod подржава ваше слушалице?</string>
-    <string name="troubleshooter_ble_result_failure_action">Покушај поново</string>
-    <string name="troubleshoot_action">Реши проблем</string>
     <string name="onboarding_body1">Ова апликација додаје подршку за специфичне функције AirPod-а на Android-у.</string>
     <string name="onboarding_body2">Не подржавају сви Android уређаји у потпуности додатне функције AirPod-а. Ваш оперативни систем захтева исправно функционисање имплементације Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod нема рекламе и не прикупља ваше податке.</string>
@@ -207,11 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Твој уређај је повезан, али CAPod не прима живе податке с њега. Можда ти треба опција компатибилности — решавање проблема може покушати да је пронађе аутоматски.</string>
     <string name="overview_troubleshoot_suggestion_action">Покрени решавање проблема</string>
     <string name="overview_unmatched_devices_label">Неупарени уређаји</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d уређај без одговарајућег профила</item>
-        <item quantity="few">%d уређаја без одговарајућег профила</item>
-        <item quantity="other">%d уређаја без одговарајућег профила</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d оближњи уређај је откривен без одговарајућег профила. Прикажите га за доступне детаље. Ако је ваш, додајте профил из Уређаја да бисте га препознали.</item>
         <item quantity="few">%d оближња уређаја су откривена без одговарајућих профила. Прикажите их за доступне детаље. Ако је један ваш, додајте профил из Уређаја да бисте га препознали.</item>
@@ -234,7 +208,6 @@
     <string name="permission_background_location_description">CAPod користи \"приступ локацији у позадини\" да би омогућио функције попут \"Прикажи искачући прозор\" и \"Аутоматско повезивање\" док је апликација затворена. Приступ локацији у позадини омогућава апликацији да прима Bluetooth Low Energy податке док ради у позадини. Ова апликација НЕЋЕ користити Bluetooth податке за одређивање ваше локације.</string>
     <string name="permission_ignore_battery_optimizations_label">Онемогући оптимизацију батерије</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимизација батерије спречава ову апликацију да поуздано прима Bluetooth податке док ради у позадини.</string>
-    <string name="permission_required_title">Потребна је следећа дозвола:</string>
     <string name="permission_system_alert_window_label">Приказ преко других апликација</string>
     <string name="permission_system_alert_window_description">Дозволите CAPod-у да се приказује преко других апликација да би функција \"Прикажи искачући прозор\" била могућа.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Када се види</string>
@@ -242,9 +215,6 @@
     <string name="settings_reaction_autoconnect_inear_label">У уху</string>
     <string name="pods_dual_left_label">Лева слушалица</string>
     <string name="pods_dual_right_label">Десна слушалица</string>
-    <string name="pods_dual_left_short_label">Л</string>
-    <string name="pods_dual_right_short_label">Д</string>
-    <string name="pods_case_label">Футрола</string>
     <string name="battery_unavailable_label">Батерија недоступна</string>
     <string name="battery_state_low_cd">Батерија ниска</string>
     <string name="battery_state_critical_cd">Батерија критично ниска</string>
@@ -299,12 +269,9 @@
     <string name="signal_badge_aap_cd">Директна веза активна</string>
     <string name="signal_indicator_bars_cd">Јачина сигнала: %1$d од 4 цртице</string>
     <string name="signal_indicator_disconnected_cd">Сигнал: искључен</string>
-    <string name="pods_yours">Ваше</string>
     <string name="headset_being_worn_label">Носи се</string>
     <string name="headset_not_being_worn_label">Не носи се</string>
     <string name="pods_case_unknown_state">Непознато стање</string>
-    <string name="last_seen_x">Последње виђење: %s</string>
-    <string name="first_seen_x">Прво виђење: %s</string>
     <string name="battery_cached_label">Последње познато · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dч %2$dм</string>
     <string name="battery_time_remaining_format_h">%1$dч</string>
@@ -334,10 +301,8 @@
     <string name="profiles_signal_quality_title">Минимални квалитет сигнала</string>
     <string name="profiles_signal_quality_description">Детектујте само уређаје са јачином сигнала изнад овог прага. Ниже вредности повећавају домет детекције, али могу изазвати лажне детекције. Не постављајте превисоко — Bluetooth пријем је генерално слаб и варира са растојањем и препрекама.</string>
     <string name="profiles_identitykey_label">Кључ идентитета</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) вашег уређаја, који помаже CAPod-у да га идентификује међу оближњим уређајима.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods често мењају своју Bluetooth адресу ради приватности. IRK помаже CAPod-у да препозна ваш уређај. Потребан вам је једнократни приступ MacBook-у.</string>
     <string name="profiles_maindevice_encryptionkey_label">Кључ за шифровање</string>
-    <string name="profiles_maindevice_encryptionkey_description">Кључ за шифровање вашег уређаја, који омогућава CAPod-у да преузме детаљне информације о статусу.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods шаљу поруку о статусу, чији је део шифрован. Кључ за шифровање омогућава CAPod-у да дешифрује целу поруку. Потребан вам је једнократни приступ MacBook-у.</string>
     <string name="profiles_key_invalid_format">Неважећи формат кључа</string>
     <string name="profiles_key_expected_format">Очекивани формат: %1$s</string>
@@ -370,7 +335,6 @@
     <string name="general_unsaved_changes_message">Имате несачуване измене. Шта желите да урадите?</string>
     <string name="general_save_and_exit_action">Сачувај и изађи</string>
     <string name="general_discard_action">Одбаци</string>
-    <string name="general_keep_editing_action">Настави уређивање</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Снимање прекратко</string>
     <string name="debug_debuglog_short_recording_message">Дневник грешака треба да забележи проблем док се догађа. Наставите снимање, репродукујте проблем, затим зауставите снимање.</string>
@@ -444,7 +408,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Подешавања уређаја</string>
     <string name="device_settings_subtitle_profile_prefix">Профил: %s</string>
-    <string name="device_settings_info_name_label">Назив</string>
     <string name="device_settings_info_bt_name_label">Bluetooth ознака уређаја</string>
     <string name="device_settings_info_model_label">Модел</string>
     <string name="device_settings_info_manufacturer_label">Произвођач</string>
@@ -524,7 +487,6 @@
     <string name="review_app_dismiss_action">Можда касније</string>
     <string name="review_app_body">Желиш ли оставити рецензију за CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Oпште</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Које слушалице се користе као микрофон</string>
     <string name="device_settings_microphone_mode_auto">Аутоматски</string>

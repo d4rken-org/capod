@@ -3,7 +3,6 @@
     <string name="general_share_action">Хуваалцах</string>
     <string name="general_done_action">Болсон</string>
     <string name="general_cancel_action">Цуцлах</string>
-    <string name="general_copy_action">Хуулах</string>
     <string name="general_thank_you_label">Баярлалаа</string>
     <string name="general_upgrade_action">Шинэчлэх</string>
     <string name="general_retry_action">Дахин оролдох</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Шалгах</string>
     <string name="general_close_action">Хаах</string>
     <string name="general_dismiss_action">Хаах</string>
-    <string name="general_edit_action">Засах</string>
     <string name="general_save_action">Хадгалах</string>
     <string name="general_guide_action">Удирдамж</string>
     <string name="general_continue_action">Үргэлжлүүлэх</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Pods-аа дахин зүүх үед хөгжмийг үргэлжлүүлнэ, гэхдээ зөвхөн Автомат түр зогсоолт зогсоосон тохиолдолд. Өөрөө идэвхжүүлсэн түр зогсоолтууд (утас, AirPods иш, унтах горим) түр зогсоолтоор үлдэнэ.</string>
     <string name="settings_start_music_on_wear_label">Зүүх үед хөгжим эхлүүлэх</string>
     <string name="settings_start_music_on_wear_description">Pods-аа зүүх үед хөгжмийг тоглуулахыг үргэлж оролдоно, гар аргаар түр зогсоосны дараа ч гэсэн.</string>
-    <string name="settings_eardetection_info_label">Чих илрүүлэлтийн тэмдэглэл</string>
     <string name="settings_eardetection_info_description">Хэрэв чих илрүүлэлт зөвхөн нэг чихэвчинд ажиллаж байвал энэ нь Apple-ийн хязгаарлалт юм. Зөвхөн \"үндсэн чихэвч\" (микрофонд ашигладаг) илрүүлэгдэнэ. Apple төхөөрөмжүүд дээр тохируулах: Тохиргоо → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
-    <string name="settings_signal_minimum_description">Төхөөрөмж таных гэж тооцогдохын тулд байх ёстой дохионы хамгийн бага чанар.</string>
     <string name="settings_autoconnect_label">Автомат холболт</string>
     <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид үүнийг хийхийг хүсэлт болгож болно. Энэ нь CAPod-ыг үргэлж дэвсгэр горимд ажиллуулж, хянан ажиллуулна.</string>
     <string name="settings_autoconnect_info_android12">Автомат холболт нь Android 12 болон түүнээс хойшхи хувилбарт хязгаарлагдсан системийн функцэд тулгуурладаг. Таны төхөөрөмж дээр ажиллахгүй байж болзошгүй.</string>
     <string name="settings_autoconnect_condition_label">Автомат холболтын нөхцөл</string>
-    <string name="settings_autoconnect_condition_description">Бид таны төхөөрөмжид хэзээ холбогдохыг оролдох ёстой вэ?</string>
     <string name="settings_devices_label">Төхөөрөмжүүд</string>
     <string name="settings_devices_description">Төхөөрөмжүүдээ удирдах.</string>
     <string name="settings_reaction_label">Урвалууд</string>
-    <string name="settings_category_yourdevice_label">Таны төхөөрөмж</string>
     <string name="settings_category_compatibility_options_title">Тохиромжтой байдлын сонголтууд</string>
     <string name="settings_category_compatibility_options_description">Хэрэв бүх зүйл ажиллаж байвал бүү хүр ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Техник хангамжийн шүүлтүүрийг идэвхгүй болгох</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Эхлүүлж байна…</string>
     <string name="support_debuglog_label">Дибаг лог</string>
     <string name="support_debuglog_desc">Апп-н хийж буй бүх зүйлийг хуваалцаж болох текст файлд бүртгэнэ.</string>
-    <string name="debug_debuglog_size_label">Хэмжээ</string>
-    <string name="debug_debuglog_size_compressed_label">Шахсан хэмжээ</string>
-    <string name="debug_notification_channel_label">Дибаг мэдэгдэл</string>
-    <string name="debug_debuglog_file_label">Бүртгэгдсэн лог файл</string>
-    <string name="debug_debuglog_recording_progress">Дибаг лог бүртгэж байна</string>
     <string name="debug_debuglog_record_action">Дибаг лог бүртгэх</string>
     <string name="debug_debuglog_stop_action">Бүртгэлийг зогсоох</string>
     <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй хуваалцана уу.</string>
     <string name="settings_debuglog_explanation">Энэ функц нь апп-н хийж буй бүх зүйлийг хуваалцаж болох файлд бүртгэдэг. Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй (жишээ нь, асуудлыг шийдвэрлэж буй хөгжүүлэгчтэй) хуваалцана уу.</string>
-    <string name="settings_support_installid_label">Суулгалтын ID</string>
-    <string name="settings_support_installid_desc">Автомат алдааны тайлангууд нэргүй байна. Хэрэв хөгжүүлэгчид таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-гаа хуваалцана уу.</string>
     <string name="settings_support_label">Дэмжлэг</string>
     <string name="settings_support_description">Хэрэв танд тусламж хэрэгтэй бол.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Сурсан өгөгдлийг сэргээх үү?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod энэ төхөөрөмжийн хэмжсэн цэнэг ашигалт, цэнэглэх хурд болон сонсох цагийг мартаж, үнэлгээтэй батерейны хугацаанаас эхлүүлэх болно.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
-    <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
-    <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
-    <string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
-    <string name="settings_compatibility_mode_description">Тохиромжтой байдлыг сайжруулахын тулд оновчлолыг идэвхгүй болгоно. Хэрэв та ямар ч өгөгдөл харахгүй байвал үүнийг туршиж үзнэ үү.</string>
     <string name="help_translate_label">Орчуулга</string>
     <string name="help_translate_description">Энэ апп-г дуртай хэл рүүгээ орчуулахад тусална уу.</string>
     <string name="translators_thanks_title">Орчуулагчид</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Амжилттай</string>
     <string name="troubleshooter_ble_result_success_body">CAPod нь BLE зар сурталчилгааны нэвтрүүлгийг хүлээн авч байна.</string>
     <string name="troubleshooter_ble_result_failure_title">Амжилтгүй</string>
-    <string name="troubleshooter_ble_result_failure_body">Асуудал шийдвэрлэхэд алдаа гарлаа. Тохиромжтой байдлын сонголтуудын аль ч хослол тус болсонгүй.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Таны утас ямар ч BLE өгөгдөл хүлээн авсангүй. Та энэ тестийг хүн ихтэй газар дахин оролдож үзээд өгөгдлийн эх үүсвэрүүдийг (чихэвчнээс бусад) хүлээн авах боломжтой эсэхийг шалгаж болно. Ямар ч өгөгдөл хүлээн аваагүй бол таны утасны үйлдлийн системд асуудал байгааг илтгэнэ.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Таны утас BLE өгөгдөл хүлээн авсан боловч өгөгдөл нь дэмжигдсэн ямар ч төхөөрөмжөөс ирээгүй байна. Таны чихэвч асаалттай байна уу? CAPod таны чихэвчийг дэмждэг үү?</string>
-    <string name="troubleshooter_ble_result_failure_action">Дахин оролдоно уу</string>
-    <string name="troubleshoot_action">Асуудлыг шийдвэрлэх</string>
     <string name="onboarding_body1">Энэхүү аппликейшн нь Android-д AirPod-н тусгай функцуудыг дэмждэг.</string>
     <string name="onboarding_body2">Бүх Android төхөөрөмж AirPod-н нэмэлт функцуудыг бүрэн дэмждэггүй. Таны үйлдлийн системд зөв ажилладаг Bluetooth-Low-Energy-н хэрэгжилт шаардлагатай.</string>
     <string name="onboarding_body3">CAPod-д зар сурталчилгаа байхгүй бөгөөд таны өгөгдлийг цуглуулдаггүй.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Таны төхөөрөмж холбогдсон боловч CAPod түүнээс шууд өгөгдөл хүлээж авахгүй байна. Утас таны нийцтэй байдлын тохиргоо шаардаж болзошгүй — асуудал шийдвэрлэгч автоматаар нэгийг хайж олохыг оролдож чадна.</string>
     <string name="overview_troubleshoot_suggestion_action">Асуудал шийдвэрлэгчийг ажиллуулах</string>
     <string name="overview_unmatched_devices_label">Тохирохгүй төхөөрөмжүүд</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">Тохирох профайлгүй %d төхөөрөмж</item>
-        <item quantity="other">Тохирох профайлгүй %d төхөөрөмж</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d ойролцоох төхөөрөмж тохирох профильгүйгээр илэрлээ. Дэлгэрэнгүй мэдээллийг үзэхийн тулд үзүүлнэ үү. Хэрэв энэ нь тань бол таних боломжтой болгохын тулд Төхөөрөмж хэсгээс профиль нэмнэ үү.</item>
         <item quantity="other">%d ойролцоох төхөөрөмж тохирох профильгүйгээр илэрлээ. Дэлгэрэнгүй мэдээллийг үзэхийн тулд тэдгээрийг үзүүлнэ үү. Хэрэв аль нэг нь тань бол таних боломжтой болгохын тулд Төхөөрөмж хэсгээс профиль нэмнэ үү.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod нь апп хаалттай үед \"Попап харуулах\" болон \"Автомат холболт\" гэх мэт боломжуудыг идэвхжүүлэхийн тулд \"цаана байршилд хандах\" эрхийг ашигладаг. Цаана байршилд хандах нь апп-д цаана ажиллаж байх үед Bluetooth Low Energy өгөгдлийг хүлээн авах боломжийг олгоно. Энэ апп таны байршлыг тодорхойлохын тулд Bluetooth өгөгдлийг АШИГЛАХГҮЙ.</string>
     <string name="permission_ignore_battery_optimizations_label">Батарейн оновчлолыг идэвхгүй болгох</string>
     <string name="permission_ignore_battery_optimizations_description">Батарейн оновчлол нь апп-д цаана ажиллаж байх үед Bluetooth өгөгдлийг найдвартай хүлээн авахад саад болдог.</string>
-    <string name="permission_required_title">Дараах зөвшөөрөл шаардлагатай:</string>
     <string name="permission_system_alert_window_label">Системийн анхааруулгын цонх</string>
     <string name="permission_system_alert_window_description">CAPod-д \"Попап харуулах\" боломжийг ажиллуулахын тулд бусад апп-уудын дээр зурах зөвшөөрөл олгоно уу.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Харагдах үед</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Чихэнд</string>
     <string name="pods_dual_left_label">Зүүн чихэвч</string>
     <string name="pods_dual_right_label">Баруун чихэвч</string>
-    <string name="pods_dual_left_short_label">З</string>
-    <string name="pods_dual_right_short_label">Б</string>
-    <string name="pods_case_label">Кейс</string>
     <string name="battery_unavailable_label">Батарей мэдэгдэхгүй байна</string>
     <string name="battery_state_low_cd">Батерей сулбай байна</string>
     <string name="battery_state_critical_cd">Батерей маш сулбай байна</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Шууд холболт идэвхтэй</string>
     <string name="signal_indicator_bars_cd">Дохионы хүч: 4-ийн %1$d бар</string>
     <string name="signal_indicator_disconnected_cd">Дохио: холболт тасарсан</string>
-    <string name="pods_yours">Таных</string>
     <string name="headset_being_worn_label">Зүүсэн</string>
     <string name="headset_not_being_worn_label">Зүүгээгүй</string>
     <string name="pods_case_unknown_state">Тодорхойгүй төлөв</string>
-    <string name="last_seen_x">Сүүлд харагдсан: %s</string>
-    <string name="first_seen_x">Анх харагдсан: %s</string>
     <string name="battery_cached_label">Сүүлд мэдэгдсэн · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dц %2$dм</string>
     <string name="battery_time_remaining_format_h">%1$dц</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Дохионы хамгийн бага чанар</string>
     <string name="profiles_signal_quality_description">Зөвхөн энэ босгоос дээш дохионы хүчтэй төхөөрөмжүүдийг илрүүлнэ. Бага утга нь илрүүлэлтийн хүрээг нэмэгдүүлэх боловч буруу илрүүлэлтэд хүргэж болно. Үүнийг хэт өндөр болгож бүү тохируулаарай - Bluetooth хүлээн авалт ерөнхийдөө сул бөгөөд зай, саадаас хамааран өөрчлөгддөг.</string>
     <string name="profiles_identitykey_label">Таних түлхүүр</string>
-    <string name="profilessettings_maindevice_identitykey_description">Таны төхөөрөмжийн таних түлхүүр (IRK) нь CAPod-д ойролцоох төхөөрөмжүүдийн дундаас таниулахад тусалдаг.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods нь нууцлалын үүднээс Bluetooth хаягаа байнга өөрчилдөг. IRK нь CAPod-д таны төхөөрөмжийг таниулахад тусалдаг. MacBook-д нэг удаа хандах шаардлагатай.</string>
     <string name="profiles_maindevice_encryptionkey_label">Шифрлэлтийн түлхүүр</string>
-    <string name="profiles_maindevice_encryptionkey_description">Таны төхөөрөмжийн шифрлэлтийн түлхүүр нь CAPod-д дэлгэрэнгүй төлөвийн мэдээллийг авах боломжийг олгодог.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods нь төлөвийн мессеж илгээдэг бөгөөд түүний нэг хэсэг нь шифрлэгдсэн байдаг. Шифрлэлтийн түлхүүр нь CAPod-д бүтэн мессежийг тайлах боломжийг олгодог. MacBook-д нэг удаа хандах шаардлагатай.</string>
     <string name="profiles_key_invalid_format">Түлхүүрийн формат буруу</string>
     <string name="profiles_key_expected_format">Хүлээгдэж буй формат: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Танд хадгалаагүй өөрчлөлтүүд байна. Та юу хийхийг хүсэж байна вэ?</string>
     <string name="general_save_and_exit_action">Хадгалаад гарах</string>
     <string name="general_discard_action">Цуцлах</string>
-    <string name="general_keep_editing_action">Засварлах үргэлжлүүлэх</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Бичлэг хэтэрхий богино</string>
     <string name="debug_debuglog_short_recording_message">Дибаг лог нь асуудал гарах үед бичиж авах ёстой. Бичлэгийг үргэлжүүлж, асуудлыг давтан гаргаад, дараа нь бичлэгийг зогсоо.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Төхөөрөмжийн тохиргоо</string>
     <string name="device_settings_subtitle_profile_prefix">Профайл: %s</string>
-    <string name="device_settings_info_name_label">Нэр</string>
     <string name="device_settings_info_bt_name_label">Bluetooth төхөөрөмжийн нэр</string>
     <string name="device_settings_info_model_label">Загвар</string>
     <string name="device_settings_info_manufacturer_label">Үйлдвэрлэгч</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Дараа нь магадгүй</string>
     <string name="review_app_body">CAPod-д үнэлгээ үлдэхийг хүсч байна уу? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Ерөнхий</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
     <string name="device_settings_microphone_mode_description">Микрофон болгон ашиглах чихэвч</string>
     <string name="device_settings_microphone_mode_auto">Автомат</string>

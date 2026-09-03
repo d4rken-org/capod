@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play xidmətləri əlçatmazdır.</string>
-    <string name="upgrades_no_purchases_found_check_account">Heç bir satın alma tapılmadı. Doğru hesabı istifadə edirsiniz?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play xətası</string>
     <string name="upgrades_gplay_billing_error_description">Google Play-də xəta baş verdi. Zəhmət olmasa daha sonra yenidən cəhd edin və ya telefonunuzu yenidən başladın.\n\nXəta: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play faktura xətası</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Play-dən satınalma təfərrüatlarınızı soruşarkən xəta baş verdi. Google Play keşini təmizləyin və telefonunuzu yenidən başladın.\n\nXəta %s</string>
     <string name="upgrades_gplay_already_owned_label">Artıq satın almısınız?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play bu yüksəltməyə artıq sahib olduğunuzu bildirir, lakin bərpa edilə bilmədi. Satın aldığınız Google hesabından istifadə etdiyinizə əmin olun. Play Store sinxronizasiyası bir qədər vaxt apara bilər — yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
-    <string name="upgrade_restore_action">Alışı bərpa et</string>
     <string name="upgrade_badge_label">Pro</string>
     <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s əldə edin</string>
     <string name="upgrade_preamble">CAPod tək bir şəxs tərəfindən hazırlanır. Yüksəltmə əlavə funksiyaların kilidini açır və tətbiqin yaşamasına kömək edir.</string>
-    <string name="upgrade_screen_options_description">Eyni funksiyalar, fərqli qiymətləndirmə. Abunəliyə pulsuz sınaq müddəti daxildir və istənilən vaxt ləğv edilə bilər.</string>
-    <string name="upgrade_screen_options_description_no_trial">Eyni funksiyalar, fərqli qiymətləndirmə. Abunəlik istənilən vaxt ləğv edilə bilər.</string>
     <string name="upgrade_screen_subscription_trial_action">Pulsuz sınağı başlat</string>
     <string name="upgrade_screen_subscription_action">İllik abunə ol</string>
-    <string name="upgrade_screen_subscription_action_hint">%s/il</string>
     <string name="upgrade_screen_iap_action">Bir dəfə satın al</string>
-    <string name="upgrade_screen_iap_action_hint">Birdəfəlik satınalma: %s</string>
     <string name="upgrade_screen_restore_purchase_action">Alışı bərpa et</string>
-    <string name="upgrade_screen_restore_purchase_message">Heç bir satın alma tapılmadı. Doğru hesabı istifadə edirsiniz?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Yaxınlarda satın almısınızsa, Google Play-in sinxronlaşması bir qədər vaxt apara bilər.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Satınalmanız görünmürsə, bir neçə dəqiqədən sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Satınalma üçün istifadə edilən eyni Google hesabı ilə daxil olduğunuzdan əmin olun.</string>
-    <string name="upgrade_screen_restore_webinstall_hint">Birdən çox hesab Google Play-i çaşdıra bilər. Tətbiqi Google Play saytı vasitəsilə quraşdırmaq müəyyən bir hesabla əlaqələndirməyi məcburi edir.</string>
     <string name="upgrade_screen_restore_banner_title">Artıq Pro almısınız?</string>
     <string name="upgrade_screen_restore_banner_body">Görünür ki, bu cihazda əvvəllər Pro-ya yüksəltmisiniz. Onu yenidən kiliddan çıxarmaq üçün satınalmanızı bərpa edin.</string>
     <string name="upgrade_screen_restore_success_message">Satınalma bərpa edildi.</string>
@@ -34,7 +23,6 @@
     <string name="upgrade_screen_owned_hero_title">Sizdə CAPod Pro var!</string>
     <string name="upgrade_screen_owned_hero_sub_body">Abunəliyiniz vasitəsilə kiliddan çıxarıldı. CAPod-u dəstəklədiyiniz üçün təşəkkürlər!</string>
     <string name="upgrade_screen_owned_hero_iap_body">Birdəfəlik satınalmanız vasitəsilə kiliddan çıxarıldı. CAPod-u dəstəklədiyiniz üçün təşəkkürlər!</string>
-    <string name="upgrade_screen_owned_sub_title">İllik abunə</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Abunəliyiniz aktivdir və yenilənməyə təyin edilib. Ödəniş Google Play tərəfindən idarə olunur.</string>
     <string name="upgrade_screen_owned_sub_not_renewing_body">Abunəliyiniz aktivdir, lakin yenilənməyə təyin edilməyib. Pro cari dövr bitənə qədər əlçatan qalır.</string>
     <string name="upgrade_screen_owned_iap_title">Birdəfəlik alış</string>

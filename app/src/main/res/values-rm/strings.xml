@@ -3,7 +3,6 @@
     <string name="general_share_action">Partir</string>
     <string name="general_done_action">Terminà</string>
     <string name="general_cancel_action">Interrumper</string>
-    <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Engraziel</string>
     <string name="general_upgrade_action">Actualisar</string>
     <string name="general_retry_action">Reprovescha</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Controllar</string>
     <string name="general_close_action">Serrar</string>
     <string name="general_dismiss_action">Dimitter</string>
-    <string name="general_edit_action">Modifitgar</string>
     <string name="general_save_action">Memorisar</string>
     <string name="general_guide_action">Guida</string>
     <string name="general_continue_action">Cuntinuar</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Reprend la musica cur che ti mets danovamain ils tuts, ma mo sche la pausa automatica l\'ha stoppada. Pausas che ti hast fatg (telefon, tulpa AirPods, sonns) restan en pausa.</string>
     <string name="settings_start_music_on_wear_label">Cumenza musica cur che ti mets ils tuts</string>
     <string name="settings_start_music_on_wear_description">Emprova adina da reprudar la musica cur che ti mets ils tuts, era suenter ina pausa manuala.</string>
-    <string name="settings_eardetection_info_label">Remartga davart la recugnoschientscha da l\'ureglia</string>
     <string name="settings_eardetection_info_description">Sche la recugnoschientscha da l\'ureglia funcziuna be per in singul pod, è quai ina restricziun dad Apple. Be il \"pod principal\" (duvrà per il microfon) vegn recugnuschì. Configurar sin apparats Apple: Configuraziun → Bluetooth → AirPods → Microfon.</string>
-    <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
-    <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
     <string name="settings_autoconnect_label">Connectar automaticamain</string>
     <string name="settings_autoconnect_description">Sche Android na sa connectescha betg automaticamain, dumandain nus lez da far quai. Uschia resta CAPod adina activ en il fund per la surveglianza.</string>
     <string name="settings_autoconnect_info_android12">La connexiun automatica sa basa sin ina funcziun dal sistem che Android 12 e pli nov limita. Eventualmain che questa funcziun na funcziuna betg sin voss apparat.</string>
     <string name="settings_autoconnect_condition_label">Cundiziun per connectar automaticamain</string>
-    <string name="settings_autoconnect_condition_description">Cura duain nus empruvar da connectar cun Voss apparat?</string>
     <string name="settings_devices_label">Apparats</string>
     <string name="settings_devices_description">Administrar Voss apparats.</string>
     <string name="settings_reaction_label">Reacziuns</string>
-    <string name="settings_category_yourdevice_label">Voss apparat</string>
     <string name="settings_category_compatibility_options_title">Opziuns da cumpatibilitad</string>
     <string name="settings_category_compatibility_options_description">Betg tuccar sche tut funcziuna ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Deactivar la filtraziun hardware</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">A startar…</string>
     <string name="support_debuglog_label">Protocol da debugging</string>
     <string name="support_debuglog_desc">Registrar tut quai che l\'app fa en in datotec text che Vus pudais partir.</string>
-    <string name="debug_debuglog_size_label">Grondezza</string>
-    <string name="debug_debuglog_size_compressed_label">Grondezza cumprimida</string>
-    <string name="debug_notification_channel_label">Notificaziuns da debugging</string>
-    <string name="debug_debuglog_file_label">Datotec da protocol registrà</string>
-    <string name="debug_debuglog_recording_progress">Registrar il protocol da debugging</string>
     <string name="debug_debuglog_record_action">Registrar il protocol da debugging</string>
     <string name="debug_debuglog_stop_action">Finir la registraziun</string>
     <string name="debug_debuglog_sensitive_information_message">Il datotec generà cuntegn infurmaziuns sensiblas (p.ex. detagls da l\'apparat Bluetooth). Partir el be cun terzas persunas fidadas.</string>
     <string name="settings_debuglog_explanation">Questa funcziun registrescha tut quai che l\'app fa en in datotec che sa lascha partir. Il datotec generà cuntegn infurmaziuns sensiblas (p.ex. detagls da l\'apparat Bluetooth). Partir el be cun terzas persunas fidadas (p.ex. in sviluppader che tracta in problem).</string>
-    <string name="settings_support_installid_label">ID d\'installaziun</string>
-    <string name="settings_support_installid_desc">Raports d\'errur automatics èn anonims. Partir Voss ID d\'installaziun sche il sviluppader dovra da chattar Voss rapports d\'errur.</string>
     <string name="settings_support_label">Agid</string>
     <string name="settings_support_description">Sche Vus avais basegn d\'agid.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Redatg da datas appresas?</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod vegn a scerder il consumo mesirà, la velocitad da chargia e la temp d\'audiziun da quest apparat, e vegn a recomenzar da la vita da bateria valitada.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
-    <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
-    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
-    <string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
-    <string name="settings_compatibility_mode_description">Deactivar optimaziuns per meglierar la cumpatibilitad. Empruvai quai sche Vus na visais naginas datas.</string>
     <string name="help_translate_label">Translaziun</string>
     <string name="help_translate_description">Gidar a translatar questa app en Vossa lingua preferida.</string>
     <string name="translators_thanks_title">Translataders</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Reussì</string>
     <string name="troubleshooter_ble_result_success_body">Emissiuns da reclama BLE vegnan retschavidas da CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Senza success</string>
-    <string name="troubleshooter_ble_result_failure_body">La schliaziun da problems ha fatg fiasco. Nagina cumbinaziun d\'opziuns da cumpatibilitad ha gidà.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Voss telefonin n\'ha retschavì naginas datas BLE. Vus pudais repeter quest test en in lieu cun blera glieud per vesair sche funtaunas da datas (autras che Voss cularins) pon vegnir retschavidas. Naginas datas retschavidas inditgeschan in problem cun il sistem operativ da Voss telefonin.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Voss telefonin ha retschavì datas BLE, ma las datas na derivan da nagin apparat sustegnì. Èn Voss cularins empits? Sustegn CAPod Voss cularin?</string>
-    <string name="troubleshooter_ble_result_failure_action">Empruvar anc ina giada</string>
-    <string name="troubleshoot_action">Schliar problems</string>
     <string name="onboarding_body1">Questa app agiunta support per funcziuns specificas dad AirPods ad Android.</string>
     <string name="onboarding_body2">Betg tut ils apparats Android sustegnan cumplainamain las funcziuns supplementaras dad AirPods. Voss sistem operativ dovra in\'implementaziun da Bluetooth-Low-Energy che funcziuna correctamain.</string>
     <string name="onboarding_body3">CAPod n\'ha nagina reclama e na collecziunescha betg Vossas datas.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Tieu apparat è connectà, ma CAPod na retschaiva naginas datas en diretta. Tiu telefon sto eventualmain ina opziun da cumpatibilitad — il schliader da problems po emprovar da chattar ina automaticamain.</string>
     <string name="overview_troubleshoot_suggestion_action">Aviar il schliader da problems</string>
     <string name="overview_unmatched_devices_label">Apparats senza correspondenza</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d apparat senza profil correspundent</item>
-        <item quantity="other">%d apparats senza profil correspundent</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">%d apparat en vicinanza è stà scuvrì senza in profil correspundent. Mussa el per vesair ils detagls disponibels. Sche el t\'appartegna, agiundscha in profil en Apparats per al renconuscher.</item>
         <item quantity="other">%d apparats en vicinanza èn stads scuvrids senza profils correspundents. Mussa els per vesair ils detagls disponibels. Sche in t\'appartegna, agiundscha in profil en Apparats per al renconuscher.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">CAPod dovra l\'\"Access a la posiziun en il fund davos\" per activar funcziuns sco \"Mussar popup\" e \"Connectar automaticamain\" cura che l\'app è serrada. L\'access a la posiziun en il fund davos permetta a l\'app da retschaiver datas Bluetooth Low Energy en il fund davos. Questa app NA vegn BETG a duvrar datas Bluetooth per determinar Vossa posiziun.</string>
     <string name="permission_ignore_battery_optimizations_label">Deactivar optimaziuns da battaria</string>
     <string name="permission_ignore_battery_optimizations_description">Optimaziuns da battaria impedeschan questa app da retschaiver datas Bluetooth a moda fidabla cura che l\'app è en il fund davos.</string>
-    <string name="permission_required_title">La suandanta permissiun è necessaria:</string>
     <string name="permission_system_alert_window_label">Fanestra d\'avis dal sistem</string>
     <string name="permission_system_alert_window_description">Permetter a CAPod da dessegnar sur autras apps per render pussaivla la funcziun \"Mussar PopUp\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cura che vis</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">En l\'ureglia</string>
     <string name="pods_dual_left_label">Pod seniester</string>
     <string name="pods_dual_right_label">Pod dretg</string>
-    <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">D</string>
-    <string name="pods_case_label">Scatla</string>
     <string name="battery_unavailable_label">Battaria betg disponibla</string>
     <string name="battery_state_low_cd">Bateria bassa</string>
     <string name="battery_state_critical_cd">Bateria criticamain bassa</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Connexiun directa activa</string>
     <string name="signal_indicator_bars_cd">Forza dal signal: %1$d da 4 barras</string>
     <string name="signal_indicator_disconnected_cd">Signal: disconnect</string>
-    <string name="pods_yours">Voss</string>
     <string name="headset_being_worn_label">Vegn purtà</string>
     <string name="headset_not_being_worn_label">Na vegn betg purtà</string>
     <string name="pods_case_unknown_state">Stadi nunenconuschent</string>
-    <string name="last_seen_x">Vis l\'ultima giada: %s</string>
-    <string name="first_seen_x">Vis l\'emprima giada: %s</string>
     <string name="battery_cached_label">Ultim enconuschent · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Qualitad minimala dal signal</string>
     <string name="profiles_signal_quality_description">Be chattar apparats cun intensitad da signal sur quest limitscha. Valurs pli bass augmentan il radius da detecziun ma pon chaschunair fos positivas. Betg metter quai memia aut - la recepziun Bluetooth è generalmain debla e variescha cun la distanza e cun obstacles.</string>
     <string name="profiles_identitykey_label">Clav d\'identitad</string>
-    <string name="profilessettings_maindevice_identitykey_description">La Clav da Resoluziun d\'Identitad (IRK) da Voss apparat che gida CAPod ad al identifitgar tranter apparats datiers.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods midan savens lur adressa Bluetooth per la protecziun da datas. L\'IRK gida CAPod a recugnuoscher Voss apparat. Vus basegnais in access unic ad in MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Clav da criptaziun</string>
-    <string name="profiles_maindevice_encryptionkey_description">La clav da criptaziun da Voss apparat che permetta a CAPod da retschaiver infurmaziuns detagliadas davart il stadi.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods tramettian in messadi da stadi, in\'part dal qual è criptà. La clav da criptaziun permetta a CAPod da decriptar il messadi cumplet. Vus basegnais in access unic ad in MacBook.</string>
     <string name="profiles_key_invalid_format">Format da clav nunvalid</string>
     <string name="profiles_key_expected_format">Format spetgà: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Vus avais midadas betg memorisadas. Tge vulais Vus far?</string>
     <string name="general_save_and_exit_action">Memorisar &amp; Serrar</string>
     <string name="general_discard_action">Bandunar</string>
-    <string name="general_keep_editing_action">Cuntinuar a modifitgar</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Registraziun memia curta</string>
     <string name="debug_debuglog_short_recording_message">In protocol da debug sto captar il problem durant che el occorra. Cuntinuescha la registraziun, repruduescha il problem, lur stoppa la registraziun.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Parameters da l\'apparat</string>
     <string name="device_settings_subtitle_profile_prefix">Profil: %s</string>
-    <string name="device_settings_info_name_label">Num</string>
     <string name="device_settings_info_bt_name_label">Designaziun da l\'apparat Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producent</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Forsa pli tard</string>
     <string name="review_app_body">Vuless ti laschar ina recenziun per CAPod? ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
     <string name="device_settings_microphone_mode_description">Tge tschappin è utilisà sco microfon</string>
     <string name="device_settings_microphone_mode_auto">Automatic</string>

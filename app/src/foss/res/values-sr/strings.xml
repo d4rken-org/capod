@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">Донације</string>
-    <string name="foss_upgrade_alreadydonated_label">Већ сам донирао/ла</string>
-    <string name="foss_upgrade_no_money_label">Сав новац трошим на АирПодс</string>
     <string name="upgrade_foss_preamble">CAPod FOSS је бесплатан и отвореног кода. Ако вам је користан, размотрите спонзорисање развоја да би пројекат остао жив.</string>
     <string name="upgrade_foss_sponsor_action">Спонзориши развој</string>
     <string name="upgrade_foss_sponsor_subtitle">Без реклама. Без праћења. Без зависности од Google Play.</string>

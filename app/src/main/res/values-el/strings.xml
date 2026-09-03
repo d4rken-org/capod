@@ -3,7 +3,6 @@
     <string name="general_share_action">Κοινοποίηση</string>
     <string name="general_done_action">Τέλος</string>
     <string name="general_cancel_action">Ακύρωση</string>
-    <string name="general_copy_action">Αντιγραφή</string>
     <string name="general_thank_you_label">Ευχαριστώ</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
     <string name="general_retry_action">Δοκιμάστε ξανά</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">Έλεγχος</string>
     <string name="general_close_action">Κλείσιμο</string>
     <string name="general_dismiss_action">Κλείσιμο</string>
-    <string name="general_edit_action">Επεξεργασία</string>
     <string name="general_save_action">Αποθήκευση</string>
     <string name="general_guide_action">Οδηγός</string>
     <string name="general_continue_action">Συνέχεια</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">Συνέχισε τη μουσική όταν ξαναφοράς τα pods, αλλά μόνο αν την σταμάτησε η Αυτόματη παύση. Οι παύσεις που έκανες εσύ (τηλέφωνο, στέλεχος AirPods, ύπνος) παραμένουν σε παύση.</string>
     <string name="settings_start_music_on_wear_label">Εκκίνηση μουσικής κατά τη χρήση</string>
     <string name="settings_start_music_on_wear_description">Προσπαθεί πάντα να αναπαράγει μουσική όταν φοράς τα pods, ακόμα και μετά από μη αυτόματη παύση.</string>
-    <string name="settings_eardetection_info_label">Σημείωση ανίχνευσης αυτιού</string>
     <string name="settings_eardetection_info_description">Εάν η ανίχνευση αυτιού λειτουργεί μόνο για ένα pod, αυτός είναι περιορισμός της Apple. Ανιχνεύεται μόνο το \"κύριο pod\" (που χρησιμοποιείται για μικρόφωνο). Ρυθμίστε σε συσκευές Apple: Ρυθμίσεις → Bluetooth → AirPods → Μικρόφωνο.</string>
-    <string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
-    <string name="settings_signal_minimum_description">Η ελάχιστη ποιότητα σήματος που πρέπει να έχει μια συσκευή για να θεωρηθεί δική σας.</string>
     <string name="settings_autoconnect_label">Αυτόματη σύνδεση</string>
     <string name="settings_autoconnect_description">Αν το Android δεν συνδέεται αυτόματα, μπορούμε να το ζητήσουμε κι εμείς. Αυτό κάνει το CAPod να παρακολουθεί στο παρασκήνιο πάντα.</string>
     <string name="settings_autoconnect_info_android12">Η αυτόματη σύνδεση βασίζεται σε λειτουργία συστήματος που το Android 12 και νεότερες εκδόσεις περιορίζουν. Ενδέχεται να μην λειτουργεί στη συσκευή σας.</string>
     <string name="settings_autoconnect_condition_label">Συνθήκη αυτόματης σύνδεσης</string>
-    <string name="settings_autoconnect_condition_description">Πότε πρέπει να προσπαθήσουμε να συνδεθούμε στη συσκευή σας;</string>
     <string name="settings_devices_label">Συσκευές</string>
     <string name="settings_devices_description">Διαχειριστείτε τις συσκευές σας.</string>
     <string name="settings_reaction_label">Αντιδράσεις</string>
-    <string name="settings_category_yourdevice_label">Η συσκευή σας</string>
     <string name="settings_category_compatibility_options_title">Επιλογές συμβατότητας</string>
     <string name="settings_category_compatibility_options_description">Μην αγγίζετε αν όλα λειτουργούν ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Απενεργοποίηση φιλτραρίσματος υλικού</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">Ξεκίνημα…</string>
     <string name="support_debuglog_label">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="support_debuglog_desc">Καταγράψτε ό,τι κάνει η εφαρμογή σε ένα αρχείο κειμένου που μπορείτε να μοιραστείτε.</string>
-    <string name="debug_debuglog_size_label">Μέγεθος</string>
-    <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
-    <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
-    <string name="debug_debuglog_file_label">Καταγεγραμμένο αρχείο καταγραφής</string>
-    <string name="debug_debuglog_recording_progress">Εγγραφή αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_record_action">Εγγραφή αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_stop_action">Διακοπή εγγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργήθηκε περιέχει ευαίσθητες πληροφορίες (π.χ. λεπτομέρειες συσκευής Bluetooth). Μοιραστείτε το μόνο με αξιόπιστα μέρη.</string>
     <string name="settings_debuglog_explanation">Αυτή η δυνατότητα καταγράφει ό,τι κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργήθηκε περιέχει ευαίσθητες πληροφορίες (π.χ. λεπτομέρειες συσκευής Bluetooth). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. έναν προγραμματιστή που αντιμετωπίζει ένα πρόβλημα).</string>
-    <string name="settings_support_installid_label">Αναγνωριστικό εγκατάστασης</string>
-    <string name="settings_support_installid_desc">Οι αυτόματες αναφορές σφαλμάτων είναι ανώνυμες. Μοιραστείτε το αναγνωριστικό εγκατάστασής σας εάν ο προγραμματιστής πρέπει να βρει τις αναφορές σφαλμάτων σας.</string>
     <string name="settings_support_label">Υποστήριξη</string>
     <string name="settings_support_description">Εάν χρειάζεστε βοήθεια.</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">Επαναφορά μαθημένων δεδομένων;</string>
     <string name="device_battery_estimate_reset_confirm_message">Το CAPod θα ξεχάσει την μετρημένη κατανάλωση, την ταχύτητα φόρτισης και τον χρόνο ακρόασης αυτής της συσκευής, και θα ξεκινήσει ξανά από τη διάρκεια μπαταρίας που αναφέρεται.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
-    <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
-    <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
-    <string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
-    <string name="settings_compatibility_mode_description">Απενεργοποιήστε τις βελτιστοποιήσεις για να βελτιώσετε τη συμβατότητα. Δοκιμάστε το εάν δεν βλέπετε δεδομένα.</string>
     <string name="help_translate_label">Μετάφραση</string>
     <string name="help_translate_description">Βοηθήστε να μεταφράσετε αυτήν την εφαρμογή στην αγαπημένη σας γλώσσα.</string>
     <string name="translators_thanks_title">Μεταφραστές</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">Επιτυχία</string>
     <string name="troubleshooter_ble_result_success_body">Οι εκπομπές διαφημίσεων BLE λαμβάνονται από το CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Ανεπιτυχής</string>
-    <string name="troubleshooter_ble_result_failure_body">Η αντιμετώπιση προβλημάτων απέτυχε. Κανένας συνδυασμός επιλογών συμβατότητας δεν βοήθησε.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Το τηλέφωνό σας δεν έλαβε καθόλου δεδομένα BLE. Μπορείτε να δοκιμάσετε ξανά αυτήν τη δοκιμή σε μια πολυσύχναστη περιοχή για να δείτε εάν μπορούν να ληφθούν πηγές δεδομένων (εκτός από τα ακουστικά σας). Η μη λήψη δεδομένων υποδεικνύει πρόβλημα με το λειτουργικό σύστημα του τηλεφώνου σας.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Το τηλέφωνό σας έλαβε δεδομένα BLE, αλλά τα δεδομένα δεν προέρχονται από καμία υποστηριζόμενη συσκευή. Είναι ενεργοποιημένα τα ακουστικά σας; Υποστηρίζει το CAPod τα ακουστικά σας;</string>
-    <string name="troubleshooter_ble_result_failure_action">Προσπαθήστε ξανά</string>
-    <string name="troubleshoot_action">Αντιμετώπιση προβλημάτων</string>
     <string name="onboarding_body1">Αυτή η εφαρμογή προσθέτει υποστήριξη για συγκεκριμένες λειτουργίες AirPod στο Android.</string>
     <string name="onboarding_body2">Δεν υποστηρίζουν όλες οι συσκευές Android πλήρως τις επιπλέον λειτουργίες AirPod. Το λειτουργικό σας σύστημα απαιτεί μια σωστά λειτουργούσα υλοποίηση Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Το CAPod δεν έχει διαφημίσεις και δεν συλλέγει τα δεδομένα σας.</string>
@@ -207,10 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">Η συσκευή σου είναι συνδεδεμένη, αλλά το CAPod δεν λαμβάνει ζωντανά δεδομένα από αυτήν. Το τηλέφωνό σου μπορεί να χρειαστεί μια επιλογή συμβατότητας — ο εντοπισμός προβλημάτων μπορεί να προσπαθήσει να βρει μία αυτόματα.</string>
     <string name="overview_troubleshoot_suggestion_action">Εκτέλεση εντοπισμού προβλημάτων</string>
     <string name="overview_unmatched_devices_label">Μη αντιστοιχισμένες συσκευές</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d συσκευή χωρίς αντίστοιχο προφίλ</item>
-        <item quantity="other">%d συσκευές χωρίς αντίστοιχο προφίλ</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="one">Εντοπίστηκε %d κοντινή συσκευή χωρίς αντίστοιχο προφίλ. Εμφανίστε τη για διαθέσιμες λεπτομέρειες. Αν είναι δική σας, προσθέστε ένα προφίλ από τις Συσκευές για να την αναγνωρίσετε.</item>
         <item quantity="other">Εντοπίστηκαν %d κοντινές συσκευές χωρίς αντίστοιχα προφίλ. Εμφανίστε τις για διαθέσιμες λεπτομέρειες. Αν κάποια είναι δική σας, προσθέστε ένα προφίλ από τις Συσκευές για να την αναγνωρίσετε.</item>
@@ -231,7 +206,6 @@
     <string name="permission_background_location_description">Το CAPod χρησιμοποιεί \"πρόσβαση τοποθεσίας στο παρασκήνιο\" για να ενεργοποιήσει λειτουργίες όπως \"Εμφάνιση αναδυόμενου\" και \"Αυτόματη σύνδεση\" ενώ η εφαρμογή είναι κλειστή. Η πρόσβαση τοποθεσίας στο παρασκήνιο επιτρέπει στην εφαρμογή να λαμβάνει δεδομένα Bluetooth Low Energy ενώ βρίσκεται στο παρασκήνιο. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιήσει δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>
     <string name="permission_ignore_battery_optimizations_label">Απενεργοποίηση βελτιστοποιήσεων μπαταρίας</string>
     <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτήν την εφαρμογή από τη αξιόπιστη λήψη δεδομένων Bluetooth ενώ βρίσκεται στο παρασκήνιο.</string>
-    <string name="permission_required_title">Απαιτείται η ακόλουθη άδεια:</string>
     <string name="permission_system_alert_window_label">Παράθυρο ειδοποίησης συστήματος</string>
     <string name="permission_system_alert_window_description">Επιτρέψτε στο CAPod να σχεδιάζει πάνω από άλλες εφαρμογές για να καταστεί δυνατή η λειτουργία \"Εμφάνιση αναδυόμενου\".</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Όταν εντοπιστεί</string>
@@ -239,9 +213,6 @@
     <string name="settings_reaction_autoconnect_inear_label">Στο αυτί</string>
     <string name="pods_dual_left_label">Αριστερό pod</string>
     <string name="pods_dual_right_label">Δεξί pod</string>
-    <string name="pods_dual_left_short_label">Α</string>
-    <string name="pods_dual_right_short_label">Δ</string>
-    <string name="pods_case_label">Θήκη</string>
     <string name="battery_unavailable_label">Μπαταρία μη διαθέσιμη</string>
     <string name="battery_state_low_cd">Χαμηλή μπαταρία</string>
     <string name="battery_state_critical_cd">Κρίσιμα χαμηλή μπαταρία</string>
@@ -294,12 +265,9 @@
     <string name="signal_badge_aap_cd">Άμεση σύνδεση ενεργή</string>
     <string name="signal_indicator_bars_cd">Ισχύς σήματος: %1$d από 4 μπάρες</string>
     <string name="signal_indicator_disconnected_cd">Σήμα: αποσυνδεδεμένο</string>
-    <string name="pods_yours">Δικό σας</string>
     <string name="headset_being_worn_label">Φοριέται</string>
     <string name="headset_not_being_worn_label">Δεν φοριέται</string>
     <string name="pods_case_unknown_state">Άγνωστη κατάσταση</string>
-    <string name="last_seen_x">Τελευταία εμφάνιση: %s</string>
-    <string name="first_seen_x">Πρώτη εμφάνιση: %s</string>
     <string name="battery_cached_label">Τελευταία γνωστή · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dώ %2$dλ</string>
     <string name="battery_time_remaining_format_h">%1$dώ</string>
@@ -329,10 +297,8 @@
     <string name="profiles_signal_quality_title">Ελάχιστη Ποιότητα Σήματος</string>
     <string name="profiles_signal_quality_description">Ανιχνεύστε μόνο συσκευές με ισχύ σήματος πάνω από αυτό το κατώφλι. Χαμηλότερες τιμές αυξάνουν το εύρος ανίχνευσης αλλά μπορεί να προκαλέσουν ψευδώς θετικά αποτελέσματα. Μην το ρυθμίσετε πολύ ψηλά - η λήψη Bluetooth είναι γενικά κακή και ποικίλλει ανάλογα με την απόσταση και τα εμπόδια.</string>
     <string name="profiles_identitykey_label">Κλειδί Ταυτότητας</string>
-    <string name="profilessettings_maindevice_identitykey_description">Το Κλειδί Επίλυσης Ταυτότητας (IRK) της συσκευής σας, το οποίο βοηθά το CAPod να την αναγνωρίσει μεταξύ κοντινών συσκευών.</string>
     <string name="profiles_maindevice_identitykey_explanation">Τα AirPods αλλάζουν συχνά τη διεύθυνση Bluetooth τους για λόγους απορρήτου. Το IRK βοηθά το CAPod να αναγνωρίσει τη συσκευή σας. Χρειάζεστε πρόσβαση σε MacBook μία φορά.</string>
     <string name="profiles_maindevice_encryptionkey_label">Κλειδί Κρυπτογράφησης</string>
-    <string name="profiles_maindevice_encryptionkey_description">Το κλειδί κρυπτογράφησης της συσκευής σας, το οποίο επιτρέπει στο CAPod να ανακτήσει λεπτομερείς πληροφορίες κατάστασης.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">Τα AirPods στέλνουν ένα μήνυμα κατάστασης, μέρος του οποίου είναι κρυπτογραφημένο. Το κλειδί κρυπτογράφησης επιτρέπει στο CAPod να αποκρυπτογραφήσει το πλήρες μήνυμα. Χρειάζεστε πρόσβαση σε MacBook μία φορά.</string>
     <string name="profiles_key_invalid_format">Μη έγκυρη μορφή κλειδιού</string>
     <string name="profiles_key_expected_format">Αναμενόμενη μορφή: %1$s</string>
@@ -365,7 +331,6 @@
     <string name="general_unsaved_changes_message">Έχετε μη αποθηκευμένες αλλαγές. Τι θέλετε να κάνετε;</string>
     <string name="general_save_and_exit_action">Αποθήκευση &amp; Έξοδος</string>
     <string name="general_discard_action">Απόρριψη</string>
-    <string name="general_keep_editing_action">Συνέχιση επεξεργασίας</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Η εγγραφή είναι πολύ σύντομη</string>
     <string name="debug_debuglog_short_recording_message">Το αρχείο καταγραφής εντοπισμού σφαλμάτων πρέπει να καταγράψει το ζήτημα τη στιγμή που συμβαίνει. Συνεχίστε την εγγραφή, αναπαράγετε το πρόβλημα και στη συνέχεια διακόψτε την εγγραφή.</string>
@@ -436,7 +401,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">Ρυθμίσεις Συσκευής</string>
     <string name="device_settings_subtitle_profile_prefix">Προφίλ: %s</string>
-    <string name="device_settings_info_name_label">Όνομα</string>
     <string name="device_settings_info_bt_name_label">Ετικέτα Συσκευής Bluetooth</string>
     <string name="device_settings_info_model_label">Μοντέλο</string>
     <string name="device_settings_info_manufacturer_label">Κατασκευαστής</string>
@@ -516,7 +480,6 @@
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
     <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το CAPod; ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">Γενικά</string>
     <string name="device_settings_microphone_mode_label">Μικρόφωνο</string>
     <string name="device_settings_microphone_mode_description">Ποιο ακουστικό χρησιμοποιείται ως μικρόφωνο</string>
     <string name="device_settings_microphone_mode_auto">Αυτόματο</string>

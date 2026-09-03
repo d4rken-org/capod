@@ -3,7 +3,6 @@
     <string name="general_share_action">မျှဝေရန်</string>
     <string name="general_done_action">ပြီးပြီ</string>
     <string name="general_cancel_action">ပယ်ဖျက်ရန်</string>
-    <string name="general_copy_action">ကူးယူရန်</string>
     <string name="general_thank_you_label">ကျေးဇူးတင်ပါတယ်</string>
     <string name="general_upgrade_action">အဆင့်မြှင့်တင်ရန်</string>
     <string name="general_retry_action">ထပ်မံစမ်းပါ</string>
@@ -13,7 +12,6 @@
     <string name="general_check_action">စစ်ဆေးရန်</string>
     <string name="general_close_action">ပိတ်ရန်</string>
     <string name="general_dismiss_action">ပယ်ဖျက်ပါ</string>
-    <string name="general_edit_action">တည်းဖြတ်ပါ</string>
     <string name="general_save_action">သိမ်းဆည်းရန်</string>
     <string name="general_guide_action">လမ်းညွှန်</string>
     <string name="general_continue_action">ဆက်လုပ်ရန်</string>
@@ -40,19 +38,14 @@
     <string name="settings_autoplay_description">သင့် pods များကို ပြန်တပ်ဆင်သောအခါ သီချင်းကို ဆက်ဖွင့်သည်၊ သို့သော် Auto pause က ရပ်ထားမှသာ။ သင်ကိုယ်တိုင် ရပ်ထားသော ရပ်ချိန်များ (ဖုန်း၊ AirPods stem၊ အိပ်ချိန်) ကျန်ရှိနေဦးမည်။</string>
     <string name="settings_start_music_on_wear_label">တပ်ဆင်သောအခါ သီချင်းစတင်ဖွင့်မည်</string>
     <string name="settings_start_music_on_wear_description">pods တပ်သောအခါ manual pause ပြီးနောက်ပင် သီချင်းကို ဖွင့်ရန် အမြဲကြိုးစားသည်။</string>
-    <string name="settings_eardetection_info_label">နားအာရုံခံမှုမှတ်ချက်</string>
     <string name="settings_eardetection_info_description">နားအာရုံခံမှုသည် pod တစ်ခုအတွက်သာအလုပ်လုပ်ပါက ၎င်းသည် Apple ကန့်သတ်ချက်ဖြစ်သည်။ \"အဓိက pod\" (မိုက်ခရိုဖုန်းအတွက်အသုံးပြုသော) ကိုသာ ရှာဖွေတွေ့ရှိနိုင်သည်။ Apple စက်ပစ္စည်းများတွင် ပြင်ဆင်ပါ: ဆက်တင်များ → Bluetooth → AirPods → မိုက်ခရိုဖုန်း။</string>
-    <string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
-    <string name="settings_signal_minimum_description">သင့်စက်ပစ္စည်းဟု မှတ်ယူရန် စက်ပစ္စည်းတစ်ခုတွင်ရှိရမည့် အနိမ့်ဆုံးအချက်ပြအရည်အသွေး။</string>
     <string name="settings_autoconnect_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်း</string>
     <string name="settings_autoconnect_description">Android က အလိုအလျောက် ချိတ်ဆက်ပေးမပေးရင် ကျွန်ုပ်တို့ကိုယ်တိုင် တောင်းဆိုပေးနိုင်ပါသည်။ ဒါက CAPod ကို နောက်ခံမှာ အမြဲစောင့်ကြည့်နေစေမည်။</string>
     <string name="settings_autoconnect_info_android12">Android 12 နှင့် အသစ်ပိုမိုထက် မည်သောစနစ်လုပ်ဆောင်ချက်ကို အားကိုးသည့် အလိုအလျောက် ချိတ်ဆက်မှုသည် ကန့်သတ်ချက်ရှိသည်။ သင့်ကိရိယာပေါ်တွင် အလုပ်မလုပ်နိုင်ပေ။</string>
     <string name="settings_autoconnect_condition_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်းအခြေအနေ</string>
-    <string name="settings_autoconnect_condition_description">သင့်စက်ပစ္စည်းသို့ မည်သည့်အချိန်တွင် ချိတ်ဆက်ရန်ကြိုးစားသင့်သနည်း။</string>
     <string name="settings_devices_label">စက်ပစ္စည်းများ</string>
     <string name="settings_devices_description">သင့်စက်ပစ္စည်းများကို စီမံခန့်ခွဲပါ။</string>
     <string name="settings_reaction_label">တုံ့ပြန်မှုများ</string>
-    <string name="settings_category_yourdevice_label">သင့်စက်ပစ္စည်း</string>
     <string name="settings_category_compatibility_options_title">လိုက်ဖက်ညီမှုရွေးချယ်စရာများ</string>
     <string name="settings_category_compatibility_options_description">အရာအားလုံးအဆင်ပြေနေပါက မထိပါနှင့် ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ဟာ့ဒ်ဝဲစစ်ထုတ်ခြင်းကို ပိတ်ပါ</string>
@@ -82,17 +75,10 @@
     <string name="monitor_notification_starting">စတင်နေသည်…</string>
     <string name="support_debuglog_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်း</string>
     <string name="support_debuglog_desc">အက်ပ်လုပ်ဆောင်သမျှကို သင်မျှဝေနိုင်သော စာသားဖိုင်တစ်ခုတွင် မှတ်တမ်းတင်ပါ။</string>
-    <string name="debug_debuglog_size_label">အရွယ်အစား</string>
-    <string name="debug_debuglog_size_compressed_label">ချုံ့ထားသောအရွယ်အစား</string>
-    <string name="debug_notification_channel_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းအသိပေးချက်များ</string>
-    <string name="debug_debuglog_file_label">မှတ်တမ်းတင်ထားသောမှတ်တမ်းဖိုင်</string>
-    <string name="debug_debuglog_recording_progress">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်းကို မှတ်တမ်းတင်နေသည်</string>
     <string name="debug_debuglog_record_action">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်းကို မှတ်တမ်းတင်ပါ</string>
     <string name="debug_debuglog_stop_action">မှတ်တမ်းတင်ခြင်းကိုရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်လိုက်သောဖိုင်တွင် အရေးကြီးအချက်အလက်များ (ဥပမာ Bluetooth စက်ပစ္စည်းအသေးစိတ်များ) ပါဝင်သည်။ ၎င်းကို ယုံကြည်စိတ်ချရသောသူများနှင့်သာ မျှဝေပါ။</string>
     <string name="settings_debuglog_explanation">ဤအင်္ဂါရပ်သည် အက်ပ်လုပ်ဆောင်သမျှကို မျှဝေနိုင်သောဖိုင်တစ်ခုတွင် မှတ်တမ်းတင်သည်။ ထုတ်လုပ်လိုက်သောဖိုင်တွင် အရေးကြီးအချက်အလက်များ (ဥပမာ Bluetooth စက်ပစ္စည်းအသေးစိတ်များ) ပါဝင်သည်။ ၎င်းကို ယုံကြည်စိတ်ချရသောသူများ (ဥပမာ ပြဿနာဖြေရှင်းနေသော developer) နှင့်သာ မျှဝေပါ။</string>
-    <string name="settings_support_installid_label">ထည့်သွင်းမှု ID</string>
-    <string name="settings_support_installid_desc">အလိုအလြှောက်အမှားအယွင်းအစီရင်ခံစာများသည် အမည်မသိဖြစ်ကြသည်။ developer က သင့်အမှားအယွင်းအစီရင်ခံစာများကို ရှာဖွေရန်လိုအပ်ပါက သင်၏ထည့်သွင်းမှု ID ကိုမျှဝေပါ။</string>
     <string name="settings_support_label">အကူအညီ</string>
     <string name="settings_support_description">သင်အကူအညီအချို့လိုအပ်ပါက။</string>
     <string name="settings_wiki_label">Wiki</string>
@@ -120,10 +106,6 @@
     <string name="device_battery_estimate_reset_confirm_title">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်မည်လား</string>
     <string name="device_battery_estimate_reset_confirm_message">CAPod သည် ဤကိရိယာ၏ တိုင်းတာထားသော စွမ်းအားကုန်ဆုံးမှု၊ အားသွင်းနှုန်းနှင့် နားထောင်အချိန်ကို မေ့ပျောက်စေပြီး၊ သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါမည်။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
-    <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
-    <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
-    <string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
-    <string name="settings_compatibility_mode_description">လိုက်ဖက်ညီမှုကိုတိုးတက်စေရန် အကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ။ သင်ဒေတာတစ်စုံတစ်ရာမတွေ့ပါက ဤအရာကိုစမ်းကြည့်ပါ။</string>
     <string name="help_translate_label">ဘာသာပြန်ဆိုခြင်း</string>
     <string name="help_translate_description">ဤအက်ပ်ကို သင်အကြိုက်ဆုံးဘာသာစကားသို့ ဘာသာပြန်ဆိုရာတွင် ကူညီပါ။</string>
     <string name="translators_thanks_title">ဘာသာပြန်သူများ</string>
@@ -173,11 +155,8 @@
     <string name="troubleshooter_ble_result_success_title">အောင်မြင်သည်</string>
     <string name="troubleshooter_ble_result_success_body">BLE ကြော်ငြာထုတ်လွှင့်မှုများကို CAPod မှလက်ခံရရှိနေသည်။</string>
     <string name="troubleshooter_ble_result_failure_title">မအောင်မြင်ပါ</string>
-    <string name="troubleshooter_ble_result_failure_body">ပြဿနာဖြေရှင်းခြင်းမအောင်မြင်ပါ။ လိုက်ဖက်ညီမှုရွေးချယ်စရာများ၏ ပေါင်းစပ်မှုတစ်ခုမျှ အထောက်အကူမပြုခဲ့ပါ။</string>
     <string name="troubleshooter_ble_result_failure_phone_body">သင့်ဖုန်းသည် BLE ဒေတာတစ်စုံတစ်ရာလုံးဝမရရှိခဲ့ပါ။ ဒေတာရင်းမြစ်များ (သင့်နားကြပ်များမှလွဲ၍) လက်ခံရရှိနိုင်ခြင်းရှိမရှိကြည့်ရှုရန် လူစည်ကားသောနေရာတွင် ဤစမ်းသပ်မှုကို ထပ်မံကြိုးစားနိုင်သည်။ ဒေတာတစ်စုံတစ်ရာမရရှိခြင်းသည် သင့်ဖုန်း၏လည်ပတ်မှုစနစ်နှင့်ပတ်သက်သော ပြဿနာတစ်ခုကိုညွှန်ပြသည်။</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">သင့်ဖုန်းသည် BLE ဒေတာကိုလက်ခံရရှိခဲ့သော်လည်း ဒေတာသည် ပံ့ပိုးထားသောမည်သည့်စက်ပစ္စည်းမှမလာပါ။ သင့်နားကြပ်များဖွင့်ထားပါသလား။ CAPod သည် သင့်နားကြပ်များကိုပံ့ပိုးပါသလား။</string>
-    <string name="troubleshooter_ble_result_failure_action">ထပ်ကြိုးစားပါ</string>
-    <string name="troubleshoot_action">ပြဿနာဖြေရှင်းပါ</string>
     <string name="onboarding_body1">ဤအက်ပ်သည် Android သို့ AirPod အင်္ဂါရပ်များအတွက် အထောက်အပံ့ကိုထည့်သွင်းသည်။</string>
     <string name="onboarding_body2">Android စက်ပစ္စည်းအားလုံးသည် အပို AirPod အင်္ဂါရပ်များကို အပြည့်အဝမပံ့ပိုးပါ။ သင့်လည်ပတ်မှုစနစ်သည် မှန်ကန်စွာအလုပ်လုပ်သော Bluetooth-Low-Energy အကောင်အထည်ဖော်မှုတစ်ခုလိုအပ်သည်။</string>
     <string name="onboarding_body3">CAPod တွင် ကြော်ငြာများမရှိပါ၊ ၎င်းသည် သင့်ဒေတာကိုမစုဆောင်းပါ။</string>
@@ -207,9 +186,6 @@
     <string name="overview_troubleshoot_suggestion_description">သင့်ကိရိယာ ချိတ်ဆက်ထားသော်လည်း CAPod မှ ၎င်းထံမှ တိုက်ရိုက်ဒေတာ မရရှိပါ။ သင့်ဖုန်းသည် တွဲဖက်သုံးနိုင်မှု ရွေးချယ်မှုတစ်ခု လိုအပ်နိုင်သည် — ပြဿနာဖြေရှင်းသူက အလိုအလျောက် ရှာဖွေကြည့်နိုင်သည်။</string>
     <string name="overview_troubleshoot_suggestion_action">ပြဿနာဖြေရှင်းသူ စတင်ရန်</string>
     <string name="overview_unmatched_devices_label">တိုက်ဆိုင်မှုမရှိသော စက်ပစ္စည်းများ</string>
-    <plurals name="overview_unmatched_devices_count">
-        <item quantity="other">ကိုက်ညီသောပရိုဖိုင်မရှိသော စက်ပစ္စည်း %d ခု</item>
-    </plurals>
     <plurals name="overview_unmatched_devices_description">
         <item quantity="other">အနီးအနားရှိ စက်ပစ္စည်း %d ခုကို ကိုက်ညီသည့်ပရိုဖိုင်းမရှိဘဲ တွေ့ရှိခဲ့ပါသည်။ အသေးစိတ်အချက်အလက်များအတွက် ၎င်းတို့ကို ကြည့်ရှုပါ။ တစ်ခုသည် သင့်ပစ္စည်းဖြစ်ပါက ၎င်းကို မှတ်မိစေရန် စက်ပစ္စည်းများမှ ပရိုဖိုင်းတစ်ခု ထည့်သွင်းပါ။</item>
     </plurals>
@@ -228,7 +204,6 @@
     <string name="permission_background_location_description">CAPod သည် အက်ပ်ပိတ်ထားစဉ် \"ပြတင်းပေါက်ပြသခြင်း\" နှင့် \"အလိုအလြှောက်ချိတ်ဆက်ခြင်း\" ကဲ့သို့သော အင်္ဂါရပ်များကိုဖွင့်ရန် \"နောက်ခံတည်နေရာအသုံးပြုခွင့်\" ကိုအသုံးပြုသည်။ နောက်ခံတည်နေရာအသုံးပြုခွင့်သည် အက်ပ်အား နောက်ခံတွင်ရှိစဉ် Bluetooth Low Energy ဒေတာကို လက်ခံရန်ခွင့်ပြုသည်။ ဤအက်ပ်သည် သင့်တည်နေရာကို ဆုံးဖြတ်ရန် Bluetooth ဒေတာကို အသုံးပြုမည်မဟုတ်ပါ။</string>
     <string name="permission_ignore_battery_optimizations_label">ဘက်ထရီအကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ</string>
     <string name="permission_ignore_battery_optimizations_description">ဘက်ထရီအကောင်းဆုံးလုပ်ဆောင်မှုများသည် အက်ပ်နောက်ခံတွင်ရှိစဉ် Bluetooth ဒေတာကို ယုံကြည်စိတ်ချစွာ လက်ခံခြင်းမှ ဤအက်ပ်ကို တားဆီးသည်။</string>
-    <string name="permission_required_title">အောက်ပါခွင့်ပြုချက်လိုအပ်သည်:</string>
     <string name="permission_system_alert_window_label">စနစ်သတိပေးချက်ပြတင်းပေါက်</string>
     <string name="permission_system_alert_window_description">\"ပြတင်းပေါက်ပြသခြင်း\" အင်္ဂါရပ်ကိုဖြစ်နိုင်စေရန် CAPod အား အခြားအက်ပ်များပေါ်တွင် ပုံဆွဲခွင့်ပြုပါ။</string>
     <string name="settings_reaction_autoconnect_whenseen_label">တွေ့မြင်သောအခါ</string>
@@ -236,9 +211,6 @@
     <string name="settings_reaction_autoconnect_inear_label">နားထဲတွင်</string>
     <string name="pods_dual_left_label">ဘယ်ဘက်နားကြပ်</string>
     <string name="pods_dual_right_label">ညာဘက်နားကြပ်</string>
-    <string name="pods_dual_left_short_label">ဘ</string>
-    <string name="pods_dual_right_short_label">ည</string>
-    <string name="pods_case_label">အိတ်</string>
     <string name="battery_unavailable_label">ဘက်ထရီ မရနိုင်ပါ</string>
     <string name="battery_state_low_cd">ဘက်ထရီ နည်း</string>
     <string name="battery_state_critical_cd">ဘက်ထရီ အလွန်နည်း</string>
@@ -288,12 +260,9 @@
     <string name="signal_badge_aap_cd">တိုက်ရိုက်ချိတ်ဆက်မှု တက်ကြွနေသည်</string>
     <string name="signal_indicator_bars_cd">လိုင်းကြောင်းအားသန်မာမှု: %1$d / ၄ ဘား</string>
     <string name="signal_indicator_disconnected_cd">လိုင်းကြောင်း: ချိတ်ဆက်မှုပြတ်တောက်</string>
-    <string name="pods_yours">သင့်ဟာ</string>
     <string name="headset_being_worn_label">တပ်ဆင်ထားသည်</string>
     <string name="headset_not_being_worn_label">တပ်ဆင်မထားပါ</string>
     <string name="pods_case_unknown_state">မသိသောအခြေအနေ</string>
-    <string name="last_seen_x">နောက်ဆုံးတွေ့ရှိချိန်: %s</string>
-    <string name="first_seen_x">ပထမဆုံးတွေ့ရှိချိန်: %s</string>
     <string name="battery_cached_label">နောက်ဆုံးသိသည် · %s</string>
     <string name="battery_time_remaining_format_hm">%1$dနာရီ %2$dမိနစ်</string>
     <string name="battery_time_remaining_format_h">%1$dနာရီ</string>
@@ -323,10 +292,8 @@
     <string name="profiles_signal_quality_title">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
     <string name="profiles_signal_quality_description">ဤအဆင့်ထက်ပိုသော အချက်ပြအားကောင်းမှုရှိသော စက်ပစ္စည်းများကိုသာ ရှာဖွေပါ။ နိမ့်သောတန်ဖိုးများသည် ရှာဖွေမှုအကွာအဝေးကို တိုးမြှင့်သော်လည်း မှားယွင်းသောရလဒ်များ ဖြစ်နိုင်သည်။ အလွန်မြင့်မားစွာ မသတ်မှတ်ပါနှင့် - Bluetooth လက်ခံမှုသည် ယေဘုယျအားဖြင့် အားနည်းပြီး အကွာအဝေးနှင့် အတားအဆီးများအပေါ် မူတည်၍ ကွဲပြားသည်။</string>
     <string name="profiles_identitykey_label">အထောက်အထားသော့</string>
-    <string name="profilessettings_maindevice_identitykey_description">သင့်စက်ပစ္စည်း၏ Identity Resolving Key (IRK) သည် CAPod ကို အနီးအနားရှိ စက်ပစ္စည်းများကြားတွင် ၎င်းကို ခွဲခြားသိရှိရန် ကူညီသည်။</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods သည် ကိုယ်ရေးကိုယ်တာအတွက် ၎င်းတို့၏ Bluetooth လိပ်စာကို မကြာခဏပြောင်းလဲသည်။ IRK သည် CAPod ကို သင့်စက်ပစ္စည်းကို မှတ်မိရန် ကူညီသည်။ MacBook သို့ တစ်ကြိမ်တည်းဝင်ရောက်ခွင့် လိုအပ်သည်။</string>
     <string name="profiles_maindevice_encryptionkey_label">ကုဒ်ဝှက်သော့</string>
-    <string name="profiles_maindevice_encryptionkey_description">သင့်စက်ပစ္စည်း၏ ကုဒ်ဝှက်သော့သည် CAPod ကို အသေးစိတ်အခြေအနေအချက်အလက်များ ရယူခွင့်ပေးသည်။</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods သည် အခြေအနေမက်ဆေ့ချ်တစ်ခုပို့သည်၊ ၎င်း၏အစိတ်အပိုင်းတစ်ခုသည် ကုဒ်ဝှက်ထားသည်။ ကုဒ်ဝှက်သော့သည် CAPod ကို မက်ဆေ့ချ်အပြည့်အစုံကို ကုဒ်ဖြည်ခွင့်ပေးသည်။ MacBook သို့ တစ်ကြိမ်တည်းဝင်ရောက်ခွင့် လိုအပ်သည်။</string>
     <string name="profiles_key_invalid_format">သော့ပုံစံမမှန်ပါ</string>
     <string name="profiles_key_expected_format">မျှော်မှန်းထားသောပုံစံ: %1$s</string>
@@ -359,7 +326,6 @@
     <string name="general_unsaved_changes_message">သင့်တွင် မသိမ်းဆည်းရသေးသော ပြောင်းလဲမှုများရှိသည်။ ဘာလုပ်လိုပါသလဲ။</string>
     <string name="general_save_and_exit_action">သိမ်းဆည်းပြီး ထွက်ရန်</string>
     <string name="general_discard_action">စွန့်ပစ်ရန်</string>
-    <string name="general_keep_editing_action">ဆက်လက်တည်းဖြတ်ရန်</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ကောက်ယူမှု တိုလွန်းသည်</string>
     <string name="debug_debuglog_short_recording_message">ချွတ်ယွင်းချက် မှတ်တမ်းသည် ဖြစ်ပွားနေသည်ကို ဖမ်မတ်ရန် လိုအပ်သည်။ မှတ်တမ်းကို ဆက်လက်ပြုလုပါ၊ ပြပညမာကို ပြန်ဖြစ်အောင်လုပါ၊ ထိတ်နောက် မှတ်တမ်းကို ရပ်တန့်ပါ။</string>
@@ -427,7 +393,6 @@
     <!-- Device Settings -->
     <string name="device_settings_title">ကိရိယာ ဆက်တင်များ</string>
     <string name="device_settings_subtitle_profile_prefix">ပရိုဖိုင်: %s</string>
-    <string name="device_settings_info_name_label">အမည်</string>
     <string name="device_settings_info_bt_name_label">Bluetooth ကိရိယာ အညွှန်း</string>
     <string name="device_settings_info_model_label">မော်ဒယ်</string>
     <string name="device_settings_info_manufacturer_label">ထုတ်လုပ်သူ</string>
@@ -505,7 +470,6 @@
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">CAPod အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။ ❤️</string>
     <!-- New device settings -->
-    <string name="device_settings_category_general_label">ယေဘူယျ</string>
     <string name="device_settings_microphone_mode_label">မိုက်ခရိုဖုန်း</string>
     <string name="device_settings_microphone_mode_description">မည်သည့် earbud ကို မိုက်ခရိုဖုန်းအဖြစ် အသုံးပြုသနည်း</string>
     <string name="device_settings_microphone_mode_auto">အလိုအလျောက်</string>
