@@ -34,6 +34,8 @@ object Logging {
         )
     }
 
+    private val TAG = logTag("Logging")
+
     private val internalLoggers = mutableListOf<Logger>()
 
     val loggers: List<Logger>
@@ -46,11 +48,11 @@ object Logging {
 
     fun install(logger: Logger) {
         synchronized(internalLoggers) { internalLoggers.add(logger) }
-        log { "Was installed $logger" }
+        log(TAG) { "Was installed $logger" }
     }
 
     fun remove(logger: Logger) {
-        log { "Removing: $logger" }
+        log(TAG) { "Removing: $logger" }
         synchronized(internalLoggers) { internalLoggers.remove(logger) }
     }
 
@@ -77,23 +79,8 @@ object Logging {
     }
 
     fun clearAll() {
-        log { "Clearing all loggers" }
+        log(TAG) { "Clearing all loggers" }
         synchronized(internalLoggers) { internalLoggers.clear() }
-    }
-}
-
-inline fun Any.log(
-    priority: Logging.Priority = Logging.Priority.DEBUG,
-    metaData: Map<String, Any>? = null,
-    message: () -> String,
-) {
-    if (Logging.hasReceivers) {
-        Logging.logInternal(
-            tag = "CAP:${logTagViaCallSite()}",
-            priority = priority,
-            metaData = metaData,
-            message = message(),
-        )
     }
 }
 
@@ -135,15 +122,3 @@ fun Throwable.asLogSummary(): String {
 
 private fun Throwable.safeMessage(): String? = runCatching { message }.getOrNull()
 
-@PublishedApi
-internal fun Any.logTagViaCallSite(): String {
-    val javaClass = this::class.java
-    val fullClassName = javaClass.name
-    val outerClassName = fullClassName.substringBefore('$')
-    val simplerOuterClassName = outerClassName.substringAfterLast('.')
-    return if (simplerOuterClassName.isEmpty()) {
-        fullClassName
-    } else {
-        simplerOuterClassName.removeSuffix("Kt")
-    }
-}

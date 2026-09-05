@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
+import eu.darken.capod.common.debug.logging.logTag
 
 class DataStoreValue<T>(
     private val dataStore: DataStore<Preferences>,
@@ -45,9 +46,13 @@ class DataStoreValue<T>(
                 prefs[key as Preferences.Key<Any>] = raw
             }
         }
-        log(VERBOSE) { "DataStoreValue($keyName) updated from $old to $new" }
+        log(TAG, VERBOSE) { "DataStoreValue($keyName) updated from $old to $new" }
         @Suppress("UNCHECKED_CAST")
         return Updated(old as T, new as T)
+    }
+
+    companion object {
+        private val TAG = logTag("DataStore", "Value")
     }
 }
 

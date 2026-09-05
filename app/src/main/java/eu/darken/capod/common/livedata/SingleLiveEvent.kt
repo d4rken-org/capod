@@ -25,6 +25,7 @@ import androidx.lifecycle.Observer
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import java.util.concurrent.atomic.AtomicBoolean
+import eu.darken.capod.common.debug.logging.logTag
 
 /**
  * A lifecycle-aware observable that sends only new updates after subscription, used for events like
@@ -46,7 +47,7 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     @MainThread
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         if (hasActiveObservers()) {
-            log(WARN) { "Multiple observers registered but only one will be notified of changes." }
+            log(TAG, WARN) { "Multiple observers registered but only one will be notified of changes." }
         }
 
         // Observe the internal MutableLiveData
@@ -72,5 +73,9 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     @MainThread
     fun call() {
         value = null
+    }
+
+    companion object {
+        private val TAG = logTag("SingleLiveEvent")
     }
 }

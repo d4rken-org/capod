@@ -10,6 +10,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.error.HasLocalizedError
 import eu.darken.capod.common.error.LocalizedError
+import eu.darken.capod.common.debug.logging.logTag
 
 class GplayServiceUnavailableException(cause: Throwable) :
     BillingException("Google Play services are unavailable.", cause), HasLocalizedError {
@@ -48,10 +49,11 @@ class GplayServiceUnavailableException(cause: Throwable) :
     )
 
     private fun onLaunchFailed(e: Exception) {
-        log(ERROR) { "Can't launch settings intent for Google Play: $e" }
+        log(TAG, ERROR) { "Can't launch settings intent for Google Play: $e" }
     }
 
     companion object {
         private const val GPLAY_PKG = "com.android.vending"
+        private val TAG = logTag("Upgrade", "Gplay", "ServiceUnavailable")
     }
 }

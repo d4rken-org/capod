@@ -9,6 +9,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import javax.inject.Inject
+import eu.darken.capod.common.debug.logging.logTag
 
 @Reusable
 class WebpageTool @Inject constructor(
@@ -25,9 +26,12 @@ class WebpageTool @Inject constructor(
             context.startActivity(intent)
             true
         } catch (e: Exception) {
-            log(ERROR) { "Failed to launch: ${e.asLog()}" }
+            log(TAG, ERROR) { "Failed to launch: ${e.asLog()}" }
             false
         }
     }
 
+    companion object {
+        private val TAG = logTag("WebpageTool")
+    }
 }

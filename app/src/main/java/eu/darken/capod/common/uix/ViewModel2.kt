@@ -42,7 +42,7 @@ abstract class ViewModel2(
 
         if (this is ErrorEventSource) {
             return CoroutineExceptionHandler { _, ex ->
-                log(WARN) { "Error during launch: ${ex.asLog()}" }
+                log(TAG, WARN) { "Error during launch: ${ex.asLog()}" }
                 errorEvents.postValue(ex)
             }
         }

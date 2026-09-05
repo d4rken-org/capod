@@ -14,7 +14,7 @@ object ProximityPairing {
     class Decoder @Inject constructor() {
         fun decode(message: ContinuityProtocol.Message): ProximityMessage? {
             if (message.type != CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING) {
-                log { "Not a proximity pairing message: $this" }
+                log(TAG) { "Not a proximity pairing message: $message" }
                 return null
             }
 

@@ -141,7 +141,7 @@ class DeviceProfilesRepo @Inject constructor(
             if (addFirst) add(0, profile) else add(profile)
         }.toList()
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
-        log(VERBOSE) { "Added device profile: ${profile.label}" }
+        log(TAG, VERBOSE) { "Added device profile: ${profile.label}" }
     }
 
     suspend fun updateProfile(profile: DeviceProfile) = mutex.withLock {
@@ -152,7 +152,7 @@ class DeviceProfilesRepo @Inject constructor(
             if (it.id == profile.id) profile else it
         }
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
-        log(VERBOSE) { "Updated device profile: ${profile.label}" }
+        log(TAG, VERBOSE) { "Updated device profile: ${profile.label}" }
     }
 
     /**
@@ -176,14 +176,14 @@ class DeviceProfilesRepo @Inject constructor(
         checkAddressUniqueness(updated, otherProfiles)
         val updatedProfiles = currentContainer.profiles.map { if (it.id == id) updated else it }
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
-        log(VERBOSE) { "Updated apple device profile: ${updated.label}" }
+        log(TAG, VERBOSE) { "Updated apple device profile: ${updated.label}" }
     }
 
     suspend fun removeProfile(profileId: ProfileId) = mutex.withLock {
         val currentContainer = settings.profiles.valueBlocking
         val updatedProfiles = currentContainer.profiles.filter { it.id != profileId }
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
-        log(VERBOSE) { "Removed device profile with ID: $profileId" }
+        log(TAG, VERBOSE) { "Removed device profile with ID: $profileId" }
         deviceStateCache.delete(profileId)
         batteryDrainStore.delete(profileId)
     }
@@ -196,7 +196,7 @@ class DeviceProfilesRepo @Inject constructor(
         val byId = current.associateBy { it.id }
         val reordered = orderedIds.map { byId.getValue(it) }
         settings.profiles.valueBlocking = DeviceProfilesContainer(reordered)
-        log(VERBOSE) { "Reordered ${reordered.size} device profiles by ID" }
+        log(TAG, VERBOSE) { "Reordered ${reordered.size} device profiles by ID" }
     }
 
     suspend fun clear() = mutex.withLock {
