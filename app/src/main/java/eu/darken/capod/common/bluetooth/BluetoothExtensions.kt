@@ -6,6 +6,7 @@ import android.bluetooth.le.ScanResult
 import android.os.ParcelUuid
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 
 fun BluetoothDevice.hasFeature(uuid: ParcelUuid): Boolean {
     return uuids?.contains(uuid) ?: false
@@ -21,6 +22,8 @@ fun BluetoothDevice.hasFeature(uuid: ParcelUuid): Boolean {
 fun ScanFilter.matchesSafe(scanResult: ScanResult): Boolean = try {
     matches(scanResult)
 } catch (e: NullPointerException) {
-    log { "AOSP error: ${e.asLog()}" }
+    log(TAG) { "AOSP error: ${e.asLog()}" }
     false
 }
+
+private val TAG = logTag("Bluetooth", "Extensions")

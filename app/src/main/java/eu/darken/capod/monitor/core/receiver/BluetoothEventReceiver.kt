@@ -34,7 +34,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
             log(TAG, WARN) { "Event without Bluetooth device association." }
             return
         } else {
-            log { "Event related to $bluetoothDevice" }
+            log(TAG) { "Event related to $bluetoothDevice" }
         }
         val supportedFeatures = try {
             ContinuityProtocol.BLE_FEATURE_UUIDS.filter { bluetoothDevice.hasFeature(it) }
@@ -47,7 +47,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
             log(TAG) { "Device has no features we support." }
             return
         } else {
-            log { "Device has the following we features we support $supportedFeatures" }
+            log(TAG) { "Device has the following we features we support $supportedFeatures" }
         }
 
         when (intent.action) {

@@ -8,6 +8,7 @@ import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_DECILE
 import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_PERCENT
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot.Pod
+import eu.darken.capod.common.debug.logging.logTag
 
 interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot, HasEarDetectionDual, HasCase,
     HasDualMicrophone, HasAppleColor {
@@ -38,7 +39,7 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
             return when (value) {
                 15 -> null
                 else -> if (value > 10) {
-                    log { "Left pod: Above 100% battery: $value" }
+                    log(TAG) { "Left pod: Above 100% battery: $value" }
                     1.0f
                 } else {
                     (value / 10f)
@@ -59,7 +60,7 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
             return when (value) {
                 15 -> null
                 else -> if (value > 10) {
-                    log { "Right pod: Above 100% battery: $value" }
+                    log(TAG) { "Right pod: Above 100% battery: $value" }
                     1.0f
                 } else {
                     value / 10f
@@ -131,7 +132,7 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
             return when (val value = pubCaseBattery.toInt()) {
                 15 -> null
                 else -> if (value > 10) {
-                    log { "Case: Above 100% battery: $value" }
+                    log(TAG) { "Case: Above 100% battery: $value" }
                     1.0f
                 } else {
                     value / 10f
@@ -206,3 +207,5 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
     }
 
 }
+
+private val TAG = logTag("Pod", "Apple", "DualApplePods")
