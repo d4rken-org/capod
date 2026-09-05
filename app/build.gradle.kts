@@ -55,10 +55,12 @@ android {
                 includeInApk = false
                 includeInBundle = false
             }
+            proguardFiles("proguard-rules-foss.pro")
         }
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
+            proguardFiles("proguard-rules-gplay.pro")
         }
     }
 
