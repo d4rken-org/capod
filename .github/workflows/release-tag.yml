@@ -194,3 +194,14 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
+      # The Play flavor is obfuscated; the bundle embeds this mapping, but keep it reachable
+      # for retracing user-submitted logs without going through Play Console.
+      - name: Archive R8 mapping
+        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
+        with:
+          name: r8-mapping-${{ github.ref_name }}
+          path: app/build/outputs/mapping/gplay*/mapping.txt
+          if-no-files-found: warn
+          overwrite: true

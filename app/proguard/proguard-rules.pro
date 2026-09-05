@@ -1,5 +1,4 @@
 -keep class eu.darken.capod.BuildConfig { *; }
--dontobfuscate
 
 # work-runtime 2.7.1 (pulled by Glance) uses Class.newInstance() reflection throughout.
 # R8 full mode strips no-arg constructors not reachable by static analysis.
