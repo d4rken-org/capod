@@ -49,7 +49,7 @@
     <string name="settings_category_compatibility_options_title">Ühilduvuse valikud</string>
     <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Proovi seda, kui AirPods\'i kunagi ei tuvastatakse. Rakendus uurib kõik lähedal olevad Bluetoothi signaalid ise, asemel et lasta telefonil neid enne valida.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Proovige seda, kui AirPodse ei tuvastata kunagi. Rakendus otsib kõiki läheduses olevaid Bluetooth-signaale ise, selmet lasta seda teha telefonil.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Proovi seda, kui akutasemed värskenduvad ainult hilja või lainete kaupa. Telefon edastab iga Bluetoothi signaali rakendusele kohe, selmet neid esmalt koguda.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
@@ -222,11 +222,13 @@
         <item quantity="other">Vähemalt %d täielikku laadimiskorda mõlemale kõrvaklapile</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">Vähem kui üks täielik laadimiskord mõlemale kõrvaklapile</string>
-    <string name="battery_case_charges_empty">Kest on tühi, laadimiskordaid kõrvaklapidele enam ei ole</string>
-    <string name="battery_case_charges_uncertain">Ei ole selge, kui palju täielikke laadimiskordade on jäänud mõlemale kõrvaklapile</string>
+    <string name="battery_case_charges_empty">Kest on tühi, laadimiskordasid kõrvaklappidele enam pole</string>
+    <string name="battery_case_charges_uncertain">Pole selge, kui palju täielikke laadimiskordi on jäänud mõlemale kõrvaklapile</string>
     <string name="battery_case_charges_state_enough_cd">Piisavalt täielikuks laadimiseks</string>
-    <string name="battery_case_charges_state_not_enough_cd">Ei ole piisavalt täielikuks laadimiseks</string>
-    <string name="battery_case_charges_state_uncertain_cd">Võib-olla ei ole piisavalt täielikuks laadimiseks</string>
+    <string name="battery_case_charges_state_not_enough_cd">Pole piisavalt täielikuks laadimiseks</string>
+    <string name="battery_case_charges_state_uncertain_cd">Võib-olla pole piisavalt täielikuks laadimiseks</string>
+    <string name="battery_case_charges_short">%1$s laadimist</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ laadimist</string>
     <string name="pods_case_status_open_label">Avatud</string>
     <string name="pods_case_status_closed_label">Suletud</string>
     <string name="pods_connection_state_disconnected_label">Puudub ühendus seadmega</string>
@@ -397,12 +399,12 @@
     <string name="device_settings_info_left_bonded_label">Vasak seotud</string>
     <string name="device_settings_info_right_bonded_label">Parem seotud</string>
     <string name="device_settings_info_battery_health_label">Hinnanguline kuulamisaeg</string>
-    <string name="device_settings_info_battery_health_left_label">Vasaku aku tervis (hinnanguline)</string>
-    <string name="device_settings_info_battery_health_right_label">Parema aku tervis (hinnanguline)</string>
+    <string name="device_settings_info_battery_health_left_label">Vasaku klapiga kuulamise aeg</string>
+    <string name="device_settings_info_battery_health_right_label">Parema klapiga kuulamise aeg</string>
     <string name="device_settings_info_battery_health_value">~%1$d%% nimiväärtusest</string>
     <string name="device_settings_info_battery_health_pending">Määratakse, vaata hiljem uuesti</string>
     <string name="device_settings_battery_runtime_warning_title">Kuulamisaeg on palju lühem kui nimiväärtus</string>
-    <string name="device_settings_battery_runtime_warning_description">%1$s: umbes %2$d%% nimiväärtusest kuulamisajast. Puudutage üksikasjade saamiseks.</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: umbes %2$d%% nimiväärtuse kuulamisajast. Puudutage andmete saamiseks.</string>
     <string name="device_settings_battery_runtime_warning_headset_label">Need peakomplektid</string>
     <string name="device_settings_info_details_label">Seadme andmed</string>
     <string name="device_settings_info_details_action">Kuva seadme andmed</string>

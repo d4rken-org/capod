@@ -227,6 +227,8 @@
     <string name="battery_case_charges_state_enough_cd">Αρκετή για μία πλήρη φόρτιση</string>
     <string name="battery_case_charges_state_not_enough_cd">Δεν αρκεί για μία πλήρη φόρτιση</string>
     <string name="battery_case_charges_state_uncertain_cd">Μπορεί να μην αρκεί για μία πλήρη φόρτιση</string>
+    <string name="battery_case_charges_short">%1$s φορτίσεις</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ φορτίσεις</string>
     <string name="pods_case_status_open_label">Ανοιχτή</string>
     <string name="pods_case_status_closed_label">Κλειστή</string>
     <string name="pods_connection_state_disconnected_label">Δεν είναι συνδεδεμένο σε συσκευή</string>

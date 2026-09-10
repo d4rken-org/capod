@@ -101,11 +101,11 @@
     <string name="settings_overview_hide_unmatched_label">Amaga els dispositius no coincidents</string>
     <string name="settings_overview_hide_unmatched_description">No mostris els dispositius propers que no coincideixen amb cap dels perfils a la vista general. P. ex. els AirPods d’altres persones.</string>
     <string name="device_battery_estimate_toggle_label">Estimació de la bateria</string>
-    <string name="device_battery_estimate_card_desc">Aprèn com es carrega i es descarrega aquest dispositiu per estimar el temps restant, el temps fins a la càrrega i quant del temps d\'escolta nominal li queda.</string>
+    <string name="device_battery_estimate_card_desc">Apreneu com es carrega i es descarrega aquest dispositiu per estimar el temps restant, el temps fins a la càrrega completa i quant del temps d\'escolta nominal li queda.</string>
     <string name="device_battery_estimate_reset_action">Restableix les dades apreses</string>
     <string name="device_battery_estimate_reset_desc">Comença de nou des de la durada nominal de la bateria.</string>
     <string name="device_battery_estimate_reset_confirm_title">Voleu restablir les dades apreses?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod oblidarà el consum mesurat d\'aquest dispositiu, la velocitat de càrrega i el temps d\'escolta, i tornarà a començar des de la durada nominal de la bateria.</string>
+    <string name="device_battery_estimate_reset_confirm_message">El CAPod oblidarà el consum mesurat d\'aquest dispositiu, la velocitat de càrrega i el temps d\'escolta, i tornarà a començar des de la durada nominal de la bateria.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
     <string name="help_translate_label">Traducció</string>
     <string name="help_translate_description">Ajudeu a traduir aquesta aplicació al vostre idioma preferit.</string>
@@ -215,19 +215,19 @@
     <string name="battery_state_low_cd">Bateria baixa</string>
     <string name="battery_state_critical_cd">Bateria críticament baixa</string>
     <plurals name="battery_case_charges_approx">
-        <item quantity="one">~%d més càrrega completa pels auriculars</item>
-        <item quantity="other">~%d més càrregues completes pels auriculars</item>
+        <item quantity="one">~%d càrrega més completa pels auriculars</item>
+        <item quantity="other">~%d càrregues més completes pels auriculars</item>
     </plurals>
     <plurals name="battery_case_charges_at_least">
-        <item quantity="one">Almenys %d més càrrega completa pels auriculars</item>
-        <item quantity="other">Almenys %d més càrregues completes pels auriculars</item>
+        <item quantity="one">Almenys %d càrrega més completa pels auriculars</item>
+        <item quantity="other">Almenys %d càrregues més completes pels auriculars</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">Menys d\'una càrrega completa més pels auriculars</string>
-    <string name="battery_case_charges_empty">La caixa està buida, sense més càrregues pels auriculars</string>
-    <string name="battery_case_charges_uncertain">No és segur quantes càrregues completes hi queden pels auriculars</string>
-    <string name="battery_case_charges_state_enough_cd">Prou per a una càrrega completa</string>
+    <string name="battery_case_charges_empty">La funda està buida, sense més càrregues pels auriculars</string>
+    <string name="battery_case_charges_uncertain">No és segur quantes càrregues completes queden pels auriculars</string>
+    <string name="battery_case_charges_state_enough_cd">Suficient per a una càrrega completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuficient per a una càrrega completa</string>
-    <string name="battery_case_charges_state_uncertain_cd">Potser no és suficient per a una càrrega completa</string>
+    <string name="battery_case_charges_state_uncertain_cd">Potser no n\'hi ha prou per a una càrrega completa</string>
     <string name="pods_case_status_open_label">Oberta</string>
     <string name="pods_case_status_closed_label">Tancada</string>
     <string name="pods_connection_state_disconnected_label">No està connectat a un dispositiu</string>
@@ -398,12 +398,12 @@
     <string name="device_settings_info_left_bonded_label">Esquerre vinculat</string>
     <string name="device_settings_info_right_bonded_label">Dret vinculat</string>
     <string name="device_settings_info_battery_health_label">Temps d\'escolta estimat</string>
-    <string name="device_settings_info_battery_health_left_label">Temps d\'escolta del pod esquerre</string>
-    <string name="device_settings_info_battery_health_right_label">Temps d\'escolta del pod dret</string>
+    <string name="device_settings_info_battery_health_left_label">Temps d\'escolta de l\'auricular esquerre</string>
+    <string name="device_settings_info_battery_health_right_label">Temps d\'escolta de l\'auricular dret</string>
     <string name="device_settings_info_battery_health_value">~%1$d%% del nominal</string>
     <string name="device_settings_info_battery_health_pending">Encara s\'està determinant, torneu més tard</string>
     <string name="device_settings_battery_runtime_warning_title">El temps d\'escolta és molt més curt que el nominal</string>
-    <string name="device_settings_battery_runtime_warning_description">%1$s: aproximadament %2$d%% del temps d\'escolta nominal. Toca per a detalls.</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: aproximadament %2$d%% del temps d\'escolta nominal. Toqueu per obtenir més informació.</string>
     <string name="device_settings_battery_runtime_warning_headset_label">Aquests auriculars</string>
     <string name="device_settings_info_details_label">Detalls del dispositiu</string>
     <string name="device_settings_info_details_action">Mostra els detalls del dispositiu</string>

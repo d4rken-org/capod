@@ -100,11 +100,11 @@
     <string name="settings_overview_hide_unmatched_label">Niet-overeenkomende apparaten verbergen</string>
     <string name="settings_overview_hide_unmatched_description">Verberg apparaten in het overzicht die niet overeenkomen met je profielen, bijv. AirPods van anderen.</string>
     <string name="device_battery_estimate_toggle_label">Batterijschattingen</string>
-    <string name="device_battery_estimate_card_desc">Leer hoe dit apparaat oplaadt en verbruikt om de resterende tijd, laadtijd en hoeveel van de nominale luisterduur het nog bereikt in te schatten.</string>
+    <string name="device_battery_estimate_card_desc">Leer hoe dit apparaat oplaadt en ontlaadt om de resterende gebruiksduur, de tijd tot volledige oplading en het resterende deel van de nominale luistertijd te schatten.</string>
     <string name="device_battery_estimate_reset_action">Leergegevens wissen</string>
     <string name="device_battery_estimate_reset_desc">Opnieuw beginnen met de nominale batterijduur.</string>
     <string name="device_battery_estimate_reset_confirm_title">Leergegevens wissen?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod zal het verbruik, de oplaadsnelheid en luisterduur van dit apparaat vergeten en opnieuw met de nominale batterijduur beginnen.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod vergeet dat dit apparaat het stroomverbruik, de laadsnelheid en de luistertijd heeft gemeten en begint opnieuw vanaf de opgegeven batterijduur.</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help deze app te vertalen in je favoriete taal.</string>
@@ -212,7 +212,7 @@
     <string name="pods_dual_right_label">Rechter pod</string>
     <string name="battery_unavailable_label">Batterij niet beschikbaar</string>
     <string name="battery_state_low_cd">Batterij laag</string>
-    <string name="battery_state_critical_cd">Batterij kritiek leeg</string>
+    <string name="battery_state_critical_cd">Batterij bijna leeg</string>
     <plurals name="battery_case_charges_approx">
         <item quantity="one">~%d meer volledige lading voor beide oordopjes</item>
         <item quantity="other">~%d meer volledige ladingen voor beide oordopjes</item>
@@ -221,12 +221,14 @@
         <item quantity="one">Minstens %d meer volledige lading voor beide oordopjes</item>
         <item quantity="other">Minstens %d meer volledige ladingen voor beide oordopjes</item>
     </plurals>
-    <string name="battery_case_charges_less_than_one">Minder dan één volledige lading voor beide oordopjes</string>
-    <string name="battery_case_charges_empty">Etui is leeg, geen ladingen meer voor je oordopjes</string>
-    <string name="battery_case_charges_uncertain">Niet zeker hoeveel volledige ladingen voor beide oordopjes overblijven</string>
-    <string name="battery_case_charges_state_enough_cd">Genoeg voor één volledige lading</string>
+    <string name="battery_case_charges_less_than_one">Nog minder dan één volledige oplaadbeurt voor beide oordopjes</string>
+    <string name="battery_case_charges_empty">Etui is leeg, de oordopjes zijn niet meer opgeladen</string>
+    <string name="battery_case_charges_uncertain">Ik weet niet precies hoeveel volledige oplaadbeurten beide oordopjes nog hebben</string>
+    <string name="battery_case_charges_state_enough_cd">Voldoende voor een volledige lading</string>
     <string name="battery_case_charges_state_not_enough_cd">Niet genoeg voor één volledige lading</string>
     <string name="battery_case_charges_state_uncertain_cd">Mogelijk niet genoeg voor één volledige lading</string>
+    <string name="battery_case_charges_short">%1$s opladen</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ opladen</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Gesloten</string>
     <string name="pods_connection_state_disconnected_label">Niet verbonden met een apparaat</string>

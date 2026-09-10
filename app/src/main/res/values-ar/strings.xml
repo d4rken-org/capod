@@ -51,7 +51,7 @@
     <string name="settings_compat_offloaded_filtering_disabled_title">تعطيل تصفية الأجهزة</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">جرّب هذا الحلّ إذا لم يتمّ اكتشاف سمّاعات أيربودز الخاصّة بك مُطلَقًا. سيبحث التطبيق في جميع إشارات البلوتوث القريبة بنفسه، بدلًا من ترك هاتفك يختارها مُسبَقًا.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">تعطيل تجميع الأجهزة</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">جرّب هذا إذا كانت مستويات البطارية تتحدّث فقط بتأخير أو دفعات. سيُرسل هاتفك كل إشارة بلوتوث فور وصولها، بدلًا من تجميعها أولًا.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">جرّب هذا إذا كانت مستويات البطّارية تتحدّث بتأخيرٍ أو على دُفعات؛ حيث سيمرّر هاتفك كلّ إشارة بلوتوث فورًا بدلًا من تجميعها أوّلًا.</string>
     <string name="settings_onepod_mode_label">وضع السمّاعة الواحدة</string>
     <string name="settings_onepod_mode_description">تستجيب خاصّيتا التشغيل/الإيقاف التلقائي والاتّصال التلقائي لسمّاعةٍ واحدةٍ بدلًا من اشتراط كلتيهما.</string>
     <string name="settings_popup_caseopen_label">أرسل إشعارًا منبثقًا عند فتح الحافظة</string>
@@ -177,8 +177,8 @@
     <string name="overview_monitoring_active_label">تجري مراقبة الأجهزة</string>
     <string name="overview_monitoring_active_description">تأكّد أنّ جهازك قريبٌ ونشيط.</string>
     <string name="overview_monitoring_off_label">المراقبة الخلفية موقَفة</string>
-    <string name="overview_monitoring_off_description">لا يوجد جهاز بلوتوث مقرونٌ بأيّ ملفّ تعريفٍ، لذا يتمّ تحديث كابود فقط في أثناء فتح التطبيق. حدّد جهازًا واحدًا لتمكين المراقبة الخلفية والإشعارات والتفاعلات المستمرّة.</string>
-    <string name="overview_monitoring_off_action">حدّد جهازًا مقرونًا</string>
+    <string name="overview_monitoring_off_description">لا يوجد جهاز بلوتوث مُقرَنٌ بأيّ ملفّ تعريفٍ، لذا يتمّ تحديث كابود فقط في أثناء فتح التطبيق. حدّد جهازًا واحدًا لتمكين المراقبة الخلفية والإشعارات والتفاعلات المستمرّة.</string>
+    <string name="overview_monitoring_off_action">حدّد جهازًا مُقرَنًا</string>
     <string name="overview_troubleshoot_suggestion_label">متّصلٌ، ولكنْ لا توجد بيانات</string>
     <string name="overview_troubleshoot_suggestion_description">جهازك متّصلٌ، لكنّ كابود لا يستقبل أيّ بياناتٍ مباشِرةٍ منه. قد يحتاج هاتفك إلى خيار توافقٍ — يمكن لمستكشف الأخطاء ومصلحها محاولة عثور واحدٍ تلقائيًّا.</string>
     <string name="overview_troubleshoot_suggestion_action">شغّل مستكشف الأخطاء ومصلحها</string>
@@ -186,7 +186,7 @@
     <plurals name="overview_unmatched_devices_description">
         <item quantity="zero">لم يُعثَر على أيّ أجهزةٍ قريبةٍ دون ملفّات تعريفٍ مطابقة.</item>
         <item quantity="one">تمّ اكتشاف جهازٍ قريبٍ دون ملفّ تعريفٍ مطابق. اعرضه للاطّلاع على التفاصيل المُتاحة. إذا كان جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
-        <item quantity="two">تمّ اكتشاف جهازَين قريبَين دون ملفّات تعريفٍ مطابقة. اعرضهما للاطّلاع على التفاصيل المُتاحة. إذا كان أحدهما جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
+        <item quantity="two">تمّ اكتشاف جهازَيْن قريبَيْن دون ملفّات تعريفٍ مطابقة. اعرضهما للاطّلاع على التفاصيل المُتاحة. إذا كان أحدهما جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
         <item quantity="few">تمّ اكتشاف %d أجهزةٍ قريبةٍ دون ملفّات تعريفٍ مطابقة. اعرضها للاطّلاع على التفاصيل المُتاحة. إذا كان أحدها جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
         <item quantity="many">تمّ اكتشاف %d جهازًا قريبًا دون ملفّات تعريفٍ مطابقة. اعرضها للاطّلاع على التفاصيل المُتاحة. إذا كان أحدها جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
         <item quantity="other">تمّ اكتشاف %d جهازٍ قريبٍ دون ملفّات تعريفٍ مطابقة. اعرضها للاطّلاع على التفاصيل المُتاحة. إذا كان أحدها جهازك، فأضِف ملفّ تعريفٍ من قسم الأجهزة لكي يتمّ معرفته.</item>
@@ -200,11 +200,11 @@
         <item quantity="other">%d جهازٍ إضافي</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">الاتّصال عبر البلوتوث</string>
-    <string name="permission_bluetooth_connect_description">يتطلّب هذا التطبيق إذن ”الاتّصال عبر البلوتوث“ للتفاعل مع الأجهزة المقرونة وبدء الاتّصالات.</string>
+    <string name="permission_bluetooth_connect_description">يتطلّب هذا التطبيق إذن ”الاتّصال عبر البلوتوث“ للتفاعل مع الأجهزة المُقرَنة وبدء الاتّصالات.</string>
     <string name="permission_bluetooth_scan_label">البحث عن الأجهزة المستخدمة لتقنية البلوتوث</string>
     <string name="permission_bluetooth_scan_description">يسمح إذن ”البحث عن الأجهزة المستخدمة لتقنية البلوتوث“ لهذا التطبيق باكتشاف واستقبال بيانات البلوتوث من الأجهزة القريبة مثل سمّاعات أيربودز الخاصّة بك.</string>
     <string name="permission_bluetooth_label">البلوتوث</string>
-    <string name="permission_bluetooth_description">يتطلّب هذا التطبيق إذن ”البلوتوث“ للاتّصال بأجهزة البلوتوث المقرونة.</string>
+    <string name="permission_bluetooth_description">يتطلّب هذا التطبيق إذن ”البلوتوث“ للاتّصال بأجهزة البلوتوث المُقرَنة.</string>
     <string name="permission_access_fine_location_label">الوصول إلى الموقع الدقيق</string>
     <string name="permission_access_fine_location_description">يستخدم كابود إذن ”الموقع الدقيق“ لتلقّي بيانات تقنية بلوتوث منخفضة الطاقة (BLE). تستخدم سمّاعاتك تقنية بلوتوث منخفضة الطاقة لبثّ حالتها. لن يستخدم هذا التطبيق بيانات البلوتوث لتحديد موقعك.</string>
     <string name="permission_background_location_label">الوصول إلى الموقع في الخلفية</string>
@@ -230,9 +230,9 @@
         <item quantity="other">%d شَحنةٌ كاملةٌ إضافيةٌ تقريبًا لكلتا السمّاعتين</item>
     </plurals>
     <plurals name="battery_case_charges_at_least">
-        <item quantity="zero">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
-        <item quantity="one">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
-        <item quantity="two">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
+        <item quantity="zero">في الأقلّ، لن تكون هناك حاجةٌ لشحنٍ كاملٍ لكلا السمّاعتين بعد الآن</item>
+        <item quantity="one">شَحنةٌ كاملةٌ إضافيةٌ واحدةٌ في الأقلّ لكلتا السمّاعتين</item>
+        <item quantity="two">شَحنتان كاملتان إضافيتان في الأقلّ لكلتا السمّاعتين</item>
         <item quantity="few">%d شحنات كاملة إضافية على الأقل لكلتا السماعتين</item>
         <item quantity="many">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
         <item quantity="other">%d شحنة كاملة إضافية على الأقل لكلتا السماعتين</item>
@@ -243,6 +243,8 @@
     <string name="battery_case_charges_state_enough_cd">يكفي لشحنة كاملة</string>
     <string name="battery_case_charges_state_not_enough_cd">لا يكفي لشحنة كاملة</string>
     <string name="battery_case_charges_state_uncertain_cd">قد لا يكفي لشحنة كاملة</string>
+    <string name="battery_case_charges_short">%1$s من الشَّحنات</string>
+    <string name="battery_case_charges_short_at_least">%1$s من الشَّحنات أو أكثر</string>
     <string name="pods_case_status_open_label">مفتوحة</string>
     <string name="pods_case_status_closed_label">مُغلَقة</string>
     <string name="pods_connection_state_disconnected_label">غير متصل بجهاز</string>
@@ -293,7 +295,7 @@
     <string name="profiles_name_empty_error">لا يمكن أن يكون الاسم فارغاً</string>
     <string name="profiles_name_default">سماعاتي</string>
     <string name="profiles_model_label">طراز الجهاز</string>
-    <string name="profiles_paired_device_label">جهازٌ مقرون</string>
+    <string name="profiles_paired_device_label">الجهاز المُقرَن</string>
     <string name="profiles_paired_device_none">لا شيء</string>
     <string name="profiles_paired_device_none_description">لم يتم تحديد جهاز</string>
     <string name="profiles_paired_device_used_by">مستخدم بواسطة %s</string>
@@ -442,9 +444,9 @@
     <string name="device_settings_not_connected_connect_action">اتصال</string>
     <string name="device_settings_not_connected_open_settings_action">فتح إعدادات البلوتوث</string>
     <string name="device_settings_not_nearby_label">الجهاز غير قريب</string>
-    <string name="device_settings_not_nearby_description">الإعدادات متاحة فقط عندما يكون هذا الجهاز قريبًا ومتصلًا بهاتفك.</string>
-    <string name="device_settings_aap_unavailable_label">الإعدادات المتقدمة غير متاحة</string>
-    <string name="device_settings_aap_unavailable_description">تتطلب إعدادات AirPods المتقدمة ميزة بلوتوث غير متاحة على هذا الهاتف. قد يتم حل هذا بتحديث Android مستقبلي من الشركة المصنّعة لجهازك.</string>
+    <string name="device_settings_not_nearby_description">تتوفّر الإعدادات فقط عندما يكون هذا الجهاز قريبًا ومتّصلًا بهاتفك.</string>
+    <string name="device_settings_aap_unavailable_label">الإعدادات المتقدّمة غير مُتاحة</string>
+    <string name="device_settings_aap_unavailable_description">تتطلّب إعدادات أيربودز المتقدّمة مزيّة بلوتوث غير متوفّرةٍ في هذا الهاتف. قد يتمّ حلّ هذه المشكلة عبر تحديث أندرويد مُستقبَليٍّ من الشركة المُصنِّعة لجهازك.</string>
     <string name="device_settings_aap_unavailable_action">عرض متتبع التوافق</string>
     <string name="device_settings_category_sound_label">الصوت</string>
     <string name="device_settings_category_controls_label">عناصر التحكم</string>
@@ -483,8 +485,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ضغطة واحدة لكتم صوت الميكروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ضغطة مزدوجة لإنهاء المكالمة</string>
     <string name="device_settings_open_cd">فتح إعدادات الجهاز</string>
-    <string name="overview_card_missing_paired_device">لا يوجد جهاز بلوتوث مقرونٌ بملفّ التعريف هذا.</string>
-    <string name="overview_card_missing_paired_device_consequence">دونها، لن تتوفر إعدادات الجهاز والاتصال التلقائي.</string>
+    <string name="overview_card_missing_paired_device">لا يوجد جهاز بلوتوث مُقرَنٌ بملفّ التعريف هذا.</string>
+    <string name="overview_card_missing_paired_device_consequence">دونها، لن تكون إعدادات الجهاز ومزيّة الاتّصال التلقائي مُتاحة.</string>
     <string name="overview_reactions_hint_title">ردود الفعل خاصة بكل جهاز</string>
     <string name="overview_reactions_hint_body">يتم الآن تهيئة التشغيل التلقائي والإيقاف التلقائي والنوافذ المنبثقة لكل جهاز على حدة. انقر على أيقونة الإعدادات على البطاقة أثناء توصيل سماعاتك.</string>
     <string name="review_app_review_action">مراجعة</string>
@@ -497,7 +499,7 @@
     <string name="device_settings_microphone_mode_left">يسار</string>
     <string name="device_settings_noise_control_current_mode_label">الوضع الحالي</string>
     <string name="device_settings_listening_mode_cycle_label">دورة الضغط المطوّل</string>
-    <string name="device_settings_listening_mode_cycle_description">اختر الأوضاع المتاحة عند الضغط المطوّل على الذراع وفي المحوّل السريع.</string>
+    <string name="device_settings_listening_mode_cycle_description">اختَر الأوضاع المُتاحة عند الضغط مُطوَّلًا على الساق وفي المبدّل السريع.</string>
     <string name="device_settings_listening_mode_cycle_dialog_title">تخصيص دورة الضغط المطوّل</string>
     <string name="device_settings_listening_mode_cycle_summary_helper">يُستخدم عند الضغط المطوّل على الذراع وفي المحوّل السريع</string>
     <string name="device_settings_listening_mode_cycle_summary_helper_override">يُستخدم في المحوّل السريع. يُلغي إجراء الضغط المطوّل المخصص للذراع تدوير AirPods.</string>
