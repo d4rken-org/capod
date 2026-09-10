@@ -236,6 +236,8 @@ AL_Cool_T</string>
     <string name="battery_case_charges_state_enough_cd">Достаточно для полной зарядки</string>
     <string name="battery_case_charges_state_not_enough_cd">Недостаточно для полной зарядки</string>
     <string name="battery_case_charges_state_uncertain_cd">Может быть недостаточно для полной зарядки</string>
+    <string name="battery_case_charges_short">%1$s зарядок</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ зарядок</string>
     <string name="pods_case_status_open_label">Открыто</string>
     <string name="pods_case_status_closed_label">Закрыто</string>
     <string name="pods_connection_state_disconnected_label">Не подключено к устройству</string>

@@ -237,6 +237,8 @@ K4r0lSz;</string>
     <string name="battery_case_charges_state_enough_cd">Wystarczy do pełnego ładowania</string>
     <string name="battery_case_charges_state_not_enough_cd">Za mało do pełnego ładowania</string>
     <string name="battery_case_charges_state_uncertain_cd">Może być za mało do pełnego ładowania</string>
+    <string name="battery_case_charges_short">%1$s ładowania</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ładowania</string>
     <string name="pods_case_status_open_label">Otwarte</string>
     <string name="pods_case_status_closed_label">Zamknięte</string>
     <string name="pods_connection_state_disconnected_label">Nie połączono z urządzeniem</string>
