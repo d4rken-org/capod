@@ -30,6 +30,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
@@ -237,12 +241,21 @@ class BluetoothManager2 @Inject constructor(
     private val seenDevicesLock = Mutex()
     private val seenDevicesCache = mutableMapOf<String, Instant>()
 
+    private val _aclConnectedAddresses = MutableStateFlow<Set<BluetoothAddress>>(emptySet())
+
+    /**
+     * Baseband (ACL) links as reported by the manifest-registered ACL broadcasts. Independent of the
+     * headset profile: a device can be ACL-connected (paged) without any audio profile being up.
+     */
+    val aclConnectedAddresses: StateFlow<Set<BluetoothAddress>> = _aclConnectedAddresses.asStateFlow()
+
     /**
      * Stamps the connect time from the ACL broadcast, which reaches a manifest-registered receiver
      * whether or not [connectedDevices] is being collected. An existing stamp wins: the earlier one
      * is the real connect time.
      */
     fun markDeviceConnected(address: BluetoothAddress) {
+        _aclConnectedAddresses.update { it + address.uppercase() }
         appScope.launch {
             seenDevicesLock.withLock {
                 if (seenDevicesCache.containsKey(address)) return@withLock
@@ -252,6 +265,7 @@ class BluetoothManager2 @Inject constructor(
     }
 
     fun markDeviceDisconnected(address: BluetoothAddress) {
+        _aclConnectedAddresses.update { it - address.uppercase() }
         appScope.launch {
             seenDevicesLock.withLock { seenDevicesCache.remove(address) }
         }

@@ -1,5 +1,6 @@
 package eu.darken.capod.reaction.core.autoconnect
 
+import eu.darken.capod.common.bluetooth.AclPager
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.NudgeAvailability
 import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
@@ -27,6 +28,7 @@ import javax.inject.Singleton
 @Singleton
 class AutoConnect @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
+    private val aclPager: AclPager,
     private val deviceMonitor: DeviceMonitor,
     private val nudgeCapabilityStore: NudgeCapabilityStore,
 ) {
@@ -104,7 +106,9 @@ class AutoConnect @Inject constructor(
             }
 
             if (nudgeCapabilityStore.availability.value == NudgeAvailability.BROKEN) {
-                log(TAG, WARN) { "nudgeConnection is known broken on this device, skipping" }
+                log(TAG, WARN) { "nudgeConnection is known broken on this device, falling back to ACL paging" }
+                val paged = aclPager.page(bondedDevice)
+                log(TAG) { "aclPager.page(${bondedDevice.address}) returned $paged" }
                 return@map
             }
 
