@@ -42,6 +42,8 @@ class PodModelCaseSpecTest : BaseTest() {
         PodModel.AIRPODS_GEN3.caseSpec?.isLowerBound shouldBe false
         PodModel.AIRPODS_GEN4.caseSpec?.fullPairRecharges shouldBe (30f / 5f - 1f)
         PodModel.AIRPODS_GEN4_ANC.caseSpec?.fullPairRecharges shouldBe (20f / 4f - 1f)
+        PodModel.AIRPODS_GEN5.caseSpec?.fullPairRecharges shouldBe (20f / 4f - 1f)
+        PodModel.AIRPODS_GEN5_WIRELESS.caseSpec?.fullPairRecharges shouldBe (20f / 4f - 1f)
         PodModel.AIRPODS_PRO2.caseSpec?.fullPairRecharges shouldBe (30f / 6f - 1f)
         PodModel.AIRPODS_PRO2_USBC.caseSpec?.fullPairRecharges shouldBe (30f / 6f - 1f)
         PodModel.AIRPODS_PRO3.caseSpec?.fullPairRecharges shouldBe (24f / 8f - 1f)
