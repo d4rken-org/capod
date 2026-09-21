@@ -168,7 +168,7 @@ enum class PodModel(
     /** Case charges: 4 h listening, 20 h with the case, ANC on (support.apple.com/en-us/148759). */
     @SerialName("airpods.gen5.wireless")
     AIRPODS_GEN5_WIRELESS(
-        "AirPods (Gen 5) Wireless Case",
+        "AirPods (Gen 5 Wireless Case)",
         R.drawable.device_airpods_gen4anc_both,
         Features(
             hasDualPods = true,
