@@ -168,6 +168,17 @@ class ModelFeaturesTest : BaseTest() {
         }
     }
 
+    @Test
+    fun `AirPods 5 battery figures match the published specs`() {
+        setOf(PodModel.AIRPODS_GEN5, PodModel.AIRPODS_GEN5_WIRELESS).forEach { model ->
+            withClue(model.name) {
+                model.batterySpec?.listeningHoursAncOn shouldBe 4f
+                model.batterySpec?.listeningHoursAncOff shouldBe 6f
+                model.batterySpec?.chargeFractionPerHour shouldBe 2f
+            }
+        }
+    }
+
     private fun modelsWith(predicate: (PodModel.Features) -> Boolean): Set<PodModel> = PodModel.entries
         .filter { predicate(it.features) }
         .toSet()
@@ -194,6 +205,8 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_GEN3,
         PodModel.AIRPODS_GEN4,
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
@@ -217,6 +230,8 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_GEN3,
         PodModel.AIRPODS_GEN4,
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
@@ -236,6 +251,8 @@ class ModelFeaturesTest : BaseTest() {
 
     private val ancControlModels = setOf(
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
@@ -256,6 +273,8 @@ class ModelFeaturesTest : BaseTest() {
 
     private val adaptiveAncModels = setOf(
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
@@ -264,6 +283,8 @@ class ModelFeaturesTest : BaseTest() {
 
     private val conversationAwarenessModels = setOf(
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
@@ -282,6 +303,8 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_GEN3,
         PodModel.AIRPODS_GEN4,
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
@@ -292,6 +315,7 @@ class ModelFeaturesTest : BaseTest() {
     )
 
     private val volumeSwipeModels = setOf(
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
@@ -330,6 +354,8 @@ class ModelFeaturesTest : BaseTest() {
 
     private val adaptiveAudioNoiseModels = setOf(
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
@@ -370,6 +396,8 @@ class ModelFeaturesTest : BaseTest() {
 
     private val listeningModeCycleModels = setOf(
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
@@ -401,6 +429,8 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_GEN3,
         PodModel.AIRPODS_GEN4,
         PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_GEN5,
+        PodModel.AIRPODS_GEN5_WIRELESS,
         PodModel.AIRPODS_PRO,
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
