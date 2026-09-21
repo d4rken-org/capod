@@ -140,6 +140,58 @@ enum class PodModel(
         caseIconRes = R.drawable.device_airpods_gen4anc_case,
     ),
 
+    /** Case charges: 4 h listening, 20 h with the case, ANC on (support.apple.com/en-us/148759). */
+    @SerialName("airpods.gen5")
+    AIRPODS_GEN5(
+        "AirPods (Gen 5)",
+        R.drawable.device_airpods_gen4anc_both,
+        Features(
+            hasDualPods = true,
+            hasCase = true,
+            hasEarDetection = true,
+            hasAncControl = true,
+            hasAdaptiveAnc = true,
+            hasConversationAwareness = true,
+            hasPressSpeed = true,
+            hasPressHoldDuration = true,
+            hasAdaptiveAudioNoise = true,
+            hasListeningModeCycle = true,
+            hasAllowOffOption = true,
+        ),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
+        leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
+        rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
+        caseIconRes = R.drawable.device_airpods_gen4anc_case,
+    ),
+
+    /** Case charges: 4 h listening, 20 h with the case, ANC on (support.apple.com/en-us/148759). */
+    @SerialName("airpods.gen5.wireless")
+    AIRPODS_GEN5_WIRELESS(
+        "AirPods (Gen 5) Wireless Case",
+        R.drawable.device_airpods_gen4anc_both,
+        Features(
+            hasDualPods = true,
+            hasCase = true,
+            hasEarDetection = true,
+            hasAncControl = true,
+            hasAdaptiveAnc = true,
+            hasConversationAwareness = true,
+            hasPressSpeed = true,
+            hasPressHoldDuration = true,
+            hasVolumeSwipe = true,
+            hasVolumeSwipeLength = true,
+            hasAdaptiveAudioNoise = true,
+            hasListeningModeCycle = true,
+            hasAllowOffOption = true,
+        ),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f),
+        caseSpec = CaseSpec(fullPairRecharges = 4.0f),
+        leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
+        rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
+        caseIconRes = R.drawable.device_airpods_gen4anc_case,
+    ),
+
     @SerialName("airpods.pro")
     AIRPODS_PRO(
         "AirPods Pro",
