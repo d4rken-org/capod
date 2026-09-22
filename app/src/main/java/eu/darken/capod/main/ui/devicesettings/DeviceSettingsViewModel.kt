@@ -540,6 +540,17 @@ class DeviceSettingsViewModel @Inject constructor(
         navTo(Nav.Main.PressControls(profileId = profileId))
     }
 
+    fun navToEqualizer() = launch {
+        log(TAG, INFO) { "navToEqualizer()" }
+        val profileId = targetProfileId.value ?: return@launch
+        val device = deviceMonitor.getDeviceForProfile(profileId)
+        if (device?.isAapReady != true) {
+            log(TAG, INFO) { "navToEqualizer(): aborted, device not AAP-ready" }
+            return@launch
+        }
+        navTo(Nav.Main.Equalizer(profileId = profileId))
+    }
+
     fun navToEditProfile() = launch {
         log(TAG, INFO) { "navToEditProfile()" }
         val profileId = targetProfileId.value ?: return@launch

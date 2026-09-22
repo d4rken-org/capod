@@ -546,6 +546,12 @@
     <string name="device_settings_equalizer_band_high">Treble</string>
     <string name="device_settings_equalizer_band_offset_positive">%1$s +%2$d</string>
     <string name="device_settings_equalizer_band_offset_negative">%1$s −%2$d</string>
+    <string name="device_settings_equalizer_description">Adjust how much bass, mids and treble your AirPods play.</string>
+    <string name="device_settings_equalizer_unknown_description">CAPod can\'t read which equalizer your AirPods are currently using. Setting one up applies a new equalizer and replaces whatever they are using right now.</string>
+    <string name="device_settings_equalizer_setup_action">Set up equalizer</string>
+    <string name="device_settings_equalizer_pending_note">Your AirPods aren\'t being worn, the change is applied once you put them in.</string>
+    <string name="device_settings_equalizer_reset_label">Reset to neutral</string>
+    <string name="device_settings_equalizer_reset_confirm_message">Set bass, mids and treble back to neutral?</string>
     <string name="device_settings_noise_control_current_mode_label">Current mode</string>
     <string name="device_settings_listening_mode_cycle_label">Long-press cycle</string>
     <string name="device_settings_listening_mode_cycle_description">Choose which modes are available when holding the stem and in the quick switcher.</string>

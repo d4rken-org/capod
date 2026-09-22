@@ -168,8 +168,7 @@ fun DeviceSettingsScreenHost(
         onVolumeSwipeChange = { vm.setVolumeSwipe(it) },
         onVolumeSwipeLengthChange = { vm.setVolumeSwipeLength(it) },
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
-        // T3 replaces this with navigation to the equalizer screen
-        onEqualizerClick = {},
+        onEqualizerClick = { vm.navToEqualizer() },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
