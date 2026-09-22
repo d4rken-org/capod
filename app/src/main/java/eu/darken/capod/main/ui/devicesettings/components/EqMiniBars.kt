@@ -16,7 +16,8 @@ import eu.darken.capod.common.compose.PreviewWrapper
 
 /**
  * Three-band glyph for a settings row's trailing slot. Bands are `0..100` with 50 neutral; a
- * boosted band draws taller than the neutral reference line, a cut one shorter.
+ * boosted band draws taller than the neutral reference line, a cut one shorter. A disabled
+ * equalizer keeps its band shape but draws muted, matching the row's "Off" subtitle.
  */
 @Composable
 fun EqMiniBars(
@@ -24,13 +25,15 @@ fun EqMiniBars(
     mid: Int,
     high: Int,
     isUnconfigured: Boolean,
+    isEnabled: Boolean,
     modifier: Modifier = Modifier,
 ) {
+    val isMuted = isUnconfigured || !isEnabled
     val barColor = when {
-        isUnconfigured -> MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.38f)
+        isMuted -> MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.38f)
         else -> MaterialTheme.colorScheme.primary
     }
-    val referenceColor = MaterialTheme.colorScheme.outlineVariant.copy(alpha = if (isUnconfigured) 0.4f else 1f)
+    val referenceColor = MaterialTheme.colorScheme.outlineVariant.copy(alpha = if (isMuted) 0.4f else 1f)
     val bands = when {
         isUnconfigured -> listOf(NEUTRAL, NEUTRAL, NEUTRAL)
         else -> listOf(low, mid, high)
@@ -69,9 +72,10 @@ private const val MIN_BAR_FRACTION = 0.15f
 @Composable
 private fun EqMiniBarsPreview() = PreviewWrapper {
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        EqMiniBars(low = 85, mid = 50, high = 20, isUnconfigured = false)
-        EqMiniBars(low = 15, mid = 40, high = 90, isUnconfigured = false)
-        EqMiniBars(low = 50, mid = 50, high = 50, isUnconfigured = false)
-        EqMiniBars(low = 50, mid = 50, high = 50, isUnconfigured = true)
+        EqMiniBars(low = 85, mid = 50, high = 20, isUnconfigured = false, isEnabled = true)
+        EqMiniBars(low = 15, mid = 40, high = 90, isUnconfigured = false, isEnabled = true)
+        EqMiniBars(low = 50, mid = 50, high = 50, isUnconfigured = false, isEnabled = true)
+        EqMiniBars(low = 85, mid = 50, high = 20, isUnconfigured = false, isEnabled = false)
+        EqMiniBars(low = 50, mid = 50, high = 50, isUnconfigured = true, isEnabled = false)
     }
 }

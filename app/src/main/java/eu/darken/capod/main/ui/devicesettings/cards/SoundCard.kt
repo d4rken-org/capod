@@ -127,6 +127,7 @@ internal fun SoundCard(
                         mid = customEq?.mid ?: CUSTOM_EQ_NEUTRAL,
                         high = customEq?.high ?: CUSTOM_EQ_NEUTRAL,
                         isUnconfigured = customEq == null,
+                        isEnabled = customEq?.enabled == true,
                     )
                 },
             )
