@@ -16,12 +16,14 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -225,5 +227,56 @@ class EqualizerViewModelTest : BaseTest() {
         val sendFailed = vm.events.first().shouldBeInstanceOf<EqualizerViewModel.Event.SendFailed>()
         sendFailed.command shouldBe command(enabled = true, 50, 50, 50)
         sendFailed.message shouldBe "socket closed"
+    }
+
+    @Test
+    fun `the last equalizer write carries every edit, even when the sends overlap`() = runVmTest {
+        setDevice(eq(enabled = true, 50, 50, 50))
+
+        // Two slider moves, the first one still inside its device lookup when the second starts.
+        // Deterministic stand-in for the ordering quick edits produce on a real connection.
+        val firstLookupReached = CompletableDeferred<Unit>()
+        val releaseFirstLookup = CompletableDeferred<Unit>()
+        var lookups = 0
+        val device = makeDevice(eq(enabled = true, 50, 50, 50))
+        coEvery { deviceMonitor.getDeviceForProfile(testProfileId) } coAnswers {
+            if (lookups++ == 0) {
+                firstLookupReached.complete(Unit)
+                releaseFirstLookup.await()
+            }
+            device
+        }
+
+        val sent = mutableListOf<AapCommand>()
+        coEvery { aapManager.sendCommand(testProfileId, capture(sent)) } returns Unit
+
+        val vm = startedVm()
+
+        vm.setLow(70)
+        firstLookupReached.await()
+
+        vm.setHigh(30)
+        advanceUntilIdle()
+
+        releaseFirstLookup.complete(Unit)
+        advanceUntilIdle()
+
+        sent.last() shouldBe command(enabled = true, 70, 50, 30)
+    }
+
+    @Test
+    fun `an unedited draft follows later inbound equalizers`() = runVmTest {
+        val vm = startedVm()
+
+        setDevice(eq(enabled = true, 62, 50, 42))
+        vm.state.first().draft shouldBe eq(enabled = true, 62, 50, 42)
+
+        setDevice(eq(enabled = true, 30, 20, 10))
+
+        val state = vm.state.first()
+        state.deviceState shouldBe eq(enabled = true, 30, 20, 10)
+        state.draft shouldBe eq(enabled = true, 30, 20, 10)
+
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), any()) }
     }
 }

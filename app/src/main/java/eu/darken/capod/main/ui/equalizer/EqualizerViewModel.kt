@@ -4,6 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
@@ -18,13 +19,15 @@ import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.ProfileId
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.updateAndGet
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
@@ -57,37 +60,69 @@ class EqualizerViewModel @Inject constructor(
      */
     private val draft = MutableStateFlow<AapSetting.CustomEq?>(null)
 
+    private sealed interface DraftAction {
+        data class Edit(val transform: (AapSetting.CustomEq) -> AapSetting.CustomEq) : DraftAction
+        data class Observed(val eq: AapSetting.CustomEq?) : DraftAction
+    }
+
+    /**
+     * Everything that touches [draft] goes through here, so edits and inbound equalizers apply in
+     * the order they arrived and a send always finishes before the next transform is applied. Two
+     * quick slider moves would otherwise race inside their device lookup and let the older of the
+     * two tuples reach the pods last, reverting the newer bands.
+     */
+    private val draftActions = Channel<DraftAction>(Channel.UNLIMITED)
+
+    /** False until an authorized edit was applied. Owned by the [draftActions] consumer. */
+    private var draftEdited = false
+
+    init {
+        launch {
+            for (action in draftActions) {
+                try {
+                    when (action) {
+                        is DraftAction.Edit -> applyEdit(action.transform)
+                        is DraftAction.Observed -> reconcile(action.eq)
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to process $action: ${e.asLog()}" }
+                    errorEvents.emit(e)
+                }
+            }
+        }
+    }
+
     val state = targetProfileId.flatMapLatest { profileId ->
         if (profileId == null) return@flatMapLatest flowOf(State())
+        val devices = deviceForProfile(profileId).onEach { device ->
+            draftActions.trySend(DraftAction.Observed(device?.customEq))
+        }
         combine(
-            deviceForProfile(profileId),
+            devices,
             draft,
             upgradeRepo.upgradeInfo,
         ) { device, currentDraft, upgrade ->
-            val deviceState = device?.customEq
             State(
                 device = device,
                 isPro = upgrade.isPro,
                 isAapReady = device?.isAapReady == true,
                 hasPendingWrite = device?.hasPendingSettings == true,
-                deviceState = deviceState,
-                draft = reconcile(currentDraft, deviceState),
+                deviceState = device?.customEq,
+                draft = currentDraft,
             )
         }
     }.asLiveState()
 
     /**
-     * An inbound equalizer is adopted only while the draft is still empty, or when it matches the
-     * draft (an echo). A differing inbound value belongs to [State.deviceState] alone — adopting it
-     * would drop the user's in-progress edit on the floor.
+     * An inbound equalizer is adopted as long as the user hasn't edited anything, including an
+     * inbound null that clears the draft. Once edited, a differing inbound value belongs to
+     * [State.deviceState] alone: adopting it would drop the in-progress edit on the floor.
      */
-    private fun reconcile(
-        currentDraft: AapSetting.CustomEq?,
-        observed: AapSetting.CustomEq?,
-    ): AapSetting.CustomEq? {
-        if (currentDraft != null || observed == null) return currentDraft
-        draft.compareAndSet(null, observed)
-        return draft.value
+    private fun reconcile(observed: AapSetting.CustomEq?) {
+        if (draftEdited) return
+        draft.value = observed
     }
 
     private fun deviceForProfile(profileId: ProfileId): Flow<PodDevice?> =
@@ -111,14 +146,19 @@ class EqualizerViewModel @Inject constructor(
         val draft: AapSetting.CustomEq? = null,
     )
 
-    /** Applies [transform] to the draft and sends the result. Pro-gated, like every send here. */
-    private fun edit(transform: (AapSetting.CustomEq) -> AapSetting.CustomEq) = launch {
+    /** Queues [transform] for the draft. Pro-gated when it runs, like every send here. */
+    private fun edit(transform: (AapSetting.CustomEq) -> AapSetting.CustomEq) {
+        draftActions.trySend(DraftAction.Edit(transform))
+    }
+
+    private suspend fun applyEdit(transform: (AapSetting.CustomEq) -> AapSetting.CustomEq) {
         if (!upgradeRepo.isProForUi()) {
             navTo(Nav.Main.Upgrade())
-            return@launch
+            return
         }
-        // Atomic: two edits landing together must not each build a command from the pre-edit draft.
-        val next = checkNotNull(draft.updateAndGet { transform(it ?: NEUTRAL_EQ) })
+        val next = transform(draft.value ?: NEUTRAL_EQ)
+        draftEdited = true
+        draft.value = next
         sendEq(next)
     }
 
