@@ -142,6 +142,75 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         @Test fun `decode unknown returns null`() { profile.decodeSetting(settingsMessage(0x31, 0x00)).shouldBeNull() }
     }
 
+    // ── Custom EQ (0x63) ────────────────────────────────────
+    // Three-band EQ from the iOS 26/27-era firmware. Bands are 0..100 with 50 neutral, and the
+    // state byte is inverted relative to the Apple-bool convention (1 = off, 2 = on).
+
+    @Nested
+    inner class CustomEqTests {
+        @Test
+        fun `encode enabled full frame`() {
+            val bytes = profile.encodeCommand(AapCommand.SetCustomEq(enabled = true, low = 60, mid = 50, high = 40))
+            bytes shouldBe parseHex("04 00 04 00 63 00 05 00 01 02 3C 32 28")
+        }
+
+        @Test
+        fun `encode disabled full frame`() {
+            val bytes = profile.encodeCommand(AapCommand.SetCustomEq(enabled = false, low = 50, mid = 50, high = 50))
+            bytes shouldBe parseHex("04 00 04 00 63 00 05 00 01 01 32 32 32")
+        }
+
+        @Test
+        fun `encode coerces out of range bands`() {
+            val bytes = profile.encodeCommand(AapCommand.SetCustomEq(enabled = true, low = -10, mid = 200, high = 101))
+            bytes shouldBe parseHex("04 00 04 00 63 00 05 00 01 02 00 64 64")
+        }
+
+        @Test
+        fun `decode enabled`() {
+            val eq = decodeSetting<AapSetting.CustomEq>("04 00 04 00 63 00 05 00 01 02 00 32 64")
+            eq.enabled shouldBe true
+            eq.low shouldBe 0
+            eq.mid shouldBe 50
+            eq.high shouldBe 100
+        }
+
+        @Test
+        fun `decode disabled`() {
+            val eq = decodeSetting<AapSetting.CustomEq>("04 00 04 00 63 00 05 00 01 01 32 32 32")
+            eq.enabled shouldBe false
+            eq.low shouldBe 50
+            eq.mid shouldBe 50
+            eq.high shouldBe 50
+        }
+
+        @Test
+        fun `decode coerces out of range bands`() {
+            val eq = decodeSetting<AapSetting.CustomEq>("04 00 04 00 63 00 05 00 01 02 FF 65 32")
+            eq.low shouldBe 100
+            eq.mid shouldBe 100
+            eq.high shouldBe 50
+        }
+
+        @Test
+        fun `payload too short returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 02 32 32")).shouldBeNull()
+        }
+
+        @Test
+        fun `unknown state byte returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 63 00 05 00 01 03 32 32 32")).shouldBeNull()
+        }
+
+        @Test
+        fun `round-trip`() {
+            val command = AapCommand.SetCustomEq(enabled = true, low = 10, mid = 55, high = 90)
+            val encoded = profile.encodeCommand(command)
+            val decoded = decodeSetting<AapSetting.CustomEq>(AapMessage.parse(encoded)!!)
+            decoded shouldBe AapSetting.CustomEq(enabled = true, low = 10, mid = 55, high = 90)
+        }
+    }
+
     // ── Device Rename (0x1A) ────────────────────────────────
     // The working opcode is 0x1A (not the 0x1E variant in LibrePods Android); see the rationale
     // comment in DefaultAapDeviceProfile.buildRenameMessage for the on-device test details.
