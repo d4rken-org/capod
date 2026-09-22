@@ -408,6 +408,10 @@ data class PodDevice(
     val pmeConfig: AapSetting.PmeConfig?
         get() = aap?.setting()
 
+    /**
+     * Reflects optimistic writes as well as device reports: a value this app sent shows up here
+     * even if the pods never applied it.
+     */
     val customEq: AapSetting.CustomEq?
         get() = aap?.setting()
 

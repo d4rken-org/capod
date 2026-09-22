@@ -64,21 +64,21 @@ class EqualizerViewModel @Inject constructor(
             draft,
             upgradeRepo.upgradeInfo,
         ) { device, currentDraft, upgrade ->
-            val observed = device?.customEq
+            val deviceState = device?.customEq
             State(
                 device = device,
                 isPro = upgrade.isPro,
                 isAapReady = device?.isAapReady == true,
                 hasPendingWrite = device?.hasPendingSettings == true,
-                observed = observed,
-                draft = reconcile(currentDraft, observed),
+                deviceState = deviceState,
+                draft = reconcile(currentDraft, deviceState),
             )
         }
     }.asLiveState()
 
     /**
      * An inbound equalizer is adopted only while the draft is still empty, or when it matches the
-     * draft (an echo). A differing inbound value belongs to [State.observed] alone — adopting it
+     * draft (an echo). A differing inbound value belongs to [State.deviceState] alone — adopting it
      * would drop the user's in-progress edit on the floor.
      */
     private fun reconcile(
@@ -102,8 +102,11 @@ class EqualizerViewModel @Inject constructor(
         val isAapReady: Boolean = false,
         /** A write is queued behind the ear-detection gate and hasn't reached the device yet. */
         val hasPendingWrite: Boolean = false,
-        /** What the device reported. Null while it never reported an equalizer. */
-        val observed: AapSetting.CustomEq? = null,
+        /**
+         * The current AAP state for this setting. Includes values this app wrote optimistically and
+         * that the device may never have applied. Null while no value is known.
+         */
+        val deviceState: AapSetting.CustomEq? = null,
         /** What the user is editing. Null while there is nothing to show. */
         val draft: AapSetting.CustomEq? = null,
     )
@@ -157,7 +160,7 @@ class EqualizerViewModel @Inject constructor(
         val address = deviceMonitor.getDeviceForProfile(profileId)?.address ?: return
         try {
             aapManager.sendCommand(address, command)
-            log(TAG, INFO) { "Sent $command to $address" }
+            log(TAG, INFO) { "Dispatched $command to $address" }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to send $command: ${e.message}" }
             events.emit(Event.SendFailed(command, e.message))

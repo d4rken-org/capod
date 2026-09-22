@@ -286,7 +286,7 @@ internal fun previewEqualizerState(
     isPro = isPro,
     isAapReady = true,
     hasPendingWrite = hasPendingWrite,
-    observed = customEq,
+    deviceState = customEq,
     draft = customEq,
 )
 

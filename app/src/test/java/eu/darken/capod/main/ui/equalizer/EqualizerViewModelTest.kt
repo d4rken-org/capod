@@ -209,7 +209,7 @@ class EqualizerViewModelTest : BaseTest() {
 
         val state = vm.state.first()
         state.draft shouldBe eq(enabled = true, 70, 50, 50)
-        state.observed shouldBe eq(enabled = true, 10, 10, 10)
+        state.deviceState shouldBe eq(enabled = true, 10, 10, 10)
     }
 
     @Test
