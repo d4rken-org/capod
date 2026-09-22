@@ -381,6 +381,7 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
     inner class ModelFeatureFlags {
         @Test fun `Pro 2 has all new flags`() {
             val f = PodModel.AIRPODS_PRO2.features
+            f.hasCustomEq shouldBe true
             f.hasMicrophoneMode shouldBe true
             f.hasEarDetectionToggle shouldBe true
             f.hasListeningModeCycle shouldBe true
@@ -472,6 +473,26 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasMicrophoneMode shouldBe true
         }
 
+        @Test fun `custom EQ is limited to Apple's published model list`() {
+            PodModel.entries.filter { it.features.hasCustomEq }.toSet() shouldBe setOf(
+                PodModel.AIRPODS_GEN4,
+                PodModel.AIRPODS_GEN4_ANC,
+                PodModel.AIRPODS_GEN5,
+                PodModel.AIRPODS_GEN5_WIRELESS,
+                PodModel.AIRPODS_PRO2,
+                PodModel.AIRPODS_PRO2_USBC,
+                PodModel.AIRPODS_PRO3,
+                PodModel.AIRPODS_MAX2,
+            )
+        }
+
+        @Test fun `custom EQ is absent on pre-9A348 hardware generations`() {
+            PodModel.AIRPODS_GEN3.features.hasCustomEq shouldBe false
+            PodModel.AIRPODS_PRO.features.hasCustomEq shouldBe false
+            PodModel.AIRPODS_MAX.features.hasCustomEq shouldBe false
+            PodModel.AIRPODS_MAX_USBC.features.hasCustomEq shouldBe false
+        }
+
         @Test fun `Powerbeats Pro and Beats Fit Pro expose ear detection toggle`() {
             val powerbeatsPro = PodModel.POWERBEATS_PRO.features
             powerbeatsPro.hasEarDetection shouldBe true
@@ -524,6 +545,14 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             for (model in PodModel.entries) {
                 if (model.features.hasAdaptiveAudioNoise) {
                     model.features.hasAdaptiveAnc shouldBe true
+                }
+            }
+        }
+
+        @Test fun `customEq is never set on a Beats model`() {
+            for (model in PodModel.entries) {
+                if (model.name.contains("BEATS")) {
+                    model.features.hasCustomEq shouldBe false
                 }
             }
         }
