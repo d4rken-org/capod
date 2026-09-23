@@ -23,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.ConfirmationDialog
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.main.core.GeneralSettings
@@ -62,6 +63,8 @@ class RecorderActivity : Activity2() {
                     insetsController.isAppearanceLightStatusBars = useDarkIcons
                     insetsController.isAppearanceLightNavigationBars = useDarkIcons
                 }
+
+                ErrorEventHandler(vm)
 
                 var hasShared by remember { mutableStateOf(false) }
                 var dialog by remember { mutableStateOf<RecorderDialog?>(null) }

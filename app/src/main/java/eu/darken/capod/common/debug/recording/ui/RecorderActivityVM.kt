@@ -14,6 +14,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugSession
 import eu.darken.capod.common.debug.recording.core.DebugSessionManager
+import eu.darken.capod.common.error.ErrorEventSource2
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel2
@@ -31,7 +32,7 @@ class RecorderActivityVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val sessionManager: DebugSessionManager,
     private val webpageTool: WebpageTool,
-) : ViewModel2(dispatcherProvider) {
+) : ViewModel2(dispatcherProvider), ErrorEventSource2 {
 
     data class LogEntry(
         val file: File,
@@ -113,6 +114,7 @@ class RecorderActivityVM @Inject constructor(
     val state = stater.flow
 
     val events = SingleEventFlow<Event>()
+    override val errorEvents = SingleEventFlow<Throwable>()
 
     init {
         sessionManager.sessions
@@ -155,6 +157,7 @@ class RecorderActivityVM @Inject constructor(
             events.tryEmit(Event.ShareIntent(chooserIntent))
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to share session $sid: ${e.message}" }
+            errorEvents.tryEmit(e)
         } finally {
             stater.updateBlocking { copy(isWorking = false) }
         }
