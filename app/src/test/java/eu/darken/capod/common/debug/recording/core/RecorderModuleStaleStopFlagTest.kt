@@ -23,6 +23,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -183,7 +184,14 @@ class RecorderModuleStaleStopFlagTest : BaseTest() {
                 Bugs.isDebug.value shouldBe false
             }
 
-            // The committed stop is queued for the flag collector and has not been delivered yet.
+            // The committed stop is queued on the held app scope and has not been delivered yet. The
+            // shared flow resumes its subscribers one by one, so stop() can return before that
+            // continuation reaches the queue: wait for it rather than sample once.
+            runBlocking {
+                withTimeoutOrNull(AWAIT_TIMEOUT_MS) {
+                    while (moduleDispatcher.heldCount() < 1) delay(POLL_MS)
+                }
+            }
             withClue("the collector must still owe a delivery, or this test proves nothing") {
                 moduleDispatcher.heldCount() shouldBeGreaterThanOrEqual 1
             }
