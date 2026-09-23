@@ -83,7 +83,7 @@
     <string name="monitor_notification_starting">Starting up…</string>
 
     <string name="support_debuglog_label">Debug log</string>
-    <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
+    <string name="support_debuglog_desc">Record everything the app is doing into a zip file that you can share.</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. Bluetooth device details). Only share it with trusted parties.</string>
