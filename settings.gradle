@@ -8,3 +8,4 @@ pluginManagement {
 
 rootProject.name = "Companion App for AirPods"
 include ':app'
+include ':app-e2e'
