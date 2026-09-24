@@ -1,0 +1,90 @@
+name: Emulator tests
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - VERSION
+      - version.properties
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  device-tests:
+    name: Device tests (Android ${{ matrix.api }})
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [ 30, 36 ]
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+          # The upgrade test builds the previous release tag.
+          fetch-depth: 0
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
+      - name: Build device test APKs
+        # The emulator runs beside Gradle later, so keep the parallel dex merges small.
+        run: |
+          tasks=":app:assembleFossDebug :app-e2e:assembleFossDebug"
+          if [ "${{ matrix.api }}" = 36 ]; then tasks="$tasks :app:assembleGplayDebug :app-e2e:assembleGplayDebug"; fi
+          ./gradlew --max-workers=2 $tasks
+
+      - name: Build the previous release for the upgrade test
+        if: matrix.api == 36
+        run: |
+          base=$(git describe --tags --abbrev=0 --match 'v*' HEAD^)
+          echo "Upgrade test starts from $base"
+          git worktree add --detach "$RUNNER_TEMP/upgrade-base" "$base"
+          cd "$RUNNER_TEMP/upgrade-base"
+          tasks=":app:assembleFossDebug"
+          # A release that has UpgradeTest drives its own app with the steps written for it.
+          if [ -f app-e2e/src/foss/java/eu/darken/capod/e2e/UpgradeTest.kt ]; then tasks="$tasks :app-e2e:assembleFossDebug"; fi
+          ./gradlew --no-daemon --max-workers=2 $tasks
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run device tests
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
+        with:
+          api-level: ${{ matrix.api }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          avd-name: capod-ci
+          # GitHub runners have no GPU.
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
+          disable-animations: true
+          # Each line runs on its own and the first failing one ends the step, so a failure is only
+          # recorded until every suite has run.
+          script: |
+            ./gradlew --continue :app-e2e:connectedFossDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"
+            if [ "${{ matrix.api }}" = 36 ]; then ./gradlew --continue :app-e2e:connectedGplayDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"; fi
+            if [ "${{ matrix.api }}" = 36 ]; then old_e2e="$RUNNER_TEMP/upgrade-base/app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk"; [ -f "$old_e2e" ] || old_e2e=; ANDROID_SERIAL=emulator-5554 tools/upgrade-test.sh "$RUNNER_TEMP/upgrade-base/app/build/outputs/apk/foss/debug/app-foss-debug.apk" app/build/outputs/apk/foss/debug/app-foss-debug.apk app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk $old_e2e || touch "$RUNNER_TEMP/device-tests-failed"; fi
+            test ! -e "$RUNNER_TEMP/device-tests-failed"
+
+      - name: Upload device test results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
+        with:
+          name: device-tests-api-${{ matrix.api }}
+          path: |
+            app-e2e/build/outputs/androidTest-results/**
+            app-e2e/build/reports/androidTests/**
+            app-e2e/build/outputs/connected_android_test_additional_output/**
+            app-e2e/build/outputs/upgrade-test/**
+          if-no-files-found: warn
+          retention-days: 14
