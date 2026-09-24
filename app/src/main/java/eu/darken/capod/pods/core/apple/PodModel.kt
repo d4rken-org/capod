@@ -469,6 +469,14 @@ enum class PodModel(
         modelNumbers = setOf("A2924"), // headphones
     ),
 
+    @SerialName("beats.360")
+    BEATS_360(
+        "Beats 360",
+        R.drawable.device_beats_headphones,
+        Features(hasAncControl = true),
+        modelNumbers = setOf("A3577"), // headphones
+    ),
+
     @SerialName("beats.x")
     BEATS_X(
         "Beats X",
