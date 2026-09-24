@@ -68,8 +68,8 @@ jobs:
           # GitHub runners have no GPU.
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
           disable-animations: true
-          # Each line runs on its own and the first failing one ends the step, so a failure is only
-          # recorded until every suite has run.
+          # The runner runs each line as its own command and stops at the first failing one, so each
+          # suite marks a failure in a file instead, and the last line fails the step once all have run.
           script: |
             ./gradlew --continue :app-e2e:connectedFossDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"
             if [ "${{ matrix.api }}" = 36 ]; then ./gradlew --continue :app-e2e:connectedGplayDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"; fi
