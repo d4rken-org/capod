@@ -48,8 +48,8 @@ current build is installed over it. The Gradle task skips the class, because onl
 `UpgradeTest`, CI pairs that release's `beforeUpgrade` with the current `afterUpgrade`, so a new setup
 step and its check land one release apart.
 
-The script re-signs both app APKs with `~/.android/debug.keystore`, since an in-place install needs
-matching keys. An optional fourth argument is the older build's own `:app-e2e` APK, so
+The script re-signs both app APKs with a throwaway key, since an in-place install needs matching
+keys. An optional fourth argument is the older build's own `:app-e2e` APK, so
 `beforeUpgrade` runs the steps written for that release; without it (tags older than `UpgradeTest`),
 the current test APK drives the older build. Results land in `app-e2e/build/outputs/upgrade-test`.
 

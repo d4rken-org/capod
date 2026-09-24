@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Installs an older CAPod build, sets up a user's state through the UI, upgrades that install in
 # place to the current build, and checks the state survived (UpgradeTest in :app-e2e).
-# Both app APKs are re-signed with this machine's debug key first, because an in-place install needs
-# matching keys. Wipes eu.darken.capod on the target device, which ANDROID_SERIAL must name.
+# Both app APKs are re-signed with a throwaway key first, because an in-place install needs matching
+# keys. Wipes eu.darken.capod on the target device, which ANDROID_SERIAL must name.
 #
 # Usage: tools/upgrade-test.sh <old-app.apk> <new-app.apk> <app-e2e.apk> [old-app-e2e.apk]
 # The optional old-app-e2e.apk is the older build's own :app-e2e APK. beforeUpgrade then runs the
@@ -52,9 +52,13 @@ collect_output() {
 }
 
 BUILD_TOOLS=$(ls -d "${ANDROID_HOME:-${ANDROID_SDK_ROOT:?set ANDROID_HOME}}"/build-tools/*/ | sort -V | tail -1)
-DEBUG_KEYSTORE=${DEBUG_KEYSTORE:-$HOME/.android/debug.keystore}
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT
+
+# Any key works as long as both APKs share it, so nothing depends on the machine's own keystores.
+KEYSTORE=$WORK/resign.keystore
+keytool -genkeypair -keystore "$KEYSTORE" -storepass android -keypass android -alias resign \
+    -keyalg RSA -keysize 2048 -validity 365 -dname "CN=CAPod upgrade test" >/dev/null 2>&1
 
 certificate() {
     "$BUILD_TOOLS/apksigner" verify --print-certs "$1" | grep -m1 'SHA-256 digest' | sed 's/.*: //'
@@ -64,8 +68,8 @@ certificate() {
 resign() {
     echo "$2 APK built with key $(certificate "$1")"
     cp "$1" "$WORK/$2.apk"
-    "$BUILD_TOOLS/apksigner" sign --ks "$DEBUG_KEYSTORE" --ks-pass pass:android \
-        --ks-key-alias androiddebugkey --key-pass pass:android "$WORK/$2.apk"
+    "$BUILD_TOOLS/apksigner" sign --ks "$KEYSTORE" --ks-pass pass:android \
+        --ks-key-alias resign --key-pass pass:android "$WORK/$2.apk"
 }
 
 resign "$OLD_APK" old
