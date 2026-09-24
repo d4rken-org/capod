@@ -50,6 +50,7 @@ Currently supported models:
 * Beats Studio Buds
 * Beats Studio Buds+
 * Beats Studio Pro
+* Beats 360
 * Beats X
 * Beats Flex
 * Beats Fit Pro
