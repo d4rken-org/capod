@@ -18,6 +18,9 @@ class CapodApp {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
     val device: UiDevice = UiDevice.getInstance(instrumentation)
     private val resources = instrumentation.context.packageManager.getResourcesForApplication(PKG)
+    private val appLabel = instrumentation.context.packageManager.let {
+        it.getApplicationLabel(it.getApplicationInfo(PKG, 0)).toString()
+    }
 
     fun resetToFirstRunState() {
         val result = device.executeShellCommand("pm clear $PKG").trim()
@@ -76,9 +79,27 @@ class CapodApp {
 
     fun desc(name: String): BySelector = By.desc(string(name))
 
-    fun await(selector: BySelector, timeoutMs: Long = TIMEOUT_MS): UiObject2 =
-        device.wait(Until.findObject(selector), timeoutMs)
-            ?: throw AssertionError("Timed out after ${timeoutMs}ms waiting for $selector")
+    fun await(selector: BySelector, timeoutMs: Long = TIMEOUT_MS): UiObject2 {
+        val deadline = SystemClock.uptimeMillis() + timeoutMs
+        while (true) {
+            dismissOtherAppNotResponding()
+            device.wait(Until.findObject(selector), AWAIT_POLL_MS)?.let { return it }
+            if (SystemClock.uptimeMillis() > deadline) {
+                throw AssertionError("Timed out after ${timeoutMs}ms waiting for $selector")
+            }
+        }
+    }
+
+    /**
+     * Slow CI emulators show "Pixel Launcher isn't responding" over the app. Waits it out, unless the
+     * app that stopped responding is CAPod itself.
+     */
+    private fun dismissOtherAppNotResponding() {
+        val wait = device.findObject(ANR_WAIT) ?: return
+        val title = device.findObject(By.res("android:id/alertTitle"))?.text.orEmpty()
+        if (title.contains(appLabel)) throw AssertionError("The app stopped responding: $title")
+        wait.click()
+    }
 
     fun awaitGone(selector: BySelector) {
         if (!device.wait(Until.gone(selector), TIMEOUT_MS)) {
@@ -94,6 +115,7 @@ class CapodApp {
     fun scrollTo(selector: BySelector, timeoutMs: Long = TIMEOUT_MS): UiObject2 {
         val deadline = SystemClock.uptimeMillis() + timeoutMs
         while (true) {
+            dismissOtherAppNotResponding()
             // Waiting first keeps a screen that is still sliding in from being swiped past its target.
             device.wait(Until.findObject(selector), SCROLL_POLL_MS)?.let { return it }
             if (SystemClock.uptimeMillis() > deadline) {
@@ -132,6 +154,8 @@ class CapodApp {
         private const val TIMEOUT_MS = 30_000L
         private const val SETTLE_POLL_MS = 150L
         private const val SCROLL_POLL_MS = 1_000L
+        private const val AWAIT_POLL_MS = 1_000L
+        private val ANR_WAIT = By.res("android:id/aerr_wait")
         private const val SWIPE_STEPS = 20
         private const val PERMISSION_SETTLE_MS = 5_000L
         private const val MAX_PERMISSION_REQUESTS = 5
