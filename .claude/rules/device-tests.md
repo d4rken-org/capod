@@ -29,7 +29,8 @@ dashboard.
 
 `ANDROID_SERIAL` is mandatory: without it `connectedAndroidTest` installs and runs on every attached
 device, and the tests start with `pm clear eu.darken.capod`, which debug builds share with the release
-application id. Point it only at an emulator started for the run.
+application id. Gradle also uninstalls the app when the run ends, so its data is lost on any device
+the run reaches. Point it only at an emulator started for the run.
 
 ```bash
 ANDROID_SERIAL=emulator-5554 ./gradlew :app-e2e:connectedFossDebugAndroidTest
@@ -40,10 +41,12 @@ ANDROID_SERIAL=emulator-5554 ./gradlew :app-e2e:connectedGplayDebugAndroidTest
 
 `UpgradeTest.beforeUpgrade` onboards an older build, grants permissions, renames the default profile
 and sets its model, becomes a supporter through the real sponsor flow (the browser opens, the app
-comes back after more than five seconds), and switches to the dark theme. It then force-stops and
+comes back after `SPONSOR_DELAY_MS`), and switches to the dark theme. It then force-stops and
 relaunches to prove that build saved all of it. `afterUpgrade` expects the same state after the
 current build is installed over it. The Gradle task skips the class, because only
-`tools/upgrade-test.sh` swaps the APK between the phases.
+`tools/upgrade-test.sh` swaps the APK between the phases. When the baseline release already contains
+`UpgradeTest`, CI pairs that release's `beforeUpgrade` with the current `afterUpgrade`, so a new setup
+step and its check land one release apart.
 
 The script re-signs both app APKs with `~/.android/debug.keystore`, since an in-place install needs
 matching keys. An optional fourth argument is the older build's own `:app-e2e` APK, so

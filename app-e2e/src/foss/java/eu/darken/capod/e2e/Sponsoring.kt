@@ -22,5 +22,5 @@ fun CapodApp.becomeSupporter() {
     await(text("upgrade_screen_status_upgraded_title"))
 }
 
-// The app only counts a visit that kept it in the background for more than five seconds.
+// Longer than SPONSOR_DELAY_MS in the app's FOSS UpgradeViewModel, the shortest visit that counts.
 private const val SPONSOR_VISIT_MS = 7_000L

@@ -53,7 +53,7 @@ pre-existing findings that CI never looks at. CI gates `lintVital*`, not `lint`.
 ```bash
 ./gradlew assembleGplayRelease            # release build
 ./gradlew bundleGplayRelease              # Play Store bundle
-./gradlew connectedFossDebugAndroidTest   # instrumentation, needs a device/emulator
+ANDROID_SERIAL=emulator-5554 ./gradlew :app-e2e:connectedFossDebugAndroidTest   # emulator only, see device-tests.md
 ./gradlew lintFix                         # auto-fix where possible
 ./gradlew updateLintBaseline              # refresh the baseline
 ```

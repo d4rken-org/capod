@@ -26,6 +26,12 @@ RUNNER=$TEST_PKG/androidx.test.runner.AndroidJUnitRunner
 DEVICE_OUT=/sdcard/Android/media/$TEST_PKG/additional_test_output
 RESULTS=app-e2e/build/outputs/upgrade-test
 
+# Debug builds share the release application id, so only a throwaway emulator may be wiped.
+if [ "$(adb shell getprop ro.kernel.qemu | tr -d '\r')" != 1 ]; then
+    echo "$ANDROID_SERIAL is not an emulator, refusing to wipe $APP" >&2
+    exit 2
+fi
+
 run_phase() {
     echo "== UpgradeTest#$1"
     adb shell am instrument -w \

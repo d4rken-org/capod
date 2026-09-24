@@ -59,6 +59,9 @@ class UpgradeTest {
         assertStateSurvived()
     }
 
+    // When the baseline release already contains UpgradeTest, CI runs this after that release's
+    // beforeUpgrade, so it may only check state and values that release sets up. A new setup step
+    // gets its check one release later.
     private fun assertStateSurvived() {
         app.await(app.text("overview_monitoring_off_label"))
         app.assertAbsent(app.text("general_continue_action"))
