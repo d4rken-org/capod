@@ -21,7 +21,7 @@ Quick build check: `./gradlew assembleFossDebug`
 | `app/src/foss/java/`, `app/src/gplay/java/` | Flavor-specific code (e.g. upgrade/billing) |
 | `app/src/main/res/` | Layouts, drawables, strings |
 | `app/src/test/`, `app/src/testFoss/`, `app/src/testGplay/` | Unit tests (shared + flavor-specific) |
-| `app-e2e/`, `tools/upgrade-test.sh` | Emulator UI tests and the APK upgrade test |
+| `app-e2e/`, `tools/device-test.sh`, `tools/upgrade-test.sh` | Emulator UI tests, the runner for minified builds, and the APK upgrade test |
 | `app/build.gradle.kts` | App build config, dependencies, flavors |
 | `app/src/debug/java/.../screenshots/` | Play Store screenshot content composables |
 | `fastlane/` | Screenshot generation scripts, Play Store metadata |
@@ -57,7 +57,7 @@ Loaded on demand, when a matching file is read (`paths:` frontmatter):
 | `.claude/rules/architecture-aap-protocol.md` | `**/aap/**`, conversation reaction |
 | `.claude/rules/code-style.md` | Kotlin/Compose sources in `main/`, `foss/`, `gplay/`, `debug/` |
 | `.claude/rules/testing.md` | `app/src/test/`, `testFoss/`, `testGplay/` |
-| `.claude/rules/device-tests.md` | `app-e2e/`, `tools/upgrade-test.sh`, the emulator workflow |
+| `.claude/rules/device-tests.md` | `app-e2e/`, `tools/*-test.sh`, the emulator workflow |
 | `.claude/rules/localization.md` | `**/res/values/strings.xml` (base locale) |
 | `.claude/rules/screenshots.md` | Screenshot composables, `screenshotTest/`, fastlane scripts |
 
