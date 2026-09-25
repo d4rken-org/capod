@@ -50,6 +50,11 @@ jobs:
           fi
           # The emulator runs beside Gradle later, so keep the parallel dex merges small.
           ./gradlew --max-workers=2 $tasks
+          if [ "${{ matrix.api }}" = 36 ]; then
+            # These daemons keep the R8 builds' heap, and the next step runs R8 again in a second JVM.
+            ./gradlew --stop
+            pkill -f KotlinCompileDaemon || true
+          fi
 
       - name: Build the previous release for the upgrade test
         if: matrix.api == 36
