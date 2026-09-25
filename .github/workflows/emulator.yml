@@ -33,20 +33,33 @@ jobs:
         uses: ./.github/actions/common-setup
 
       - name: Build device test APKs
-        # The emulator runs beside Gradle later, so keep the parallel dex merges small.
+        env: &beta-signing
+          # Beta builds on API 36 sign with a throwaway key generated below.
+          STORE_PATH: ${{ runner.temp }}/e2e.keystore
+          STORE_PASSWORD: android
+          KEY_ALIAS: e2e
+          KEY_PASSWORD: android
         run: |
           tasks=":app:assembleFossDebug :app-e2e:assembleFossDebug"
-          if [ "${{ matrix.api }}" = 36 ]; then tasks="$tasks :app:assembleGplayDebug :app-e2e:assembleGplayDebug"; fi
+          if [ "${{ matrix.api }}" = 36 ]; then
+            keytool -genkeypair -keystore "$STORE_PATH" -storepass "$STORE_PASSWORD" -keypass "$KEY_PASSWORD" \
+              -alias "$KEY_ALIAS" -keyalg RSA -keysize 2048 -validity 365 -dname "CN=CAPod e2e"
+            tasks="$tasks :app:assembleGplayDebug :app-e2e:assembleGplayDebug"
+            # This job only needs the APKs, not the lint pass that beta assembles run.
+            tasks="$tasks :app:assembleFossBeta :app:assembleGplayBeta -x lintVitalFossBeta -x lintVitalGplayBeta"
+          fi
+          # The emulator runs beside Gradle later, so keep the parallel dex merges small.
           ./gradlew --max-workers=2 $tasks
 
       - name: Build the previous release for the upgrade test
         if: matrix.api == 36
+        env: *beta-signing
         run: |
           base=$(git describe --tags --abbrev=0 --match 'v*' HEAD^)
           echo "Upgrade test starts from $base"
           git worktree add --detach "$RUNNER_TEMP/upgrade-base" "$base"
           cd "$RUNNER_TEMP/upgrade-base"
-          tasks=":app:assembleFossDebug"
+          tasks=":app:assembleFossBeta -x lintVitalFossBeta"
           # A release that has UpgradeTest drives its own app with the steps written for it.
           if [ -f app-e2e/src/foss/java/eu/darken/capod/e2e/UpgradeTest.kt ]; then tasks="$tasks :app-e2e:assembleFossDebug"; fi
           ./gradlew --no-daemon --max-workers=2 $tasks
@@ -73,7 +86,9 @@ jobs:
           script: |
             ./gradlew --continue :app-e2e:connectedFossDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"
             if [ "${{ matrix.api }}" = 36 ]; then ./gradlew --continue :app-e2e:connectedGplayDebugAndroidTest || touch "$RUNNER_TEMP/device-tests-failed"; fi
-            if [ "${{ matrix.api }}" = 36 ]; then old_e2e="$RUNNER_TEMP/upgrade-base/app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk"; [ -f "$old_e2e" ] || old_e2e=; ANDROID_SERIAL=emulator-5554 tools/upgrade-test.sh "$RUNNER_TEMP/upgrade-base/app/build/outputs/apk/foss/debug/app-foss-debug.apk" app/build/outputs/apk/foss/debug/app-foss-debug.apk app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk $old_e2e || touch "$RUNNER_TEMP/device-tests-failed"; fi
+            if [ "${{ matrix.api }}" = 36 ]; then ANDROID_SERIAL=emulator-5554 tools/device-test.sh app/build/outputs/apk/foss/beta/app-foss-beta.apk app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk foss || touch "$RUNNER_TEMP/device-tests-failed"; fi
+            if [ "${{ matrix.api }}" = 36 ]; then ANDROID_SERIAL=emulator-5554 tools/device-test.sh app/build/outputs/apk/gplay/beta/app-gplay-beta.apk app-e2e/build/outputs/apk/gplay/debug/app-e2e-gplay-debug.apk gplay || touch "$RUNNER_TEMP/device-tests-failed"; fi
+            if [ "${{ matrix.api }}" = 36 ]; then old_e2e="$RUNNER_TEMP/upgrade-base/app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk"; [ -f "$old_e2e" ] || old_e2e=; ANDROID_SERIAL=emulator-5554 tools/upgrade-test.sh "$RUNNER_TEMP/upgrade-base/app/build/outputs/apk/foss/beta/app-foss-beta.apk" app/build/outputs/apk/foss/beta/app-foss-beta.apk app-e2e/build/outputs/apk/foss/debug/app-e2e-foss-debug.apk $old_e2e || touch "$RUNNER_TEMP/device-tests-failed"; fi
             test ! -e "$RUNNER_TEMP/device-tests-failed"
 
       - name: Upload device test results
@@ -85,6 +100,7 @@ jobs:
             app-e2e/build/outputs/androidTest-results/**
             app-e2e/build/reports/androidTests/**
             app-e2e/build/outputs/connected_android_test_additional_output/**
+            app-e2e/build/outputs/beta-tests/**
             app-e2e/build/outputs/upgrade-test/**
           if-no-files-found: warn
           retention-days: 14
