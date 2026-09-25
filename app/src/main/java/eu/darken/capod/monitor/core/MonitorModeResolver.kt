@@ -41,7 +41,8 @@ class MonitorModeResolver @Inject constructor(
     private fun DeviceProfile.requiredMode(nudge: NudgeAvailability): MonitorMode = when {
         // Match AutoConnect.kt's isNullOrEmpty check — a blank/legacy "" address is no address.
         address.isNullOrBlank() -> MonitorMode.MANUAL
-        toReactionConfig().autoConnect && nudge != NudgeAvailability.BROKEN -> MonitorMode.ALWAYS
+        // Keep monitoring even when nudge is BROKEN: AutoConnect falls back to AclPager.
+        toReactionConfig().autoConnect -> MonitorMode.ALWAYS
         else -> MonitorMode.AUTOMATIC
     }
 
