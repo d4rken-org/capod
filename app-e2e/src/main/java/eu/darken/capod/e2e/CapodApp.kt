@@ -60,12 +60,21 @@ class CapodApp {
             // disappears without a dialog.
             if (!device.wait(Until.hasObject(grant), PERMISSION_SETTLE_MS)) return
             click(grant)
-            device.wait(Until.findObject(PERMISSION_ALLOW), PERMISSION_SETTLE_MS)?.click()
-            awaitGone(PERMISSION_ALLOW)
+            allowPermissionDialog()
         }
         if (device.hasObject(grant)) {
             throw AssertionError("Permission cards still shown after $MAX_PERMISSION_REQUESTS requests")
         }
+    }
+
+    // A tap while the dialog is still animating in gets dropped, so tap again until it closes.
+    private fun allowPermissionDialog() {
+        repeat(MAX_ALLOW_TAPS) {
+            val allow = device.wait(Until.findObject(PERMISSION_ALLOW), PERMISSION_SETTLE_MS) ?: return
+            click(allow)
+            if (device.wait(Until.gone(PERMISSION_ALLOW), PERMISSION_SETTLE_MS)) return
+        }
+        throw AssertionError("The permission dialog stayed open after $MAX_ALLOW_TAPS taps on Allow")
     }
 
     fun openSettings() = click(desc("settings_general_label"))
@@ -159,6 +168,7 @@ class CapodApp {
         private const val SWIPE_STEPS = 20
         private const val PERMISSION_SETTLE_MS = 5_000L
         private const val MAX_PERMISSION_REQUESTS = 5
+        private const val MAX_ALLOW_TAPS = 3
         private val FORMAT_ARG = Regex("%(\\d+\\$)?[sd]")
 
         // Location asks "While using the app" (API 30), everything else plainly "Allow".
