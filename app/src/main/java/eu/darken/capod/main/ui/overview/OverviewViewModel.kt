@@ -295,19 +295,31 @@ class OverviewViewModel @Inject constructor(
         }
 
         /**
-         * Truncate to the free limit ONLY when the entitlement is hard-locked: billing settled,
-         * error-free and reporting no purchase. During the GPlay cold-start seed (unsettled, and
-         * non-Pro even for paying users) or an error state the full list stays visible — a paying
-         * user's devices must not disappear and reappear on every launch.
+         * Truncate to the free limit of profiles ONLY when the entitlement is hard-locked: billing
+         * settled, error-free and reporting no purchase. Every card of an allowed profile stays
+         * visible. During the GPlay cold-start seed (unsettled, and non-Pro even for paying users)
+         * or an error state the full list stays visible — a paying user's devices must not
+         * disappear and reappear on every launch.
          *
          * Predicate inlined on purpose: `UpgradeRepoExtensions` stays byte-identical to canonical.
          */
         val visibleProfiledDevices: List<PodDevice>
             get() {
                 val hardLocked = upgradeInfo.error == null && upgradeInfo.isSettled && !upgradeInfo.isPro
-                return if (hardLocked) profiledDevices.take(FREE_DEVICE_LIMIT) else profiledDevices
+                if (!hardLocked) return profiledDevices
+                val allowedProfileIds = profiledDevices.map { it.profileId }
+                    .distinct()
+                    .take(FREE_DEVICE_LIMIT)
+                    .toSet()
+                return profiledDevices.filter { it.profileId in allowedProfileIds }
             }
-        val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
+
+        /** Number of distinct profiles whose cards are hidden by the free limit. */
+        val hiddenProfiledDeviceCount: Int
+            get() {
+                val visibleProfileIds = visibleProfiledDevices.map { it.profileId }.toSet()
+                return profiledDevices.map { it.profileId }.distinct().count { it !in visibleProfileIds }
+            }
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
 
         /** Unmatched devices actually shown on the dashboard (empty when the hide setting is on). */

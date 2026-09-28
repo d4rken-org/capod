@@ -416,6 +416,104 @@ class OverviewViewModelTest : BaseTest() {
             state.hiddenProfiledDeviceCount shouldBe 0
         }
 
+        private fun limitInfo(pro: Boolean, settled: Boolean, failure: Throwable?) = mockk<UpgradeRepo.Info> {
+            every { isPro } returns pro
+            every { isSettled } returns settled
+            every { error } returns failure
+            every { type } returns UpgradeRepo.Type.GPLAY
+        }
+
+        private fun limitState(
+            devices: List<PodDevice>,
+            upgradeInfo: UpgradeRepo.Info,
+            profiles: List<DeviceProfile> = emptyList(),
+        ) = OverviewViewModel.State(
+            now = java.time.Instant.now(),
+            permissions = emptySet(),
+            devices = devices,
+            isDebug = false,
+            isBluetoothEnabled = true,
+            effectiveMode = MonitorMode.AUTOMATIC,
+            profiles = profiles,
+            upgradeInfo = upgradeInfo,
+            showUnmatchedDevices = false,
+        )
+
+        @Test
+        fun `free user with 2 devices on one profile - both visible, hidden 0`() {
+            val a1 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+            val a2 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+            val state = limitState(
+                devices = listOf(a1, a2),
+                upgradeInfo = limitInfo(pro = false, settled = true, failure = null),
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(a1, a2)
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
+        fun `free user with 2 devices each on 2 profiles - first profile visible, hidden 1`() {
+            val a1 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+            val a2 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+            val b1 = PodDevice(profileId = "profile-b", ble = mockk(relaxed = true), aap = null)
+            val b2 = PodDevice(profileId = "profile-b", ble = mockk(relaxed = true), aap = null)
+            val state = limitState(
+                devices = listOf(a1, a2, b1, b2),
+                upgradeInfo = limitInfo(pro = false, settled = true, failure = null),
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(a1, a2)
+            state.hiddenProfiledDeviceCount shouldBe 1
+        }
+
+        @Test
+        fun `free user with tier-interleaved profiles - first profile cards visible in order, hidden 1`() {
+            val profileA = AppleDeviceProfile(id = "profile-a", label = "A")
+            val profileB = AppleDeviceProfile(id = "profile-b", label = "B")
+            val a1 = PodDevice(
+                profileId = "profile-a",
+                ble = mockk(relaxed = true),
+                aap = null,
+                isSystemConnected = true,
+            )
+            val b1 = PodDevice(
+                profileId = "profile-b",
+                ble = mockk(relaxed = true),
+                aap = null,
+                isSystemConnected = true,
+            )
+            val a2 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+            val b2 = PodDevice(profileId = "profile-b", ble = mockk(relaxed = true), aap = null)
+            val state = limitState(
+                devices = listOf(b2, a2, b1, a1),
+                upgradeInfo = limitInfo(pro = false, settled = true, failure = null),
+                profiles = listOf(profileA, profileB),
+            )
+
+            state.profiledDevices shouldBe listOf(a1, b1, a2, b2)
+            state.visibleProfiledDevices shouldBe listOf(a1, a2)
+            state.hiddenProfiledDeviceCount shouldBe 1
+        }
+
+        @Test
+        fun `duplicate-profile devices are all visible when not hard-locked`() {
+            val infos = listOf(
+                limitInfo(pro = true, settled = true, failure = null),
+                limitInfo(pro = false, settled = false, failure = null),
+                limitInfo(pro = false, settled = true, failure = IllegalStateException("billing broke")),
+            )
+            infos.forEach { info ->
+                val a1 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+                val a2 = PodDevice(profileId = "profile-a", ble = mockk(relaxed = true), aap = null)
+                val b1 = PodDevice(profileId = "profile-b", ble = mockk(relaxed = true), aap = null)
+                val state = limitState(devices = listOf(a1, a2, b1), upgradeInfo = info)
+
+                state.visibleProfiledDevices shouldBe listOf(a1, a2, b1)
+                state.hiddenProfiledDeviceCount shouldBe 0
+            }
+        }
+
         @Test
         fun `unmatched devices unchanged regardless of pro status`() {
             val upgradeInfo = mockk<UpgradeRepo.Info> {
