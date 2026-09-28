@@ -262,6 +262,16 @@ class BlePodMonitor @Inject constructor(
         pods.putAll(deviceCache)
 
         newPods.map { it.device }.forEach { newPod ->
+            pods.values
+                .filter { it.identifier != newPod.identifier && it.address == newPod.address }
+                .forEach { reassigned ->
+                    log(TAG, Logging.Priority.VERBOSE) {
+                        "Removing device whose address moved to ${newPod.identifier}: $reassigned"
+                    }
+                    deviceCache.remove(reassigned.identifier)
+                    pods.remove(reassigned.identifier)
+                }
+
             val existing = pods[newPod.identifier]
             val preferred = if (existing != null) {
                 preferCaseContextPod(existing, newPod)
