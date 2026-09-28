@@ -8,10 +8,20 @@ on:
       - version.properties
   pull_request:
     branches: [ main ]
+    # None of these reach an APK.
+    paths-ignore:
+      - '*.md'
+      - .claude/**
+      - fastlane/**
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# A new push to a pull request cancels the run testing its previous head.
+concurrency:
+  group: emulator-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   device-tests:
@@ -79,7 +89,8 @@ jobs:
         uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
         with:
           api-level: ${{ matrix.api }}
-          target: google_apis
+          # No Play services: their first-boot work makes the launcher stop responding over the app.
+          target: default
           arch: x86_64
           profile: pixel_6
           avd-name: capod-ci
@@ -107,5 +118,7 @@ jobs:
             app-e2e/build/outputs/connected_android_test_additional_output/**
             app-e2e/build/outputs/beta-tests/**
             app-e2e/build/outputs/upgrade-test/**
+            # Decodes the obfuscated GPlay beta's stack traces.
+            app/build/outputs/mapping/gplayBeta/mapping.txt
           if-no-files-found: warn
           retention-days: 14

@@ -87,7 +87,9 @@ ANDROID_SERIAL=emulator-5554 tools/upgrade-test.sh \
 ## CI
 
 The `Emulator tests` workflow (`.github/workflows/emulator.yml`) runs the FOSS debug tests on API 30
-and API 36. API 36 additionally runs the GPlay debug tests, both flavors' beta builds through
-`tools/device-test.sh`, and the upgrade test between the beta builds of the nearest `v*` tag before
-`HEAD` and the current code. The `device-tests-api-<level>` artifact, uploaded even when tests fail,
-holds the reports plus a screenshot and window dump of every failed test.
+and API 36 AOSP images, which have no Play services. API 36 additionally runs the GPlay debug
+tests, both flavors' beta builds through `tools/device-test.sh`, and the upgrade test between the
+beta builds of the nearest `v*` tag before `HEAD` and the current code. The
+`device-tests-api-<level>` artifact, uploaded even when tests fail, holds the reports plus a
+screenshot and window dump of every failed test, and on API 36 the GPlay beta's R8 mapping. Pull
+requests that only touch Markdown, `.claude/` or `fastlane/` skip the workflow.
