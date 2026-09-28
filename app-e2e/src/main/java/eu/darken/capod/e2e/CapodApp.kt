@@ -100,8 +100,8 @@ class CapodApp {
     }
 
     /**
-     * Slow CI emulators show "Pixel Launcher isn't responding" over the app. Waits it out, unless the
-     * app that stopped responding is CAPod itself.
+     * Slow CI emulators can show another app's "isn't responding" dialog over the app. Waits it out,
+     * unless the app that stopped responding is CAPod itself.
      */
     private fun dismissOtherAppNotResponding() {
         val wait = device.findObject(ANR_WAIT) ?: return
