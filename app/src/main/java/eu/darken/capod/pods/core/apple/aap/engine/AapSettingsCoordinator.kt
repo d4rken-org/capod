@@ -176,6 +176,18 @@ internal class AapSettingsCoordinator(
                 AapSetting.DynamicEndOfCharge::class to AapSetting.DynamicEndOfCharge(enabled = command.enabled)
             }
 
+            // Written unconditionally: a device that has never pushed an EQ has no CustomEq to
+            // copy, and requiring one would make the first write return null, fail verification,
+            // retry and then be rejected.
+            is AapCommand.SetCustomEq -> {
+                AapSetting.CustomEq::class to AapSetting.CustomEq(
+                    enabled = command.enabled,
+                    low = command.low,
+                    mid = command.mid,
+                    high = command.high,
+                )
+            }
+
             is AapCommand.SetDeviceName -> {
                 val currentInfo = baseState.deviceInfo ?: return null
                 return baseState.copy(
@@ -210,6 +222,12 @@ internal class AapSettingsCoordinator(
         is AapCommand.SetStemConfig -> { s -> s.setting<AapSetting.StemConfig>()?.claimedPressMask == command.claimedPressMask }
         is AapCommand.SetSleepDetection -> { s -> s.setting<AapSetting.SleepDetection>()?.enabled == command.enabled }
         is AapCommand.SetDynamicEndOfCharge -> { s -> s.setting<AapSetting.DynamicEndOfCharge>()?.enabled == command.enabled }
+        is AapCommand.SetCustomEq -> { s ->
+            val cur = s.setting<AapSetting.CustomEq>()
+            cur != null && cur.enabled == command.enabled &&
+                cur.low == command.low && cur.mid == command.mid && cur.high == command.high
+        }
+
         is AapCommand.SetDeviceName -> null
     }
 }

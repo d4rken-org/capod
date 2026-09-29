@@ -168,6 +168,7 @@ fun DeviceSettingsScreenHost(
         onVolumeSwipeChange = { vm.setVolumeSwipe(it) },
         onVolumeSwipeLengthChange = { vm.setVolumeSwipeLength(it) },
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
+        onEqualizerClick = { vm.navToEqualizer() },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
@@ -213,6 +214,7 @@ fun DeviceSettingsScreen(
     onVolumeSwipeChange: (Boolean) -> Unit = {},
     onVolumeSwipeLengthChange: (AapSetting.VolumeSwipeLength.Value) -> Unit = {},
     onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
+    onEqualizerClick: () -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
@@ -483,7 +485,8 @@ fun DeviceSettingsScreen(
                 val showSoundSection =
                     (features.hasPersonalizedVolume && personalizedVol != null) ||
                             (features.hasToneVolume && toneVol != null) ||
-                            (features.hasMicrophoneMode && device.microphoneMode != null)
+                            (features.hasMicrophoneMode && device.microphoneMode != null) ||
+                            features.hasCustomEq
                 if (showSoundSection) {
                     item("sound_section") {
                         SoundCard(
@@ -494,6 +497,7 @@ fun DeviceSettingsScreen(
                             onPersonalizedVolumeChange = onPersonalizedVolumeChange,
                             onToneVolumeChange = onToneVolumeChange,
                             onMicrophoneModeChange = onMicrophoneModeChange,
+                            onEqualizerClick = onEqualizerClick,
                             onUpgrade = onUpgrade,
                             onOpenIssueTracker = onOpenIssueTracker,
                         )
@@ -573,7 +577,10 @@ fun DeviceSettingsScreen(
     }
 }
 
-internal fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
+internal fun previewFullState(
+    isPro: Boolean,
+    customEq: AapSetting.CustomEq? = null,
+) = DeviceSettingsViewModel.State(
     device = PodDevice(
         profileId = "preview",
         label = "My AirPods Pro",
@@ -617,7 +624,7 @@ internal fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
                     endCall = AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
                 ),
                 AapSetting.DynamicEndOfCharge::class to AapSetting.DynamicEndOfCharge(enabled = true),
-            ),
+            ) + listOfNotNull(customEq?.let { AapSetting.CustomEq::class to it }),
         ),
     ),
     now = MOCK_NOW,
