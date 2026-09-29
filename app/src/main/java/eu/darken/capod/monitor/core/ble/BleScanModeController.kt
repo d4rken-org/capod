@@ -11,6 +11,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.toReactionConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -52,6 +53,7 @@ class BleScanModeController @Inject constructor(
             overrideMode = override,
             isForeground = isForeground,
             profileAddresses = profiles.mapNotNull { it.address }.toSet(),
+            autoConnectAddresses = profiles.filter { it.toReactionConfig().autoConnect }.mapNotNull { it.address }.toSet(),
             bondedAddresses = bondedAddresses,
             connectedAddresses = connectedDevices.map { it.address }.toSet(),
         )
@@ -95,16 +97,23 @@ internal fun resolveScannerMode(
     profileAddresses: Set<BluetoothAddress>,
     bondedAddresses: Set<BluetoothAddress>,
     connectedAddresses: Set<BluetoothAddress>,
+    autoConnectAddresses: Set<BluetoothAddress> = emptySet(),
 ): ScannerMode {
     if (overrideMode != null) return overrideMode
 
-    val connectedProfileAddresses = profileAddresses.normalized()
-        .intersect(bondedAddresses.normalized())
-        .intersect(connectedAddresses.normalized())
+    val bondedProfileAddresses = profileAddresses.normalized().intersect(bondedAddresses.normalized())
+    val connectedProfileAddresses = bondedProfileAddresses.intersect(connectedAddresses.normalized())
+    // Auto-connect has to see the lid-open frame promptly. LOW_POWER batching can sit on results
+    // for 20s+ (Samsung, screen off), by which point the user has given up.
+    val autoConnectPending = autoConnectAddresses.normalized()
+        .intersect(bondedProfileAddresses)
+        .subtract(connectedAddresses.normalized())
+        .isNotEmpty()
 
     return when {
         connectedProfileAddresses.isNotEmpty() -> ScannerMode.LOW_LATENCY
         isForeground -> ScannerMode.BALANCED
+        autoConnectPending -> ScannerMode.BALANCED
         else -> ScannerMode.LOW_POWER
     }
 }

@@ -82,6 +82,30 @@ class BleScanModeControllerTest : BaseTest() {
     }
 
     @Test
+    fun `background with disconnected auto-connect profile uses balanced`() {
+        resolveScannerMode(
+            overrideMode = null,
+            isForeground = false,
+            profileAddresses = setOf(ADDRESS),
+            bondedAddresses = setOf(ADDRESS),
+            connectedAddresses = emptySet(),
+            autoConnectAddresses = setOf(ADDRESS),
+        ) shouldBe ScannerMode.BALANCED
+    }
+
+    @Test
+    fun `auto-connect profile that is not bonded stays low power`() {
+        resolveScannerMode(
+            overrideMode = null,
+            isForeground = false,
+            profileAddresses = setOf(ADDRESS),
+            bondedAddresses = emptySet(),
+            connectedAddresses = emptySet(),
+            autoConnectAddresses = setOf(ADDRESS),
+        ) shouldBe ScannerMode.LOW_POWER
+    }
+
+    @Test
     fun `connected unprofiled device does not use low latency`() {
         resolveScannerMode(
             overrideMode = null,

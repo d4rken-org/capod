@@ -71,11 +71,11 @@ class MonitorModeResolverTest : BaseTest() {
     }
 
     @Test
-    fun `case 3b - paired profile, autoConnect on, nudge BROKEN - AUTOMATIC`() = runTest {
+    fun `case 3b - paired profile, autoConnect on, nudge BROKEN - ALWAYS (ACL paging fallback)`() = runTest {
         profilesFlow.value = listOf(profile(autoConnect = true))
         nudgeFlow.value = NudgeAvailability.BROKEN
 
-        resolver.effectiveMode.first() shouldBe MonitorMode.AUTOMATIC
+        resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
     }
 
     @Test
@@ -168,13 +168,13 @@ class MonitorModeResolverTest : BaseTest() {
     }
 
     @Test
-    fun `nudge availability flip from UNKNOWN to BROKEN drops case 3 to AUTOMATIC`() = runTest {
+    fun `nudge availability flip from UNKNOWN to BROKEN keeps case 3 ALWAYS`() = runTest {
         profilesFlow.value = listOf(profile(autoConnect = true))
         nudgeFlow.value = NudgeAvailability.UNKNOWN
 
         resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
 
         nudgeFlow.value = NudgeAvailability.BROKEN
-        resolver.effectiveMode.first() shouldBe MonitorMode.AUTOMATIC
+        resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
     }
 }
