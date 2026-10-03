@@ -37,6 +37,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val isUpgradeLocked: Boolean,
         val showConnectedNotification: Boolean,
         val keepNotificationAfterDisconnect: Boolean,
+        val showBatteryInStatusBar: Boolean,
         val isOffloadedFilteringDisabled: Boolean,
         val isOffloadedBatchingDisabled: Boolean,
         val useIndirectScanResultCallback: Boolean,
@@ -54,9 +55,10 @@ class GeneralSettingsViewModel @Inject constructor(
         combine(
             generalSettings.useExtraMonitorNotification.flow,
             generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-        ) { showNotif, keepNotif ->
+            generalSettings.showBatteryInStatusBar.flow,
+        ) { showNotif, keepNotif, batteryIcon ->
             @Suppress("USELESS_CAST")
-            arrayOf<Any>(showNotif as Any, keepNotif as Any)
+            arrayOf<Any>(showNotif as Any, keepNotif as Any, batteryIcon as Any)
         },
         combine(
             generalSettings.isOffloadedFilteringDisabled.flow,
@@ -74,6 +76,7 @@ class GeneralSettingsViewModel @Inject constructor(
             isUpgradeLocked = upgradeLocked,
             showConnectedNotification = general[0] as Boolean,
             keepNotificationAfterDisconnect = general[1] as Boolean,
+            showBatteryInStatusBar = general[2] as Boolean,
             isOffloadedFilteringDisabled = compat[0] as Boolean,
             isOffloadedBatchingDisabled = compat[1] as Boolean,
             useIndirectScanResultCallback = compat[2] as Boolean,
@@ -90,6 +93,11 @@ class GeneralSettingsViewModel @Inject constructor(
     fun setKeepNotificationAfterDisconnect(enabled: Boolean) {
         log(TAG, INFO) { "setKeepNotificationAfterDisconnect($enabled)" }
         generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking = enabled
+    }
+
+    fun setShowBatteryInStatusBar(enabled: Boolean) {
+        log(TAG, INFO) { "setShowBatteryInStatusBar($enabled)" }
+        generalSettings.showBatteryInStatusBar.valueBlocking = enabled
     }
 
     fun setOffloadedFilteringDisabled(disabled: Boolean) {

@@ -67,6 +67,7 @@ class GeneralSettingsViewModelTest : BaseTest() {
         generalSettings = mockk<GeneralSettings>().also {
             every { it.useExtraMonitorNotification } returns FakeDataStoreValue(false).mock
             every { it.keepConnectedNotificationAfterDisconnect } returns FakeDataStoreValue(false).mock
+            every { it.showBatteryInStatusBar } returns FakeDataStoreValue(false).mock
             every { it.isOffloadedFilteringDisabled } returns FakeDataStoreValue(false).mock
             every { it.isOffloadedBatchingDisabled } returns FakeDataStoreValue(false).mock
             every { it.useIndirectScanResultCallback } returns FakeDataStoreValue(false).mock

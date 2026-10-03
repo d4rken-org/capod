@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AccountTree
+import androidx.compose.material.icons.twotone.BatteryStd
 import androidx.compose.material.icons.twotone.Contrast
 import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.FilterList
@@ -57,6 +58,7 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onNavigateUp = { vm.navUp() },
             onShowConnectedNotificationChanged = { enabled -> vm.setShowConnectedNotification(enabled) },
             onKeepNotificationAfterDisconnectChanged = { enabled -> vm.setKeepNotificationAfterDisconnect(enabled) },
+            onShowBatteryInStatusBarChanged = { enabled -> vm.setShowBatteryInStatusBar(enabled) },
             onOffloadedFilteringDisabledChanged = { disabled -> vm.setOffloadedFilteringDisabled(disabled) },
             onOffloadedBatchingDisabledChanged = { disabled -> vm.setOffloadedBatchingDisabled(disabled) },
             onUseIndirectScanResultCallbackChanged = { enabled -> vm.setUseIndirectScanResultCallback(enabled) },
@@ -79,6 +81,7 @@ fun GeneralSettingsScreen(
     onOffloadedBatchingDisabledChanged: (Boolean) -> Unit,
     onUseIndirectScanResultCallbackChanged: (Boolean) -> Unit,
     onHideUnmatchedDevicesChanged: (Boolean) -> Unit,
+    onShowBatteryInStatusBarChanged: (Boolean) -> Unit = {},
     onThemeModeSelected: (ThemeMode) -> Unit = {},
     onThemeStyleSelected: (ThemeStyle) -> Unit = {},
     onThemeColorSelected: (ThemeColor) -> Unit = {},
@@ -206,6 +209,21 @@ fun GeneralSettingsScreen(
             }
             item {
                 SettingsBaseItem(
+                    title = stringResource(R.string.settings_monitor_statusbar_battery_label),
+                    subtitle = stringResource(R.string.settings_monitor_statusbar_battery_description),
+                    icon = Icons.TwoTone.BatteryStd,
+                    onClick = { onShowBatteryInStatusBarChanged(!state.showBatteryInStatusBar) },
+                    trailingContent = {
+                        Switch(
+                            checked = state.showBatteryInStatusBar,
+                            onCheckedChange = onShowBatteryInStatusBarChanged,
+                            modifier = Modifier.padding(start = 16.dp),
+                        )
+                    },
+                )
+            }
+            item {
+                SettingsBaseItem(
                     title = stringResource(R.string.settings_overview_hide_unmatched_label),
                     subtitle = stringResource(R.string.settings_overview_hide_unmatched_description),
                     icon = Icons.TwoTone.VisibilityOff,
@@ -289,6 +307,7 @@ private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State
     isUpgradeLocked = !isPro,
     showConnectedNotification = true,
     keepNotificationAfterDisconnect = false,
+    showBatteryInStatusBar = false,
     isOffloadedFilteringDisabled = false,
     isOffloadedBatchingDisabled = false,
     useIndirectScanResultCallback = false,

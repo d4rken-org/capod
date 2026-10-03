@@ -42,6 +42,8 @@ class GeneralSettings @Inject constructor(
     val keepConnectedNotificationAfterDisconnect =
         dataStore.createValue("core.monitor.notification.connected.keepafterdisconnected", false)
 
+    val showBatteryInStatusBar = dataStore.createValue("core.monitor.notification.statusbar.battery", false)
+
     val oldMinimumSignalQuality = dataStore.createValue("core.signal.minimum", 0.20f)
 
     val oldMainDeviceAddress = dataStore.createValue<BluetoothAddress?>(

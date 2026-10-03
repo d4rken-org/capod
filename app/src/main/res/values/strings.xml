@@ -36,6 +36,8 @@
     <string name="settings_monitor_connected_notification_description">Shows a second notification that only appears while a device is connected. With this on, you can hide the permanent \"No devices\" notification: turn off the \"Device status\" category in Android\'s notification settings for CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Keep notification after disconnect</string>
     <string name="settings_keep_notification_after_disconnect_description">Continue showing the last known battery levels even after your AirPods disconnect</string>
+    <string name="settings_monitor_statusbar_battery_label">Battery level in status bar</string>
+    <string name="settings_monitor_statusbar_battery_description">Shows the battery percentage as the notification icon in the status bar. For earbuds, the lower of the two is shown, skipping one that is charging.</string>
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
     <string name="settings_autopplay_label">Auto play</string>
