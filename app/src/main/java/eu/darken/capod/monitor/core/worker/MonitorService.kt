@@ -253,6 +253,7 @@ class MonitorService : Service() {
         latestNotificationSettings = NotificationSettings(
             useExtraNotification = generalSettings.useExtraMonitorNotification.flow.first(),
             keepAfterDisconnect = generalSettings.keepConnectedNotificationAfterDisconnect.flow.first(),
+            showBatteryInStatusBar = generalSettings.showBatteryInStatusBar.flow.first(),
         )
 
         val permissionsMissingOnStart = permissionTool.missingScanPermissions.first()
@@ -269,8 +270,13 @@ class MonitorService : Service() {
         val notificationSettingsFlow = combine(
             generalSettings.useExtraMonitorNotification.flow,
             generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-        ) { useExtra, keepAfter ->
-            NotificationSettings(useExtraNotification = useExtra, keepAfterDisconnect = keepAfter)
+            generalSettings.showBatteryInStatusBar.flow,
+        ) { useExtra, keepAfter, batteryIcon ->
+            NotificationSettings(
+                useExtraNotification = useExtra,
+                keepAfterDisconnect = keepAfter,
+                showBatteryInStatusBar = batteryIcon,
+            )
         }
 
         val monitorJob = combine(
@@ -301,13 +307,18 @@ class MonitorService : Service() {
                         currentDevice,
                         estimate = estimate,
                         showHint = settings.useExtraNotification,
+                        showBatteryInStatusBar = settings.showBatteryInStatusBar,
                     )
                 )
 
                 when (val action = decideExtraNotificationAction(currentDevice, settings)) {
                     is ExtraNotificationAction.Post -> notificationManager.notify(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED,
-                        notifications.getNotificationConnected(action.device, estimate),
+                        notifications.getNotificationConnected(
+                            action.device,
+                            estimate,
+                            showBatteryInStatusBar = settings.showBatteryInStatusBar,
+                        ),
                     )
                     ExtraNotificationAction.Cancel -> notificationManager.cancel(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED
@@ -601,6 +612,7 @@ private fun PodDevice.toNotificationKey(): NotificationDeviceKey = NotificationD
 internal data class NotificationSettings(
     val useExtraNotification: Boolean,
     val keepAfterDisconnect: Boolean,
+    val showBatteryInStatusBar: Boolean = false,
 )
 
 internal sealed interface ExtraNotificationAction {
