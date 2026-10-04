@@ -20,12 +20,20 @@ data class ReactionConfig(
     /** Battery percentage at which the charged notification fires (clamped 50..100 on use). */
     val chargedThreshold: Int = DEFAULT_CHARGED_THRESHOLD,
     val chargedSlotScope: ChargedSlotScope = ChargedSlotScope.PODS_AND_CASE,
+    val notifyWhenCaseLow: Boolean = false,
+    /** Case battery percentage at or below which the low case reminder fires (clamped 10..50 on use). */
+    val caseLowThreshold: Int = DEFAULT_CASE_LOW_THRESHOLD,
 ) {
     companion object {
         const val DEFAULT_CHARGED_THRESHOLD = 100
         const val MIN_CHARGED_THRESHOLD = 50
         const val MAX_CHARGED_THRESHOLD = 100
         const val CHARGED_THRESHOLD_STEP = 10
+
+        const val DEFAULT_CASE_LOW_THRESHOLD = 20
+        const val MIN_CASE_LOW_THRESHOLD = 10
+        const val MAX_CASE_LOW_THRESHOLD = 50
+        const val CASE_LOW_THRESHOLD_STEP = 10
 
         const val DEFAULT_CONVERSATION_VOLUME_REDUCTION = 50
         const val MIN_CONVERSATION_VOLUME_REDUCTION = 10

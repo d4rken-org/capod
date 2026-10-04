@@ -38,6 +38,8 @@ data class AppleDeviceProfile(
     @SerialName("reactionNotifyWhenCharged") val notifyWhenCharged: Boolean = false,
     @SerialName("reactionChargedThreshold") val chargedThreshold: Int = ReactionConfig.DEFAULT_CHARGED_THRESHOLD,
     @SerialName("reactionChargedSlotScope") val chargedSlotScope: ChargedSlotScope = ChargedSlotScope.PODS_AND_CASE,
+    @SerialName("reactionNotifyWhenCaseLow") val notifyWhenCaseLow: Boolean = false,
+    @SerialName("reactionCaseLowThreshold") val caseLowThreshold: Int = ReactionConfig.DEFAULT_CASE_LOW_THRESHOLD,
     /** Whether the dashboard battery time-remaining estimate is shown for this device. */
     @SerialName("batteryEstimateEnabled") val batteryEstimateEnabled: Boolean = true,
     /**
@@ -70,6 +72,8 @@ data class AppleDeviceProfile(
             notifyWhenCharged = notifyWhenCharged,
             chargedThreshold = chargedThreshold,
             chargedSlotScope = chargedSlotScope,
+            notifyWhenCaseLow = notifyWhenCaseLow,
+            caseLowThreshold = caseLowThreshold,
         )
 
     override fun toString(): String = "AppleDeviceProfile(" +
@@ -88,6 +92,8 @@ data class AppleDeviceProfile(
         "notifyWhenCharged=$notifyWhenCharged, " +
         "chargedThreshold=$chargedThreshold, " +
         "chargedSlotScope=$chargedSlotScope, " +
+        "notifyWhenCaseLow=$notifyWhenCaseLow, " +
+        "caseLowThreshold=$caseLowThreshold, " +
         "batteryEstimateEnabled=$batteryEstimateEnabled, " +
         "learnedAllowOffEnabled=$learnedAllowOffEnabled, " +
         "lastRequestedListeningModeCycleMask=$lastRequestedListeningModeCycleMask, " +
