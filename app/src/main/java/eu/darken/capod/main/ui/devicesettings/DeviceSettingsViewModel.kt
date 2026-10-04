@@ -499,6 +499,19 @@ class DeviceSettingsViewModel @Inject constructor(
         updateProfileNow { it.copy(chargedThreshold = snapped) }
     }
 
+    fun setNotifyWhenCaseLow(enabled: Boolean) {
+        log(TAG, INFO) { "setNotifyWhenCaseLow($enabled)" }
+        proGatedReaction(enabled) { it.copy(notifyWhenCaseLow = enabled) }
+    }
+
+    fun setCaseLowThreshold(percent: Int) = launch {
+        log(TAG, INFO) { "setCaseLowThreshold($percent)" }
+        val snapped = (percent.toFloat() / ReactionConfig.CASE_LOW_THRESHOLD_STEP)
+            .let { Math.round(it) * ReactionConfig.CASE_LOW_THRESHOLD_STEP }
+            .coerceIn(ReactionConfig.MIN_CASE_LOW_THRESHOLD, ReactionConfig.MAX_CASE_LOW_THRESHOLD)
+        updateProfileNow { it.copy(caseLowThreshold = snapped) }
+    }
+
     fun setConversationAction(action: ConversationAction) = launch {
         log(TAG, INFO) { "setConversationAction($action)" }
         // The action picker is only shown while Conversation Awareness is already enabled (the pod
