@@ -12,10 +12,7 @@ data class CaseLowObservation(
     val caseCharging: Boolean?,
 )
 
-/**
- * Reads only the current BLE advert: AAP keeps reporting the case's last reading while the pods
- * are out of it, and scan history or the state cache can be hours old.
- */
+/** Reads only the current BLE advert; AAP state, scan history and the state cache are deliberately not used. */
 internal fun PodDevice.caseLowObservation(): CaseLowObservation? {
     val frame = ble as? DualApplePods ?: return null
     val hasCaseContext = frame.hasCaseContext
