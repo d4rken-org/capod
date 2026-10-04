@@ -63,9 +63,10 @@ class CaseLowReminderNotifications @Inject constructor(
 
     fun cancelAllExcept(profileIds: Set<String>) {
         notificationManager.activeNotifications
-            .filter { it.id == NOTIFICATION_ID && it.tag?.startsWith(TAG_PREFIX) == true }
-            .filter { it.tag.removePrefix(TAG_PREFIX) !in profileIds }
-            .forEach { notificationManager.cancel(it.tag, it.id) }
+            .filter { it.id == NOTIFICATION_ID }
+            .mapNotNull { it.tag?.takeIf { tag -> tag.startsWith(TAG_PREFIX) } }
+            .filter { it.removePrefix(TAG_PREFIX) !in profileIds }
+            .forEach { notificationManager.cancel(it, NOTIFICATION_ID) }
     }
 
     private fun String.toTag() = "$TAG_PREFIX$this"
@@ -73,8 +74,8 @@ class CaseLowReminderNotifications @Inject constructor(
     companion object {
         private val TAG = logTag("Reaction", "CaseLow", "Notifications")
         internal val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.reaction.caselow"
-        internal const val NOTIFICATION_ID = 5
-        internal const val TAG_PREFIX = "caselow:"
+        private const val NOTIFICATION_ID = 5
+        private const val TAG_PREFIX = "caselow:"
         private const val PENDING_INTENT_REQUEST_CODE = 2
     }
 }
