@@ -58,6 +58,26 @@ class AirPodsProTest : BaseBlePodsTest() {
         }
     }
 
+    @Test
+    fun `advert case battery ignores the scan history fallback`() = runTest {
+        create<AirPodsPro>("07 19 01 0E 20 00 F3 8F 02 00 04 79 C6 3F F9 C3 15 D9 11 A1 3C B1 58 66 B9 8B 67") {
+            copy(cachedBatteryPercentage = 0.7f).apply {
+                batteryCasePercent shouldBe 0.7f
+                advertBatteryCasePercent shouldBe null
+            }
+        }
+    }
+
+    @Test
+    fun `advert case battery matches case battery when the advert has it`() = runTest {
+        create<AirPodsPro>("07 19 01 0E 20 54 AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
+            copy(cachedBatteryPercentage = 0.7f).apply {
+                batteryCasePercent shouldBe 0.5f
+                advertBatteryCasePercent shouldBe 0.5f
+            }
+        }
+    }
+
     // Test data from https://github.com/adolfintel/OpenPods/issues/34#issuecomment-565894487
     @Test
     fun `various AirPods Pro messages`() = runTest {

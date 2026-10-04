@@ -125,7 +125,8 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
             }
         }
 
-    override val batteryCasePercent: Float?
+    /** The current advert's case battery, without the scan-history fallback models add to [batteryCasePercent]. */
+    val advertBatteryCasePercent: Float?
         get() {
             payload.private?.asBatteryState(3)?.let { return it.level }
 
@@ -139,6 +140,9 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
                 }
             }
         }
+
+    override val batteryCasePercent: Float?
+        get() = advertBatteryCasePercent
 
     /** The encrypted payload carries whole percents; the public nibble only carries deciles. */
     override val batteryCaseResolution: Float
