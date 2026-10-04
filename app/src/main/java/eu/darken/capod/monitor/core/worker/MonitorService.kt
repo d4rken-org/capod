@@ -46,6 +46,8 @@ import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
 import eu.darken.capod.reaction.core.conversation.ConversationReaction
+import eu.darken.capod.reaction.core.caselow.CaseLowReminderNotifications
+import eu.darken.capod.reaction.core.caselow.CaseLowReminderReaction
 import eu.darken.capod.reaction.core.charged.ChargedReaction
 import eu.darken.capod.reaction.core.charged.ChargedReactionNotifications
 import eu.darken.capod.reaction.core.sleep.SleepReaction
@@ -89,6 +91,8 @@ class MonitorService : Service() {
     @Inject lateinit var sleepReaction: SleepReaction
     @Inject lateinit var chargedReaction: ChargedReaction
     @Inject lateinit var chargedReactionNotifications: ChargedReactionNotifications
+    @Inject lateinit var caseLowReminderReaction: CaseLowReminderReaction
+    @Inject lateinit var caseLowReminderNotifications: CaseLowReminderNotifications
     @Inject lateinit var conversationReaction: ConversationReaction
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
@@ -405,6 +409,26 @@ class MonitorService : Service() {
             }
             .setupCommonEventHandlers(TAG) { "chargedReaction" }
             .catch { log(TAG, WARN) { "chargedReaction failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        caseLowReminderReaction.monitor()
+            .onEach { event ->
+                when (event) {
+                    is CaseLowReminderReaction.Event.ShowNotification -> caseLowReminderNotifications.show(
+                        profileId = event.profileId,
+                        deviceLabel = event.deviceLabel,
+                        casePercent = event.casePercent,
+                    )
+
+                    is CaseLowReminderReaction.Event.CancelNotification ->
+                        caseLowReminderNotifications.cancel(event.profileId)
+
+                    is CaseLowReminderReaction.Event.Reconcile ->
+                        caseLowReminderNotifications.cancelAllExcept(event.enabledProfileIds)
+                }
+            }
+            .setupCommonEventHandlers(TAG) { "caseLowReminder" }
+            .catch { log(TAG, WARN) { "caseLowReminder failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
         conversationReaction.monitor()

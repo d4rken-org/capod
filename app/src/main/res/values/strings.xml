@@ -558,6 +558,9 @@
     <string name="reaction_charged_notification_title">Charging complete</string>
     <string name="reaction_charged_notification_text_full">%1$s is fully charged.</string>
     <string name="reaction_charged_notification_text_partial">%1$s has been charged to %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Case battery reminder</string>
+    <string name="reaction_caselow_notification_title">Charge your case</string>
+    <string name="reaction_caselow_notification_text">%1$s: case battery is at %2$d%%.</string>
     <string name="device_settings_rename_label">Rename</string>
     <string name="device_settings_rename_hint">Device name</string>
     <string name="device_settings_rename_confirm">Rename</string>
