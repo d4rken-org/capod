@@ -7,6 +7,8 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.NudgeAttemptResult
 import eu.darken.capod.common.bluetooth.NudgeAvailability
 import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
+import eu.darken.capod.common.navigation.Nav
+import eu.darken.capod.common.navigation.NavEvent
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
@@ -25,6 +27,7 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
 import eu.darken.capod.reaction.core.stem.StemAction
 import eu.darken.capod.reaction.core.stem.StemActionsConfig
+import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -45,6 +48,7 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -780,5 +784,69 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.setSleepDetection(false)
 
         coVerify(exactly = 1) { aapManager.sendCommand(testAddress, AapCommand.SetSleepDetection(false)) }
+    }
+
+    private fun capturedProfileUpdates(base: AppleDeviceProfile): List<AppleDeviceProfile> {
+        val transforms = mutableListOf<(AppleDeviceProfile) -> AppleDeviceProfile>()
+        coVerify { profilesRepo.updateAppleProfile(testAddress, capture(transforms)) }
+        return transforms.map { it(base) }
+    }
+
+    private val baseProfile = AppleDeviceProfile(id = testAddress, label = "Test", address = testAddress)
+
+    @Test
+    fun `setNotifyWhenCaseLow(true) as non-Pro opens upgrade and keeps the profile`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns false
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setNotifyWhenCaseLow(true)
+
+        vm.navEvents.first().shouldBeInstanceOf<NavEvent.GoTo>().destination shouldBe Nav.Main.Upgrade()
+        coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
+    }
+
+    @Test
+    fun `setNotifyWhenCaseLow(true) as Pro enables the reminder`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns true
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setNotifyWhenCaseLow(true)
+
+        capturedProfileUpdates(baseProfile).single().notifyWhenCaseLow shouldBe true
+    }
+
+    @Test
+    fun `setNotifyWhenCaseLow(false) as non-Pro disables the reminder without upgrade`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns false
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setNotifyWhenCaseLow(false)
+
+        capturedProfileUpdates(baseProfile.copy(notifyWhenCaseLow = true))
+            .single().notifyWhenCaseLow shouldBe false
+        withTimeoutOrNull(1_000) { vm.navEvents.first() }.shouldBeNull()
+    }
+
+    @Test
+    fun `setCaseLowThreshold snaps to the step and clamps to the range`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setCaseLowThreshold(24)
+        vm.setCaseLowThreshold(26)
+        vm.setCaseLowThreshold(5)
+        vm.setCaseLowThreshold(90)
+
+        capturedProfileUpdates(baseProfile).map { it.caseLowThreshold } shouldBe listOf(20, 30, 10, 50)
     }
 }
