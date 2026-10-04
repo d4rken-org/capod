@@ -66,4 +66,36 @@ class AppleDeviceProfileSerializationTest : BaseTest() {
         decoded.chargedSlotScope shouldBe ChargedSlotScope.PODS
         decoded.reactionConfig shouldBe profile.reactionConfig
     }
+
+    @Test
+    fun `profiles stored before the low case reminder decode with defaults`() {
+        val legacyJson = """
+            {
+                "id": "test-id",
+                "label": "My Pods"
+            }
+        """.trimIndent()
+
+        val profile = json.decodeFromString<AppleDeviceProfile>(legacyJson)
+
+        profile.notifyWhenCaseLow shouldBe false
+        profile.caseLowThreshold shouldBe 20
+        profile.reactionConfig.notifyWhenCaseLow shouldBe false
+        profile.reactionConfig.caseLowThreshold shouldBe 20
+    }
+
+    @Test
+    fun `low case reminder settings round-trip`() {
+        val profile = AppleDeviceProfile(
+            label = "My Pods",
+            notifyWhenCaseLow = true,
+            caseLowThreshold = 40,
+        )
+
+        val decoded = json.decodeFromString<AppleDeviceProfile>(json.encodeToString(profile))
+
+        decoded.notifyWhenCaseLow shouldBe true
+        decoded.caseLowThreshold shouldBe 40
+        decoded.reactionConfig shouldBe profile.reactionConfig
+    }
 }
