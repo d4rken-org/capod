@@ -1,6 +1,8 @@
 package eu.darken.capod.main.ui.devicesettings.cards
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Battery2Bar
+import androidx.compose.material.icons.twotone.BatteryAlert
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.NotificationsActive
 import androidx.compose.material.icons.twotone.RestartAlt
@@ -45,6 +47,8 @@ import eu.darken.capod.reaction.core.charged.ChargedSlotScope
  *    [PodModel.Features.hasDynamicEndOfCharge] over an active AAP session.
  *  - "Notify when charged" (a per-device reaction) — fires purely off observed charging state, so it
  *    works for any live device (BLE or AAP), not just when the phone is the audio source.
+ *  - "Low case battery reminder" (a per-device reaction) — driven by the BLE-advertised case battery,
+ *    so it only applies to models with a case.
  *
  * Each row is gated independently; the whole card hides when nothing applies.
  */
@@ -59,6 +63,8 @@ internal fun BatteryCard(
     onNotifyWhenChargedChange: (Boolean) -> Unit = {},
     onChargedThresholdChange: (Int) -> Unit = {},
     onChargedSlotScopeChange: (ChargedSlotScope) -> Unit = {},
+    onNotifyWhenCaseLowChange: (Boolean) -> Unit = {},
+    onCaseLowThresholdChange: (Int) -> Unit = {},
     onEstimateEnabledChange: (Boolean) -> Unit = {},
     onResetEstimate: () -> Unit = {},
 ) {
@@ -135,6 +141,33 @@ internal fun BatteryCard(
                         title = stringResource(R.string.settings_charged_scope_label),
                         subtitle = stringResource(reactions.chargedSlotScope.labelRes),
                         onClick = { showChargedScopeDialog = true },
+                    )
+                }
+            }
+            if (features.hasCase) {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.BatteryAlert,
+                    title = stringResource(R.string.settings_caselow_reminder_label),
+                    subtitle = stringResource(R.string.settings_caselow_reminder_description),
+                    checked = reactions.notifyWhenCaseLow,
+                    onCheckedChange = onNotifyWhenCaseLowChange,
+                    requiresUpgrade = !isPro,
+                )
+                if (reactions.notifyWhenCaseLow) {
+                    var caseLowValue by remember(reactions.caseLowThreshold) {
+                        mutableIntStateOf(reactions.caseLowThreshold)
+                    }
+                    SettingsSliderItem(
+                        icon = Icons.TwoTone.Battery2Bar,
+                        title = stringResource(R.string.settings_caselow_threshold_label),
+                        value = caseLowValue.toFloat(),
+                        onValueChange = { caseLowValue = it.toInt() },
+                        onValueChangeFinished = { onCaseLowThresholdChange(caseLowValue) },
+                        valueRange = ReactionConfig.MIN_CASE_LOW_THRESHOLD.toFloat()..
+                            ReactionConfig.MAX_CASE_LOW_THRESHOLD.toFloat(),
+                        steps = (ReactionConfig.MAX_CASE_LOW_THRESHOLD - ReactionConfig.MIN_CASE_LOW_THRESHOLD) /
+                            ReactionConfig.CASE_LOW_THRESHOLD_STEP - 1,
+                        valueLabel = { "${it.toInt()}%" },
                     )
                 }
             }
