@@ -47,7 +47,7 @@ import eu.darken.capod.reaction.core.charged.ChargedSlotScope
  *    [PodModel.Features.hasDynamicEndOfCharge] over an active AAP session.
  *  - "Notify when charged" (a per-device reaction) — fires purely off observed charging state, so it
  *    works for any live device (BLE or AAP), not just when the phone is the audio source.
- *  - "Low case battery reminder" (a per-device reaction) — driven by the BLE-advertised case battery,
+ *  - "Case battery reminder" (a per-device reaction) — driven by the BLE-advertised case battery,
  *    so it only applies to models with a case.
  *
  * Each row is gated independently; the whole card hides when nothing applies.

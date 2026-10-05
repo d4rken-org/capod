@@ -72,7 +72,7 @@
     <string name="settings_charged_scope_pods_label">Pods only</string>
     <string name="settings_charged_scope_case_label">Case only</string>
     <string name="settings_charged_scope_both_label">Pods and case</string>
-    <string name="settings_caselow_reminder_label">Low case battery reminder</string>
+    <string name="settings_caselow_reminder_label">Case battery reminder</string>
     <string name="settings_caselow_reminder_description">Remind me to charge the case when I put the pods back and the case battery is low.</string>
     <string name="settings_caselow_threshold_label">Reminder level</string>
 
