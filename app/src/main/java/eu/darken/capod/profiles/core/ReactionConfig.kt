@@ -10,6 +10,7 @@ data class ReactionConfig(
     val startMusicOnWear: Boolean = false,
     val onePodMode: Boolean = false,
     val autoConnect: Boolean = false,
+    val audioConnectOnAcl: Boolean = false,
     val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
     val showPopUpOnCaseOpen: Boolean = false,
     val showPopUpOnConnection: Boolean = false,

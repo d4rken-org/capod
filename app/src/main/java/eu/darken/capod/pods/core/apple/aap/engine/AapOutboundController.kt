@@ -52,11 +52,14 @@ internal class AapOutboundController(
         runtimeState: OutboundRuntimeState,
         command: AapCommand,
     ): OutboundDecision {
-        // SetDeviceName and SetDynamicEndOfCharge bypass ear-gating:
+        // Metadata, charge cap, and connection preference bypass ear-gating:
         //  - Rename is a user-initiated metadata change, independent of wear state.
         //  - Charge cap (setting 0x3B) is toggled while pods sit in the closed case; queueing
         //    it until worn would make the toggle look broken for its main use case.
-        if (command !is AapCommand.SetDeviceName && command !is AapCommand.SetDynamicEndOfCharge) {
+        //  - Connection preference is independent of wear state.
+        if (command !is AapCommand.SetDeviceName && command !is AapCommand.SetDynamicEndOfCharge &&
+            command !is AapCommand.SetConnectionPreference
+        ) {
             val earDetection = podState.setting<AapSetting.EarDetection>()
             if (earDetection != null && !earDetection.isEitherPodInEar) {
                 val result = coordinator.enqueue(runtimeState.pendingCommands, command, podState)

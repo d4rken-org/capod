@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core.ble
 
+import eu.darken.capod.common.AppForegroundState
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
@@ -23,6 +24,7 @@ import io.mockk.just
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.verify
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,6 +43,27 @@ import testhelpers.TestTimeSource
 import testhelpers.datastore.FakeDataStoreValue
 
 class BlePodMonitorTest : BaseTest() {
+
+    @Test
+    fun `backgrounding with disconnected Pods cancels scanner even with a live subscriber`() = runTest {
+        var started = 0
+        var stopped = 0
+        val fixture = createFixture {
+            flow<Collection<BleScanResult>> {
+                started++
+                try { awaitCancellation() } finally { stopped++ }
+            }
+        }
+        backgroundScope.launch { fixture.monitor.devices.collect {} }
+        runCurrent()
+        started shouldBe 1
+        fixture.foreground.value = false
+        runCurrent()
+        stopped shouldBe 1
+        fixture.foreground.value = true
+        runCurrent()
+        started shouldBe 2
+    }
 
     @Test
     fun `scan security exception emits empty devices and rechecks permissions`() = runTest {
@@ -234,8 +257,13 @@ class BlePodMonitorTest : BaseTest() {
             every { missingScanPermissions } returns MutableStateFlow<Set<Permission>>(emptySet())
             every { recheck() } just Runs
         }
+        val foreground = MutableStateFlow(true)
+        val appForeground = mockk<AppForegroundState> {
+            every { isForeground } returns foreground
+        }
         val bluetoothManager = mockk<BluetoothManager2>().apply {
             every { isBluetoothEnabled } returns MutableStateFlow(true)
+            every { connectedDevices } returns flowOf(emptyList())
         }
         val profilesRepo = mockk<DeviceProfilesRepo>().apply {
             every { profiles } returns MutableStateFlow(emptyList())
@@ -249,11 +277,13 @@ class BlePodMonitorTest : BaseTest() {
                 timeSource = timeSource,
                 generalSettings = generalSettings,
                 bluetoothManager = bluetoothManager,
+                appForegroundState = appForeground,
                 permissionTool = permissionTool,
                 profilesRepo = profilesRepo,
             ),
             bleScanner = bleScanner,
             permissionTool = permissionTool,
+            foreground = foreground,
         )
     }
 
@@ -261,6 +291,7 @@ class BlePodMonitorTest : BaseTest() {
         val monitor: BlePodMonitor,
         val bleScanner: BleScanner,
         val permissionTool: PermissionTool,
+        val foreground: MutableStateFlow<Boolean>,
     )
 
     companion object {

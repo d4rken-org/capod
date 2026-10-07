@@ -5,6 +5,7 @@ package eu.darken.capod.pods.core.apple.aap.protocol
  * The [AapDeviceProfile] encodes these into the device-specific wire format.
  */
 sealed class AapCommand {
+    data class SetConnectionPreference(val mode: AapSetting.ConnectionPreference.Mode) : AapCommand()
     data class SetAncMode(val mode: AapSetting.AncMode.Value) : AapCommand()
     data class SetConversationalAwareness(val enabled: Boolean) : AapCommand()
     data class SetPressSpeed(val value: AapSetting.PressSpeed.Value) : AapCommand()

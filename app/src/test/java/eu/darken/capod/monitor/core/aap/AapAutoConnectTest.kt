@@ -51,6 +51,7 @@ class AapAutoConnectTest : BaseTest() {
         label = "Test AirPods",
         model = PodModel.AIRPODS_PRO3,
         address = testAddress,
+        lastRequestedConnectionPreference = eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.AUTOMATIC,
     )
     private val testBondedDevice: BluetoothDevice2 = mockk(relaxed = true) {
         every { address } returns testAddress
@@ -489,14 +490,16 @@ class AapAutoConnectTest : BaseTest() {
             val wrongModelProfile = AppleDeviceProfile(
                 label = "Test AirPods",
                 model = PodModel.UNKNOWN,
+                lastRequestedConnectionPreference = eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.AUTOMATIC,
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
             connectedDevicesFlow.value = listOf(testBondedDevice)
 
             var capturedProfile: AppleDeviceProfile? = null
-            coEvery { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) } coAnswers {
-                capturedProfile = firstArg()
+            coEvery { profilesRepo.updateAppleProfile(any(), any()) } coAnswers {
+                val transform = secondArg<(AppleDeviceProfile) -> AppleDeviceProfile>()
+                capturedProfile = transform(wrongModelProfile)
             }
 
             val autoConnect = createAutoConnect()
@@ -537,7 +540,7 @@ class AapAutoConnectTest : BaseTest() {
             )
             advanceUntilIdle()
 
-            coVerify(exactly = 0) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
             coVerify(exactly = 0) { aapManager.disconnect(testAddress) }
 
             job.cancel()
@@ -560,7 +563,7 @@ class AapAutoConnectTest : BaseTest() {
             )
             advanceUntilIdle()
 
-            coVerify(exactly = 0) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
 
             job.cancel()
         }
@@ -570,6 +573,7 @@ class AapAutoConnectTest : BaseTest() {
             val wrongModelProfile = AppleDeviceProfile(
                 label = "Test AirPods",
                 model = PodModel.UNKNOWN,
+                lastRequestedConnectionPreference = eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.AUTOMATIC,
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
@@ -594,7 +598,7 @@ class AapAutoConnectTest : BaseTest() {
             allStatesFlow.value = mapOf(testAddress to readyState.copy(lastMessageAt = java.time.Instant.now()))
             advanceUntilIdle()
 
-            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 1) { profilesRepo.updateAppleProfile(any(), any()) }
 
             job.cancel()
         }
@@ -604,6 +608,7 @@ class AapAutoConnectTest : BaseTest() {
             val wrongModelProfile = AppleDeviceProfile(
                 label = "Test AirPods",
                 model = PodModel.UNKNOWN,
+                lastRequestedConnectionPreference = eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.AUTOMATIC,
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
@@ -622,7 +627,7 @@ class AapAutoConnectTest : BaseTest() {
             )
             advanceUntilIdle()
 
-            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 1) { profilesRepo.updateAppleProfile(any(), any()) }
 
             // Simulate disconnect (address disappears)
             allStatesFlow.value = emptyMap()
@@ -639,7 +644,7 @@ class AapAutoConnectTest : BaseTest() {
             advanceUntilIdle()
 
             // Still only 1 updateProfile — model now matches
-            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 1) { profilesRepo.updateAppleProfile(any(), any()) }
 
             job.cancel()
         }

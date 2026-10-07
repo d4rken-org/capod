@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core.ble
 
 import android.bluetooth.le.ScanFilter
+import eu.darken.capod.common.AppForegroundState
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
@@ -22,9 +23,11 @@ import eu.darken.capod.pods.core.apple.ble.PodFactory
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPairing
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.toReactionConfig
 import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.catch
@@ -53,6 +56,7 @@ class BlePodMonitor @Inject constructor(
     private val timeSource: TimeSource,
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
+    appForegroundState: AppForegroundState,
     private val permissionTool: PermissionTool,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
@@ -118,11 +122,21 @@ class BlePodMonitor @Inject constructor(
 
     val devices: Flow<List<BlePodSnapshot>> = combine(
         permissionTool.missingScanPermissions,
-        bluetoothManager.isBluetoothEnabled
-    ) { missingScanPermissions, isBluetoothEnabled ->
+        bluetoothManager.isBluetoothEnabled,
+        appForegroundState.isForeground,
+        bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
+        profilesRepo.profiles,
+    ) { missingScanPermissions, isBluetoothEnabled, isForeground, connectedDevices, profiles ->
         log(TAG) { "devices: missingScanPermissions=$missingScanPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
-        missingScanPermissions.isEmpty() && isBluetoothEnabled
+        shouldScanForPods(
+            hasScanPermission = missingScanPermissions.isEmpty(),
+            bluetoothEnabled = isBluetoothEnabled,
+            isForeground = isForeground,
+            retainBackgroundScan = profiles.any { !it.toReactionConfig().audioConnectOnAcl || it.toReactionConfig().autoConnect },
+            hasConnectedProfile = profiles.any { profile -> connectedDevices.any { it.address.equals(profile.address, ignoreCase = true) } },
+        )
     }
+        .distinctUntilChanged()
         .flatMapLatest { isReady ->
             if (!isReady) {
                 log(TAG, Logging.Priority.WARN) { "Bluetooth is not ready" }
@@ -311,3 +325,11 @@ class BlePodMonitor @Inject constructor(
         private val STALE_EVICTION_INTERVAL = Duration.ofSeconds(10)
     }
 }
+
+internal fun shouldScanForPods(
+    hasScanPermission: Boolean,
+    bluetoothEnabled: Boolean,
+    isForeground: Boolean,
+    hasConnectedProfile: Boolean,
+    retainBackgroundScan: Boolean = false,
+): Boolean = hasScanPermission && bluetoothEnabled && (isForeground || hasConnectedProfile || retainBackgroundScan)

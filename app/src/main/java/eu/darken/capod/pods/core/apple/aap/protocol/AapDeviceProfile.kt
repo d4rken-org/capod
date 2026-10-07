@@ -37,6 +37,9 @@ interface AapDeviceProfile {
      */
     fun encodeCommand(command: AapCommand): ByteArray
 
+    /** A command can require several ordered L2CAP packets. */
+    fun encodeCommands(command: AapCommand): List<ByteArray> = listOf(encodeCommand(command))
+
     /**
      * Encode the handshake message that initiates the AAP session.
      */

@@ -6,7 +6,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.profiles.core.AppleDeviceProfile
-import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -35,13 +35,16 @@ class AapKeyPersisterTest : BaseTest() {
     private val aapManager = mockk<AapConnectionManager>()
     private val profilesRepo = mockk<DeviceProfilesRepo>()
 
-    private suspend fun runPersister(profile: AppleDeviceProfile, keys: KeyExchangeResult) {
+    private lateinit var latestProfile: AppleDeviceProfile
+
+    private suspend fun runPersister(profile: AppleDeviceProfile, keys: KeyExchangeResult, latest: AppleDeviceProfile = profile) {
+        latestProfile = latest
         val keysReceived = MutableSharedFlow<Pair<BluetoothAddress, KeyExchangeResult>>(replay = 1)
         keysReceived.tryEmit(address to keys)
 
         every { aapManager.keysReceived } returns keysReceived
         every { profilesRepo.profiles } returns flowOf(listOf(profile))
-        coEvery { profilesRepo.updateProfile(any()) } returns Unit
+        coEvery { profilesRepo.updateAppleProfile(any(), any()) } returns Unit
 
         AapKeyPersister(aapManager, profilesRepo).monitor().first()
     }
@@ -58,9 +61,21 @@ class AapKeyPersisterTest : BaseTest() {
     )
 
     private fun capturedProfile(): AppleDeviceProfile {
-        val captured = slot<DeviceProfile>()
-        coVerify(exactly = 1) { profilesRepo.updateProfile(capture(captured)) }
-        return captured.captured as AppleDeviceProfile
+        val captured = slot<(AppleDeviceProfile) -> AppleDeviceProfile>()
+        coVerify(exactly = 1) { profilesRepo.updateAppleProfile(any(), capture(captured)) }
+        return captured.captured(latestProfile)
+    }
+
+    @Test
+    fun `saving keys preserves a routing preference written since the profile was read`() = runTest {
+        val original = profile()
+        val automatic = AapSetting.ConnectionPreference.Mode.AUTOMATIC
+        runPersister(
+            profile = original,
+            keys = KeyExchangeResult(irk = irkHex.fromHex(), encKey = null),
+            latest = original.copy(lastRequestedConnectionPreference = automatic),
+        )
+        capturedProfile().lastRequestedConnectionPreference shouldBe automatic
     }
 
     @Test
@@ -80,7 +95,7 @@ class AapKeyPersisterTest : BaseTest() {
             keys = KeyExchangeResult(irk = irkHex.fromHex(), encKey = encHex.fromHex()),
         )
 
-        coVerify(exactly = 0) { profilesRepo.updateProfile(any()) }
+        coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
     }
 
     @Test
@@ -90,7 +105,7 @@ class AapKeyPersisterTest : BaseTest() {
             keys = KeyExchangeResult(irk = null, encKey = encHex.fromHex()),
         )
 
-        coVerify(exactly = 0) { profilesRepo.updateProfile(any()) }
+        coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
     }
 
     @Test

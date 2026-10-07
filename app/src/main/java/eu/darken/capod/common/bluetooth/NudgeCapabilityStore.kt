@@ -7,10 +7,12 @@ import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
@@ -26,15 +28,21 @@ class NudgeCapabilityStore @Inject constructor(
 
     private val persistedValue = generalSettings.nudgeAvailability
 
+    // BROKEN is only ever recorded for the hidden headset call. From Android 17 the nudge uses the
+    // public connect() instead, so a stale verdict must not disable it.
+    private fun NudgeAvailability.effective() =
+        if (this == NudgeAvailability.BROKEN && hasApiLevel(37)) NudgeAvailability.UNKNOWN else this
+
     // Resolve the persisted value synchronously at construction so consumers that read
     // `availability.value` (resolver, AutoConnect precondition, UI state) never see the
     // synthetic UNKNOWN seed before the first DataStore emission arrives. On a known-broken
     // device this prevents one bonus ALWAYS-mode + nudge-attempt cycle per cold start.
     val availability: StateFlow<NudgeAvailability> = persistedValue.flow
+        .map { it.effective() }
         .stateIn(
             scope = appScope + dispatcherProvider.IO,
             started = SharingStarted.Eagerly,
-            initialValue = persistedValue.valueBlocking,
+            initialValue = persistedValue.valueBlocking.effective(),
         )
 
     fun record(result: NudgeAttemptResult) {

@@ -94,6 +94,7 @@ internal class AapSettingsCoordinator(
 
     fun optimisticUpdate(baseState: AapPodState, command: AapCommand): AapPodState? {
         val updated: Pair<KClass<out AapSetting>, AapSetting> = when (command) {
+            is AapCommand.SetConnectionPreference -> return null
             is AapCommand.SetAncMode -> return null
             is AapCommand.SetConversationalAwareness -> {
                 val cur = baseState.setting<AapSetting.ConversationalAwareness>() ?: return null
@@ -210,6 +211,8 @@ internal class AapSettingsCoordinator(
         is AapCommand.SetStemConfig -> { s -> s.setting<AapSetting.StemConfig>()?.claimedPressMask == command.claimedPressMask }
         is AapCommand.SetSleepDetection -> { s -> s.setting<AapSetting.SleepDetection>()?.enabled == command.enabled }
         is AapCommand.SetDynamicEndOfCharge -> { s -> s.setting<AapSetting.DynamicEndOfCharge>()?.enabled == command.enabled }
+        // The Mac capture contains no echo for these writes; do not claim verification.
+        is AapCommand.SetConnectionPreference -> null
         is AapCommand.SetDeviceName -> null
     }
 }

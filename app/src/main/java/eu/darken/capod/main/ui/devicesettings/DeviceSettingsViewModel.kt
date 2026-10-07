@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.devicesettings
 
+import android.content.IntentSender
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.TimeSource
@@ -38,6 +39,7 @@ import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 import eu.darken.capod.reaction.core.conversation.ConversationAction
 import eu.darken.capod.reaction.core.stem.StemAction
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.channelFlow
@@ -84,7 +86,7 @@ class DeviceSettingsViewModel @Inject constructor(
     }
 
     private val isForceConnecting = MutableStateFlow(false)
-
+    private val isRoutingBusy = MutableStateFlow(false)
     sealed interface Event {
         data object OpenBluetoothSettings : Event
         data class SendFailed(val command: AapCommand, val message: String?) : Event
@@ -92,6 +94,8 @@ class DeviceSettingsViewModel @Inject constructor(
         data object OffModeRejectedByDevice : Event
         data object AncModeNotConfirmedByDevice : Event
         data object DynamicEndOfChargeRejectedByDevice : Event
+        data class LaunchCompanionAssociation(val intentSender: IntentSender) : Event
+        data class CompanionAssociationFailed(val reason: String?) : Event
     }
 
     val events = SingleEventFlow<Event>()
@@ -134,6 +138,7 @@ class DeviceSettingsViewModel @Inject constructor(
             profilesRepo.profiles,
             nudgeCapabilityStore.availability,
             drainStore.profiles,
+            isRoutingBusy,
         ) { args ->
             val device = args[1] as PodDevice?
             val upgrade = args[2] as UpgradeRepo.Info
@@ -168,6 +173,9 @@ class DeviceSettingsViewModel @Inject constructor(
                 ?.let { BatteryHealth.estimate(drainProfiles[profileId], it.model, now) }
             State(
                 device = device,
+                isRoutingBusy = args[9] as Boolean,
+                connectionPreference = device?.aap?.setting<AapSetting.ConnectionPreference>()?.mode
+                    ?: appleProfile?.lastRequestedConnectionPreference,
                 now = now,
                 isPro = upgrade.isPro,
                 isNudgeAvailable = nudgeAvailability != NudgeAvailability.BROKEN,
@@ -207,6 +215,8 @@ class DeviceSettingsViewModel @Inject constructor(
 
     data class State(
         val device: PodDevice?,
+        val connectionPreference: AapSetting.ConnectionPreference.Mode? = null,
+        val isRoutingBusy: Boolean = false,
         val now: Instant = SystemTimeSource.now(),
         val isPro: Boolean = false,
         val isNudgeAvailable: Boolean = true,
@@ -267,7 +277,7 @@ class DeviceSettingsViewModel @Inject constructor(
             }
             log(TAG, INFO) { "nudgeConnection($bonded) result=$result" }
             nudgeCapabilityStore.record(result)
-            if (result != NudgeAttemptResult.Accepted) {
+            if (result != NudgeAttemptResult.Accepted && !requestCompanionAssociation(address)) {
                 events.tryEmit(Event.OpenBluetoothSettings)
             }
         } finally {
@@ -354,6 +364,28 @@ class DeviceSettingsViewModel @Inject constructor(
     }
 
     fun setDynamicEndOfCharge(enabled: Boolean) = send(AapCommand.SetDynamicEndOfCharge(enabled))
+
+    fun setConnectionPreference(mode: AapSetting.ConnectionPreference.Mode) = launch {
+        val profileId = targetProfileId.value ?: return@launch
+        if (!isRoutingBusy.compareAndSet(expect = false, update = true)) return@launch
+        val command = AapCommand.SetConnectionPreference(mode)
+        try {
+            val device = deviceMonitor.getDeviceForProfile(profileId) ?: return@launch
+            require(device.model.features.hasConnectionPreference)
+            val address = device.address ?: return@launch
+            aapManager.sendCommand(address, command)
+            // A successful socket write is not a device echo: retain the requested value explicitly.
+            profilesRepo.updateAppleProfile(profileId) { it.copy(lastRequestedConnectionPreference = mode) }
+            log(TAG, INFO) { "Sent $command to $address (device confirmation unavailable)" }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to send $command: ${e.message}" }
+            events.emit(Event.SendFailed(command, e.message))
+        } finally {
+            isRoutingBusy.value = false
+        }
+    }
 
     fun setDeviceName(name: String) = launch {
         val address = currentAddress() ?: return@launch
@@ -461,9 +493,31 @@ class DeviceSettingsViewModel @Inject constructor(
         sendInternal(AapCommand.SetEarDetectionEnabled(effectiveAutoPlay || effectiveAutoPause))
     }
 
+    fun setAudioConnectOnAcl(enabled: Boolean) = launch {
+        updateProfileNow { it.copy(audioConnectOnAcl = enabled) }
+        if (enabled) currentAddress()?.let { requestCompanionAssociation(it) }
+    }
+
     fun setAutoConnect(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoConnect($enabled)" }
         updateProfileNow { it.copy(autoConnect = enabled) }
+        if (enabled) currentAddress()?.let { requestCompanionAssociation(it) }
+    }
+
+    /**
+     * Android 17 only lets us call connect() on a device we have a companion association with.
+     *
+     * @return true if an association was missing and a request was started.
+     */
+    private suspend fun requestCompanionAssociation(address: String): Boolean {
+        if (!bluetoothManager.isCompanionAssociationSupported || bluetoothManager.isCompanionAssociated(address)) return false
+        when (val result = bluetoothManager.requestCompanionAssociation(address)) {
+            is BluetoothManager2.CompanionAssociationResult.UserActionRequired ->
+                events.tryEmit(Event.LaunchCompanionAssociation(result.intentSender))
+            BluetoothManager2.CompanionAssociationResult.Created -> Unit
+            is BluetoothManager2.CompanionAssociationResult.Failed -> events.tryEmit(Event.CompanionAssociationFailed(result.reason))
+        }
+        return true
     }
 
     fun setAutoConnectCondition(condition: AutoConnectCondition) = launch {

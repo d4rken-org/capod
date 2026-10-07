@@ -1,11 +1,18 @@
 package eu.darken.capod.pods.core.apple.aap.protocol
 
+import kotlinx.serialization.Serializable
+
 /**
  * Device-reported settings. Pure domain — no wire protocol bytes.
  * Each subclass represents a capability with its current state and supported values.
  * The [AapDeviceProfile] handles all wire ↔ domain translation.
  */
 sealed class AapSetting {
+
+    data class ConnectionPreference(val mode: Mode) : AapSetting() {
+        @Serializable
+        enum class Mode { AUTOMATIC, LAST_CONNECTED }
+    }
 
     data class AncMode(
         val current: Value,

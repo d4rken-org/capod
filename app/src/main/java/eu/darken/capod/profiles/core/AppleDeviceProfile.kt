@@ -2,6 +2,7 @@ package eu.darken.capod.profiles.core
 
 import eu.darken.capod.common.serialization.ByteArrayBase64Serializer
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
@@ -30,6 +31,7 @@ data class AppleDeviceProfile(
     @SerialName("reactionStartMusicOnWear") val startMusicOnWear: Boolean = false,
     @SerialName("reactionOnePodMode") val onePodMode: Boolean = false,
     @SerialName("reactionAutoConnect") val autoConnect: Boolean = false,
+    @SerialName("experimentalAudioConnectOnAcl") val audioConnectOnAcl: Boolean = false,
     @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
     @SerialName("reactionShowPopUpOnCaseOpen") val showPopUpOnCaseOpen: Boolean = false,
     @SerialName("reactionShowPopUpOnConnection") val showPopUpOnConnection: Boolean = false,
@@ -54,6 +56,8 @@ data class AppleDeviceProfile(
      * UI to the default 0x0E (no OFF bit) even if the real cycle on-device includes OFF.
      */
     @SerialName("learnedListeningModeCycleMask") val lastRequestedListeningModeCycleMask: Int? = null,
+    /** Last successfully sent preference; the pods do not echo this write. */
+    @SerialName("lastRequestedConnectionPreference") val lastRequestedConnectionPreference: AapSetting.ConnectionPreference.Mode? = null,
     @SerialName("stemActions") val stemActions: StemActionsConfig = StemActionsConfig(),
 ) : DeviceProfile, HasReactionConfig {
 
@@ -64,6 +68,7 @@ data class AppleDeviceProfile(
             startMusicOnWear = startMusicOnWear,
             onePodMode = onePodMode,
             autoConnect = autoConnect,
+            audioConnectOnAcl = audioConnectOnAcl,
             autoConnectCondition = autoConnectCondition,
             showPopUpOnCaseOpen = showPopUpOnCaseOpen,
             showPopUpOnConnection = showPopUpOnConnection,

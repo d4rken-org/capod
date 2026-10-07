@@ -44,11 +44,12 @@ class AapKeyPersister @Inject constructor(
                 return@onEach
             }
 
-            val updated = profile.copy(
-                identityKey = if (irkChanged) keys.irk else profile.identityKey,
-                encryptionKey = if (encChanged) keys.encKey else profile.encryptionKey,
-            )
-            profilesRepo.updateProfile(updated)
+            profilesRepo.updateAppleProfile(profile.id) { current ->
+                current.copy(
+                    identityKey = if (irkChanged) keys.irk else current.identityKey,
+                    encryptionKey = if (encChanged) keys.encKey else current.encryptionKey,
+                )
+            }
             log(TAG) { "Persisted keys for $address (IRK changed=$irkChanged, ENC changed=$encChanged)" }
         }
         .map { }

@@ -60,6 +60,7 @@ internal fun ReactionsCard(
     onConversationActionChange: (ConversationAction) -> Unit = {},
     onConversationVolumeReductionChange: (Int) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
+    onAudioConnectOnAclChange: (Boolean) -> Unit = {},
     onAutoConnectChange: (Boolean) -> Unit = {},
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
@@ -206,6 +207,15 @@ internal fun ReactionsCard(
             if (hasAnyAapReaction) {
                 ReactionsDivider()
             }
+        }
+        if (Build.VERSION.SDK_INT >= 37) {
+            SettingsSwitchItem(
+                icon = Icons.TwoTone.BluetoothConnected,
+                title = stringResource(R.string.settings_audio_connect_on_acl_label),
+                subtitle = stringResource(R.string.settings_audio_connect_on_acl_description),
+                checked = reactions.audioConnectOnAcl,
+                onCheckedChange = onAudioConnectOnAclChange,
+            )
         }
         SettingsSwitchItem(
             icon = Icons.TwoTone.BluetoothConnected,

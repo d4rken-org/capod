@@ -1,15 +1,23 @@
 package eu.darken.capod.common.bluetooth
 
+import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothHeadset
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothProfile
+import android.bluetooth.BluetoothStatusCodes
 import android.bluetooth.le.BluetoothLeScanner
+import android.companion.AssociationInfo
+import android.companion.AssociationRequest
+import android.companion.BluetoothDeviceFilter
+import android.companion.CompanionDeviceManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.IntentSender
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
@@ -19,13 +27,17 @@ import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.pods.core.apple.ble.protocol.ContinuityProtocol
+import kotlin.coroutines.resume
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
@@ -44,6 +56,7 @@ import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Instant
@@ -442,7 +455,30 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    suspend fun nudgeConnection(device: BluetoothDevice2): NudgeAttemptResult =
+    suspend fun nudgeConnection(device: BluetoothDevice2): NudgeAttemptResult {
+        // Android 17 made BluetoothDevice.connect() public. It needs a companion association with the device.
+        if (hasApiLevel(37)) return connectViaPublicApi(device)
+        return nudgeViaHeadsetProfile(device)
+    }
+
+    private fun connectViaPublicApi(device: BluetoothDevice2): NudgeAttemptResult {
+        val target = device.internal ?: return NudgeAttemptResult.Rejected
+        // Reflection only because compileSdk is 36; the method is public API from 37.
+        val status = try {
+            BluetoothDevice::class.java.getMethod("connect").invoke(target) as Int
+        } catch (e: Exception) {
+            log(TAG, WARN) { "BluetoothDevice.connect() failed: ${e.cause ?: e}" }
+            return NudgeAttemptResult.Rejected
+        }
+        log(TAG, INFO) { "BluetoothDevice.connect() returned $status for $device" }
+        return when (status) {
+            BluetoothStatusCodes.SUCCESS -> NudgeAttemptResult.Accepted
+            BluetoothStatusCodes.ERROR_MISSING_BLUETOOTH_CONNECT_PERMISSION -> NudgeAttemptResult.UnavailableMissingPermission
+            else -> NudgeAttemptResult.Rejected
+        }
+    }
+
+    private suspend fun nudgeViaHeadsetProfile(device: BluetoothDevice2): NudgeAttemptResult =
         getBluetoothProfile().map { bluetoothProfile ->
             try {
                 log(TAG) { "Nudging Android connection to $device" }
@@ -478,6 +514,66 @@ class BluetoothManager2 @Inject constructor(
                 }
             }
         }.first()
+
+    private val companionManager: CompanionDeviceManager? by lazy {
+        context.getSystemService(Context.COMPANION_DEVICE_SERVICE) as? CompanionDeviceManager
+    }
+
+    /** BluetoothDevice.connect() needs a companion association, and only exists on Android 17+. */
+    val isCompanionAssociationSupported: Boolean
+        get() = hasApiLevel(37) &&
+            companionManager != null &&
+            context.packageManager.hasSystemFeature(PackageManager.FEATURE_COMPANION_DEVICE_SETUP)
+
+    @SuppressLint("NewApi")
+    fun isCompanionAssociated(address: BluetoothAddress): Boolean = try {
+        companionManager?.myAssociations
+            ?.any { it.deviceMacAddress?.toString().equals(address, ignoreCase = true) } == true
+    } catch (e: Exception) {
+        log(TAG, WARN) { "Failed to read companion associations: ${e.asLog()}" }
+        false
+    }
+
+    sealed interface CompanionAssociationResult {
+        /** The system needs the user to confirm: launch [intentSender]. */
+        data class UserActionRequired(val intentSender: IntentSender) : CompanionAssociationResult
+        data object Created : CompanionAssociationResult
+        data class Failed(val reason: String?) : CompanionAssociationResult
+    }
+
+    /** Asks the system to associate with the bonded device at [address]. It has to be in range. */
+    @SuppressLint("NewApi")
+    suspend fun requestCompanionAssociation(address: BluetoothAddress): CompanionAssociationResult {
+        val cdm = companionManager ?: return CompanionAssociationResult.Failed("CompanionDeviceManager unavailable")
+
+        val request = AssociationRequest.Builder()
+            .addDeviceFilter(BluetoothDeviceFilter.Builder().setAddress(address.uppercase()).build())
+            .setSingleDevice(true)
+            .build()
+
+        return suspendCancellableCoroutine { continuation ->
+            val callback = object : CompanionDeviceManager.Callback() {
+                override fun onAssociationPending(intentSender: IntentSender) {
+                    if (continuation.isActive) continuation.resume(CompanionAssociationResult.UserActionRequired(intentSender))
+                }
+
+                override fun onAssociationCreated(associationInfo: AssociationInfo) {
+                    if (continuation.isActive) continuation.resume(CompanionAssociationResult.Created)
+                }
+
+                override fun onFailure(error: CharSequence?) {
+                    log(TAG, WARN) { "Companion association failed: $error" }
+                    if (continuation.isActive) continuation.resume(CompanionAssociationResult.Failed(error?.toString()))
+                }
+            }
+            try {
+                cdm.associate(request, Runnable::run, callback)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "associate() threw: ${e.asLog()}" }
+                if (continuation.isActive) continuation.resume(CompanionAssociationResult.Failed(e.message))
+            }
+        }
+    }
 
     companion object {
         private val TAG = logTag("Bluetooth", "Manager2")

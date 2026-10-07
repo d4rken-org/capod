@@ -162,14 +162,16 @@ internal class AapConnection(
     }
 
     private suspend fun sendRaw(command: AapCommand) {
-        val bytes = profile.encodeCommand(command)
+        val packets = profile.encodeCommands(command)
         writeMutex.withLock {
             withContext(Dispatchers.IO) {
                 val sock = socket ?: throw IOException("Socket is null")
-                sock.outputStream.write(bytes)
-                sock.outputStream.flush()
-                val hex = bytes.joinToString(" ") { "%02X".format(it) }
-                log(TAG, Logging.Priority.VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
+                for (bytes in packets) {
+                    sock.outputStream.write(bytes)
+                    sock.outputStream.flush()
+                    val hex = bytes.joinToString(" ") { "%02X".format(it) }
+                    log(TAG, Logging.Priority.VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
+                }
             }
         }
     }

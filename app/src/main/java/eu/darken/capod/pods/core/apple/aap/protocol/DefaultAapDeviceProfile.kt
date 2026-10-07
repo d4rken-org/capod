@@ -78,7 +78,24 @@ class DefaultAapDeviceProfile(
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     )
 
+    override fun encodeCommands(command: AapCommand): List<ByteArray> {
+        if (command !is AapCommand.SetConnectionPreference) return super.encodeCommands(command)
+        require(model.features.hasConnectionPreference) { "Connection preference is not supported by $model" }
+        val automatic = command.mode == AapSetting.ConnectionPreference.Mode.AUTOMATIC
+        // Experiment: allow accessory-initiated links in both modes. macOS Automatic sends 2,
+        // but Android needs the incoming link to trigger its audio-profile connection request.
+        return listOf(
+            buildSettingsMessage(AapControlId.ALLOW_AUTO_CONNECT_FROM_AUDIO_ACCESSORY.value, 1),
+            buildSettingsMessage(AapControlId.SMART_ROUTING_MODE.value, if (automatic) 1 else 2),
+            byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x44, 0x00, 0x04, 0x00, 0x02, 0x00, 0x03, if (automatic) 0x06 else 0x08),
+        ) + if (automatic) {
+            // macOS requests the current connected-device list after enabling automatic routing.
+            listOf(byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x2D, 0x00))
+        } else emptyList()
+    }
+
     override fun encodeCommand(command: AapCommand): ByteArray = when (command) {
+        is AapCommand.SetConnectionPreference -> throw UnsupportedOperationException("Use encodeCommands for connection preference")
         is AapCommand.SetAncMode -> buildSettingsMessage(AapControlId.LISTEN_MODE.value, encodeAncMode(command.mode))
         is AapCommand.SetConversationalAwareness -> buildSettingsMessage(AapControlId.CONVERSATION_DETECT.value, encodeAppleBool(command.enabled))
         is AapCommand.SetPressSpeed -> buildSettingsMessage(AapControlId.DOUBLE_CLICK_INTERVAL.value, command.value.wireValue)
@@ -129,7 +146,7 @@ class DefaultAapDeviceProfile(
             )
         }
 
-        // Connected devices list (push-only from device)
+        // Connected devices list (query response or unsolicited update)
         if (message.commandType == AapMessageType.CONNECTED_DEVICES.value) {
             if (message.payload.size < 3) return null
             val count = message.payload[2].toInt() and 0xFF
@@ -213,6 +230,15 @@ class DefaultAapDeviceProfile(
         val value = message.payload[1].toInt() and 0xFF
 
         return when (settingId) {
+            AapControlId.SMART_ROUTING_MODE.value -> {
+                if (!model.features.hasConnectionPreference) return null
+                val mode = when (value) {
+                    1 -> AapSetting.ConnectionPreference.Mode.AUTOMATIC
+                    2 -> AapSetting.ConnectionPreference.Mode.LAST_CONNECTED
+                    else -> return null
+                }
+                AapSetting.ConnectionPreference::class to AapSetting.ConnectionPreference(mode)
+            }
             AapControlId.LISTEN_MODE.value -> {
                 val mode = decodeAncMode(value) ?: return null
                 AapSetting.AncMode::class to AapSetting.AncMode(current = mode, supported = supportedAncModes)
