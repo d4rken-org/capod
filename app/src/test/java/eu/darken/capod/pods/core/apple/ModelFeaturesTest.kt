@@ -342,6 +342,7 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_MAX,
         PodModel.AIRPODS_MAX_USBC,
         PodModel.AIRPODS_MAX2,
+        PodModel.BEATS_360,
     )
 
     private val endCallMuteMicModels = setOf(
@@ -352,6 +353,7 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_PRO2,
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
+        PodModel.BEATS_360,
     )
 
     private val adaptiveAudioNoiseModels = setOf(
