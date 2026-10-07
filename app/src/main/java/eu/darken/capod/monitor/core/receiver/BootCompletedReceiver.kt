@@ -11,7 +11,6 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import eu.darken.capod.profiles.core.toReactionConfig
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
@@ -44,11 +43,6 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
     internal suspend fun startMonitorIfNeeded() {
         val profiles = profilesRepo.profiles.first()
-        // Keep existing boot monitoring for profiles that have not opted into the new path.
-        if (profiles.any { !it.toReactionConfig().audioConnectOnAcl || it.toReactionConfig().autoConnect }) {
-            monitorControl.startMonitor(forceStart = false)
-            return
-        }
         val addresses = profiles.mapNotNull { it.address }.toSet()
         if (addresses.isNotEmpty() && bluetoothManager.connectedDevices.first().any { it.address in addresses }) {
             log(TAG) { "Boot completed with connected Pods, starting monitor." }

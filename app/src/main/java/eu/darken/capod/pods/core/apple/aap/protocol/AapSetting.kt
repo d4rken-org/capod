@@ -11,7 +11,7 @@ sealed class AapSetting {
 
     data class ConnectionPreference(val mode: Mode) : AapSetting() {
         @Serializable
-        enum class Mode { AUTOMATIC, LAST_CONNECTED }
+        enum class Mode { AUTOMATIC, LAST_CONNECTED, OFF }
     }
 
     data class AncMode(

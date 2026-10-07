@@ -81,6 +81,9 @@ class DefaultAapDeviceProfile(
     override fun encodeCommands(command: AapCommand): List<ByteArray> {
         if (command !is AapCommand.SetConnectionPreference) return super.encodeCommands(command)
         require(model.features.hasConnectionPreference) { "Connection preference is not supported by $model" }
+        if (command.mode == AapSetting.ConnectionPreference.Mode.OFF) {
+            return listOf(buildSettingsMessage(AapControlId.ALLOW_AUTO_CONNECT_FROM_AUDIO_ACCESSORY.value, 2))
+        }
         val automatic = command.mode == AapSetting.ConnectionPreference.Mode.AUTOMATIC
         // Allow accessory-initiated links so Android can request audio on ACL_CONNECTED.
         return listOf(

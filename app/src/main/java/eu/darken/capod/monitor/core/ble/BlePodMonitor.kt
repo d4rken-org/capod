@@ -23,7 +23,6 @@ import eu.darken.capod.pods.core.apple.ble.PodFactory
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPairing
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import eu.darken.capod.profiles.core.toReactionConfig
 import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -130,7 +129,6 @@ class BlePodMonitor @Inject constructor(
         log(TAG) { "devices: missingScanPermissions=$missingScanPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
         missingScanPermissions.isEmpty() && isBluetoothEnabled && (
             isForeground ||
-                profiles.any { !it.toReactionConfig().audioConnectOnAcl || it.toReactionConfig().autoConnect } ||
                 profiles.any { profile -> connectedDevices.any { it.address.equals(profile.address, ignoreCase = true) } }
             )
     }

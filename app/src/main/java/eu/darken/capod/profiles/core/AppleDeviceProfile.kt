@@ -32,7 +32,7 @@ data class AppleDeviceProfile(
     @SerialName("reactionOnePodMode") val onePodMode: Boolean = false,
     @SerialName("reactionAutoConnect") val autoConnect: Boolean = false,
     @SerialName("experimentalAudioConnectOnAcl") val audioConnectOnAcl: Boolean = false,
-    @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
+    @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.CASE_OPEN,
     @SerialName("reactionShowPopUpOnCaseOpen") val showPopUpOnCaseOpen: Boolean = false,
     @SerialName("reactionShowPopUpOnConnection") val showPopUpOnConnection: Boolean = false,
     @SerialName("reactionConversationAction") val conversationAction: ConversationAction = ConversationAction.NOTHING,
@@ -56,10 +56,15 @@ data class AppleDeviceProfile(
      * UI to the default 0x0E (no OFF bit) even if the real cycle on-device includes OFF.
      */
     @SerialName("learnedListeningModeCycleMask") val lastRequestedListeningModeCycleMask: Int? = null,
-    /** Last successfully sent preference; the pods do not echo this write. */
+    /** Requested preference, applied on ready AAP sessions; the pods do not echo these writes. */
     @SerialName("lastRequestedConnectionPreference") val lastRequestedConnectionPreference: AapSetting.ConnectionPreference.Mode? = null,
     @SerialName("stemActions") val stemActions: StemActionsConfig = StemActionsConfig(),
 ) : DeviceProfile, HasReactionConfig {
+
+    val autoConnectMode: AapSetting.ConnectionPreference.Mode
+        get() = if ((autoConnect || audioConnectOnAcl) && lastRequestedConnectionPreference != AapSetting.ConnectionPreference.Mode.OFF) {
+            lastRequestedConnectionPreference ?: AapSetting.ConnectionPreference.Mode.AUTOMATIC
+        } else AapSetting.ConnectionPreference.Mode.OFF
 
     override val reactionConfig: ReactionConfig
         get() = ReactionConfig(
@@ -67,9 +72,9 @@ data class AppleDeviceProfile(
             autoPlay = autoPlay,
             startMusicOnWear = startMusicOnWear,
             onePodMode = onePodMode,
-            autoConnect = autoConnect,
-            audioConnectOnAcl = audioConnectOnAcl,
-            autoConnectCondition = autoConnectCondition,
+            autoConnect = autoConnectMode != AapSetting.ConnectionPreference.Mode.OFF,
+            // Keep old serialized WHEN_SEEN values readable, but use the incoming-link condition.
+            autoConnectCondition = if (autoConnectCondition == AutoConnectCondition.WHEN_SEEN) AutoConnectCondition.CASE_OPEN else autoConnectCondition,
             showPopUpOnCaseOpen = showPopUpOnCaseOpen,
             showPopUpOnConnection = showPopUpOnConnection,
             conversationAction = conversationAction,

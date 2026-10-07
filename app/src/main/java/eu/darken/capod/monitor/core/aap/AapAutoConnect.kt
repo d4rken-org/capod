@@ -65,38 +65,30 @@ class AapAutoConnect @Inject constructor(
         initializeConnectionPreference(),
     )
 
-    /** Initialize once after AAP is ready; a saved manual preference always takes precedence. */
     internal fun initializeConnectionPreference(): Flow<Unit> = combine(
         aapManager.allStates,
         profilesRepo.profiles,
     ) { states, profiles ->
         profiles.filterIsInstance<AppleDeviceProfile>()
-            .filter {
-                it.lastRequestedConnectionPreference == null && it.model.features.hasConnectionPreference &&
-                    states[it.address]?.connectionState == AapPodState.ConnectionState.READY
-            }
-            .map { it.id to it.address!! }
+            .filter { it.model.features.hasConnectionPreference &&
+                states[it.address]?.connectionState == AapPodState.ConnectionState.READY }
+            .map { Triple(it.id, it.address!!, it.autoConnectMode) }
     }
         .distinctUntilChanged()
         .onEach { candidates ->
-            for ((id, address) in candidates) {
-                val current = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>()
-                    .firstOrNull { it.id == id } ?: continue
-                if (current.lastRequestedConnectionPreference != null || current.address != address) continue
+            for ((id, address, mode) in candidates) {
                 try {
-                    val mode = AapSetting.ConnectionPreference.Mode.AUTOMATIC
                     aapManager.sendCommand(address, AapCommand.SetConnectionPreference(mode))
-                    profilesRepo.updateAppleProfile(id) {
+                    val current = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>().firstOrNull { it.id == id }
+                    if (current?.lastRequestedConnectionPreference == null) profilesRepo.updateAppleProfile(id) {
                         if (it.lastRequestedConnectionPreference == null && it.address == address) {
                             it.copy(lastRequestedConnectionPreference = mode)
                         } else it
                     }
-                    log(TAG) { "Initialized Automatic connection preference (sent, not device-confirmed)" }
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
-                    // Leave it unset so the next ready connection can try again.
-                    log(TAG, WARN) { "Initial connection preference failed: ${e.message}" }
+                    log(TAG, WARN) { "Connection preference failed: ${e.message}" }
                 }
             }
         }

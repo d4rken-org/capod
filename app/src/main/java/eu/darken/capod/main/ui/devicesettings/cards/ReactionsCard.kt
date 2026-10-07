@@ -61,11 +61,8 @@ internal fun ReactionsCard(
     onConversationActionChange: (ConversationAction) -> Unit = {},
     onConversationVolumeReductionChange: (Int) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
-    onAudioConnectOnAclChange: (Boolean) -> Unit = {},
     connectionPreference: AapSetting.ConnectionPreference.Mode? = null,
-    isRoutingBusy: Boolean = false,
     onConnectionPreferenceChange: (AapSetting.ConnectionPreference.Mode) -> Unit = {},
-    onAutoConnectChange: (Boolean) -> Unit = {},
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
@@ -212,33 +209,18 @@ internal fun ReactionsCard(
                 ReactionsDivider()
             }
         }
-        if (features.hasConnectionPreference) {
-            SegmentedSettingRow<AapSetting.ConnectionPreference.Mode?>(
-                icon = Icons.TwoTone.BluetoothConnected,
-                title = stringResource(R.string.device_settings_connection_preference_label),
-                subtitle = stringResource(R.string.device_settings_connection_preference_description),
-                options = listOf(
-                    stringResource(R.string.device_settings_connection_automatic) to AapSetting.ConnectionPreference.Mode.AUTOMATIC,
-                    stringResource(R.string.device_settings_connection_last) to AapSetting.ConnectionPreference.Mode.LAST_CONNECTED,
-                ),
-                selected = connectionPreference,
-                onSelected = { it?.let(onConnectionPreferenceChange) },
-                enabled = enabled && !isRoutingBusy,
-            )
-        }
-        SettingsSwitchItem(
-            icon = Icons.TwoTone.BluetoothConnected,
-            title = stringResource(R.string.settings_audio_connect_on_acl_label),
-            subtitle = stringResource(R.string.settings_audio_connect_on_acl_description),
-            checked = reactions.audioConnectOnAcl,
-            onCheckedChange = onAudioConnectOnAclChange,
-        )
-        SettingsSwitchItem(
+        SegmentedSettingRow<AapSetting.ConnectionPreference.Mode?>(
             icon = Icons.TwoTone.BluetoothConnected,
             title = stringResource(R.string.settings_autoconnect_label),
             subtitle = stringResource(R.string.settings_autoconnect_description),
-            checked = reactions.autoConnect,
-            onCheckedChange = onAutoConnectChange,
+            options = listOf(
+                stringResource(R.string.device_settings_connection_automatic) to AapSetting.ConnectionPreference.Mode.AUTOMATIC,
+                stringResource(R.string.device_settings_connection_last) to AapSetting.ConnectionPreference.Mode.LAST_CONNECTED,
+                stringResource(R.string.device_settings_connection_off) to AapSetting.ConnectionPreference.Mode.OFF,
+            ),
+            selected = connectionPreference,
+            onSelected = { it?.let(onConnectionPreferenceChange) },
+            enabled = true,
         )
         SettingsBaseItem(
             title = stringResource(R.string.settings_autoconnect_condition_label),
@@ -247,7 +229,7 @@ internal fun ReactionsCard(
             onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
             enabled = reactions.autoConnect,
         )
-        if ((reactions.autoConnect || (reactions.audioConnectOnAcl && Build.VERSION.SDK_INT < 37)) &&
+        if (reactions.autoConnect && Build.VERSION.SDK_INT < 37 &&
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
         ) {
             SettingsInfoBox(
@@ -296,7 +278,6 @@ internal fun ReactionsCard(
         AutoConnectConditionDialog(
             current = reactions.autoConnectCondition,
             hasEarDetection = features.hasEarDetection,
-            hasCase = features.hasCase,
             onSelect = {
                 onAutoConnectConditionChange(it)
                 showAutoConnectConditionDialog = false

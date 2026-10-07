@@ -1,180 +1,71 @@
 package eu.darken.capod.reaction.core.autoconnect
 
-import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
-import io.kotest.matchers.shouldBe
+import eu.darken.capod.common.BuildWrap
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
+import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.NudgeAvailability
+import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
+import eu.darken.capod.common.bluetooth.NudgeAttemptResult
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Nested
+import io.mockk.mockkObject
+import io.mockk.unmockkObject
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.runCurrent
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 class AutoConnectLogicTest : BaseTest() {
-
-    private lateinit var autoConnect: AutoConnect
-
-    @BeforeEach
-    fun setup() {
-        autoConnect = AutoConnect(
-            bluetoothManager = mockk(relaxed = true),
-            deviceMonitor = mockk(relaxed = true),
-            nudgeCapabilityStore = mockk(relaxed = true),
-        )
-    }
-
-    private fun evaluate(
-        mainDeviceAddr: String? = "AA:BB:CC:DD:EE:FF",
-        hasBondedDevice: Boolean = true,
-        isAlreadyConnected: Boolean = false,
-        condition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
-        lidState: DualApplePods.LidState? = null,
-        isBeingWorn: Boolean = false,
-        isEitherPodInEar: Boolean = false,
-        onePodMode: Boolean = false,
-        supportsEarDetection: Boolean = false,
-    ) = autoConnect.evaluateAutoConnect(
-        mainDeviceAddr = mainDeviceAddr,
-        hasBondedDevice = hasBondedDevice,
-        isAlreadyConnected = isAlreadyConnected,
-        condition = condition,
-        lidState = lidState,
-        isBeingWorn = isBeingWorn,
-        isEitherPodInEar = isEitherPodInEar,
-        onePodMode = onePodMode,
-        supportsEarDetection = supportsEarDetection,
-    )
-
-    @Nested
-    inner class Preconditions {
-
-        @Test
-        fun `null main device address - should NOT connect`() {
-            evaluate(mainDeviceAddr = null).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `empty main device address - should NOT connect`() {
-            evaluate(mainDeviceAddr = "").shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `no bonded device - should NOT connect`() {
-            evaluate(hasBondedDevice = false).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `already connected - should NOT connect`() {
-            evaluate(isAlreadyConnected = true).shouldConnect shouldBe false
-        }
-    }
-
-    @Nested
-    inner class WhenSeenCondition {
-
-        @Test
-        fun `WHEN_SEEN and not connected - should connect`() {
-            evaluate(condition = AutoConnectCondition.WHEN_SEEN).shouldConnect shouldBe true
-        }
-    }
-
-    @Nested
-    inner class CaseOpenCondition {
-
-        @Test
-        fun `CASE_OPEN with lid OPEN - should connect`() {
-            evaluate(
-                condition = AutoConnectCondition.CASE_OPEN,
-                lidState = DualApplePods.LidState.OPEN,
-            ).shouldConnect shouldBe true
-        }
-
-        @Test
-        fun `CASE_OPEN with lid CLOSED - should NOT connect`() {
-            evaluate(
-                condition = AutoConnectCondition.CASE_OPEN,
-                lidState = DualApplePods.LidState.CLOSED,
-            ).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `CASE_OPEN with lid UNKNOWN - should NOT connect`() {
-            evaluate(
-                condition = AutoConnectCondition.CASE_OPEN,
-                lidState = DualApplePods.LidState.UNKNOWN,
-            ).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `CASE_OPEN with lid NOT_IN_CASE - should NOT connect`() {
-            evaluate(
-                condition = AutoConnectCondition.CASE_OPEN,
-                lidState = DualApplePods.LidState.NOT_IN_CASE,
-            ).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `CASE_OPEN with null lidState (unsupported device) - should connect (permissive fallback)`() {
-            evaluate(
-                condition = AutoConnectCondition.CASE_OPEN,
-                lidState = null,
-            ).shouldConnect shouldBe true
-        }
-    }
-
-    @Nested
-    inner class InEarCondition {
-
-        @Test
-        fun `IN_EAR with both pods in ear (normal mode) - should connect`() {
-            evaluate(
-                condition = AutoConnectCondition.IN_EAR,
-                isBeingWorn = true,
-                isEitherPodInEar = true,
-                onePodMode = false,
-                supportsEarDetection = true,
-            ).shouldConnect shouldBe true
-        }
-
-        @Test
-        fun `IN_EAR with no pods in ear - should NOT connect`() {
-            evaluate(
-                condition = AutoConnectCondition.IN_EAR,
-                isBeingWorn = false,
-                isEitherPodInEar = false,
-                onePodMode = false,
-                supportsEarDetection = true,
-            ).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `IN_EAR with one pod in ear (normal mode, not both) - should NOT connect`() {
-            evaluate(
-                condition = AutoConnectCondition.IN_EAR,
-                isBeingWorn = false,
-                isEitherPodInEar = true,
-                onePodMode = false,
-                supportsEarDetection = true,
-            ).shouldConnect shouldBe false
-        }
-
-        @Test
-        fun `IN_EAR with one pod in ear (one-pod mode) - should connect`() {
-            evaluate(
-                condition = AutoConnectCondition.IN_EAR,
-                isBeingWorn = false,
-                isEitherPodInEar = true,
-                onePodMode = true,
-                supportsEarDetection = true,
-            ).shouldConnect shouldBe true
-        }
-
-        @Test
-        fun `IN_EAR with unsupported device - should connect (permissive fallback)`() {
-            evaluate(
-                condition = AutoConnectCondition.IN_EAR,
-                isBeingWorn = false,
-                isEitherPodInEar = false,
-                supportsEarDetection = false,
-            ).shouldConnect shouldBe true
+    @Test
+    fun `In ear requests audio only from a live ear report and Off suppresses requests`() = runTest {
+        mockkObject(BuildWrap.VersionWrap)
+        try {
+            every { BuildWrap.VersionWrap.SDK_INT } returns 26
+            val address = "test-device"
+            val profile = AppleDeviceProfile(label = "Pods", address = address, autoConnect = true,
+                autoConnectCondition = AutoConnectCondition.IN_EAR)
+            val profiles = MutableStateFlow<List<DeviceProfile>>(listOf(profile))
+            val states = MutableStateFlow<Map<String, AapPodState>>(emptyMap())
+            val device = mockk<android.bluetooth.BluetoothDevice>()
+            val bluetooth = mockk<BluetoothManager2>(relaxed = true) {
+                every { connectedDevices } returns flowOf(emptyList())
+                every { bondedDevices() } returns flowOf(setOf(BluetoothDevice2(address, "Pods", java.time.Instant.EPOCH, device)))
+            }
+            coEvery { bluetooth.connectAudio(device) } returns NudgeAttemptResult.Accepted
+            val aap = mockk<AapConnectionManager> { every { allStates } returns states }
+            val repo = mockk<DeviceProfilesRepo> { every { this@mockk.profiles } returns profiles }
+            val capabilities = mockk<NudgeCapabilityStore>(relaxed = true) {
+                every { availability } returns MutableStateFlow(NudgeAvailability.AVAILABLE)
+            }
+            backgroundScope.launch { AutoConnect(bluetooth, aap, repo, capabilities).monitor().collect {} }
+            runCurrent()
+            states.value = mapOf(address to AapPodState(connectionState = AapPodState.ConnectionState.READY))
+            runCurrent()
+            coVerify(exactly = 0) { bluetooth.connectAudio(any()) }
+            val inEar = states.value.getValue(address).withSetting(AapSetting.EarDetection::class,
+                AapSetting.EarDetection(AapSetting.EarDetection.PodPlacement.IN_EAR, AapSetting.EarDetection.PodPlacement.IN_EAR))
+            states.value = mapOf(address to inEar)
+            runCurrent()
+            coVerify(exactly = 1) { bluetooth.connectAudio(device) }
+            profiles.value = listOf(profile.copy(lastRequestedConnectionPreference = AapSetting.ConnectionPreference.Mode.OFF))
+            states.value = emptyMap()
+            runCurrent()
+            states.value = mapOf(address to inEar)
+            runCurrent()
+            coVerify(exactly = 1) { bluetooth.connectAudio(device) }
+        } finally {
+            unmockkObject(BuildWrap.VersionWrap)
         }
     }
 }

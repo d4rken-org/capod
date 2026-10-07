@@ -36,6 +36,12 @@ class ConnectionPreferenceTest : BaseTest() {
     }
 
     @Test
+    fun `Off suppresses accessory auto connect without inventing other routing values`() {
+        profile.encodeCommands(AapCommand.SetConnectionPreference(AapSetting.ConnectionPreference.Mode.OFF))
+            .map(::hex) shouldBe listOf("04 00 04 00 09 00 36 02 00 00 00")
+    }
+
+    @Test
     fun `non AirPods models cannot send routing commands`() {
         shouldThrow<IllegalArgumentException> {
             DefaultAapDeviceProfile(PodModel.BEATS_FLEX).encodeCommands(

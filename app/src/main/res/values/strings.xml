@@ -46,7 +46,7 @@
     <string name="settings_start_music_on_wear_description">Always tries to play music when you put your pods on, even after a manual pause.</string>
     <string name="settings_eardetection_info_description">If ear detection only works for one pod, this is an Apple limitation. Only the \"primary pod\" (used for microphone) is detected. Configure on Apple devices: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
-    <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This keeps CAPod monitoring in the background at all times.</string>
+    <string name="settings_autoconnect_description">Reconnect when the buds wake or are worn. Mode changes apply when connected. Android 17+ requires companion-device approval; older versions use a restricted system method.</string>
     <string name="settings_autoconnect_info_android12">Auto connect relies on a system feature that Android 12 and newer restricts. It may not work on your device.</string>
     <string name="settings_autoconnect_condition_label">Auto connect condition</string>
     <string name="settings_devices_label">Devices</string>
@@ -619,10 +619,7 @@
     <string name="general_navigate_up_action">Navigate up</string>
     <string name="general_progress_loading">Loading</string>
     <string name="settings_autoconnect_association_failed">Could not allow auto connect. Open the case next to your phone and try again. %s</string>
-    <string name="device_settings_connection_preference_label">Connection preference</string>
-    <string name="device_settings_connection_preference_description">Change the AirPods connection preference. Automatic reconnection on Android is experimental. Connect once to apply; the selected option shows the last requested preference.</string>
     <string name="device_settings_connection_automatic">Automatically</string>
     <string name="device_settings_connection_last">Last connected</string>
-    <string name="settings_audio_connect_on_acl_label">Connect audio on Bluetooth link (experimental)</string>
-    <string name="settings_audio_connect_on_acl_description">Request audio when the buds connect to the phone. Android 17+ requires companion-device approval; older versions use a restricted system method. Turn off scan-based Auto connect to avoid scanning for reconnection.</string>
+    <string name="device_settings_connection_off">Off</string>
 </resources>

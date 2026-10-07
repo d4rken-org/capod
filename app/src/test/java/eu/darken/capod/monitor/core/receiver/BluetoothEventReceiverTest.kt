@@ -7,6 +7,9 @@ import android.bluetooth.BluetoothProfile
 import eu.darken.capod.common.BuildWrap
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.NudgeAttemptResult
+import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
@@ -50,13 +53,15 @@ class BluetoothEventReceiverTest : BaseTest() {
             val receiver = BluetoothEventReceiver().apply {
                 profilesRepo = repo
                 bluetoothManager = bluetooth
+                aapManager = mockk(relaxed = true)
+                monitorControl = mockk(relaxed = true)
             }
-            var profile = AppleDeviceProfile(label = "Pods", address = device.address, autoConnect = true)
+            var profile = AppleDeviceProfile(label = "Pods", address = device.address, autoConnect = false)
             every { repo.profiles } answers { flowOf(listOf(profile)) }
             receiver.connectAudioIfEnabled(device) shouldBe false
             coVerify(exactly = 0) { bluetooth.connectAudio(any()) }
 
-            profile = profile.copy(autoConnect = false, audioConnectOnAcl = true)
+            profile = profile.copy(autoConnect = true)
             every { bluetooth.isCompanionAssociated(any()) } returns false
             receiver.connectAudioIfEnabled(device) shouldBe true
             coVerify(exactly = 0) { bluetooth.connectAudio(any()) }
@@ -71,6 +76,11 @@ class BluetoothEventReceiverTest : BaseTest() {
             every { bluetooth.isCompanionAssociated(any()) } returns false
             receiver.connectAudioIfEnabled(device) shouldBe true
             coVerify(exactly = 2) { bluetooth.connectAudio(device) }
+
+            profile = profile.copy(autoConnectCondition = AutoConnectCondition.IN_EAR)
+            receiver.connectAudioIfEnabled(device) shouldBe true
+            coVerify(exactly = 1) { receiver.aapManager.connect(targetAddress, device, profile.model) }
+            coVerify(exactly = 2) { bluetooth.connectAudio(any()) }
 
             profile = profile.copy(address = "other-device")
             receiver.connectAudioIfEnabled(device) shouldBe false

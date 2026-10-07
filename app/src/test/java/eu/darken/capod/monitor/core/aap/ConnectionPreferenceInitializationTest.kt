@@ -24,11 +24,10 @@ import testhelpers.BaseTest
 
 class ConnectionPreferenceInitializationTest : BaseTest() {
     @Test
-    fun `retries failed initialization then saves once and preserves manual choices`() = runTest {
+    fun `retries on a new ready connection and never overrides saved Off`() = runTest {
         val automatic = AapSetting.ConnectionPreference.Mode.AUTOMATIC
-        val last = AapSetting.ConnectionPreference.Mode.LAST_CONNECTED
-        val fresh = AppleDeviceProfile(id = "new", label = "New", address = "new-device", model = PodModel.AIRPODS_GEN2)
-        val manual = fresh.copy(id = "manual", address = "manual-device", lastRequestedConnectionPreference = last)
+        val fresh = AppleDeviceProfile(id = "new", label = "New", address = "new-device", model = PodModel.AIRPODS_GEN2, autoConnect = true)
+        val manual = fresh.copy(id = "manual", address = "manual-device", lastRequestedConnectionPreference = AapSetting.ConnectionPreference.Mode.OFF)
         val profiles = MutableStateFlow<List<DeviceProfile>>(listOf(fresh, manual))
         val states = MutableStateFlow<Map<String, AapPodState>>(emptyMap())
         val manager = mockk<AapConnectionManager>(relaxed = true) {
@@ -62,13 +61,13 @@ class ConnectionPreferenceInitializationTest : BaseTest() {
         states.value = mapOf("new-device" to ready, "manual-device" to ready)
         runCurrent()
         coVerify(exactly = 2) { manager.sendCommand("new-device", AapCommand.SetConnectionPreference(automatic)) }
-        coVerify(exactly = 0) { manager.sendCommand("manual-device", any()) }
+        coVerify { manager.sendCommand("manual-device", AapCommand.SetConnectionPreference(AapSetting.ConnectionPreference.Mode.OFF)) }
         (profiles.value.first() as AppleDeviceProfile).lastRequestedConnectionPreference shouldBe automatic
-        (profiles.value.last() as AppleDeviceProfile).lastRequestedConnectionPreference shouldBe last
+        (profiles.value.last() as AppleDeviceProfile).lastRequestedConnectionPreference shouldBe AapSetting.ConnectionPreference.Mode.OFF
         states.value = emptyMap()
         runCurrent()
         states.value = mapOf("new-device" to ready)
         runCurrent()
-        coVerify(exactly = 2) { manager.sendCommand(any(), any()) }
+        coVerify(exactly = 3) { manager.sendCommand("new-device", AapCommand.SetConnectionPreference(automatic)) }
     }
 }

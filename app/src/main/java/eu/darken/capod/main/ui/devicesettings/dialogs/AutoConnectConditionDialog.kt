@@ -26,15 +26,14 @@ import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 internal fun AutoConnectConditionDialog(
     current: AutoConnectCondition,
     hasEarDetection: Boolean,
-    hasCase: Boolean,
     onSelect: (AutoConnectCondition) -> Unit,
     onDismiss: () -> Unit,
 ) {
     val options = AutoConnectCondition.entries.filter { condition ->
         when (condition) {
             AutoConnectCondition.IN_EAR -> hasEarDetection
-            AutoConnectCondition.CASE_OPEN -> hasCase
-            AutoConnectCondition.WHEN_SEEN -> true
+            AutoConnectCondition.CASE_OPEN -> true
+            AutoConnectCondition.WHEN_SEEN -> false
         }
     }
     AlertDialog(
@@ -79,7 +78,6 @@ private fun AutoConnectConditionDialogFullPreview() = PreviewWrapper {
     AutoConnectConditionDialog(
         current = AutoConnectCondition.IN_EAR,
         hasEarDetection = true,
-        hasCase = true,
         onSelect = {},
         onDismiss = {},
     )
@@ -89,9 +87,8 @@ private fun AutoConnectConditionDialogFullPreview() = PreviewWrapper {
 @Composable
 private fun AutoConnectConditionDialogMinimalPreview() = PreviewWrapper {
     AutoConnectConditionDialog(
-        current = AutoConnectCondition.WHEN_SEEN,
+        current = AutoConnectCondition.CASE_OPEN,
         hasEarDetection = false,
-        hasCase = false,
         onSelect = {},
         onDismiss = {},
     )

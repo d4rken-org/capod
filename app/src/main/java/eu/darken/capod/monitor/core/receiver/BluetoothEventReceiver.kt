@@ -16,6 +16,8 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import eu.darken.capod.pods.core.apple.ble.protocol.ContinuityProtocol
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -30,6 +32,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
 
     @Inject lateinit var monitorControl: MonitorControl
     @Inject lateinit var bluetoothManager: BluetoothManager2
+    @Inject lateinit var aapManager: AapConnectionManager
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
@@ -73,9 +76,12 @@ class BluetoothEventReceiver : BroadcastReceiver() {
     internal suspend fun connectAudioIfEnabled(device: BluetoothDevice): Boolean {
         val profile = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>()
             .firstOrNull { it.address.equals(device.address, ignoreCase = true) }
-        if (profile?.audioConnectOnAcl != true) return false
+        if (profile?.reactionConfig?.autoConnect != true) return false
         bluetoothManager.markDeviceConnected(device.address)
-        if (!hasApiLevel(37) || bluetoothManager.isCompanionAssociated(device.address)) {
+        if (profile.reactionConfig.autoConnectCondition == AutoConnectCondition.IN_EAR) {
+            monitorControl.startMonitor(forceStart = false)
+            aapManager.connect(device.address, device, profile.model)
+        } else if (!hasApiLevel(37) || bluetoothManager.isCompanionAssociated(device.address)) {
             val result = bluetoothManager.connectAudio(device)
             log(TAG) { "Experimental ACL audio connection result=$result" }
         } else {

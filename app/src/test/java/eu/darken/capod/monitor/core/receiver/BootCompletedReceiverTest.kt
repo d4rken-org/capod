@@ -15,7 +15,7 @@ import testhelpers.BaseTest
 
 class BootCompletedReceiverTest : BaseTest() {
     @Test
-    fun `new path waits for Bluetooth events while legacy profiles retain boot monitoring`() = runTest {
+    fun `boot waits for Bluetooth events unless a configured device is connected`() = runTest {
         val address = "test-device"
         var profile = AppleDeviceProfile(label = "Pods", address = address, audioConnectOnAcl = true)
         var connected = emptyList<BluetoothDevice2>()
@@ -33,9 +33,9 @@ class BootCompletedReceiverTest : BaseTest() {
         connected = emptyList()
         profile = profile.copy(audioConnectOnAcl = false)
         receiver.startMonitorIfNeeded()
-        verify(exactly = 2) { control.startMonitor(false) }
+        verify(exactly = 1) { control.startMonitor(false) }
         profile = profile.copy(audioConnectOnAcl = true, autoConnect = true)
         receiver.startMonitorIfNeeded()
-        verify(exactly = 3) { control.startMonitor(false) }
+        verify(exactly = 1) { control.startMonitor(false) }
     }
 }

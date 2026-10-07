@@ -197,8 +197,6 @@ fun DeviceSettingsScreenHost(
         onAutoPlayChange = { vm.setAutoPlay(it) },
         onAutoPauseChange = { vm.setAutoPause(it) },
         onStartMusicOnWearChange = { vm.setStartMusicOnWear(it) },
-        onAudioConnectOnAclChange = { vm.setAudioConnectOnAcl(it) },
-        onAutoConnectChange = { vm.setAutoConnect(it) },
         onAutoConnectConditionChange = { vm.setAutoConnectCondition(it) },
         onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
@@ -246,8 +244,6 @@ fun DeviceSettingsScreen(
     onAutoPlayChange: (Boolean) -> Unit = {},
     onAutoPauseChange: (Boolean) -> Unit = {},
     onStartMusicOnWearChange: (Boolean) -> Unit = {},
-    onAudioConnectOnAclChange: (Boolean) -> Unit = {},
-    onAutoConnectChange: (Boolean) -> Unit = {},
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
@@ -430,9 +426,9 @@ fun DeviceSettingsScreen(
                 }
             }
 
-            // ── Reactions (gated on classic connection — needs phone to be the audio target) ──
+            // Profile reactions remain configurable while disconnected; AAP controls require a ready session.
             if (device != null && device.hasSelectedPairedDevice &&
-                features != null && state.isClassicallyConnected
+                features != null
             ) {
                 item("reactions_section") {
                     ReactionsCard(
@@ -447,11 +443,8 @@ fun DeviceSettingsScreen(
                         onConversationActionChange = onConversationActionChange,
                         onConversationVolumeReductionChange = onConversationVolumeReductionChange,
                         onSleepDetectionChange = onSleepDetectionChange,
-                        onAudioConnectOnAclChange = onAudioConnectOnAclChange,
                         connectionPreference = state.connectionPreference,
-                        isRoutingBusy = state.isRoutingBusy,
                         onConnectionPreferenceChange = onConnectionPreferenceChange,
-                        onAutoConnectChange = onAutoConnectChange,
                         onAutoConnectConditionChange = onAutoConnectConditionChange,
                         onShowPopUpOnCaseOpenChange = onShowPopUpOnCaseOpenChange,
                         onShowPopUpOnConnectionChange = onShowPopUpOnConnectionChange,
