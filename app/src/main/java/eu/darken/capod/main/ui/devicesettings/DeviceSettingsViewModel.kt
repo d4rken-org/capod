@@ -9,6 +9,7 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.NudgeAttemptResult
+import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.bluetooth.NudgeAvailability
 import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -89,6 +90,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val isForceConnecting = MutableStateFlow(false)
 
     sealed interface Event {
+        data class ConnectFailed(val message: String?) : Event
         data object OpenBluetoothSettings : Event
         data class SendFailed(val command: AapCommand, val message: String?) : Event
         data object SystemRenameUnavailable : Event
@@ -241,42 +243,45 @@ class DeviceSettingsViewModel @Inject constructor(
         return deviceMonitor.getDeviceForProfile(profileId)?.address
     }
 
+    private var connectAfterAssociation = false
+
+    fun onCompanionAssociationResult() {
+        if (!connectAfterAssociation) return
+        connectAfterAssociation = false
+        launch {
+            val address = currentAddress() ?: return@launch
+            if (bluetoothManager.isCompanionAssociated(address)) forceConnect()
+        }
+    }
+
     fun forceConnect() = launch {
-        if (!isForceConnecting.compareAndSet(expect = false, update = true)) {
-            log(TAG) { "forceConnect already in progress" }
+        if (!hasApiLevel(37) || !bluetoothManager.isCompanionAssociationSupported) {
+            events.tryEmit(Event.OpenBluetoothSettings)
             return@launch
         }
+        if (!isForceConnecting.compareAndSet(expect = false, update = true)) return@launch
         try {
             val address = currentAddress() ?: run {
                 events.tryEmit(Event.OpenBluetoothSettings)
                 return@launch
             }
-            val bonded = try {
-                bluetoothManager.bondedDevices().first().firstOrNull { it.address == address }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "bondedDevices() failed: ${e.message}" }
-                null
+            if (!bluetoothManager.isCompanionAssociated(address)) {
+                connectAfterAssociation = true
+                requestCompanionAssociation(address)
+                return@launch
             }
+            val bonded = bluetoothManager.bondedDevices().first().firstOrNull { it.address == address }?.internal
             if (bonded == null) {
-                log(TAG, WARN) { "No bonded device for $address — opening Bluetooth settings" }
                 events.tryEmit(Event.OpenBluetoothSettings)
                 return@launch
             }
-            if (nudgeCapabilityStore.availability.value == NudgeAvailability.BROKEN) {
-                events.tryEmit(Event.OpenBluetoothSettings)
-                return@launch
-            }
-            val result = try {
-                bluetoothManager.nudgeConnection(bonded)
-            } catch (e: Exception) {
-                log(TAG, WARN) { "nudgeConnection threw: ${e.message}" }
-                NudgeAttemptResult.Rejected
-            }
-            log(TAG, INFO) { "nudgeConnection($bonded) result=$result" }
-            nudgeCapabilityStore.record(result)
+            val result = bluetoothManager.connectAudio(bonded)
+            log(TAG, INFO) { "Manual audio connect result=$result" }
             if (result != NudgeAttemptResult.Accepted) {
-                events.tryEmit(Event.OpenBluetoothSettings)
+                events.tryEmit(Event.ConnectFailed("Audio connection request rejected"))
             }
+        } catch (e: Exception) {
+            events.tryEmit(Event.ConnectFailed(e.message))
         } finally {
             isForceConnecting.value = false
         }

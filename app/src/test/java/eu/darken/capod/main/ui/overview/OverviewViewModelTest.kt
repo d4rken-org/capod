@@ -149,6 +149,28 @@ class OverviewViewModelTest : BaseTest() {
         Bugs.isDebug.value = false
     }
 
+    @Test
+    fun `initial companion request waits for pairing and skips explicit off`() = runTest(testDispatcher) {
+        val bonded = MutableStateFlow<Set<String>>(emptySet())
+        every { bluetoothManager.isCompanionAssociationSupported } returns true
+        every { bluetoothManager.isCompanionAssociated(any()) } returns false
+        every { bluetoothManager.bondedDeviceAddresses } returns bonded
+        profilesFlow.value = listOf(AppleDeviceProfile(label = "Pods", address = "test-pods"))
+        val vm = createViewModel()
+        val job = backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            vm.requestInitialCompanionAssociations()
+        }
+        verify(exactly = 0) { bluetoothManager.requestCompanionAssociation(any(), any()) }
+        profilesFlow.value = listOf(AppleDeviceProfile(label = "Pods", address = "test-pods", autoConnect = false))
+        bonded.value = setOf("test-pods")
+        verify(exactly = 0) { bluetoothManager.requestCompanionAssociation(any(), any()) }
+        profilesFlow.value = listOf(AppleDeviceProfile(label = "Pods", address = "test-pods"))
+        verify(exactly = 1) { bluetoothManager.requestCompanionAssociation("test-pods", any()) }
+        profilesFlow.value = listOf(AppleDeviceProfile(label = "Renamed", address = "test-pods"))
+        verify(exactly = 1) { bluetoothManager.requestCompanionAssociation("test-pods", any()) }
+        job.cancel()
+    }
+
     private fun createViewModel() = OverviewViewModel(
         dispatcherProvider = TestDispatcherProvider(testDispatcher),
         monitorControl = monitorControl,

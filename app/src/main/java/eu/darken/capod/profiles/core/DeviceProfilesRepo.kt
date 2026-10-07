@@ -82,7 +82,7 @@ class DeviceProfilesRepo @Inject constructor(
     private suspend fun detectLegacyReactionData() {
         val hadData = try {
             val legacy = LegacyReactionSettingsReader(context, json).read()
-            legacy.autoPause || legacy.autoPlay || legacy.autoConnect ||
+            legacy.autoPause || legacy.autoPlay || (legacy.autoConnectConfigured && legacy.autoConnect) ||
                 legacy.showPopUpOnCaseOpen || legacy.showPopUpOnConnection ||
                 legacy.onePodMode
         } catch (e: Exception) {
@@ -118,7 +118,7 @@ class DeviceProfilesRepo @Inject constructor(
                     autoPause = legacy.autoPause,
                     autoPlay = legacy.autoPlay,
                     onePodMode = legacy.onePodMode && features.hasDualPods && features.hasEarDetection,
-                    autoConnect = legacy.autoConnect,
+                    autoConnect = if (legacy.autoConnectConfigured) legacy.autoConnect else p.autoConnect,
                     autoConnectCondition = coercedCondition,
                     showPopUpOnCaseOpen = legacy.showPopUpOnCaseOpen,
                     showPopUpOnConnection = legacy.showPopUpOnConnection,

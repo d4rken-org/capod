@@ -21,7 +21,6 @@ import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 internal fun NotConnectedCard(
-    isNudgeAvailable: Boolean,
     isForceConnecting: Boolean,
     onConnect: () -> Unit,
 ) {
@@ -49,8 +48,7 @@ internal fun NotConnectedCard(
             ) {
                 Text(
                     text = stringResource(
-                        if (isNudgeAvailable) R.string.device_settings_not_connected_connect_action
-                        else R.string.device_settings_not_connected_open_settings_action
+                        R.string.device_settings_not_connected_connect_action
                     ),
                 )
             }
@@ -62,17 +60,6 @@ internal fun NotConnectedCard(
 @Composable
 private fun NotConnectedCardNudgeAvailablePreview() = PreviewWrapper {
     NotConnectedCard(
-        isNudgeAvailable = true,
-        isForceConnecting = false,
-        onConnect = {},
-    )
-}
-
-@Preview2
-@Composable
-private fun NotConnectedCardNudgeUnavailablePreview() = PreviewWrapper {
-    NotConnectedCard(
-        isNudgeAvailable = false,
         isForceConnecting = false,
         onConnect = {},
     )
@@ -82,7 +69,6 @@ private fun NotConnectedCardNudgeUnavailablePreview() = PreviewWrapper {
 @Composable
 private fun NotConnectedCardForceConnectingPreview() = PreviewWrapper {
     NotConnectedCard(
-        isNudgeAvailable = true,
         isForceConnecting = true,
         onConnect = {},
     )

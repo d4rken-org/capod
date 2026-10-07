@@ -110,13 +110,19 @@ fun DeviceSettingsScreenHost(
         }
     }
 
-    val companionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {}
+    val companionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
+        vm.onCompanionAssociationResult()
+    }
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
             when (event) {
                 DeviceSettingsViewModel.Event.OpenBluetoothSettings -> {
                     context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+                }
+
+                is DeviceSettingsViewModel.Event.ConnectFailed -> {
+                    snackbarHostState.showSnackbar(context.getString(R.string.device_settings_send_failed, event.message ?: ""))
                 }
 
                 is DeviceSettingsViewModel.Event.SendFailed -> {
@@ -419,7 +425,6 @@ fun DeviceSettingsScreen(
             ) {
                 item("not_connected_info") {
                     NotConnectedCard(
-                        isNudgeAvailable = state.isNudgeAvailable,
                         isForceConnecting = state.isForceConnecting,
                         onConnect = onForceConnect,
                     )

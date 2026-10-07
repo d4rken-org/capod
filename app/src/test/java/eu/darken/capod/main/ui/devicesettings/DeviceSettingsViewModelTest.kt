@@ -180,124 +180,28 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `forceConnect happy path - bonded exists, nudge accepted, no event emitted`() = runVmTest {
-        val bonded = mockBondedDevice(testAddress)
-        every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        coEvery { bluetoothManager.nudgeConnection(bonded) } returns NudgeAttemptResult.Accepted
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        coVerify { bluetoothManager.nudgeConnection(bonded) }
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect when nudge not accepted - emits OpenBluetoothSettings`() = runVmTest {
-        val bonded = mockBondedDevice(testAddress)
-        every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        coEvery { bluetoothManager.nudgeConnection(bonded) } returns NudgeAttemptResult.Rejected
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        val event = vm.events.first()
-        event shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect when nudge unavailable - emits OpenBluetoothSettings without calling nudge`() = runVmTest {
-        val bonded = mockBondedDevice(testAddress)
-        every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        nudgeAvailabilityFlow.value = NudgeAvailability.BROKEN
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        val event = vm.events.first()
-        event shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
-        coVerify(exactly = 0) { bluetoothManager.nudgeConnection(any()) }
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect when no bonded device - emits OpenBluetoothSettings`() = runVmTest {
-        every { bluetoothManager.bondedDevices() } returns flowOf(emptySet())
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        val event = vm.events.first()
-        event shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
-        coVerify(exactly = 0) { bluetoothManager.nudgeConnection(any()) }
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect when bondedDevices throws SecurityException - emits OpenBluetoothSettings`() = runVmTest {
-        every { bluetoothManager.bondedDevices() } throws SecurityException("BLUETOOTH_CONNECT denied")
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        val event = vm.events.first()
-        event shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
-        coVerify(exactly = 0) { bluetoothManager.nudgeConnection(any()) }
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect when nudgeConnection throws - emits OpenBluetoothSettings and resets in-flight`() = runVmTest {
-        val bonded = mockBondedDevice(testAddress)
-        every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        coEvery { bluetoothManager.nudgeConnection(bonded) } throws RuntimeException("oops")
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-
-        val event = vm.events.first()
-        event shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
-        vm.state.first().isForceConnecting shouldBe false
-    }
-
-    @Test
-    fun `forceConnect concurrent calls - second call is a no-op while first in flight`() = runVmTest {
-        val bonded = mockBondedDevice(testAddress)
-        every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-
-        val gate = CompletableDeferred<NudgeAttemptResult>()
-        coEvery { bluetoothManager.nudgeConnection(bonded) } coAnswers { gate.await() }
-
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
-
-        vm.forceConnect()
-        vm.forceConnect()
-
-        gate.complete(NudgeAttemptResult.Accepted)
-
-        coVerify(exactly = 1) { bluetoothManager.nudgeConnection(bonded) }
-        vm.state.first().isForceConnecting shouldBe false
+    fun `manual connect uses public API on Android 17 and settings on older Android`() = runVmTest {
+        io.mockk.mockkObject(eu.darken.capod.common.BuildWrap.VersionWrap)
+        try {
+            val bonded = mockBondedDevice(testAddress)
+            every { bonded.internal } returns mockk()
+            every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
+            every { bluetoothManager.isCompanionAssociationSupported } returns true
+            every { bluetoothManager.isCompanionAssociated(testAddress) } returns true
+            coEvery { bluetoothManager.connectAudio(any()) } returns NudgeAttemptResult.Accepted
+            every { eu.darken.capod.common.BuildWrap.VersionWrap.SDK_INT } returns 37
+            val vm = createViewModel()
+            vm.initialize(testAddress)
+            vm.state.first()
+            vm.forceConnect()
+            coVerify(exactly = 1) { bluetoothManager.connectAudio(any()) }
+            every { eu.darken.capod.common.BuildWrap.VersionWrap.SDK_INT } returns 36
+            vm.forceConnect()
+            vm.events.first() shouldBe DeviceSettingsViewModel.Event.OpenBluetoothSettings
+            coVerify(exactly = 0) { bluetoothManager.nudgeConnection(any()) }
+        } finally {
+            io.mockk.unmockkObject(eu.darken.capod.common.BuildWrap.VersionWrap)
+        }
     }
 
     @Test

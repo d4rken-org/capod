@@ -11,6 +11,15 @@ class AppleDeviceProfileSerializationTest : BaseTest() {
     private val json = Json { ignoreUnknownKeys = true }
 
     @Test
+    fun `auto connect defaults to automatic and preserves explicit off`() {
+        val profile = AppleDeviceProfile(label = "Pods")
+        profile.autoConnectMode shouldBe eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.AUTOMATIC
+        val off = profile.copy(lastRequestedConnectionPreference = eu.darken.capod.pods.core.apple.aap.protocol.AapSetting.ConnectionPreference.Mode.OFF)
+        json.decodeFromString<AppleDeviceProfile>(json.encodeToString(off)).reactionConfig.autoConnect shouldBe false
+        json.decodeFromString<AppleDeviceProfile>("""{"label":"Pods","reactionAutoConnect":false}""").reactionConfig.autoConnect shouldBe false
+    }
+
+    @Test
     fun `profiles stored before the charged reaction decode with defaults`() {
         val legacyJson = """
             {
