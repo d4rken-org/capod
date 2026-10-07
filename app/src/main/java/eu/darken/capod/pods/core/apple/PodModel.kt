@@ -473,7 +473,11 @@ enum class PodModel(
     BEATS_360(
         "Beats 360",
         R.drawable.device_beats_headphones,
-        Features(hasAncControl = true),
+        Features(
+            hasAncControl = true,
+            hasToneVolume = true,
+            hasEndCallMuteMic = true,
+        ),
         modelNumbers = setOf("A3577"), // headphones
     ),
 

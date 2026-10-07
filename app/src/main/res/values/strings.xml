@@ -516,7 +516,7 @@
     <string name="device_settings_volume_swipe_length_longer">Longer</string>
     <string name="device_settings_volume_swipe_length_longest">Longest</string>
     <string name="device_settings_end_call_mute_mic_label">Call Controls</string>
-    <string name="device_settings_end_call_mute_mic_description">Choose what pressing the stem does during calls</string>
+    <string name="device_settings_end_call_mute_mic_description">Choose what presses do during calls</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Single press to end call</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Double press to mute microphone</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Single press to mute microphone</string>
@@ -584,7 +584,7 @@
     <!-- Press Controls -->
     <string name="press_controls_title">Press Controls</string>
     <string name="press_controls_nav_description">Tune press behaviour and map presses to actions</string>
-    <string name="press_controls_description">Tune how presses are detected, choose call-button behaviour, and map presses to actions. Mapped actions apply to this device only and let the app intercept the press instead of the AirPods handling it natively.</string>
+    <string name="press_controls_description">Tune how presses are detected, choose call-button behaviour, and map presses to actions. Mapped actions apply to this device only and let the app intercept the press instead of the headphones handling it natively.</string>
     <string name="press_controls_single_press">Single Press</string>
     <string name="press_controls_double_press">Double Press</string>
     <string name="press_controls_triple_press">Triple Press</string>
