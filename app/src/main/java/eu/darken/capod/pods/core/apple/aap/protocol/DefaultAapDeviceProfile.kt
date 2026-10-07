@@ -82,14 +82,13 @@ class DefaultAapDeviceProfile(
         if (command !is AapCommand.SetConnectionPreference) return super.encodeCommands(command)
         require(model.features.hasConnectionPreference) { "Connection preference is not supported by $model" }
         val automatic = command.mode == AapSetting.ConnectionPreference.Mode.AUTOMATIC
-        // Experiment: allow accessory-initiated links in both modes. macOS Automatic sends 2,
-        // but Android needs the incoming link to trigger its audio-profile connection request.
+        // Allow accessory-initiated links so Android can request audio on ACL_CONNECTED.
         return listOf(
             buildSettingsMessage(AapControlId.ALLOW_AUTO_CONNECT_FROM_AUDIO_ACCESSORY.value, 1),
             buildSettingsMessage(AapControlId.SMART_ROUTING_MODE.value, if (automatic) 1 else 2),
             byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x44, 0x00, 0x04, 0x00, 0x02, 0x00, 0x03, if (automatic) 0x06 else 0x08),
         ) + if (automatic) {
-            // macOS requests the current connected-device list after enabling automatic routing.
+            // Query the current connected-device list; no host address is sent.
             listOf(byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x2D, 0x00))
         } else emptyList()
     }

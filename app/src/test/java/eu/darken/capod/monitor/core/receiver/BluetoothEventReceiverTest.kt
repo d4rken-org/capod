@@ -9,8 +9,6 @@ import eu.darken.capod.common.bluetooth.NudgeAttemptResult
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
-import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -48,21 +46,21 @@ class BluetoothEventReceiverTest : BaseTest() {
         var profile = AppleDeviceProfile(label = "Pods", address = device.address, autoConnect = true)
         every { repo.profiles } answers { flowOf(listOf(profile)) }
         receiver.connectAudioIfEnabled(device) shouldBe false
-        coVerify(exactly = 0) { bluetooth.nudgeConnection(any()) }
+        verify(exactly = 0) { bluetooth.connectAudio(any()) }
 
         profile = profile.copy(autoConnect = false, audioConnectOnAcl = true)
         every { bluetooth.isCompanionAssociated(any()) } returns false
         receiver.connectAudioIfEnabled(device) shouldBe true
-        coVerify(exactly = 0) { bluetooth.nudgeConnection(any()) }
+        verify(exactly = 0) { bluetooth.connectAudio(any()) }
 
         every { bluetooth.isCompanionAssociated(any()) } returns true
-        coEvery { bluetooth.nudgeConnection(any()) } returns NudgeAttemptResult.Accepted
+        every { bluetooth.connectAudio(any()) } returns NudgeAttemptResult.Accepted
         receiver.connectAudioIfEnabled(device) shouldBe true
-        coVerify(exactly = 1) { bluetooth.nudgeConnection(match { it.address == targetAddress }) }
+        verify(exactly = 1) { bluetooth.connectAudio(device) }
         verify(exactly = 2) { bluetooth.markDeviceConnected(targetAddress) }
 
         profile = profile.copy(address = "other-device")
         receiver.connectAudioIfEnabled(device) shouldBe false
-        coVerify(exactly = 1) { bluetooth.nudgeConnection(any()) }
+        verify(exactly = 1) { bluetooth.connectAudio(any()) }
     }
 }

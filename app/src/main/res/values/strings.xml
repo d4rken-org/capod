@@ -619,7 +619,6 @@
     <string name="general_navigate_up_action">Navigate up</string>
     <string name="general_progress_loading">Loading</string>
     <string name="settings_autoconnect_association_failed">Could not allow auto connect. Open the case next to your phone and try again. %s</string>
-    <string name="device_settings_connection_preferences_title">Connection preference</string>
     <string name="device_settings_connection_preference_label">Connection preference</string>
     <string name="device_settings_connection_preference_description">Change the AirPods connection preference. Automatic reconnection on Android is experimental. Connect once to apply; the selected option shows the last requested preference.</string>
     <string name="device_settings_connection_automatic">Automatically</string>

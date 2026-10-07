@@ -9,7 +9,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.hasFeature
 import eu.darken.capod.common.coroutine.AppScope
@@ -20,7 +19,6 @@ import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.ble.protocol.ContinuityProtocol
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import java.time.Instant
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
@@ -78,9 +76,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
         if (profile?.audioConnectOnAcl != true) return false
         bluetoothManager.markDeviceConnected(device.address)
         if (bluetoothManager.isCompanionAssociated(device.address)) {
-            val result = bluetoothManager.nudgeConnection(
-                BluetoothDevice2(device.address, device.name, Instant.now(), device)
-            )
+            val result = bluetoothManager.connectAudio(device)
             log(TAG) { "Experimental ACL audio connection result=$result" }
         } else {
             log(TAG, WARN) { "Experimental ACL audio connection needs companion association" }

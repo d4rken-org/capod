@@ -37,6 +37,7 @@ import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
+import eu.darken.capod.main.ui.devicesettings.components.SegmentedSettingRow
 import eu.darken.capod.main.ui.devicesettings.dialogs.AutoConnectConditionDialog
 import eu.darken.capod.main.ui.devicesettings.dialogs.ConversationActionDialog
 import eu.darken.capod.main.ui.devicesettings.previewFullState
@@ -61,6 +62,9 @@ internal fun ReactionsCard(
     onConversationVolumeReductionChange: (Int) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onAudioConnectOnAclChange: (Boolean) -> Unit = {},
+    connectionPreference: AapSetting.ConnectionPreference.Mode? = null,
+    isRoutingBusy: Boolean = false,
+    onConnectionPreferenceChange: (AapSetting.ConnectionPreference.Mode) -> Unit = {},
     onAutoConnectChange: (Boolean) -> Unit = {},
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
@@ -207,6 +211,20 @@ internal fun ReactionsCard(
             if (hasAnyAapReaction) {
                 ReactionsDivider()
             }
+        }
+        if (features.hasConnectionPreference) {
+            SegmentedSettingRow<AapSetting.ConnectionPreference.Mode?>(
+                icon = Icons.TwoTone.BluetoothConnected,
+                title = stringResource(R.string.device_settings_connection_preference_label),
+                subtitle = stringResource(R.string.device_settings_connection_preference_description),
+                options = listOf(
+                    stringResource(R.string.device_settings_connection_automatic) to AapSetting.ConnectionPreference.Mode.AUTOMATIC,
+                    stringResource(R.string.device_settings_connection_last) to AapSetting.ConnectionPreference.Mode.LAST_CONNECTED,
+                ),
+                selected = connectionPreference,
+                onSelected = { it?.let(onConnectionPreferenceChange) },
+                enabled = enabled && !isRoutingBusy,
+            )
         }
         if (Build.VERSION.SDK_INT >= 37) {
             SettingsSwitchItem(

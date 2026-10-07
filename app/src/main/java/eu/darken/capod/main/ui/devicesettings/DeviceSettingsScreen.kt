@@ -49,7 +49,6 @@ import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryHealthTexts
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryRuntimeWarningBanner
-import eu.darken.capod.main.ui.devicesettings.cards.ConnectionPreferenceCard
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoBottomSheet
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
@@ -431,18 +430,6 @@ fun DeviceSettingsScreen(
                 }
             }
 
-            if (device != null && features != null && device.hasSelectedPairedDevice &&
-                features.hasConnectionPreference
-            ) {
-                item("connection_preference_section") {
-                    ConnectionPreferenceCard(
-                        selected = state.connectionPreference,
-                        routingEnabled = enabled && !state.isRoutingBusy,
-                        onPreferenceChange = onConnectionPreferenceChange,
-                    )
-                }
-            }
-
             // ── Reactions (gated on classic connection — needs phone to be the audio target) ──
             if (device != null && device.hasSelectedPairedDevice &&
                 features != null && state.isClassicallyConnected
@@ -461,6 +448,9 @@ fun DeviceSettingsScreen(
                         onConversationVolumeReductionChange = onConversationVolumeReductionChange,
                         onSleepDetectionChange = onSleepDetectionChange,
                         onAudioConnectOnAclChange = onAudioConnectOnAclChange,
+                        connectionPreference = state.connectionPreference,
+                        isRoutingBusy = state.isRoutingBusy,
+                        onConnectionPreferenceChange = onConnectionPreferenceChange,
                         onAutoConnectChange = onAutoConnectChange,
                         onAutoConnectConditionChange = onAutoConnectConditionChange,
                         onShowPopUpOnCaseOpenChange = onShowPopUpOnCaseOpenChange,
