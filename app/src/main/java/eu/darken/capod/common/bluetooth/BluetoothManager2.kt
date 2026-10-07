@@ -451,8 +451,10 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    fun connectAudio(device: BluetoothDevice): NudgeAttemptResult {
-        if (!hasApiLevel(37)) return NudgeAttemptResult.Rejected
+    suspend fun connectAudio(device: BluetoothDevice): NudgeAttemptResult {
+        if (!hasApiLevel(37)) return nudgeConnection(
+            BluetoothDevice2(device.address, device.name, timeSource.now(), device),
+        )
         // Reflection only because compileSdk is 36; the method is public API from 37.
         val status = try {
             BluetoothDevice::class.java.getMethod("connect").invoke(device) as Int

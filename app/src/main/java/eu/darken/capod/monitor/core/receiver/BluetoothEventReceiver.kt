@@ -7,8 +7,8 @@ import android.bluetooth.BluetoothProfile
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.hasFeature
 import eu.darken.capod.common.coroutine.AppScope
@@ -49,7 +49,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
         } else {
             log(TAG) { "Event related to $bluetoothDevice" }
         }
-        if (intent.action == BluetoothDevice.ACTION_ACL_CONNECTED && Build.VERSION.SDK_INT >= 37
+        if (intent.action == BluetoothDevice.ACTION_ACL_CONNECTED
             && intent.getIntExtra(BluetoothDevice.EXTRA_TRANSPORT, BluetoothDevice.TRANSPORT_AUTO) != BluetoothDevice.TRANSPORT_LE
         ) {
             val pending = goAsync()
@@ -75,7 +75,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
             .firstOrNull { it.address.equals(device.address, ignoreCase = true) }
         if (profile?.audioConnectOnAcl != true) return false
         bluetoothManager.markDeviceConnected(device.address)
-        if (bluetoothManager.isCompanionAssociated(device.address)) {
+        if (!hasApiLevel(37) || bluetoothManager.isCompanionAssociated(device.address)) {
             val result = bluetoothManager.connectAudio(device)
             log(TAG) { "Experimental ACL audio connection result=$result" }
         } else {

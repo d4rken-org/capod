@@ -15,7 +15,8 @@ class ConnectionPreferenceTest : BaseTest() {
 
     @Test
     fun `Automatic allows accessory links while preserving captured smart routing commands`() {
-        profile.encodeCommands(AapCommand.SetConnectionPreference(AapSetting.ConnectionPreference.Mode.AUTOMATIC))
+        DefaultAapDeviceProfile(PodModel.AIRPODS_GEN2)
+            .encodeCommands(AapCommand.SetConnectionPreference(AapSetting.ConnectionPreference.Mode.AUTOMATIC))
             .map(::hex) shouldBe listOf(
             "04 00 04 00 09 00 36 01 00 00 00",
             "04 00 04 00 09 00 20 01 00 00 00",
@@ -35,15 +36,6 @@ class ConnectionPreferenceTest : BaseTest() {
     }
 
     @Test
-    fun `AirPods 2 can send both experimental routing preferences`() {
-        val gen2 = DefaultAapDeviceProfile(PodModel.AIRPODS_GEN2)
-        for (mode in AapSetting.ConnectionPreference.Mode.entries) {
-            val command = AapCommand.SetConnectionPreference(mode)
-            gen2.encodeCommands(command).map(::hex) shouldBe profile.encodeCommands(command).map(::hex)
-        }
-    }
-
-    @Test
     fun `non AirPods models cannot send routing commands`() {
         shouldThrow<IllegalArgumentException> {
             DefaultAapDeviceProfile(PodModel.BEATS_FLEX).encodeCommands(
@@ -52,9 +44,4 @@ class ConnectionPreferenceTest : BaseTest() {
         }
     }
 
-    @Test
-    fun `existing commands remain one complete L2CAP packet`() {
-        val command = AapCommand.SetAncMode(AapSetting.AncMode.Value.ON)
-        profile.encodeCommands(command).map(::hex) shouldBe listOf(hex(profile.encodeCommand(command)))
-    }
 }

@@ -4,11 +4,16 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothA2dp
 import android.bluetooth.BluetoothHeadset
 import android.bluetooth.BluetoothProfile
+import eu.darken.capod.common.BuildWrap
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.NudgeAttemptResult
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockkObject
+import io.mockk.unmockkObject
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -31,36 +36,47 @@ class BluetoothEventReceiverTest : BaseTest() {
     }
 
     @Test
-    fun `ACL request is opt in associated and independent of scan auto connect`() = runTest {
-        val targetAddress = "test-device"
-        val device = mockk<BluetoothDevice> {
-            every { address } returns targetAddress
-            every { name } returns "Pods"
+    fun `ACL request is opt in and only Android 17 needs companion approval`() = runTest {
+        mockkObject(BuildWrap.VersionWrap)
+        try {
+            every { BuildWrap.VersionWrap.SDK_INT } returns 37
+            val targetAddress = "test-device"
+            val device = mockk<BluetoothDevice> {
+                every { address } returns targetAddress
+                every { name } returns "Pods"
+            }
+            val repo = mockk<DeviceProfilesRepo>()
+            val bluetooth = mockk<BluetoothManager2>(relaxed = true)
+            val receiver = BluetoothEventReceiver().apply {
+                profilesRepo = repo
+                bluetoothManager = bluetooth
+            }
+            var profile = AppleDeviceProfile(label = "Pods", address = device.address, autoConnect = true)
+            every { repo.profiles } answers { flowOf(listOf(profile)) }
+            receiver.connectAudioIfEnabled(device) shouldBe false
+            coVerify(exactly = 0) { bluetooth.connectAudio(any()) }
+
+            profile = profile.copy(autoConnect = false, audioConnectOnAcl = true)
+            every { bluetooth.isCompanionAssociated(any()) } returns false
+            receiver.connectAudioIfEnabled(device) shouldBe true
+            coVerify(exactly = 0) { bluetooth.connectAudio(any()) }
+
+            every { bluetooth.isCompanionAssociated(any()) } returns true
+            coEvery { bluetooth.connectAudio(any()) } returns NudgeAttemptResult.Accepted
+            receiver.connectAudioIfEnabled(device) shouldBe true
+            coVerify(exactly = 1) { bluetooth.connectAudio(device) }
+            verify(exactly = 2) { bluetooth.markDeviceConnected(targetAddress) }
+
+            every { BuildWrap.VersionWrap.SDK_INT } returns 26
+            every { bluetooth.isCompanionAssociated(any()) } returns false
+            receiver.connectAudioIfEnabled(device) shouldBe true
+            coVerify(exactly = 2) { bluetooth.connectAudio(device) }
+
+            profile = profile.copy(address = "other-device")
+            receiver.connectAudioIfEnabled(device) shouldBe false
+            coVerify(exactly = 2) { bluetooth.connectAudio(any()) }
+        } finally {
+            unmockkObject(BuildWrap.VersionWrap)
         }
-        val repo = mockk<DeviceProfilesRepo>()
-        val bluetooth = mockk<BluetoothManager2>(relaxed = true)
-        val receiver = BluetoothEventReceiver().apply {
-            profilesRepo = repo
-            bluetoothManager = bluetooth
-        }
-        var profile = AppleDeviceProfile(label = "Pods", address = device.address, autoConnect = true)
-        every { repo.profiles } answers { flowOf(listOf(profile)) }
-        receiver.connectAudioIfEnabled(device) shouldBe false
-        verify(exactly = 0) { bluetooth.connectAudio(any()) }
-
-        profile = profile.copy(autoConnect = false, audioConnectOnAcl = true)
-        every { bluetooth.isCompanionAssociated(any()) } returns false
-        receiver.connectAudioIfEnabled(device) shouldBe true
-        verify(exactly = 0) { bluetooth.connectAudio(any()) }
-
-        every { bluetooth.isCompanionAssociated(any()) } returns true
-        every { bluetooth.connectAudio(any()) } returns NudgeAttemptResult.Accepted
-        receiver.connectAudioIfEnabled(device) shouldBe true
-        verify(exactly = 1) { bluetooth.connectAudio(device) }
-        verify(exactly = 2) { bluetooth.markDeviceConnected(targetAddress) }
-
-        profile = profile.copy(address = "other-device")
-        receiver.connectAudioIfEnabled(device) shouldBe false
-        verify(exactly = 1) { bluetooth.connectAudio(any()) }
     }
 }

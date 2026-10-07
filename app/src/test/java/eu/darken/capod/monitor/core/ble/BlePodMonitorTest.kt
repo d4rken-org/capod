@@ -44,17 +44,6 @@ import testhelpers.datastore.FakeDataStoreValue
 
 class BlePodMonitorTest : BaseTest() {
     @Test
-    fun `scanning requires permissions Bluetooth and either foreground UI or connected Pods`() {
-        shouldScanForPods(true, true, false, false) shouldBe false
-        shouldScanForPods(true, true, false, false, retainBackgroundScan = true) shouldBe true
-        shouldScanForPods(true, true, false, true) shouldBe true
-        shouldScanForPods(true, true, true, false) shouldBe true
-        shouldScanForPods(false, true, true, true) shouldBe false
-        shouldScanForPods(true, false, true, true) shouldBe false
-    }
-
-
-    @Test
     fun `backgrounding with disconnected Pods cancels scanner even with a live subscriber`() = runTest {
         var started = 0
         var stopped = 0

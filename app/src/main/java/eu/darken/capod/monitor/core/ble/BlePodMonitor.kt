@@ -128,13 +128,11 @@ class BlePodMonitor @Inject constructor(
         profilesRepo.profiles,
     ) { missingScanPermissions, isBluetoothEnabled, isForeground, connectedDevices, profiles ->
         log(TAG) { "devices: missingScanPermissions=$missingScanPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
-        shouldScanForPods(
-            hasScanPermission = missingScanPermissions.isEmpty(),
-            bluetoothEnabled = isBluetoothEnabled,
-            isForeground = isForeground,
-            retainBackgroundScan = profiles.any { !it.toReactionConfig().audioConnectOnAcl || it.toReactionConfig().autoConnect },
-            hasConnectedProfile = profiles.any { profile -> connectedDevices.any { it.address.equals(profile.address, ignoreCase = true) } },
-        )
+        missingScanPermissions.isEmpty() && isBluetoothEnabled && (
+            isForeground ||
+                profiles.any { !it.toReactionConfig().audioConnectOnAcl || it.toReactionConfig().autoConnect } ||
+                profiles.any { profile -> connectedDevices.any { it.address.equals(profile.address, ignoreCase = true) } }
+            )
     }
         .distinctUntilChanged()
         .flatMapLatest { isReady ->
@@ -325,11 +323,3 @@ class BlePodMonitor @Inject constructor(
         private val STALE_EVICTION_INTERVAL = Duration.ofSeconds(10)
     }
 }
-
-internal fun shouldScanForPods(
-    hasScanPermission: Boolean,
-    bluetoothEnabled: Boolean,
-    isForeground: Boolean,
-    hasConnectedProfile: Boolean,
-    retainBackgroundScan: Boolean = false,
-): Boolean = hasScanPermission && bluetoothEnabled && (isForeground || hasConnectedProfile || retainBackgroundScan)

@@ -4,7 +4,13 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.content.Context
+import eu.darken.capod.common.BuildWrap
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockkObject
+import io.mockk.spyk
+import io.mockk.unmockkObject
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
@@ -52,6 +58,20 @@ class BluetoothManager2Test : BaseTest() {
         manager = btManager,
         timeSource = timeSource,
     )
+
+    @Test
+    fun `audio connect uses existing reflection nudge before Android 17`() = runTest {
+        mockkObject(BuildWrap.VersionWrap)
+        try {
+            every { BuildWrap.VersionWrap.SDK_INT } returns 26
+            val manager = spyk(create())
+            coEvery { manager.nudgeConnection(any()) } returns NudgeAttemptResult.Accepted
+            manager.connectAudio(deviceA) shouldBe NudgeAttemptResult.Accepted
+            coVerify(exactly = 1) { manager.nudgeConnection(match { it.internal === deviceA }) }
+        } finally {
+            unmockkObject(BuildWrap.VersionWrap)
+        }
+    }
 
     private suspend fun BluetoothManager2.bonded(address: BluetoothAddress) =
         bondedDevices().first().single { it.address == address }

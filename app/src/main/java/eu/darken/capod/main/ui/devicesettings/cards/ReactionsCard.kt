@@ -226,15 +226,13 @@ internal fun ReactionsCard(
                 enabled = enabled && !isRoutingBusy,
             )
         }
-        if (Build.VERSION.SDK_INT >= 37) {
-            SettingsSwitchItem(
-                icon = Icons.TwoTone.BluetoothConnected,
-                title = stringResource(R.string.settings_audio_connect_on_acl_label),
-                subtitle = stringResource(R.string.settings_audio_connect_on_acl_description),
-                checked = reactions.audioConnectOnAcl,
-                onCheckedChange = onAudioConnectOnAclChange,
-            )
-        }
+        SettingsSwitchItem(
+            icon = Icons.TwoTone.BluetoothConnected,
+            title = stringResource(R.string.settings_audio_connect_on_acl_label),
+            subtitle = stringResource(R.string.settings_audio_connect_on_acl_description),
+            checked = reactions.audioConnectOnAcl,
+            onCheckedChange = onAudioConnectOnAclChange,
+        )
         SettingsSwitchItem(
             icon = Icons.TwoTone.BluetoothConnected,
             title = stringResource(R.string.settings_autoconnect_label),
@@ -249,7 +247,9 @@ internal fun ReactionsCard(
             onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
             enabled = reactions.autoConnect,
         )
-        if (reactions.autoConnect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        if ((reactions.autoConnect || (reactions.audioConnectOnAcl && Build.VERSION.SDK_INT < 37)) &&
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+        ) {
             SettingsInfoBox(
                 text = stringResource(R.string.settings_autoconnect_info_android12),
             )

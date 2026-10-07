@@ -624,5 +624,5 @@
     <string name="device_settings_connection_automatic">Automatically</string>
     <string name="device_settings_connection_last">Last connected</string>
     <string name="settings_audio_connect_on_acl_label">Connect audio on Bluetooth link (experimental)</string>
-    <string name="settings_audio_connect_on_acl_description">Request audio when the buds connect to the phone. Requires companion-device approval. Turn off scan-based Auto connect to avoid scanning for reconnection.</string>
+    <string name="settings_audio_connect_on_acl_description">Request audio when the buds connect to the phone. Android 17+ requires companion-device approval; older versions use a restricted system method. Turn off scan-based Auto connect to avoid scanning for reconnection.</string>
 </resources>
