@@ -302,7 +302,9 @@ internal class AapSessionEngine(
         val previous = _state.value.settings[key]
         val clearPrimaryPod = value is AapSetting.EarDetection && run {
             val prev = _state.value.setting<AapSetting.EarDetection>()
-            prev != null && prev.primaryPod == value.secondaryPod && prev.secondaryPod == value.primaryPod
+            // A symmetric frame (e.g. NOT_IN_EAR/NOT_IN_EAR) mirrors onto itself, so a repeat of it is not a swap.
+            prev != null && prev.primaryPod != prev.secondaryPod &&
+                prev.primaryPod == value.secondaryPod && prev.secondaryPod == value.primaryPod
         }
 
         var newState = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())

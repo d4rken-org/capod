@@ -486,6 +486,49 @@ class AapSessionEngineTest : BaseTest() {
             engine.state.value.setting<AapSetting.ToneVolume>()!!.level shouldBe 75
         }
 
+        private fun engineAfterSettings(vararg settings: AapSetting): AapSessionEngine {
+            val profile = mockProfile {
+                every { decodeSetting(any()) } returnsMany settings.map { settingPair(it) }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.start(TestScope(UnconfinedTestDispatcher()))
+            engine.onHandshakeSent()
+            repeat(settings.size) { engine.processMessage(dummyMessage(commandType = 0x0002)) }
+            return engine
+        }
+
+        @Test
+        fun `mirrored ear detection clears PrimaryPod`() {
+            val engine = engineAfterSettings(
+                AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+                AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+                AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            )
+
+            engine.state.value.aapPrimaryPod.shouldBeNull()
+        }
+
+        @Test
+        fun `repeated symmetric ear detection keeps PrimaryPod`() {
+            val bothOut = AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+            )
+            val engine = engineAfterSettings(
+                AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+                bothOut,
+                bothOut,
+            )
+
+            engine.state.value.aapPrimaryPod shouldBe AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT)
+        }
+
         @Test
         fun `stem press emits event`() = runTest(UnconfinedTestDispatcher()) {
             val profile = mockProfile {
