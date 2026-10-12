@@ -12,6 +12,7 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.background
 import androidx.glance.unit.ColorProvider
 import androidx.glance.layout.Alignment
@@ -241,6 +242,7 @@ private fun GlanceWidgetRoot(
         modifier = clickModifier
             .fillMaxSize()
             .background(fixedColor(bgColor))
+            .cornerRadius(16.dp)
             .padding(horizontal = horizontalPadding, vertical = verticalPadding),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalAlignment = Alignment.CenterVertically,

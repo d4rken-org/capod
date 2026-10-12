@@ -521,6 +521,7 @@ private fun AncWidgetRoot(
         modifier = extraModifier
             .fillMaxSize()
             .background(fixedAncColor(bgColor))
+            .cornerRadius(16.dp)
             .padding(horizontal = 8.dp, vertical = 4.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalAlignment = Alignment.CenterVertically,
