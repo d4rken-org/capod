@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
+import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.engine.AapConnection
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -35,6 +36,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream
+import java.util.concurrent.CopyOnWriteArrayList
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
@@ -201,6 +203,50 @@ class AapConnectionManagerTest : BaseTest() {
                 readBlocked.countDown()
                 scope.cancel()
             }
+        }
+
+        @Test
+        fun `unparseable frame is logged with its raw bytes`() = runBlocking {
+            val captured = CopyOnWriteArrayList<Pair<Logging.Priority, String>>()
+            val frameLogged = CountDownLatch(1)
+            val capturingLogger = object : Logging.Logger {
+                override fun log(
+                    priority: Logging.Priority,
+                    tag: String,
+                    message: String,
+                    metaData: Map<String, Any>?,
+                ) {
+                    captured.add(priority to message)
+                    if (message.startsWith("Unparseable AAP frame")) frameLogged.countDown()
+                }
+            }
+            // ConnectResponse header, but far shorter than the 18 bytes AapPacket.parse requires
+            val socket = mockk<BluetoothSocket>(relaxed = true) {
+                every { connect() } just Runs
+                every { outputStream } returns ByteArrayOutputStream()
+                every { inputStream } returns ByteArrayInputStream(byteArrayOf(0x01, 0x00, 0x04, 0x00, 0x00, 0x00))
+            }
+            every { socketFactory.createSocket(any(), any()) } returns socket
+            val connection = AapConnection(
+                device = testDevice,
+                profile = AapDeviceProfile.forModel(PodModel.AIRPODS_PRO3),
+                socketFactory = socketFactory,
+                timeSource = timeSource,
+            )
+
+            val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+            Logging.install(capturingLogger)
+            try {
+                connection.connect(scope)
+                frameLogged.await(15, TimeUnit.SECONDS) shouldBe true
+            } finally {
+                Logging.remove(capturingLogger)
+                scope.cancel()
+            }
+
+            captured.filter { it.second.startsWith("Unparseable AAP frame") } shouldBe listOf(
+                Logging.Priority.INFO to "Unparseable AAP frame len=6 raw=01 00 04 00 00 00",
+            )
         }
 
         @Test

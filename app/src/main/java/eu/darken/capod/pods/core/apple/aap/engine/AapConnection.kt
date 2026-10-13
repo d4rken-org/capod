@@ -187,7 +187,12 @@ internal class AapConnection(
 
                 // L2CAP SEQPACKET: each read() returns exactly one complete frame
                 val raw = buf.copyOfRange(0, len)
-                val packet = AapPacket.parse(raw) ?: continue
+                val packet = AapPacket.parse(raw)
+                if (packet == null) {
+                    val hex = raw.joinToString(" ") { "%02X".format(it) }
+                    log(TAG, Logging.Priority.INFO) { "Unparseable AAP frame len=${raw.size} raw=$hex" }
+                    continue
+                }
 
                 when (packet) {
                     is AapPacket.Message -> engine.processMessage(packet)
