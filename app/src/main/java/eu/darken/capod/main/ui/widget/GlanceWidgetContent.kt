@@ -340,6 +340,7 @@ private fun GlanceDeviceLabel(
     label: String?,
     visible: Boolean,
     textColor: Int,
+    maxLines: Int = Int.MAX_VALUE,
 ) {
     if (visible && label != null) {
         Text(
@@ -350,6 +351,7 @@ private fun GlanceDeviceLabel(
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
             ),
+            maxLines = maxLines,
         )
     }
 }
@@ -385,7 +387,7 @@ private fun GlanceLabelWithLastKnown(
     )
     when (placement) {
         LastKnownPlacement.OWN_LINE -> {
-            GlanceDeviceLabel(label, showLabel, textColor)
+            GlanceDeviceLabel(label, showLabel, textColor, maxLines = 1)
             Text(
                 text = context.getString(R.string.battery_cached_label, lastKnown),
                 style = lastKnownStyle,
