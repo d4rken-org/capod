@@ -21,7 +21,7 @@ concurrency:
 jobs:
   validate-tag:
     name: Validate tag
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Check tag-name format
         env:
@@ -62,7 +62,7 @@ jobs:
     permissions:
       contents: write
       actions: write
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     environment: foss-production
     steps:
       - name: Decode Keystore
@@ -135,7 +135,7 @@ jobs:
   release-gplay:
     needs: validate-tag
     name: Create Google Play release
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     environment: gplay-production
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/fastlane/Gemfile
