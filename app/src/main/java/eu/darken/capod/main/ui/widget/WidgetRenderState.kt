@@ -5,6 +5,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import eu.darken.capod.R
 import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
+import kotlin.math.max
 
 enum class BatteryLayout {
     TINY_COLUMN,
@@ -18,6 +19,49 @@ enum class BatteryLayout {
             else -> NARROW
         }
     }
+}
+
+enum class LastKnownPlacement {
+    NONE,
+    OWN_LINE,
+    APPEND_TO_LABEL,
+    LABEL_SLOT,
+}
+
+fun lastKnownPlacement(
+    hasLastKnown: Boolean,
+    isDualPod: Boolean,
+    layout: BatteryLayout,
+    labelShown: Boolean,
+    heightDp: Float,
+    fontScale: Float,
+): LastKnownPlacement = when {
+    !hasLastKnown -> LastKnownPlacement.NONE
+    layout == BatteryLayout.TINY_COLUMN -> LastKnownPlacement.NONE
+    !labelShown -> LastKnownPlacement.LABEL_SLOT
+    heightDp >= requiredHeightForOwnLine(isDualPod, layout, fontScale) -> LastKnownPlacement.OWN_LINE
+    else -> LastKnownPlacement.APPEND_TO_LABEL
+}
+
+// Height budget of the GlanceWidgetContent layouts, in dp at font scale 1.0 for text lines.
+private const val ROOT_VERTICAL_PADDING_DP = 8f
+private const val TEXT_LINE_DP = 16f
+private const val SMALL_ICON_DP = 20f
+private const val LARGE_ICON_DP = 40f
+private const val WIDE_POD_ROW_PADDING_DP = 12f
+
+private fun requiredHeightForOwnLine(
+    isDualPod: Boolean,
+    layout: BatteryLayout,
+    fontScale: Float,
+): Float {
+    val textLine = TEXT_LINE_DP * fontScale
+    val podContent = when {
+        !isDualPod -> max(SMALL_ICON_DP, textLine)
+        layout == BatteryLayout.WIDE -> WIDE_POD_ROW_PADDING_DP + max(LARGE_ICON_DP, textLine)
+        else -> 3 * max(SMALL_ICON_DP, textLine)
+    }
+    return ROOT_VERTICAL_PADDING_DP + podContent + 2 * textLine
 }
 
 sealed class WidgetRenderState {
