@@ -26,7 +26,7 @@ concurrency:
 jobs:
   device-tests:
     name: Device tests (Android ${{ matrix.api }})
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     strategy:
       fail-fast: false
