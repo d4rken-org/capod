@@ -3,8 +3,6 @@ package eu.darken.capod.main.ui.widget
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import androidx.annotation.Keep
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.glance.GlanceId
 import androidx.glance.LocalSize
@@ -24,7 +22,6 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.battery.takeFor
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -83,42 +80,44 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             val widthDp = LocalSize.current.width
             val layout = BatteryLayout.forCells(getCellsForSize(widthDp.value.toInt()))
 
-            // Glance keeps the content session alive and does not restart provideGlance()
-            // for every update(). Observe a widget-key-deduped device flow so visible state
-            // changes update active sessions without recomposing on every BLE advertisement.
-            val config = runCatching { ep.widgetSettings().getWidgetConfig(appWidgetId) }
-                .onFailure { e -> log(TAG, ERROR) { "getWidgetConfig failed: ${e.asLog()}" } }
-                .getOrNull()
-
-            val state = if (config != null) {
-                val isPro = runCatching { runBlocking { ep.upgradeRepo().isPro() } }
-                    .onFailure { e -> log(TAG, ERROR) { "isPro failed: ${e.asLog()}" } }
-                    .getOrDefault(false)
-                val initialDevice = remember(config.profileId) {
-                    config.profileId?.let { pid ->
-                        runCatching { runBlocking { ep.deviceMonitor().getDeviceForProfile(pid) } }
-                            .onFailure { e -> log(TAG, ERROR) { "initial device lookup failed: ${e.asLog()}" } }
-                            .getOrNull()
-                    }
-                }
-                val device by config.profileId
-                    ?.let { pid -> remember(pid) { ep.deviceMonitor().widgetDeviceFlow(pid) } }
-                    ?.collectAsState(initial = initialDevice)
-                    ?: remember(initialDevice) { androidx.compose.runtime.mutableStateOf(initialDevice) }
-                // Empty while the monitor service isn't running — estimates simply stay hidden.
-                val rawEstimate by config.profileId
-                    ?.let { pid ->
-                        remember(pid) { ep.batteryEstimator().estimates.map { it[pid] }.distinctUntilChanged() }
-                    }
-                    ?.collectAsState(initial = null)
-                    ?: remember { androidx.compose.runtime.mutableStateOf<BatteryEstimate?>(null) }
-                val profileLabel = config.profileId?.let { pid ->
+            val inputs = rememberWidgetInputs(
+                configFlow = remember { ep.widgetSettings().widgetConfigFlow(appWidgetId) },
+                initialConfig = {
+                    runCatching { ep.widgetSettings().getWidgetConfig(appWidgetId) }
+                        .onFailure { e -> log(TAG, ERROR) { "getWidgetConfig failed: ${e.asLog()}" } }
+                        .getOrNull()
+                },
+                proFlow = remember { ep.upgradeRepo().upgradeInfo.map { it.isPro }.distinctUntilChanged() },
+                initialPro = {
+                    runCatching { runBlocking { ep.upgradeRepo().isPro() } }
+                        .onFailure { e -> log(TAG, ERROR) { "isPro failed: ${e.asLog()}" } }
+                        .getOrDefault(false)
+                },
+                labelFlow = { pid ->
+                    ep.deviceProfilesRepo().profiles
+                        .map { profiles -> profiles.firstOrNull { it.id == pid }?.label }
+                        .distinctUntilChanged()
+                },
+                initialLabel = { pid ->
                     runCatching {
                         runBlocking { ep.deviceProfilesRepo().profiles.first().firstOrNull { it.id == pid }?.label }
                     }
                         .onFailure { e -> log(TAG, ERROR) { "profile label lookup failed: ${e.asLog()}" } }
                         .getOrNull()
-                }
+                },
+                deviceFlow = { pid -> ep.deviceMonitor().widgetDeviceFlow(pid) },
+                initialDevice = { pid ->
+                    runCatching { runBlocking { ep.deviceMonitor().getDeviceForProfile(pid) } }
+                        .onFailure { e -> log(TAG, ERROR) { "initial device lookup failed: ${e.asLog()}" } }
+                        .getOrNull()
+                },
+                // Empty while the monitor service isn't running — estimates simply stay hidden.
+                estimateFlow = { pid -> ep.batteryEstimator().estimates.map { it[pid] }.distinctUntilChanged() },
+            )
+            val config = inputs.config
+
+            val state = if (config != null) {
+                val device = inputs.device
 
                 log(TAG, VERBOSE) { "render(appWidgetId=$appWidgetId, deviceKey=${device?.toWidgetKey()})" }
 
@@ -126,11 +125,11 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     context = context,
                     device = device,
                     theme = config.theme,
-                    isPro = isPro,
+                    isPro = inputs.isPro,
                     hasConfiguredProfile = config.profileId != null,
-                    profileLabel = profileLabel,
+                    profileLabel = inputs.profileLabel,
                     layout = layout,
-                    estimate = device?.let { d -> rawEstimate?.takeFor(d) },
+                    estimate = device?.let { d -> inputs.rawEstimate?.takeFor(d) },
                 )
             } else {
                 WidgetRenderState.Message(
