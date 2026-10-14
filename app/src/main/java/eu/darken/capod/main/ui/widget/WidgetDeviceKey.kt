@@ -4,6 +4,7 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import java.time.Instant
 
 /**
  * Snapshot of the [PodDevice] fields that affect widget rendering. Used to
@@ -32,6 +33,7 @@ internal data class WidgetDeviceKey(
     val ancMode: AapSetting.AncMode.Value?,
     val pendingAncMode: AapSetting.AncMode.Value?,
     val visibleAncModes: List<AapSetting.AncMode.Value>,
+    val lastKnownAt: Instant?,
 )
 
 internal fun PodDevice.toWidgetKey(): WidgetDeviceKey = WidgetDeviceKey(
@@ -56,4 +58,8 @@ internal fun PodDevice.toWidgetKey(): WidgetDeviceKey = WidgetDeviceKey(
     ancMode = ancMode?.current,
     pendingAncMode = pendingAncMode,
     visibleAncModes = visibleAncModes,
+    lastKnownAt = widgetLastKnownAt(),
 )
+
+internal fun PodDevice.widgetLastKnownAt(): Instant? =
+    if (isBatteryCached && !isLive) cachedBatteryAt else null

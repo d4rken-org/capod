@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.widget
 
 import android.content.Context
+import android.text.format.DateUtils
 import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
@@ -10,6 +11,7 @@ import eu.darken.capod.monitor.core.battery.displayMinutes
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
+import java.time.Instant
 
 object WidgetRenderStateMapper {
 
@@ -58,6 +60,7 @@ object WidgetRenderStateMapper {
                 caseIcon = device.caseIcon,
                 casePercent = device.batteryCase,
                 caseCharging = device.isCaseCharging == true,
+                lastKnown = device.widgetLastKnownAt()?.let { formatWidgetLastKnown(context, it) },
             )
 
             device != null && device.model != PodModel.UNKNOWN -> WidgetRenderState.SinglePod(
@@ -73,6 +76,7 @@ object WidgetRenderStateMapper {
                 charging = device.isHeadsetBeingCharged == true,
                 worn = device.isBeingWorn == true,
                 estimate = estimate?.headset.estimateText(context, device.isHeadsetBeingCharged == true),
+                lastKnown = device.widgetLastKnownAt()?.let { formatWidgetLastKnown(context, it) },
             )
 
             device != null -> WidgetRenderState.Message(
@@ -137,3 +141,9 @@ object WidgetRenderStateMapper {
         return color
     }
 }
+
+internal fun formatWidgetLastKnown(context: Context, at: Instant): String = DateUtils.formatDateTime(
+    context,
+    at.toEpochMilli(),
+    DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_TIME or DateUtils.FORMAT_ABBREV_MONTH,
+)

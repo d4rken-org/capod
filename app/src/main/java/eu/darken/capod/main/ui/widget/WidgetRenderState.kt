@@ -47,6 +47,7 @@ sealed class WidgetRenderState {
         @DrawableRes val caseIcon: Int,
         val casePercent: Float,
         val caseCharging: Boolean,
+        val lastKnown: String? = null,
     ) : WidgetRenderState()
 
     data class SinglePod(
@@ -62,6 +63,7 @@ sealed class WidgetRenderState {
         val charging: Boolean,
         val worn: Boolean,
         val estimate: String?,
+        val lastKnown: String? = null,
     ) : WidgetRenderState()
 
     data class Message(
