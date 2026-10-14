@@ -13,7 +13,10 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.serialization.SerializationCapod
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
@@ -36,16 +39,25 @@ class WidgetSettings @Inject constructor(
 
     fun getWidgetConfig(widgetId: Int): WidgetConfig {
         val raw = runBlocking { dataStore.data.first()[configKey(widgetId)] }
+        return decodeWidgetConfig("getWidgetConfig", widgetId, raw)
+    }
+
+    fun widgetConfigFlow(widgetId: Int): Flow<WidgetConfig> = dataStore.data
+        .map { it[configKey(widgetId)] }
+        .distinctUntilChanged()
+        .map { raw -> decodeWidgetConfig("widgetConfigFlow", widgetId, raw) }
+
+    private fun decodeWidgetConfig(caller: String, widgetId: Int, raw: String?): WidgetConfig {
         if (raw == null) {
-            log(TAG, VERBOSE) { "getWidgetConfig(widgetId=$widgetId) = absent → default" }
+            log(TAG, VERBOSE) { "$caller(widgetId=$widgetId) = absent → default" }
             return WidgetConfig()
         }
         return try {
             json.decodeFromString<WidgetConfig>(raw).also {
-                log(TAG, VERBOSE) { "getWidgetConfig(widgetId=$widgetId) = $it" }
+                log(TAG, VERBOSE) { "$caller(widgetId=$widgetId) = $it" }
             }
         } catch (e: SerializationException) {
-            log(TAG) { "getWidgetConfig(widgetId=$widgetId): malformed JSON, returning default ($e)" }
+            log(TAG) { "$caller(widgetId=$widgetId): malformed JSON, returning default ($e)" }
             WidgetConfig()
         }
     }
