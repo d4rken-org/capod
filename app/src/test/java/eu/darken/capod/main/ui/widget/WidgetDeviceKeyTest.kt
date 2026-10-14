@@ -202,7 +202,11 @@ class WidgetDeviceKeyTest : BaseTest() {
         val same = dualDevice(ble = null, cached = dualCache()).toWidgetKey()
         val later = dualDevice(
             ble = null,
-            cached = dualCache(leftAt = Instant.parse("2026-04-05T10:05:00Z")),
+            cached = dualCache(
+                leftAt = Instant.parse("2026-04-05T10:05:00Z"),
+                rightAt = Instant.parse("2026-04-05T10:05:00Z"),
+                caseAt = Instant.parse("2026-04-05T10:05:00Z"),
+            ),
         ).toWidgetKey()
 
         same shouldBe first
