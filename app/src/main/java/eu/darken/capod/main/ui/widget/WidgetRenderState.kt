@@ -43,6 +43,16 @@ fun lastKnownPlacement(
     else -> LastKnownPlacement.APPEND_TO_LABEL
 }
 
+fun lastKnownLineText(prefixed: String, bare: String, widthDp: Float, fontScale: Float): String {
+    val estimatedWidth = prefixed.length * AVG_CHAR_WIDTH_EM * TEXT_SIZE_SP * fontScale
+    return if (estimatedWidth <= widthDp - ROOT_HORIZONTAL_PADDING_DP) prefixed else bare
+}
+
+// Rough width estimate for the 12sp last-known line inside the 16dp-padded widget root.
+private const val AVG_CHAR_WIDTH_EM = 0.6f
+private const val TEXT_SIZE_SP = 12f
+private const val ROOT_HORIZONTAL_PADDING_DP = 32f
+
 // Height budget of the GlanceWidgetContent layouts, in dp at font scale 1.0 for text lines.
 private const val ROOT_VERTICAL_PADDING_DP = 8f
 private const val TEXT_LINE_DP = 16f

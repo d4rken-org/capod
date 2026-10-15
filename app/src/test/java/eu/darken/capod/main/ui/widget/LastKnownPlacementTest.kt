@@ -73,4 +73,31 @@ class LastKnownPlacementTest : BaseTest() {
         placement(isDualPod = false, layout = NARROW, heightDp = 60f, fontScale = 1.3f) shouldBe APPEND_TO_LABEL
         placement(isDualPod = false, layout = WIDE, heightDp = 60f, fontScale = 1.3f) shouldBe APPEND_TO_LABEL
     }
+
+    private val prefixed = "Last known · Oct 15, 2:56 AM"
+    private val bare = "Oct 15, 2:56 AM"
+
+    private fun lineText(widthDp: Float, fontScale: Float = 1.0f) = lastKnownLineText(
+        prefixed = prefixed,
+        bare = bare,
+        widthDp = widthDp,
+        fontScale = fontScale,
+    )
+
+    @Test fun `default 2x1 width drops the prefix`() {
+        lineText(widthDp = 172f) shouldBe bare
+    }
+
+    @Test fun `wide widget keeps the prefix`() {
+        lineText(widthDp = 307f) shouldBe prefixed
+    }
+
+    @Test fun `line text width threshold`() {
+        lineText(widthDp = 233.6f) shouldBe prefixed
+        lineText(widthDp = 233.5f) shouldBe bare
+    }
+
+    @Test fun `larger font scale drops the prefix`() {
+        lineText(widthDp = 250f, fontScale = 1.3f) shouldBe bare
+    }
 }
