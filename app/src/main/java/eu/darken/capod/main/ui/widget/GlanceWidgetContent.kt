@@ -367,13 +367,14 @@ private fun GlanceLabelWithLastKnown(
 ) {
     val context = LocalContext.current
     val shownLabel = label?.takeIf { showLabel }
+    val fontScale = context.resources.configuration.fontScale
     val placement = lastKnownPlacement(
         hasLastKnown = lastKnown != null,
         isDualPod = isDualPod,
         layout = layout,
         labelShown = shownLabel != null,
         heightDp = LocalSize.current.height.value,
-        fontScale = context.resources.configuration.fontScale,
+        fontScale = fontScale,
     )
     if (lastKnown == null || placement == LastKnownPlacement.NONE) {
         GlanceDeviceLabel(label, showLabel, textColor)
@@ -385,18 +386,24 @@ private fun GlanceLabelWithLastKnown(
         fontSize = 12.sp,
         textAlign = TextAlign.Center,
     )
+    val lastKnownLine = lastKnownLineText(
+        prefixed = context.getString(R.string.battery_cached_label, lastKnown),
+        bare = lastKnown,
+        widthDp = LocalSize.current.width.value,
+        fontScale = fontScale,
+    )
     when (placement) {
         LastKnownPlacement.OWN_LINE -> {
             GlanceDeviceLabel(label, showLabel, textColor, maxLines = 1)
             Text(
-                text = context.getString(R.string.battery_cached_label, lastKnown),
+                text = lastKnownLine,
                 style = lastKnownStyle,
                 maxLines = 1,
             )
         }
 
         LastKnownPlacement.LABEL_SLOT -> Text(
-            text = context.getString(R.string.battery_cached_label, lastKnown),
+            text = lastKnownLine,
             style = lastKnownStyle,
             maxLines = 1,
         )
