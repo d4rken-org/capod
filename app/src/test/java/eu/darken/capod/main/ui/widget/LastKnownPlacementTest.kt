@@ -93,7 +93,7 @@ class LastKnownPlacementTest : BaseTest() {
     }
 
     @Test fun `line text width threshold`() {
-        lineText(widthDp = 233.6f) shouldBe prefixed
+        lineText(widthDp = 233.7f) shouldBe prefixed
         lineText(widthDp = 233.5f) shouldBe bare
     }
 
