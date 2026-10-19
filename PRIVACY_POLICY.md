@@ -20,7 +20,7 @@ My underlying privacy principle is the [Golden Rule](https://en.wikipedia.org/wi
 
 CAPod does not collect, share or sell location data.
 
-Location permissions are required to receive Bluetooth Low Energy (BLE) data and ebale its core functionality.
+Location permissions are required to receive Bluetooth Low Energy (BLE) data and enable its core functionality.
 The permission "access fine location" (`ACCESS_FINE_LOCATION`) and "access coarse location" (`ACCESS_COARSE_LOCATION`) are required to receive Bluetooth Low Energy data on Android 11 and lower.
 On Android 12+ the newer and more fine grained `BLUETOOTH_SCAN` permission is used instead.
 
