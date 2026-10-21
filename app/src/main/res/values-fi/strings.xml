@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Näyttää toisen ilmoituksen, joka näkyy vain laitteen ollessa yhteydessä. Kun tämä on käytössä, voit piilottaa pysyvän \"Ei laitteita\" -ilmoituksen: poista \"Laitteen tila\" -kategoria käytöstä CAPodin Android-ilmoitusasetuksissa.</string>
     <string name="settings_keep_notification_after_disconnect_label">Säilytä ilmoitus yhteyden katkaisun jälkeen</string>
     <string name="settings_keep_notification_after_disconnect_description">Jatka viimeisten tunnettujen akkutasojen näyttämistä senkin jälkeen, kun AirPodit katkaisevat yhteyden</string>
+    <string name="settings_monitor_statusbar_battery_label">Akkutaso ilmoituspalkissa</string>
+    <string name="settings_monitor_statusbar_battery_description">Näyttää akun varausprosentin ilmoituspalkin kuvakkeena. Nappikuulokkeiden kohdalla näytetään näistä alempi, ohittaen se, joka latautuu.</string>
     <string name="settings_autopause_label">Automaattinen tauko</string>
     <string name="settings_autopause_description">Keskeytä ääni, kun poistat laitteen korvastasi.</string>
     <string name="settings_autopplay_label">Automaattinen toisto</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Vain nappikuulokkeet</string>
     <string name="settings_charged_scope_case_label">Vain kotelo</string>
     <string name="settings_charged_scope_both_label">Nappikuulokkeet ja kotelo</string>
+    <string name="settings_caselow_reminder_label">Kotelon akun muistutus</string>
+    <string name="settings_caselow_reminder_description">Muistuta lataamaan kotelo, kun laitat nupit takaisin ja kotelon akku on vähissä.</string>
+    <string name="settings_caselow_threshold_label">Muistutuksen taso</string>
     <string name="device_settings_experimental_title">Kokeellinen ominaisuus</string>
     <string name="device_settings_experimental_description">Tätä ominaisuutta ei ole vielä testattu kaikilla laitteilla. Jos jokin ei toimi oikein, avaa ongelmaraportti virheenkorjauslokilla.</string>
     <string name="device_settings_experimental_action">Avaa ongelmaseuranta</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Voit poistaa tämän ilmoituksen käytöstä järjestelmäasetuksissa.</string>
     <string name="monitor_notification_starting">Käynnistyy…</string>
     <string name="support_debuglog_label">Virheenkorjausloki</string>
-    <string name="support_debuglog_desc">Tallenna kaikki sovelluksen tekemiset tekstitiedostoon, jonka voit jakaa.</string>
+    <string name="support_debuglog_desc">Tallenna kaikki sovelluksen toiminta zip-tiedostoon, jonka voit jakaa.</string>
     <string name="debug_debuglog_record_action">Tallenna virheenkorjausloki</string>
     <string name="debug_debuglog_stop_action">Lopeta tallennus</string>
     <string name="debug_debuglog_sensitive_information_message">Luotu tiedosto sisältää arkaluonteista tietoa (esim. Bluetooth-laitteen tiedot). Jaa se vain luotettujen osapuolten kanssa.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Poista akun optimointi käytöstä</string>
     <string name="permission_ignore_battery_optimizations_description">Akun optimointi estää tätä sovellusta vastaanottamasta Bluetooth-tietoja luotettavasti taustalla.</string>
     <string name="permission_system_alert_window_label">Järjestelmän hälytysikkuna</string>
-    <string name="permission_system_alert_window_description">Salli CAPod-sovelluksen piirtää muiden sovellusten päälle mahdollistaakseen \"Näytä ponnahdusikkuna\" -ominaisuuden.</string>
+    <string name="permission_system_alert_window_description">Salli CAPodin piirtää muiden sovellusten päälle. Tarvitaan \"Näytä ponnahdusikkuna\" -toimintoon ja äänenohjausavustajan avaamiseen AirPodien painalluksesta.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kun havaitaan</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kotelo on auki</string>
     <string name="settings_reaction_autoconnect_inear_label">Korvassa</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Tarpeeksi täydelle lataukselle</string>
     <string name="battery_case_charges_state_not_enough_cd">Ei tarpeeksi täydelle lataukselle</string>
     <string name="battery_case_charges_state_uncertain_cd">Ei välttämättä tarpeeksi täydelle lataukselle</string>
+    <string name="battery_case_charges_short">%1$s latausta</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ latausta</string>
     <string name="pods_case_status_open_label">Auki</string>
     <string name="pods_case_status_closed_label">Kiinni</string>
     <string name="pods_connection_state_disconnected_label">Ei yhdistetty laitteeseen</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Pidempi</string>
     <string name="device_settings_volume_swipe_length_longest">Pisin</string>
     <string name="device_settings_end_call_mute_mic_label">Puheluhallinnat</string>
-    <string name="device_settings_end_call_mute_mic_description">Valitse, mitä varren painaminen tekee puheluiden aikana</string>
+    <string name="device_settings_end_call_mute_mic_description">Valitse, mitä painallukset tekevät puhelujen aikana</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Yksinkertainen painallus lopettaa puhelun</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Kaksoispainalluks mykistää mikrofonin</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Yksinkertainen painallus mykistää mikrofonin</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Lataus valmis</string>
     <string name="reaction_charged_notification_text_full">%1$s on täyteen ladattu.</string>
     <string name="reaction_charged_notification_text_partial">%1$s on ladattu %2$d%%:iin.</string>
+    <string name="reaction_caselow_channel_label">Kotelon akun muistutus</string>
+    <string name="reaction_caselow_notification_title">Lataa kotelo</string>
+    <string name="reaction_caselow_notification_text">%1$s: kotelon akun varaus on %2$d%%.</string>
     <string name="device_settings_rename_label">Nimeä uudelleen</string>
     <string name="device_settings_rename_hint">Laitteen nimi</string>
     <string name="device_settings_rename_confirm">Nimeä uudelleen</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Taajuuskorjain</string>
     <string name="press_controls_title">Painallushallinta</string>
     <string name="press_controls_nav_description">Säädä painalluskäyttäytymistä ja määritä painallukset toiminnoille</string>
-    <string name="press_controls_description">Säädä, miten painallukset tunnistetaan, valitse puhelupainikkeen toiminta ja määritä painallukset toiminnoille. Määritetyt toiminnot koskevat vain tätä laitetta ja sallivat sovelluksen siepata painalluksen AirPods-käsittelyn sijaan.</string>
+    <string name="press_controls_description">Määritä, miten painallukset tunnistetaan, valitse puhelinpainikkeen toiminta ja yhdistä painallukset toimintoihin. Yhdistetyt toiminnot koskevat vain tätä laitetta, ja sovellus ottaa painalluksen haltuunsa kuulokkeiden käsittelyn sijaan.</string>
     <string name="press_controls_single_press">Yksittäinen painallus</string>
     <string name="press_controls_double_press">Kaksoispainalus</string>
     <string name="press_controls_triple_press">Kolmoispainalus</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Kelaa taaksepäin</string>
     <string name="press_action_cycle_anc">Kierrä melunhallintaa</string>
     <string name="press_action_toggle_anc_transparency">Vaihda läpikuulettavuus</string>
+    <string name="press_action_voice_assistant">Äänenohjausavustaja</string>
+    <string name="press_action_voice_assistant_unavailable">Äänenohjausavustajaa ei löytynyt</string>
     <string name="press_controls_reset_label">Palauta oletukset</string>
     <string name="press_controls_reset_confirm_message">Palautetaanko kaikki painalluksen määritykset oletuksiin?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Äänenohjausavustaja tarvitsee luvan piirtää muiden sovellusten päälle, muuten AirPodien painallus ei avaa sitä.</string>
+    <string name="press_controls_voice_assistant_permission_action">Myönnä</string>
     <string name="device_settings_noise_control_open_press_controls_action">Avaa painallushallinta</string>
     <string name="general_navigate_up_action">Siirry ylös</string>
     <string name="general_progress_loading">Ladataan</string>

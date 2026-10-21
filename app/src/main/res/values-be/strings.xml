@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Паказвае другое паведамленне, якое з\'яўляецца толькі калі прылада падключана. Калі гэта ўключана, можаш схаваць пастаянны паведамленне «Прыладаў не знойдзена»: адключы катэгорыю «Статус прылады» у параметрах паведамленняў Android для CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Захаваць апавяшчэнне пасля адключэння</string>
     <string name="settings_keep_notification_after_disconnect_description">Працягваць паказваць апошнія вядомыя ўзроўні зарадкі нават пасля адключэння вашых AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Узровень зараду ў радку стану</string>
+    <string name="settings_monitor_statusbar_battery_description">Паказвае працэнт зараду як значок апавяшчэння ў радку стану. Для навушнікаў паказваецца меншае з двух значэнняў, пры гэтым пропускаецца тое, што зараджаецца.</string>
     <string name="settings_autopause_label">Аўтаматычная паўза</string>
     <string name="settings_autopause_description">Прыпыняць аўдыя пры выманні прылады з вуха.</string>
     <string name="settings_autopplay_label">Аўтаматычнае прайграванне</string>
@@ -40,7 +42,7 @@
     <string name="settings_start_music_on_wear_description">Заўсёды спрабуе прайграць музыку, калі вы надзяваеце навушнікі, нават пасля ручной паўзы.</string>
     <string name="settings_eardetection_info_description">Калі вызначэнне вуха працуе толькі для аднаго навушніка, гэта абмежаванне Apple. Вызначаецца толькі \"асноўны навушнік\" (выкарыстоўваецца для мікрафона). Наладзьце на прыладах Apple: Налады → Bluetooth → AirPods → Мікрафон.</string>
     <string name="settings_autoconnect_label">Аўтаматычнае падключэнне</string>
-    <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, мы таксама можам запытаць гэта. Гэта ўсталюе для налады рэжыму маніторынгу значэнне \"Заўсёды\".</string>
+    <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, CAPod можа таксама папрасіць яго пра гэта. Так CAPod заўсёды працуе ў фоне і сочыць за навушнікамі.</string>
     <string name="settings_autoconnect_info_android12">Аўтападключэнне залежыць ад сістэмнай функцыі, якую Android 12 і навейшыя версіі абмяжоўваюць. Магчыма, яно не будзе працаваць на вашай прыладзе.</string>
     <string name="settings_autoconnect_condition_label">Умова аўтаматычнага падключэння</string>
     <string name="settings_devices_label">Прылады</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Толькі навушнікі</string>
     <string name="settings_charged_scope_case_label">Толькі футарал</string>
     <string name="settings_charged_scope_both_label">Навушнікі і футарал</string>
+    <string name="settings_caselow_reminder_label">Нагадванне пра зарад футляра</string>
+    <string name="settings_caselow_reminder_description">Нагадваць мне зарадзіць футляр, калі я кладу навушнікі назад, а зарад футляра нізкі.</string>
+    <string name="settings_caselow_threshold_label">Узровень нагадвання</string>
     <string name="device_settings_experimental_title">Эксперыментальная функцыя</string>
     <string name="device_settings_experimental_description">Гэта функцыя яшчэ не была праверана на ўсіх прыладах. Калі нешта не працуе правільна, калі ласка, стварыце запыт з журналам адладкі.</string>
     <string name="device_settings_experimental_action">Адкрыць трэкер задач</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Вы можаце адключыць гэта апавяшчэнне ў сістэмных наладах.</string>
     <string name="monitor_notification_starting">Запускаецца…</string>
     <string name="support_debuglog_label">Журнал адладкі</string>
-    <string name="support_debuglog_desc">Запішыце ўсё, што робіць праграма, у тэкставы файл, якім вы можаце падзяліцца.</string>
+    <string name="support_debuglog_desc">Запісвае ўсё, што робіць праграма, у ZIP-файл, якім можна падзяліцца.</string>
     <string name="debug_debuglog_record_action">Запісаць журнал адладкі</string>
     <string name="debug_debuglog_stop_action">Спыніць запіс</string>
     <string name="debug_debuglog_sensitive_information_message">Згенераваны файл змяшчае канфідэнцыйную інфармацыю (напрыклад, звесткі пра прыладу Bluetooth). Дзяліцеся ім толькі з даверанымі асобамі.</string>
@@ -100,7 +105,7 @@
     <string name="settings_overview_hide_unmatched_label">Хаваць непрызнаныя прылады</string>
     <string name="settings_overview_hide_unmatched_description">Не паказваць у агляднічку блізкія прылады, якія не адпавядаюць ніводнаму з вашых профіляў, напр. AirPods іншых людзей.</string>
     <string name="device_battery_estimate_toggle_label">Ацэнкі стану батарэі</string>
-    <string name="device_battery_estimate_card_desc">Даведайцеся, як гэтая прылада зараджаецца і разраджаецца, каб ацаніць час, які застаўся, час да поўнай зарадкі і здароўе батарэі.</string>
+    <string name="device_battery_estimate_card_desc">Даведайся, як гэта прылада зараджаецца і разраджаецца, каб ацэньваць час працы, час да поўнай зарадкі і тое, колькі з заяўленага часу праслухоўвання яна яшчэ працуе.</string>
     <string name="device_battery_estimate_reset_action">Скінуць вывучаныя даныя</string>
     <string name="device_battery_estimate_reset_desc">Пачаць спачатку з намінальнага рэсурсу батарэі.</string>
     <string name="device_battery_estimate_reset_confirm_title">Скінуць вывучаныя даныя?</string>
@@ -208,7 +213,7 @@
     <string name="permission_ignore_battery_optimizations_label">Адключыць аптымізацыю батарэі</string>
     <string name="permission_ignore_battery_optimizations_description">Аптымізацыя батарэі перашкаджае гэтай праграме надзейна атрымліваць даныя Bluetooth у фонавым рэжыме.</string>
     <string name="permission_system_alert_window_label">Сістэмнае акно папярэджання</string>
-    <string name="permission_system_alert_window_description">Дазвольце CAPod маляваць паверх іншых праграм, каб зрабіць магчымай функцыю \"Паказаць усплывальнае акно\".</string>
+    <string name="permission_system_alert_window_description">Дазволіць CAPod малюваць паверх іншых праграм. Патрэбна для функцыі «Паказаць усплывальнае вакно» і для адкрыцця галасавога памочніка націскам на навушнікі AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Калі бачна</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Корпус адкрыты</string>
     <string name="settings_reaction_autoconnect_inear_label">У вуху</string>
@@ -235,6 +240,8 @@
     <string name="battery_case_charges_state_enough_cd">Хватае для поўнай зарадкі</string>
     <string name="battery_case_charges_state_not_enough_cd">Не хватае для поўнай зарадкі</string>
     <string name="battery_case_charges_state_uncertain_cd">Магчыма, не хватае для поўнай зарадкі</string>
+    <string name="battery_case_charges_short">%1$s зарадкі</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ зарадкі</string>
     <string name="pods_case_status_open_label">Адкрыты</string>
     <string name="pods_case_status_closed_label">Закрыты</string>
     <string name="pods_connection_state_disconnected_label">Не падключана да прылады</string>
@@ -416,6 +423,7 @@
     <string name="device_settings_info_battery_health_value">~%1$d%% ад намінальнага</string>
     <string name="device_settings_info_battery_health_pending">Яшчэ вызначаецца, зайдзіце пазней</string>
     <string name="device_settings_battery_runtime_warning_title">Час слухання значна карацей намінальнага</string>
+    <string name="device_settings_battery_runtime_warning_description">%1$s: каля %2$d%% заяўленага часу праслухоўвання. Націсні для падрабязнасцяў.</string>
     <string name="device_settings_battery_runtime_warning_headset_label">Гэтыя навушнікі</string>
     <string name="device_settings_info_details_label">Дэталі прылады</string>
     <string name="device_settings_info_details_action">Паказаць дэталі прылады</string>
@@ -462,7 +470,7 @@
     <string name="device_settings_volume_swipe_length_longer">Даўжэй</string>
     <string name="device_settings_volume_swipe_length_longest">Найдаўжэй</string>
     <string name="device_settings_end_call_mute_mic_label">Кіраванне выклікамі</string>
-    <string name="device_settings_end_call_mute_mic_description">Выберыце, што робіць націск на ножку падчас выклікаў</string>
+    <string name="device_settings_end_call_mute_mic_description">Выберы, што будуць рабіць націсканні падчас выклікаў</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Аднаразовы націск для завяршэння выкліку</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Двайны націск для адключэння мікрафона</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Аднаразовы націск для адключэння мікрафона</string>
@@ -502,6 +510,9 @@
     <string name="reaction_charged_notification_title">Зарадка завершана</string>
     <string name="reaction_charged_notification_text_full">%1$s поўнасцю зараджаны.</string>
     <string name="reaction_charged_notification_text_partial">%1$s зараджаны да %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Нагадванне пра зарад футляра</string>
+    <string name="reaction_caselow_notification_title">Зарадзі футляр</string>
+    <string name="reaction_caselow_notification_text">%1$s: зарад футляра %2$d%%.</string>
     <string name="device_settings_rename_label">Перайменаваць</string>
     <string name="device_settings_rename_hint">Назва прылады</string>
     <string name="device_settings_rename_confirm">Перайменаваць</string>
@@ -525,7 +536,7 @@
     <string name="device_settings_eq_label">Эквалайзер</string>
     <string name="press_controls_title">Кіраванне націскамі</string>
     <string name="press_controls_nav_description">Наладзіць паводзіны націску і прызначыць дзеянні</string>
-    <string name="press_controls_description">Наладзіць выяўленне націскаў, выбраць паводзіны кнопкі выкліку і прызначыць дзеянні. Прызначаныя дзеянні дзейнічаюць толькі на гэтай прыладзе і дазваляюць праграме перахапіць націск замест апрацоўкі яго самімі AirPods.</string>
+    <string name="press_controls_description">Настройвай выяўленне націсканняў, выбірай паводзіны кнопкі выкліку і прывязвай націсканні да дзеянняў. Прывязаныя дзеянні дзейнічаюць толькі на гэту прыладу і дазваляюць праграме перахопліваць націсканне замест таго, каб яго апрацоўвалі навушнікі.</string>
     <string name="press_controls_single_press">Адзінарны націск</string>
     <string name="press_controls_double_press">Падвойны націск</string>
     <string name="press_controls_triple_press">Трайны націск</string>
@@ -547,8 +558,12 @@
     <string name="press_action_rewind">Перамотка назад</string>
     <string name="press_action_cycle_anc">Цыкл кіравання шумам</string>
     <string name="press_action_toggle_anc_transparency">Пераключыць празрыстась шуму</string>
+    <string name="press_action_voice_assistant">Галасавы памочнік</string>
+    <string name="press_action_voice_assistant_unavailable">Галасавы памочнік не знойдзены</string>
     <string name="press_controls_reset_label">Скінуць да стандартных</string>
     <string name="press_controls_reset_confirm_message">Скінуць ўсе прызначэнні націскаў да стандартных?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Галасаваму памочніку патрэбны дазвол на паказ паверх іншых праграм, інакш націсканне на AirPods яго не адкрые.</string>
+    <string name="press_controls_voice_assistant_permission_action">Надаць</string>
     <string name="device_settings_noise_control_open_press_controls_action">Адкрыць кіраванне націскамі</string>
     <string name="general_navigate_up_action">Назад</string>
     <string name="general_progress_loading">Загрузка</string>

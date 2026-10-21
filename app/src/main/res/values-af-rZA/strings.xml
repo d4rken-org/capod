@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Wys \'n tweede kennisgewing wat slegs verskyn terwyl \'n toestel gekoppel is. As dit aan is, kan jy die permanente \"Geen toestelle\"-kennisgewing wegsteek: skakel die \"Toestelstatus\"-kategorie in Android se kennisgewinginstellings vir CAPod af.</string>
     <string name="settings_keep_notification_after_disconnect_label">Hou kennisgewing ná ontkoppeling</string>
     <string name="settings_keep_notification_after_disconnect_description">Hou aan om die laaste bekende batteryvlakke te wys selfs nadat jou AirPods ontkoppel.</string>
+    <string name="settings_monitor_statusbar_battery_label">Battery-vlak in statusbalk</string>
+    <string name="settings_monitor_statusbar_battery_description">Wys die batterypersentasie as die kennisgewingikoon in die statusbalk. Vir oorfone word die laer van die twee getoon, met een wat laai oorgeslaan.</string>
     <string name="settings_autopause_label">Outo-pouse</string>
     <string name="settings_autopause_description">Pouseer oudio wanneer die toestel uit jou oor verwyder word.</string>
     <string name="settings_autopplay_label">Outo-speel</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Slegs pods</string>
     <string name="settings_charged_scope_case_label">Slegs kis</string>
     <string name="settings_charged_scope_both_label">Pods en kis</string>
+    <string name="settings_caselow_reminder_label">Herinnering vir saakbattery</string>
+    <string name="settings_caselow_reminder_description">Herinner my om die saak te laai wanneer ek die oorfone terugsit en die saakbattery laag is.</string>
+    <string name="settings_caselow_threshold_label">Herinneringsvlak</string>
     <string name="device_settings_experimental_title">Eksperimentele kenmerk</string>
     <string name="device_settings_experimental_description">Hierdie kenmerk is nog nie op alle toestelle getoets nie. As iets nie korrek werk nie, open asseblief \'n kwessie met \'n foutopsporingsloglêer.</string>
     <string name="device_settings_experimental_action">Open Kwessiespoorder</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">U kan hierdie kennisgewing in stelselinstellings deaktiveer.</string>
     <string name="monitor_notification_starting">Begin nou…</string>
     <string name="support_debuglog_label">Ontfoutingslog</string>
-    <string name="support_debuglog_desc">Teken alles wat die toepassing doen aan in \'n tekslêer wat jy kan deel.</string>
+    <string name="support_debuglog_desc">Teken alles op wat die app doen in \'n zip-lêer wat jy kan deel.</string>
     <string name="debug_debuglog_record_action">Teken ontfoutingslog aan</string>
     <string name="debug_debuglog_stop_action">Stop aantekening</string>
     <string name="debug_debuglog_sensitive_information_message">Die gegenereerde lêer bevat sensitiewe inligting (bv. Bluetooth-toestelbesonderhede). Deel dit slegs met vertroude partye.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Deaktiveer battery-optimalisasies</string>
     <string name="permission_ignore_battery_optimizations_description">Battery-optimalisasies keer dat hierdie toepassing Bluetooth-data betroubaar ontvang terwyl dit in die agtergrond is.</string>
     <string name="permission_system_alert_window_label">Stelselwaarskuwingsvenster</string>
-    <string name="permission_system_alert_window_description">Laat CAPod toe om oor ander toepassings te teken om die kenmerk Wys opspringer moontlik te maak.</string>
+    <string name="permission_system_alert_window_description">Laat CAPod toe om oor ander apps te teken. Dit is nodig vir die \"Wys PopUp\"-funksie en om die stemassistent oop te maak wanneer jy op jou AirPods druk.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wanneer gesien</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kassie is oop</string>
     <string name="settings_reaction_autoconnect_inear_label">In oor</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Genoeg vir \'n volle lading</string>
     <string name="battery_case_charges_state_not_enough_cd">Nie genoeg vir \'n volle lading nie</string>
     <string name="battery_case_charges_state_uncertain_cd">Mag dalk nie genoeg wees vir \'n volle lading nie</string>
+    <string name="battery_case_charges_short">%1$s kwartasies</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ kwartasies</string>
     <string name="pods_case_status_open_label">Oop</string>
     <string name="pods_case_status_closed_label">Toe</string>
     <string name="pods_connection_state_disconnected_label">Nie aan \'n toestel gekoppel nie</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Langer</string>
     <string name="device_settings_volume_swipe_length_longest">Langste</string>
     <string name="device_settings_end_call_mute_mic_label">Oproepbeheer</string>
-    <string name="device_settings_end_call_mute_mic_description">Kies wat die druk van die stam doen tydens oproepe</string>
+    <string name="device_settings_end_call_mute_mic_description">Kies wat drukke tydens oproepe doen</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Enkel druk om oproep te beëindig</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dubbel druk om mikrofoon te demp</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkel druk om mikrofoon te demp</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Laai voltooi</string>
     <string name="reaction_charged_notification_text_full">%1$s is volledig gelaai.</string>
     <string name="reaction_charged_notification_text_partial">%1$s is na %2$d%% gelaai.</string>
+    <string name="reaction_caselow_channel_label">Herinnering vir saakbattery</string>
+    <string name="reaction_caselow_notification_title">Laai jou saak</string>
+    <string name="reaction_caselow_notification_text">%1$s: saakbattery is op %2$d%%.</string>
     <string name="device_settings_rename_label">Hernoem</string>
     <string name="device_settings_rename_hint">Toestelnaam</string>
     <string name="device_settings_rename_confirm">Hernoem</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Egaliseerder</string>
     <string name="press_controls_title">Drukbeheer</string>
     <string name="press_controls_nav_description">Stem drukgedrag in en koppel drukke aan aksies</string>
-    <string name="press_controls_description">Stem in hoe drukke opgespoor word, kies oproepknopgedrag en koppel drukke aan aksies. Gemaapte aksies geld slegs vir hierdie toestel en laat die program die druk onderskep in plaas van AirPods wat dit ingeboude hanteer.</string>
+    <string name="press_controls_description">Stel in hoe drukke opgespoor word, kies die oproepknop se gedrag, en koppel drukke aan aksies. Gekoppelde aksies geld net vir hierdie toestel en laat die app die druk onderskep in plaas daarvan dat die oorfone dit self hanteer.</string>
     <string name="press_controls_single_press">Enkele Druk</string>
     <string name="press_controls_double_press">Dubbele Druk</string>
     <string name="press_controls_triple_press">Driedubbele Druk</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Terugspoelen</string>
     <string name="press_action_cycle_anc">Siklus Geraasbeheersing</string>
     <string name="press_action_toggle_anc_transparency">Wissel Deursigtigheid</string>
+    <string name="press_action_voice_assistant">Stemassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Geen stemassistent gevind nie</string>
     <string name="press_controls_reset_label">Herstel na verstekke</string>
     <string name="press_controls_reset_confirm_message">Herstel alle drukkoppeling na verstekke?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Stemassistent benodig toestemming om oor ander apps te wys, anders sal druk op jou AirPods dit nie oopmaak nie.</string>
+    <string name="press_controls_voice_assistant_permission_action">Laat toe</string>
     <string name="device_settings_noise_control_open_press_controls_action">Maak Drukbeheer oop</string>
     <string name="general_navigate_up_action">Terug</string>
     <string name="general_progress_loading">Laai</string>

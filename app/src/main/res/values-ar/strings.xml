@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">يعرض إشعارًا ثانيًا يظهر فقط عند اتّصال الجهاز. بتفعيل هذا الخيار، يمكنك إخفاء إشعار ”لا توجد أجهزة“ الدائم: أوقف تشغيل فئة ”حالة الجهاز“ في إعدادات إشعارات أندرويد لكابود.</string>
     <string name="settings_keep_notification_after_disconnect_label">أبقِ الإشعار بعد قطع الاتّصال</string>
     <string name="settings_keep_notification_after_disconnect_description">يستمرّ التطبيق في عرض آخر مستويات البطّارية المعروفة حتّى بعد فصل سمّاعات أيربودز</string>
+    <string name="settings_monitor_statusbar_battery_label">مستوى البطارية في شريط الحالة</string>
+    <string name="settings_monitor_statusbar_battery_description">يعرض نسبة شحن البطارية كأيقونة إشعار في شريط الحالة. بالنسبة لسماعات الأذن، يُعرض الأدنى من الاثنتين، مع تجاهل السماعة التي تُشحن.</string>
     <string name="settings_autopause_label">الإيقاف التلقائي</string>
     <string name="settings_autopause_description">يوقف الصوت مؤقّتًا عند إزالة الجهاز من أذنك.</string>
     <string name="settings_autopplay_label">التشغيل التلقائي</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">السمّاعات فقط</string>
     <string name="settings_charged_scope_case_label">الحافظة فقط</string>
     <string name="settings_charged_scope_both_label">السمّاعات والحافظة</string>
+    <string name="settings_caselow_reminder_label">تذكير ببطارية العلبة</string>
+    <string name="settings_caselow_reminder_description">ذكّرني بشحن العلبة عندما أضع السماعات فيها وتكون بطارية العلبة منخفضة.</string>
+    <string name="settings_caselow_threshold_label">مستوى التذكير</string>
     <string name="device_settings_experimental_title">مزيّةٌ تجريبية</string>
     <string name="device_settings_experimental_description">لم يتمّ اختبار هذه المزيّة على جميع الأجهزة بعد. إذا واجهت أيّ مشكلةٍ، يرجى الإبلاغ عنها مع إرفاق سجلّ تصحيح الأخطاء.</string>
     <string name="device_settings_experimental_action">افتح متتبّع المشاكل</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">يمكنك تعطيل هذا الإشعار في إعدادات النظام.</string>
     <string name="monitor_notification_starting">يجري البدء…</string>
     <string name="support_debuglog_label">سجلّ تصحيح الأخطاء</string>
-    <string name="support_debuglog_desc">يسجّل كلّما يفعله التطبيق في ملفٍّ نصيٍّ يمكنك مشاركته.</string>
+    <string name="support_debuglog_desc">سجّل كل ما يقوم به التطبيق في ملف مضغوط يمكنك مشاركته.</string>
     <string name="debug_debuglog_record_action">سجّل سجلّ تصحيح الأخطاء</string>
     <string name="debug_debuglog_stop_action">أوقف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملفّ المُنشأ على معلوماتٍ حسّاسةٍ (مثل تفاصيل جهاز البلوتوث). لا تشاركه إلّا مع جهاتٍ موثوقة.</string>
@@ -112,7 +117,7 @@
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">عنصرٌ يعرض آخر حالةٍ معروفةٍ للجهاز.</string>
     <string name="anc_widget_description">يمكنك التحكّم في أوضاع إلغاء الضوضاء النشيط (ANC) مباشرةً من شاشتك الرئيسة.</string>
-    <string name="anc_widget_config_aap_required_hint">يتطلّب هذا العنصر اتّصالًا مباشرًا (AAP) بجهازك. تأكّد إقران جهازك وتوصيله بالتطبيق قبل استخدام هذا العنصر.</string>
+    <string name="anc_widget_config_aap_required_hint">يتطلّب هذا العنصر اتّصالًا مباشرًا (AAP) بجهازك. تيقّن من إقران جهازك وتوصيله بالتطبيق قبل استخدام هذا العنصر.</string>
     <string name="anc_widget_no_anc_support_label">هذا الجهاز لا يدعم التحكّم في الضوضاء</string>
     <string name="anc_widget_aap_not_connected_label">غير متّصل</string>
     <string name="anc_widget_aap_not_connected_nearby_description">قريبٌ ولكنّه غير متّصل</string>
@@ -212,7 +217,7 @@
     <string name="permission_ignore_battery_optimizations_label">تعطيل تحسينات البطارية</string>
     <string name="permission_ignore_battery_optimizations_description">تعمل تحسينات البطّارية على منع هذا التطبيق من استقبال بيانات البلوتوث بشكلٍ موثوقٍ في أثناء تشغيل التطبيق في الخلفية.</string>
     <string name="permission_system_alert_window_label">نافذة تنبيه النظام</string>
-    <string name="permission_system_alert_window_description">يسمح لكابود بالظهور فوق التطبيقات الأخرى لجعل مزيّة ”إرسال الإشعار المنبثق“ مُمكِنة.</string>
+    <string name="permission_system_alert_window_description">اسمح لـ CAPod بالرسم فوق التطبيقات الأخرى. مطلوب لميزة \"عرض النافذة المنبثقة\" ولفتح المساعد الصوتي عند الضغط على سماعات AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">عند الرؤية</string>
     <string name="settings_reaction_autoconnect_caseopen_label">الحافظة مفتوحة</string>
     <string name="settings_reaction_autoconnect_inear_label">في الأذن</string>
@@ -479,7 +484,7 @@
     <string name="device_settings_volume_swipe_length_longer">أطول</string>
     <string name="device_settings_volume_swipe_length_longest">الأطول</string>
     <string name="device_settings_end_call_mute_mic_label">عناصر التحكم في المكالمات</string>
-    <string name="device_settings_end_call_mute_mic_description">اختر ما يفعله الضغط على العصا أثناء المكالمات</string>
+    <string name="device_settings_end_call_mute_mic_description">اختر ما تفعله الضغطات أثناء المكالمات</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ضغطة واحدة لإنهاء المكالمة</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ضغطة مزدوجة لكتم صوت الميكروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ضغطة واحدة لكتم صوت الميكروفون</string>
@@ -519,6 +524,9 @@
     <string name="reaction_charged_notification_title">اكتمل الشحن</string>
     <string name="reaction_charged_notification_text_full">%1$s مشحون بالكامل.</string>
     <string name="reaction_charged_notification_text_partial">تم شحن %1$s إلى %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">تذكير ببطارية العلبة</string>
+    <string name="reaction_caselow_notification_title">اشحن علبتك</string>
+    <string name="reaction_caselow_notification_text">%1$s: بطارية العلبة عند %2$d%%.</string>
     <string name="device_settings_rename_label">إعادة تسمية</string>
     <string name="device_settings_rename_hint">اسم الجهاز</string>
     <string name="device_settings_rename_confirm">إعادة تسمية</string>
@@ -542,7 +550,7 @@
     <string name="device_settings_eq_label">المعادل الصوتي</string>
     <string name="press_controls_title">عناصر التحكم بالضغط</string>
     <string name="press_controls_nav_description">ضبط سلوك الضغط وتعيين الضغطات للإجراءات</string>
-    <string name="press_controls_description">ضبط كيفية اكتشاف الضغطات، واختيار سلوك زر الاتصال، وتعيين الضغطات للإجراءات. تنطبق الإجراءات المعيّنة على هذا الجهاز فقط وتسمح للتطبيق باعتراض الضغط بدلاً من معالجته بشكل أصلي بواسطة AirPods.</string>
+    <string name="press_controls_description">اضبط طريقة اكتشاف الضغطات، واختر سلوك زر المكالمات، واربط الضغطات بالإجراءات. تنطبق الإجراءات المربوطة على هذا الجهاز فقط، وتتيح للتطبيق اعتراض الضغطة بدلاً من أن تتولاها السماعات بشكل أصلي.</string>
     <string name="press_controls_single_press">ضغطة واحدة</string>
     <string name="press_controls_double_press">ضغطتان</string>
     <string name="press_controls_triple_press">ثلاث ضغطات</string>
@@ -564,8 +572,12 @@
     <string name="press_action_rewind">ترجيع</string>
     <string name="press_action_cycle_anc">تدوير التحكم في الضوضاء</string>
     <string name="press_action_toggle_anc_transparency">تبديل الشفافية</string>
+    <string name="press_action_voice_assistant">المساعد الصوتي</string>
+    <string name="press_action_voice_assistant_unavailable">لم يتم العثور على مساعد صوتي</string>
     <string name="press_controls_reset_label">إعادة تعيين للافتراضيات</string>
     <string name="press_controls_reset_confirm_message">إعادة تعيين جميع تعيينات الضغط للافتراضيات؟</string>
+    <string name="press_controls_voice_assistant_permission_hint">يحتاج المساعد الصوتي إلى إذن لعرض المحتوى فوق التطبيقات الأخرى، وإلا فلن يُفتح عند الضغط على سماعات AirPods.</string>
+    <string name="press_controls_voice_assistant_permission_action">امنح</string>
     <string name="device_settings_noise_control_open_press_controls_action">فتح عناصر التحكم بالضغط</string>
     <string name="general_navigate_up_action">الانتقال للأعلى</string>
     <string name="general_progress_loading">التحميل جارٍ</string>

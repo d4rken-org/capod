@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Visar en andra avisering som bara syns när en enhet är ansluten. Med detta aktiverat kan du dölja den permanenta aviseringen \"Inga enheter\": inaktivera kategorin \"Enhetsstatus\" i Androids aviseringsinställningar för CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Behåll avisering efter frånkoppling</string>
     <string name="settings_keep_notification_after_disconnect_description">Fortsätt visa de senast kända batterinivåerna även efter att dina AirPods kopplas från</string>
+    <string name="settings_monitor_statusbar_battery_label">Batterinivå i statusfältet</string>
+    <string name="settings_monitor_statusbar_battery_description">Visar batteriprocenten som aviseringsikon i statusfältet. För öronsnäckor visas den lägsta av de två, och en som laddas hoppas över.</string>
     <string name="settings_autopause_label">Automatisk paus</string>
     <string name="settings_autopause_description">Pausa ljudet när du tar bort enheten från örat.</string>
     <string name="settings_autopplay_label">Automatisk uppspelning</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Bara pods</string>
     <string name="settings_charged_scope_case_label">Bara fodralet</string>
     <string name="settings_charged_scope_both_label">Pods och fodral</string>
+    <string name="settings_caselow_reminder_label">Påminnelse om fodralets batteri</string>
+    <string name="settings_caselow_reminder_description">Påminn mig om att ladda fodralet när jag lägger tillbaka lurarna och fodralets batteri är lågt.</string>
+    <string name="settings_caselow_threshold_label">Påminnelsenivå</string>
     <string name="device_settings_experimental_title">Experimentell funktion</string>
     <string name="device_settings_experimental_description">Den här funktionen har inte testats på alla enheter än. Om något inte fungerar korrekt, vänligen öppna ett ärende med en felsökningslogg.</string>
     <string name="device_settings_experimental_action">Öppna ärendehanteraren</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Du kan inaktivera detta meddelande i systeminställningarna.</string>
     <string name="monitor_notification_starting">Startar upp…</string>
     <string name="support_debuglog_label">Felsökningslogg</string>
-    <string name="support_debuglog_desc">Spela in allt appen gör i en textfil som du kan dela.</string>
+    <string name="support_debuglog_desc">Spela in allt appen gör till en zip-fil som du kan dela.</string>
     <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>
     <string name="debug_debuglog_stop_action">Stoppa inspelning</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererade filen innehåller känslig information (t.ex. Bluetooth-enhetsdetaljer). Dela den endast med betrodda parter.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Inaktivera batterioptimering</string>
     <string name="permission_ignore_battery_optimizations_description">Batterioptimering förhindrar denna app från att tillförlitligt ta emot Bluetooth-data medan appen körs i bakgrunden.</string>
     <string name="permission_system_alert_window_label">Visa över andra appar</string>
-    <string name="permission_system_alert_window_description">Tillåt CAPod att rita över andra appar för att möjliggöra funktionen \"Visa popup\".</string>
+    <string name="permission_system_alert_window_description">Tillåt CAPod att rita över andra appar. Behövs för funktionen \"Visa popup\" och för att öppna röstassistenten när du trycker på dina AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">När den ses</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Fodralet är öppet</string>
     <string name="settings_reaction_autoconnect_inear_label">I örat</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Tillräckligt för en fulladdning</string>
     <string name="battery_case_charges_state_not_enough_cd">Inte tillräckligt för en fulladdning</string>
     <string name="battery_case_charges_state_uncertain_cd">Kanske inte tillräckligt för en fulladdning</string>
+    <string name="battery_case_charges_short">%1$s laddningar</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ laddningar</string>
     <string name="pods_case_status_open_label">Öppet</string>
     <string name="pods_case_status_closed_label">Stängt</string>
     <string name="pods_connection_state_disconnected_label">Inte ansluten till en enhet</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Längre</string>
     <string name="device_settings_volume_swipe_length_longest">Längst</string>
     <string name="device_settings_end_call_mute_mic_label">Samtalskontroller</string>
-    <string name="device_settings_end_call_mute_mic_description">Välj vad ett tryck på stammen gör under samtal</string>
+    <string name="device_settings_end_call_mute_mic_description">Välj vad tryckningar gör under samtal</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Enkeltryck för att avsluta samtal</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dubbeltryck för att stänga av mikrofonen</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkeltryck för att stänga av mikrofonen</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Laddning klar</string>
     <string name="reaction_charged_notification_text_full">%1$s är fulladdad.</string>
     <string name="reaction_charged_notification_text_partial">%1$s har laddats till %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Påminnelse om fodralets batteri</string>
+    <string name="reaction_caselow_notification_title">Ladda fodralet</string>
+    <string name="reaction_caselow_notification_text">%1$s: fodralets batteri är på %2$d%%.</string>
     <string name="device_settings_rename_label">Byt namn</string>
     <string name="device_settings_rename_hint">Enhetsnamn</string>
     <string name="device_settings_rename_confirm">Byt namn</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Tryckkontroller</string>
     <string name="press_controls_nav_description">Ställ in tryckkänslighet och mappa tryck till åtgärder</string>
-    <string name="press_controls_description">Ställ in hur tryck identifieras, välj samtalsknapps-beteende och mappa tryck till åtgärder. Mappade åtgärder gäller bara den här enheten och låter appen fånga upp trycket istället för att AirPods hanterar det inbyggt.</string>
+    <string name="press_controls_description">Justera hur tryckningar identifieras, välj beteende för samtalsknappen och koppla tryckningar till åtgärder. Kopplade åtgärder gäller bara för den här enheten och låter appen fånga tryckningen i stället för att hörlurarna hanterar den själva.</string>
     <string name="press_controls_single_press">Enkeltryck</string>
     <string name="press_controls_double_press">Dubbeltryck</string>
     <string name="press_controls_triple_press">Trippeltryck</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Spola tillbaka</string>
     <string name="press_action_cycle_anc">Cykla brusreglering</string>
     <string name="press_action_toggle_anc_transparency">Växla genomskinlighet</string>
+    <string name="press_action_voice_assistant">Röstassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Ingen röstassistent hittades</string>
     <string name="press_controls_reset_label">Återställ till standardvärden</string>
     <string name="press_controls_reset_confirm_message">Återställa alla tryckmappningar till standardvärden?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Röstassistent behöver behörighet att visas ovanpå andra appar. Annars öppnas den inte när du trycker på dina AirPods.</string>
+    <string name="press_controls_voice_assistant_permission_action">Bevilja</string>
     <string name="device_settings_noise_control_open_press_controls_action">Öppna tryckkontroller</string>
     <string name="general_navigate_up_action">Navigera upp</string>
     <string name="general_progress_loading">Läser in</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">기기가 연결되어 있을 때만 나타나는 두 번째 알림을 표시합니다. 이 옵션을 켜면 \"기기 없음\"이라는 영구 알림을 숨길 수 있습니다. Android 설정에서 CAPod의 알림 설정 중 \"기기 상태\" 카테고리를 비활성화 하세요.</string>
     <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods이 연결 해제된 후에도 마지막으로 알려진 배터리 잔량 계속 표시하기</string>
+    <string name="settings_monitor_statusbar_battery_label">상태 표시줄의 배터리 잔량</string>
+    <string name="settings_monitor_statusbar_battery_description">상태 표시줄 알림 아이콘으로 배터리 퍼센트를 표시합니다. 이어폰은 충전 중인 쪽을 제외하고 두 쪽 중 낮은 값을 표시합니다.</string>
     <string name="settings_autopause_label">자동 일시 중지</string>
     <string name="settings_autopause_description">기기를 귀에서 빼면 오디오를 일시 중지합니다.</string>
     <string name="settings_autopplay_label">자동 재생</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">팟만</string>
     <string name="settings_charged_scope_case_label">케이스만</string>
     <string name="settings_charged_scope_both_label">팟과 케이스</string>
+    <string name="settings_caselow_reminder_label">케이스 배터리 알림</string>
+    <string name="settings_caselow_reminder_description">이어폰을 케이스에 다시 넣을 때 케이스 배터리가 부족하면 충전하도록 알려 줍니다.</string>
+    <string name="settings_caselow_threshold_label">알림 기준 수준</string>
     <string name="device_settings_experimental_title">실험적 기능</string>
     <string name="device_settings_experimental_description">이 기능은 아직 모든 기기에서 테스트되지 않았습니다. 제대로 작동하지 않는 경우 디버그 로그와 함께 문제를 보고해 주세요.</string>
     <string name="device_settings_experimental_action">이슈 트래커 열기</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">시스템 설정에서 이 알림을 비활성화할 수 있습니다.</string>
     <string name="monitor_notification_starting">시작 중…</string>
     <string name="support_debuglog_label">디버그 로그</string>
-    <string name="support_debuglog_desc">앱이 수행하는 모든 작업을 공유할 수 있는 텍스트 파일에 기록합니다.</string>
+    <string name="support_debuglog_desc">앱이 수행하는 모든 작업을 공유할 수 있는 zip 파일로 기록합니다.</string>
     <string name="debug_debuglog_record_action">디버그 로그 기록</string>
     <string name="debug_debuglog_stop_action">기록 중지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일에는 민감한 정보(예: Bluetooth 기기 세부 정보)가 포함되어 있습니다. 신뢰할 수 있는 당사자와만 공유하십시오.</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">배터리 사용량 최적화 비활성화</string>
     <string name="permission_ignore_battery_optimizations_description">배터리 사용량 최적화는 앱이 백그라운드에서 Bluetooth 신호를 지속적으로 받지 못하게 합니다.</string>
     <string name="permission_system_alert_window_label">시스템 알림창</string>
-    <string name="permission_system_alert_window_description">\"팝업 표시\" 기능을 사용하려면 다른 앱 위에 그리기를 허용해야 합니다.</string>
+    <string name="permission_system_alert_window_description">CAPod이 다른 앱 위에 표시되도록 허용합니다. “팝업 표시” 기능과 AirPods 누르기로 음성 비서를 여는 데 필요합니다.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">앱이 장치를 찾았을때</string>
     <string name="settings_reaction_autoconnect_caseopen_label">케이스가 열렸을때</string>
     <string name="settings_reaction_autoconnect_inear_label">귀에 착용했을 때</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">완전 충전 가능</string>
     <string name="battery_case_charges_state_not_enough_cd">완전 충전 불가능</string>
     <string name="battery_case_charges_state_uncertain_cd">완전 충전에 부족할 수 있습니다.</string>
+    <string name="battery_case_charges_short">%1$s 충전</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ 충전</string>
     <string name="pods_case_status_open_label">열림</string>
     <string name="pods_case_status_closed_label">닫힘</string>
     <string name="pods_connection_state_disconnected_label">연결되지 않음</string>
@@ -444,7 +451,7 @@
     <string name="device_settings_volume_swipe_length_longer">더 길게</string>
     <string name="device_settings_volume_swipe_length_longest">가장 길게</string>
     <string name="device_settings_end_call_mute_mic_label">통화 제어</string>
-    <string name="device_settings_end_call_mute_mic_description">통화 중 스템 누르기 동작 선택</string>
+    <string name="device_settings_end_call_mute_mic_description">통화 중 누르기 동작 선택</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">한 번 눌러 통화 종료</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">두 번 눌러 마이크 음소거</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">한 번 눌러 마이크 음소거</string>
@@ -484,6 +491,9 @@
     <string name="reaction_charged_notification_title">충전 완료</string>
     <string name="reaction_charged_notification_text_full">%1$s이(가) 완전히 충전되었습니다.</string>
     <string name="reaction_charged_notification_text_partial">%1$s이(가) %2$d%%까지 충전되었습니다.</string>
+    <string name="reaction_caselow_channel_label">케이스 배터리 알림</string>
+    <string name="reaction_caselow_notification_title">케이스를 충전하세요</string>
+    <string name="reaction_caselow_notification_text">%1$s: 케이스 배터리가 %2$d%%입니다.</string>
     <string name="device_settings_rename_label">이름 바꾸기</string>
     <string name="device_settings_rename_hint">기기 이름</string>
     <string name="device_settings_rename_confirm">이름 바꾸기</string>
@@ -507,7 +517,7 @@
     <string name="device_settings_eq_label">이켈라이저</string>
     <string name="press_controls_title">누르기 제어</string>
     <string name="press_controls_nav_description">누르기 동작을 조정하고 누르기를 작업에 매핑</string>
-    <string name="press_controls_description">누르기가 감지되는 방식을 조정하고, 통화 버튼 동작을 선택하고, 누르기를 작업에 매핑합니다. 매핑된 작업은 이 기기에만 적용되며 AirPods가 기본적으로 처리하는 대신 앱이 누르기를 가로차도록 합니다.</string>
+    <string name="press_controls_description">누르기 감지 방식을 조정하고, 통화 버튼 동작을 선택하며, 누르기를 동작에 연결합니다. 연결한 동작은 이 기기에만 적용되며, 이어폰이 기본으로 처리하는 대신 앱이 누르기를 가로챕니다.</string>
     <string name="press_controls_single_press">한 번 누르기</string>
     <string name="press_controls_double_press">두 번 누르기</string>
     <string name="press_controls_triple_press">세 번 누르기</string>
@@ -529,8 +539,12 @@
     <string name="press_action_rewind">다시 감기</string>
     <string name="press_action_cycle_anc">소음 제어 순환</string>
     <string name="press_action_toggle_anc_transparency">투명 모드 전환</string>
+    <string name="press_action_voice_assistant">음성 비서</string>
+    <string name="press_action_voice_assistant_unavailable">음성 비서를 찾을 수 없음</string>
     <string name="press_controls_reset_label">기본값으로 재설정</string>
     <string name="press_controls_reset_confirm_message">모든 누르기 매핑을 기본값으로 재설정하시겠습니까?</string>
+    <string name="press_controls_voice_assistant_permission_hint">음성 비서가 다른 앱 위에 표시되려면 권한이 필요합니다. 권한이 없으면 AirPods를 눌러도 음성 비서가 열리지 않습니다.</string>
+    <string name="press_controls_voice_assistant_permission_action">허가</string>
     <string name="device_settings_noise_control_open_press_controls_action">누르기 제어 열기</string>
     <string name="general_navigate_up_action">위로 이동</string>
     <string name="general_progress_loading">불러오는 중</string>

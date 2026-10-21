@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">แสดงการแจ้งเตือนที่สองซึ่งปรากฏเฉพาะเมื่อมีการเชื่อมต่ออุปกรณ์เท่านั้น เมื่อเปิดใช้งานตัวเลือกนี้ คุณสามารถซ่อนการแจ้งเตือน \"ไม่มีอุปกรณ์\" ที่แสดงตลอดเวลาได้ โดยปิดหมวดหมู่ \"สถานะอุปกรณ์\" ในการตั้งค่าการแจ้งเตือนของ CAPod บน Android</string>
     <string name="settings_keep_notification_after_disconnect_label">คงการแจ้งเตือนหลังตัดการเชื่อมต่อ</string>
     <string name="settings_keep_notification_after_disconnect_description">แสดงระดับแบตเตอรี่ล่าสุดที่ทราบต่อไปแม้ว่า AirPods ของคุณจะตัดการเชื่อมต่อแล้ว</string>
+    <string name="settings_monitor_statusbar_battery_label">ระดับแบตเตอรี่บนแถบสถานะ</string>
+    <string name="settings_monitor_statusbar_battery_description">แสดงเปอร์เซ็นต์แบตเตอรี่เป็นไอคอนการแจ้งเตือนบนแถบสถานะ สำหรับหูฟัง จะแสดงค่าที่ต่ำกว่าในสองข้าง โดยข้างที่กำลังชาร์จจะถูกข้าม</string>
     <string name="settings_autopause_label">หยุดชั่วคราวอัตโนมัติ</string>
     <string name="settings_autopause_description">หยุดเสียงชั่วคราวเมื่อถอดอุปกรณ์ออกจากหู</string>
     <string name="settings_autopplay_label">เล่นอัตโนมัติ</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">เฉพาะ Pods</string>
     <string name="settings_charged_scope_case_label">เฉพาะเคส</string>
     <string name="settings_charged_scope_both_label">Pods และเคส</string>
+    <string name="settings_caselow_reminder_label">การแจ้งเตือนแบตเตอรี่เคส</string>
+    <string name="settings_caselow_reminder_description">แจ้งเตือนให้ชาร์จเคสเมื่อใส่หูฟังกลับเข้าเคส และแบตเตอรี่เคสเหลือน้อย</string>
+    <string name="settings_caselow_threshold_label">ระดับที่แจ้งเตือน</string>
     <string name="device_settings_experimental_title">ฟีเจอร์ทดลอง</string>
     <string name="device_settings_experimental_description">ฟีเจอร์นี้ยังไม่ได้ทดสอบบนทุกอุปกรณ์ หากมีบางอย่างทำงานไม่ถูกต้อง โปรดเปิด issue พร้อมบันทึกการดีบัก</string>
     <string name="device_settings_experimental_action">เปิดตัวติดตาม Issue</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">คุณสามารถปิดการแจ้งเตือนนี้ได้ในการตั้งค่าระบบ</string>
     <string name="monitor_notification_starting">กำลังเริ่มต้น…</string>
     <string name="support_debuglog_label">บันทึกการดีบัก</string>
-    <string name="support_debuglog_desc">บันทึกทุกสิ่งที่แอปกำลังทำลงในไฟล์ข้อความที่คุณสามารถแบ่งปันได้</string>
+    <string name="support_debuglog_desc">บันทึกทุกการทำงานของแอปลงในไฟล์ zip ที่คุณแชร์ได้</string>
     <string name="debug_debuglog_record_action">บันทึกบันทึกการดีบัก</string>
     <string name="debug_debuglog_stop_action">หยุดการบันทึก</string>
     <string name="debug_debuglog_sensitive_information_message">ไฟล์ที่สร้างขึ้นมีข้อมูลที่ละเอียดอ่อน (เช่น รายละเอียดอุปกรณ์ Bluetooth) แบ่งปันกับบุคคลที่เชื่อถือได้เท่านั้น</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">ปิดการเพิ่มประสิทธิภาพแบตเตอรี่</string>
     <string name="permission_ignore_battery_optimizations_description">การเพิ่มประสิทธิภาพแบตเตอรี่ป้องกันไม่ให้แอปนี้รับข้อมูล Bluetooth อย่างน่าเชื่อถือขณะอยู่ในพื้นหลัง</string>
     <string name="permission_system_alert_window_label">หน้าต่างแจ้งเตือนระบบ</string>
-    <string name="permission_system_alert_window_description">อนุญาตให้ CAPod วาดทับแอปอื่นเพื่อให้คุณสมบัติ \"แสดงป๊อปอัป\" ทำงานได้</string>
+    <string name="permission_system_alert_window_description">อนุญาตให้ CAPod แสดงทับแอปอื่น จำเป็นสำหรับฟีเจอร์ “แสดงป๊อปอัป” และการเปิดผู้ช่วยเสียงเมื่อกดที่ AirPods ของคุณ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">เมื่อพบเห็น</string>
     <string name="settings_reaction_autoconnect_caseopen_label">เคสเปิดอยู่</string>
     <string name="settings_reaction_autoconnect_inear_label">อยู่ในหู</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">เพียงพอสำหรับการชาร์จเต็มหนึ่งครั้ง</string>
     <string name="battery_case_charges_state_not_enough_cd">ไม่เพียงพอสำหรับการชาร์จเต็มหนึ่งครั้ง</string>
     <string name="battery_case_charges_state_uncertain_cd">อาจไม่เพียงพอสำหรับการชาร์จเต็มหนึ่งครั้ง</string>
+    <string name="battery_case_charges_short">%1$s ชาร์จ</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ชาร์จ</string>
     <string name="pods_case_status_open_label">เปิด</string>
     <string name="pods_case_status_closed_label">ปิด</string>
     <string name="pods_connection_state_disconnected_label">ไม่ได้เชื่อมต่อกับอุปกรณ์</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">ยาวกว่า</string>
     <string name="device_settings_volume_swipe_length_longest">ยาวที่สุด</string>
     <string name="device_settings_end_call_mute_mic_label">การควบคุมการโทร</string>
-    <string name="device_settings_end_call_mute_mic_description">เลือกว่าการกดก้านทำอะไรระหว่างการโทร</string>
+    <string name="device_settings_end_call_mute_mic_description">เลือกการทำงานเมื่อกดระหว่างการโทร</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">กดครั้งเดียวเพื่อวางสาย</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">กดสองครั้งเพื่อปิดเสียงไมโครโฟน</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">กดครั้งเดียวเพื่อปิดเสียงไมโครโฟน</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">ชาร์จเสร็จสมบูรณ์</string>
     <string name="reaction_charged_notification_text_full">%1$s ชาร์จเต็มแล้ว</string>
     <string name="reaction_charged_notification_text_partial">%1$s ชาร์จถึง %2$d%% แล้ว</string>
+    <string name="reaction_caselow_channel_label">การแจ้งเตือนแบตเตอรี่เคส</string>
+    <string name="reaction_caselow_notification_title">ชาร์จเคสของคุณ</string>
+    <string name="reaction_caselow_notification_text">%1$s: แบตเตอรี่เคสอยู่ที่ %2$d%%</string>
     <string name="device_settings_rename_label">เปลี่ยนชื่อ</string>
     <string name="device_settings_rename_hint">ชื่ออุปกรณ์</string>
     <string name="device_settings_rename_confirm">เปลี่ยนชื่อ</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">อีควอไลเซอร์</string>
     <string name="press_controls_title">การควบคุมการกด</string>
     <string name="press_controls_nav_description">ปรับพฤติกรรมการกดและกำหนดการกดให้กับการกระทำ</string>
-    <string name="press_controls_description">ปรับวิธีตรวจจับการกด เลือกพฤติกรรมปุ่มการโทร และกำหนดการกดให้กับการกระทำ การกระทำที่กำหนดใช้กับอุปกรณ์นี้เท่านั้น และให้แอปสกัดการกดแทนที่ AirPods จะจัดการเอง</string>
+    <string name="press_controls_description">ปรับวิธีตรวจจับการกด เลือกการทำงานของปุ่มโทร และกำหนดการกดให้เป็นการทำงาน การทำงานที่กำหนดจะใช้กับอุปกรณ์นี้เท่านั้น และให้แอปรับการกดแทนหูฟังที่จัดการเองโดยตรง</string>
     <string name="press_controls_single_press">กดครั้งเดียว</string>
     <string name="press_controls_double_press">กดสองครั้ง</string>
     <string name="press_controls_triple_press">กดสามครั้ง</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">ย้อนกลับ</string>
     <string name="press_action_cycle_anc">สลับการควบคุมเสียงรบกวน</string>
     <string name="press_action_toggle_anc_transparency">สลับโหมดโปร่งใส</string>
+    <string name="press_action_voice_assistant">ผู้ช่วยเสียง</string>
+    <string name="press_action_voice_assistant_unavailable">ไม่พบผู้ช่วยเสียง</string>
     <string name="press_controls_reset_label">รีเซ็ตเป็นค่าเริ่มต้น</string>
     <string name="press_controls_reset_confirm_message">รีเซ็ตการกำหนดการกดทั้งหมดเป็นค่าเริ่มต้น?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ผู้ช่วยเสียงต้องได้รับสิทธิ์ในการแสดงทับแอปอื่น มิฉะนั้นการกดหูฟัง AirPods จะไม่เปิดผู้ช่วยเสียง</string>
+    <string name="press_controls_voice_assistant_permission_action">การอนุญาต</string>
     <string name="device_settings_noise_control_open_press_controls_action">เปิดการควบคุมการกด</string>
     <string name="general_navigate_up_action">ขึ้นไป</string>
     <string name="general_progress_loading">กำลังโหลด</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Afișează a doua notificare care apare doar atunci când un dispozitiv este conectat. Cu această opțiune activată, poți ascunde notificarea permanentă „Niciun dispozitiv”: dezactivează categoria „Starea dispozitivului” din setările de notificări ale Android pentru CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Păstrează notificarea după deconectare</string>
     <string name="settings_keep_notification_after_disconnect_description">Continuă să afișeze ultimele niveluri cunoscute ale bateriei chiar și după deconectarea AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Nivelul bateriei în bara de stare</string>
+    <string name="settings_monitor_statusbar_battery_description">Afișează procentul bateriei ca pictogramă de notificare în bara de stare. Pentru căști, este afișat cel mai mic dintre cele două niveluri, ignorându-l pe cel aflat la încărcare.</string>
     <string name="settings_autopause_label">Pauză automată</string>
     <string name="settings_autopause_description">Întrerupeți sunetul când scoateți dispozitivul din ureche.</string>
     <string name="settings_autopplay_label">Redare automată</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Numai pods</string>
     <string name="settings_charged_scope_case_label">Numai carcasă</string>
     <string name="settings_charged_scope_both_label">Pods și carcasă</string>
+    <string name="settings_caselow_reminder_label">Memento pentru bateria cutiei</string>
+    <string name="settings_caselow_reminder_description">Amintește-mi să încarc cutia când pun căștile la loc și bateria cutiei este scăzută.</string>
+    <string name="settings_caselow_threshold_label">Nivelul memento-ului</string>
     <string name="device_settings_experimental_title">Funcție experimentală</string>
     <string name="device_settings_experimental_description">Această funcție nu a fost testată pe toate dispozitivele. Dacă ceva nu funcționează corect, te rugăm să deschizi un raport cu un jurnal de depanare.</string>
     <string name="device_settings_experimental_action">Deschide Issue Tracker</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Puteți dezactiva această notificare în setările sistemului.</string>
     <string name="monitor_notification_starting">Se inițiază…</string>
     <string name="support_debuglog_label">Jurnal de depanare</string>
-    <string name="support_debuglog_desc">Înregistrați tot ce face aplicația într-un fișier text pe care îl puteți partaja.</string>
+    <string name="support_debuglog_desc">Înregistrează tot ce face aplicația într-un fișier zip pe care îl poți partaja.</string>
     <string name="debug_debuglog_record_action">Înregistrare jurnal de depanare</string>
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (de exemplu, detalii despre dispozitivul Bluetooth). Partajați-l numai cu terți de încredere.</string>
@@ -206,7 +211,7 @@
     <string name="permission_ignore_battery_optimizations_label">Dezactivare optimizări baterie</string>
     <string name="permission_ignore_battery_optimizations_description">Optimizările bateriei împiedică această aplicație să primească în mod fiabil date Bluetooth când aplicația este în fundal.</string>
     <string name="permission_system_alert_window_label">Fereastră alertă sistem</string>
-    <string name="permission_system_alert_window_description">Permiteți CAPod să deseneze peste alte aplicații pentru a face posibilă funcția \"Afișare PopUp\".</string>
+    <string name="permission_system_alert_window_description">Permite CAPod să deseneze peste alte aplicații. Necesar pentru funcția „Afișează fereastra pop-up” și pentru a deschide asistentul vocal la apăsarea pe AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Când este detectat</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Carcasa este deschisă</string>
     <string name="settings_reaction_autoconnect_inear_label">În ureche</string>
@@ -231,6 +236,8 @@
     <string name="battery_case_charges_state_enough_cd">Suficient pentru o încărcare completă</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuficient pentru o încărcare completă</string>
     <string name="battery_case_charges_state_uncertain_cd">S-ar putea să nu fie suficient pentru o încărcare completă</string>
+    <string name="battery_case_charges_short">%1$s încărcări</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ încărcări</string>
     <string name="pods_case_status_open_label">Deschis</string>
     <string name="pods_case_status_closed_label">Închis</string>
     <string name="pods_connection_state_disconnected_label">Nu este conectat la un dispozitiv</string>
@@ -456,7 +463,7 @@
     <string name="device_settings_volume_swipe_length_longer">Mai lung</string>
     <string name="device_settings_volume_swipe_length_longest">Cel mai lung</string>
     <string name="device_settings_end_call_mute_mic_label">Controale apel</string>
-    <string name="device_settings_end_call_mute_mic_description">Alegeți ce face apăsarea tijei în timpul apelurilor</string>
+    <string name="device_settings_end_call_mute_mic_description">Alegeți ce face apăsarea în timpul apelurilor</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Apăsare simplă pentru a încheia apelul</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dublă apăsare pentru a dezactiva microfonul</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Apăsare simplă pentru a dezactiva microfonul</string>
@@ -496,6 +503,9 @@
     <string name="reaction_charged_notification_title">Încărcare completă</string>
     <string name="reaction_charged_notification_text_full">%1$s este complet încărcat.</string>
     <string name="reaction_charged_notification_text_partial">%1$s a fost încărcat la %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Reamintire pentru bateria carcasei</string>
+    <string name="reaction_caselow_notification_title">Încarcă-ți carcasa</string>
+    <string name="reaction_caselow_notification_text">%1$s: bateria carcasei este la %2$d%%.</string>
     <string name="device_settings_rename_label">Redenumește</string>
     <string name="device_settings_rename_hint">Numele dispozitivului</string>
     <string name="device_settings_rename_confirm">Redenumește</string>
@@ -519,7 +529,7 @@
     <string name="device_settings_eq_label">Egalizator</string>
     <string name="press_controls_title">Controale apăsare</string>
     <string name="press_controls_nav_description">Reglează comportamentul apăsărilor și mapează apăsările la acțiuni</string>
-    <string name="press_controls_description">Reglează cum sunt detectate apăsările, alege comportamentul butonului de apel și mapează apăsările la acțiuni. Acțiunile mapate se aplică doar acestui dispozitiv și permit aplicației să intercepteze apăsarea în loc ca AirPods să o gestioneze nativ.</string>
+    <string name="press_controls_description">Ajustează modul în care sunt detectate apăsările, alege comportamentul butonului de apel și asociază apăsările cu acțiuni. Acțiunile asociate se aplică doar acestui dispozitiv și permit aplicației să intercepteze apăsarea, în loc ca aceasta să fie gestionată nativ de căști.</string>
     <string name="press_controls_single_press">Apăsare simplă</string>
     <string name="press_controls_double_press">Apăsare dublă</string>
     <string name="press_controls_triple_press">Apăsare triplă</string>
@@ -541,8 +551,12 @@
     <string name="press_action_rewind">Înapoiere rapidă</string>
     <string name="press_action_cycle_anc">Ciclează Controlul zgomotului</string>
     <string name="press_action_toggle_anc_transparency">Comută transparența</string>
+    <string name="press_action_voice_assistant">Asistent vocal</string>
+    <string name="press_action_voice_assistant_unavailable">Nu a fost găsit niciun asistent vocal</string>
     <string name="press_controls_reset_label">Resetare la valori implicite</string>
     <string name="press_controls_reset_confirm_message">Resetare toate mapările apăsărilor la valori implicite?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Asistentul vocal are nevoie de permisiunea de a afișa deasupra altor aplicații, altfel apăsarea căștilor AirPods nu îl va deschide.</string>
+    <string name="press_controls_voice_assistant_permission_action">Acordă</string>
     <string name="device_settings_noise_control_open_press_controls_action">Deschide controalele apăsării</string>
     <string name="general_navigate_up_action">Navigare în sus</string>
     <string name="general_progress_loading">Se încarcă</string>

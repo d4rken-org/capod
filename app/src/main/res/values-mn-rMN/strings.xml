@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдож байх үед л гарч ирэх хоёр дахь мэдэгдлийг харуулна. Үүнийг асаасан бол \"Төхөөрөмжгүй\" гэсэн байнгын мэдэгдлийг нуух боломжтой: Android-ийн мэдэгдлийн тохиргоонд CAPod-ын \"Төхөөрөмжийн төлөв\" ангиллыг унтраа.</string>
     <string name="settings_keep_notification_after_disconnect_label">Салсны дараа мэдэгдлийг хадгалах</string>
     <string name="settings_keep_notification_after_disconnect_description">Таны AirPods салсан ч хамгийн сүүлд мэдэгдэж буй батарейн түвшинг үргэлжлүүлэн харуулна</string>
+    <string name="settings_monitor_statusbar_battery_label">Статусын мөрөнд батарейн түвшин</string>
+    <string name="settings_monitor_statusbar_battery_description">Статус мөрөнд мэдэгдлийн дүрс болгон батарейн хувийг харуулна. Чихэвчний хувьд цэнэглэгдэж буйг эс тооцвол хоёрын бага утгыг харуулна.</string>
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
     <string name="settings_autopause_description">Төхөөрөмжийг чихнээсээ салгахад дууг түр зогсооно.</string>
     <string name="settings_autopplay_label">Автомат тоглуулах</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Зөвхөн pods</string>
     <string name="settings_charged_scope_case_label">Зөвхөн кейс</string>
     <string name="settings_charged_scope_both_label">Pods болон кейс</string>
+    <string name="settings_caselow_reminder_label">Кейсний батарейны сануулга</string>
+    <string name="settings_caselow_reminder_description">Чихэвчийг буцааж хийхэд кейсний батарей бага байвал кейсээ цэнэглэхийг сануулна.</string>
+    <string name="settings_caselow_threshold_label">Сануулгын түвшин</string>
     <string name="device_settings_experimental_title">Туршилтын онцлог</string>
     <string name="device_settings_experimental_description">Энэ функцийг бүх төхөөрөмж дээр туршиж үзээгүй байна. Хэрэв ямар нэг зүйл буруу ажиллаж байвал debug лог хавсаргаж асуудал нээнэ үү.</string>
     <string name="device_settings_experimental_action">Асуудлын жагсаалт нээх</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Системийн тохиргооноос энэ мэдэгдлийг идэвхгүй болгох боломжтой.</string>
     <string name="monitor_notification_starting">Эхлүүлж байна…</string>
     <string name="support_debuglog_label">Дибаг лог</string>
-    <string name="support_debuglog_desc">Апп-н хийж буй бүх зүйлийг хуваалцаж болох текст файлд бүртгэнэ.</string>
+    <string name="support_debuglog_desc">Аппын хийж буй бүх зүйлийг хуваалцаж болох zip файлд бүртгэнэ.</string>
     <string name="debug_debuglog_record_action">Дибаг лог бүртгэх</string>
     <string name="debug_debuglog_stop_action">Бүртгэлийг зогсоох</string>
     <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй хуваалцана уу.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Батарейн оновчлолыг идэвхгүй болгох</string>
     <string name="permission_ignore_battery_optimizations_description">Батарейн оновчлол нь апп-д цаана ажиллаж байх үед Bluetooth өгөгдлийг найдвартай хүлээн авахад саад болдог.</string>
     <string name="permission_system_alert_window_label">Системийн анхааруулгын цонх</string>
-    <string name="permission_system_alert_window_description">CAPod-д \"Попап харуулах\" боломжийг ажиллуулахын тулд бусад апп-уудын дээр зурах зөвшөөрөл олгоно уу.</string>
+    <string name="permission_system_alert_window_description">CAPod-д бусад аппын дээр зурахыг зөвшөөрнө. «Попап харуулах» онцлогт болон AirPods-ийн товчлуураас дуут туслахыг нээхэд шаардлагатай.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Харагдах үед</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кейс нээлттэй</string>
     <string name="settings_reaction_autoconnect_inear_label">Чихэнд</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Нэг цэнэгийн хувьд хангалттай</string>
     <string name="battery_case_charges_state_not_enough_cd">Нэг цэнэгийн хувьд хангалтгүй</string>
     <string name="battery_case_charges_state_uncertain_cd">Нэг цэнэгийн хувьд хангалтгүй байж болно</string>
+    <string name="battery_case_charges_short">%1$s цэнэглэлт</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ цэнэглэлт</string>
     <string name="pods_case_status_open_label">Нээлттэй</string>
     <string name="pods_case_status_closed_label">Хаалттай</string>
     <string name="pods_connection_state_disconnected_label">Төхөөрөмжид холбогдоогүй</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Урт</string>
     <string name="device_settings_volume_swipe_length_longest">Хамгийн урт</string>
     <string name="device_settings_end_call_mute_mic_label">Дуудлагын удирдлага</string>
-    <string name="device_settings_end_call_mute_mic_description">Дуудлагын үеэр ишийг дарахад юу хийхийг сонгох</string>
+    <string name="device_settings_end_call_mute_mic_description">Дуудлагын үед товчлуурын дарлагад юу хийхийг сонгоно</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Дуудлага дуусгахын тулд нэг дарна уу</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Микрофоныг хаахын тулд хоёр дарна уу</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофоныг хаахын тулд нэг дарна уу</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Цэнэглэлт дууссан</string>
     <string name="reaction_charged_notification_text_full">%1$s бүрэн цэнэглэгдсэн.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% хүртэл цэнэглэгдсэн.</string>
+    <string name="reaction_caselow_channel_label">Кейсний батарейны сануулга</string>
+    <string name="reaction_caselow_notification_title">Кейсээ цэнэглэх</string>
+    <string name="reaction_caselow_notification_text">%1$s: кейсний батарей %2$d%% байна.</string>
     <string name="device_settings_rename_label">Нэр өөрчлөх</string>
     <string name="device_settings_rename_hint">Төхөөрөмжийн нэр</string>
     <string name="device_settings_rename_confirm">Нэр өөрчлөх</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Эквалайзер</string>
     <string name="press_controls_title">Даралтын хяналт</string>
     <string name="press_controls_nav_description">Даралтын зан тохиргуулах</string>
-    <string name="press_controls_description">Даралтыг илрүүлэх, дуудлахын товчоог сонгох, даралтыг үйлдлэлтэй холбогдуулах. Тохиргосон үйлдлэл зөвхөн AirPods-ийг дэмжихгүйгээр апп даралтыг өөрөлтөг гардаг.</string>
+    <string name="press_controls_description">Дарлагыг хэрхэн илрүүлэхийг тохируулж, дуудлагын товчны зан үйлийг сонгож, дарлагыг үйлдэлтэй холбоно. Холбосон үйлдлүүд зөвхөн энэ төхөөрөмжид хамаарч, чихэвчний оронд аппын дарлагыг өөрөө боловсруулна.</string>
     <string name="press_controls_single_press">Нэг даралт</string>
     <string name="press_controls_double_press">Хоёр даралт</string>
     <string name="press_controls_triple_press">Гурав даралт</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Түргээн ухрааш</string>
     <string name="press_action_cycle_anc">Шуугайн хяналт циклэх</string>
     <string name="press_action_toggle_anc_transparency">Транспаренц холбох</string>
+    <string name="press_action_voice_assistant">Дуут туслах</string>
+    <string name="press_action_voice_assistant_unavailable">Дуут туслах олдсонгүй</string>
     <string name="press_controls_reset_label">Анхны утгаарт сэргээн</string>
     <string name="press_controls_reset_confirm_message">Бүх даралтын хараалтыг анхны утгаарт сэргээх үү?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Дуут туслахад бусад аппын дээр зурах зөвшөөрөл хэрэгтэй, үгүй бол AirPods-ийн дарлага түүнийг нээхгүй.</string>
+    <string name="press_controls_voice_assistant_permission_action">Олгох</string>
     <string name="device_settings_noise_control_open_press_controls_action">Даралтын хяналт нээх</string>
     <string name="general_navigate_up_action">Дээшээ явах</string>
     <string name="general_progress_loading">Ачаалж байна</string>

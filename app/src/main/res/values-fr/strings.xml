@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Affiche une seconde notification qui n\'apparaît que si un appareil est connecté. Avec ceci activé, tu peux masquer la notification permanente « Pas d\'appareil » : désactive la catégorie « État de l\'appareil » dans les paramètres de notifications Android pour CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Garder la notification après déconnexion</string>
     <string name="settings_keep_notification_after_disconnect_description">Afficher les derniers niveaux de batterie connus même après déconnexion de vos AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Niveau de batterie dans la barre d’état</string>
+    <string name="settings_monitor_statusbar_battery_description">Affiche le pourcentage de batterie comme icône de notification dans la barre d’état. Pour les écouteurs, le plus faible des deux est affiché, en ignorant celui qui est en charge.</string>
     <string name="settings_autopause_label">Pause automatique</string>
     <string name="settings_autopause_description">Mettre le son en pause si vous ôtez l’appareil de votre oreille.</string>
     <string name="settings_autopplay_label">Lecture automatique</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Écouteurs uniquement</string>
     <string name="settings_charged_scope_case_label">Boîtier uniquement</string>
     <string name="settings_charged_scope_both_label">Écouteurs et boîtier</string>
+    <string name="settings_caselow_reminder_label">Rappel de batterie du boîtier</string>
+    <string name="settings_caselow_reminder_description">Me rappeler de recharger le boîtier lorsque je remets les écouteurs dedans et que sa batterie est faible.</string>
+    <string name="settings_caselow_threshold_label">Niveau de rappel</string>
     <string name="device_settings_experimental_title">Fonctionnalité expérimentale</string>
     <string name="device_settings_experimental_description">Cette fonctionnalité n\'a pas encore été testée sur tous les appareils. Si quelque chose ne fonctionne pas correctement, veuillez ouvrir un ticket avec un journal de débogage.</string>
     <string name="device_settings_experimental_action">Ouvrir le suivi des problèmes</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Vous pouvez désactiver cette notification dans les paramètres système.</string>
     <string name="monitor_notification_starting">Démarrage en cours…</string>
     <string name="support_debuglog_label">Journal de débogage</string>
-    <string name="support_debuglog_desc">Enregistrez les actions de l\'appli dans un fichier texte que vous pouvez partager.</string>
+    <string name="support_debuglog_desc">Enregistre toutes les activités de l’application dans un fichier zip que vous pouvez partager.</string>
     <string name="debug_debuglog_record_action">Enregistrer le journal de débogage</string>
     <string name="debug_debuglog_stop_action">Arrêter l’enregistrement</string>
     <string name="debug_debuglog_sensitive_information_message">Le fichier généré comprend des renseignements sensibles (p. ex. les détails de l\'appareil Bluetooth). Ne le partagez qu\'avec des personnes de confiance.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Désactiver les optimisations de la batterie</string>
     <string name="permission_ignore_battery_optimizations_description">Les optimisations de la batterie empêchent l’appli de recevoir les données Bluetooth de manière fiable alors que l’appli est en arrière-plan.</string>
     <string name="permission_system_alert_window_label">Fenêtre d’alerte système</string>
-    <string name="permission_system_alert_window_description">Permettre à CAPod d’apparaître par-dessus les autres applis pour rendre la fonction « Afficher une fenêtre contextuelle » possible.</string>
+    <string name="permission_system_alert_window_description">Autorise CAPod à s’afficher par-dessus d’autres applications. Nécessaire pour la fonction « Afficher la fenêtre contextuelle » et pour ouvrir l’assistant vocal en appuyant sur vos AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">S’il est visible</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Si l’étui est ouvert</string>
     <string name="settings_reaction_autoconnect_inear_label">S’il est porté</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Suffisant pour une charge complète</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuffisant pour une charge complète</string>
     <string name="battery_case_charges_state_uncertain_cd">Peut-être insuffisant pour une charge complète</string>
+    <string name="battery_case_charges_short">%1$s charges</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ charges</string>
     <string name="pods_case_status_open_label">Ouvert</string>
     <string name="pods_case_status_closed_label">Fermé</string>
     <string name="pods_connection_state_disconnected_label">Non connecté à un appareil</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Plus long</string>
     <string name="device_settings_volume_swipe_length_longest">Le plus long</string>
     <string name="device_settings_end_call_mute_mic_label">Contrôles d’appel</string>
-    <string name="device_settings_end_call_mute_mic_description">Choisir ce que fait l’appui sur la tige pendant les appels</string>
+    <string name="device_settings_end_call_mute_mic_description">Choisissez l’action des appuis pendant les appels</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Appui simple pour terminer l’appel</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Double appui pour couper le microphone</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Appui simple pour couper le microphone</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Charge terminée</string>
     <string name="reaction_charged_notification_text_full">%1$s est complètement chargé.</string>
     <string name="reaction_charged_notification_text_partial">%1$s a été chargé à %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Rappel de batterie du boîtier</string>
+    <string name="reaction_caselow_notification_title">Rechargez votre boîtier</string>
+    <string name="reaction_caselow_notification_text">%1$s : la batterie du boîtier est à %2$d %%.</string>
     <string name="device_settings_rename_label">Renommer</string>
     <string name="device_settings_rename_hint">Nom de l’appareil</string>
     <string name="device_settings_rename_confirm">Renommer</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Égaliseur</string>
     <string name="press_controls_title">Commandes de pression</string>
     <string name="press_controls_nav_description">Ajuster le comportement des pressions et associer des pressions à des actions</string>
-    <string name="press_controls_description">Ajustez la détection des pressions, choisissez le comportement du bouton d’appel et associez des pressions à des actions. Les actions associées s’appliquent uniquement à cet appareil et permettent à l’appli d’intercepter la pression au lieu que les AirPods la gèrent nativement.</string>
+    <string name="press_controls_description">Réglez la détection des appuis, choisissez le comportement du bouton d’appel et associez des appuis à des actions. Les actions associées ne s’appliquent qu’à cet appareil et permettent à l’application d’intercepter l’appui au lieu que les écouteurs le gèrent nativement.</string>
     <string name="press_controls_single_press">Pression simple</string>
     <string name="press_controls_double_press">Double pression</string>
     <string name="press_controls_triple_press">Triple pression</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Retour arrière</string>
     <string name="press_action_cycle_anc">Cycle contrôle du bruit</string>
     <string name="press_action_toggle_anc_transparency">Basculer la transparence</string>
+    <string name="press_action_voice_assistant">Assistant vocal</string>
+    <string name="press_action_voice_assistant_unavailable">Aucun assistant vocal trouvé</string>
     <string name="press_controls_reset_label">Rétablir les valeurs par défaut</string>
     <string name="press_controls_reset_confirm_message">Réinitialiser toutes les associations de pressions par défaut ?</string>
+    <string name="press_controls_voice_assistant_permission_hint">L’assistant vocal a besoin de l’autorisation d’afficher par-dessus d’autres applications, sinon appuyer sur vos AirPods ne l’ouvrira pas.</string>
+    <string name="press_controls_voice_assistant_permission_action">Accorder</string>
     <string name="device_settings_noise_control_open_press_controls_action">Ouvrir les commandes de pression</string>
     <string name="general_navigate_up_action">Retour</string>
     <string name="general_progress_loading">Chargement</string>

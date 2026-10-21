@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងទីពីរដែលបង្ហាញតែពេលឧបករណ៍មួយកំពុងតភ្ជាប់ប៉ុណ្ណោះ។ ដោយបើកវា អ្នកអាចលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" បាន: បិទប្រភេទ \"ស្ថានភាពឧបករណ៍\" នៅក្នុងការកំណត់ការជូនដំណឹងរបស់ Android សម្រាប់ CAPod។</string>
     <string name="settings_keep_notification_after_disconnect_label">រក្សាការជូនដំណឹងបន្ទាប់ពីផ្តាច់</string>
     <string name="settings_keep_notification_after_disconnect_description">បន្តបង្ហាញកម្រិតថ្មចុងក្រោយដែលស្គាល់ សូម្បីបន្ទាប់ពី AirPods របស់អ្នកផ្តាច់ក៏ដោយ</string>
+    <string name="settings_monitor_statusbar_battery_label">កម្រិតថ្មនៅរបារស្ថានភាព</string>
+    <string name="settings_monitor_statusbar_battery_description">បង្ហាញភាគរយថ្មជារូបតំណាងជូនដំណឹងនៅរបារស្ថានភាព។ សម្រាប់ត្រចៀកស្តាប់ ត្រូវបានបង្ហាញតម្លៃទាបជាងក្នុងចំណោមពីរ ដោយរំលងត្រចៀកដែលកំពុងសាក។</string>
     <string name="settings_autopause_label">ផ្អាកដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_autopause_description">ផ្អាកសំឡេងនៅពេលដកឧបករណ៍ចេញពីត្រចៀករបស់អ្នក។</string>
     <string name="settings_autopplay_label">ចាក់ដោយស្វ័យប្រវត្តិ</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">តែ Pods ប៉ុណ្ណោះ</string>
     <string name="settings_charged_scope_case_label">តែ Case ប៉ុណ្ណោះ</string>
     <string name="settings_charged_scope_both_label">Pods និង Case</string>
+    <string name="settings_caselow_reminder_label">ការរំលឹកថ្មករណី</string>
+    <string name="settings_caselow_reminder_description">រំលឹកឱ្យសាកករណី នៅពេលដាក់ត្រចៀកចូលវិញ ប្រសិនបើថ្មករណីទាប។</string>
+    <string name="settings_caselow_threshold_label">កម្រិតរំលឹក</string>
     <string name="device_settings_experimental_title">មុខងារពិសោធន៍</string>
     <string name="device_settings_experimental_description">មុខងារនេះមិនទាន់ត្រូវបានសាកល្បងនៅលើឧបករណ៍ទាំងអស់នៅឡើយទេ។ ប្រសិនបើអ្វីមួយមិនដំណើរការត្រឹមត្រូវ សូមបើកបញ្ហាជាមួយកំណត់ហេតុ debug។</string>
     <string name="device_settings_experimental_action">បើក Issue Tracker</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">អ្នកអាចបិតការជូនដំណឹងនេហនៅក្នុងការកំណតប្រព័ន្ធ។</string>
     <string name="monitor_notification_starting">កំពុងចាប់ផ្តើម…</string>
     <string name="support_debuglog_label">កំណត់ហេតុកែកំហុស</string>
-    <string name="support_debuglog_desc">កត់ត្រាអ្វីគ្រប់យ៉ាងដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារអត្ថបទដែលអ្នកអាចចែករំលែកបាន។</string>
+    <string name="support_debuglog_desc">កត់ត្រាគ្រប់សកម្មភាពរបស់កម្មវិធីទៅក្នុងឯកសារ zip ដែលអ្នកអាចចែករំលែកបាន។</string>
     <string name="debug_debuglog_record_action">កត់ត្រាកំណត់ហេតុកែកំហុស</string>
     <string name="debug_debuglog_stop_action">បញ្ឈប់ការកត់ត្រា</string>
     <string name="debug_debuglog_sensitive_information_message">ឯកសារដែលបានបង្កើតមានព័ត៌មានរសើប (ឧ. ព័ត៌មានលម្អិតអំពីឧបករណ៍ Bluetooth)។ ចែករំលែកវាជាមួយភាគីដែលទុកចិត្តតែប៉ុណ្ណោះ។</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">បិទការបង្កើនប្រសិទ្ធភាពថ្ម</string>
     <string name="permission_ignore_battery_optimizations_description">ការបង្កើនប្រសិទ្ធភាពថ្មរារាំងកម្មវិធីនេះពីការទទួលទិន្នន័យ Bluetooth ដោយជឿជាក់នៅពេលកម្មវិធីស្ថិតក្នុងផ្ទៃខាងក្រោយ។</string>
     <string name="permission_system_alert_window_label">បង្អួចជូនដំណឹងប្រព័ន្ធ</string>
-    <string name="permission_system_alert_window_description">អនុញ្ញាតឱ្យ CAPod គូរពីលើកម្មវិធីផ្សេងទៀតដើម្បីធ្វើឱ្យមុខងារ \"បង្ហាញផ្ទាំងលោត\" អាចធ្វើទៅបាន។</string>
+    <string name="permission_system_alert_window_description">អនុញ្ញាតឲ្យ CAPod គូរពីលើកម្មវិធីផ្សេងទៀត។ ត្រូវការសម្រាប់មុខងារ \"បង្ហាញ PopUp\" និងសម្រាប់បើកជំនួយការសំឡេងពេលចុចលើ AirPods របស់អ្នក។</string>
     <string name="settings_reaction_autoconnect_whenseen_label">នៅពេលឃើញ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ប្រអប់បើក</string>
     <string name="settings_reaction_autoconnect_inear_label">ក្នុងត្រចៀក</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">គ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
     <string name="battery_case_charges_state_not_enough_cd">មិនគ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
     <string name="battery_case_charges_state_uncertain_cd">អាចមិនគ្រប់គ្រាន់សម្រាប់ការសាកពេញលេញ</string>
+    <string name="battery_case_charges_short">%1$s ការសាក</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ការសាក</string>
     <string name="pods_case_status_open_label">បើក</string>
     <string name="pods_case_status_closed_label">បិទ</string>
     <string name="pods_connection_state_disconnected_label">មិនបានភ្ជាប់ទៅឧបករណ៍</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">វែងជាង</string>
     <string name="device_settings_volume_swipe_length_longest">វែងបំផុត</string>
     <string name="device_settings_end_call_mute_mic_label">ការគ្រប់គ្រងការហឹល</string>
-    <string name="device_settings_end_call_mute_mic_description">ជ្រើសរើសសកម្មភាពចុចដងក្នុងពេលហឹល</string>
+    <string name="device_settings_end_call_mute_mic_description">ជ្រើសរើសអ្វីដែលការចុចធ្វើក្នុងអំឡុងពេលហៅទូរស័ព្ទ</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ចុចម្តងដើម្បិបញ្ចប់ការហឹល</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ចុចពីរដងដើម្បិបិតមីក្រូហ្វូន</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ចុចម្តងដើម្បិបិតមីក្រូហ្វូន</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">ការសាកថ្មបានបញ្ចប់</string>
     <string name="reaction_charged_notification_text_full">%1$s បានសាកថ្មពេញហើយ។</string>
     <string name="reaction_charged_notification_text_partial">%1$s បានសាកថ្មដល់ %2$d%%។</string>
+    <string name="reaction_caselow_channel_label">ការរំលឹកថ្មករណី</string>
+    <string name="reaction_caselow_notification_title">សាកករណីរបស់អ្នក</string>
+    <string name="reaction_caselow_notification_text">%1$s៖ ថ្មករណីនៅ %2$d%%។</string>
     <string name="device_settings_rename_label">ប្តូរៀម្អោះ</string>
     <string name="device_settings_rename_hint">ៀម្អោះឧបករណ៍</string>
     <string name="device_settings_rename_confirm">ប្តូរៀម្អោះ</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">ប្រប័ន្ធ Equalizer</string>
     <string name="press_controls_title">ការគ្រប់គ្រងការចុច</string>
     <string name="press_controls_nav_description">កំណត់ឥរិយាបថការចុច និងផ្គូផ្គងការចុចទៅសកម្មភាព</string>
-    <string name="press_controls_description">កំណត់របឰបរកឡើញការចុច ជ្រើររើសឥរិយាបថបូតុងហោលតូរស័ភ្ទ និងផ្គូផ្គងការចុចទៅសកម្មភាព។ សកម្មភាពដែលបានផ្គូផ្គងអនុវត្តចំពោះឧបករណ៍នេះប័ណ្ណៃ ហើយនិងអនុញ្ញាតអ្យកម្មវិធីស្ទាក់ចាប់ការចុចជំនួសឱ្យ AirPods ដោះស្រួលវាដោយធម្មជាតិ។</string>
+    <string name="press_controls_description">កែសម្រួលរបៀបរកឃើញការចុច ជ្រើសរើសអាកប្បកិរិយាប៊ូតុងហៅទូរស័ព្ទ និងកំណត់ការចុចទៅជាសកម្មភាព។ សកម្មភាពដែលបានកំណត់ អនុវត្តចំពោះឧបករណ៍នេះតែប៉ុណ្ណោះ ហើយអនុញ្ញាតឲ្យកម្មវិធីស្ទាក់ចាប់ការចុច ជំនួសឲ្យការដោះស្រាយដោយត្រចៀកស្តាប់ដោយផ្ទាល់។</string>
     <string name="press_controls_single_press">ចុចម្តង</string>
     <string name="press_controls_double_press">ចុចពីរដង</string>
     <string name="press_controls_triple_press">ចុចបីដង</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">រំលងទៅក្រោយ</string>
     <string name="press_action_cycle_anc">ប្តូររបឰប Noise Control</string>
     <string name="press_action_toggle_anc_transparency">ប្តូររបឰប Transparency</string>
+    <string name="press_action_voice_assistant">ជំនួយការសំឡេង</string>
+    <string name="press_action_voice_assistant_unavailable">រកមិនឃើញជំនួយការសំឡេងទេ</string>
     <string name="press_controls_reset_label">កំណត់ឡើងវិញទៅជាលំនាំដើម</string>
     <string name="press_controls_reset_confirm_message">កំណត់ការផ្គូផ្គងការចុចទាំងអស់ឡើងវិញទៅជាលំនាំដើម?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ជំនួយការសំឡេងត្រូវការការអនុញ្ញាតឲ្យបង្ហាញពីលើកម្មវិធីផ្សេងទៀត បើមិនដូច្នេះ ការចុច AirPods របស់អ្នកនឹងមិនបើកវាទេ។</string>
+    <string name="press_controls_voice_assistant_permission_action">អនុញ្ញាត</string>
     <string name="device_settings_noise_control_open_press_controls_action">បើកការគ្រប់គ្រងការចុច</string>
     <string name="general_navigate_up_action">ឡើងលើ</string>
     <string name="general_progress_loading">កំពុងផ្ទុក</string>

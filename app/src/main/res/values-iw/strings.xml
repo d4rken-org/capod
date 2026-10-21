@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">מציג התראה שנייה שמופיעה רק כשמכשיר מחובר. כשזה מופעל, אפשר להסתיר את ההתראה הקבועה \"אין מכשירים\": בהגדרות ההתראות של אנדרואיד עבור CAPod, כבה את הקטגוריה \"סטטוס מכשיר\".</string>
     <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
     <string name="settings_keep_notification_after_disconnect_description">המשך להציג את רמות הסוללה האחרונות הידועות גם לאחר ניתוק ה-AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">רמת הסוללה בשורת הסטטוס</string>
+    <string name="settings_monitor_statusbar_battery_description">מציג את אחוז הסוללה כסמל ההתראה בשורת הסטטוס. באוזניות מוצגת הסוללה הנמוכה משתי האוזניות, תוך דילוג על אוזנייה שנמצאת בטעינה.</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
     <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">אוזניות בלבד</string>
     <string name="settings_charged_scope_case_label">נרתיק בלבד</string>
     <string name="settings_charged_scope_both_label">אוזניות ונרתיק</string>
+    <string name="settings_caselow_reminder_label">תזכורת לסוללת המארז</string>
+    <string name="settings_caselow_reminder_description">הצגת תזכורת לטעינת המארז כשמחזירים את האוזניות אליו ורמת הסוללה של המארז נמוכה.</string>
+    <string name="settings_caselow_threshold_label">רמת התזכורת</string>
     <string name="device_settings_experimental_title">תכונה ניסיונית</string>
     <string name="device_settings_experimental_description">תכונה זו טרם נבדקה על כל המכשירים. אם משהו אינו פועל כראוי, אנא פתח בקשת תמיכה עם יומן ניפוי שגיאות.</string>
     <string name="device_settings_experimental_action">פתח מעקב בעיות</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ניתן להשבית התראה זו בהגדרות המערכת.</string>
     <string name="monitor_notification_starting">מתחיל…</string>
     <string name="support_debuglog_label">יומן ניפוי באגים</string>
-    <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
+    <string name="support_debuglog_desc">שמירת כל הפעולות של האפליקציה לקובץ ZIP שניתן לשתף.</string>
     <string name="debug_debuglog_record_action">הקלט יומן ניפוי באגים</string>
     <string name="debug_debuglog_stop_action">עצור הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים.</string>
@@ -206,7 +211,7 @@
     <string name="permission_ignore_battery_optimizations_label">השבתת אופטימיזציית סוללה</string>
     <string name="permission_ignore_battery_optimizations_description">אופטימיזציית סוללה מונעת מאפליקציה זו לקבל נתוני Bluetooth באופן אמין כשהיא ברקע.</string>
     <string name="permission_system_alert_window_label">חלון התראת מערכת</string>
-    <string name="permission_system_alert_window_description">אפשר ל-CAPod לצייר מעל אפליקציות אחרות כדי לאפשר את תכונת \"הצג חלון קופץ\".</string>
+    <string name="permission_system_alert_window_description">אפשר ל-CAPod להציג מעל אפליקציות אחרות. נדרש לתכונה “הצגת חלון קופץ” ולפתיחת עוזר קולי בלחיצה על ה-AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">כשנראה</string>
     <string name="settings_reaction_autoconnect_caseopen_label">מארז פתוח</string>
     <string name="settings_reaction_autoconnect_inear_label">באוזן</string>
@@ -231,6 +236,8 @@
     <string name="battery_case_charges_state_enough_cd">מספיק לטעינה מלאה</string>
     <string name="battery_case_charges_state_not_enough_cd">לא מספיק לטעינה מלאה</string>
     <string name="battery_case_charges_state_uncertain_cd">ייתכן שלא מספיק לטעינה מלאה</string>
+    <string name="battery_case_charges_short">%1$s טעינות</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ טעינות</string>
     <string name="pods_case_status_open_label">פתוח</string>
     <string name="pods_case_status_closed_label">סגור</string>
     <string name="pods_connection_state_disconnected_label">לא מחובר למכשיר</string>
@@ -456,7 +463,7 @@
     <string name="device_settings_volume_swipe_length_longer">ארוך יותר</string>
     <string name="device_settings_volume_swipe_length_longest">הכי ארוך</string>
     <string name="device_settings_end_call_mute_mic_label">בקרת שיחות</string>
-    <string name="device_settings_end_call_mute_mic_description">בחר מה לחיצה על הזרוע עושה במהלך שיחות</string>
+    <string name="device_settings_end_call_mute_mic_description">בחירת הפעולה של הלחיצות במהלך שיחות</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">לחיצה אחת לסיום שיחה</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">לחיצה כפולה להשתקת מיקרופון</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">לחיצה אחת להשתקת מיקרופון</string>
@@ -496,6 +503,9 @@
     <string name="reaction_charged_notification_title">הטעינה הושלמה</string>
     <string name="reaction_charged_notification_text_full">%1$s טעון במלואו.</string>
     <string name="reaction_charged_notification_text_partial">%1$s נטען עד %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">תזכורת לסוללת המארז</string>
+    <string name="reaction_caselow_notification_title">טעינת המארז</string>
+    <string name="reaction_caselow_notification_text">%1$s: סוללת המארז עומדת על %2$d%%.</string>
     <string name="device_settings_rename_label">שנה שם</string>
     <string name="device_settings_rename_hint">שם המכשיר</string>
     <string name="device_settings_rename_confirm">שנה שם</string>
@@ -519,7 +529,7 @@
     <string name="device_settings_eq_label">אקוולייזר</string>
     <string name="press_controls_title">בקרות לחיצה</string>
     <string name="press_controls_nav_description">כוון את אופן הזיהוי ומפה לחיצות לפעולות</string>
-    <string name="press_controls_description">כוון כיצד לחיצות מזוהות, בחר את אופן כפתור השיחה, ומפה לחיצות לפעולות. פעולות ממופות חלות רק על מכשיר זה ומאפשרות לאפליקציה ליירט את הלחיצה במקום ש-AirPods יטפלו בה באופן טבעי.</string>
+    <string name="press_controls_description">כוונון זיהוי הלחיצות, בחירת התנהגות כפתור השיחה ומיפוי לחיצות לפעולות. פעולות ממופות חלות על מכשיר זה בלבד ומאפשרות לאפליקציה ליירט את הלחיצה, במקום שהאוזניות יטפלו בה באופן מקורי.</string>
     <string name="press_controls_single_press">לחיצה בודדת</string>
     <string name="press_controls_double_press">לחיצה כפולה</string>
     <string name="press_controls_triple_press">לחיצה משולשת</string>
@@ -541,8 +551,12 @@
     <string name="press_action_rewind">הרגע אחורה</string>
     <string name="press_action_cycle_anc">מחזור בקרת רעש</string>
     <string name="press_action_toggle_anc_transparency">החלף שקיפות</string>
+    <string name="press_action_voice_assistant">עוזר קולי</string>
+    <string name="press_action_voice_assistant_unavailable">לא נמצא עוזר קולי</string>
     <string name="press_controls_reset_label">אפס לברירת מחדל</string>
     <string name="press_controls_reset_confirm_message">לאפס את כל מיפויי הלחיצות לברירת מחדל?</string>
+    <string name="press_controls_voice_assistant_permission_hint">עוזר קולי זקוק להרשאה להציג מעל אפליקציות אחרות, אחרת לחיצה על ה-AirPods לא תפתח אותו.</string>
+    <string name="press_controls_voice_assistant_permission_action">הענקה</string>
     <string name="device_settings_noise_control_open_press_controls_action">פתח בקרות לחיצה</string>
     <string name="general_navigate_up_action">עלייה</string>
     <string name="general_progress_loading">טוען</string>

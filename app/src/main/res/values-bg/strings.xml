@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Показва второ известие, което се появява само докато е свързано устройство. Когато е включено, можеш да скриеш постоянното известие „Няма устройства“: изключи категорията „Статус на устройството“ в настройките за известия на Android за CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Запази известието след прекъсване</string>
     <string name="settings_keep_notification_after_disconnect_description">Продължавай да показваш последните известни нива на батерията дори след прекъсване на връзката с AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Ниво на батерията в лентата на състоянието</string>
+    <string name="settings_monitor_statusbar_battery_description">Показва процента на батерията като икона за известие в лентата на състоянието. При слушалките се показва по-ниското от двете нива, като се пропуска тази, която се зарежда.</string>
     <string name="settings_autopause_label">Автоматична пауза</string>
     <string name="settings_autopause_description">Поставяне на аудио на пауза при премахване на устройството от ухото ви.</string>
     <string name="settings_autopplay_label">Автоматично възпроизвеждане</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Само слушалки</string>
     <string name="settings_charged_scope_case_label">Само калъф</string>
     <string name="settings_charged_scope_both_label">Слушалки и калъф</string>
+    <string name="settings_caselow_reminder_label">Напомняне за батерията на кутията</string>
+    <string name="settings_caselow_reminder_description">Напомни ми да заредя кутията, когато поставя слушалките обратно и батерията на кутията е ниска.</string>
+    <string name="settings_caselow_threshold_label">Ниво на напомнянето</string>
     <string name="device_settings_experimental_title">Експериментална функция</string>
     <string name="device_settings_experimental_description">Тази функция все още не е тествана на всички устройства. Ако нещо не работи правилно, моля отворете проблем с дневник за отстраняване на грешки.</string>
     <string name="device_settings_experimental_action">Отвори проследявач на проблеми</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Можете да деактивирате това известие в системните настройки.</string>
     <string name="monitor_notification_starting">Стартиране…</string>
     <string name="support_debuglog_label">Журнал за отстраняване на грешки</string>
-    <string name="support_debuglog_desc">Запишете всичко, което приложението прави, в текстов файл, който можете да споделите.</string>
+    <string name="support_debuglog_desc">Записва всичко, което прави приложението, в ZIP файл за споделяне.</string>
     <string name="debug_debuglog_record_action">Запис на журнал за отстраняване на грешки</string>
     <string name="debug_debuglog_stop_action">Спиране на записа</string>
     <string name="debug_debuglog_sensitive_information_message">Генерираният файл съдържа чувствителна информация (напр. подробности за Bluetooth устройството). Споделяйте го само с доверени страни.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Деактивиране на оптимизации на батерията</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимизациите на батерията пречат на приложението надеждно да получава Bluetooth данни, докато е във фонов режим.</string>
     <string name="permission_system_alert_window_label">Системен изскачащ прозорец</string>
-    <string name="permission_system_alert_window_description">Позволете на CAPod да рисува върху други приложения, за да направи функцията \"Покажи изскачащ прозорец\" възможна.</string>
+    <string name="permission_system_alert_window_description">Разрешаване на CAPod да се показва върху други приложения. Необходимо е за функцията „Показване на изскачащ прозорец“ и за отваряне на гласовия асистент при натискане на слушалките AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Когато е видяно</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Калъфът е отворен</string>
     <string name="settings_reaction_autoconnect_inear_label">В ухото</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Достатъчно за пълно зареждане</string>
     <string name="battery_case_charges_state_not_enough_cd">Недостатъчно за пълно зареждане</string>
     <string name="battery_case_charges_state_uncertain_cd">Може да не е достатъчно за пълно зареждане</string>
+    <string name="battery_case_charges_short">%1$s зареждания</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ зареждания</string>
     <string name="pods_case_status_open_label">Отворен</string>
     <string name="pods_case_status_closed_label">Затворен</string>
     <string name="pods_connection_state_disconnected_label">Не е свързано с устройство</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">По-дълго</string>
     <string name="device_settings_volume_swipe_length_longest">Най-дълго</string>
     <string name="device_settings_end_call_mute_mic_label">Управление на разговори</string>
-    <string name="device_settings_end_call_mute_mic_description">Изберете какво прави натискането на стеблото по време на разговори</string>
+    <string name="device_settings_end_call_mute_mic_description">Какво да правят натисканията по време на обаждания</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Едно натискане за прекратяване на разговора</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Двойно натискане за заглушаване на микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Едно натискане за заглушаване на микрофона</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Зареждането е завършено</string>
     <string name="reaction_charged_notification_text_full">%1$s е напълно зареден.</string>
     <string name="reaction_charged_notification_text_partial">%1$s е зареден до %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Напомняне за батерията на кутията</string>
+    <string name="reaction_caselow_notification_title">Зареди кутията си</string>
+    <string name="reaction_caselow_notification_text">%1$s: батерията на кутията е на %2$d%%.</string>
     <string name="device_settings_rename_label">Преименуване</string>
     <string name="device_settings_rename_hint">Наименование на устройството</string>
     <string name="device_settings_rename_confirm">Преименуване</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Еквалайзер</string>
     <string name="press_controls_title">Контроли за натискане</string>
     <string name="press_controls_nav_description">Настройте поведението при натискане и задайте действия на натисканията</string>
-    <string name="press_controls_description">Настройте как се разпознават натисканията, изберете поведението на бутона за повикване и задайте действия на натисканията. Зададените действия се прилагат само за това устройство и позволяват на приложението да прихваща натискането вместо AirPods да го обработва нативно.</string>
+    <string name="press_controls_description">Настройване на разпознаването на натисканията, избор на поведение за бутона за обаждания и свързване на натисканията с действия. Свързаните действия важат само за това устройство и позволяват на приложението да прихване натискането, вместо слушалките да го обработят сами.</string>
     <string name="press_controls_single_press">Единично натискане</string>
     <string name="press_controls_double_press">Двойно натискане</string>
     <string name="press_controls_triple_press">Тройно натискане</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Превие назад</string>
     <string name="press_action_cycle_anc">Цикъл на контрол на шума</string>
     <string name="press_action_toggle_anc_transparency">Превключване на прозрачност</string>
+    <string name="press_action_voice_assistant">Гласов асистент</string>
+    <string name="press_action_voice_assistant_unavailable">Не е намерен гласов асистент</string>
     <string name="press_controls_reset_label">Нулиране до по подразбиране</string>
     <string name="press_controls_reset_confirm_message">Нулиране на всички съпоставяния на натискания до по подразбиране?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Гласовият асистент се нуждае от разрешение за показване върху други приложения, иначе натискането на AirPods няма да го отвори.</string>
+    <string name="press_controls_voice_assistant_permission_action">Предоставяне</string>
     <string name="device_settings_noise_control_open_press_controls_action">Отвори контроли за натискане</string>
     <string name="general_navigate_up_action">Нагоре</string>
     <string name="general_progress_loading">Зареждане</string>

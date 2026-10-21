@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Parāda otru paziņojumu, kas parādās tikai tad, kad ierīce ir savienota. Ja ieslēgts, vari paslēpt pastāvīgo \"Nav ierīču\" paziņojumu: izslēdz \"Ierīces statusu\" kategoriju CAPod paziņojumu iestatījumos sistēmā Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
     <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
+    <string name="settings_monitor_statusbar_battery_label">Akumulatora līmenis statusa joslā</string>
+    <string name="settings_monitor_statusbar_battery_description">Statusa joslā paziņojuma ikonā tiek rādīts akumulatora procents. Austiņām tiek rādīts zemākais no abiem līmeņiem, izlaižot to, kas tiek uzlādēts.</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
     <string name="settings_autopause_description">Pauzēt audio, noņemot ierīci no auss.</string>
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Tikai klausules</string>
     <string name="settings_charged_scope_case_label">Tikai futrālis</string>
     <string name="settings_charged_scope_both_label">Klausules un futrālis</string>
+    <string name="settings_caselow_reminder_label">Futrāļa akumulatora atgādinājums</string>
+    <string name="settings_caselow_reminder_description">Atgādināt uzlādēt futrāli, kad ieliec austiņas atpakaļ futrālī un futrāļa akumulators ir vājš.</string>
+    <string name="settings_caselow_threshold_label">Atgādinājuma līmenis</string>
     <string name="device_settings_experimental_title">Eksperimentāla funkcija</string>
     <string name="device_settings_experimental_description">Šī funkcija vēl nav pārbaudīta visās ierīcēs. Ja kaut kas nedarbojas pareizi, lūdzu atveriet problēmziņojumu ar atkļūdošanas žurnālu.</string>
     <string name="device_settings_experimental_action">Atvērt problēmu izsekotāju</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Šo paziņojumu varat atspējot sistēmas iestatījumos.</string>
     <string name="monitor_notification_starting">Uzsākšana…</string>
     <string name="support_debuglog_label">Atkļūdošanas žurnāls</string>
-    <string name="support_debuglog_desc">Ierakstiet visu, ko lietotne dara, teksta failā, ko varat kopīgot.</string>
+    <string name="support_debuglog_desc">Ierakstīt visu, ko lietotne dara, zip failā, ko var kopīgot.</string>
     <string name="debug_debuglog_record_action">Ierakstīt atkļūdošanas žurnālu</string>
     <string name="debug_debuglog_stop_action">Pārtraukt ierakstīšanu</string>
     <string name="debug_debuglog_sensitive_information_message">Ģenerētais fails satur sensitīvu informāciju (piem., Bluetooth ierīces informāciju). Kopīgojiet to tikai ar uzticamām pusēm.</string>
@@ -206,7 +211,7 @@
     <string name="permission_ignore_battery_optimizations_label">Atspējot baterijas optimizācijas</string>
     <string name="permission_ignore_battery_optimizations_description">Baterijas optimizācijas neļauj šai lietotnei droši saņemt Bluetooth datus, kamēr lietotne ir fonā.</string>
     <string name="permission_system_alert_window_label">Sistēmas brīdinājuma logs</string>
-    <string name="permission_system_alert_window_description">Atļaujiet CAPod zīmēt virs citām lietotnēm, lai iespējotu funkciju \"Rādīt uznirstošo logu\".</string>
+    <string name="permission_system_alert_window_description">Atļaut CAPod rādīt virs citām lietotnēm. Nepieciešams funkcijai “Rādīt uznirstošo logu” un balss asistenta atvēršanai, nospiežot AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kad redzēta</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Korpuss ir atvērts</string>
     <string name="settings_reaction_autoconnect_inear_label">Ausī</string>
@@ -231,6 +236,8 @@
     <string name="battery_case_charges_state_enough_cd">Pietiek pilnai uzlādei</string>
     <string name="battery_case_charges_state_not_enough_cd">Nepietiek pilnai uzlādei</string>
     <string name="battery_case_charges_state_uncertain_cd">Iespējams nepietiek pilnai uzlādei</string>
+    <string name="battery_case_charges_short">%1$s uzlādes</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ uzlādes</string>
     <string name="pods_case_status_open_label">Atvērts</string>
     <string name="pods_case_status_closed_label">Aizvērts</string>
     <string name="pods_connection_state_disconnected_label">Nav savienota ar ierīci</string>
@@ -456,7 +463,7 @@
     <string name="device_settings_volume_swipe_length_longer">Garāks</string>
     <string name="device_settings_volume_swipe_length_longest">Garākais</string>
     <string name="device_settings_end_call_mute_mic_label">Zvanāmā vadība</string>
-    <string name="device_settings_end_call_mute_mic_description">Izvēlieties, kas notiek, nospiežot kātienu zvanāšanas laikā</string>
+    <string name="device_settings_end_call_mute_mic_description">Izvēlies, ko nospiedieni dara zvanu laikā</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Vienu reizi nospiežot, beidz zvanu</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Divas reizes nospiežot, islēdz mikrofonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Vienu reizi nospiežot, islēdz mikrofonu</string>
@@ -496,6 +503,9 @@
     <string name="reaction_charged_notification_title">Uzlāde pabeigta</string>
     <string name="reaction_charged_notification_text_full">%1$s ir pilnībā uzlādēts.</string>
     <string name="reaction_charged_notification_text_partial">%1$s ir uzlādēts līdz %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Futrāļa akumulatora atgādinājums</string>
+    <string name="reaction_caselow_notification_title">Uzlādē futrāli</string>
+    <string name="reaction_caselow_notification_text">%1$s: futrāļa akumulators ir %2$d%%.</string>
     <string name="device_settings_rename_label">Pārdēvēt</string>
     <string name="device_settings_rename_hint">Ierīces nosaukums</string>
     <string name="device_settings_rename_confirm">Pārdēvēt</string>
@@ -519,7 +529,7 @@
     <string name="device_settings_eq_label">Ekvālaizators</string>
     <string name="press_controls_title">Nospieduma vadīklas</string>
     <string name="press_controls_nav_description">Pielāgot nospiešanas uzvedību un kartēt nospiešanas uz darbībām</string>
-    <string name="press_controls_description">Pielāgojiet, kā tiek atpazītas nospiešanas, izvēlieties zvaņa pogas uzvedību un kartējiet nospiešanas uz darbībām. Kartētās darbības attiecas tikai uz šo ierīci un ļauj lietotnei pārtvert nospiešanu, nevis ļaut AirPods to apstrādāt vietēji.</string>
+    <string name="press_controls_description">Pielāgo, kā tiek atpazīti nospiedieni, izvēlies zvana pogas darbību un piesaisti nospiedienus darbībām. Piesaistītās darbības attiecas tikai uz šo ierīci un ļauj lietotnei pārtvert nospiedienu, nevis to apstrādā pašas austiņas.</string>
     <string name="press_controls_single_press">Viena nospiešana</string>
     <string name="press_controls_double_press">Divkārša nospiešana</string>
     <string name="press_controls_triple_press">Trīskārša nospiešana</string>
@@ -541,8 +551,12 @@
     <string name="press_action_rewind">Attīšana atpakaļ</string>
     <string name="press_action_cycle_anc">Trokšņu kontroles cikls</string>
     <string name="press_action_toggle_anc_transparency">Pārslēgt caurspīdīgumu</string>
+    <string name="press_action_voice_assistant">Balss asistents</string>
+    <string name="press_action_voice_assistant_unavailable">Balss asistents nav atrasts</string>
     <string name="press_controls_reset_label">Atiestatīt uz noklusējumu</string>
     <string name="press_controls_reset_confirm_message">Atiestatīt visus nospiešanas kartējumus uz noklusējumu?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Balss asistentam nepieciešama atļauja rādīt virs citām lietotnēm, citādi, nospiežot AirPods, to nevarēs atvērt.</string>
+    <string name="press_controls_voice_assistant_permission_action">Piešķirt</string>
     <string name="device_settings_noise_control_open_press_controls_action">Atvērt nospieduma vadīklas</string>
     <string name="general_navigate_up_action">Atpakaļ</string>
     <string name="general_progress_loading">Ielāde</string>

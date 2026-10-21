@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Faqat qurilma ulangan paytda ko\'rinadigan ikkinchi bildirishnomani ko\'rsatadi. Bu yoqilganda, doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishingiz mumkin: Android bildirishnoma sozlamalarida CAPod uchun \"Qurilma holati\" toifasini o\'chiring.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uzilgandan keyin bildirishnomani saqlash</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods uzilgandan keyin ham oxirgi ma\'lum batareya darajalarini ko\'rsatishni davom ettiring</string>
+    <string name="settings_monitor_statusbar_battery_label">Holat qatorida batareya darajasi</string>
+    <string name="settings_monitor_statusbar_battery_description">Batareya foizini holat qatorida bildirishnoma belgisi sifatida ko\'rsatadi. Quloqchinlar uchun ikkitasidan pasti ko\'rsatiladi, zaryadlanayotgani hisobga olinmaydi.</string>
     <string name="settings_autopause_label">Avtomatik pauza</string>
     <string name="settings_autopause_description">Qurilmani qulog\'ingizdan olib tashlaganingizda audioni pauza qiling.</string>
     <string name="settings_autopplay_label">Avtomatik ijro etish</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Faqat podlar</string>
     <string name="settings_charged_scope_case_label">Faqat quti</string>
     <string name="settings_charged_scope_both_label">Podlar va quti</string>
+    <string name="settings_caselow_reminder_label">G\'ilof batareyasi eslatmasi</string>
+    <string name="settings_caselow_reminder_description">Quloqchinlarni joyiga qo\'ysam va g\'ilof batareyasi kam bo\'lsa, g\'ilofni zaryadlashni eslatsin.</string>
+    <string name="settings_caselow_threshold_label">Eslatma darajasi</string>
     <string name="device_settings_experimental_title">Eksperimental xususiyat</string>
     <string name="device_settings_experimental_description">Bu xususiyat hali barcha qurilmalarda sinovdan o\'tkazilmagan. Agar nimadir to\'g\'ri ishlamayotgan bo\'lsa, iltimos debug logi bilan muammo oching.</string>
     <string name="device_settings_experimental_action">Muammo kuzatuvchisini ochish</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Bu bildirishnomani tizim sozlamalarida o\'chirib qo\'yishingiz mumkin.</string>
     <string name="monitor_notification_starting">Boshlanilyapti…</string>
     <string name="support_debuglog_label">Nosozliklarni tuzatish jurnali</string>
-    <string name="support_debuglog_desc">Ilova bajarayotgan hamma narsani ulashishingiz mumkin bo\'lgan matn fayliga yozib oling.</string>
+    <string name="support_debuglog_desc">Ilova bajarayotgan barcha amallarni ulashish mumkin bo\'lgan zip faylga yozib oladi.</string>
     <string name="debug_debuglog_record_action">Nosozliklarni tuzatish jurnalini yozib olish</string>
     <string name="debug_debuglog_stop_action">Yozib olishni to\'xtatish</string>
     <string name="debug_debuglog_sensitive_information_message">Yaratilgan faylda maxfiy ma\'lumotlar mavjud (masalan, Bluetooth qurilmasi tafsilotlari). Uni faqat ishonchli tomonlar bilan baham ko\'ring.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Batareya optimallashtirishlarini o\'chirish</string>
     <string name="permission_ignore_battery_optimizations_description">Batareya optimallashtirishlari ilova fonda ishlayotganda Bluetooth ma\'lumotlarini ishonchli qabul qilishiga to\'sqinlik qiladi.</string>
     <string name="permission_system_alert_window_label">Tizim ogohlantirish oynasi</string>
-    <string name="permission_system_alert_window_description">\"Qalqib chiquvchi oynani ko\'rsatish\" funksiyasini mumkin qilish uchun CAPod\'ga boshqa ilovalar ustida chizish ruxsatini bering.</string>
+    <string name="permission_system_alert_window_description">CAPod\'ga boshqa ilovalar ustida ko\'rinishga ruxsat bering. \"Qalqib chiquvchi oyna\" funksiyasi uchun va AirPods\'dagi bosish orqali ovozli yordamchini ochish uchun kerak.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Ko\'rilganda</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Keys ochiq</string>
     <string name="settings_reaction_autoconnect_inear_label">Quloqda</string>
@@ -217,12 +222,18 @@
         <item quantity="one">Ikkala quloqtasiga uchun yana ~%d to\'liq zaryad</item>
         <item quantity="other">Ikkala quloqtasiga uchun yana ~%d to\'liq zaryad</item>
     </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Ikkala quloqchin uchun yana kamida %d marta to\'liq zaryad</item>
+        <item quantity="other">Ikkala quloqchin uchun yana kamida %d marta to\'liq zaryad</item>
+    </plurals>
     <string name="battery_case_charges_less_than_one">Ikkala quloqtasiga uchun bitta to\'liq zaryadlanishdan kam</string>
     <string name="battery_case_charges_empty">Quti bo\'sh, quloqtasiga uchun zaryad qolmadi</string>
     <string name="battery_case_charges_uncertain">Ikkala quloqtasiga uchun qancha to\'liq zaryadlanish qolganini noma\'lum</string>
     <string name="battery_case_charges_state_enough_cd">To\'liq zaryadlanish uchun etarli</string>
     <string name="battery_case_charges_state_not_enough_cd">To\'liq zaryadlanish uchun etarli emas</string>
     <string name="battery_case_charges_state_uncertain_cd">To\'liq zaryadlanish uchun etarli bo\'lmasligi mumkin</string>
+    <string name="battery_case_charges_short">%1$s zaryad</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ zaryad</string>
     <string name="pods_case_status_open_label">Ochiq</string>
     <string name="pods_case_status_closed_label">Yopiq</string>
     <string name="pods_connection_state_disconnected_label">Qurilmaga ulanmagan</string>
@@ -445,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Uzunroq</string>
     <string name="device_settings_volume_swipe_length_longest">Eng uzun</string>
     <string name="device_settings_end_call_mute_mic_label">Qo\'ng\'iroq boshqaruvlari</string>
-    <string name="device_settings_end_call_mute_mic_description">Qo\'ng\'iroqlar paytida sopni bosish nimani bajarishini tanlang</string>
+    <string name="device_settings_end_call_mute_mic_description">Qo\'ng\'iroq paytida bosishlar nima qilishini tanlang</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Qo\'ng\'iroqni tugatish uchun bir marta bosing</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Mikrofonni o\'chirish uchun ikki marta bosing</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonni o\'chirish uchun bir marta bosing</string>
@@ -485,6 +496,9 @@
     <string name="reaction_charged_notification_title">Zaryad tugadi</string>
     <string name="reaction_charged_notification_text_full">%1$s to\'liq zaryadlandi.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% gacha zaryadlandi.</string>
+    <string name="reaction_caselow_channel_label">G\'ilof batareyasi eslatmasi</string>
+    <string name="reaction_caselow_notification_title">G\'ilofni zaryadlang</string>
+    <string name="reaction_caselow_notification_text">%1$s: g\'ilof batareyasi %2$d%%.</string>
     <string name="device_settings_rename_label">Qayta nomlash</string>
     <string name="device_settings_rename_hint">Qurilma nomi</string>
     <string name="device_settings_rename_confirm">Qayta nomlash</string>
@@ -508,7 +522,7 @@
     <string name="device_settings_eq_label">Ekvalayzер</string>
     <string name="press_controls_title">Bosish boshqaruvi</string>
     <string name="press_controls_nav_description">Bosish xatti-harakatini sozlang va bosishlarga amallar belgilang</string>
-    <string name="press_controls_description">Bosishlar qanday aniqlanishini sozlang, qo\'ng\'iroq tugmasi xatti-harakatini tanlang va bosishlarga amallar belgilang. Belgilangan amallar faqat ushbu qurilmaga tegishli bo\'lib, ilovaga bosishni AirPods o\'zi boshqarish o\'rniga ushlab olish imkonini beradi.</string>
+    <string name="press_controls_description">Bosishlar qanday aniqlanishini sozlang, qo\'ng\'iroq tugmasi xatti-harakatini tanlang va bosishlarni amallarga bog\'lang. Bog\'langan amallar faqat shu qurilmaga tegishli bo\'ladi va bosishni quloqchinlar emas, ilova o\'zi qabul qiladi.</string>
     <string name="press_controls_single_press">Bir marta bosish</string>
     <string name="press_controls_double_press">Ikki marta bosish</string>
     <string name="press_controls_triple_press">Uch marta bosish</string>
@@ -530,8 +544,12 @@
     <string name="press_action_rewind">Orqaga qaytarish</string>
     <string name="press_action_cycle_anc">Shovqin boshqaruvini aylantirish</string>
     <string name="press_action_toggle_anc_transparency">Shaffoflikni almashtirish</string>
+    <string name="press_action_voice_assistant">Ovozli yordamchi</string>
+    <string name="press_action_voice_assistant_unavailable">Ovozli yordamchi topilmadi</string>
     <string name="press_controls_reset_label">Standart sozlamalarga qaytarish</string>
     <string name="press_controls_reset_confirm_message">Barcha bosish xaritalarini standart sozlamalarga qaytarasizmi?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Ovozli yordamchiga boshqa ilovalar ustida ko\'rsatish uchun ruxsat kerak, aks holda AirPods\'ni bosganingizda u ochilmaydi.</string>
+    <string name="press_controls_voice_assistant_permission_action">Ruxsat berish</string>
     <string name="device_settings_noise_control_open_press_controls_action">Bosish boshqaruvini ochish</string>
     <string name="general_navigate_up_action">Yuqoriga qayt</string>
     <string name="general_progress_loading">Yuklanmoqda</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධව ඇති විට පමණක් දිස්වන දෙවන දැනුම්දීමක් පෙන්වයි. මෙය ක්‍රියාත්මක කිරීමෙන්, ස්ථිර \"උපාංග නැත\" දැනුම්දීම සඟවා ගත හැක: CAPod සඳහා Android හි දැනුම්දීම් සැකසීම් තුළ \"උපාංග තත්ත්වය\" කාණ්ඩය අක්‍රිය කරන්න.</string>
     <string name="settings_keep_notification_after_disconnect_label">විසන්ධි වූ පසු දැනුම්දීම තබන්න</string>
     <string name="settings_keep_notification_after_disconnect_description">ඔබගේ AirPods විසන්ධි වූ පසුවද අවසාන වරට දන්නා බැටරි මට්ටම් පෙන්වීම දිගටම කරන්න</string>
+    <string name="settings_monitor_statusbar_battery_label">තත්ව තීරුවේ බැටරි මට්ටම</string>
+    <string name="settings_monitor_statusbar_battery_description">තත්ව තීරුවේ දැනුම්දීම් නිරූපකය ලෙස බැටරි ප්‍රතිශතය පෙන්වයි. කන් ඇතුල් කරන උපාංග සඳහා, චාජ් වෙමින් ඇති එක මඟ හැර, දෙකෙන් අඩු එක පෙන්වයි.</string>
     <string name="settings_autopause_label">ස්වයංක්‍රීයව විරාම කරන්න</string>
     <string name="settings_autopause_description">ඔබේ කනෙන් උපාංගය ඉවත් කරන විට ශ්‍රව්‍ය විරාම කරන්න.</string>
     <string name="settings_autopplay_label">ස්වයංක්‍රීයව වාදනය කරන්න</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pods පමණි</string>
     <string name="settings_charged_scope_case_label">Case පමණි</string>
     <string name="settings_charged_scope_both_label">Pods සහ case</string>
+    <string name="settings_caselow_reminder_label">කේස් බැටරි මතක් කිරීම</string>
+    <string name="settings_caselow_reminder_description">පොඩ් නැවත දමන විට කේසයේ බැටරිය අඩු නම්, කේසය චාජ් කිරීමට මතක් කරන්න.</string>
+    <string name="settings_caselow_threshold_label">මතක් කිරීමේ මට්ටම</string>
     <string name="device_settings_experimental_title">අත්හදා බැලීමේ ලක්ෂණය</string>
     <string name="device_settings_experimental_description">මෙම ලක්ෂණය තවම සියලු උපකරණවල පරීක්ෂා කර නොමැත. යමක් නිවැරදිව ක්‍රියා නොකරන්නේ නම්, කරුණාකර debug log එකක් සමඟ ගැටළුවක් විවෘත කරන්න.</string>
     <string name="device_settings_experimental_action">Issue Tracker විවෘත කරන්න</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ඔබට පද්ධති සැකසීම් හි මෙම දැනුම්දීම අබල කළ හැකිය.</string>
     <string name="monitor_notification_starting">ආරම්භ කරමින් පවතී…</string>
     <string name="support_debuglog_label">දෝෂහරණ ලොගය</string>
-    <string name="support_debuglog_desc">යෙදුම කරන සෑම දෙයක්ම ඔබට බෙදාගත හැකි පෙළ ගොනුවක සටහන් කරන්න.</string>
+    <string name="support_debuglog_desc">යෙදුම කරන සියල්ල බෙදා ගත හැකි zip ගොනුවකට වාර්තා කරන්න.</string>
     <string name="debug_debuglog_record_action">දෝෂහරණ ලොගය සටහන් කරන්න</string>
     <string name="debug_debuglog_stop_action">සටහන් කිරීම නවත්වන්න</string>
     <string name="debug_debuglog_sensitive_information_message">ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා: බ්ලූටූත් උපාංග විස්තර) අඩංගු වේ. එය විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදා ගන්න.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">බැටරි ප්‍රශස්තකරණ අක්‍රීය කරන්න</string>
     <string name="permission_ignore_battery_optimizations_description">බැටරි ප්‍රශස්තකරණ මෙම යෙදුම පසුබිමේ සිටින විට විශ්වාසදායක ලෙස Bluetooth දත්ත ලබා ගැනීම වළක්වයි.</string>
     <string name="permission_system_alert_window_label">පද්ධති ඇඟවුම් කවුළුව</string>
-    <string name="permission_system_alert_window_description">\"පොප්-අප් පෙන්වන්න\" විශේෂාංගය හැකි කිරීමට CAPod හට වෙනත් යෙදුම් මත අඳින්නට ඉඩ දෙන්න.</string>
+    <string name="permission_system_alert_window_description">CAPod ට වෙනත් යෙදුම් මත අඳින්න ඉඩ දෙන්න. “PopUp පෙන්වන්න” විශේෂාංගය සහ ඔබේ AirPods මත ඔබන විට හඬ සහායකයා විවෘත කිරීම සඳහා මෙය අවශ්‍යයි.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">දුටු විට</string>
     <string name="settings_reaction_autoconnect_caseopen_label">කවරය විවෘතයි</string>
     <string name="settings_reaction_autoconnect_inear_label">කනේ</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත්</string>
     <string name="battery_case_charges_state_not_enough_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත් නොවේ</string>
     <string name="battery_case_charges_state_uncertain_cd">සම්පූර්ණ ආරෝපණයක් සඳහා ප්‍රමාණවත් නොවිය හැක</string>
+    <string name="battery_case_charges_short">%1$s චාජ්</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ චාජ්</string>
     <string name="pods_case_status_open_label">විවෘතයි</string>
     <string name="pods_case_status_closed_label">වසා ඇත</string>
     <string name="pods_connection_state_disconnected_label">උපාංගයකට සම්බන්ධ නොවේ</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">දිග</string>
     <string name="device_settings_volume_swipe_length_longest">ඉතාමත් දිග</string>
     <string name="device_settings_end_call_mute_mic_label">ඇමතුම් පාලන</string>
-    <string name="device_settings_end_call_mute_mic_description">ඇමතුම් සමයේ කද එබීම්න් සිදු වන දේ තෝරන්න</string>
+    <string name="device_settings_end_call_mute_mic_description">ඇමතුම් අතරතුර ඔබන විට සිදුවන දේ තෝරන්න.</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ඇමතුම අවසන් කිරීමට එක් වරක් එබන්න</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">මයික්‍රොෆෝනය නිශ්ශබ්ද කිරීමට දෙවරක් එබන්න</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">මයික්‍රොෆෝනය නිශ්ශබ්ද කිරීමට එක් වරක් එබන්න</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">චාර්ජ් කිරීම සම්පූරණ්යි</string>
     <string name="reaction_charged_notification_text_full">%1$s සම්පූරණ්යේන් චාර්ජ් වී ඇත.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% දක්වා චාර්ජ් වී ඇත.</string>
+    <string name="reaction_caselow_channel_label">කේස් බැටරි මතක් කිරීම</string>
+    <string name="reaction_caselow_notification_title">ඔබේ කේසය චාජ් කරන්න</string>
+    <string name="reaction_caselow_notification_text">%1$s: කේස් බැටරිය %2$d%% ක් වේ.</string>
     <string name="device_settings_rename_label">නැවත් නම් කරන්න</string>
     <string name="device_settings_rename_hint">උපාංගයේ නම</string>
     <string name="device_settings_rename_confirm">නැවත් නම් කරන්න</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ශ්‍රව්‍ය සමකාරකය</string>
     <string name="press_controls_title">ඔබීමේ පාලන</string>
     <string name="press_controls_nav_description">ඔබීමේ හැසිරීම සරිකරන්න සහ ඔබීම් ක්‍රියා වේත සිතියම් ගත කරන්න</string>
-    <string name="press_controls_description">ඔබීම් අනාවරණය කරන ආකාරය සරිකරන්න, ඇමතුම්-බොත්තම් හැසිරීම තෝරන්න, සහ ඔබීම් ක්‍රියා වේත සිතියම් ගත කරන්න. සිතියම් ගත ක්‍රියා මෙම උපකරණයට පමණක් අදාල වන අතර AirPods ස්වාභාවිකව හැසිරේනවාට අමතරව app එකට ඔබීම බාධා කිරීමට ඉඩ දෙයි.</string>
+    <string name="press_controls_description">ඔබන විට හඳුනාගන්නා ආකාරය සකසන්න, ඇමතුම් බොත්තමේ හැසිරීම තෝරන්න, සහ ඔබන ඒවා ක්‍රියාවලට සිතියම් කරන්න. සිතියම් කළ ක්‍රියා මෙම උපාංගයට පමණක් අදාළ වන අතර, හෙඩ්ෆෝන් මගින් ස්වාභාවිකව හැසිරවීම වෙනුවට යෙදුම මගින් ඔබීම බාධා කිරීමට ඉඩ දෙයි.</string>
     <string name="press_controls_single_press">එකම ඔබීමක්</string>
     <string name="press_controls_double_press">ද්ළිත්ව ඔබීමක්</string>
     <string name="press_controls_triple_press">ත්‍රිත්ව ඔබීමක්</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">ආපසු රිංගන්න</string>
     <string name="press_action_cycle_anc">ශබ්ද පාලනය චක්‍රගත කරන්න</string>
     <string name="press_action_toggle_anc_transparency">විනිවිදභාවය ටොගල් කරන්න</string>
+    <string name="press_action_voice_assistant">හඬ සහායක</string>
+    <string name="press_action_voice_assistant_unavailable">හඬ සහායකයක් හමු නොවීය</string>
     <string name="press_controls_reset_label">පේරනිමි අගයන්ට යශි සකස් කරන්න</string>
     <string name="press_controls_reset_confirm_message">සියලු ඔබීම් සිතියම්ගත කිරීම් පේරනිමි අගයන්ට යශි සකස් කරන්නද?</string>
+    <string name="press_controls_voice_assistant_permission_hint">හඬ සහායකයට වෙනත් යෙදුම් මත පෙන්වීමට අවසරය අවශ්‍යයි, එසේ නොමැතිනම් ඔබේ AirPods ඔබන විට එය විවෘත නොවේ.</string>
+    <string name="press_controls_voice_assistant_permission_action">ලබා දෙන්න</string>
     <string name="device_settings_noise_control_open_press_controls_action">ඔබීමේ පාලන විවෘත කරන්න</string>
     <string name="general_navigate_up_action">ඉහළට ගමන් කරන්න</string>
     <string name="general_progress_loading">පූරණය කරමින්</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Wyświetla drugie powiadomienie, które pojawia się tylko wtedy, gdy urządzenie jest podłączone. Po włączeniu tej opcji możesz ukryć stałe powiadomienie Brak urządzeń: wyłącz kategorię Stan urządzenia w ustawieniach powiadomień Androida dla CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Zachowaj powiadomienie po rozłączeniu</string>
     <string name="settings_keep_notification_after_disconnect_description">Kontynuuj wyświetlanie ostatniego znanego poziomu baterii nawet po rozłączeniu AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Poziom baterii na pasku stanu</string>
+    <string name="settings_monitor_statusbar_battery_description">Wyświetla procent baterii jako ikonę powiadomienia na pasku stanu. W przypadku słuchawek pokazywany jest niższy z dwóch poziomów, z pominięciem tej słuchawki, która się ładuje.</string>
     <string name="settings_autopause_label">Automatyczne wstrzymywanie</string>
     <string name="settings_autopause_description">Wstrzymaj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Tylko słuchawki</string>
     <string name="settings_charged_scope_case_label">Tylko etui</string>
     <string name="settings_charged_scope_both_label">Słuchawki i etui</string>
+    <string name="settings_caselow_reminder_label">Przypomnienie o baterii etui</string>
+    <string name="settings_caselow_reminder_description">Przypomnij mi o naładowaniu etui, gdy odłożę słuchawki, a bateria etui jest słaba.</string>
+    <string name="settings_caselow_threshold_label">Poziom przypomnienia</string>
     <string name="device_settings_experimental_title">Funkcja eksperymentalna</string>
     <string name="device_settings_experimental_description">Ta funkcja nie została jeszcze przetestowana na wszystkich urządzeniach. Jeśli coś nie działa poprawnie, otwórz zgłoszenie z dziennikiem debugowania.</string>
     <string name="device_settings_experimental_action">Otwórz śledzenie problemów</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Możesz wyłączyć to powiadomienie w ustawieniach systemowych.</string>
     <string name="monitor_notification_starting">Uruchamianie…</string>
     <string name="support_debuglog_label">Dziennik debugowania</string>
-    <string name="support_debuglog_desc">Rejestruj wszystko, co robi aplikacja do pliku tekstowego, który możesz udostępnić.</string>
+    <string name="support_debuglog_desc">Zapisz wszystko, co robi aplikacja, do pliku zip, który możesz udostępnić.</string>
     <string name="debug_debuglog_record_action">Rejestruj dziennik debugowania</string>
     <string name="debug_debuglog_stop_action">Zatrzymaj rejestrowanie</string>
     <string name="debug_debuglog_sensitive_information_message">Wygenerowany plik zawiera poufne informacje (np. dane urządzenia Bluetooth). Udostępniaj go tylko zaufanym podmiotom.</string>
@@ -210,7 +215,7 @@ K4r0lSz;</string>
     <string name="permission_ignore_battery_optimizations_label">Wyłącz optymalizację baterii</string>
     <string name="permission_ignore_battery_optimizations_description">Optymalizacja baterii zapobiega przed niezawodnym odbieraniem danych Bluetooth, gdy aplikacja działa w tle.</string>
     <string name="permission_system_alert_window_label">Okna alertów systemowych</string>
-    <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie informacji\".</string>
+    <string name="permission_system_alert_window_description">Zezwól CAPod na wyświetlanie nad innymi aplikacjami. Jest to potrzebne do funkcji „Pokaż wyskakujące okno” oraz do otwierania asystenta głosowego naciśnięciem słuchawek AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kiedy widoczne</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etui jest otwarte</string>
     <string name="settings_reaction_autoconnect_inear_label">W uszach</string>
@@ -467,7 +472,7 @@ K4r0lSz;</string>
     <string name="device_settings_volume_swipe_length_longer">Dłużej</string>
     <string name="device_settings_volume_swipe_length_longest">Najdłużej</string>
     <string name="device_settings_end_call_mute_mic_label">Sterowanie połączeniami</string>
-    <string name="device_settings_end_call_mute_mic_description">Wybierz, co robi naciśnięcie trzonu podczas rozmów</string>
+    <string name="device_settings_end_call_mute_mic_description">Wybierz, co robią naciśnięcia podczas połączeń</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Pojedyncze naciśnięcie, aby zakończyć połączenie</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Naciśnij dwukrotnie, aby wyciszyć mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Pojedyncze naciśnięcie wycisza mikrofon</string>
@@ -507,6 +512,9 @@ K4r0lSz;</string>
     <string name="reaction_charged_notification_title">Ładowanie zakończone</string>
     <string name="reaction_charged_notification_text_full">%1$s jest w pełni naładowany.</string>
     <string name="reaction_charged_notification_text_partial">%1$s został naładowany do %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Przypomnienie o baterii etui</string>
+    <string name="reaction_caselow_notification_title">Naładuj etui</string>
+    <string name="reaction_caselow_notification_text">%1$s: bateria etui wynosi %2$d%%.</string>
     <string name="device_settings_rename_label">Zmień nazwę</string>
     <string name="device_settings_rename_hint">Nazwa urządzenia</string>
     <string name="device_settings_rename_confirm">Zmień nazwę</string>
@@ -530,7 +538,7 @@ K4r0lSz;</string>
     <string name="device_settings_eq_label">Korektor</string>
     <string name="press_controls_title">Sterowanie przyciskami</string>
     <string name="press_controls_nav_description">Dostosuj zachowanie przycisków i mapuj naciśnięcia na akcje</string>
-    <string name="press_controls_description">Dostosuj sposób wykrywania naciśnięć, wybierz zachowanie przycisków połączeń i przypisz naciśnięcia do akcji. Zmapowane akcje dotyczą tylko tego urządzenia i pozwalają aplikacji przechwytywać naciśnięcia, zamiast aby AirPods obsługiwały je natywnie.</string>
+    <string name="press_controls_description">Dostosuj wykrywanie naciśnięć, wybierz działanie przycisku połączeń i przypisz naciśnięciom akcje. Przypisane akcje dotyczą tylko tego urządzenia i pozwalają aplikacji przechwycić naciśnięcie zamiast obsługi przez słuchawki.</string>
     <string name="press_controls_single_press">Pojedyncze naciśnięcie</string>
     <string name="press_controls_double_press">Podwójne naciśnięcie</string>
     <string name="press_controls_triple_press">Potrójne naciśnięcie</string>
@@ -552,8 +560,12 @@ K4r0lSz;</string>
     <string name="press_action_rewind">Przewiń do tyłu</string>
     <string name="press_action_cycle_anc">Cykl kontroli hałasu</string>
     <string name="press_action_toggle_anc_transparency">Przełącz przezroczystość</string>
+    <string name="press_action_voice_assistant">Asystent głosowy</string>
+    <string name="press_action_voice_assistant_unavailable">Nie znaleziono asystenta głosowego</string>
     <string name="press_controls_reset_label">Przywróć domyślne</string>
     <string name="press_controls_reset_confirm_message">Zresetować wszystkie mapowania naciśnięć do domyślnych?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Asystent głosowy potrzebuje zgody na wyświetlanie nad innymi aplikacjami. Bez niej naciśnięcie słuchawek AirPods nie otworzy asystenta.</string>
+    <string name="press_controls_voice_assistant_permission_action">Przyznaj</string>
     <string name="device_settings_noise_control_open_press_controls_action">Otwórz sterowanie przyciskami</string>
     <string name="general_navigate_up_action">Przejdź wyżej</string>
     <string name="general_progress_loading">Ładowanie</string>

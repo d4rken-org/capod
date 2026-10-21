@@ -33,6 +33,8 @@
     <string name="settings_monitor_connected_notification_description">Mostra una segona notificació que només apareix mentre un dispositiu està connectat. Amb això activat, podeu amagar la notificació permanent de «Cap dispositiu»: desactiva la categoria «Estat del dispositiu» a la configuració de notificacions d\'Android per al CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantén les notificacions després de la desconnexió</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua mostrant els últims nivells de bateria coneguts fins i tot després que els AirPods es desconnectin</string>
+    <string name="settings_monitor_statusbar_battery_label">Nivell de la bateria a la barra d\'estat</string>
+    <string name="settings_monitor_statusbar_battery_description">Mostra el percentatge de la bateria com a icona de notificació a la barra d\'estat. En els auriculars, es mostra el més baix dels dos, i s\'omet el que s\'està carregant.</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
     <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
@@ -67,6 +69,9 @@
     <string name="settings_charged_scope_pods_label">Només els auriculars</string>
     <string name="settings_charged_scope_case_label">Només la funda</string>
     <string name="settings_charged_scope_both_label">Auriculars i funda</string>
+    <string name="settings_caselow_reminder_label">Recordatori de bateria de l\'estoig</string>
+    <string name="settings_caselow_reminder_description">Recorda\'m que carregui l\'estoig quan torni a posar els auriculars i la bateria de l\'estoig estigui baixa.</string>
+    <string name="settings_caselow_threshold_label">Nivell del recordatori</string>
     <string name="device_settings_experimental_title">Funció experimental</string>
     <string name="device_settings_experimental_description">Aquesta funció encara no s\'ha provat a tots els dispositius. Si alguna cosa no funciona correctament, obriu una incidència amb un registre de depuració.</string>
     <string name="device_settings_experimental_action">Obre el seguidor d\'incidències</string>
@@ -75,7 +80,7 @@
     <string name="monitor_notification_extra_enabled_hint">Podeu desactivar aquesta notificació a la configuració del sistema.</string>
     <string name="monitor_notification_starting">S\'està iniciant…</string>
     <string name="support_debuglog_label">Registre de depuració</string>
-    <string name="support_debuglog_desc">Enregistra tot el que fa l\'aplicació en un fitxer de text que podeu compartir.</string>
+    <string name="support_debuglog_desc">Registra tot el que fa l\'aplicació en un fitxer zip que podeu compartir.</string>
     <string name="debug_debuglog_record_action">Grava el registre de depuració</string>
     <string name="debug_debuglog_stop_action">Atura la gravació</string>
     <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació sensible (p. ex. detalls del dispositiu Bluetooth). Compartiu-ho només amb persones de confiança.</string>
@@ -205,7 +210,7 @@
     <string name="permission_ignore_battery_optimizations_label">Desactiva les optimitzacions de la bateria</string>
     <string name="permission_ignore_battery_optimizations_description">Les optimitzacions de la bateria impedeixen que aquesta aplicació rebi dades Bluetooth de manera fiable mentre l\'aplicació està en segon pla.</string>
     <string name="permission_system_alert_window_label">Finestra d\'alerta del sistema</string>
-    <string name="permission_system_alert_window_description">Permet que el CAPod dibuixi sobre altres aplicacions per fer possible la característica «Mostra emergent».</string>
+    <string name="permission_system_alert_window_description">Permet que CAPod es dibuixi sobre altres aplicacions. Cal per a la funció «Mostra la finestra emergent» i per obrir l\'assistent de veu en prémer els AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Quan es veu</string>
     <string name="settings_reaction_autoconnect_caseopen_label">La funda està oberta</string>
     <string name="settings_reaction_autoconnect_inear_label">A l\'orella</string>
@@ -228,6 +233,8 @@
     <string name="battery_case_charges_state_enough_cd">Suficient per a una càrrega completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Insuficient per a una càrrega completa</string>
     <string name="battery_case_charges_state_uncertain_cd">Potser no n\'hi ha prou per a una càrrega completa</string>
+    <string name="battery_case_charges_short">%1$s càrregues</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ càrregues</string>
     <string name="pods_case_status_open_label">Oberta</string>
     <string name="pods_case_status_closed_label">Tancada</string>
     <string name="pods_connection_state_disconnected_label">No està connectat a un dispositiu</string>
@@ -450,7 +457,7 @@
     <string name="device_settings_volume_swipe_length_longer">Més llarg</string>
     <string name="device_settings_volume_swipe_length_longest">El més llarg</string>
     <string name="device_settings_end_call_mute_mic_label">Controls de trucada</string>
-    <string name="device_settings_end_call_mute_mic_description">Trieu què fa en prémer la plica durant les trucades</string>
+    <string name="device_settings_end_call_mute_mic_description">Trieu què fan les pulsacions durant les trucades</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Un sol toc per acabar la trucada</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Doble toc per silenciar el micròfon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Un sol toc per silenciar el micròfon</string>
@@ -490,6 +497,9 @@
     <string name="reaction_charged_notification_title">Càrrega completada</string>
     <string name="reaction_charged_notification_text_full">%1$s està totalment carregat.</string>
     <string name="reaction_charged_notification_text_partial">%1$s s\'ha carregat fins al %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Recordatori de bateria de l\'estoig</string>
+    <string name="reaction_caselow_notification_title">Carregueu l\'estoig</string>
+    <string name="reaction_caselow_notification_text">%1$s: la bateria de l\'estoig està al %2$d%%.</string>
     <string name="device_settings_rename_label">Canvia el nom</string>
     <string name="device_settings_rename_hint">Nom del dispositiu</string>
     <string name="device_settings_rename_confirm">Canvia el nom</string>
@@ -513,7 +523,7 @@
     <string name="device_settings_eq_label">Equalitzador</string>
     <string name="press_controls_title">Controls de pulsació</string>
     <string name="press_controls_nav_description">Ajusteu el comportament de les pulsacions i assigneu-hi accions</string>
-    <string name="press_controls_description">Ajusteu com es detecten les pulsacions, trieu el comportament del botó de trucada i assigneu-hi accions a les pulsacions. Les accions assignades s\'apliquen només a aquest dispositiu i permeten que l\'aplicació intercepti la pulsació enlloc que els AirPods la gestionin nativament.</string>
+    <string name="press_controls_description">Ajusteu com es detecten les pulsacions, trieu el comportament del botó de trucada i assigneu pulsacions a accions. Les accions assignades només s\'apliquen a aquest dispositiu i fan que l\'aplicació intercepti la pulsació en lloc que la gestionin els auriculars de manera nativa.</string>
     <string name="press_controls_single_press">Pulsació simple</string>
     <string name="press_controls_double_press">Doble pulsació</string>
     <string name="press_controls_triple_press">Triple pulsació</string>
@@ -535,8 +545,12 @@
     <string name="press_action_rewind">Rebobina</string>
     <string name="press_action_cycle_anc">Cicle de control de soroll</string>
     <string name="press_action_toggle_anc_transparency">Commuta la transparència</string>
+    <string name="press_action_voice_assistant">Assistent de veu</string>
+    <string name="press_action_voice_assistant_unavailable">No s\'ha trobat cap assistent de veu</string>
     <string name="press_controls_reset_label">Restaura els valors per defecte</string>
     <string name="press_controls_reset_confirm_message">Voleu restablir totes les assignacions de pulsació als valors per defecte?</string>
+    <string name="press_controls_voice_assistant_permission_hint">L\'assistent de veu necessita permís per mostrar-se sobre altres aplicacions; si no, en prémer els AirPods no s\'obrirà.</string>
+    <string name="press_controls_voice_assistant_permission_action">Permet</string>
     <string name="device_settings_noise_control_open_press_controls_action">Obre els controls de pulsació</string>
     <string name="general_navigate_up_action">Navega amunt</string>
     <string name="general_progress_loading">S\'està carregant</string>

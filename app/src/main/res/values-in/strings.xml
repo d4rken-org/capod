@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Menampilkan pemberitahuan kedua yang hanya muncul saat perangkat terhubung. Dengan ini aktif, kamu dapat menyembunyikan pemberitahuan permanen \"Tidak ada perangkat\": nonaktifkan kategori \"Status perangkat\" di pengaturan pemberitahuan Android untuk CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Pertahankan notifikasi setelah terputus</string>
     <string name="settings_keep_notification_after_disconnect_description">Terus menampilkan level baterai terakhir yang diketahui bahkan setelah AirPods terputus</string>
+    <string name="settings_monitor_statusbar_battery_label">Level baterai di bilah status</string>
+    <string name="settings_monitor_statusbar_battery_description">Menampilkan persentase baterai sebagai ikon notifikasi di bilah status. Untuk earbud, yang ditampilkan adalah level yang lebih rendah dari keduanya, dengan melewati earbud yang sedang diisi daya.</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
     <string name="settings_autopause_description">Jeda audio saat melepas perangkat dari telinga Anda.</string>
     <string name="settings_autopplay_label">Putar otomatis</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pod saja</string>
     <string name="settings_charged_scope_case_label">Casing saja</string>
     <string name="settings_charged_scope_both_label">Pod dan casing</string>
+    <string name="settings_caselow_reminder_label">Pengingat baterai casing</string>
+    <string name="settings_caselow_reminder_description">Ingatkan saya untuk mengisi daya casing saat saya meletakkan kembali earbud dan baterai casing rendah.</string>
+    <string name="settings_caselow_threshold_label">Level pengingat</string>
     <string name="device_settings_experimental_title">Fitur eksperimental</string>
     <string name="device_settings_experimental_description">Fitur ini belum diuji di semua perangkat. Jika ada yang tidak berfungsi dengan benar, silakan buka laporan masalah beserta log debug.</string>
     <string name="device_settings_experimental_action">Buka Pelacak Masalah</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Anda dapat menonaktifkan notifikasi ini di pengaturan sistem.</string>
     <string name="monitor_notification_starting">Memulai...</string>
     <string name="support_debuglog_label">Log debug</string>
-    <string name="support_debuglog_desc">Rekam semua yang dilakukan aplikasi dalam file teks yang dapat Anda bagikan.</string>
+    <string name="support_debuglog_desc">Rekam semua aktivitas aplikasi ke dalam file zip yang dapat kamu bagikan.</string>
     <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="debug_debuglog_stop_action">Hentikan perekaman</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya detail perangkat Bluetooth). Bagikan hanya dengan pihak tepercaya.</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">Nonaktifkan pengoptimalan baterai</string>
     <string name="permission_ignore_battery_optimizations_description">Pengoptimalan baterai mencegah aplikasi ini menerima data Bluetooth secara andal saat di latar belakang.</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>
-    <string name="permission_system_alert_window_description">Izinkan CAPod menggambar di atas aplikasi lain untuk memungkinkan fitur \"Tampilkan PopUp\".</string>
+    <string name="permission_system_alert_window_description">Izinkan CAPod menampilkan di atas aplikasi lain. Diperlukan untuk fitur \"Tampilkan PopUp\" dan untuk membuka asisten suara dari tekanan pada AirPods kamu.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Saat terlihat</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Casing terbuka</string>
     <string name="settings_reaction_autoconnect_inear_label">Di telinga</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">Cukup untuk pengisian daya penuh</string>
     <string name="battery_case_charges_state_not_enough_cd">Tidak cukup untuk pengisian daya penuh</string>
     <string name="battery_case_charges_state_uncertain_cd">Mungkin tidak cukup untuk pengisian daya penuh</string>
+    <string name="battery_case_charges_short">%1$s isi daya</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ isi daya</string>
     <string name="pods_case_status_open_label">Terbuka</string>
     <string name="pods_case_status_closed_label">Tertutup</string>
     <string name="pods_connection_state_disconnected_label">Tidak terhubung ke perangkat</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">Lebih Panjang</string>
     <string name="device_settings_volume_swipe_length_longest">Paling Panjang</string>
     <string name="device_settings_end_call_mute_mic_label">Kontrol Panggilan</string>
-    <string name="device_settings_end_call_mute_mic_description">Pilih fungsi menekan tangkai saat panggilan</string>
+    <string name="device_settings_end_call_mute_mic_description">Pilih apa yang dilakukan tekanan selama panggilan</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Tekan sekali untuk mengakhiri panggilan</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Tekan dua kali untuk membisukan mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Tekan sekali untuk membisukan mikrofon</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">Pengisian selesai</string>
     <string name="reaction_charged_notification_text_full">%1$s sudah terisi penuh.</string>
     <string name="reaction_charged_notification_text_partial">%1$s telah diisi daya hingga %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Pengingat baterai casing</string>
+    <string name="reaction_caselow_notification_title">Isi daya casing kamu</string>
+    <string name="reaction_caselow_notification_text">%1$s: baterai casing ada di %2$d%%.</string>
     <string name="device_settings_rename_label">Ganti Nama</string>
     <string name="device_settings_rename_hint">Nama perangkat</string>
     <string name="device_settings_rename_confirm">Ganti Nama</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Kontrol Tekanan</string>
     <string name="press_controls_nav_description">Sesuaikan perilaku tekanan dan petakan tekanan ke tindakan</string>
-    <string name="press_controls_description">Sesuaikan cara tekanan dideteksi, pilih perilaku tombol panggilan, dan petakan tekanan ke tindakan. Tindakan yang dipetakan berlaku untuk perangkat ini saja dan memungkinkan aplikasi mencegat tekanan, bukan AirPods yang menanganinya secara bawaan.</string>
+    <string name="press_controls_description">Atur cara tekanan dideteksi, pilih perilaku tombol panggilan, dan petakan tekanan ke tindakan. Tindakan yang dipetakan hanya berlaku untuk perangkat ini dan membuat aplikasi mencegat tekanan, alih-alih ditangani langsung oleh headphone.</string>
     <string name="press_controls_single_press">Tekan Sekali</string>
     <string name="press_controls_double_press">Tekan Dua Kali</string>
     <string name="press_controls_triple_press">Tekan Tiga Kali</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">Mundur</string>
     <string name="press_action_cycle_anc">Gilir Kontrol Kebisingan</string>
     <string name="press_action_toggle_anc_transparency">Alihkan Transparansi</string>
+    <string name="press_action_voice_assistant">Asisten Suara</string>
+    <string name="press_action_voice_assistant_unavailable">Asisten suara tidak ditemukan</string>
     <string name="press_controls_reset_label">Reset ke default</string>
     <string name="press_controls_reset_confirm_message">Reset semua pemetaan tekanan ke default?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Asisten Suara perlu izin untuk menampilkan di atas aplikasi lain. Jika tidak, menekan AirPods kamu tidak akan membukanya.</string>
+    <string name="press_controls_voice_assistant_permission_action">Diizinkan</string>
     <string name="device_settings_noise_control_open_press_controls_action">Buka Kontrol Tekanan</string>
     <string name="general_navigate_up_action">Navigasi ke atas</string>
     <string name="general_progress_loading">Memuat</string>

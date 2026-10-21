@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Εμφανίζει μια δεύτερη ειδοποίηση που εμφανίζεται μόνο όταν είναι συνδεδεμένη μια συσκευή. Με αυτό ενεργοποιημένο, μπορείς να κρύψεις τη μόνιμη ειδοποίηση \"Καμία συσκευή\": απενεργοποίησε την κατηγορία \"Κατάσταση συσκευής\" στις ρυθμίσεις ειδοποιήσεων του Android για το CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Διατήρηση ειδοποίησης μετά την αποσύνδεση</string>
     <string name="settings_keep_notification_after_disconnect_description">Συνεχίστε να εμφανίζετε τα τελευταία γνωστά επίπεδα μπαταρίας ακόμα και μετά την αποσύνδεση των AirPods σας</string>
+    <string name="settings_monitor_statusbar_battery_label">Επίπεδο μπαταρίας στη γραμμή κατάστασης</string>
+    <string name="settings_monitor_statusbar_battery_description">Εμφανίζει το ποσοστό μπαταρίας ως εικονίδιο ειδοποίησης στη γραμμή κατάστασης. Για τα ακουστικά εμφανίζεται το χαμηλότερο από τα δύο, παραλείποντας όποιο φορτίζει.</string>
     <string name="settings_autopause_label">Αυτόματη παύση</string>
     <string name="settings_autopause_description">Παύση ήχου κατά την αφαίρεση της συσκευής από το αυτί σας.</string>
     <string name="settings_autopplay_label">Αυτόματη αναπαραγωγή</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Μόνο ακουστικά</string>
     <string name="settings_charged_scope_case_label">Μόνο θήκη</string>
     <string name="settings_charged_scope_both_label">Ακουστικά και θήκη</string>
+    <string name="settings_caselow_reminder_label">Υπενθύμιση μπαταρίας θήκης</string>
+    <string name="settings_caselow_reminder_description">Υπενθύμισέ μου να φορτίσω τη θήκη όταν βάζω ξανά τα ακουστικά και η μπαταρία της θήκης είναι χαμηλή.</string>
+    <string name="settings_caselow_threshold_label">Επίπεδο υπενθύμισης</string>
     <string name="device_settings_experimental_title">Πειραματική λειτουργία</string>
     <string name="device_settings_experimental_description">Αυτή η λειτουργία δεν έχει δοκιμαστεί ακόμα σε όλες τις συσκευές. Αν κάτι δεν λειτουργεί σωστά, παρακαλώ ανοίξτε ένα ζήτημα με ένα αρχείο καταγραφής εντοπισμού σφαλμάτων.</string>
     <string name="device_settings_experimental_action">Άνοιγμα Παρακολούθησης Ζητημάτων</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Μπορείτε να απενεργοποιήσετε αυτήν την ειδοποίηση στις ρυθμίσεις του συστήματος.</string>
     <string name="monitor_notification_starting">Ξεκίνημα…</string>
     <string name="support_debuglog_label">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
-    <string name="support_debuglog_desc">Καταγράψτε ό,τι κάνει η εφαρμογή σε ένα αρχείο κειμένου που μπορείτε να μοιραστείτε.</string>
+    <string name="support_debuglog_desc">Καταγραφή όλων των ενεργειών της εφαρμογής σε αρχείο zip που μπορείς να μοιραστείς.</string>
     <string name="debug_debuglog_record_action">Εγγραφή αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_stop_action">Διακοπή εγγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργήθηκε περιέχει ευαίσθητες πληροφορίες (π.χ. λεπτομέρειες συσκευής Bluetooth). Μοιραστείτε το μόνο με αξιόπιστα μέρη.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Απενεργοποίηση βελτιστοποιήσεων μπαταρίας</string>
     <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτήν την εφαρμογή από τη αξιόπιστη λήψη δεδομένων Bluetooth ενώ βρίσκεται στο παρασκήνιο.</string>
     <string name="permission_system_alert_window_label">Παράθυρο ειδοποίησης συστήματος</string>
-    <string name="permission_system_alert_window_description">Επιτρέψτε στο CAPod να σχεδιάζει πάνω από άλλες εφαρμογές για να καταστεί δυνατή η λειτουργία \"Εμφάνιση αναδυόμενου\".</string>
+    <string name="permission_system_alert_window_description">Επιτρέπει στο CAPod να σχεδιάζει πάνω από άλλες εφαρμογές. Απαιτείται για τη λειτουργία «Εμφάνιση PopUp» και για το άνοιγμα του φωνητικού βοηθού με πάτημα στα AirPods σου.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Όταν εντοπιστεί</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Η θήκη είναι ανοιχτή</string>
     <string name="settings_reaction_autoconnect_inear_label">Στο αυτί</string>
@@ -451,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Μακρύτερο</string>
     <string name="device_settings_volume_swipe_length_longest">Μακρύτατο</string>
     <string name="device_settings_end_call_mute_mic_label">Χειριστήρια Κλήσεων</string>
-    <string name="device_settings_end_call_mute_mic_description">Επιλέξτε τι κάνει η πίεση του στελέχους κατά τη διάρκεια κλήσεων</string>
+    <string name="device_settings_end_call_mute_mic_description">Επιλογή της λειτουργίας των πατημάτων κατά τις κλήσεις</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Μία πίεση για τερματισμό κλήσης</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Διπλή πίεση για σίγαση μικροφώνου</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Μία πίεση για σίγαση μικροφώνου</string>
@@ -491,6 +496,9 @@
     <string name="reaction_charged_notification_title">Η φόρτιση ολοκληρώθηκε</string>
     <string name="reaction_charged_notification_text_full">Το %1$s έχει φορτιστεί πλήρως.</string>
     <string name="reaction_charged_notification_text_partial">Το %1$s έχει φορτιστεί στο %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Υπενθύμιση μπαταρίας θήκης</string>
+    <string name="reaction_caselow_notification_title">Φόρτισε τη θήκη σου</string>
+    <string name="reaction_caselow_notification_text">%1$s: η μπαταρία της θήκης είναι στο %2$d%%.</string>
     <string name="device_settings_rename_label">Μετονομασία</string>
     <string name="device_settings_rename_hint">Όνομα συσκευής</string>
     <string name="device_settings_rename_confirm">Μετονομασία</string>
@@ -514,7 +522,7 @@
     <string name="device_settings_eq_label">Ισοσταθμιστής</string>
     <string name="press_controls_title">Έλεγχοι Πίεσης</string>
     <string name="press_controls_nav_description">Ρύθμιση συμπεριφοράς πίεσης και αντιστοίχιση πιέσεων σε ενέργειες</string>
-    <string name="press_controls_description">Ρυθμίστε τον τρόπο ανίχνευσης πιέσεων, επιλέξτε συμπεριφορά κουμπιού κλήσης και αντιστοιχίστε πιέσεις σε ενέργειες. Οι αντιστοιχισμένες ενέργειες ισχύουν μόνο για αυτή τη συσκευή και επιτρέπουν στην εφαρμογή να παρεμβάλλει την πίεση αντί να τη χειρίζονται τα AirPods εγγενώς.</string>
+    <string name="press_controls_description">Ρύθμιση της ανίχνευσης πατημάτων, επιλογή της συμπεριφοράς του κουμπιού κλήσης και αντιστοίχιση πατημάτων σε ενέργειες. Οι αντιστοιχισμένες ενέργειες ισχύουν μόνο για αυτή τη συσκευή και επιτρέπουν στην εφαρμογή να αναχαιτίζει το πάτημα αντί να το διαχειρίζονται τα ακουστικά.</string>
     <string name="press_controls_single_press">Απλή Πίεση</string>
     <string name="press_controls_double_press">Διπλή Πίεση</string>
     <string name="press_controls_triple_press">Τριπλή Πίεση</string>
@@ -536,8 +544,12 @@
     <string name="press_action_rewind">Γρήγορη Επαναφορά</string>
     <string name="press_action_cycle_anc">Κύκλος Ελέγχου Θορύβου</string>
     <string name="press_action_toggle_anc_transparency">Εναλλαγή Διαφάνειας</string>
+    <string name="press_action_voice_assistant">Φωνητικός βοηθός</string>
+    <string name="press_action_voice_assistant_unavailable">Δεν βρέθηκε φωνητικός βοηθός</string>
     <string name="press_controls_reset_label">Επαναφορά στις προεπιλογές</string>
     <string name="press_controls_reset_confirm_message">Επαναφορά όλων των αντιστοιχίσεων πίεσης στις προεπιλογές;</string>
+    <string name="press_controls_voice_assistant_permission_hint">Ο φωνητικός βοηθός χρειάζεται άδεια για εμφάνιση πάνω από άλλες εφαρμογές, αλλιώς το πάτημα των AirPods σου δεν θα τον ανοίγει.</string>
+    <string name="press_controls_voice_assistant_permission_action">Χορήγηση</string>
     <string name="device_settings_noise_control_open_press_controls_action">Άνοιγμα Ελέγχων Πίεσης</string>
     <string name="general_navigate_up_action">Πλοήγηση προς τα πάνω</string>
     <string name="general_progress_loading">Φόρτωση</string>

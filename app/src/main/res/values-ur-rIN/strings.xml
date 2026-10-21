@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">ایک دوسرا نوٹیفکیشن دکھاتا ہے جو صرف اس وقت نظر آتا ہے جب کوئی ڈیوائس منسلک ہو۔ اسے آن کرنے سے آپ مستقل \"کوئی ڈیوائس نہیں\" والا نوٹیفکیشن چھپا سکتے ہیں: CAPod کے لیے اینڈرائیڈ کی نوٹیفکیشن سیٹنگز میں \"ڈیوائس اسٹیٹس\" کیٹیگری کو بند کر دیں۔</string>
     <string name="settings_keep_notification_after_disconnect_label">منقطع ہونے کے بعد اطلاع رکھیں</string>
     <string name="settings_keep_notification_after_disconnect_description">آپ کے AirPods منقطع ہونے کے بعد بھی آخری معلوم بیٹری کی سطح دکھاتے رہیں</string>
+    <string name="settings_monitor_statusbar_battery_label">اسٹیٹس بار میں بیٹری کی سطح</string>
+    <string name="settings_monitor_statusbar_battery_description">اسٹیٹس بار میں نوٹیفکیشن آئیکن کے طور پر بیٹری کا فیصد دکھاتا ہے۔ ایئربڈز کے لیے دونوں میں سے کم والا دکھایا جاتا ہے، اور چارج ہو رہے ایئربڈ کو چھوڑ دیا جاتا ہے۔</string>
     <string name="settings_autopause_label">خودکار توقف</string>
     <string name="settings_autopause_description">آلہ کو کان سے ہٹاتے وقت آڈیو کو روکیں۔</string>
     <string name="settings_autopplay_label">خودکار پلے</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">صرف پوڈز</string>
     <string name="settings_charged_scope_case_label">صرف کیس</string>
     <string name="settings_charged_scope_both_label">پوڈز اور کیس</string>
+    <string name="settings_caselow_reminder_label">کیس بیٹری کی یاد دہانی</string>
+    <string name="settings_caselow_reminder_description">جب میں پوڈز واپس رکھوں اور کیس کی بیٹری کم ہو تو مجھے کیس چارج کرنے کی یاد دلائیں۔</string>
+    <string name="settings_caselow_threshold_label">یاد دہانی کی سطح</string>
     <string name="device_settings_experimental_title">تجرباتی خصوصیت</string>
     <string name="device_settings_experimental_description">اس فیچر کو ابھی تک تمام ڈیوائسز پر آزمایا نہیں گیا ہے۔ اگر کچھ صحیح طریقے سے کام نہیں کر رہا، تو براہ کرم ڈیبگ لاگ کے ساتھ ایک مسئلہ کھولیں۔</string>
     <string name="device_settings_experimental_action">ایشو ٹریکر کھولیں</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">آپ اس اطلاع کو سسٹم سیٹنگز میں غیر فعال کر سکتے ہیں۔</string>
     <string name="monitor_notification_starting">شروع ہو رہا ہے…</string>
     <string name="support_debuglog_label">ڈیبگ لاگ</string>
-    <string name="support_debuglog_desc">ایپ جو کچھ بھی کر رہی ہے اسے ایک ٹیکسٹ فائل میں ریکارڈ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
+    <string name="support_debuglog_desc">ایپ جو کچھ کر رہی ہے اسے ایک زپ فائل میں ریکارڈ کریں جسے آپ شیئر کر سکتے ہیں۔</string>
     <string name="debug_debuglog_record_action">ڈیبگ لاگ ریکارڈ کریں</string>
     <string name="debug_debuglog_stop_action">ریکارڈنگ روکیں</string>
     <string name="debug_debuglog_sensitive_information_message">تیار کردہ فائل میں حساس معلومات ہیں (مثلاً بلوٹوتھ آلہ کی تفصیلات)۔ اسے صرف قابل اعتماد فریقوں کے ساتھ شیئر کریں۔</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">بیٹری کی اصلاحات غیر فعال کریں</string>
     <string name="permission_ignore_battery_optimizations_description">بیٹری کی اصلاحات اس ایپ کو پس منظر میں رہتے ہوئے بلوٹوتھ ڈیٹا قابل اعتماد طریقے سے وصول کرنے سے روکتی ہیں۔</string>
     <string name="permission_system_alert_window_label">سسٹم الرٹ ونڈو</string>
-    <string name="permission_system_alert_window_description">\"پاپ اپ دکھائیں\" خصوصیت ممکن بنانے کے لئے CAPod کو دوسری ایپس کے اوپر ڈرا کرنے کی اجازت دیں۔</string>
+    <string name="permission_system_alert_window_description">CAPod کو دوسری ایپس کے اوپر دکھانے کی اجازت دیں۔ \"پاپ اپ دکھائیں\" فیچر اور آپ کے AirPods پر پریس سے وائس اسسٹنٹ کھولنے کے لیے ضروری ہے۔</string>
     <string name="settings_reaction_autoconnect_whenseen_label">نظر آنے پر</string>
     <string name="settings_reaction_autoconnect_caseopen_label">کیس کھلا ہو</string>
     <string name="settings_reaction_autoconnect_inear_label">کان میں</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">ایک مکمل چارج کے لیے کافی ہے</string>
     <string name="battery_case_charges_state_not_enough_cd">ایک مکمل چارج کے لیے کافی نہیں ہے</string>
     <string name="battery_case_charges_state_uncertain_cd">شاید ایک مکمل چارج کے لیے کافی نہیں ہو</string>
+    <string name="battery_case_charges_short">%1$s چارجز</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ چارجز</string>
     <string name="pods_case_status_open_label">کھلا</string>
     <string name="pods_case_status_closed_label">بند</string>
     <string name="pods_connection_state_disconnected_label">آلہ سے منسلک نہیں</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">لمبا تر</string>
     <string name="device_settings_volume_swipe_length_longest">سب سے لمبا</string>
     <string name="device_settings_end_call_mute_mic_label">کال کنٹرولز</string>
-    <string name="device_settings_end_call_mute_mic_description">کالوں کے دوران اسٹیم دبانے سے کیا ہوتا ہے یہ منتخب کریں</string>
+    <string name="device_settings_end_call_mute_mic_description">منتخب کریں کہ کالز کے دوران پریس کیا کریں</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">کال ختم کرنے کے لیے ایک بار دبائیں</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">مائیکروفون خاموش کرنے کے لیے دو بار دبائیں</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">مائیکروفون خاموش کرنے کے لیے ایک بار دبائیں</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">چارجنگ مکمل</string>
     <string name="reaction_charged_notification_text_full">%1$s مکمل طور پر چارج ہو گیا ہے۔</string>
     <string name="reaction_charged_notification_text_partial">%1$s کو %2$d%% تک چارج کر دیا گیا ہے۔</string>
+    <string name="reaction_caselow_channel_label">کیس بیٹری کی یاد دہانی</string>
+    <string name="reaction_caselow_notification_title">اپنا کیس چارج کریں</string>
+    <string name="reaction_caselow_notification_text">%1$s: کیس کی بیٹری %2$d%% ہے۔</string>
     <string name="device_settings_rename_label">نام تبدیل کریں</string>
     <string name="device_settings_rename_hint">ڈیوائس کا نام</string>
     <string name="device_settings_rename_confirm">نام تبدیل کریں</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ایکولائزر</string>
     <string name="press_controls_title">پریس کنٹرولز</string>
     <string name="press_controls_nav_description">پریس کے طرز عمل درست کریں اور پریسز کو ایکشنز سے میپ کریں</string>
-    <string name="press_controls_description">طے کریں کہ پریسز کیسے شناخت ہوتی ہیں، کال بٹن کا طرز عمل منتخب کریں، اور پریسز کو ایکشنز سے میپ کریں۔ میپڈ ایکشنز صرف اس ڈیوائس پر لاگو ہوتی ہیں اور ایپ کو AirPods کی بجائے پریس انٹرسیپٹ کرنے دیتی ہیں۔</string>
+    <string name="press_controls_description">پریس کی شناخت کو ایڈجسٹ کریں، کال بٹن کا رویہ منتخب کریں، اور پریس کو ایکشنز سے میپ کریں۔ میپ کیے گئے ایکشنز صرف اسی ڈیوائس پر لاگو ہوتے ہیں اور ہیڈ فونز کے اسے خود سنبھالنے کی بجائے ایپ کو پریس روکنے دیتے ہیں۔</string>
     <string name="press_controls_single_press">سنگل پریس</string>
     <string name="press_controls_double_press">ڈبل پریس</string>
     <string name="press_controls_triple_press">ٹرپل پریس</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">ریوائنڈ</string>
     <string name="press_action_cycle_anc">شور کنٹرول سائکل کریں</string>
     <string name="press_action_toggle_anc_transparency">ٹرانسپیرنسی ٹوگل کریں</string>
+    <string name="press_action_voice_assistant">وائس اسسٹنٹ</string>
+    <string name="press_action_voice_assistant_unavailable">کوئی وائس اسسٹنٹ نہیں ملا</string>
     <string name="press_controls_reset_label">ڈیفالٹس پر ریسیٹ کریں</string>
     <string name="press_controls_reset_confirm_message">تمام پریس میپنگز ڈیفالٹس پر ریسیٹ کریں؟</string>
+    <string name="press_controls_voice_assistant_permission_hint">وائس اسسٹنٹ کو دوسری ایپس کے اوپر دکھانے کی اجازت درکار ہے، ورنہ آپ کے AirPods کو دبانے سے یہ نہیں کھلے گا۔</string>
+    <string name="press_controls_voice_assistant_permission_action">اجازت دیں</string>
     <string name="device_settings_noise_control_open_press_controls_action">پریس کنٹرولز کھولیں</string>
     <string name="general_navigate_up_action">اوپر جائیں</string>
     <string name="general_progress_loading">لوڈ کر رہا ہے</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Mustrat una notìfica extra cando unu dispositivu est cullegadu. Custu ti permitit de cuare sa notìfica permanente \"Perunu dispositivu\" disativende su canale \"Istadu de su dispositivu\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantene sa notìfica a pustis de sa disconnexione</string>
     <string name="settings_keep_notification_after_disconnect_description">Sighi a mustrare is ùrtimos livelos de bateria connotos fintzas a pustis chi is AirPods si disconnetint</string>
+    <string name="settings_monitor_statusbar_battery_label">Livellu de bateria in sa barra de istadu</string>
+    <string name="settings_monitor_statusbar_battery_description">Mustrat sa percentuale de bateria comente icona de sa notìfica in sa barra de istadu. Pro is auriculares, benit mustradu su valore prus bassu de is duos, sartende cuddu chi est in carrigamentu.</string>
     <string name="settings_autopause_label">Pàusa automàtica</string>
     <string name="settings_autopause_description">Pone in pàusa s\'àudio cando bogas su dispositivu dae s\'origra.</string>
     <string name="settings_autopplay_label">Riprodutzione automàtica</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pods solu</string>
     <string name="settings_charged_scope_case_label">Càscia solu</string>
     <string name="settings_charged_scope_both_label">Pods e càscia</string>
+    <string name="settings_caselow_reminder_label">Remìndiu de sa bateria de s\'astuciu</string>
+    <string name="settings_caselow_reminder_description">Regordami de carrigare s\'astuciu cando torro a ponner is auriculares e sa bateria de s\'astuciu est bascia.</string>
+    <string name="settings_caselow_threshold_label">Livellu de remìndiu</string>
     <string name="device_settings_experimental_title">Funzionalidade esperimentale</string>
     <string name="device_settings_experimental_description">Custa funzionalidade non est ancora istada testada in totu sos dispositivos. Si calicosa non funtzionat bene, abre un\'issue cun unu log de debug.</string>
     <string name="device_settings_experimental_action">Abri su Segugi de Issues</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Podes disabilitare custu avisu in sas impostatziones de su sistema.</string>
     <string name="monitor_notification_starting">Acominzande…</string>
     <string name="support_debuglog_label">Registru de debug</string>
-    <string name="support_debuglog_desc">Registra totu su chi s\'app est faghende in unu file de testu chi podes cumpartzire.</string>
+    <string name="support_debuglog_desc">Registra totu su chi est faghende s\'aplicatzione in un\'archìviu zip chi podes cumpartzire.</string>
     <string name="debug_debuglog_record_action">Registra registru de debug</string>
     <string name="debug_debuglog_stop_action">Frima registratzione</string>
     <string name="debug_debuglog_sensitive_information_message">Su file generadu cuntenet informatziones sensìbiles (es. detàllios de su dispositivu Bluetooth). Cumpartzi·ddu isceti cun partes afidàbiles.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Disativa otimizatziones de bateria</string>
     <string name="permission_ignore_battery_optimizations_description">Is otimizatziones de bateria impedint a custa app de retzire datos Bluetooth in manera fidàbile cando est in segundu pianu.</string>
     <string name="permission_system_alert_window_label">Ventana de alerta de su sistema</string>
-    <string name="permission_system_alert_window_description">Permiti a CAPod de disegnare subra àteras apps pro rèndere possìbile sa funtzione \"Mustra PopUp\".</string>
+    <string name="permission_system_alert_window_description">Permiti a CAPod de si mustrare subra de àteras aplicatziones. Serbit pro sa funtzione \"Mustra PopUp\" e pro abèrrere s\'assistente vocale cun una pressione subra is AirPods tuos.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cando est bidu</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Sa càscia est aberta</string>
     <string name="settings_reaction_autoconnect_inear_label">In s\'origra</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Ischìa pro una carriga completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Non ischìa pro una carriga completa</string>
     <string name="battery_case_charges_state_uncertain_cd">Poddie non ischìa pro una carriga completa</string>
+    <string name="battery_case_charges_short">%1$s càrrigas</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ càrrigas</string>
     <string name="pods_case_status_open_label">Aberta</string>
     <string name="pods_case_status_closed_label">Serrada</string>
     <string name="pods_connection_state_disconnected_label">Non cullegadu a unu dispositivu</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Prus longu</string>
     <string name="device_settings_volume_swipe_length_longest">Su prus longu</string>
     <string name="device_settings_end_call_mute_mic_label">Controlos de sas chiamadas</string>
-    <string name="device_settings_end_call_mute_mic_description">Sèbera ite sutzediat premende su fustu durante sas chiamadas</string>
+    <string name="device_settings_end_call_mute_mic_description">Sèbera ite faghent is pressiones durante is chiamadas</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Premida sola pro terminare sa chiamada</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dòpia premida pro mutar su micròfonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Premida sola pro mutar su micròfonu</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Càrriga cumplida</string>
     <string name="reaction_charged_notification_text_full">%1$s est completamente càrriga/càrrigu.</string>
     <string name="reaction_charged_notification_text_partial">%1$s est istadu càrrigadu a su %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Remìndiu de sa bateria de s\'astuciu</string>
+    <string name="reaction_caselow_notification_title">Carriga s\'astuciu</string>
+    <string name="reaction_caselow_notification_text">%1$s: sa bateria de s\'astuciu est a su %2$d%%.</string>
     <string name="device_settings_rename_label">Torrare a numenare</string>
     <string name="device_settings_rename_hint">Nùmene de su dispositivo</string>
     <string name="device_settings_rename_confirm">Torrare a numenare</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizadore</string>
     <string name="press_controls_title">Controlos de Pressione</string>
     <string name="press_controls_nav_description">Ajusta su comportamentu de sas pressiones e mapea sas pressiones a atziones</string>
-    <string name="press_controls_description">Ajusta comente si detectant sas pressiones, scegli su comportamentu de su butone de sa chiamada, e mapea sas pressiones a atziones. Sas atziones mapeadas si aplicant a custu dispositivu solu e permitint a s\'app de interceptare sa pressione in veze de sos AirPods chi la manighent nativamente.</string>
+    <string name="press_controls_description">Regula comente benint rilevadas is pressiones, sèbera su cumportamentu de su butone de chiamada e assigna aziones a is pressiones. Is aziones assignadas valent pro custu dispositivu a sa sola e permitint a s\'aplicatzione de intercetare sa pressione imbetzes de lassare chi sas auriculares che gestant nativamente.</string>
     <string name="press_controls_single_press">Pressione Singula</string>
     <string name="press_controls_double_press">Doppia Pressione</string>
     <string name="press_controls_triple_press">Tripliche Pressione</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Rebobinare</string>
     <string name="press_action_cycle_anc">Cicla su Controllo de su Rumore</string>
     <string name="press_action_toggle_anc_transparency">Commuta Trasparentzia</string>
+    <string name="press_action_voice_assistant">Assistente vocale</string>
+    <string name="press_action_voice_assistant_unavailable">Perunu assistente vocale agatadu</string>
     <string name="press_controls_reset_label">Reseta a sos predefinidos</string>
     <string name="press_controls_reset_confirm_message">Reseta totu sas mappature de pressione a sos predefinidos?</string>
+    <string name="press_controls_voice_assistant_permission_hint">S\'assistente vocale tenet bisòngiu de su permissu de mustrare subra de àteras aplicatziones, si nono pressende is AirPods no s\'abertit.</string>
+    <string name="press_controls_voice_assistant_permission_action">Cuncede</string>
     <string name="device_settings_noise_control_open_press_controls_action">Abri sos Controlos de Pressione</string>
     <string name="general_navigate_up_action">Nàviga in sus</string>
     <string name="general_progress_loading">Carrighende</string>

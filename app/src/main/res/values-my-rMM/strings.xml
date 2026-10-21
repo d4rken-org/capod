@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခု ချိတ်ဆက်ထားစဉ်မှာသာ ပေါ်လာမည့် ဒုတိယအကြောင်းကြားချက်ကို ပြသသည်။ ဒါကို ဖွင့်ထားခြင်းဖြင့် အမြဲပေါ်နေသော \"No devices\" အကြောင်းကြားချက်ကို ဖျောက်ထားနိုင်ပါသည်။ Android ၏ CAPod အကြောင်းကြားချက် ဆက်တင်များတွင် \"Device status\" အမျိုးအစားကို ပိတ်ထားပါ။</string>
     <string name="settings_keep_notification_after_disconnect_label">ချိတ်ဆက်မှုပြတ်ပြီးနောက် အသိပေးချက်ကိုထားရှိပါ</string>
     <string name="settings_keep_notification_after_disconnect_description">သင့် AirPods ချိတ်ဆက်မှုပြတ်ပြီးနောက်ပင် နောက်ဆုံးသိရှိထားသော ဘက်ထရီအဆင့်များကို ဆက်လက်ပြသပါ</string>
+    <string name="settings_monitor_statusbar_battery_label">အခြေအနေဘားရှိ ဘက်ထရီအဆင့်</string>
+    <string name="settings_monitor_statusbar_battery_description">အခြေအနေဘားရှိ အသိပေးအိုင်ကွန်အဖြစ် ဘက်ထရီရာခိုင်နှုန်းကို ပြသသည်။ နားကြပ်များအတွက် အားမသွင်းနေသော တစ်ခုကို ကျော်၍ နှစ်ခုအနက် နိမ့်သည့်တစ်ခုကို ပြသသည်။</string>
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
     <string name="settings_autopause_description">သင့်နားကြပ်ကို နားမှဖယ်ရှားသည့်အခါ အသံကိုခေတ္တရပ်ပါ။</string>
     <string name="settings_autopplay_label">အလိုအလြှောက်ဖွင့်ခြင်း</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pods များသာ</string>
     <string name="settings_charged_scope_case_label">အိတ်သာ</string>
     <string name="settings_charged_scope_both_label">Pods နှင့် အိတ်</string>
+    <string name="settings_caselow_reminder_label">ဓာတ်အိတ် ဘက်ထရီ သတိပေးချက်</string>
+    <string name="settings_caselow_reminder_description">နားကြပ်များကို အိတ်ထဲ ပြန်ထည့်သည့်အခါ အိတ်၏ ဘက်ထရီ နိမ့်နေပါက အားသွင်းရန် သတိပေးပါ။</string>
+    <string name="settings_caselow_threshold_label">သတိပေးအဆင့်</string>
     <string name="device_settings_experimental_title">စမ်းသပ်ဆဲ လုပ်ဆောင်ချက်</string>
     <string name="device_settings_experimental_description">ဤလုပ်ဆောင်ချက်ကို ကိရိယာအားလုံးတွင် မစစ်ဆေးရသေးပါ။ မှားယွင်းနေသည့် အရာတစ်ခုခုရှိပါက debug log ပါသော ပြဿနာတစ်ခု ဖွင့်ပေးပါ။</string>
     <string name="device_settings_experimental_action">ပြဿနာ ခြေရာခံမှုကို ဖွင့်ရန်</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ဤသတိပေးချက်ကို စနစ်ဆက်တင်များတွင် ပိတ်ထားနိုင်သည်။</string>
     <string name="monitor_notification_starting">စတင်နေသည်…</string>
     <string name="support_debuglog_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်း</string>
-    <string name="support_debuglog_desc">အက်ပ်လုပ်ဆောင်သမျှကို သင်မျှဝေနိုင်သော စာသားဖိုင်တစ်ခုတွင် မှတ်တမ်းတင်ပါ။</string>
+    <string name="support_debuglog_desc">အက်ပ်၏ လုပ်ဆောင်ချက်အားလုံးကို မှတ်တမ်းတင်ပြီး မျှဝေနိုင်သော zip ဖိုင်အဖြစ် သိမ်းဆည်းပါ။</string>
     <string name="debug_debuglog_record_action">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်းကို မှတ်တမ်းတင်ပါ</string>
     <string name="debug_debuglog_stop_action">မှတ်တမ်းတင်ခြင်းကိုရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်လိုက်သောဖိုင်တွင် အရေးကြီးအချက်အလက်များ (ဥပမာ Bluetooth စက်ပစ္စည်းအသေးစိတ်များ) ပါဝင်သည်။ ၎င်းကို ယုံကြည်စိတ်ချရသောသူများနှင့်သာ မျှဝေပါ။</string>
@@ -100,7 +105,7 @@
     <string name="settings_overview_hide_unmatched_label">မကိုက်ညီသော ကိရိယာများ ဝှက်ရန်</string>
     <string name="settings_overview_hide_unmatched_description">သင့်ပရိုဖိုင်များနှင့် မကိုက်ညီသော အနီးနားရှိ ကိရိယာများကို မည်သည့်အကြောင်းကြောင့်မဆို ခြုံငုံသုံးသပ်ချက်တွင် မပြပါနှင့်၊ ဥပမာ အခြားသူများ၏ AirPods။</string>
     <string name="device_battery_estimate_toggle_label">ဘက်ထရီ ခန့်မှန်းချက်များ</string>
-    <string name="device_battery_estimate_card_desc">ဤကိရိယာ မည်သို့ အားသွင်းကြောင်းနှင့် စွမ်းအားကုန်ကြောင်းကို လေ့လာခြင်းဖြင့် ကျန်ချိန်၊ အားပြည့်ချိန်နှင့် ဘက်ထရီကျန်းမာရေးကို ခန့်မှန်းပါ။</string>
+    <string name="device_battery_estimate_card_desc">ဤစက်ပစ္စည်းအား အားသွင်းပုံနှင့် အားကုန်ပုံကို လေ့လာ၍ ကျန်ချိန်၊ အားပြည့်ရန် ကြာချိန်နှင့် ထုတ်လုပ်သူ ကြေညာထားသော နားထောင်ချိန်အနက် မည်မျှ ဆက်ရနိုင်သေးသည်ကို ခန့်မှန်းပါ။</string>
     <string name="device_battery_estimate_reset_action">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်ရန်</string>
     <string name="device_battery_estimate_reset_desc">သတ်မှတ်ထားသော ဘက်ထရီသက်တမ်းမှ အစပြန်စတင်ပါ။</string>
     <string name="device_battery_estimate_reset_confirm_title">သင်ယူထားသော အချက်အလက်များ ပြန်လည်သတ်မှတ်မည်လား</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">ဘက်ထရီအကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ</string>
     <string name="permission_ignore_battery_optimizations_description">ဘက်ထရီအကောင်းဆုံးလုပ်ဆောင်မှုများသည် အက်ပ်နောက်ခံတွင်ရှိစဉ် Bluetooth ဒေတာကို ယုံကြည်စိတ်ချစွာ လက်ခံခြင်းမှ ဤအက်ပ်ကို တားဆီးသည်။</string>
     <string name="permission_system_alert_window_label">စနစ်သတိပေးချက်ပြတင်းပေါက်</string>
-    <string name="permission_system_alert_window_description">\"ပြတင်းပေါက်ပြသခြင်း\" အင်္ဂါရပ်ကိုဖြစ်နိုင်စေရန် CAPod အား အခြားအက်ပ်များပေါ်တွင် ပုံဆွဲခွင့်ပြုပါ။</string>
+    <string name="permission_system_alert_window_description">CAPod ကို အခြားအက်ပ်များ၏ အပေါ်တွင် ရေးဆွဲခွင့် ပေးပါ။ \"PopUp ပြရန်\" လုပ်ဆောင်ချက်နှင့် AirPods ကို နှိပ်သည့်အခါ အသံလုပ်ငန်းအကူကို ဖွင့်ရန် လိုအပ်သည်။</string>
     <string name="settings_reaction_autoconnect_whenseen_label">တွေ့မြင်သောအခါ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">အိတ်ဖွင့်ထားသောအခါ</string>
     <string name="settings_reaction_autoconnect_inear_label">နားထဲတွင်</string>
@@ -218,10 +223,13 @@
         <item quantity="other">နှစ်ဖက်စလုံး အားသွင်းစုံ အနည်းဆုံး %d ကြိမ်</item>
     </plurals>
     <string name="battery_case_charges_less_than_one">နှစ်ဖက်စလုံး အားသွင်းစုံ တစ်ကြိမ်အောက်</string>
+    <string name="battery_case_charges_empty">အိတ်ထဲတွင် အားမရှိတော့ပါ၊ နားကြပ်များကို အားသွင်းနိုင်စရာ မရှိပါ</string>
     <string name="battery_case_charges_uncertain">နှစ်ဖက်စလုံး အားသွင်းစုံ မည်မျှ ကျန်ရှိသည်ကို မသိရှိပါ</string>
     <string name="battery_case_charges_state_enough_cd">တစ်ကြိမ်အားသွင်းနိုင်သည်</string>
     <string name="battery_case_charges_state_not_enough_cd">တစ်ကြိမ်အားသွင်းမည် မလုံလောက်ပါ</string>
     <string name="battery_case_charges_state_uncertain_cd">တစ်ကြိမ်အားသွင်းမည် လုံလောက်မှုမရှိနိုင်ပါ</string>
+    <string name="battery_case_charges_short">%1$s ကြိမ်အားသွင်း</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ကြိမ်အားသွင်း</string>
     <string name="pods_case_status_open_label">ဖွင့်ထားသည်</string>
     <string name="pods_case_status_closed_label">ပိတ်ထားသည်</string>
     <string name="pods_connection_state_disconnected_label">စက်ပစ္စည်းနှင့် ချိတ်ဆက်မထားပါ</string>
@@ -389,11 +397,13 @@
     <string name="device_settings_info_left_bonded_label">ဘယ်ဘက် ချိတ်ဆက်ထားသည်</string>
     <string name="device_settings_info_right_bonded_label">ညာဘက် ချိတ်ဆက်ထားသည်</string>
     <string name="device_settings_info_battery_health_label">အခန့်မှန်းသည့် နားထောင်အချိန်</string>
-    <string name="device_settings_info_battery_health_left_label">ဘယ်ဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
-    <string name="device_settings_info_battery_health_right_label">ညာဘက် ဘက်ထရီကျန်းမာရေး (ခန့်မှန်း)</string>
+    <string name="device_settings_info_battery_health_left_label">ဘယ်နားကြပ် နားထောင်ချိန်</string>
+    <string name="device_settings_info_battery_health_right_label">ညာနားကြပ် နားထောင်ချိန်</string>
     <string name="device_settings_info_battery_health_value">သတ်မှတ်ထားသည့် ~%1$d%%</string>
     <string name="device_settings_info_battery_health_pending">ယခုသတ်မှတ်နေဆဲဖြစ်ပါသည်၊ နောက်မှ ပြန်စစ်ပါ</string>
+    <string name="device_settings_battery_runtime_warning_title">နားထောင်ချိန်သည် သတ်မှတ်ချက်ထက် အလွန်တိုနေသည်</string>
     <string name="device_settings_battery_runtime_warning_description">%1$s: သတ်မှတ်ထားသည့် နားထောင်အချိန်ခန့် %2$d%%။ အသေးစိတ်အတွက် ထိပါ။</string>
+    <string name="device_settings_battery_runtime_warning_headset_label">ဤနားကြပ်များ</string>
     <string name="device_settings_info_details_label">ကိရိယာ အသေးစိတ်</string>
     <string name="device_settings_info_details_action">ကိရိယာ အသေးစိတ်ကို ပြသပါ</string>
     <string name="device_settings_info_status_label">အခြေအနေ</string>
@@ -439,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">ပိုရှည်</string>
     <string name="device_settings_volume_swipe_length_longest">အရှည်ဆုံး</string>
     <string name="device_settings_end_call_mute_mic_label">ဖုန်းခောဇောမှု ထိန်းချုပ်မှုများ</string>
-    <string name="device_settings_end_call_mute_mic_description">ဖုန်းခောဇောနေသောချိန် သောမ်ပော် နှိပ်သည့်အချား ဘာလုပ်ရသည်ကို ရွေးချယ်ပါ</string>
+    <string name="device_settings_end_call_mute_mic_description">ခေါ်ဆိုမှုများအတွင်း နှိပ်ချက်များ၏ လုပ်ဆောင်ချက်ကို ရွေးချယ်ပါ</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ဖုန်းပြတ်ရန် တစ်ကြိမ်နှိပ်ပါ</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">မိုက်ခဖိသိမ်းရန် နှစ်ကြိမ်နှိပ်ပါ</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">မိုက်ခဖိသိမ်းရန် တစ်ကြိမ်နှိပ်ပါ</string>
@@ -479,6 +489,9 @@
     <string name="reaction_charged_notification_title">အားသွင်းခြင်း ပြည့်စုံပြီ</string>
     <string name="reaction_charged_notification_text_full">%1$s အားသွင်းပြည့်သွားပြီ။</string>
     <string name="reaction_charged_notification_text_partial">%1$s ကို %2$d%% အထိ အားသွင်းပြီးပါပြီ။</string>
+    <string name="reaction_caselow_channel_label">ဓာတ်အိတ် ဘက်ထရီ သတိပေးချက်</string>
+    <string name="reaction_caselow_notification_title">ဓာတ်အိတ်ကို အားသွင်းပါ</string>
+    <string name="reaction_caselow_notification_text">%1$s: ဓာတ်အိတ်၏ ဘက်ထရီ %2$d%% ရှိသည်။</string>
     <string name="device_settings_rename_label">အမည်ပြောင်းပါ</string>
     <string name="device_settings_rename_hint">ကိရိယာ အမည်</string>
     <string name="device_settings_rename_confirm">အမည်ပြောင်းပါ</string>
@@ -502,7 +515,7 @@
     <string name="device_settings_eq_label">အိကွလိုင်ဇာ</string>
     <string name="press_controls_title">နှိပ် ထိန်းချုပ်များ</string>
     <string name="press_controls_nav_description">နှိပ်အစခ်အပြောမှုကို ပြင့်ကြားပြုအစခ်များကို အပြုအဖြစ်အသုံး ဖြင့်ပံ့ပါ</string>
-    <string name="press_controls_description">နှိပ်များ အသေးသတ်ကို ဖွင့်တွက်ပုံ့ပါ။ နှိပ်အစခ်များကို ဤကိရိယာပေါသာ အကျိုးသက်လုပ်ဆောမှုအဖြစ်အသုံး app က AirPods သည့်သည် ပိက်မည်ကို လိုအပ်သည်။</string>
+    <string name="press_controls_description">နှိပ်ချက်များ ဖော်ထုတ်ပုံကို ညှိပါ၊ ခေါ်ဆိုမှုခလုတ် အပြုအမူကို ရွေးပါ၊ နှိပ်ချက်များကို လုပ်ဆောင်ချက်များသို့ ချိတ်ဆက်ပါ။ ချိတ်ဆက်ထားသော လုပ်ဆောင်ချက်များသည် ဤစက်ပစ္စည်းအတွက်သာ သက်ရောက်ပြီး၊ နားကြပ်များ၏ မူလလုပ်ဆောင်ချက်အစား အက်ပ်က နှိပ်ချက်ကို ဖမ်းယူခွင့် ပေးသည်။</string>
     <string name="press_controls_single_press">တစ်ချေပ် နှိပ်</string>
     <string name="press_controls_double_press">နှစ်ချေပ် နှိပ်</string>
     <string name="press_controls_triple_press">သုံးချေပ် နှိပ်</string>
@@ -524,8 +537,12 @@
     <string name="press_action_rewind">နှစ်ပိုံ့ ပြန်းပြေး</string>
     <string name="press_action_cycle_anc">ဆူညံသံထိန်းချုပ် စက်ပြေး</string>
     <string name="press_action_toggle_anc_transparency">သောကြေးဖြစ် စခ်ဖွင့်/ပိတ်ပါ</string>
+    <string name="press_action_voice_assistant">အသံလုပ်ငန်းအကူ</string>
+    <string name="press_action_voice_assistant_unavailable">အသံလုပ်ငန်းအကူ မတွေ့ပါ</string>
     <string name="press_controls_reset_label">မူလပ်ထားသာသိုက် ပြန်းသတ်</string>
     <string name="press_controls_reset_confirm_message">နှိပ် မပ်ယားများအလုံးကို မူလပ်ထားသာသိုက်သိုက် ပြန်းသတ်လိုအပ်သည်မှုအကြားသည်အစ်အတား ပြန်းပါမယ်၏</string>
+    <string name="press_controls_voice_assistant_permission_hint">အသံလုပ်ငန်းအကူသည် အခြားအက်ပ်များ၏ အပေါ်တွင် ပြသခွင့် လိုအပ်သည်၊ မဟုတ်ပါက AirPods ကို နှိပ်သည့်အခါ ၎င်း မဖွင့်ပါ။</string>
+    <string name="press_controls_voice_assistant_permission_action">ခွင့်ပြုပါ</string>
     <string name="device_settings_noise_control_open_press_controls_action">နှိပ် ထိန်းချုပ်များကို ဖွင့်ပါ</string>
     <string name="general_navigate_up_action">အထက်သို့ သွားရန်</string>
     <string name="general_progress_loading">တင်နေပါသည်</string>

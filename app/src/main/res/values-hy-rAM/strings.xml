@@ -29,9 +29,11 @@
     <string name="upgrade_benefit_support">Աջակցե՛ք մշակողին</string>
     <string name="upgrade_benefit_disclaimer">Հնարավորության հասանելիությունը կախվի խուխիչին ու սառքից</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
-    <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
+    <string name="settings_monitor_connected_notification_description">Ցուցադրում է երկրորդ ծանուցում, որը երևում է միայն սարքը միացած ժամանակ։ Եթե սա միացված է, մշտական «Սարքեր չկան» ծանուցումը կարող ես թաքցնել՝ CAPod-ի համար Android-ի ծանուցումների կարգավորումներում անջատելով «Սարքի կարգավիճակ» կատեգորիան։</string>
     <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
     <string name="settings_keep_notification_after_disconnect_description">Շարունակել ցուցադրել վերջին հայտնի մարտկոցի մակարդակները նույնիսկ ձեր AirPods-ների անջատումից հետո</string>
+    <string name="settings_monitor_statusbar_battery_label">Մարտկոցի մակարդակը կարգավիճակի գոտում</string>
+    <string name="settings_monitor_statusbar_battery_description">Ցուցադրում է մարտկոցի տոկոսը որպես ծանուցման պատկերակ կարգավիճակի գոտում։ Ականջակալների դեպքում ցուցադրվում է երկուսից ցածրը, բացի լիցքավորվողից։</string>
     <string name="settings_autopause_label">Ինքնադադար</string>
     <string name="settings_autopause_description">Դադարեցրեք ձայնը, երբ սարքը հանում եք ականջից։</string>
     <string name="settings_autopplay_label">Ինքնանվագարկում</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Միայն pods-երը</string>
     <string name="settings_charged_scope_case_label">Միայն պատյանը</string>
     <string name="settings_charged_scope_both_label">Pods-երն ու պատյանը</string>
+    <string name="settings_caselow_reminder_label">Պատյանի մարտկոցի հիշեցում</string>
+    <string name="settings_caselow_reminder_description">Հիշեցնել պատյանը լիցքավորելու մասին, երբ ականջակալները վերադրվում են, և պատյանի մարտկոցը ցածր է։</string>
+    <string name="settings_caselow_threshold_label">Հիշեցման մակարդակ</string>
     <string name="device_settings_experimental_title">Փորձնական հատկություն</string>
     <string name="device_settings_experimental_description">Այս հատկությունը դեռ չի փորձարկվել բոլոր սարքերում: Եթե ինչ-որ բան ճիշտ չի աշխատում, խնդրում ենք բացել հարց՝ կազմաբերման մատյանով:</string>
     <string name="device_settings_experimental_action">Բացել հարցերի հետևիչը</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Կարող եք անջատել այս ծանուցումը համակարգի կարգավորումներում:</string>
     <string name="monitor_notification_starting">Մեկնարկում է…</string>
     <string name="support_debuglog_label">Կարգաբերման մատյան</string>
-    <string name="support_debuglog_desc">Գրանցեք այն ամենը, ինչ անում է հավելվածը տեքստային ֆայլում, որը կարող եք կիսվել։</string>
+    <string name="support_debuglog_desc">Գրանցում է հավելվածի բոլոր գործողությունները zip ֆայլում, որը կարող ես կիսել։</string>
     <string name="debug_debuglog_record_action">Գրանցել կարգաբերման մատյանը</string>
     <string name="debug_debuglog_stop_action">Դադարեցնել գրանցումը</string>
     <string name="debug_debuglog_sensitive_information_message">Ստեղծված ֆայլը պարունակում է զգայուն տեղեկատվություն (օրինակ՝ Bluetooth սարքի մանրամասները)։ Կիսվեք այն միայն վստահելի կողմերի հետ։</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Անջատել մարտկոցի օպտիմիզացումները</string>
     <string name="permission_ignore_battery_optimizations_description">Մարտկոցի օպտիմիզացումները թույլ չեն տալիս այս հավելվածին հուսալիորեն ստանալ Bluetooth տվյալներ, երբ այն ֆոնային ռեժիմում է։</string>
     <string name="permission_system_alert_window_label">Համակարգային զգուշացման պատուհան</string>
-    <string name="permission_system_alert_window_description">Թույլ տվեք CAPod-ին նկարել այլ հավելվածների վերևում՝ \"Ցուցադրել բացվող պատուհան\" գործառույթը հնարավոր դարձնելու համար։</string>
+    <string name="permission_system_alert_window_description">Թույլ տուր CAPod-ին նկարել այլ հավելվածների վրա։ Անհրաժեշտ է «Show PopUp» գործառույթի և AirPods-ի սեղմումից ձայնային օգնականը բացելու համար։</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Երբ տեսնվում է</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Պատյանը բաց է</string>
     <string name="settings_reaction_autoconnect_inear_label">Ականջում է</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Բավարար է լրիվ լիցքավորման համար</string>
     <string name="battery_case_charges_state_not_enough_cd">Բավարար չէ լրիվ լիցքավորման համար</string>
     <string name="battery_case_charges_state_uncertain_cd">Կարող է բավարար չլինել լրիվ լիցքավորման համար</string>
+    <string name="battery_case_charges_short">%1$s լիցք</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ լիցք</string>
     <string name="pods_case_status_open_label">Բաց</string>
     <string name="pods_case_status_closed_label">Փակ</string>
     <string name="pods_connection_state_disconnected_label">Սարքին միացված չէ</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Ավելի երկար</string>
     <string name="device_settings_volume_swipe_length_longest">Ամենաերկար</string>
     <string name="device_settings_end_call_mute_mic_label">զանգի կառավարում</string>
-    <string name="device_settings_end_call_mute_mic_description">Նշեք ինչ է անում կոթի սեղմումը զանգի ընթացքում</string>
+    <string name="device_settings_end_call_mute_mic_description">Ընտրիր, թե զանգի ընթացքում սեղմումները ինչ գործողություն կատարեն</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Մեկ սեղմում զանգը ավարտելու համար</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Կրկնակի սեղմում խոսափոնը անձայնեցնելու համար</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Մեկ սեղմում խոսափոնը անձայնեցնելու համար</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Լիցքավորումն ավարտված է</string>
     <string name="reaction_charged_notification_text_full">%1$s-ն ամբողջությամբ լիցքավորված է:</string>
     <string name="reaction_charged_notification_text_partial">%1$s-ն լիցքավորվել է %2$d%%-ի:</string>
+    <string name="reaction_caselow_channel_label">Պատյանի մարտկոցի հիշեցում</string>
+    <string name="reaction_caselow_notification_title">Լիցքավորիր պատյանը</string>
+    <string name="reaction_caselow_notification_text">%1$s. պատյանի մարտկոցը %2$d%%-ի վրա է։</string>
     <string name="device_settings_rename_label">Փոխել անունը</string>
     <string name="device_settings_rename_hint">Սառքի անուն</string>
     <string name="device_settings_rename_confirm">Փոխել անունը</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Էկվալայզեր</string>
     <string name="press_controls_title">Սեղմումների կառավարում</string>
     <string name="press_controls_nav_description">Կարգավորել սեղմումների վարքը և կապել սեղմումները գործողություններին</string>
-    <string name="press_controls_description">Կարգավորեք ինչպես են հայտնաբերվում սեղմումները, ընտրեք զանգի կոճակի վարքը և կարգավորեք սեղմումները գործողությունների։ Կարգավորված գործողությունները վերաբերում են միայն այս սարքին և թույլ են տալիս հավելվածին ընդհատել սեղմումը՝ AirPods-ի փոխարեն:</string>
+    <string name="press_controls_description">Կարգավորիր, թե ինչպես են հայտնաբերվում սեղմումները, ընտրիր զանգի կոճակի վարքը և քարտեզագրիր սեղմումները գործողությունների։ Քարտեզագրված գործողությունները վերաբերում են միայն այս սարքին և թույլ են տալիս հավելվածին գրավել սեղմումը, այլ ոչ թե ականջակալներին այն բնականաբար մշակել։</string>
     <string name="press_controls_single_press">Մեկ սեղմում</string>
     <string name="press_controls_double_press">Կրկնակի սեղմում</string>
     <string name="press_controls_triple_press">Եռակի սեղմում</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Հետ փռոձ</string>
     <string name="press_action_cycle_anc">Աղմուկի կառավարումի շրջան</string>
     <string name="press_action_toggle_anc_transparency">Փոխանջատել թափանցիկությունը</string>
+    <string name="press_action_voice_assistant">Ձայնային օգնական</string>
+    <string name="press_action_voice_assistant_unavailable">Ձայնային օգնական չի գտնվել</string>
     <string name="press_controls_reset_label">Վերականգնել կանխադրվածները</string>
     <string name="press_controls_reset_confirm_message">Վերականգնե՞լ բոլոր սեղմումների կարգավորումները կանխադրվածների:</string>
+    <string name="press_controls_voice_assistant_permission_hint">Ձայնային օգնականին անհրաժեշտ է թույլտվություն՝ այլ հավելվածների վրա ցուցադրելու համար, հակառակ դեպքում AirPods-ը սեղմելիս այն չի բացվի։</string>
+    <string name="press_controls_voice_assistant_permission_action">Տրամադրել</string>
     <string name="device_settings_noise_control_open_press_controls_action">Բացել Սեղմումների կառավարումը</string>
     <string name="general_navigate_up_action">Նավարկել վերև</string>
     <string name="general_progress_loading">Բեռնում</string>

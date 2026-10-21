@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">डिव्हाइस कनेक्ट असतानाच दिसणारी दुसरी सूचना दाखवते. हे सुरू असल्यास तुम्ही कायमस्वरूपी \"कोणतेही डिव्हाइस नाही\" ही सूचना लपवू शकता: CAPod साठी Android च्या सूचना सेटिंग्जमध्ये \"डिव्हाइस स्थिती\" श्रेणी बंद करा.</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट झाल्यानंतर सूचना ठेवा</string>
     <string name="settings_keep_notification_after_disconnect_description">तुमचे AirPods डिस्कनेक्ट झाल्यानंतरही शेवटचे ज्ञात बॅटरी स्तर दर्शवणे सुरू ठेवा</string>
+    <string name="settings_monitor_statusbar_battery_label">स्टेटस बारमधील बॅटरी पातळी</string>
+    <string name="settings_monitor_statusbar_battery_description">स्टेटस बारमधील सूचना चिन्ह म्हणून बॅटरीची टक्केवारी दाखवली जाते. इयरबड्ससाठी दोन्हीपैकी कमी असलेली पातळी दाखवली जाते, तर चार्ज होत असलेल्या इयरबडला वगळले जाते.</string>
     <string name="settings_autopause_label">ऑटो-पॉज</string>
     <string name="settings_autopause_description">आपल्या कानातून डिव्हाइस काढताना ऑडिओ थांबवा.</string>
     <string name="settings_autopplay_label">ऑटो-प्ले</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">केवळ पॉड्स</string>
     <string name="settings_charged_scope_case_label">केवळ केस</string>
     <string name="settings_charged_scope_both_label">पॉड्स आणि केस</string>
+    <string name="settings_caselow_reminder_label">केसच्या बॅटरीची आठवण</string>
+    <string name="settings_caselow_reminder_description">जेव्हा मी पॉड्स केसमध्ये परत ठेवतो आणि केसची बॅटरी कमी असते, तेव्हा केस चार्ज करण्याची मला आठवण करून द्या.</string>
+    <string name="settings_caselow_threshold_label">आठवणीची पातळी</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक वैशिष्ट्य</string>
     <string name="device_settings_experimental_description">हे वैशिष्ट्य अद्याप सर्व डिव्हाइसवर तपासले गेले नाही. जर काही योग्यरित्या काम करत नसेल, तर कृपया डीबग लॉगसह एक समस्या उघडा.</string>
     <string name="device_settings_experimental_action">समस्या ट्रॅकर उघडा</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">तुम्ही ही सूचना सिस्टम सेटिंग्जमध्ये अक्षम करू शकता.</string>
     <string name="monitor_notification_starting">सुरुवात होत आहे…</string>
     <string name="support_debuglog_label">डीबग लॉग</string>
-    <string name="support_debuglog_desc">अॅप करत असलेल्या प्रत्येक गोष्टीची नोंद तुम्ही शेअर करू शकता अशा टेक्स्ट फाइलमध्ये करा.</string>
+    <string name="support_debuglog_desc">अ‍ॅप जे काही करत आहे ते सर्व शेअर करता येणाऱ्या झिप फाइलमध्ये रेकॉर्ड करा.</string>
     <string name="debug_debuglog_record_action">डीबग लॉग रेकॉर्ड करा</string>
     <string name="debug_debuglog_stop_action">रेकॉर्डिंग थांबवा</string>
     <string name="debug_debuglog_sensitive_information_message">तयार केलेल्या फाइलमध्ये संवेदनशील माहिती आहे (उदा. ब्लूटूथ डिव्हाइस तपशील). ती फक्त विश्वासार्ह पक्षांसोबत शेअर करा.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">बॅटरी ऑप्टिमायझेशन अक्षम करा</string>
     <string name="permission_ignore_battery_optimizations_description">बॅटरी ऑप्टिमायझेशन या अॅपला पार्श्वभूमीत असताना ब्लूटूथ डेटा विश्वसनीयरित्या प्राप्त करण्यापासून प्रतिबंधित करतात.</string>
     <string name="permission_system_alert_window_label">सिस्टम अलर्ट विंडो</string>
-    <string name="permission_system_alert_window_description">\"पॉपअप दर्शवा\" वैशिष्ट्य शक्य करण्यासाठी CAPod ला इतर अॅप्सवर चित्रे काढण्याची अनुमती द्या.</string>
+    <string name="permission_system_alert_window_description">CAPod ला इतर अ‍ॅप्सवर दिसण्याची परवानगी द्या. “पॉपअप दाखवा” वैशिष्ट्यासाठी आणि तुमच्या AirPods वरील दाबण्यामुळे व्हॉइस असिस्टंट उघडण्यासाठी ही परवानगी आवश्यक आहे.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">दिसल्यावर</string>
     <string name="settings_reaction_autoconnect_caseopen_label">केस उघडे</string>
     <string name="settings_reaction_autoconnect_inear_label">कानात</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">एक पूर्ण चार्जसाठी पुरेसे</string>
     <string name="battery_case_charges_state_not_enough_cd">एक पूर्ण चार्जसाठी पुरेसे नाही</string>
     <string name="battery_case_charges_state_uncertain_cd">एक पूर्ण चार्जसाठी पुरेसे असू शकत नाही</string>
+    <string name="battery_case_charges_short">%1$s चार्ज</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ चार्ज</string>
     <string name="pods_case_status_open_label">उघडे</string>
     <string name="pods_case_status_closed_label">बंद</string>
     <string name="pods_connection_state_disconnected_label">डिव्हाइसशी कनेक्ट नाही</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">लांब</string>
     <string name="device_settings_volume_swipe_length_longest">सर्वात लांब</string>
     <string name="device_settings_end_call_mute_mic_label">कॉल नियंत्रणे</string>
-    <string name="device_settings_end_call_mute_mic_description">कॉल दरम्यान स्टेम दाबल्यावर काय होईल ते निवडा</string>
+    <string name="device_settings_end_call_mute_mic_description">कॉल दरम्यान दाबल्यावर काय होईल ते निवडा</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">कॉल संपवण्यासाठी एकदा दाबा</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">मायक्रोफोन म्यूट करण्यासाठी दोनदा दाबा</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">मायक्रोफोन म्यूट करण्यासाठी एकदा दाबा</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">चार्जिंग पूर्ण</string>
     <string name="reaction_charged_notification_text_full">%1$s पूर्णपणे चार्ज झाले आहे.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% पर्यंत चार्ज झाले आहे.</string>
+    <string name="reaction_caselow_channel_label">केसच्या बॅटरीची आठवण</string>
+    <string name="reaction_caselow_notification_title">तुमची केस चार्ज करा</string>
+    <string name="reaction_caselow_notification_text">%1$s: केसची बॅटरी %2$d%% आहे.</string>
     <string name="device_settings_rename_label">नाव बदला</string>
     <string name="device_settings_rename_hint">डिव्हाइसचे नाव</string>
     <string name="device_settings_rename_confirm">नाव बदला</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">इक्वलायझर</string>
     <string name="press_controls_title">प्रेस नियंत्रणे</string>
     <string name="press_controls_nav_description">प्रेस वर्तन सुधारा आणि प्रेसेस क्रियांशी जोडा</string>
-    <string name="press_controls_description">प्रेस कसे शोधले जातात ते सुधारा, कॉल-बटण वर्तन निवडा, आणि प्रेसेस क्रियांशी जोडा. जोडलेल्या क्रिया केवळ या डिव्हाइसला लागू होतात आणि अॅपला AirPods त्यास मूळतः हाताळण्याएवजी प्रेस इंटरसेप्ट करण्यास परवानगी देतात.</string>
+    <string name="press_controls_description">दाबण्याची ओळख कशी व्हावी ते सेट करा, कॉल बटणाचे वर्तन निवडा आणि दाबण्यांना कृतींशी जोडा. जोडलेल्या कृती फक्त या डिव्हाइसवर लागू होतात आणि हेडफोन्स स्वतः दाबण्याची प्रक्रिया करण्याऐवजी अ‍ॅप दाबण्याची प्रक्रिया स्वतः थांबवते.</string>
     <string name="press_controls_single_press">एकल प्रेस</string>
     <string name="press_controls_double_press">दुहेरी प्रेस</string>
     <string name="press_controls_triple_press">तिहेरी प्रेस</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">रिवाइंड</string>
     <string name="press_action_cycle_anc">आवाज नियंत्रण सायकल करा</string>
     <string name="press_action_toggle_anc_transparency">पारदर्शकता टॉगल करा</string>
+    <string name="press_action_voice_assistant">व्हॉइस असिस्टंट</string>
+    <string name="press_action_voice_assistant_unavailable">कोणताही व्हॉइस असिस्टंट सापडला नाही</string>
     <string name="press_controls_reset_label">डीफॉल्टवर रीसेट करा</string>
     <string name="press_controls_reset_confirm_message">सर्व प्रेस मॅपिंग्ज डीफॉल्टवर रीसेट करायच्या?</string>
+    <string name="press_controls_voice_assistant_permission_hint">व्हॉइस असिस्टंटला इतर अ‍ॅप्सवर दिसण्याची परवानगी हवी आहे, अन्यथा तुमचे AirPods दाबल्यावर ते उघडणार नाही.</string>
+    <string name="press_controls_voice_assistant_permission_action">परवानगी द्या</string>
     <string name="device_settings_noise_control_open_press_controls_action">प्रेस नियंत्रणे उघडा</string>
     <string name="general_navigate_up_action">वर जा</string>
     <string name="general_progress_loading">लोड होत आहे</string>

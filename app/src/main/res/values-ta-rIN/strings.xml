@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">சாதனம் இணைக்கப்பட்டுள்ள போது மட்டுமே தோன்றும் இரண்டாவது அறிவிப்பைக் காட்டுகிறது. இதை இயக்கும் போது, \'சாதனங்கள் இல்லை\' என்ற நிரந்தரமான அறிவிப்பை மறைக்கலாம்: CAPod க்கான Android இன் அறிவிப்பு அமைப்புகளில் \'சாதன நிலை\' வகையை முடக்கவும்.</string>
     <string name="settings_keep_notification_after_disconnect_label">துண்டிக்கப்பட்ட பிறகு அறிவிப்பை வைத்திரு</string>
     <string name="settings_keep_notification_after_disconnect_description">உங்கள் AirPods துண்டிக்கப்பட்ட பிறகும் கடைசியாக அறியப்பட்ட பேட்டரி நிலைகளைக் காட்டவும்</string>
+    <string name="settings_monitor_statusbar_battery_label">நிலைப்பட்டியில் பேட்டரி அளவு</string>
+    <string name="settings_monitor_statusbar_battery_description">பேட்டரி சதவீதத்தை நிலைப்பட்டியில் அறிவிப்பு ஐகானாகக் காட்டும். இயர்பட்களுக்கு, இரண்டில் குறைவானது காட்டப்படும்; சார்ஜ் ஆகிக்கொண்டிருப்பது தவிர்க்கப்படும்.</string>
     <string name="settings_autopause_label">தானியங்கு இடைநிறுத்தம்</string>
     <string name="settings_autopause_description">உங்கள் காதில் இருந்து சாதனத்தை அகற்றும்போது ஆடியோவை இடைநிறுத்தவும்.</string>
     <string name="settings_autopplay_label">தானியங்கு இயக்கம்</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">பாட்கள் மட்டும்</string>
     <string name="settings_charged_scope_case_label">கேஸ் மட்டும்</string>
     <string name="settings_charged_scope_both_label">பாட்கள் மற்றும் கேஸ்</string>
+    <string name="settings_caselow_reminder_label">கேஸ் பேட்டரி நினைவூட்டல்</string>
+    <string name="settings_caselow_reminder_description">பாட்களை மீண்டும் உள்ளே வைக்கும்போது கேஸ் பேட்டரி குறைவாக இருந்தால், கேஸை சார்ஜ் செய்ய நினைவூட்டு.</string>
+    <string name="settings_caselow_threshold_label">நினைவூட்டல் அளவு</string>
     <string name="device_settings_experimental_title">சோதனை அம்சம்</string>
     <string name="device_settings_experimental_description">இந்த அம்சம் இன்னும் அனைத்து சாதனங்களிலும் சோதிக்கப்படவில்லை. ஏதாவது சரியாக வேலை செய்யாவிட்டால், debug log உடன் ஒரு பிரச்சினையை தாக்கல் செய்யவும்.</string>
     <string name="device_settings_experimental_action">பிரச்சினை ட்ராக்கரை திறக்கவும்</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">கணினி அமைப்புகளில் இந்த அறிவிப்பை முடக்கலாம்.</string>
     <string name="monitor_notification_starting">தொடங்குகிறது…</string>
     <string name="support_debuglog_label">பிழைத்திருத்த பதிவு</string>
-    <string name="support_debuglog_desc">ஆப்ஸ் செய்யும் அனைத்தையும் நீங்கள் பகிரக்கூடிய ஒரு உரைக் கோப்பில் பதிவுசெய்க.</string>
+    <string name="support_debuglog_desc">ஆப்ஸ் செய்யும் அனைத்தையும் ஒரு ஜிப் கோப்பில் பதிவு செய்யும்; அதை நீங்கள் பகிரலாம்.</string>
     <string name="debug_debuglog_record_action">பிழைத்திருத்த பதிவைப் பதிவுசெய்</string>
     <string name="debug_debuglog_stop_action">பதிவை நிறுத்து</string>
     <string name="debug_debuglog_sensitive_information_message">உருவாக்கப்பட்ட கோப்பில் முக்கியமான தகவல்கள் உள்ளன (எ.கா. புளூடூத் சாதன விவரங்கள்). நம்பகமான தரப்பினருடன் மட்டுமே பகிரவும்.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">பேட்டரி மேம்படுத்தல்களை முடக்கு</string>
     <string name="permission_ignore_battery_optimizations_description">பேட்டரி மேம்படுத்தல்கள் ஆப்ஸ் பின்னணியில் இருக்கும்போது புளூடூத் தரவை நம்பகமாகப் பெறுவதைத் தடுக்கின்றன.</string>
     <string name="permission_system_alert_window_label">கணினி எச்சரிக்கை சாளரம்</string>
-    <string name="permission_system_alert_window_description">\"பாப்அப் காட்டு\" அம்சத்தை சாத்தியமாக்க CAPod-ஐ பிற ஆப்ஸ்களின் மேல் வரைய அனுமதிக்கவும்.</string>
+    <string name="permission_system_alert_window_description">பிற ஆப்ஸ்களின் மேல் காட்ட CAPod-ஐ அனுமதிக்கவும். \"பாப்அப் காட்டு\" அம்சத்திற்கும், உங்கள் AirPods அழுத்தத்தில் குரல் உதவியாளரைத் திறக்கவும் இது தேவை.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">கண்டறியும்போது</string>
     <string name="settings_reaction_autoconnect_caseopen_label">கேஸ் திறந்திருக்கிறது</string>
     <string name="settings_reaction_autoconnect_inear_label">காதில்</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">முழு சார்ஜிற்குத் போதுமானது</string>
     <string name="battery_case_charges_state_not_enough_cd">முழு சார்ஜிற்குப் போதுமற்றது</string>
     <string name="battery_case_charges_state_uncertain_cd">முழு சார்ஜிற்குப் போதுமாக இல்லாமல் இருக்கலாம்</string>
+    <string name="battery_case_charges_short">%1$s முறை சார்ஜ் ஆகும்</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ முறை சார்ஜ் ஆகும்</string>
     <string name="pods_case_status_open_label">திறந்தது</string>
     <string name="pods_case_status_closed_label">மூடப்பட்டது</string>
     <string name="pods_connection_state_disconnected_label">சாதனத்துடன் இணைக்கப்படவில்லை</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">நீளமானது</string>
     <string name="device_settings_volume_swipe_length_longest">மிக நீளமானது</string>
     <string name="device_settings_end_call_mute_mic_label">அழைப்பு கட்டுப்பாடுகள்</string>
-    <string name="device_settings_end_call_mute_mic_description">அழைப்பின்போது ஸ்டெமை அழுத்துவது என்ன செய்கிறது என்பதை தேர்வு செய்யவும்</string>
+    <string name="device_settings_end_call_mute_mic_description">அழைப்புகளின்போது அழுத்தங்கள் என்ன செய்ய வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">அழைப்பை முடிக்க ஒரே ஒரு அழுத்தம்</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">மைக்ரோஃபோனை முடக்க இரண்டு முறை அழுத்தவும்</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">மைக்ரோஃபோனை முடக்க ஒரே ஒரு அழுத்தம்</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">சார்ஜ் முடிந்தது</string>
     <string name="reaction_charged_notification_text_full">%1$s முழுமையாக சார்ஜ் ஆகிவிட்டது.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% வரை சார்ஜ் ஆகிவிட்டது.</string>
+    <string name="reaction_caselow_channel_label">கேஸ் பேட்டரி நினைவூட்டல்</string>
+    <string name="reaction_caselow_notification_title">உங்கள் கேஸை சார்ஜ் செய்யுங்கள்</string>
+    <string name="reaction_caselow_notification_text">%1$s: கேஸ் பேட்டரி %2$d%%.</string>
     <string name="device_settings_rename_label">மறுபெயரிடு</string>
     <string name="device_settings_rename_hint">சாதன பெயர்</string>
     <string name="device_settings_rename_confirm">மறுபெயரிடு</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ஈக்வலைசர்</string>
     <string name="press_controls_title">அழுத்த கட்டுப்பாடுகள்</string>
     <string name="press_controls_nav_description">அழுத்த நடத்தையை சரிசெய்து செயல்களுக்கு அழுத்தங்களை வரைபடமாக்கு</string>
-    <string name="press_controls_description">அழுத்தங்கள் எப்படி கண்டறியப்படுகின்றன என்பதை சரிசெய்யவும், அழைப்பு-பொத்தான் நடத்தையை தேர்வு செய்யவும், மற்றும் அழுத்தங்களை செயல்களுக்கு வரைபடமாக்கவும். வரைபடமாக்கப்பட்ட செயல்கள் இந்த சாதனத்தில் மட்டுமே பொருந்தும் மற்றும் AirPods அதை இயல்பாக கையாள்வதற்கு பதிலாக பயன்பாடு அழுத்தத்தை இடைமறிக்க அனுமதிக்கும்.</string>
+    <string name="press_controls_description">அழுத்தங்கள் கண்டறியப்படும் விதத்தை சரிசெய்யவும், அழைப்பு பொத்தானின் செயல்பாட்டைத் தேர்ந்தெடுக்கவும், அழுத்தங்களுக்குச் செயல்களை இணைக்கவும். இணைக்கப்பட்ட செயல்கள் இந்தச் சாதனத்திற்கு மட்டுமே பொருந்தும்; ஹெட்ஃபோன்கள் தாமாகக் கையாளுவதற்குப் பதிலாக, ஆப்ஸ் அழுத்தத்தை இடைமறிக்கும்.</string>
     <string name="press_controls_single_press">ஒற்றை அழுத்தம்</string>
     <string name="press_controls_double_press">இரட்டை அழுத்தம்</string>
     <string name="press_controls_triple_press">மூன்று அழுத்தம்</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">பின்னோக்கு</string>
     <string name="press_action_cycle_anc">சத்தக் கட்டுப்பாட்டை சுழற்று</string>
     <string name="press_action_toggle_anc_transparency">வெளிப்படைத்தன்மையை மாற்று</string>
+    <string name="press_action_voice_assistant">குரல் உதவியாளர்</string>
+    <string name="press_action_voice_assistant_unavailable">குரல் உதவியாளர் எதுவும் கிடைக்கவில்லை</string>
     <string name="press_controls_reset_label">இயல்புகளுக்கு மீட்டமை</string>
     <string name="press_controls_reset_confirm_message">அனைத்து அழுத்த வரைபடங்களையும் இயல்புகளுக்கு மீட்டமைக்கவா?</string>
+    <string name="press_controls_voice_assistant_permission_hint">குரல் உதவியாளர் பிற ஆப்ஸ்களின் மேல் காட்ட அனுமதி தேவை; இல்லையெனில் உங்கள் AirPods-ஐ அழுத்தினால் அது திறக்காது.</string>
+    <string name="press_controls_voice_assistant_permission_action">அனுமதி</string>
     <string name="device_settings_noise_control_open_press_controls_action">அழுத்த கட்டுப்பாடுகளை திறக்கவும்</string>
     <string name="general_navigate_up_action">மேல்நோக்கி செல்க</string>
     <string name="general_progress_loading">ஏற்றுகிறது</string>

@@ -6,7 +6,6 @@
     <string name="upgrades_gplay_already_owned_label">이미 구매하셨나요?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play에서 이미 이 업그레이드를 보유하고 있다고 알렸지만 복원할 수 없었습니다. 구매할 때 사용한 Google 계정을 사용 중인지 확인하세요. Play 스토어 동기화에는 시간이 걸릴 수 있습니다. 기기를 재부팅하거나 Google Play 캐시를 지우거나 잠시 기다려 보세요.</string>
     <string name="upgrade_badge_label">프로</string>
-    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s 받기</string>
     <string name="upgrade_preamble">CAPod는 한 사람이 개발하고 있습니다. 업그레이드하면 추가 기능이 열리고 앱을 계속 운영하는 데 도움이 됩니다.</string>
     <string name="upgrade_screen_subscription_trial_action">무료 체험 시작</string>
@@ -34,14 +33,13 @@
     <string name="upgrade_screen_owned_iap_purchase_note">이는 별도의 구매이며 기존 구독을 취소하거나 환불하지 않습니다. 동일한 Google 계정을 사용하세요.</string>
     <string name="upgrade_screen_sub_still_renewing_title">구독이 아직 활성 상태입니다</string>
     <string name="upgrade_screen_sub_still_renewing_message">구독이 아직 갱신되도록 설정되어 있습니다. 먼저 Google Play에서 구독을 취소한 다음 일회성 구매로 전환하세요. 방금 취소하셨나요? Google Play가 처리할 시간을 조금 준 다음 다시 시도해 보세요.</string>
-    <string name="upgrade_screen_purchase_check_failed_message">Google Play에서 구매 내역을 확인할 수 없었어요. 중복 구매를 피하려면 잠시 후 다시 시도해 보세요.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play에서 구매 내역을 확인할 수 없습니다. 중복 구매를 피하려면 잠시 후 다시 시도해 주세요.</string>
     <string name="upgrade_screen_pending_card_title">결제 대기 중</string>
-    <string name="upgrade_screen_pending_card_body">Google Play가 여전히 결제를 처리 중이에요. 결제가 완료되면 Pro가 활성화돼요. 일부 결제 수단은 시간이 걸릴 수 있어요. 다른 작업은 필요 없어요.</string>
-    <string name="upgrade_screen_pending_dialog_message">Google Play에서 대기 중인 결제가 있는 구매를 발견했고 여전히 처리 중이에요. 결제가 완료되면 Pro가 활성화돼요.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play가 결제를 처리하고 있습니다. 결제가 완료되면 Pro가 활성화됩니다. 일부 결제 수단은 시간이 걸릴 수 있습니다. 잠시만 기다려주세요.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play에서 대기 중인 결제가 있는 구매를 발견했고 현재 처리 중입니다. 결제가 완료되면 Pro가 활성화됩니다.</string>
     <string name="upgrade_screen_grace_title">구매 확인 중</string>
     <string name="upgrade_screen_grace_body_short">Google Play에서 아직 구매를 확인하지 않았습니다. Pro는 계속 활성 상태이며 별도 조치가 필요하지 않습니다.</string>
     <string name="upgrade_screen_grace_body">Google Play에서 한동안 구매를 확인하지 않았습니다. Pro는 계속 활성 상태입니다. 온라인 상태인지, 구매에 사용한 Google 계정으로 로그인되어 있는지 확인한 다음 복원을 시도해 보세요.</string>
-    <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">업그레이드 옵션</string>
     <string name="upgrade_screen_offers_or">또는</string>
     <string name="upgrade_screen_offers_body">동일한 기능, 가격 책정 모델만 다릅니다.</string>
@@ -58,7 +56,6 @@
     <string name="upgrade_screen_contact_support_action">지원팀 문의</string>
     <string name="settings_upgrade_status_description">업그레이드 및 구매 상태</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod가 Google Play에 연결할 수 없습니다. Google Play가 설치되어 있고 최신 버전인가요? Google 계정이 로그인되어 있나요? Google Play 앱의 캐시를 지우고 기기를 재시작해 보세요.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play를 열 수 없습니다. 설치되어 있지 않거나, 비활성화되었거나, 이 기기에서 제한되어 있을 수 있습니다.</string>
     <string name="upgrades_gplay_internal_error_title">Google Play 오류</string>
     <string name="upgrades_gplay_internal_error_description">Google Play의 내부 오류가 발생했습니다. 다음을 시도해 보세요:\n\n• 기기 재시작\n• Google Play 스토어 캐시 지우기\n• 나중에 다시 시도</string>
