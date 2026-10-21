@@ -32,6 +32,13 @@ class StemActionSerializationTest : BaseTest() {
     }
 
     @Test
+    fun `VoiceAssistant uses its own wire name and round-trips`() {
+        val encoded = json.encodeToString(StemAction.serializer(), StemAction.VoiceAssistant)
+        encoded shouldBe """{"type":"VOICE_ASSISTANT"}"""
+        json.decodeFromString(StemAction.serializer(), encoded) shouldBe StemAction.VoiceAssistant
+    }
+
+    @Test
     fun `StemActionsConfig round-trips with new actions`() {
         val original = StemActionsConfig(
             leftSingle = StemAction.PlayPause,

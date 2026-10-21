@@ -8,9 +8,11 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
+import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isProForUi
+import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -37,6 +39,7 @@ class PressControlsViewModel @Inject constructor(
     private val aapManager: AapConnectionManager,
     private val upgradeRepo: UpgradeRepo,
     private val profilesRepo: DeviceProfilesRepo,
+    private val permissionTool: PermissionTool,
 ) : ViewModel4(dispatcherProvider) {
 
     private val targetProfileId = MutableStateFlow<ProfileId?>(null)
@@ -60,7 +63,8 @@ class PressControlsViewModel @Inject constructor(
             deviceForProfile(profileId),
             profilesRepo.profiles,
             upgradeRepo.upgradeInfo,
-        ) { device, profiles, upgrade ->
+            permissionTool.missingPermissions,
+        ) { device, profiles, upgrade, missingPermissions ->
             val profile = profiles.filterIsInstance<AppleDeviceProfile>().firstOrNull { it.id == profileId }
             val stemActions = profile?.stemActions ?: StemActionsConfig()
             val model = device?.model ?: profile?.model
@@ -72,6 +76,8 @@ class PressControlsViewModel @Inject constructor(
                 isAapReady = device?.isAapReady == true,
                 supportsAncCycle = model?.features?.hasListeningModeCycle == true,
                 supportsAncToggle = model?.features?.hasAncControl == true,
+                voiceAssistantNeedsOverlay = stemActions.uses(StemAction.VoiceAssistant) &&
+                    Permission.SYSTEM_ALERT_WINDOW in missingPermissions,
             )
         }
     }.asLiveState()
@@ -90,6 +96,7 @@ class PressControlsViewModel @Inject constructor(
         val isAapReady: Boolean = false,
         val supportsAncCycle: Boolean = false,
         val supportsAncToggle: Boolean = false,
+        val voiceAssistantNeedsOverlay: Boolean = false,
     )
 
     // ── Stem-action mapping setters (profile-scoped, Pro-gated on non-NONE assignment) ───────
@@ -181,6 +188,11 @@ class PressControlsViewModel @Inject constructor(
         log(TAG, INFO) { "resetAll()" }
         val profileId = targetProfileId.value ?: return@launch
         profilesRepo.updateAppleProfile(profileId) { it.copy(stemActions = StemActionsConfig()) }
+    }
+
+    fun onOverlayPermissionResult() {
+        log(TAG) { "onOverlayPermissionResult()" }
+        permissionTool.recheck()
     }
 
     // ── AAP setters (device-scoped, not Pro-gated) ────────────────────────────────────────────
