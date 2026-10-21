@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນທີສອງທີ່ຈະປາກົດຂຶ້ນສະເພາະເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຢູ່. ເມື່ອເປີດໃຊ້ອັນນີ້ ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນ \"ບໍ່ມີອຸປະກອນ\" ຖາວອນໄດ້: ໃຫ້ປິດໝວດໝູ່ \"ສະຖານະອຸປະກອນ\" ໃນການຕັ້ງຄ່າການແຈ້ງເຕືອນຂອງ Android ສຳລັບ CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
+    <string name="settings_monitor_statusbar_battery_label">ລະດັບແບັດເຕີຣີໃນແຖບສະຖານະ</string>
+    <string name="settings_monitor_statusbar_battery_description">ສະແດງເປີເຊັນແບັດເຕີຣີເປັນໄອຄອນແຈ້ງເຕືອນໃນແຖບສະຖານະ. ສຳລັບຫູຟັງ, ຈະສະແດງຄ່າທີ່ຕ່ຳກວ່າໃນສອງຂ້າງ, ໂດຍຂ້າມຂ້າງທີ່ກຳລັງສາກຢູ່.</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
     <string name="settings_autopause_description">ຢຸດສຽງຊົ່ວຄາວເມື່ອຖອດອຸປະກອນອອກຈາກຫູຂອງທ່ານ.</string>
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">ສະເພາະ Pods</string>
     <string name="settings_charged_scope_case_label">ສະເພາະກ່ອງ</string>
     <string name="settings_charged_scope_both_label">Pods ແລະກ່ອງ</string>
+    <string name="settings_caselow_reminder_label">ການເຕືອນແບັດເຕີຣີເຄສ</string>
+    <string name="settings_caselow_reminder_description">ເຕືອນໃຫ້ສາກເຄສເມື່ອເອົາຫູຟັງໃສ່ກັບຄືນ ແລະ ແບັດເຕີຣີເຄສຕ່ຳ.</string>
+    <string name="settings_caselow_threshold_label">ລະດັບການເຕືອນ</string>
     <string name="device_settings_experimental_title">ຟີເຈີທົດລອງ</string>
     <string name="device_settings_experimental_description">ຟີເຈີນີ້ຍັງບໍ່ໄດ້ຮັບການທົດສອບໃນທຸກອຸປະກອນ. ຖ້າມີບາງຢ່າງທີ່ບໍ່ເຮັດວຽກຢ່າງຖືກຕ້ອງ, ກະລຸນາເປີດ issue ພ້ອມ debug log.</string>
     <string name="device_settings_experimental_action">ເປີດ Issue Tracker</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ທ່ານສາມາດປິດການແຈ້ງເຕືອນນີ້ໄດ້ໃນການຕັ້ງຄ່າລະບົບ.</string>
     <string name="monitor_notification_starting">ກຳລັງເລີ່ມຕົ້ນ…</string>
     <string name="support_debuglog_label">ບັນທຶກດີບັກ</string>
-    <string name="support_debuglog_desc">ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ຂໍ້ຄວາມທີ່ທ່ານສາມາດແບ່ງປັນໄດ້.</string>
+    <string name="support_debuglog_desc">ບັນທຶກທຸກສິ່ງທີ່ແອັບກຳລັງເຮັດໄວ້ໃນໄຟລ໌ zip ທີ່ສາມາດແບ່ງປັນໄດ້.</string>
     <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນໃຫ້ສະເພາະຜູ້ທີ່ໄວ້ໃຈໄດ້ເທົ່ານັ້ນ.</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">ປິດການປັບແຕ່ງແບັດເຕີລີ້</string>
     <string name="permission_ignore_battery_optimizations_description">ການປັບແຕ່ງແບັດເຕີລີ້ປ້ອງກັນບໍ່ໃຫ້ແອັບນີ້ຮັບຂໍ້ມູນ Bluetooth ຢ່າງໜ້າເຊື່ອຖືໃນຂະນະທີ່ແອັບຢູ່ໃນພື້ນຫຼັງ.</string>
     <string name="permission_system_alert_window_label">ໜ້າຕ່າງການແຈ້ງເຕືອນລະບົບ</string>
-    <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ແຕ້ມທັບແອັບອື່ນເພື່ອໃຫ້ຄຸນສົມບັດ \"ສະແດງປັອບອັບ\" ເປັນໄປໄດ້.</string>
+    <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ສະແດງທັບແອັບອື່ນ. ຈຳເປັນສຳລັບຄຸນສົມບັດ \"Show PopUp\" ແລະ ເພື່ອເປີດຜູ້ຊ່ວຍສຽງເມື່ອກົດ AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ເມື່ອເຫັນ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ເຄສເປີດ</string>
     <string name="settings_reaction_autoconnect_inear_label">ໃນຫູ</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">ພຽງພໍສໍາລັບສາກເຕັມ</string>
     <string name="battery_case_charges_state_not_enough_cd">ບໍ່ພຽງພໍສຳລັບສາກເຕັມ</string>
     <string name="battery_case_charges_state_uncertain_cd">ອາດຈະບໍ່ພຽງພໍສຳລັບສາກເຕັມ</string>
+    <string name="battery_case_charges_short">%1$s ຄັ້ງສາກ</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ຄັ້ງສາກ</string>
     <string name="pods_case_status_open_label">ເປີດ</string>
     <string name="pods_case_status_closed_label">ປິດ</string>
     <string name="pods_connection_state_disconnected_label">ບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບອຸປະກອນ</string>
@@ -390,7 +397,7 @@
     <string name="device_settings_info_left_bonded_label">ຊ້າຍໄດ້ຜູກມັດ</string>
     <string name="device_settings_info_right_bonded_label">ຂວາໄດ້ຜູກມັດ</string>
     <string name="device_settings_info_battery_health_label">ວລີຟັງທີ່ຄາດຄະເນໄວ້</string>
-    <string name="device_settings_info_battery_health_left_label">ສະຖານະພາບແບັດເຕີຣີຊ້າຍ (ປະເມີນ)</string>
+    <string name="device_settings_info_battery_health_left_label">ເວລາຟັງຂ້າງຊ້າຍ</string>
     <string name="device_settings_info_battery_health_right_label">ວລີຟັງຫູຂ້າງຂວາ</string>
     <string name="device_settings_info_battery_health_value">~%1$d%% ຂອງມາດຕະຖານ</string>
     <string name="device_settings_info_battery_health_pending">ຍັງກຳລັງກຳນົດ, ກະລຸນາກັບມາບໍ່ດົນ</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">ຍາວກວ່າ</string>
     <string name="device_settings_volume_swipe_length_longest">ຍາວທີ່ສຸດ</string>
     <string name="device_settings_end_call_mute_mic_label">ການຄວບຄຸມການເຈຮາ</string>
-    <string name="device_settings_end_call_mute_mic_description">ເລືອກວ່າການກດກ້ານທຳິໃດໃນການເຈຮາ</string>
+    <string name="device_settings_end_call_mute_mic_description">ເລືອກວ່າການກົດຈະເຮັດຫຍັງໃນລະຫວ່າງການໂທ</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ກດໄວໝິ່ວໝິ່ວເພື່ອວາງສາຍການເຈຮາ</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ກດສອງຄັ້ງເພື່ອປິດເສີງໄມຂອບພາກ</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ກດໄວໝິ່ວໝິ່ວເພື່ອປິດເສີງໄມຂອບພາກ</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">ສາກໄຟສຳເນັດແລ້ວ</string>
     <string name="reaction_charged_notification_text_full">%1$s ສາກໄຟເຕັມແລ້ວ.</string>
     <string name="reaction_charged_notification_text_partial">%1$s ສາກໄຟໄດ້ຖຶງ %2$d%% ແລ້ວ.</string>
+    <string name="reaction_caselow_channel_label">ການເຕືອນແບັດເຕີຣີເຄສ</string>
+    <string name="reaction_caselow_notification_title">ສາກເຄສ</string>
+    <string name="reaction_caselow_notification_text">%1$s: ແບັດເຕີຣີເຄສຢູ່ທີ່ %2$d%%.</string>
     <string name="device_settings_rename_label">ເປລີ່ຊື່</string>
     <string name="device_settings_rename_hint">ຊື່ອຸປະກອນ</string>
     <string name="device_settings_rename_confirm">ເປລີ່ຊື່</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">ໂງວິດປິປ</string>
     <string name="press_controls_title">ການຄວບຄຸມການກົດ</string>
     <string name="press_controls_nav_description">ປັບປຸງການທຳງານກົດແລະແບ່ງກົດເປັນການກະທຳ</string>
-    <string name="press_controls_description">ປັບປຸງການຕົກຈັບການກົດ, ເລືອກການທຳງານປຸ່ມໂທ, ແລະແບ່ງກົດເປັນການກະທຳ. ການກະທຳທີ່ແບ່ງໃຊ້ກັບອຸປະກອນນີ້ເທົ່ານັ້ນ ແລະໃຫ້ແອັບດັກຈັບການກົດແທນ AirPods.</string>
+    <string name="press_controls_description">ປັບວິທີກວດຈັບການກົດ, ເລືອກພຶດຕິກຳປຸ່ມໂທ ແລະ ກຳນົດການກົດໃຫ້ເປັນຄຳສັ່ງ. ຄຳສັ່ງທີ່ກຳນົດໄວ້ໃຊ້ໄດ້ກັບອຸປະກອນນີ້ເທົ່ານັ້ນ ແລະ ໃຫ້ແອັບດັກຈັບການກົດແທນທີ່ຫູຟັງຈະຈັດການເອງ.</string>
     <string name="press_controls_single_press">ກົດໄວ້ຄັ້ງດຽວ</string>
     <string name="press_controls_double_press">ກົດສອງໄວ້</string>
     <string name="press_controls_triple_press">ກົດສາມໄວ້</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">ຫຼອນກັບ</string>
     <string name="press_action_cycle_anc">ໝູນວຽນການຄວບຄຸມສຽງ</string>
     <string name="press_action_toggle_anc_transparency">ສຸ່ມຄວາມໂປ່ງໃສ</string>
+    <string name="press_action_voice_assistant">ຜູ້ຊ່ວຍສຽງ</string>
+    <string name="press_action_voice_assistant_unavailable">ບໍ່ພົບຜູ້ຊ່ວຍສຽງ</string>
     <string name="press_controls_reset_label">ຕັ້ງຄ່າໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນ</string>
     <string name="press_controls_reset_confirm_message">ຕັ້ງຄ່າການກົດທັງໝົດໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນ?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ຜູ້ຊ່ວຍສຽງຕ້ອງໄດ້ຮັບອະນຸຍາດໃຫ້ສະແດງທັບແອັບອື່ນ, ຖ້າບໍ່ດັ່ງນັ້ນການກົດ AirPods ຈະບໍ່ເປີດມັນ.</string>
+    <string name="press_controls_voice_assistant_permission_action">ອະນຸຍາດ</string>
     <string name="device_settings_noise_control_open_press_controls_action">ເປີດການຄວບຄຸມການກົດ</string>
     <string name="general_navigate_up_action">ຍ້າຍຂຶ້ນໄປ</string>
     <string name="general_progress_loading">ກຳລັງໂຫຼດ</string>

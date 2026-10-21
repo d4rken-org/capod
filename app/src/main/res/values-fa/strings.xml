@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">یک اعلان دوم نشان می‌دهد که فقط زمانی ظاهر می‌شود که دستگاهی متصل باشد. با روشن بودن این گزینه، می‌توانید اعلان دائمی «بدون دستگاه» را پنهان کنید: دسته «وضعیت دستگاه» را در تنظیمات اعلان‌های اندروید برای CAPod خاموش کنید.</string>
     <string name="settings_keep_notification_after_disconnect_label">حفظ اعلان پس از قطع اتصال</string>
     <string name="settings_keep_notification_after_disconnect_description">نمایش آخرین سطوح شارژ شناخته‌شده حتی پس از قطع اتصال AirPods شما</string>
+    <string name="settings_monitor_statusbar_battery_label">سطح باتری در نوار وضعیت</string>
+    <string name="settings_monitor_statusbar_battery_description">درصد باتری را به‌عنوان آیکون اعلان در نوار وضعیت نشان می‌دهد. برای ایرباد‌ها، کمترین مقدار از دو گوش نشان داده می‌شود و گوشی‌ای که در حال شارژ است نادیده گرفته می‌شود.</string>
     <string name="settings_autopause_label">مکث خودکار</string>
     <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">فقط پادها</string>
     <string name="settings_charged_scope_case_label">فقط کیس</string>
     <string name="settings_charged_scope_both_label">پادها و کیس</string>
+    <string name="settings_caselow_reminder_label">یادآوری باتری قاب شارژ</string>
+    <string name="settings_caselow_reminder_description">وقتی ایرباد‌ها را داخل قاب می‌گذارید و باتری قاب کم است، به شما یادآوری کنید که قاب را شارژ کنید.</string>
+    <string name="settings_caselow_threshold_label">سطح یادآوری</string>
     <string name="device_settings_experimental_title">ویژگی آزمایشی</string>
     <string name="device_settings_experimental_description">این ویژگی هنوز روی همه دستگاه‌ها آزمایش نشده است. اگر چیزی درست کار نمی‌کند، لطفاً یک گزارش خطا با لاگ دیباگ باز کنید.</string>
     <string name="device_settings_experimental_action">باز کردن ردیاب مشکلات</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">می‌توانید این اعلان را در تنظیمات سیستم غیرفعال کنید.</string>
     <string name="monitor_notification_starting">درحال راه‌اندازی…</string>
     <string name="support_debuglog_label">گزارش اشکال‌زدایی</string>
-    <string name="support_debuglog_desc">تمام کارهایی که برنامه انجام می‌دهد را در یک فایل متنی که می‌توانید به اشتراک بگذارید، ضبط کنید.</string>
+    <string name="support_debuglog_desc">هر کاری را که برنامه انجام می‌دهد، در یک فایل زیپ ثبت کنید تا بتوانید آن را به اشتراک بگذارید.</string>
     <string name="debug_debuglog_record_action">ضبط گزارش اشکال‌زدایی</string>
     <string name="debug_debuglog_stop_action">توقف ضبط</string>
     <string name="debug_debuglog_sensitive_information_message">فایل تولیدشده حاوی اطلاعات حساس است (مثلاً جزئیات دستگاه بلوتوث). آن را فقط با افراد مورداعتماد به اشتراک بگذارید.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">غیرفعال کردن بهینه‌سازی باتری</string>
     <string name="permission_ignore_battery_optimizations_description">بهینه‌سازی باتری مانع دریافت قابل اعتماد داده‌های بلوتوث توسط این برنامه در پس‌زمینه می‌شود.</string>
     <string name="permission_system_alert_window_label">پنجره هشدار سیستم</string>
-    <string name="permission_system_alert_window_description">به CAPod اجازه دهید روی سایر برنامه‌ها نمایش دهد تا ویژگی \"نمایش پاپ‌آپ\" ممکن شود.</string>
+    <string name="permission_system_alert_window_description">به CAPod اجازه دهید روی برنامه‌های دیگر نمایش داده شود. برای ویژگی «نمایش پاپ‌آپ» و باز کردن دستیار صوتی با فشردن ایرپادهایتان لازم است.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">وقتی دیده شود</string>
     <string name="settings_reaction_autoconnect_caseopen_label">کیس باز است</string>
     <string name="settings_reaction_autoconnect_inear_label">در گوش</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">کافی برای یک شارژ کامل</string>
     <string name="battery_case_charges_state_not_enough_cd">برای یک شارژ کامل کافی نیست</string>
     <string name="battery_case_charges_state_uncertain_cd">ممکن است برای یک شارژ کامل کافی نباشد</string>
+    <string name="battery_case_charges_short">%1$s شارژ</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ شارژ</string>
     <string name="pods_case_status_open_label">باز</string>
     <string name="pods_case_status_closed_label">بسته</string>
     <string name="pods_connection_state_disconnected_label">به دستگاهی متصل نیست</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">طولانی‌تر</string>
     <string name="device_settings_volume_swipe_length_longest">طولانی‌ترین</string>
     <string name="device_settings_end_call_mute_mic_label">کنترل‌های تماس</string>
-    <string name="device_settings_end_call_mute_mic_description">انتخاب کنید که فشار دادن ساقه در حین تماس چه کاری انجام دهد</string>
+    <string name="device_settings_end_call_mute_mic_description">انتخاب کنید که فشردن دکمه‌ها در هنگام تماس چه کاری انجام دهد</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">یک‌بار فشار برای پایان دادن تماس</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">دوبار فشار برای بی‌صدا کردن میکروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">یک‌بار فشار برای بی‌صدا کردن میکروفون</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">شارژ کامل شد</string>
     <string name="reaction_charged_notification_text_full">%1$s کاملاً شارژ شده است.</string>
     <string name="reaction_charged_notification_text_partial">%1$s تا %2$d%% شارژ شده است.</string>
+    <string name="reaction_caselow_channel_label">یادآوری باتری قاب شارژ</string>
+    <string name="reaction_caselow_notification_title">قاب خود را شارژ کنید</string>
+    <string name="reaction_caselow_notification_text">%1$s: باتری قاب در %2$d%% است.</string>
     <string name="device_settings_rename_label">تغییر نام</string>
     <string name="device_settings_rename_hint">نام دستگاه</string>
     <string name="device_settings_rename_confirm">تغییر نام</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">اکوالایزر</string>
     <string name="press_controls_title">کنترل‌های فشار</string>
     <string name="press_controls_nav_description">تنظیم رفتار فشار و نگاشت فشارها به اقدامات</string>
-    <string name="press_controls_description">تنظیم نحوه تشخیص فشارها، انتخاب رفتار دکمه تماس و نگاشت فشارها به اقدامات. اقدامات نگاشت‌شده فقط برای این دستگاه اعمال می‌شوند و به برنامه اجازه می‌دهند فشار را رهگیری کند به جای اینکه AirPods آن را به‌صورت بومی مدیریت کند.</string>
+    <string name="press_controls_description">نحوه تشخیص فشردن‌ها را تنظیم کنید، رفتار دکمه تماس را انتخاب کنید و فشردن‌ها را به کنش‌ها نگاشت کنید. کنش‌های نگاشت‌شده فقط برای این دستگاه اعمال می‌شوند و به برنامه اجازه می‌دهند به‌جای مدیریت بومی توسط هدفون، فشردن را رهگیری کند.</string>
     <string name="press_controls_single_press">فشار تکی</string>
     <string name="press_controls_double_press">فشار دوتایی</string>
     <string name="press_controls_triple_press">فشار سه‌تایی</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">عقب بردن</string>
     <string name="press_action_cycle_anc">چرخش کنترل نویز</string>
     <string name="press_action_toggle_anc_transparency">تغییر حالت شفافیت</string>
+    <string name="press_action_voice_assistant">دستیار صوتی</string>
+    <string name="press_action_voice_assistant_unavailable">دستیار صوتی پیدا نشد</string>
     <string name="press_controls_reset_label">بازنشانی به پیش‌فرض‌ها</string>
     <string name="press_controls_reset_confirm_message">همه نگاشت‌های فشار به پیش‌فرض بازنشانی شوند؟</string>
+    <string name="press_controls_voice_assistant_permission_hint">دستیار صوتی برای نمایش روی برنامه‌های دیگر به مجوز نیاز دارد، وگرنه فشردن ایرپادها آن را باز نمی‌کند.</string>
+    <string name="press_controls_voice_assistant_permission_action">اعطا کردن</string>
     <string name="device_settings_noise_control_open_press_controls_action">باز کردن کنترل‌های فشار</string>
     <string name="general_navigate_up_action">بالا رفتن</string>
     <string name="general_progress_loading">بارگذاری</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Viser en ekstra notifikation, der kun vises, mens en enhed er tilsluttet. Med denne slået til kan du skjule den permanente \"Ingen enheder\"-notifikation: slå kategorien \"Enhedsstatus\" fra i Androids notifikationsindstillinger for CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Behold notifikation efter afbrydelse</string>
     <string name="settings_keep_notification_after_disconnect_description">Fortsæt med at vise de sidst kendte batteriniveauer, selv efter dine AirPods afbrydes</string>
+    <string name="settings_monitor_statusbar_battery_label">Batteriniveau i statusbjælken</string>
+    <string name="settings_monitor_statusbar_battery_description">Viser batteriprocenten som notifikationsikon i statusbjælken. For øretelefoner vises den lavere af de to, og en der oplades springes over.</string>
     <string name="settings_autopause_label">Auto-pause</string>
     <string name="settings_autopause_description">Sæt lyd på pause, når du fjerner enheden fra dit øre.</string>
     <string name="settings_autopplay_label">Auto-afspilning</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Kun pods</string>
     <string name="settings_charged_scope_case_label">Kun etui</string>
     <string name="settings_charged_scope_both_label">Pods og etui</string>
+    <string name="settings_caselow_reminder_label">Påmindelse om etuibatteri</string>
+    <string name="settings_caselow_reminder_description">Mind mig om at oplade etuiet, når jeg lægger øretelefonerne tilbage, og etuiets batteri er lavt.</string>
+    <string name="settings_caselow_threshold_label">Påmindelsesniveau</string>
     <string name="device_settings_experimental_title">Eksperimentel funktion</string>
     <string name="device_settings_experimental_description">Denne funktion er endnu ikke testet på alle enheder. Hvis noget ikke fungerer korrekt, bedes du åbne en sag med en fejlretningslog.</string>
     <string name="device_settings_experimental_action">Åbn fejlsporer</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Du kan deaktivere denne notifikation i systemindstillinger.</string>
     <string name="monitor_notification_starting">Starter op…</string>
     <string name="support_debuglog_label">Fejlfindingslog</string>
-    <string name="support_debuglog_desc">Optag alt, hvad appen gør, i en tekstfil, som du kan dele.</string>
+    <string name="support_debuglog_desc">Optag alt, hvad appen laver, i en zip-fil, som du kan dele.</string>
     <string name="debug_debuglog_record_action">Optag fejlfindingslog</string>
     <string name="debug_debuglog_stop_action">Stop optagelse</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. Bluetooth-enhedsdetaljer). Del den kun med betroede parter.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Deaktiver batterioptimeringer</string>
     <string name="permission_ignore_battery_optimizations_description">Batterioptimeringer forhindrer denne app i pålideligt at modtage Bluetooth-data, mens appen er i baggrunden.</string>
     <string name="permission_system_alert_window_label">Systemalarmvindue</string>
-    <string name="permission_system_alert_window_description">Tillad CAPod at tegne over andre apps for at gøre funktionen \"Vis pop op\" mulig.</string>
+    <string name="permission_system_alert_window_description">Tillad CAPod at tegne over andre apps. Det kræves for funktionen „Vis PopUp“ og for at åbne stemmeassistenten, når du trykker på dine AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Når den ses</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etui er åbent</string>
     <string name="settings_reaction_autoconnect_inear_label">I øret</string>
@@ -226,6 +231,9 @@
     <string name="battery_case_charges_uncertain">Usikker på hvor mange fulde opladninger der er tilbage til begge øretelefoner</string>
     <string name="battery_case_charges_state_enough_cd">Nok til en fuld opladning</string>
     <string name="battery_case_charges_state_not_enough_cd">Ikke nok til en fuld opladning</string>
+    <string name="battery_case_charges_state_uncertain_cd">Der er muligvis ikke nok til en fuld opladning</string>
+    <string name="battery_case_charges_short">%1$s opladninger</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ opladninger</string>
     <string name="pods_case_status_open_label">Åben</string>
     <string name="pods_case_status_closed_label">Lukket</string>
     <string name="pods_connection_state_disconnected_label">Ikke forbundet til en enhed</string>
@@ -448,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Længere</string>
     <string name="device_settings_volume_swipe_length_longest">Længst</string>
     <string name="device_settings_end_call_mute_mic_label">Opkaldsbetjeninger</string>
-    <string name="device_settings_end_call_mute_mic_description">Vælg hvad der sker når du trykker på stilken under opkald</string>
+    <string name="device_settings_end_call_mute_mic_description">Vælg, hvad tryk gør under opkald</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Enkelt tryk for at afslutte opkald</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dobbelt tryk for at slå mikrofon fra</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkelt tryk for at slå mikrofon fra</string>
@@ -488,6 +496,9 @@
     <string name="reaction_charged_notification_title">Opladning færdig</string>
     <string name="reaction_charged_notification_text_full">%1$s er fuldt opladet.</string>
     <string name="reaction_charged_notification_text_partial">%1$s er blevet opladet til %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Påmindelse om etuibatteri</string>
+    <string name="reaction_caselow_notification_title">Oplad dit etui</string>
+    <string name="reaction_caselow_notification_text">%1$s: Etuiets batteri er på %2$d%%.</string>
     <string name="device_settings_rename_label">Omdøb</string>
     <string name="device_settings_rename_hint">Enhedsnavn</string>
     <string name="device_settings_rename_confirm">Omdøb</string>
@@ -511,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Trykindstillinger</string>
     <string name="press_controls_nav_description">Juster trykenes adfærd og tildel tryk til handlinger</string>
-    <string name="press_controls_description">Juster, hvordan tryk registreres, vælg opkaldsknappers adfærd og tildel tryk til handlinger. Tildelte handlinger gælder kun for denne enhed og lader appen opsnappe trykket i stedet for at AirPods håndterer det native.</string>
+    <string name="press_controls_description">Justér, hvordan tryk registreres, vælg adfærden for opkaldsknappen, og knyt tryk til handlinger. Knyttede handlinger gælder kun for denne enhed og lader appen opfange trykket, i stedet for at hovedtelefonerne håndterer det selv.</string>
     <string name="press_controls_single_press">Enkelt tryk</string>
     <string name="press_controls_double_press">Dobbelt tryk</string>
     <string name="press_controls_triple_press">Tredobbelt tryk</string>
@@ -533,8 +544,12 @@
     <string name="press_action_rewind">Spol tilbage</string>
     <string name="press_action_cycle_anc">Cyklér støjkontrol</string>
     <string name="press_action_toggle_anc_transparency">Skift gennemsigtighed</string>
+    <string name="press_action_voice_assistant">Stemmeassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Ingen stemmeassistent fundet</string>
     <string name="press_controls_reset_label">Nulstil til standard</string>
     <string name="press_controls_reset_confirm_message">Nulstil alle trykmappe til standard?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Stemmeassistenten skal have tilladelse til at vise sig over andre apps, ellers åbnes den ikke, når du trykker på dine AirPods.</string>
+    <string name="press_controls_voice_assistant_permission_action">Tillad</string>
     <string name="device_settings_noise_control_open_press_controls_action">Åbn trykindstillinger</string>
     <string name="general_navigate_up_action">Gå op</string>
     <string name="general_progress_loading">Indlæser</string>

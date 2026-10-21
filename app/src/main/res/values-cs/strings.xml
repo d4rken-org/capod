@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Zobrazí druhé oznámení, které se objeví pouze při připojení zařízení. Když je tato možnost zapnutá, můžeš skrýt trvalé oznámení „Žádná zařízení“: v nastavení oznámení systému Android pro CAPod vypni kategorii „Stav zařízení“.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uchovat oznámení po odpojení</string>
     <string name="settings_keep_notification_after_disconnect_description">Pokračovat v zobrazování poslední známé úrovně nabití baterie i po odpojení AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Úroveň baterie ve stavovém řádku</string>
+    <string name="settings_monitor_statusbar_battery_description">Zobrazí procento baterie jako ikonu oznámení ve stavovém řádku. U sluchátek se zobrazí nižší z obou hodnot, přičemž se přeskočí to sluchátko, které se nabíjí.</string>
     <string name="settings_autopause_label">Autom. pozastavení</string>
     <string name="settings_autopause_description">Pozastavení zvuku při vyjmutí zařízení z ucha.</string>
     <string name="settings_autopplay_label">Autom. přehrávání</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pouze sluchátka</string>
     <string name="settings_charged_scope_case_label">Pouze pouzdro</string>
     <string name="settings_charged_scope_both_label">Sluchátka a pouzdro</string>
+    <string name="settings_caselow_reminder_label">Připomínka nabití pouzdra</string>
+    <string name="settings_caselow_reminder_description">Připomenout nabít pouzdro, když vložíš sluchátka zpět a baterie pouzdra je slabá.</string>
+    <string name="settings_caselow_threshold_label">Úroveň připomínky</string>
     <string name="device_settings_experimental_title">Experimentální funkce</string>
     <string name="device_settings_experimental_description">Tato funkce ještě nebyla testována na všech zařízeních. Pokud něco nefunguje správně, nahlaste problém s logem ladění.</string>
     <string name="device_settings_experimental_action">Otevřít sledovač problémů</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Toto oznámení můžete zakázat v nastavení systému.</string>
     <string name="monitor_notification_starting">Spouštění…</string>
     <string name="support_debuglog_label">Log ladění</string>
-    <string name="support_debuglog_desc">Zaznamenávejte vše, co aplikace dělá, do textového souboru, který můžete sdílet.</string>
+    <string name="support_debuglog_desc">Zaznamenat vše, co aplikace dělá, do ZIP souboru, který můžeš sdílet.</string>
     <string name="debug_debuglog_record_action">Zaznamenat log ladění</string>
     <string name="debug_debuglog_stop_action">Ukončit zaznamenávání</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. podrobnosti o zařízení Bluetooth). Sdílejte ho pouze s důvěryhodnými stranami.</string>
@@ -208,7 +213,7 @@
     <string name="permission_ignore_battery_optimizations_label">Vypnout optimalizaci baterie</string>
     <string name="permission_ignore_battery_optimizations_description">Optimalizace baterie zabraňuje této aplikaci spolehlivě přijímat data Bluetooth, pokud běží na pozadí.</string>
     <string name="permission_system_alert_window_label">Okno systémových upozornění</string>
-    <string name="permission_system_alert_window_description">Aby bylo možné použít unkci \"Zobrazit vyskakovací okno\", je nutné umožnit aplikaci CAPod vykreslení přes jiné aplikace.</string>
+    <string name="permission_system_alert_window_description">Povolit aplikaci CAPod kreslit přes jiné aplikace. Potřebné pro funkci „Zobrazit PopUp“ a pro otevření hlasového asistenta stiskem sluchátek AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Když je vidět</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Pouzdro je otevřeno</string>
     <string name="settings_reaction_autoconnect_inear_label">V uchu</string>
@@ -235,6 +240,8 @@
     <string name="battery_case_charges_state_enough_cd">Dost na plné nabití</string>
     <string name="battery_case_charges_state_not_enough_cd">Nestačí na plné nabití</string>
     <string name="battery_case_charges_state_uncertain_cd">Nemusí stačit na plné nabití</string>
+    <string name="battery_case_charges_short">%1$s nabití</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ nabití</string>
     <string name="pods_case_status_open_label">Otevřeno</string>
     <string name="pods_case_status_closed_label">Zavřeno</string>
     <string name="pods_connection_state_disconnected_label">Nepřipojeno k zařízení</string>
@@ -463,7 +470,7 @@
     <string name="device_settings_volume_swipe_length_longer">Delší</string>
     <string name="device_settings_volume_swipe_length_longest">Nejdelší</string>
     <string name="device_settings_end_call_mute_mic_label">Ovládání hovorů</string>
-    <string name="device_settings_end_call_mute_mic_description">Vyberte, jaká akce se má spustit stisknutím tlačítka během hovoru</string>
+    <string name="device_settings_end_call_mute_mic_description">Vyber, co stisky dělají během hovorů</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Jeden stisk pro ukončení hovoru</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dvojitý stisk pro ztlumení mikrofonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Jeden stisk pro ztlumení mikrofonu</string>
@@ -503,6 +510,9 @@
     <string name="reaction_charged_notification_title">Nabíjení dokončeno</string>
     <string name="reaction_charged_notification_text_full">%1$s je plně nabito.</string>
     <string name="reaction_charged_notification_text_partial">%1$s nabito na %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Připomínka baterie pouzdra</string>
+    <string name="reaction_caselow_notification_title">Nabij pouzdro</string>
+    <string name="reaction_caselow_notification_text">%1$s: baterie pouzdra je na %2$d%%.</string>
     <string name="device_settings_rename_label">Přejmenovat</string>
     <string name="device_settings_rename_hint">Název zařízení</string>
     <string name="device_settings_rename_confirm">Přejmenovat</string>
@@ -526,7 +536,7 @@
     <string name="device_settings_eq_label">Ekvalizér</string>
     <string name="press_controls_title">Ovládání stisku</string>
     <string name="press_controls_nav_description">Nastavte chování stisku a přiřaďte stisky k akcím</string>
-    <string name="press_controls_description">Nastavte, jak jsou stisky detekovány, zvolte chování tlačítka hovoru a přiřaďte stisky k akcím. Přiřazené akce platí pouze pro toto zařízení a umožňují aplikaci zachytit stisk místo toho, aby jej AirPods zpracovaly nativně.</string>
+    <string name="press_controls_description">Nastav, jak se stisky rozpoznávají, zvol chování tlačítka pro hovory a přiřaď stisky k akcím. Přiřazené akce platí jen pro toto zařízení a umožňují aplikaci zachytit stisk namísto toho, aby ho zpracovala sluchátka nativně.</string>
     <string name="press_controls_single_press">Jednoduchý stisk</string>
     <string name="press_controls_double_press">Dvojitý stisk</string>
     <string name="press_controls_triple_press">Trojitý stisk</string>
@@ -548,8 +558,12 @@
     <string name="press_action_rewind">Přetočit</string>
     <string name="press_action_cycle_anc">Cyklovat kontrolu hluku</string>
     <string name="press_action_toggle_anc_transparency">Přepnout transparentnost</string>
+    <string name="press_action_voice_assistant">Hlasový asistent</string>
+    <string name="press_action_voice_assistant_unavailable">Nebyl nalezen žádný hlasový asistent</string>
     <string name="press_controls_reset_label">Obnovit výchozí nastavení</string>
     <string name="press_controls_reset_confirm_message">Resetovat všechna mapování stisku na výchozí?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Hlasový asistent potřebuje oprávnění zobrazovat se nad jinými aplikacemi, jinak se po stisku sluchátek AirPods neotevře.</string>
+    <string name="press_controls_voice_assistant_permission_action">Udělit</string>
     <string name="device_settings_noise_control_open_press_controls_action">Otevřít ovládání stisku</string>
     <string name="general_navigate_up_action">Přejít nahoru</string>
     <string name="general_progress_loading">Načítání</string>

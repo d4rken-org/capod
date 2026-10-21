@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">顯示第二個通知，僅在連接裝置時出現。啟用後，你可以隱藏永久的「無裝置」通知：在 Android 的 CAPod 通知設定中關閉「裝置狀態」類別。</string>
     <string name="settings_keep_notification_after_disconnect_label">斷線後保留通知</string>
     <string name="settings_keep_notification_after_disconnect_description">即使 AirPods 斷線後仍顯示上次的電量</string>
+    <string name="settings_monitor_statusbar_battery_label">狀態列電量</string>
+    <string name="settings_monitor_statusbar_battery_description">在狀態列以通知圖示顯示電量百分比。耳機會顯示兩側中較低者，並略過正在充電的一側。</string>
     <string name="settings_autopause_label">自動暫停</string>
     <string name="settings_autopause_description">從耳中摘下時自動暫停。</string>
     <string name="settings_autopplay_label">自動播放</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">僅耳機</string>
     <string name="settings_charged_scope_case_label">僅充電盒</string>
     <string name="settings_charged_scope_both_label">耳機和充電盒</string>
+    <string name="settings_caselow_reminder_label">充電盒電量提醒</string>
+    <string name="settings_caselow_reminder_description">當我將耳機放回充電盒且充電盒電量偏低時，提醒我為充電盒充電。</string>
+    <string name="settings_caselow_threshold_label">提醒電量</string>
     <string name="device_settings_experimental_title">實驗性功能</string>
     <string name="device_settings_experimental_description">此功能尚未在所有裝置上測試。如果某些功能無法正常運作，請開啟一個包含除錯日誌的問題回報。</string>
     <string name="device_settings_experimental_action">開啟問題追蹤器</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">您可以在系統設定中停用此通知。</string>
     <string name="monitor_notification_starting">啟動中…</string>
     <string name="support_debuglog_label">偵錯記錄</string>
-    <string name="support_debuglog_desc">將應用程式執行的所有動作記錄到您可以分享的文字檔案中。</string>
+    <string name="support_debuglog_desc">將應用程式執行的所有動作記錄到可供分享的 zip 檔案中。</string>
     <string name="debug_debuglog_record_action">錄製偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止錄製</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如藍牙裝置詳細資料)。僅與受信任方分享。</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">停用電池效能最佳化</string>
     <string name="permission_ignore_battery_optimizations_description">電池效能最佳化使這個應用程式在背景時無法可靠地接收藍牙資料。</string>
     <string name="permission_system_alert_window_label">系統警報視窗</string>
-    <string name="permission_system_alert_window_description">允許 CAPod 在其他應用程式上繪圖，使「顯示彈出式視窗」功能成為可能。</string>
+    <string name="permission_system_alert_window_description">允許 CAPod 顯示在其他應用程式上層。「顯示彈出視窗」功能，以及按壓 AirPods 開啟語音助理時都需要此權限。</string>
     <string name="settings_reaction_autoconnect_whenseen_label">看到時</string>
     <string name="settings_reaction_autoconnect_caseopen_label">充電盒開啟</string>
     <string name="settings_reaction_autoconnect_inear_label">在耳中</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">足以充滿一次電</string>
     <string name="battery_case_charges_state_not_enough_cd">電量不足以充滿一次電</string>
     <string name="battery_case_charges_state_uncertain_cd">可能電量不足以充滿一次電</string>
+    <string name="battery_case_charges_short">%1$s 次充電</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ 次充電</string>
     <string name="pods_case_status_open_label">已開啟</string>
     <string name="pods_case_status_closed_label">已關閉</string>
     <string name="pods_connection_state_disconnected_label">未連線到裝置</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">較長</string>
     <string name="device_settings_volume_swipe_length_longest">最長</string>
     <string name="device_settings_end_call_mute_mic_label">通話控制</string>
-    <string name="device_settings_end_call_mute_mic_description">選擇通話時按下筆管的動作</string>
+    <string name="device_settings_end_call_mute_mic_description">選擇通話期間按壓的動作</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">單擊結束通話</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">雙擊靜音麥克風</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">單擊靜音麥克風</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">充電完成</string>
     <string name="reaction_charged_notification_text_full">%1$s 已充電完成。</string>
     <string name="reaction_charged_notification_text_partial">%1$s 已充電至 %2$d%%。</string>
+    <string name="reaction_caselow_channel_label">充電盒電量提醒</string>
+    <string name="reaction_caselow_notification_title">請為充電盒充電</string>
+    <string name="reaction_caselow_notification_text">%1$s：充電盒電量為 %2$d%%。</string>
     <string name="device_settings_rename_label">重新命名</string>
     <string name="device_settings_rename_hint">裝置名稱</string>
     <string name="device_settings_rename_confirm">重新命名</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">均衡器</string>
     <string name="press_controls_title">按偵控制</string>
     <string name="press_controls_nav_description">調整按偵行為並將按偵映射到動作</string>
-    <string name="press_controls_description">調整按偵偵測方式、選擇通話按鈕行為，並將按偵映射到動作。映射的動作僅適用於此裝置，且讓應用程式拼捨按偵而非由 AirPods 原生處理。</string>
+    <string name="press_controls_description">調整按壓的偵測方式、選擇通話按鈕的行為，並將按壓對應到動作。對應的動作僅套用於此裝置，並讓應用程式攔截按壓，而不是由耳機原生處理。</string>
     <string name="press_controls_single_press">單次按偵</string>
     <string name="press_controls_double_press">雙次按偵</string>
     <string name="press_controls_triple_press">三次按偵</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">倒帶</string>
     <string name="press_action_cycle_anc">循環噪音控制</string>
     <string name="press_action_toggle_anc_transparency">切換透明度</string>
+    <string name="press_action_voice_assistant">語音助理</string>
+    <string name="press_action_voice_assistant_unavailable">找不到語音助理</string>
     <string name="press_controls_reset_label">重置為預設值</string>
     <string name="press_controls_reset_confirm_message">將所有按偵映射重置為預設值？</string>
+    <string name="press_controls_voice_assistant_permission_hint">語音助理需要「顯示在其他應用程式上層」的權限，否則按壓 AirPods 將無法開啟它。</string>
+    <string name="press_controls_voice_assistant_permission_action">授權</string>
     <string name="device_settings_noise_control_open_press_controls_action">開啟按偵控制</string>
     <string name="general_navigate_up_action">向上導航</string>
     <string name="general_progress_loading">正在載入</string>

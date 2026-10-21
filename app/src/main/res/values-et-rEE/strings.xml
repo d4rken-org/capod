@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Kuvab teist teavitust, mis kuvatakse ainult siis, kui seade on ühendatud. Selle lubamisel saad peita püsivat teatavitust „Seadmeid pole“: lülita välja kategooria „Seadme olek“ Androidi teavituste seadetes CAPodi jaoks.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
     <string name="settings_keep_notification_after_disconnect_description">Jätkake viimase teadaoleva akutaseme kuvamist isegi pärast AirPodside eemaldamist</string>
+    <string name="settings_monitor_statusbar_battery_label">Aku laadimistase olekuribal</string>
+    <string name="settings_monitor_statusbar_battery_description">Näitab aku protsenti teatisikoonina olekuribal. Kõrvaklappide puhul kuvatakse kahest madalam, jättes välja laadiva kõrvaklapi.</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Ainult kõrvaklapid</string>
     <string name="settings_charged_scope_case_label">Ainult ümbris</string>
     <string name="settings_charged_scope_both_label">Kõrvaklapid ja ümbris</string>
+    <string name="settings_caselow_reminder_label">Karbi aku meeldetuletus</string>
+    <string name="settings_caselow_reminder_description">Tuleta meelde karp laadida, kui paned kõrvaklapid tagasi ja karbi aku on madal.</string>
+    <string name="settings_caselow_threshold_label">Meeldetuletuse tase</string>
     <string name="device_settings_experimental_title">Katsetamisel</string>
     <string name="device_settings_experimental_description">Seda pole kõigil seadmetel veel katsetatud. Kui midagi ei toimi õigesti, avage probleem koos silumislogi failiga.</string>
     <string name="device_settings_experimental_action">Ava probleemide jälgija</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Selle teatise saate keelata süsteemi seadetes.</string>
     <string name="monitor_notification_starting">Käivitamine…</string>
     <string name="support_debuglog_label">Silumisinfo</string>
-    <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavasse tekstifaili.</string>
+    <string name="support_debuglog_desc">Salvesta kõik, mida rakendus teeb, jagatavasse zip-faili.</string>
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>
     <string name="debug_debuglog_stop_action">Peata salvestamine</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isikuandmeid (nt Bluetooth seadme tehnilisi näitajaid). Jagage seda vaid usaldusväärsetega.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Keela aku optimeerimine</string>
     <string name="permission_ignore_battery_optimizations_description">Aku optimeerimine takistab rakendusel Bluetooth andmete saamist taustal töötades.</string>
     <string name="permission_system_alert_window_label">Süsteemi teate aken</string>
-    <string name="permission_system_alert_window_description">Luba CAPodil toimetada teiste rakenduste kohal, et näha hüpikaknaid.</string>
+    <string name="permission_system_alert_window_description">Luba CAPodil joonistada muude rakenduste peale. Vajalik funktsiooni „Näita hüpikakent“ jaoks ning selleks, et avada hääleassistent kõrvaklappide vajutusega.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kui nähtaval</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kaas on avatud</string>
     <string name="settings_reaction_autoconnect_inear_label">Kõrvas</string>
@@ -451,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Kauem</string>
     <string name="device_settings_volume_swipe_length_longest">Kõige kauem</string>
     <string name="device_settings_end_call_mute_mic_label">Kõne juhtnupud</string>
-    <string name="device_settings_end_call_mute_mic_description">Vali, mida varre vajutamine kõne ajal teeb</string>
+    <string name="device_settings_end_call_mute_mic_description">Vali, mida vajutused kõnede ajal teevad</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Ühe vajutusega lõpeta kõne</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Kahe vajutusega vaigista mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Ühe vajutusega vaigista mikrofon</string>
@@ -491,6 +496,9 @@
     <string name="reaction_charged_notification_title">Laadimine lõpetatud</string>
     <string name="reaction_charged_notification_text_full">%1$s on täielikult laetud.</string>
     <string name="reaction_charged_notification_text_partial">%1$s on laetud %2$d%%-ni.</string>
+    <string name="reaction_caselow_channel_label">Karbi aku meeldetuletus</string>
+    <string name="reaction_caselow_notification_title">Laadi oma karp</string>
+    <string name="reaction_caselow_notification_text">%1$s: karbi aku on %2$d%%.</string>
     <string name="device_settings_rename_label">Nimeta ümber</string>
     <string name="device_settings_rename_hint">Seadme nimi</string>
     <string name="device_settings_rename_confirm">Nimeta ümber</string>
@@ -514,7 +522,7 @@
     <string name="device_settings_eq_label">Ekvalaiser</string>
     <string name="press_controls_title">Vajutuse juhtelemendid</string>
     <string name="press_controls_nav_description">Häälesta vajutuskäitumist ja mäaarake vajutustele toimingud</string>
-    <string name="press_controls_description">Häälestage, kuidas vajutused tuvastatakse, valige kõnenuppu käitumine ja määrake vajutustele toimingud. Määratud toimingud kehtivad ainult sellele seadmele ja lasevad rakendusel vajutust mõjutada, mitte AirPodsidel seda käsitseda.</string>
+    <string name="press_controls_description">Seadista, kuidas vajutusi tuvastatakse, vali kõnenupu käitumine ja seo vajutused toimingutega. Seotud toimingud kehtivad ainult sellele seadmele ning rakendus püüab vajutuse kinni, selle asemel et kõrvaklapid seda ise käsitleksid.</string>
     <string name="press_controls_single_press">Üks vajutus</string>
     <string name="press_controls_double_press">Kaks vajutust</string>
     <string name="press_controls_triple_press">Kolm vajutust</string>
@@ -536,8 +544,12 @@
     <string name="press_action_rewind">Tagasikerimine</string>
     <string name="press_action_cycle_anc">Mürakontrolli tsükkel</string>
     <string name="press_action_toggle_anc_transparency">Vaheta läbipaistvust</string>
+    <string name="press_action_voice_assistant">Hääleassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Hääleassistenti ei leitud</string>
     <string name="press_controls_reset_label">Taasta tavaseadistused</string>
     <string name="press_controls_reset_confirm_message">Lähestada kõik vajutuse vastendused tavaväärtustele?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Hääleassistent vajab luba joonistada muude rakenduste peale, muidu ei avane see AirPodsi vajutusel.</string>
+    <string name="press_controls_voice_assistant_permission_action">Luba</string>
     <string name="device_settings_noise_control_open_press_controls_action">Ava vajutuse juhtelemendid</string>
     <string name="general_navigate_up_action">Liiguta üles</string>
     <string name="general_progress_loading">Laeb</string>

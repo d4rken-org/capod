@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Sýnir aukalegri tilkynningu sem birtist aðeins meðan tæki er tengt. Með þessu virku geturðu falið varanlegu tilkynninguna \"Engin tæki\": slökktu á flokknum \"Staða tækis\" í tilkynningastillingum Android fyrir CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Halda tilkynningu eftir aftengi</string>
     <string name="settings_keep_notification_after_disconnect_description">Halda áfram að sýna síðustu þekktu rafhlöðustöðu jafnvel eftir að AirPods tengjast af</string>
+    <string name="settings_monitor_statusbar_battery_label">Rafhlöðustaða í stöðustiku</string>
+    <string name="settings_monitor_statusbar_battery_description">Sýnir rafhlöðuprósentuna sem tilkynningatákn í stöðustikunni. Fyrir heyrnartól er sú lægri af þeim tveimur sýnd og því sem er í hleðslu er sleppt.</string>
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
     <string name="settings_autopause_description">Gera hlé á hljóði þegar tækið er tekið úr eyranu.</string>
     <string name="settings_autopplay_label">Sjálfvirk spilun</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Aðeins heyrnartæki</string>
     <string name="settings_charged_scope_case_label">Aðeins hulstur</string>
     <string name="settings_charged_scope_both_label">Heyrnartæki og hulstur</string>
+    <string name="settings_caselow_reminder_label">Áminning um rafhlöðu hulstrs</string>
+    <string name="settings_caselow_reminder_description">Minntu mig á að hlaða hulstrið þegar ég set tækin aftur í það og rafhlaða hulstursins er lág.</string>
+    <string name="settings_caselow_threshold_label">Áminningarstig</string>
     <string name="device_settings_experimental_title">Tilraunaeiginleiki</string>
     <string name="device_settings_experimental_description">Þessi eiginleiki hefur ekki verið prófaður á öllum tækjum enn. Ef eitthvað virkar ekki rétt skaltu opna málskrá með kembikladda.</string>
     <string name="device_settings_experimental_action">Opna málaskráreftirlit</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Þú getur slökkt á þessum tilkynningum í kerfistillingum.</string>
     <string name="monitor_notification_starting">Stofnar upp…</string>
     <string name="support_debuglog_label">Villuleitarskrá</string>
-    <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
+    <string name="support_debuglog_desc">Taktu upp allt sem forritið gerir í zip-skrá sem þú getur deilt.</string>
     <string name="debug_debuglog_record_action">Skrá villuleitarskrá</string>
     <string name="debug_debuglog_stop_action">Hætta skráningu</string>
     <string name="debug_debuglog_sensitive_information_message">Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Slökkva á rafhlöðuhagræðingu</string>
     <string name="permission_ignore_battery_optimizations_description">Rafhlöðuhagræðing kemur í veg fyrir að þetta forrit taki á móti Bluetooth gögnum á áreiðanlegan hátt á meðan forritið er í bakgrunni.</string>
     <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
-    <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna upplýsingaglugga\" mögulegan.</string>
+    <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit. Þarf fyrir eiginleikann „Sýna sprettiglugga“ og til að opna raddaðstoðarmanninn með því að ýta á AirPods-heyrnartólin.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Þegar séð</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Hulstur opið</string>
     <string name="settings_reaction_autoconnect_inear_label">Í eyra</string>
@@ -213,9 +218,22 @@
     <string name="battery_unavailable_label">Rafhlaða ekki tiltæk</string>
     <string name="battery_state_low_cd">Rafhlaðan er lítil</string>
     <string name="battery_state_critical_cd">Rafhlaðan er við endalok</string>
+    <plurals name="battery_case_charges_approx">
+        <item quantity="one">~%d full hleðsla í viðbót fyrir bæði heyrnartólin</item>
+        <item quantity="other">~%d fullar hleðslur í viðbót fyrir bæði heyrnartólin</item>
+    </plurals>
+    <plurals name="battery_case_charges_at_least">
+        <item quantity="one">Að minnsta kosti %d full hleðsla í viðbót fyrir bæði heyrnartólin</item>
+        <item quantity="other">Að minnsta kosti %d fullar hleðslur í viðbót fyrir bæði heyrnartólin</item>
+    </plurals>
+    <string name="battery_case_charges_less_than_one">Minna en ein full hleðsla í viðbót fyrir bæði heyrnartólin</string>
+    <string name="battery_case_charges_empty">Hulstrið er tómt, engar hleðslur eftir fyrir heyrnartólin</string>
+    <string name="battery_case_charges_uncertain">Óvíst hversu margar fullar hleðslur eru eftir fyrir bæði heyrnartólin</string>
     <string name="battery_case_charges_state_enough_cd">Nóg fyrir fulla hleðslu</string>
     <string name="battery_case_charges_state_not_enough_cd">Ekki nóg fyrir fulla hleðslu</string>
     <string name="battery_case_charges_state_uncertain_cd">Gæti ekki verið nóg fyrir fulla hleðslu</string>
+    <string name="battery_case_charges_short">%1$s hleðslur</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ hleðslur</string>
     <string name="pods_case_status_open_label">Opið</string>
     <string name="pods_case_status_closed_label">Lokað</string>
     <string name="pods_connection_state_disconnected_label">Ekki tengt við tæki</string>
@@ -386,8 +404,8 @@
     <string name="device_settings_info_left_bonded_label">Vinstri tengd</string>
     <string name="device_settings_info_right_bonded_label">Hægri tengd</string>
     <string name="device_settings_info_battery_health_label">Áætlaður hlustunartími</string>
-    <string name="device_settings_info_battery_health_left_label">Heilsa vinstrar rafhlöðu (áætl.)</string>
-    <string name="device_settings_info_battery_health_right_label">Heilsa hægrar rafhlöðu (áætl.)</string>
+    <string name="device_settings_info_battery_health_left_label">Hlustunartími vinstri</string>
+    <string name="device_settings_info_battery_health_right_label">Hlustunartími hægri</string>
     <string name="device_settings_info_battery_health_value">~%1$d%% af tilgreindu</string>
     <string name="device_settings_info_battery_health_pending">Enn er verið að reikna, athugaðu seinna</string>
     <string name="device_settings_battery_runtime_warning_title">Hlustunartími er mun styttri en tilgreint</string>
@@ -438,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Lengra</string>
     <string name="device_settings_volume_swipe_length_longest">Lengst</string>
     <string name="device_settings_end_call_mute_mic_label">Simátaststjórn</string>
-    <string name="device_settings_end_call_mute_mic_description">Veldu hvað þrýsting á stiku gerir í meiri simá</string>
+    <string name="device_settings_end_call_mute_mic_description">Veldu hvað ýtingar gera í símtölum</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Eitt þrýsting til að ljúka simátali</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Tvöföld þrýsting til að þagga hátalara</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Eitt þrýsting til að þagga hátalara</string>
@@ -478,6 +496,9 @@
     <string name="reaction_charged_notification_title">Hleðslu lokið</string>
     <string name="reaction_charged_notification_text_full">%1$s er fullhlaðið.</string>
     <string name="reaction_charged_notification_text_partial">%1$s hefur verið hlaðið í %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Áminning um hleðslu hulsturs</string>
+    <string name="reaction_caselow_notification_title">Hladdu hulstrið</string>
+    <string name="reaction_caselow_notification_text">%1$s: rafhlaða hulstursins er %2$d%%.</string>
     <string name="device_settings_rename_label">Endurskíra</string>
     <string name="device_settings_rename_hint">Nafn tækis</string>
     <string name="device_settings_rename_confirm">Endurskíra</string>
@@ -501,7 +522,7 @@
     <string name="device_settings_eq_label">Jöfnun</string>
     <string name="press_controls_title">Þrlýstingastýringar</string>
     <string name="press_controls_nav_description">Stilltu þrlýstingshegðun og varpáðu þrlýstingum á aðgerðir</string>
-    <string name="press_controls_description">Stilltu hvernig þrlýstingar eru greind, veldu hegðun hringiknapps, og varpáðu þrlýstingum á aðgerðir. Vörpuð aðgerð gildir aðeins fyrir þetta tæki og leyfir forritinu að grípa þrlýstinginn í stað þess að AirPods meðhöndli hann innbyggð.</string>
+    <string name="press_controls_description">Stilltu hvernig ýtingar eru greindar, veldu hvernig símtalshnappurinn virkar og tengdu ýtingar við aðgerðir. Tengdar aðgerðir gilda aðeins fyrir þetta tæki og láta forritið taka á ýtingunni í stað þess að heyrnartólin afgreiði hana sjálf.</string>
     <string name="press_controls_single_press">Einfaldtður þrlýstingur</string>
     <string name="press_controls_double_press">Tvöfaldur þrlýstingur</string>
     <string name="press_controls_triple_press">Þreföldur þrlýstingur</string>
@@ -523,8 +544,12 @@
     <string name="press_action_rewind">Spóla til baka</string>
     <string name="press_action_cycle_anc">Hringrás hljóðstýringar</string>
     <string name="press_action_toggle_anc_transparency">Víxla gegnsæi</string>
+    <string name="press_action_voice_assistant">Raddaðstoðarmaður</string>
+    <string name="press_action_voice_assistant_unavailable">Enginn raddaðstoðarmaður fannst</string>
     <string name="press_controls_reset_label">Endurstilla á sjálfgefnar</string>
     <string name="press_controls_reset_confirm_message">Endurstilla allar þrlýstingsvarpanir á sjálfgefnar?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Raddaðstoðarmaðurinn þarf heimild til að birtast yfir öðrum forritum, annars opnast hann ekki þegar ýtt er á AirPods-heyrnartólin.</string>
+    <string name="press_controls_voice_assistant_permission_action">Veita</string>
     <string name="device_settings_noise_control_open_press_controls_action">Opna þrlýstingastýringar</string>
     <string name="general_navigate_up_action">Fara upp</string>
     <string name="general_progress_loading">Hleður</string>

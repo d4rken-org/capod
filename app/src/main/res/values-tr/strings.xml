@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Yalnızca bir cihaz bağlıyken görünen ikinci bir bildirim gösterir. Bunu açtığında, kalıcı \"Cihaz yok\" bildirimini gizleyebilirsin: Android\'in bildirim ayarlarında CAPod için \"Cihaz durumu\" kategorisini kapat.</string>
     <string name="settings_keep_notification_after_disconnect_label">Bağlantı kesildikten sonra bildirimi koru</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods bağlantısı kesildikten sonra bile bilinen son pil seviyelerini göstermeye devam et</string>
+    <string name="settings_monitor_statusbar_battery_label">Durum çubuğunda pil seviyesi</string>
+    <string name="settings_monitor_statusbar_battery_description">Pil yüzdesini durum çubuğunda bildirim simgesi olarak gösterir. Kulaklıklarda, şarj olanı atlayarak ikisinden düşük olan gösterilir.</string>
     <string name="settings_autopause_label">Otomatik duraklat</string>
     <string name="settings_autopause_description">Aygıtı kulağınızdan çıkarınca sesi duraklatır.</string>
     <string name="settings_autopplay_label">Otomatik oynat</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Yalnızca Pod\'lar</string>
     <string name="settings_charged_scope_case_label">Yalnızca kutu</string>
     <string name="settings_charged_scope_both_label">Pod\'lar ve kutu</string>
+    <string name="settings_caselow_reminder_label">Kutu pil hatırlatıcısı</string>
+    <string name="settings_caselow_reminder_description">Kulaklıkları kutuya geri koyduğumda ve kutunun pili azaldığında kutuyu şarj etmemi hatırlat.</string>
+    <string name="settings_caselow_threshold_label">Hatırlatma seviyesi</string>
     <string name="device_settings_experimental_title">Deneysel Özellik</string>
     <string name="device_settings_experimental_description">Bu özellik henüz tüm cihazlarda test edilmedi. Eğer birşey doğru çalışmıyorsa, lütfen hata ayıklama kaydıyla bir sorun açın.</string>
     <string name="device_settings_experimental_action">Sorun Takipçisini Aç</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Bu bildirimi sistem ayarlarından devre dışı bırakabilirsin.</string>
     <string name="monitor_notification_starting">Başlatılıyor…</string>
     <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
-    <string name="support_debuglog_desc">Uygulamanın yaptığı her şeyi paylaşabileceğiniz bir metin dosyasına kaydeder.</string>
+    <string name="support_debuglog_desc">Uygulamanın yaptığı her şeyi paylaşabileceğiniz bir zip dosyasına kaydedin.</string>
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="debug_debuglog_stop_action">Kaydı durdur</string>
     <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler içerir (örn. Bluetooth cihaz detayları). Yalnızca güvenilir taraflarla paylaşın.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Pil optimizasyonlarını devre dışı bırak</string>
     <string name="permission_ignore_battery_optimizations_description">Pil optimizasyonları, bu uygulamanın arka planda güvenilir bir şekilde Bluetooth verilerini almasını engeller.</string>
     <string name="permission_system_alert_window_label">Sistem Uyarı Penceresi</string>
-    <string name="permission_system_alert_window_description">\"Açılır Pencere Göster\" özelliğini mümkün kılmak için CAPod\'un diğer uygulamaların üzerine çizmesine izin verin.</string>
+    <string name="permission_system_alert_window_description">CAPod\'un diğer uygulamaların üzerine çizim yapmasına izin verin. \"Açılır pencere göster\" özelliği ve AirPods\'unuza basarak sesli asistanı açmak için gereklidir.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Görüldüğünde</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kutu açık</string>
     <string name="settings_reaction_autoconnect_inear_label">Kulakta</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Tam şarj için yeterli</string>
     <string name="battery_case_charges_state_not_enough_cd">Tam şarj için yeterli değil</string>
     <string name="battery_case_charges_state_uncertain_cd">Tam şarj için yeterli olmayabilir</string>
+    <string name="battery_case_charges_short">%1$s şarj</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ şarj</string>
     <string name="pods_case_status_open_label">Açık</string>
     <string name="pods_case_status_closed_label">Kapalı</string>
     <string name="pods_connection_state_disconnected_label">Bir cihaza bağlı değil</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Daha uzun</string>
     <string name="device_settings_volume_swipe_length_longest">En uzun</string>
     <string name="device_settings_end_call_mute_mic_label">Arama Kontrolleri</string>
-    <string name="device_settings_end_call_mute_mic_description">Aramalar sırasında sapa basmanın ne yapacağını seçin</string>
+    <string name="device_settings_end_call_mute_mic_description">Aramalar sırasında basmaların ne yapacağını seçin</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Aramayı bitirmek için tek basım</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Mikrofonu kapatıp açmak için çift basım</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonu kapatıp açmak için tek basım</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Şarj tamamlandı</string>
     <string name="reaction_charged_notification_text_full">%1$s tam olarak şarz oldu.</string>
     <string name="reaction_charged_notification_text_partial">%1$s, %%%2$d oranında şarj edildi.</string>
+    <string name="reaction_caselow_channel_label">Kutu pil hatırlatıcısı</string>
+    <string name="reaction_caselow_notification_title">Kutunuzu şarj edin</string>
+    <string name="reaction_caselow_notification_text">%1$s: kutu pili %%%2$d seviyesinde.</string>
     <string name="device_settings_rename_label">Yeniden Adlandır</string>
     <string name="device_settings_rename_hint">Cihaz adı</string>
     <string name="device_settings_rename_confirm">Yeniden Adlandır</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Ekolayzer</string>
     <string name="press_controls_title">Basma Kontrolleri</string>
     <string name="press_controls_nav_description">Basma davranışını ayarlayın ve basmalara eylem atayın</string>
-    <string name="press_controls_description">Basmaların nasıl algılandığını ayarlayın, arama düğmesi davranışını seçin ve basmalara eylem atayın. Atanan eylemler yalnızca bu cihaza uygulanır ve uygulamanın AirPods yerine basmaları yakalamasını sağlar.</string>
+    <string name="press_controls_description">Basmaların nasıl algılanacağını ayarlayın, arama düğmesi davranışını seçin ve basmaları eylemlere eşleyin. Eşlenen eylemler yalnızca bu cihaz için geçerlidir ve basmayı kulaklık yerel olarak işlemek yerine uygulamanın yakalamasını sağlar.</string>
     <string name="press_controls_single_press">Tek Basma</string>
     <string name="press_controls_double_press">Çift Basma</string>
     <string name="press_controls_triple_press">Üç Basma</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Geri Sar</string>
     <string name="press_action_cycle_anc">Gürültü Kontrolünü Döngüle</string>
     <string name="press_action_toggle_anc_transparency">Şeffaflığı Aç/Kapat</string>
+    <string name="press_action_voice_assistant">Sesli Asistan</string>
+    <string name="press_action_voice_assistant_unavailable">Sesli asistan bulunamadı</string>
     <string name="press_controls_reset_label">Varsayılanlara sıfırla</string>
     <string name="press_controls_reset_confirm_message">Tüm basma atmaları varsayılanlara sıfırlansın mı?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Sesli Asistan\'ın diğer uygulamaların üzerinde görüntüleme iznine ihtiyacı var, aksi halde AirPods\'unuza basmak onu açmaz.</string>
+    <string name="press_controls_voice_assistant_permission_action">Yetkilendir</string>
     <string name="device_settings_noise_control_open_press_controls_action">Basma Kontrollerini Aç</string>
     <string name="general_navigate_up_action">Yukarı Git</string>
     <string name="general_progress_loading">Yükleniyor</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya pili inayoonekana tu wakati kifaa kimeunganishwa. Ukiwasha hii, unaweza kuficha arifa ya kudumu ya \"Hakuna vifaa\": zima jamii ya \"Hali ya kifaa\" katika mipangilio ya arifa za Android kwa CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
     <string name="settings_keep_notification_after_disconnect_description">Endelea kuonyesha viwango vya mwisho vya betri hata baada ya AirPods yako kukatika muunganisho</string>
+    <string name="settings_monitor_statusbar_battery_label">Kiwango cha betri kwenye upau wa hali</string>
+    <string name="settings_monitor_statusbar_battery_description">Huonyesha asilimia ya betri kama aikoni ya arifa kwenye upau wa hali. Kwa vifaa vya masikioni, ile ya chini kati ya mbili huonyeshwa, ikiruka inayochaji.</string>
     <string name="settings_autopause_label">Sitisha kiotomatiki</string>
     <string name="settings_autopause_description">Sitisha sauti unapotoa kifaa sikioni.</string>
     <string name="settings_autopplay_label">Cheza kiotomatiki</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Pods tu</string>
     <string name="settings_charged_scope_case_label">Kesi tu</string>
     <string name="settings_charged_scope_both_label">Pods na kesi</string>
+    <string name="settings_caselow_reminder_label">Kikumbusho cha betri ya kasha</string>
+    <string name="settings_caselow_reminder_description">Nikumbushe kuchaji kasha ninaporudisha vifaa vya masikioni na betri ya kasha iko chini.</string>
+    <string name="settings_caselow_threshold_label">Kiwango cha kikumbusho</string>
     <string name="device_settings_experimental_title">Kipengele cha majaribio</string>
     <string name="device_settings_experimental_description">Kipengele hiki bado hakijajaribiwa kwenye vifaa vyote. Ikiwa kitu hakifanyi kazi vizuri, tafadhali fungua suala na kumbukumbu ya utatuzi.</string>
     <string name="device_settings_experimental_action">Fungua Kifuatilio cha Masuala</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Unaweza kuzima arifa hii katika mipangilio ya mfumo.</string>
     <string name="monitor_notification_starting">Inaanza...</string>
     <string name="support_debuglog_label">Kumbukumbu ya utatuzi</string>
-    <string name="support_debuglog_desc">Rekodi kila kitu ambacho programu inafanya kwenye faili ya maandishi unayoweza kushiriki.</string>
+    <string name="support_debuglog_desc">Rekodi kila kitu ambacho programu inafanya kwenye faili ya zip unayoweza kushiriki.</string>
     <string name="debug_debuglog_record_action">Rekodi kumbukumbu ya utatuzi</string>
     <string name="debug_debuglog_stop_action">Acha kurekodi</string>
     <string name="debug_debuglog_sensitive_information_message">Faili iliyotengenezwa ina taarifa nyeti (k.m. maelezo ya kifaa cha Bluetooth). Shiriki tu na wahusika wanaoaminika.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Zima uboreshaji wa betri</string>
     <string name="permission_ignore_battery_optimizations_description">Uboreshaji wa betri unazuia programu hii kupokea kwa uhakika data ya Bluetooth wakati programu iko nyuma.</string>
     <string name="permission_system_alert_window_label">Dirisha la Arifa ya Mfumo</string>
-    <string name="permission_system_alert_window_description">Ruhusu CAPod kuchora juu ya programu nyingine ili kuwezesha kipengele cha \"Onyesha Kidirisha\".</string>
+    <string name="permission_system_alert_window_description">Ruhusu CAPod ionekane juu ya programu nyingine. Inahitajika kwa kipengele cha \"Onyesha PopUp\" na kufungua msaidizi wa sauti kwa kubonyeza AirPods zako.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kinapopatikana</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kipochi kimefunguliwa</string>
     <string name="settings_reaction_autoconnect_inear_label">Ndani ya sikio</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Inatosha kwa chaji kamili</string>
     <string name="battery_case_charges_state_not_enough_cd">Haitoshi kwa chaji kamili</string>
     <string name="battery_case_charges_state_uncertain_cd">Huenda isitoshe kwa chaji kamili</string>
+    <string name="battery_case_charges_short">Chaji %1$s</string>
+    <string name="battery_case_charges_short_at_least">Chaji %1$s+</string>
     <string name="pods_case_status_open_label">Wazi</string>
     <string name="pods_case_status_closed_label">Imefungwa</string>
     <string name="pods_connection_state_disconnected_label">Haijaunganishwa na kifaa</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Ndefu zaidi</string>
     <string name="device_settings_volume_swipe_length_longest">Ndefu kabisa</string>
     <string name="device_settings_end_call_mute_mic_label">Vidhibiti vya Simu</string>
-    <string name="device_settings_end_call_mute_mic_description">Chagua unachofanya kubonyeza shina wakati wa simu</string>
+    <string name="device_settings_end_call_mute_mic_description">Chagua kitakachotokea unapobonyeza wakati wa simu</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Bonyeza mara moja kumaliza simu</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Bonyeza mara mbili kuzima kipaza sauti</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Bonyeza mara moja kuzima kipaza sauti</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Kuchaji kumekamilika</string>
     <string name="reaction_charged_notification_text_full">%1$s imechajishwa kikamilifu.</string>
     <string name="reaction_charged_notification_text_partial">%1$s imechajishwa hadi %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Kikumbusho cha betri ya kasha</string>
+    <string name="reaction_caselow_notification_title">Chaji kasha lako</string>
+    <string name="reaction_caselow_notification_text">%1$s: betri ya kasha iko asilimia %2$d%%.</string>
     <string name="device_settings_rename_label">Badilisha Jina</string>
     <string name="device_settings_rename_hint">Jina la kifaa</string>
     <string name="device_settings_rename_confirm">Badilisha Jina</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Ikwalaiza</string>
     <string name="press_controls_title">Udhibiti wa Kubonyeza</string>
     <string name="press_controls_nav_description">Rekebisha tabia ya kubonyeza na ramani ya mabonyezo kwa vitendo</string>
-    <string name="press_controls_description">Rekebisha jinsi mabonyezo yanavyotambuliwa, chagua tabia ya kitufe cha simu, na ramani mabonyezo kwa vitendo. Vitendo vilivyopangwa vinatumika kwa kifaa hiki pekee na huruhusu programu kukamata bonyezo badala ya AirPods kuishughulikia kwa kawaida.</string>
+    <string name="press_controls_description">Rekebisha jinsi mibonyezo inavyotambuliwa, chagua tabia ya kitufe cha simu, na uunganishe mibonyezo na vitendo. Vitendo vilivyounganishwa vinatumika kwa kifaa hiki pekee na huruhusu programu kunasa mbonyezo badala ya vifaa vya masikioni kuushughulikia vyenyewe.</string>
     <string name="press_controls_single_press">Bonyezo Moja</string>
     <string name="press_controls_double_press">Bonyezo Mbili</string>
     <string name="press_controls_triple_press">Bonyezo Tatu</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Rudi Nyuma</string>
     <string name="press_action_cycle_anc">Zungusha Udhibiti wa Kelele</string>
     <string name="press_action_toggle_anc_transparency">Badilisha Uwazi</string>
+    <string name="press_action_voice_assistant">Msaidizi wa Sauti</string>
+    <string name="press_action_voice_assistant_unavailable">Hakuna msaidizi wa sauti uliopatikana</string>
     <string name="press_controls_reset_label">Rudisha chaguo-msingi</string>
     <string name="press_controls_reset_confirm_message">Rudisha ramani zote za kubonyeza kwa chaguo-msingi?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Msaidizi wa Sauti anahitaji ruhusa ya kuonyesha juu ya programu nyingine, vinginevyo kubonyeza AirPods zako hakutaufungua.</string>
+    <string name="press_controls_voice_assistant_permission_action">Ruhusu</string>
     <string name="device_settings_noise_control_open_press_controls_action">Fungua Udhibiti wa Kubonyeza</string>
     <string name="general_navigate_up_action">Nenda juu</string>
     <string name="general_progress_loading">Kupakia</string>

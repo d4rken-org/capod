@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Kubonisa isaziso sesibili esivela kuphela uma idivayisi ixhunyiwe. Uma lokhu kuvuliwe, ungakwazi ukufihla isaziso esihlala njalo esithi \"Azikho amadivayisi\": vala isigaba esithi \"Isimo Sedivayisi\" ezilungiselelweni zezaziso ze-Android ze-CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Gcina isaziso ngemva kokunqamuka</string>
     <string name="settings_keep_notification_after_disconnect_description">Qhubeka ubonise amazinga ebhethri okugcina aziwayo nangemva kokuthi ama-AirPods akho anqamuke</string>
+    <string name="settings_monitor_statusbar_battery_label">Izinga lebhethri kwibha yesimo</string>
+    <string name="settings_monitor_statusbar_battery_description">Ibonisa iphesenti lebhethri njengesithonjana sesaziso kwibha yesimo. Kumakhanda ezindlebe, kubonisa eyephansi kwalawo amabili, kudlule eyodwa ecajwayo.</string>
     <string name="settings_autopause_label">Misa kancane ngokuzenzakalela</string>
     <string name="settings_autopause_description">Misa kancane umsindo lapho ukhipha idivayisi endlebeni yakho.</string>
     <string name="settings_autopplay_label">Dlala ngokuzenzakalela</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Amaphodi kuphela</string>
     <string name="settings_charged_scope_case_label">Ikhesi kuphela</string>
     <string name="settings_charged_scope_both_label">Amaphodi nekhesi</string>
+    <string name="settings_caselow_reminder_label">Isikhumbuzo sebhethri yekesi</string>
+    <string name="settings_caselow_reminder_description">Khumbuza ukucaja ikesi lapho ubuyisela ama-pods, uma ibhethri yekesi iphansi.</string>
+    <string name="settings_caselow_threshold_label">Izinga lesikhumbuzo</string>
     <string name="device_settings_experimental_title">Isici sokuzama</string>
     <string name="device_settings_experimental_description">Lesi sici asikavivinywa kuzo zonke izidivayisi. Uma into ingasebenzi kahle, sicela uvule inkinga ngelogisi yokususa amaphutha.</string>
     <string name="device_settings_experimental_action">Vula Umlaleli Wezinkinga</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Ungakhubaza lesi saziso ezilungiselweni zesistemi.</string>
     <string name="monitor_notification_starting">Iyaqala...</string>
     <string name="support_debuglog_label">Ilogi yokulungisa amaphutha</string>
-    <string name="support_debuglog_desc">Rekhoda konke okwenziwa uhlelo lokusebenza kufayela lombhalo ongabelana ngalo.</string>
+    <string name="support_debuglog_desc">Rekhoda konke okwenziwa uhlelo lokusebenza ibe ifayela le-zip oyingabelana ngalo.</string>
     <string name="debug_debuglog_record_action">Rekhoda ilogi yokulungisa amaphutha</string>
     <string name="debug_debuglog_stop_action">Misa ukurekhoda</string>
     <string name="debug_debuglog_sensitive_information_message">Ifayela elakhiwe liqukethe ulwazi olubucayi (isb. imininingwane yedivayisi ye-Bluetooth). Yabelana ngalo kuphela namaqembu athembekile.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Khubaza ukuthuthukiswa kwebhethri</string>
     <string name="permission_ignore_battery_optimizations_description">Ukuthuthukiswa kwebhethri kuvimbela lolu hlelo lokusebenza ukuthi lwamukele ngokuthembekile idatha ye-Bluetooth ngenkathi uhlelo lokusebenza lusemva.</string>
     <string name="permission_system_alert_window_label">Iwindi Lesexwayiso Sohlelo</string>
-    <string name="permission_system_alert_window_description">Vumela i-CAPod ukuthi idwebe phezu kwezinye izinhlelo zokusebenza ukwenza isici \"Bonisa isigelekeqe\" sikwazi ukusebenza.</string>
+    <string name="permission_system_alert_window_description">Vumela i-CAPod ukudweba phezu kwezinye izinhlelo zokusebenza. Kudingeka ngesici “Bonisa i-PopUp” nokuvula umsizi wezwi ngokucindezela ama-AirPods akho.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Uma ibonwe</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ikesi livuliwe</string>
     <string name="settings_reaction_autoconnect_inear_label">Endlebeni</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Kwaanele ngalingeni eliphelele</string>
     <string name="battery_case_charges_state_not_enough_cd">Ayianele ngalingeni eliphelele</string>
     <string name="battery_case_charges_state_uncertain_cd">Ingase ayianele ngalingeni eliphelele</string>
+    <string name="battery_case_charges_short">%1$s ukushaja</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ukushaja</string>
     <string name="pods_case_status_open_label">Ivuliwe</string>
     <string name="pods_case_status_closed_label">Ivaliwe</string>
     <string name="pods_connection_state_disconnected_label">Ayixhunyiwe kudivayisi</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Olude</string>
     <string name="device_settings_volume_swipe_length_longest">Olude kakhulu</string>
     <string name="device_settings_end_call_mute_mic_label">Izilawuli Zokushaya</string>
-    <string name="device_settings_end_call_mute_mic_description">Khetha ukuthi ukucindezela isipini kwenzani phakathi kwamakholi</string>
+    <string name="device_settings_end_call_mute_mic_description">Khetha ukuthi ukucindezela kwenzani phakathi kwamakholi</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Cindezela kanye ukuqeda ikholi</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Cindezela kabili ukuvimba umsindo wekhadi</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Cindezela kanye ukuvimba umsindo wekhadi</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Ukushaja kuphelile</string>
     <string name="reaction_charged_notification_text_full">%1$s ishajwe ngokugcwele.</string>
     <string name="reaction_charged_notification_text_partial">%1$s ishajwe kuze kufike ku-%2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Isikhumbuzo sebhethri yekesi</string>
+    <string name="reaction_caselow_notification_title">Caja ikesi lakho</string>
+    <string name="reaction_caselow_notification_text">%1$s: ibhethri yekesi isemazingeni angu-%2$d%%.</string>
     <string name="device_settings_rename_label">Qamba kabusha</string>
     <string name="device_settings_rename_hint">Igama ledivayisi</string>
     <string name="device_settings_rename_confirm">Qamba kabusha</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">I-Equalizer</string>
     <string name="press_controls_title">Izilawuli Zokuchofoza</string>
     <string name="press_controls_nav_description">Lungisa ukusebenza kokuchofoza futhi ukhomba izinyathelo ezikuchofozweni</string>
-    <string name="press_controls_description">Lungisa ukuthi ukuchofoza kuphenywa kanjani, ukhethe ukusebenza kwenkinobho yezingcingo, futhi ukhomba izinyathelo ezikuchofozweni. Izinyathelo ezikhombiwe zisebenza kule divayisi kuphela futhi zivumela uhlelo lokusebenza ukuphila ukuchofoza esikhundleni se-AirPods esikubambela ngokwemvelo.</string>
+    <string name="press_controls_description">Lungisa ukuthi ukucindezela kutholwa kanjani, khetha ukuziphatha kwenkinobho yekholi, bese uhlela ukucindezela ukuze kube yizenzo. Izenzo ezihlelwe zisebenza kule divayisi kuphela, futhi zivumela uhlelo lokusebenza ukuthatha ukucindezela esikhundleni sokuthi izikhwama zezindlebe zikubambe ngokwazo.</string>
     <string name="press_controls_single_press">Ukuchofoza Kanye</string>
     <string name="press_controls_double_press">Ukuchofoza Kabili</string>
     <string name="press_controls_triple_press">Ukuchofoza Kathathu</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Buyela Emuva</string>
     <string name="press_action_cycle_anc">Jikela Ukulawula Umsindo</string>
     <string name="press_action_toggle_anc_transparency">Guqula ukuFinyelela</string>
+    <string name="press_action_voice_assistant">Umsizi Wezwi</string>
+    <string name="press_action_voice_assistant_unavailable">Umsizi wezwi awutholakalanga</string>
     <string name="press_controls_reset_label">Buyisela ezenzakalelweni</string>
     <string name="press_controls_reset_confirm_message">Buyisela zonke izikhombo zokuchofoza ezenzakalelweni?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Umsizi Wezwi udinga imvume yokubonisa phezu kwezinye izinhlelo zokusebenza, kungenjalo ukucindezela ama-AirPods akho ngeke kuwuvule.</string>
+    <string name="press_controls_voice_assistant_permission_action">Nikeza imvume</string>
     <string name="device_settings_noise_control_open_press_controls_action">Vula Izilawuli Zokuchofoza</string>
     <string name="general_navigate_up_action">Iya phezulu</string>
     <string name="general_progress_loading">Iyalayisha</string>

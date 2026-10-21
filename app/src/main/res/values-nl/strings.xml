@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Toont een tweede melding die alleen verschijnt als een apparaat verbonden is. Hiermee kun je de permanente \"Geen apparaten\"-melding verbergen: schakel de categorie \"Apparaatstatus\" uit in de notificatie-instellingen van Android voor CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Melding behouden na verbreken verbinding</string>
     <string name="settings_keep_notification_after_disconnect_description">Blijf de laatst bekende batterijniveaus weergeven, zelfs nadat je AirPods zijn losgekoppeld</string>
+    <string name="settings_monitor_statusbar_battery_label">Batterijniveau in statusbalk</string>
+    <string name="settings_monitor_statusbar_battery_description">Toont het batterijpercentage als meldingsicoon in de statusbalk. Bij oordopjes wordt de laagste van de twee getoond, waarbij een dopje dat oplaadt wordt overgeslagen.</string>
     <string name="settings_autopause_label">Auto pauze</string>
     <string name="settings_autopause_description">Pauzeer de audio wanneer je het apparaat van je oor haalt.</string>
     <string name="settings_autopplay_label">Automatisch afspelen</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Alleen pods</string>
     <string name="settings_charged_scope_case_label">Alleen case</string>
     <string name="settings_charged_scope_both_label">Pods en case</string>
+    <string name="settings_caselow_reminder_label">Herinnering voor batterij van het oplaadcase</string>
+    <string name="settings_caselow_reminder_description">Herinner me eraan het oplaadcase op te laden als ik de dopjes terugleg en de batterij van het case bijna leeg is.</string>
+    <string name="settings_caselow_threshold_label">Herinneringsniveau</string>
     <string name="device_settings_experimental_title">Experimentele functie</string>
     <string name="device_settings_experimental_description">Deze functie is nog niet op alle apparaten getest. Als er iets niet correct werkt, open dan een probleem met een foutopsporingslogboek.</string>
     <string name="device_settings_experimental_action">Probleemtracker openen</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Je kunt deze melding uitschakelen in de systeeminstellingen.</string>
     <string name="monitor_notification_starting">Aan de slag…</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
-    <string name="support_debuglog_desc">Registreer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
+    <string name="support_debuglog_desc">Registreer alles wat de app doet in een zipbestand dat je kunt delen.</string>
     <string name="debug_debuglog_record_action">Foutopsporingslogboek opnemen</string>
     <string name="debug_debuglog_stop_action">Stop met opnemen</string>
     <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. Bluetooth-apparaatdetails). Deel het alleen met vertrouwde partijen.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Batterij-optimalisaties uitschakelen</string>
     <string name="permission_ignore_battery_optimizations_description">Door batterijoptimalisatie kan deze app geen betrouwbare Bluetooth-gegevens ontvangen zolang de app op de achtergrond draait.</string>
     <string name="permission_system_alert_window_label">Systeemwaarschuwingsvenster</string>
-    <string name="permission_system_alert_window_description">Geef CAPod de mogelijkheid om over andere apps heen te tekenen, zodat de functie \"Pop-up weergeven\" mogelijk is.</string>
+    <string name="permission_system_alert_window_description">Sta CAPod toe om over andere apps heen te tekenen. Nodig voor de functie \"Pop-up tonen\" en om de spraakassistent te openen met een druk op je AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wanneer gezien</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Zaak is geopend</string>
     <string name="settings_reaction_autoconnect_inear_label">In oor</string>
@@ -451,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Langer</string>
     <string name="device_settings_volume_swipe_length_longest">Langst</string>
     <string name="device_settings_end_call_mute_mic_label">Oproepbeheer</string>
-    <string name="device_settings_end_call_mute_mic_description">Kies wat er gebeurt als je de hendel indrukt tijdens het bellen</string>
+    <string name="device_settings_end_call_mute_mic_description">Kies wat indrukken doen tijdens gesprekken</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Druk één keer om het gesprek te beëindigen</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Druk twee keer om de microfoon te dempen</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Druk één keer om de microfoon te dempen</string>
@@ -491,6 +496,9 @@
     <string name="reaction_charged_notification_title">Opladen voltooid</string>
     <string name="reaction_charged_notification_text_full">%1$s is volledig opgeladen.</string>
     <string name="reaction_charged_notification_text_partial">%1$s is opgeladen tot %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Herinnering voor batterij van het oplaadcase</string>
+    <string name="reaction_caselow_notification_title">Laad je oplaadcase op</string>
+    <string name="reaction_caselow_notification_text">%1$s: de batterij van het case is op %2$d%%.</string>
     <string name="device_settings_rename_label">Hernoemen</string>
     <string name="device_settings_rename_hint">Apparaatnaam</string>
     <string name="device_settings_rename_confirm">Hernoemen</string>
@@ -514,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Drukbediening</string>
     <string name="press_controls_nav_description">Drukgedrag instellen en drukken koppelen aan acties</string>
-    <string name="press_controls_description">Stel in hoe drukken worden gedetecteerd, kies het gedrag van de belknop en koppel drukken aan acties. Gekoppelde acties gelden alleen voor dit apparaat en laten de app de druk onderscheppen in plaats van dat de AirPods dit native verwerken.</string>
+    <string name="press_controls_description">Stel af hoe indrukken worden herkend, kies het gedrag van de belknop en koppel indrukken aan acties. Gekoppelde acties gelden alleen voor dit apparaat en laten de app de druk onderscheppen in plaats van dat de hoofdtelefoon die zelf afhandelt.</string>
     <string name="press_controls_single_press">Enkelvoudig Indrukken</string>
     <string name="press_controls_double_press">Dubbel Indrukken</string>
     <string name="press_controls_triple_press">Drievoudig Indrukken</string>
@@ -536,8 +544,12 @@
     <string name="press_action_rewind">Terugspoelen</string>
     <string name="press_action_cycle_anc">Ruisonderdrukking cycleren</string>
     <string name="press_action_toggle_anc_transparency">Transparantie wisselen</string>
+    <string name="press_action_voice_assistant">Spraakassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Geen spraakassistent gevonden</string>
     <string name="press_controls_reset_label">Standaardinstellingen herstellen</string>
     <string name="press_controls_reset_confirm_message">Alle drukken toewijzingen resetten naar standaard?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Spraakassistent heeft toestemming nodig om over andere apps te worden weergegeven, anders opent een druk op je AirPods hem niet.</string>
+    <string name="press_controls_voice_assistant_permission_action">Toestaan</string>
     <string name="device_settings_noise_control_open_press_controls_action">Drukbediening openen</string>
     <string name="general_navigate_up_action">Navigeer omhoog</string>
     <string name="general_progress_loading">Bezig met laden</string>

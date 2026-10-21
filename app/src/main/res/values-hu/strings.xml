@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Egy második értesítést mutat, amely csak akkor jelenik meg, ha egy eszköz csatlakozik. Ha bekapcsolod, elrejtetheted az állandó „Nincsenek eszközök” értesítést: a CAPod alkalmazás Android-értesítési beállításaiban kapcsold ki az „Eszköz állapota” kategóriát.</string>
     <string name="settings_keep_notification_after_disconnect_label">Értesítés megőrzése lecsatlakozás után</string>
     <string name="settings_keep_notification_after_disconnect_description">Az utolsó ismert akkumulátorszintek megjelenítésének folytatása az AirPods lecsatlakozása után is</string>
+    <string name="settings_monitor_statusbar_battery_label">Akkumulátorszint az állapotsorban</string>
+    <string name="settings_monitor_statusbar_battery_description">Az akkumulátor százalékos értékét jeleníti meg értesítési ikonként az állapotsorban. Fülhallgatóknál a kettő közül az alacsonyabbat mutatja, a töltés alatt állót kihagyva.</string>
     <string name="settings_autopause_label">Automatikus szünet</string>
     <string name="settings_autopause_description">Zene leállítása, amikor kiveszi a füléből az eszközt.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Csak fülhallgatók</string>
     <string name="settings_charged_scope_case_label">Csak tok</string>
     <string name="settings_charged_scope_both_label">Fülhallgatók és tok</string>
+    <string name="settings_caselow_reminder_label">Tok akkumulátor-emlékeztető</string>
+    <string name="settings_caselow_reminder_description">Emlékeztessen a tok feltöltésére, amikor visszateszem a füleseket, és a tok akkumulátora lemerülőben van.</string>
+    <string name="settings_caselow_threshold_label">Emlékeztető szintje</string>
     <string name="device_settings_experimental_title">Kísérleti funkció</string>
     <string name="device_settings_experimental_description">Ezt a funkciót még nem tesztelték minden eszközön. Ha valami nem működik megfelelően, kérjük, nyiss egy hibajegyet hibakeresési naplóval.</string>
     <string name="device_settings_experimental_action">Hibajegykövetős megnyitása</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Ezt az értesítést letilthatod a rendszerbeállításokban.</string>
     <string name="monitor_notification_starting">Indítás alatt…</string>
     <string name="support_debuglog_label">Hibakeresési napló</string>
-    <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
+    <string name="support_debuglog_desc">Rögzít mindent, amit az alkalmazás csinál, egy megosztható zip-fájlba.</string>
     <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A generált fájl érzékeny információkat tartalmaz (pl. a Bluetooth-eszköz adatait). Csak megbízható felekkel ossza meg.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Akkumulátor-optimalizálás kikapcsolása</string>
     <string name="permission_ignore_battery_optimizations_description">Az akkumulátor-optimalizálás megakadályozza, hogy ez az alkalmazás megbízhatóan fogadja a Bluetooth-adatokat a háttérben.</string>
     <string name="permission_system_alert_window_label">Rendszer figyelmeztető ablak</string>
-    <string name="permission_system_alert_window_description">Engedélyezze a CAPod-nak, hogy más alkalmazások fölé rajzoljon az \"Előugró ablak megjelenítése\" funkció lehetővé tételéhez.</string>
+    <string name="permission_system_alert_window_description">Lehetővé teszi, hogy a CAPod más alkalmazások fölé rajzoljon. A „Felugró ablak megjelenítése” funkcióhoz, valamint a hangsegéd AirPods-nyomásra történő megnyitásához szükséges.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Amikor észlelhető</string>
     <string name="settings_reaction_autoconnect_caseopen_label">A tok nyitva van</string>
     <string name="settings_reaction_autoconnect_inear_label">Fülben</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Elegendő egy teljes töltéshez</string>
     <string name="battery_case_charges_state_not_enough_cd">Nem elegendő egy teljes töltéshez</string>
     <string name="battery_case_charges_state_uncertain_cd">Lehet, hogy nem elegendő egy teljes töltéshez</string>
+    <string name="battery_case_charges_short">%1$s töltés</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ töltés</string>
     <string name="pods_case_status_open_label">Nyitva</string>
     <string name="pods_case_status_closed_label">Zárva</string>
     <string name="pods_connection_state_disconnected_label">Nincs eszközhöz csatlakozva</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Hosszabb</string>
     <string name="device_settings_volume_swipe_length_longest">Leghosszabb</string>
     <string name="device_settings_end_call_mute_mic_label">Hívás vezérlők</string>
-    <string name="device_settings_end_call_mute_mic_description">Válaszd ki, mit csinál a szár megnyomása hívás közben</string>
+    <string name="device_settings_end_call_mute_mic_description">Válaszd ki, mit tegyenek a nyomások hívás közben</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Egyszeri nyomás a hívás befejezéséhez</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dupla nyomás a mikrofon némításához</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Egyszeri nyomás a mikrofon némításához</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Töltés kész</string>
     <string name="reaction_charged_notification_text_full">%1$s teljesen feltöltődött.</string>
     <string name="reaction_charged_notification_text_partial">%1$s feltöltődött %2$d%%-ra.</string>
+    <string name="reaction_caselow_channel_label">Tok akkumulátor-emlékeztető</string>
+    <string name="reaction_caselow_notification_title">Töltsd fel a tokot</string>
+    <string name="reaction_caselow_notification_text">%1$s: a tok akkumulátora %2$d%%.</string>
     <string name="device_settings_rename_label">Átnevézés</string>
     <string name="device_settings_rename_hint">Eszköz neve</string>
     <string name="device_settings_rename_confirm">Átnevézés</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Hangszínszabályzó</string>
     <string name="press_controls_title">Nyomásvezérlők</string>
     <string name="press_controls_nav_description">Nyomások viselkedésének hangolása és műveletek hozzárendelése</string>
-    <string name="press_controls_description">Hangold a nyomások érzékelését, válaszd ki a hívógomb viselkedését, és rendelj műveleteket a nyomásokhoz. A hozzárendelt műveletek csak erre az eszközre vonatkoznak, és lehetővé teszik az alkalmazás számára, hogy elfogja a nyomást az AirPods natív kezelése helyett.</string>
+    <string name="press_controls_description">Állítsd be a nyomások érzékelését, válaszd ki a hívásgomb viselkedését, és rendelj műveleteket a nyomásokhoz. A hozzárendelt műveletek csak erre az eszközre vonatkoznak, és lehetővé teszik, hogy az alkalmazás elfogja a nyomást ahelyett, hogy a fejhallgató natívan kezelné.</string>
     <string name="press_controls_single_press">Egyszeri nyomás</string>
     <string name="press_controls_double_press">Dupla nyomás</string>
     <string name="press_controls_triple_press">Hármas nyomás</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Visszatekerés</string>
     <string name="press_action_cycle_anc">Zajvezérlés ciklizálása</string>
     <string name="press_action_toggle_anc_transparency">Átlátszóság be-/kikapcsolása</string>
+    <string name="press_action_voice_assistant">Hangsegéd</string>
+    <string name="press_action_voice_assistant_unavailable">Nem található hangsegéd</string>
     <string name="press_controls_reset_label">Visszaallítás alapbértelmezettre</string>
     <string name="press_controls_reset_confirm_message">Visszaallítja az összes nyomáshozzárendelést az alapbértelmezett értékekre?</string>
+    <string name="press_controls_voice_assistant_permission_hint">A hangsegédnek engedélyre van szüksége a más alkalmazások fölötti megjelenítéshez, különben az AirPods megnyomása nem nyitja meg.</string>
+    <string name="press_controls_voice_assistant_permission_action">Hozzárendel</string>
     <string name="device_settings_noise_control_open_press_controls_action">Nyomásvezérlők megnyitása</string>
     <string name="general_navigate_up_action">Vissza</string>
     <string name="general_progress_loading">Betöltés</string>

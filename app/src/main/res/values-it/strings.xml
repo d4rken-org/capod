@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Mostra una seconda notifica che appare solo mentre un dispositivo è connesso. Con questa opzione attiva, puoi nascondere la notifica permanente \"Nessun dispositivo\": disattiva la categoria \"Stato del dispositivo\" nelle impostazioni di notifica di Android per CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantieni notifica dopo la disconnessione</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua a mostrare gli ultimi livelli di batteria noti anche dopo la disconnessione dei tuoi AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Livello batteria nella barra di stato</string>
+    <string name="settings_monitor_statusbar_battery_description">Mostra la percentuale della batteria come icona di notifica nella barra di stato. Per gli auricolari viene mostrata la più bassa delle due, saltando quella in carica.</string>
     <string name="settings_autopause_label">Pausa automatica</string>
     <string name="settings_autopause_description">Metti in pausa l\'audio quando rimuovi il dispositivo dall\'orecchio.</string>
     <string name="settings_autopplay_label">Riproduzione automatica</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Solo auricolari</string>
     <string name="settings_charged_scope_case_label">Solo custodia</string>
     <string name="settings_charged_scope_both_label">Auricolari e custodia</string>
+    <string name="settings_caselow_reminder_label">Promemoria batteria custodia</string>
+    <string name="settings_caselow_reminder_description">Ricordami di caricare la custodia quando rimetto gli auricolari e la batteria della custodia è scarica.</string>
+    <string name="settings_caselow_threshold_label">Livello del promemoria</string>
     <string name="device_settings_experimental_title">Funzione sperimentale</string>
     <string name="device_settings_experimental_description">Questa funzione non è stata ancora testata su tutti i dispositivi. Se qualcosa non funziona correttamente, apri una segnalazione con un log di debug.</string>
     <string name="device_settings_experimental_action">Apri il tracker dei problemi</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Puoi disabilitare questa notifica nelle impostazioni di sistema.</string>
     <string name="monitor_notification_starting">Avvio in corso…</string>
     <string name="support_debuglog_label">Log di debug</string>
-    <string name="support_debuglog_desc">Registra tutto ciò che l\'app fa in un file di testo che puoi condividere.</string>
+    <string name="support_debuglog_desc">Registra tutto ciò che fa l’app in un file zip che puoi condividere.</string>
     <string name="debug_debuglog_record_action">Registra log di debug</string>
     <string name="debug_debuglog_stop_action">Interrompi registrazione</string>
     <string name="debug_debuglog_sensitive_information_message">Il file generato contiene informazioni sensibili (ad es. dettagli del dispositivo Bluetooth). Condividilo solo con parti fidate.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Disabilita ottimizzazioni batteria</string>
     <string name="permission_ignore_battery_optimizations_description">Le ottimizzazioni della batteria impediscono a questa app di ricevere in modo affidabile i dati Bluetooth quando l\'app è in background.</string>
     <string name="permission_system_alert_window_label">Finestra di avviso di sistema</string>
-    <string name="permission_system_alert_window_description">Consenti a CAPod di disegnare sopra altre app per rendere possibile la funzionalità \"Mostra pop-up\".</string>
+    <string name="permission_system_alert_window_description">Consenti a CAPod di disegnare sopra le altre app. Necessario per la funzione «Mostra popup» e per aprire l’assistente vocale premendo i tuoi AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Quando rilevato</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Custodia aperta</string>
     <string name="settings_reaction_autoconnect_inear_label">Nell\'orecchio</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Abbastanza per una carica completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Non abbastanza per una carica completa</string>
     <string name="battery_case_charges_state_uncertain_cd">Potrebbe non bastare per una carica completa</string>
+    <string name="battery_case_charges_short">%1$s ricariche</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ricariche</string>
     <string name="pods_case_status_open_label">Aperta</string>
     <string name="pods_case_status_closed_label">Chiusa</string>
     <string name="pods_connection_state_disconnected_label">Non connesso a un dispositivo</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Più lungo</string>
     <string name="device_settings_volume_swipe_length_longest">Il più lungo</string>
     <string name="device_settings_end_call_mute_mic_label">Controlli chiamata</string>
-    <string name="device_settings_end_call_mute_mic_description">Scegli cosa fare premendo lo stelo durante le chiamate</string>
+    <string name="device_settings_end_call_mute_mic_description">Scegli cosa fanno le pressioni durante le chiamate</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Premere una volta per terminare la chiamata</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Premere due volte per disattivare il microfono</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Premere una volta per disattivare il microfono</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Ricarica completata</string>
     <string name="reaction_charged_notification_text_full">%1$s è completamente carico.</string>
     <string name="reaction_charged_notification_text_partial">%1$s è stato caricato al %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Promemoria batteria custodia</string>
+    <string name="reaction_caselow_notification_title">Ricarica la custodia</string>
+    <string name="reaction_caselow_notification_text">%1$s: la batteria della custodia è al %2$d%%.</string>
     <string name="device_settings_rename_label">Rinomina</string>
     <string name="device_settings_rename_hint">Nome dispositivo</string>
     <string name="device_settings_rename_confirm">Rinomina</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizzatore</string>
     <string name="press_controls_title">Controlli di pressione</string>
     <string name="press_controls_nav_description">Ottimizza il comportamento delle pressioni e mappa le pressioni sulle azioni</string>
-    <string name="press_controls_description">Ottimizza come vengono rilevate le pressioni, scegli il comportamento del pulsante chiamata e mappa le pressioni sulle azioni. Le azioni mappate si applicano solo a questo dispositivo e consentono all’app di intercettare la pressione invece che gli AirPods la gestiscano nativamente.</string>
+    <string name="press_controls_description">Regola come vengono rilevate le pressioni, scegli il comportamento del pulsante di chiamata e associa le pressioni alle azioni. Le azioni associate valgono solo per questo dispositivo e permettono all’app di intercettare la pressione invece che farla gestire dalle cuffie.</string>
     <string name="press_controls_single_press">Pressione singola</string>
     <string name="press_controls_double_press">Doppia pressione</string>
     <string name="press_controls_triple_press">Tripla pressione</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Riavvolgi</string>
     <string name="press_action_cycle_anc">Cicla controllo del rumore</string>
     <string name="press_action_toggle_anc_transparency">Attiva/disattiva trasparenza</string>
+    <string name="press_action_voice_assistant">Assistente vocale</string>
+    <string name="press_action_voice_assistant_unavailable">Nessun assistente vocale trovato</string>
     <string name="press_controls_reset_label">Ripristina impostazioni predefinite</string>
     <string name="press_controls_reset_confirm_message">Ripristinare tutte le mappature delle pressioni ai valori predefiniti?</string>
+    <string name="press_controls_voice_assistant_permission_hint">L’assistente vocale ha bisogno del permesso di visualizzare sopra le altre app, altrimenti premendo gli AirPods non si aprirà.</string>
+    <string name="press_controls_voice_assistant_permission_action">Consenti</string>
     <string name="device_settings_noise_control_open_press_controls_action">Apri controlli di pressione</string>
     <string name="general_navigate_up_action">Naviga verso l\'alto</string>
     <string name="general_progress_loading">Caricamento</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Viser et ekstra varsel som bare vises når en enhet er tilkoblet. Med dette på kan du skjule det permanente \"Ingen enheter\"-varselet: slå av kategorien \"Enhetsstatus\" i Android-varslingsinnstillingene for CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Behold varsling etter frakobling</string>
     <string name="settings_keep_notification_after_disconnect_description">Fortsett å vise de sist kjente batterinivåene selv etter at AirPods kobler fra</string>
+    <string name="settings_monitor_statusbar_battery_label">Batterinivå i statusfeltet</string>
+    <string name="settings_monitor_statusbar_battery_description">Viser batteriprosenten som varselikon i statusfeltet. For ørepropper vises det laveste av de to, og en som lader hoppes over.</string>
     <string name="settings_autopause_label">Sett på pause automatisk</string>
     <string name="settings_autopause_description">Sett lyden på pause når du fjerner enheten fra øret.</string>
     <string name="settings_autopplay_label">Spill av automatisk</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Kun pods</string>
     <string name="settings_charged_scope_case_label">Kun etui</string>
     <string name="settings_charged_scope_both_label">Pods og etui</string>
+    <string name="settings_caselow_reminder_label">Påminnelse om etui-batteri</string>
+    <string name="settings_caselow_reminder_description">Minn meg på å lade etuiet når jeg legger tilbake ørepluggene og batteriet i etuiet er lavt.</string>
+    <string name="settings_caselow_threshold_label">Påminnelsesnivå</string>
     <string name="device_settings_experimental_title">Eksperimentell funksjon</string>
     <string name="device_settings_experimental_description">Denne funksjonen er ikke testet på alle enheter ennå. Hvis noe ikke fungerer som det skal, kan du åpne en sak med en feilsøkingslogg.</string>
     <string name="device_settings_experimental_action">Åpne sporing av saker</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Du kan deaktivere dette varselet i systeminnstillingene.</string>
     <string name="monitor_notification_starting">Starter opp…</string>
     <string name="support_debuglog_label">Feilsøkingslogg</string>
-    <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
+    <string name="support_debuglog_desc">Ta opp alt appen gjør i en zip-fil du kan dele.</string>
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. detaljer om Bluetooth-enhet). Bare del den med parter du stoler på.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Deaktiver batterioptimalisering</string>
     <string name="permission_ignore_battery_optimizations_description">Batterioptimalisering forhindrer denne appen fra å pålitelig motta Bluetooth-data mens appen er i bakgrunnen.</string>
     <string name="permission_system_alert_window_label">Systemvarslingsvindu</string>
-    <string name="permission_system_alert_window_description">Tillat CAPod å tegne over andre apper for å gjøre funksjonen \"Vis popup\" mulig.</string>
+    <string name="permission_system_alert_window_description">La CAPod tegne over andre apper. Trengs for funksjonen «Vis popup» og for å åpne taleassistenten ved trykk på AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Når sett</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etuiet er åpent</string>
     <string name="settings_reaction_autoconnect_inear_label">I øret</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Nok til en full lading</string>
     <string name="battery_case_charges_state_not_enough_cd">Ikke nok til en full lading</string>
     <string name="battery_case_charges_state_uncertain_cd">Kan hende det ikke er nok til en full lading</string>
+    <string name="battery_case_charges_short">%1$s ladinger</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ladinger</string>
     <string name="pods_case_status_open_label">Åpen</string>
     <string name="pods_case_status_closed_label">Lukket</string>
     <string name="pods_connection_state_disconnected_label">Ikke koblet til en enhet</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Lengre</string>
     <string name="device_settings_volume_swipe_length_longest">Lengst</string>
     <string name="device_settings_end_call_mute_mic_label">Samtalekontroller</string>
-    <string name="device_settings_end_call_mute_mic_description">Velg hva trykk på stilken gjør under samtaler</string>
+    <string name="device_settings_end_call_mute_mic_description">Velg hva trykk gjør under samtaler</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Enkelttrykk for å avslutte samtale</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dobbelttrykk for å dempe mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkelttrykk for å dempe mikrofon</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Lading fullført</string>
     <string name="reaction_charged_notification_text_full">%1$s er fulladet.</string>
     <string name="reaction_charged_notification_text_partial">%1$s er ladet til %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Påminnelse om etui-batteri</string>
+    <string name="reaction_caselow_notification_title">Lad etuiet</string>
+    <string name="reaction_caselow_notification_text">%1$s: batteriet i etuiet er på %2$d%%.</string>
     <string name="device_settings_rename_label">Gi nytt navn</string>
     <string name="device_settings_rename_hint">Enhetsnavn</string>
     <string name="device_settings_rename_confirm">Gi nytt navn</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Trykkkontroller</string>
     <string name="press_controls_nav_description">Juster trykkoppførsel og tilordne trykk til handlinger</string>
-    <string name="press_controls_description">Juster hvordan trykk oppdages, velg oppringningsknappoppførsel og tilordne trykk til handlinger. Tilordnede handlinger gjelder kun for denne enheten og lar appen avskjære trykket i stedet for at AirPods håndterer det naturlig.</string>
+    <string name="press_controls_description">Juster hvordan trykk oppdages, velg oppførsel for samtaleknappen, og koble trykk til handlinger. Koblede handlinger gjelder bare for denne enheten, og lar appen fange trykket i stedet for at hodetelefonene håndterer det selv.</string>
     <string name="press_controls_single_press">Enkelttrykk</string>
     <string name="press_controls_double_press">Dobbelttrykk</string>
     <string name="press_controls_triple_press">Trippeltrykk</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Spol tilbake</string>
     <string name="press_action_cycle_anc">Sykl støykontroll</string>
     <string name="press_action_toggle_anc_transparency">Slå transparens av/på</string>
+    <string name="press_action_voice_assistant">Taleassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Fant ingen taleassistent</string>
     <string name="press_controls_reset_label">Tilbakestill til standard</string>
     <string name="press_controls_reset_confirm_message">Tilbakestille alle trykkoblinger til standard?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Taleassistent trenger tillatelse til å vises over andre apper, ellers åpnes den ikke når du trykker på AirPods.</string>
+    <string name="press_controls_voice_assistant_permission_action">Gi</string>
     <string name="device_settings_noise_control_open_press_controls_action">Åpne trykkkontroller</string>
     <string name="general_navigate_up_action">Gå opp</string>
     <string name="general_progress_loading">Laster</string>

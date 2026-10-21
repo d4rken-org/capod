@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Agadarkirek din tenê dema cihûzek girêdahî ye derdikeve. Gava vê vekirî, hûn dikarin agadarkirî \'Cihûz tune\' hilatin: kategorî \'Rewşa cihûzê\' di mîhengên yademkiriya Android-ê yî CAPod-ê derxistin.</string>
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
     <string name="settings_keep_notification_after_disconnect_description">Piştî ku AirPods-ên te qut dibin jî asta dawîn a naskirî ya bataryayê nîşan bide</string>
+    <string name="settings_monitor_statusbar_battery_label">Asta bataryayê di barê rewşê de</string>
+    <string name="settings_monitor_statusbar_battery_description">Rêjeya bataryayê wekî îkona agahdariyê di barê rewşê de nîşan dide. Ji bo guhdarkeran, ya kêmtir ji her duyan tê nîşandan, ya ku di şarjê de ye tê paşguh kirin.</string>
     <string name="settings_autopause_label">Rawestandina otomatîk</string>
     <string name="settings_autopause_description">Dema ku amûrê ji guhê xwe derdixin, deng rawestînin.</string>
     <string name="settings_autopplay_label">Lîstina otomatîk</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Tenê pods</string>
     <string name="settings_charged_scope_case_label">Tenê qutiyek</string>
     <string name="settings_charged_scope_both_label">Pods û qutî</string>
+    <string name="settings_caselow_reminder_label">Bîranîna bataryaya qutiyê</string>
+    <string name="settings_caselow_reminder_description">Dema podan vedigerînî û bataryaya qutiyê kêm be, bîranînek nîşan bide ku qutiyê şarj bikî.</string>
+    <string name="settings_caselow_threshold_label">Asta bîranînê</string>
     <string name="device_settings_experimental_title">Taybetmendiya ezmûnî</string>
     <string name="device_settings_experimental_description">Ev taybetmendî hê li ser hemî amûran nehatiye ceribandin. Eger tiştek rast nexebite, ji kerema xwe pirsgirêkek bi têkelbûnek debug vekin.</string>
     <string name="device_settings_experimental_action">Şopînerê Pirsgirêkê Veke</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Hûn dikarin vê agahdariyan di mîhengên pergalê de neçalak bikin.</string>
     <string name="monitor_notification_starting">Destpêkirin…</string>
     <string name="support_debuglog_label">Tomara çareserkirinê</string>
-    <string name="support_debuglog_desc">Her tiştê ku sepan dike di pelek nivîskî de tomar bike ku hûn dikarin parve bikin.</string>
+    <string name="support_debuglog_desc">Her tiştê ku sepan dike di pelekî zip de tomar bike ku tu dikarî parve bikî.</string>
     <string name="debug_debuglog_record_action">Tomara çareserkirinê tomar bike</string>
     <string name="debug_debuglog_stop_action">Tomarkirinê rawestîne</string>
     <string name="debug_debuglog_sensitive_information_message">Pela hatî çêkirin agahdariya hestiyar dihewîne (mînak hûrguliyên amûra Bluetooth). Wê tenê bi aliyên pêbawer re parve bikin.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Xweşbîniyên bataryayê neçalak bike</string>
     <string name="permission_ignore_battery_optimizations_description">Xweşbîniyên bataryayê rê li vê sepanê digirin ku dema di paşîn de daneyên Bluetooth bi pêbawerî bistîne.</string>
     <string name="permission_system_alert_window_label">Pencereya Hişyariya Pergalê</string>
-    <string name="permission_system_alert_window_description">Destûrê bidin CAPod ku li ser sepanên din xêz bike da ku taybetmendiya \"Pop-Up Nîşan Bide\" gengaz bike.</string>
+    <string name="permission_system_alert_window_description">Destûrê bide CAPod ku li ser sepanên din xuya bibe. Ji bo taybetmendiya «Nîşan bide PopUp» û vekirina alîkarê dengî bi pêlêdana AirPods-ên te pêwîst e.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Dema tê dîtin</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Qapax vekirî ye</string>
     <string name="settings_reaction_autoconnect_inear_label">Di guhê de</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Têra yek barkirina tije</string>
     <string name="battery_case_charges_state_not_enough_cd">Netêra yek barkirina tije</string>
     <string name="battery_case_charges_state_uncertain_cd">Belkî netêra yek barkirina tije</string>
+    <string name="battery_case_charges_short">%1$s şarj</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ şarj</string>
     <string name="pods_case_status_open_label">Vekirî</string>
     <string name="pods_case_status_closed_label">Girtî</string>
     <string name="pods_connection_state_disconnected_label">Bi amûrekê re girêdayî nîne</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Dirêjtir</string>
     <string name="device_settings_volume_swipe_length_longest">Herî Dirêj</string>
     <string name="device_settings_end_call_mute_mic_label">Kontrolên Bangê</string>
-    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ku pêtina stûnê di dema bangên çi dike</string>
+    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ka pêlêdan di dema bangan de çi dike</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Yek pêtin ji bo bidawîkirina bangê</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Du pêtin ji bo bîdengkirina mîkrofonê</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Yek pêtin ji bo bîdengkirina mîkrofonê</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Şarjkirin temam bû</string>
     <string name="reaction_charged_notification_text_full">%1$s bi tevahî şarj bûye.</string>
     <string name="reaction_charged_notification_text_partial">%1$s heya %2$d%% şarj bûye.</string>
+    <string name="reaction_caselow_channel_label">Bîranîna bataryaya qutiyê</string>
+    <string name="reaction_caselow_notification_title">Qutiya xwe şarj bike</string>
+    <string name="reaction_caselow_notification_text">%1$s: bataryaya qutiyê %2$d%% e.</string>
     <string name="device_settings_rename_label">Navnivisîn</string>
     <string name="device_settings_rename_hint">Navê cîhazê</string>
     <string name="device_settings_rename_confirm">Navnivisîn</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Equalêzer</string>
     <string name="press_controls_title">Kontrolîn Pêlgirtinê</string>
     <string name="press_controls_nav_description">Kiryardîn pêlgirtinê mîzanî bike û pêlgirtinan bo kiryardên nexşe bike</string>
-    <string name="press_controls_description">Mîzanî bike ka çawa pêlgirtin tîn tespêtkirin, kiryara bişkoka bangê hilbijêre û pêlgirtinan bo kiryardên nexşe bike. Kiryardîn nexşekirî tenê ji vê amûrê re têne sepandin û rê didin sepanê ku pêlgirtinê bigire li şûna ku AirPods wê xwezayî bi kar bêne.</string>
+    <string name="press_controls_description">Hesasiya pêlêdanan saz bike, bişkoja bangê hilbijêre û pêlêdanan bi çalakiyan ve girê bide. Çalakiyên girêdayî tenê ji bo vê amûrê derbas dibin û rê didin ku sepan pêlêdanê li şûna guhên xwe bigire.</string>
     <string name="press_controls_single_press">Pêlgirtina Yekane</string>
     <string name="press_controls_double_press">Pêlgirtina Ducar</string>
     <string name="press_controls_triple_press">Pêlgirtina Sêcar</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Vegeriyandin</string>
     <string name="press_action_cycle_anc">Kontrola Dengê Bide Çerxê</string>
     <string name="press_action_toggle_anc_transparency">Transparensiyê Veguherîne</string>
+    <string name="press_action_voice_assistant">Alîkarê Dengî</string>
+    <string name="press_action_voice_assistant_unavailable">Alîkarê dengî nehat dîtin</string>
     <string name="press_controls_reset_label">Vegere mêhengîn xwerû</string>
     <string name="press_controls_reset_confirm_message">Hemî nexşeyen pêlgirtinê vegere mêhengîn xwerû?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Alîkarê Dengî destûr hewce dike ku li ser sepanên din xuya bibe, wekî pêlêdana AirPods-ên te wê vekê.</string>
+    <string name="press_controls_voice_assistant_permission_action">Bide</string>
     <string name="device_settings_noise_control_open_press_controls_action">Kontrolîn Pêlgirtinê Veke</string>
     <string name="general_navigate_up_action">Biçe Jor</string>
     <string name="general_progress_loading">Tê Barkirin</string>

@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റ് ചെയ്തിരിക്കുമ്പോൾ മാത്രം ദൃശ്യമാകുന്ന രണ്ടാമത്തെ അറിയിപ്പ് ഇത് കാണിക്കുന്നു. ഇത് ഓണാക്കിയാൽ, സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് നിങ്ങൾക്ക് മറയ്ക്കാം: Android-ന്റെ അറിയിപ്പ് ക്രമീകരണങ്ങളിൽ CAPod-നായുള്ള \"ഉപകരണ നില\" വിഭാഗം ഓഫാക്കുക.</string>
     <string name="settings_keep_notification_after_disconnect_label">വിച്ഛേദിച്ച ശേഷം അറിയിപ്പ് നിലനിർത്തുക</string>
     <string name="settings_keep_notification_after_disconnect_description">നിങ്ങളുടെ AirPods വിച്ഛേദിച്ചാലും അവസാനമായി അറിയപ്പെടുന്ന ബാറ്ററി ലെവലുകൾ കാണിക്കുന്നത് തുടരുക</string>
+    <string name="settings_monitor_statusbar_battery_label">സ്റ്റാറ്റസ് ബാറിലെ ബാറ്ററി നില</string>
+    <string name="settings_monitor_statusbar_battery_description">സ്റ്റാറ്റസ് ബാറിലെ അറിയിപ്പ് ഐക്കണായി ബാറ്ററി ശതമാനം കാണിക്കുന്നു. ഇയർബഡുകൾക്ക്, ചാർജ് ചെയ്യുന്നതൊഴികെ രണ്ടിൽ കുറഞ്ഞ ബാറ്ററി നില കാണിക്കുന്നു.</string>
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
     <string name="settings_autopause_description">നിങ്ങളുടെ ചെവിയിൽ നിന്ന് ഉപകരണം നീക്കം ചെയ്യുമ്പോൾ ഓഡിയോ താൽക്കാലികമായി നിർത്തുക.</string>
     <string name="settings_autopplay_label">യാന്ത്രികമായി പ്ലേ ചെയ്യുക</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">പോഡുകൾ മാത്രം</string>
     <string name="settings_charged_scope_case_label">കേസ് മാത്രം</string>
     <string name="settings_charged_scope_both_label">പോഡുകളും കേസും</string>
+    <string name="settings_caselow_reminder_label">കേസ് ബാറ്ററി ഓർമ്മപ്പെടുത്തൽ</string>
+    <string name="settings_caselow_reminder_description">പോഡുകൾ കേസിൽ തിരികെ വെക്കുമ്പോൾ കേസിന്റെ ബാറ്ററി കുറവാണെങ്കിൽ കേസ് ചാർജ് ചെയ്യാൻ ഓർമ്മിപ്പിക്കുക.</string>
+    <string name="settings_caselow_threshold_label">ഓർമ്മപ്പെടുത്തൽ നില</string>
     <string name="device_settings_experimental_title">പരീക്ഷണ സവിശേഷത</string>
     <string name="device_settings_experimental_description">ഈ സവിശേഷത ഇതുവരെ എല്ലാ ഡിവൈസുകളിലും പരീക്ഷിച്ചിട്ടില്ല. എന്തെങ്കിലും ശരിയായി പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഒരു ഡീബഗ് ലോഗ് സഹിതം ഒരു ഇഷ്യൂ തുറക്കുക.</string>
     <string name="device_settings_experimental_action">ഇഷ്യൂ ട്രാക്കർ തുറക്കുക</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">സിസ്റ്റം ക്രമീകരണങ്ങളിൽ ഈ അറിയിപ്പ് പ്രവർത്തനരഹിതമാക്കാം.</string>
     <string name="monitor_notification_starting">ആരംഭിച്ചിരിക്കുന്നു…</string>
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
-    <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്നതെല്ലാം നിങ്ങൾക്ക് പങ്കിടാൻ കഴിയുന്ന ഒരു ടെക്സ്റ്റ് ഫയലിൽ റെക്കോർഡ് ചെയ്യുക.</string>
+    <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്ന എല്ലാം പങ്കിടാൻ കഴിയുന്ന ഒരു zip ഫയലിൽ രേഖപ്പെടുത്തുക.</string>
     <string name="debug_debuglog_record_action">ഡീബഗ് ലോഗ് റെക്കോർഡ് ചെയ്യുക</string>
     <string name="debug_debuglog_stop_action">റെക്കോർഡിംഗ് നിർത്തുക</string>
     <string name="debug_debuglog_sensitive_information_message">സൃഷ്ടിച്ച ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ബ്ലൂടൂത്ത് ഉപകരണ വിശദാംശങ്ങൾ). വിശ്വസ്തരായ കക്ഷികളുമായി മാത്രം ഇത് പങ്കിടുക.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">ബാറ്ററി ഒപ്റ്റിമൈസേഷനുകൾ പ്രവർത്തനരഹിതമാക്കുക</string>
     <string name="permission_ignore_battery_optimizations_description">ബാറ്ററി ഒപ്റ്റിമൈസേഷനുകൾ ആപ്പ് പശ്ചാത്തലത്തിലായിരിക്കുമ്പോൾ ബ്ലൂടൂത്ത് ഡാറ്റ വിശ്വസനീയമായി സ്വീകരിക്കുന്നത് തടയുന്നു.</string>
     <string name="permission_system_alert_window_label">സിസ്റ്റം അലേർട്ട് വിൻഡോ</string>
-    <string name="permission_system_alert_window_description">\"പോപ്പ്അപ്പ് കാണിക്കുക\" സവിശേഷത സാധ്യമാക്കാൻ മറ്റ് ആപ്പുകളുടെ മുകളിൽ വരയ്ക്കാൻ CAPod-നെ അനുവദിക്കുക.</string>
+    <string name="permission_system_alert_window_description">മറ്റ് ആപ്പുകൾക്ക് മുകളിൽ വരയ്ക്കാൻ CAPod-നെ അനുവദിക്കുക. \"പോപ്പ്അപ്പ് കാണിക്കുക\" സവിശേഷതയ്ക്കും നിങ്ങളുടെ AirPods-ലെ അമർത്തലിൽ വോയ്‌സ് അസിസ്റ്റന്റ് തുറക്കുന്നതിനും ഇത് ആവശ്യമാണ്.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">കാണുമ്പോൾ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">കേസ് തുറന്നിരിക്കുന്നു</string>
     <string name="settings_reaction_autoconnect_inear_label">ചെവിയിൽ</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകും</string>
     <string name="battery_case_charges_state_not_enough_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകില്ല</string>
     <string name="battery_case_charges_state_uncertain_cd">ഒരു പൂർണ്ണ ചാർജിന് മതിയാകണമെന്നില്ല</string>
+    <string name="battery_case_charges_short">%1$s ചാർജ്</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ചാർജ്</string>
     <string name="pods_case_status_open_label">തുറന്നിരിക്കുന്നു</string>
     <string name="pods_case_status_closed_label">അടച്ചിരിക്കുന്നു</string>
     <string name="pods_connection_state_disconnected_label">ഒരു ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്തിട്ടില്ല</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">നീളമേറിയ</string>
     <string name="device_settings_volume_swipe_length_longest">ഏറ്റവും നീളമേറിയ</string>
     <string name="device_settings_end_call_mute_mic_label">കോൾ നിയന്ത്രണങ്ങൾ</string>
-    <string name="device_settings_end_call_mute_mic_description">കോളുകളിൽ സ്റ്റെം അമർത്തുന്നത് എന്ത് ചെയ്യുമെന്ന് തിരഞ്ഞെടുക്കുക</string>
+    <string name="device_settings_end_call_mute_mic_description">കോളുകൾക്കിടെ അമർത്തലുകൾ എന്ത് ചെയ്യണമെന്ന് തിരഞ്ഞെടുക്കുക</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">കോൾ അവസാനിപ്പിക്കാൻ ഒറ്റ അമർത്തൽ</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">മൈക്രോഫോൻ മ്യൂട്ട് ചെയ്യാൻ ഇരട്ട അമർത്തൽ</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">മൈക്രോഫോൻ മ്യൂട്ട് ചെയ്യാൻ ഒറ്റ അമർത്തൽ</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">ചാർജ്ജിംഗ് പൂർണ്ണമായി</string>
     <string name="reaction_charged_notification_text_full">%1$s പൂർണ്ണമായും ചാർജ്ജ് ആയി.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% ആയി ചാർജ്ജ് ചെയ്‌തു.</string>
+    <string name="reaction_caselow_channel_label">കേസ് ബാറ്ററി ഓർമ്മപ്പെടുത്തൽ</string>
+    <string name="reaction_caselow_notification_title">നിങ്ങളുടെ കേസ് ചാർജ് ചെയ്യുക</string>
+    <string name="reaction_caselow_notification_text">%1$s: കേസ് ബാറ്ററി %2$d%% ആണ്.</string>
     <string name="device_settings_rename_label">പുനർനാമകരണം ചെയ്യുക</string>
     <string name="device_settings_rename_hint">ഉപകരണ നാമം</string>
     <string name="device_settings_rename_confirm">പുനർനാമകരണം ചെയ്യുക</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ഇക്വലൈസർ</string>
     <string name="press_controls_title">പ്രെസ് കണ്ട്രോർസ്</string>
     <string name="press_controls_nav_description">പ്രെസ് പെരുമാറ്റം ക്രമീകരിക്കുകയും പ്രെസുകൾ ആക്ഷനുകളിലേക്ക് മാപ്പ് ചെയ്യുകയും ചെയ്യുക</string>
-    <string name="press_controls_description">പ്രെസുകൾ എന്ന് തിരിച്ചറിയുന്നു എന്ന് ക്രമീകരിക്കുക, കോൾ-ബട്ടൻ പെരുമാറ്റം തിരഞ്ഞെടുക്കുക, പ്രെസുകൾ ആക്ഷനുകളിലേക്ക് മാപ്പ് ചെയ്യുക. മാപ്പ് ചെയ്ത ആക്ഷനുകൾ ഈ ഡിവൈസിൽ മാത്രം പ്രയോഗിക്കുമ്, കൂടാതെ AirPods സ്വാഭാവികമായി കൈകാര്യം ചെയ്യുന്നതിനു പകരം ആപ്പ് പ്രെസ് ഇന്റേര്സെപ്റ് ചെയ്യുന്നു.</string>
+    <string name="press_controls_description">അമർത്തലുകൾ തിരിച്ചറിയുന്ന രീതി ക്രമീകരിക്കുക, കോൾ ബട്ടണിന്റെ പ്രവർത്തനം തിരഞ്ഞെടുക്കുക, അമർത്തലുകളെ പ്രവർത്തനങ്ങളുമായി ബന്ധിപ്പിക്കുക. ബന്ധിപ്പിച്ച പ്രവർത്തനങ്ങൾ ഈ ഉപകരണത്തിന് മാത്രം ബാധകമാണ്, ഹെഡ്‌ഫോണുകൾ സ്വാഭാവികമായി കൈകാര്യം ചെയ്യുന്നതിനു പകരം അമർത്തൽ ആപ്പ് തടഞ്ഞെടുക്കും.</string>
     <string name="press_controls_single_press">ഒറ്റ പ്രെസ്</string>
     <string name="press_controls_double_press">ഇരട്ട പ്രെസ്</string>
     <string name="press_controls_triple_press">മൂന്ന് പ്രെസ്</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">റിവൈന്ഡ്</string>
     <string name="press_action_cycle_anc">ശബ്ദ നിയന്ത്രണം സൈക്കിൾ ചെയ്യുക</string>
     <string name="press_action_toggle_anc_transparency">ട്രാന്സ്പരന്‍സി ടോഗിർ ചെയ്യുക</string>
+    <string name="press_action_voice_assistant">വോയ്‌സ് അസിസ്റ്റന്റ്</string>
+    <string name="press_action_voice_assistant_unavailable">വോയ്‌സ് അസിസ്റ്റന്റ് കണ്ടെത്തിയില്ല</string>
     <string name="press_controls_reset_label">ഡിഫോൾട് ആക്കുക</string>
     <string name="press_controls_reset_confirm_message">എല്ലാ പ്രെസ് മാപ്പിംഗ്സും ഡിഫോൾടാക്കാം?</string>
+    <string name="press_controls_voice_assistant_permission_hint">വോയ്‌സ് അസിസ്റ്റന്റിന് മറ്റ് ആപ്പുകൾക്ക് മുകളിൽ പ്രദർശിപ്പിക്കാൻ അനുമതി ആവശ്യമാണ്, അല്ലാത്തപക്ഷം നിങ്ങളുടെ AirPods അമർത്തിയാൽ അത് തുറക്കില്ല.</string>
+    <string name="press_controls_voice_assistant_permission_action">അനുവദിക്കുക</string>
     <string name="device_settings_noise_control_open_press_controls_action">പ്രെസ് കണ്ട്രോർസ് തുറക്കുക</string>
     <string name="general_navigate_up_action">മുകളിലോട്ട് നാവിഗേറ്റ് ചെയ്യുക</string>
     <string name="general_progress_loading">ലോഡ് ചെയ്യുന്നു</string>

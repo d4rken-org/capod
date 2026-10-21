@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Rodo antrą pranešimą, kuris rodomas tik tada, kai įrenginys prijungtas. Jei tai įjungta, galite paslėpti nuolatinį „Nėra įrenginių\" pranešimą: Android CAPod pranešimų nustatymuose išjunkite „Įrenginio būsena\" kategoriją.</string>
     <string name="settings_keep_notification_after_disconnect_label">Palikti pranešimą atjungus</string>
     <string name="settings_keep_notification_after_disconnect_description">Toliau rodyti paskutinį žinomą baterijos lygį net ir atjungus „AirPods\"</string>
+    <string name="settings_monitor_statusbar_battery_label">Baterijos lygis būsenos juostoje</string>
+    <string name="settings_monitor_statusbar_battery_description">Būsenos juostoje pranešimo piktograma rodo baterijos procentą. Ausinėms rodomas mažesnis iš dviejų, praleidžiant tą, kuri kraunasi.</string>
     <string name="settings_autopause_label">Automatinė pauzė</string>
     <string name="settings_autopause_description">Pristabdyti garsą išėmus įrenginį iš ausies.</string>
     <string name="settings_autopplay_label">Automatinis grojimas</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Tik ausinukai</string>
     <string name="settings_charged_scope_case_label">Tik dėklas</string>
     <string name="settings_charged_scope_both_label">Ausinukai ir dėklas</string>
+    <string name="settings_caselow_reminder_label">Dėklo baterijos priminimas</string>
+    <string name="settings_caselow_reminder_description">Priminti įkrauti dėklą, kai įdedu ausines atgal, o dėklo baterija senka.</string>
+    <string name="settings_caselow_threshold_label">Priminimo lygis</string>
     <string name="device_settings_experimental_title">Eksperimentinė funkcija</string>
     <string name="device_settings_experimental_description">Ši funkcija dar neišbandyta visuose įrenginiuose. Jei kažkas neveikia tinkamai, atidarykite problemų sąrašą su derinimo žurnalu.</string>
     <string name="device_settings_experimental_action">Atidaryti problemų sąrašą</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Šį pranešimą galite išjungti sistemos nustatymuose.</string>
     <string name="monitor_notification_starting">Paleidžiama…</string>
     <string name="support_debuglog_label">Derinimo žurnalas</string>
-    <string name="support_debuglog_desc">Įrašykite viską, ką daro programa, į tekstinį failą, kurį galite bendrinti.</string>
+    <string name="support_debuglog_desc">Įrašyk viską, ką daro programa, į zip failą, kuriuo gali dalytis.</string>
     <string name="debug_debuglog_record_action">Įrašyti derinimo žurnalą</string>
     <string name="debug_debuglog_stop_action">Stabdyti įrašymą</string>
     <string name="debug_debuglog_sensitive_information_message">Sugeneruotame faile yra slaptos informacijos (pvz., „Bluetooth\" įrenginio informacija). Bendrinkite jį tik su patikimomis šalimis.</string>
@@ -208,7 +213,7 @@
     <string name="permission_ignore_battery_optimizations_label">Išjungti baterijos optimizavimą</string>
     <string name="permission_ignore_battery_optimizations_description">Baterijos optimizavimas neleidžia šiai programai patikimai gauti „Bluetooth\" duomenų, kai programa veikia fone.</string>
     <string name="permission_system_alert_window_label">Sistemos perspėjimo langas</string>
-    <string name="permission_system_alert_window_description">Leiskite CAPod piešti virš kitų programų, kad būtų galima naudoti funkciją „Rodyti iškylantįjį langą\".</string>
+    <string name="permission_system_alert_window_description">Leisk CAPod rodyti turinį virš kitų programų. Reikalinga funkcijai „Rodyti iššokantįjį langą“ ir balso asistentui atidaryti paspaudus AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kai pastebėtas</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Dėklas atidarytas</string>
     <string name="settings_reaction_autoconnect_inear_label">Ausyje</string>
@@ -235,6 +240,8 @@
     <string name="battery_case_charges_state_enough_cd">Pakankamai pilnam įkrovimui</string>
     <string name="battery_case_charges_state_not_enough_cd">Nepakaks pilnam įkrovimui</string>
     <string name="battery_case_charges_state_uncertain_cd">Gali nepakakti pilnam įkrovimui</string>
+    <string name="battery_case_charges_short">%1$s įkrovimo</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ įkrovimo</string>
     <string name="pods_case_status_open_label">Atidarytas</string>
     <string name="pods_case_status_closed_label">Uždarytas</string>
     <string name="pods_connection_state_disconnected_label">Neprijungtas prie įrenginio</string>
@@ -463,7 +470,7 @@
     <string name="device_settings_volume_swipe_length_longer">Ilgiau</string>
     <string name="device_settings_volume_swipe_length_longest">Ilgiausiai</string>
     <string name="device_settings_end_call_mute_mic_label">Skambučių valdikliai</string>
-    <string name="device_settings_end_call_mute_mic_description">Pasirinkite, ką kotelį nuspaudus daryti skambučių metu</string>
+    <string name="device_settings_end_call_mute_mic_description">Pasirink, ką paspaudimai daro skambučių metu</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Vienas paspaudimas baigia skambučį</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dvigubas paspaudimas nutildyti mikrofoną</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Vienas paspaudimas nutildyti mikrofoną</string>
@@ -503,6 +510,9 @@
     <string name="reaction_charged_notification_title">Įkrovimas baigtas</string>
     <string name="reaction_charged_notification_text_full">%1$s viškai įkrautas.</string>
     <string name="reaction_charged_notification_text_partial">%1$s įkrautas iki %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Dėklo baterijos priminimas</string>
+    <string name="reaction_caselow_notification_title">Įkrauk dėklą</string>
+    <string name="reaction_caselow_notification_text">%1$s: dėklo baterija yra %2$d%%.</string>
     <string name="device_settings_rename_label">Pervadinti</string>
     <string name="device_settings_rename_hint">Įrenginio pavadinimas</string>
     <string name="device_settings_rename_confirm">Pervadinti</string>
@@ -526,7 +536,7 @@
     <string name="device_settings_eq_label">Ekvalaizeris</string>
     <string name="press_controls_title">Paspaudimo valdikliai</string>
     <string name="press_controls_nav_description">Tinkinti paspaudimo elgseną ir priskirti paspaudimams veiksmus</string>
-    <string name="press_controls_description">Tinkinkite, kaip aptinkami paspaudimai, pasirinkite skambinimo mygtuko elgseną ir priskirkite paspaudimams veiksmus. Priskirti veiksmai taikomi tik šiam įrenginiui ir leidžia programai perimti paspaudimą vietoj to, kad tai darytų pačios AirPods.</string>
+    <string name="press_controls_description">Pakoreguok, kaip aptinkami paspaudimai, pasirink skambučio mygtuko elgseną ir susiek paspaudimus su veiksmais. Priskirti veiksmai taikomi tik šiam įrenginiui ir leidžia programai perimti paspaudimą, užuot leidus ausinėms jį apdoroti savarankiškai.</string>
     <string name="press_controls_single_press">Vienas paspaudimas</string>
     <string name="press_controls_double_press">Du paspaudimai</string>
     <string name="press_controls_triple_press">Trys paspaudimai</string>
@@ -548,8 +558,12 @@
     <string name="press_action_rewind">Atsukti atgal</string>
     <string name="press_action_cycle_anc">Triukšmo valdymo ciklas</string>
     <string name="press_action_toggle_anc_transparency">Perjungti skaidrumą</string>
+    <string name="press_action_voice_assistant">Balso asistentas</string>
+    <string name="press_action_voice_assistant_unavailable">Balso asistento nerasta</string>
     <string name="press_controls_reset_label">Atstatyti numatytuosius</string>
     <string name="press_controls_reset_confirm_message">Atstatyti visus paspaudimų priskyrimus į numatytuosius?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Balso asistentui reikia leidimo rodyti turinį virš kitų programų, kitaip paspaudus AirPods jis neatsidarys.</string>
+    <string name="press_controls_voice_assistant_permission_action">Suteikti</string>
     <string name="device_settings_noise_control_open_press_controls_action">Atidaryti paspaudimo valdiklius</string>
     <string name="general_navigate_up_action">Eiti aukštyn</string>
     <string name="general_progress_loading">Įkeliama</string>

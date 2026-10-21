@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ ಮಾತ್ರ ಕಾಣಿಸಿಕೊಳ್ಳುವ ಎರಡನೇ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದನ್ನು ಆನ್ ಮಾಡಿದಾಗ, ನೀವು ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಬಹುದು: CAPod ಗಾಗಿ Android ನ ಅಧಿಸೂಚನೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ \"ಸಾಧನ ಸ್ಥಿತಿ\" ವರ್ಗವನ್ನು ಆಫ್ ಮಾಡಿ.</string>
     <string name="settings_keep_notification_after_disconnect_label">ಸಂಪರ್ಕ ಕಡಿತದ ನಂತರ ಅಧಿಸೂಚನೆ ಇರಿಸಿ</string>
     <string name="settings_keep_notification_after_disconnect_description">ನಿಮ್ಮ AirPods ಸಂಪರ್ಕ ಕಡಿತವಾದ ನಂತರವೂ ಕೊನೆಯ ತಿಳಿದಿರುವ ಬ್ಯಾಟರಿ ಮಟ್ಟವನ್ನು ತೋರಿಸುವುದನ್ನು ಮುಂದುವರಿಸಿ</string>
+    <string name="settings_monitor_statusbar_battery_label">ಸ್ಟೇಟಸ್ ಬಾರ್‌ನಲ್ಲಿ ಬ್ಯಾಟರಿ ಮಟ್ಟ</string>
+    <string name="settings_monitor_statusbar_battery_description">ಸ್ಟೇಟಸ್ ಬಾರ್‌ನಲ್ಲಿ ಅಧಿಸೂಚನೆ ಐಕಾನ್ ಆಗಿ ಬ್ಯಾಟರಿ ಶೇಕಡಾವಾರನ್ನು ತೋರಿಸುತ್ತದೆ. ಇಯರ್‌ಬಡ್‌ಗಳಿಗಾಗಿ, ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವುದನ್ನು ಬಿಟ್ಟು, ಇವೆರಡರಲ್ಲಿ ಕಡಿಮೆ ಮಟ್ಟವನ್ನು ತೋರಿಸಲಾಗುತ್ತದೆ.</string>
     <string name="settings_autopause_label">ಸ್ವಯಂ-ವಿರಾಮ</string>
     <string name="settings_autopause_description">ನಿಮ್ಮ ಕಿವಿಯಿಂದ ಸಾಧನವನ್ನು ತೆಗೆದುಹಾಕಿದಾಗ ಆಡಿಯೊವನ್ನು ವಿರಾಮಗೊಳಿಸಿ.</string>
     <string name="settings_autopplay_label">ಸ್ವಯಂ-ಪ್ಲೇ</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">ಪಾಡ್‌ಗಳು ಮಾತ್ರ</string>
     <string name="settings_charged_scope_case_label">ಕೇಸ್ ಮಾತ್ರ</string>
     <string name="settings_charged_scope_both_label">ಪಾಡ್‌ಗಳು ಮತ್ತು ಕೇಸ್</string>
+    <string name="settings_caselow_reminder_label">ಕೇಸ್ ಬ್ಯಾಟರಿ ನೆನಪಿನ ಸೂಚನೆ</string>
+    <string name="settings_caselow_reminder_description">ಪಾಡ್‌ಗಳನ್ನು ಮತ್ತೆ ಇಟ್ಟಾಗ ಕೇಸ್ ಬ್ಯಾಟರಿ ಕಡಿಮೆಯಿದ್ದರೆ, ಕೇಸ್ ಚಾರ್ಜ್ ಮಾಡಲು ನೆನಪಿಸಿ.</string>
+    <string name="settings_caselow_threshold_label">ನೆನಪಿನ ಸೂಚನೆ ಮಟ್ಟ</string>
     <string name="device_settings_experimental_title">ಪ್ರಯೋಗಾತ್ಮಕ ವೈಶಿಷ್ಟ್ಯ</string>
     <string name="device_settings_experimental_description">ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಇನ್ನೂ ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಪರೀಕ್ಷಿಸಲಾಗಿಲ್ಲ. ಏನಾದರೂ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಡಿಬಗ್ ಲಾಗ್‌ನೊಂದಿಗೆ ಸಮಸ್ಯೆ ತೆರೆಯಿರಿ.</string>
     <string name="device_settings_experimental_action">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ ತೆರೆಯಿರಿ</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಈ ಅಧಿಸೂಚನೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
     <string name="monitor_notification_starting">ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…</string>
     <string name="support_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
-    <string name="support_debuglog_desc">ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಪಠ್ಯ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
+    <string name="support_debuglog_desc">ಆ್ಯಪ್ ಮಾಡುತ್ತಿರುವ ಎಲ್ಲವನ್ನೂ ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ZIP ಫೈಲ್‌ನಲ್ಲಿ ದಾಖಲಿಸಿ.</string>
     <string name="debug_debuglog_record_action">ಡೀಬಗ್ ಲಾಗ್ ರೆಕಾರ್ಡ್ ಮಾಡಿ</string>
     <string name="debug_debuglog_stop_action">ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ</string>
     <string name="debug_debuglog_sensitive_information_message">ರಚಿಸಲಾದ ಫೈಲ್ ಸೂಕ್ಷ್ಮ ಮಾಹಿತಿಯನ್ನು (ಉದಾ. Bluetooth ಸಾಧನದ ವಿವರಗಳು) ಒಳಗೊಂಡಿದೆ. ಅದನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಪಕ್ಷಗಳೊಂದಿಗೆ ಮಾತ್ರ ಹಂಚಿಕೊಳ್ಳಿ.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="permission_ignore_battery_optimizations_description">ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳು ಅಪ್ಲಿಕೇಶನ್ ಹಿನ್ನೆಲೆಯಲ್ಲಿರುವಾಗ Bluetooth ಡೇಟಾವನ್ನು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಸ್ವೀಕರಿಸುವುದನ್ನು ತಡೆಯುತ್ತವೆ.</string>
     <string name="permission_system_alert_window_label">ಸಿಸ್ಟಮ್ ಅಲರ್ಟ್ ವಿಂಡೋ</string>
-    <string name="permission_system_alert_window_description">\"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಾಧ್ಯವಾಗಿಸಲು CAPod ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ.</string>
+    <string name="permission_system_alert_window_description">CAPod ಅನ್ನು ಇತರ ಆ್ಯಪ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ. “ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ” ವೈಶಿಷ್ಟ್ಯಕ್ಕೆ ಮತ್ತು ನಿಮ್ಮ AirPods ಮೇಲೆ ಒತ್ತಿದಾಗ ಧ್ವನಿ ಸಹಾಯಕವನ್ನು ತೆರೆಯಲು ಇದು ಅಗತ್ಯ.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ಕಂಡಾಗ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ಕೇಸ್ ತೆರೆದಿದೆ</string>
     <string name="settings_reaction_autoconnect_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">ಪೂರ್ಣ ಚಾರ್ಜಿಗೆ ಸಾಕು</string>
     <string name="battery_case_charges_state_not_enough_cd">ಪೂರ್ಣ ಚಾರ್ಜಿಗೆ ಸಾಕಿಲ್ಲ</string>
     <string name="battery_case_charges_state_uncertain_cd">ಪೂರ್ಣ ಚಾರ್ಜಿಗೆ ಸಾಕಾಗಿರುವುದಿಲ್ಲ ಆಗಿರಬಹುದು</string>
+    <string name="battery_case_charges_short">%1$s ಚಾರ್ಜ್‌ಗಳು</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ಚಾರ್ಜ್‌ಗಳು</string>
     <string name="pods_case_status_open_label">ತೆರೆದಿದೆ</string>
     <string name="pods_case_status_closed_label">ಮುಚ್ಚಿದೆ</string>
     <string name="pods_connection_state_disconnected_label">ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">ನೀಳವಾದುದು</string>
     <string name="device_settings_volume_swipe_length_longest">ತುಂಬ ನೀಳವಾದುದು</string>
     <string name="device_settings_end_call_mute_mic_label">ಕರೆ ನಿಯಂತ್ರಣಗಳು</string>
-    <string name="device_settings_end_call_mute_mic_description">ಕರೆಗಳ ಸಮಯದಲ್ಲಿ ಸ್ಟೆಮ್ ಒತ್ತುವಿದಾಗ ಏನಾಗುತ್ತದೆ ಎಂದು ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="device_settings_end_call_mute_mic_description">ಕರೆಗಳ ಸಮಯದಲ್ಲಿ ಒತ್ತುಗಳು ಏನು ಮಾಡಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ಕರೆ ಮುಗಿಸಲು ಒಂದು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ಮೈಕ್ ಮ್ಯೂಟ್ ಮಾಡಲು ಎರಡು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ಮೈಕ್ ಮ್ಯೂಟ್ ಮಾಡಲು ಒಂದು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">ಚಾರ್ಜಿಂಗ್ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
     <string name="reaction_charged_notification_text_full">%1$s ಸಂಪೂರ್ಣವಾಗಿ ಚಾರ್ಜ್ ಆಗಿದೆ.</string>
     <string name="reaction_charged_notification_text_partial">%1$s ಅನ್ನು %2$d%% ವರೆಗೆ ಚಾರ್ಜ್ ಮಾಡಲಾಗಿದೆ.</string>
+    <string name="reaction_caselow_channel_label">ಕೇಸ್ ಬ್ಯಾಟರಿ ನೆನಪಿನ ಸೂಚನೆ</string>
+    <string name="reaction_caselow_notification_title">ನಿಮ್ಮ ಕೇಸ್ ಚಾರ್ಜ್ ಮಾಡಿ</string>
+    <string name="reaction_caselow_notification_text">%1$s: ಕೇಸ್ ಬ್ಯಾಟರಿ %2$d%% ಇದೆ.</string>
     <string name="device_settings_rename_label">ಮರುಹೆಸರಿಸಿ</string>
     <string name="device_settings_rename_hint">ಸಾಧನ ಹೆಸರು</string>
     <string name="device_settings_rename_confirm">ಮರುಹೆಸರಿಸಿ</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ಇಕ್ವಲೈಯರ್</string>
     <string name="press_controls_title">ಪ್ರೆಸ್ ನಿಯಂತ್ರಣಗಳು</string>
     <string name="press_controls_nav_description">ಪ್ರೆಸ್ ನಡವಳಿಕೆಯನ್ನು ಸರಿಪಡಿಸಿ ಮತ್ತು ಪ್ರೆಸ್‌ಗಳನ್ನು ಕ್ರಿಯೆಗಳಿಗೆ ಮ್ಯಾಪ್ ಮಾಡಿ</string>
-    <string name="press_controls_description">ಪ್ರೆಸ್‌ಗಳನ್ನು ಹೇಗೆ ಪತ್ತೆ ಮಾಡಲಾಗುತ್ತದೆ ಎಂದು ಸರಿಪಡಿಸಿ, ಕಾಲ್-ಬಟನ್ ನಡವಳಿಕೆ ಆಯ್ಕೆ ಮಾಡಿ, ಮತ್ತು ಪ್ರೆಸ್‌ಗಳನ್ನು ಕ್ರಿಯೆಗಳಿಗೆ ಮ್ಯಾಪ್ ಮಾಡಿ. ಮ್ಯಾಪ್ ಮಾಡಿದ ಕ್ರಿಯೆಗಳು ಈ ಸಾಧನಕ್ಕೆ ಮಾತ್ರ ಅನ್ವಯಿಸುತ್ತವೆ ಮತ್ತು AirPods ಸ್ಥಳೀಯವಾಗಿ ನಿರ್ವಹಿಸುವ ಬದಲು ಅಪ್ಲಿಕೇಶನ್ ಪ್ರೆಸ್ ಅನ್ನು ತಡೆಯಲು ಅನುಮತಿಸುತ್ತದೆ.</string>
+    <string name="press_controls_description">ಒತ್ತುಗಳನ್ನು ಹೇಗೆ ಪತ್ತೆಹಚ್ಚಲಾಗುತ್ತದೆ ಎಂಬುದನ್ನು ಹೊಂದಿಸಿ, ಕರೆ ಬಟನ್ ವರ್ತನೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ, ಮತ್ತು ಒತ್ತುಗಳನ್ನು ಕ್ರಿಯೆಗಳಿಗೆ ಹೊಂದಿಸಿ. ಹೊಂದಿಸಿದ ಕ್ರಿಯೆಗಳು ಈ ಸಾಧನಕ್ಕೆ ಮಾತ್ರ ಅನ್ವಯಿಸುತ್ತವೆ ಮತ್ತು ಹೆಡ್‌ಫೋನ್‌ಗಳು ನೇರವಾಗಿ ನಿರ್ವಹಿಸುವ ಬದಲು ಆ್ಯಪ್ ಒತ್ತುವನ್ನು ತಡೆಹಿಡಿಯಲು ಅವಕಾಶ ನೀಡುತ್ತವೆ.</string>
     <string name="press_controls_single_press">ಒಂದು ಒತ್ತಡ</string>
     <string name="press_controls_double_press">ಎರಡು ಒತ್ತಡ</string>
     <string name="press_controls_triple_press">ಮೂರು ಒತ್ತಡ</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">ಹಿಂದಕ್ಕೆ ಹೋಗಿ</string>
     <string name="press_action_cycle_anc">ಶಬ್ದ ನಿಯಂತ್ರಣ ಸೈಕ್ಲ್ ಮಾಡಿ</string>
     <string name="press_action_toggle_anc_transparency">ಪಾರದರ್ಶಕತೆ ಟೊಗ್ಗಲ್ ಮಾಡಿ</string>
+    <string name="press_action_voice_assistant">ಧ್ವನಿ ಸಹಾಯಕ</string>
+    <string name="press_action_voice_assistant_unavailable">ಧ್ವನಿ ಸಹಾಯಕ ಸಿಗಲಿಲ್ಲ</string>
     <string name="press_controls_reset_label">ಡಿಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಿ</string>
     <string name="press_controls_reset_confirm_message">ಎಲ್ಲಾ ಪ್ರೆಸ್ ಮ್ಯಾಪಿಂಗ್‌ಗಳನ್ನು ಡಿಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸುವುದೇ?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ಧ್ವನಿ ಸಹಾಯಕಕ್ಕೆ ಇತರ ಆ್ಯಪ್‌ಗಳ ಮೇಲೆ ಪ್ರದರ್ಶಿಸಲು ಅನುಮತಿ ಬೇಕು, ಇಲ್ಲದಿದ್ದರೆ ನಿಮ್ಮ AirPods ಒತ್ತಿದಾಗ ಅದು ತೆರೆಯುವುದಿಲ್ಲ.</string>
+    <string name="press_controls_voice_assistant_permission_action">ಅನುಮತಿ ನೀಡಿ</string>
     <string name="device_settings_noise_control_open_press_controls_action">ಪ್ರೆಸ್ ನಿಯಂತ್ರಣಗಳನ್ನು ತೆರೆಯಿರಿ</string>
     <string name="general_navigate_up_action">ಮೇಲಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ</string>
     <string name="general_progress_loading">ಲೋಡ್ ಆಗುತ್ತಿದೆ</string>

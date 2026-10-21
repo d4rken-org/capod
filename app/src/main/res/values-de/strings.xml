@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Zeigt eine zweite Benachrichtigung an, die nur angezeigt wird, während ein Gerät verbunden ist. Damit kannst du die dauerhafte Benachrichtigung „Keine Geräte“ ausblenden: Deaktiviere in den Android-Benachrichtigungseinstellungen für CAPod die Kategorie „Gerätestatus“.</string>
     <string name="settings_keep_notification_after_disconnect_label">Benachrichtigung nach Trennung beibehalten</string>
     <string name="settings_keep_notification_after_disconnect_description">Zeigt weiterhin den letzten bekannten Akkustand an, auch wenn die Verbindung zu deinen AirPods getrennt wurde</string>
+    <string name="settings_monitor_statusbar_battery_label">Akkustand in der Statusleiste</string>
+    <string name="settings_monitor_statusbar_battery_description">Zeigt den Akkustand in Prozent als Benachrichtigungssymbol in der Statusleiste an. Bei Ohrhörern wird der niedrigere der beiden Werte angezeigt, wobei ein gerade ladender Ohrhörer übersprungen wird.</string>
     <string name="settings_autopause_label">Automatische Pause</string>
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Nur Pods</string>
     <string name="settings_charged_scope_case_label">Nur Case</string>
     <string name="settings_charged_scope_both_label">Pods und Case</string>
+    <string name="settings_caselow_reminder_label">Erinnerung an Akkustand des Case</string>
+    <string name="settings_caselow_reminder_description">Erinnere mich daran, das Case aufzuladen, wenn ich die Ohrhörer zurücklege und der Akkustand des Case niedrig ist.</string>
+    <string name="settings_caselow_threshold_label">Erinnerungsstufe</string>
     <string name="device_settings_experimental_title">Experimentelle Funktion</string>
     <string name="device_settings_experimental_description">Diese Funktion wurde noch nicht auf allen Geräten getestet. Wenn etwas nicht korrekt funktioniert, öffne bitte ein Issue mit einem Debug-Log.</string>
     <string name="device_settings_experimental_action">Issue-Tracker öffnen</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Du kannst diese Benachrichtigung in den Systemeinstellungen deaktivieren.</string>
     <string name="monitor_notification_starting">Wird gestartet…</string>
     <string name="support_debuglog_label">Debug-Protokoll</string>
-    <string name="support_debuglog_desc">Zeichne alle Aktivitäten der App in einer Textdatei auf, die du weitergeben kannst.</string>
+    <string name="support_debuglog_desc">Alle Aktivitäten der App in einer ZIP-Datei aufzeichnen, die du teilen kannst.</string>
     <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>
     <string name="debug_debuglog_stop_action">Aufnahme beenden</string>
     <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält vertrauliche Informationen (z. B. Bluetooth-Gerätedetails). Gebe sie nur an vertrauenswürdige Parteien weiter.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Batterie Optimierung deaktivieren</string>
     <string name="permission_ignore_battery_optimizations_description">Batterie Optimierung hindert die App daran Bluetooth Daten zu erhalten während die App im Hintergrund ist.</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
-    <string name="permission_system_alert_window_description">Erlaube CAPod, PopUp Benachrichtigungen über anderen Apps anzuzeigen.</string>
+    <string name="permission_system_alert_window_description">Erlaube CAPod, über anderen Apps zu zeichnen. Wird für die Funktion „PopUp anzeigen“ benötigt und um den Sprachassistenten per Druck auf deine AirPods zu öffnen.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wann gesehen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ladecase ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
@@ -449,7 +454,7 @@
     <string name="device_settings_volume_swipe_length_longer">Länger</string>
     <string name="device_settings_volume_swipe_length_longest">Am längsten</string>
     <string name="device_settings_end_call_mute_mic_label">Anrufsteuerung</string>
-    <string name="device_settings_end_call_mute_mic_description">Wähle, was das Drücken am Stiel während Anrufen bewirkt</string>
+    <string name="device_settings_end_call_mute_mic_description">Wähle aus, welche Tasten während eines Anrufs welche Funktionen ausführen sollen</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Einmaliges Drücken zum Beenden des Anrufs</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Zweimaliges Drücken zum Stummschalten des Mikrofons</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Einmaliges Drücken zum Stummschalten des Mikrofons</string>
@@ -489,6 +494,9 @@
     <string name="reaction_charged_notification_title">Laden abgeschlossen</string>
     <string name="reaction_charged_notification_text_full">%1$s ist vollständig geladen.</string>
     <string name="reaction_charged_notification_text_partial">%1$s wurde auf %2$d%% geladen.</string>
+    <string name="reaction_caselow_channel_label">Erinnerung an Akkustand des Case</string>
+    <string name="reaction_caselow_notification_title">Case aufladen</string>
+    <string name="reaction_caselow_notification_text">%1$s: Der Akku des Case ist bei %2$d%%.</string>
     <string name="device_settings_rename_label">Umbenennen</string>
     <string name="device_settings_rename_hint">Gerätename</string>
     <string name="device_settings_rename_confirm">Umbenennen</string>
@@ -512,7 +520,7 @@
     <string name="device_settings_eq_label">Equalizer</string>
     <string name="press_controls_title">Tastensteuerung</string>
     <string name="press_controls_nav_description">Tastenverhalten anpassen und Tasten Aktionen zuweisen</string>
-    <string name="press_controls_description">Passe an, wie Drücken erkannt wird, wähle das Verhalten der Anruftaste und weise Tasten Aktionen zu. Zugewiesene Aktionen gelten nur für dieses Gerät und lassen die App den Druck abfangen, anstatt ihn nativ durch die AirPods zu verarbeiten.</string>
+    <string name="press_controls_description">Passe die Erkennung von Tastendrücken an, lege das Verhalten der Ruftaste fest und ordne Tastendrücke bestimmten Aktionen zu. Die zugewiesenen Aktionen gelten nur für dieses Gerät und ermöglichen es der App, den Tastendruck abzufangen, anstatt dass die Kopfhörer ihn nativ verarbeiten.</string>
     <string name="press_controls_single_press">Einmal drücken</string>
     <string name="press_controls_double_press">Zweimal drücken</string>
     <string name="press_controls_triple_press">Dreimal drücken</string>
@@ -534,8 +542,12 @@
     <string name="press_action_rewind">Zurückspulen</string>
     <string name="press_action_cycle_anc">Geräuschsteuerung durchschalten</string>
     <string name="press_action_toggle_anc_transparency">Transparenz umschalten</string>
+    <string name="press_action_voice_assistant">Sprachassistent</string>
+    <string name="press_action_voice_assistant_unavailable">Kein Sprachassistent gefunden</string>
     <string name="press_controls_reset_label">Auf Standardwerte zurücksetzen</string>
     <string name="press_controls_reset_confirm_message">Alle Tastenzuweisungen zurücksetzen?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Der Sprachassistent benötigt die Berechtigung, über anderen Apps angezeigt zu werden, da er sich sonst nicht durch Drücken auf die AirPods öffnen lässt.</string>
+    <string name="press_controls_voice_assistant_permission_action">Gewähren</string>
     <string name="device_settings_noise_control_open_press_controls_action">Tastensteuerung öffnen</string>
     <string name="general_navigate_up_action">Nach oben navigieren</string>
     <string name="general_progress_loading">Wird geladen</string>

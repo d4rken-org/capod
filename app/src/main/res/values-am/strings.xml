@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">አንድ መሣሪያ ሲገናኝ ተጨማሪ ማሳወቂያ ያሳያል። ይህ የ \"የመሣሪያ ሁኔታ\" ቻናልን በማሰናከል ቋሚውን \"ምንም መሣሪያዎች የሉም\" የሚለውን ማሳወቂያ እንዲደብቁ ያስችልዎታል።</string>
     <string name="settings_keep_notification_after_disconnect_label">ከተነተቀ በኋላ ማሳወቂያውን ይያዙ</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ከተነተቁ በኋላም የመጨረሻውን የታወቀ የባትሪ ደረጃ ማሳየቱን ይቀጥሉ</string>
+    <string name="settings_monitor_statusbar_battery_label">የባትሪ ደረጃ በሁኔታ አሞሌ ውስጥ</string>
+    <string name="settings_monitor_statusbar_battery_description">የባትሪውን መቶኛ እንደ ማሳወቂያ አዶ በሁኔታ አሞሌ ውስጥ ያሳያል። ለጆሮ ማዳመጫዎች ከሁለቱ ዝቅተኛው ይታያል፣ እየሞላ ያለው ይዘለላል።</string>
     <string name="settings_autopause_label">ራስ-ሰር ለአፍታ ማቆም</string>
     <string name="settings_autopause_description">መሳሪያውን ከጆሮዎ ሲያወጡ ድምጽን ለአፍታ ያቁሙ።</string>
     <string name="settings_autopplay_label">ራስ-ሰር አጫውት</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">ፖድስ ብቻ</string>
     <string name="settings_charged_scope_case_label">ኬዝ ብቻ</string>
     <string name="settings_charged_scope_both_label">ፖድስ እና ኬዝ</string>
+    <string name="settings_caselow_reminder_label">የኬዝ ባትሪ አስታዋሽ</string>
+    <string name="settings_caselow_reminder_description">ፖዶቹን መልሼ ሳስገባ እና የኬዙ ባትሪ ዝቅተኛ ሲሆን ኬዙን እንድሞላ አስታውሰኝ።</string>
+    <string name="settings_caselow_threshold_label">የአስታዋሽ ደረጃ</string>
     <string name="device_settings_experimental_title">ሙከራዊ ባህሪ</string>
     <string name="device_settings_experimental_description">ይህ ባህሪ በሁሉም መሳሪያዎች ላይ ገና አልተሞከረም። ሆኖም ካልሰራ፣ እባክዎ የዲበግ ምዝግብ ማስታወሻ ጨምረው ጉዳዩን ይክፈቱ።</string>
     <string name="device_settings_experimental_action">የጉዳይ መከታተያ ክፈት</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ይህን ማሳወቂያ በስርዓት ቅንብሮች ውስጥ ማሰናከል ይቻላል።</string>
     <string name="monitor_notification_starting">ጀምሮ ነው…</string>
     <string name="support_debuglog_label">የማረሚያ ምዝግብ</string>
-    <string name="support_debuglog_desc">መተግበሪያው የሚያደርገውን ሁሉ ሊያጋሩት በሚችሉት የጽሑፍ ፋይል ውስጥ ይመዝግቡ።</string>
+    <string name="support_debuglog_desc">መተግበሪያው የሚያደርገውን ሁሉ ማጋራት በሚችሉት ዚፕ ፋይል ውስጥ ይቅዱ።</string>
     <string name="debug_debuglog_record_action">የማረሚያ ምዝግብ ቅዳ</string>
     <string name="debug_debuglog_stop_action">መቅዳት አቁም</string>
     <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ሚስጥራዊ መረጃ (ለምሳሌ የብሉቱዝ መሣሪያ ዝርዝሮች) ይዟል። ለታመኑ ወገኖች ብቻ ያጋሩት።</string>
@@ -100,7 +105,7 @@
     <string name="settings_overview_hide_unmatched_label">ያልተዛመዱ መሳሪያዎችን ደብቅ</string>
     <string name="settings_overview_hide_unmatched_description">ከፕሮፋይሎቻቸው ጋር የማይዛመዱ አቅራቢያ ያሉ መሳሪያዎችን በዝርዝሩ ውስጥ አታሳይ፣ ለምሳሌ የሌሎች ሰዎች AirPods።</string>
     <string name="device_battery_estimate_toggle_label">ባትሪ ግምቶች</string>
-    <string name="device_battery_estimate_card_desc">ይህ መሳሪያ እንዴት ሲሞላ እና እንደሚወድ በመማር ተቀሩትን ጊዜ፣ ሞላ ሲሳ የሚቆይ ጊዜ እና ባትሪ ጤናን ግምት ማድረግ ይችላሉ።</string>
+    <string name="device_battery_estimate_card_desc">ይህ መሣሪያ እንዴት እንደሚሞላና እንደሚያልቅ ይወቁ፤ ይህም የቀረውን ጊዜ፣ እስኪሞላ ድረስ ያለውን ጊዜ እና ከተገለጸው የማዳመጥ ጊዜው ምን ያህሉን እንደሚደርስ ለመገመት ይረዳል።</string>
     <string name="device_battery_estimate_reset_action">የተማረውን ዳታ ዳግም ያስጀምሩ</string>
     <string name="device_battery_estimate_reset_desc">ተወሰነ ባትሪ ዕድሜ ሪጀምር።</string>
     <string name="device_battery_estimate_reset_confirm_title">የተማረውን ዳታ ዳግም ያስጀምራሉ?</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">የባትሪ ማመቻቸቶችን አሰናክል</string>
     <string name="permission_ignore_battery_optimizations_description">የባትሪ ማመቻቸቶች ይህ መተግበሪያ በዳራ ውስጥ ሳለ በአስተማማኝ ሁኔታ Bluetooth መረጃ እንዳይቀበል ይከለክላል።</string>
     <string name="permission_system_alert_window_label">የስርዓት ማስጠንቀቂያ መስኮት</string>
-    <string name="permission_system_alert_window_description">\"ብቅ-ባይ አሳይ\" ባህሪውን ለማስቻል CAPod በሌሎች መተግበሪያዎች ላይ እንዲሳል ፍቀድ።</string>
+    <string name="permission_system_alert_window_description">CAPod በሌሎች መተግበሪያዎች ላይ እንዲታይ ይፍቀዱ። ለ\"ብቅ-ባይ አሳይ\" ባህሪ እና በAirPods ላይ በመጫን የድምፅ ረዳትን ለመክፈት ያስፈልጋል።</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ሲታይ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ኬዝ ክፍት ነው</string>
     <string name="settings_reaction_autoconnect_inear_label">በጆሮ ውስጥ</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">ሙሉ ሙሎት ሞቅ ነው</string>
     <string name="battery_case_charges_state_not_enough_cd">ሙሉ ሙሎት ሞቅ አይደለም</string>
     <string name="battery_case_charges_state_uncertain_cd">ሙሉ ሙሎት ሞቅ ላይሆን ይችላል</string>
+    <string name="battery_case_charges_short">%1$s ሙሌቶች</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ሙሌቶች</string>
     <string name="pods_case_status_open_label">ክፍት</string>
     <string name="pods_case_status_closed_label">ዝግ</string>
     <string name="pods_connection_state_disconnected_label">ከመሣሪያ ጋር አልተገናኘም</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">ረዘም</string>
     <string name="device_settings_volume_swipe_length_longest">በጣም ረዘም</string>
     <string name="device_settings_end_call_mute_mic_label">ጥሪ ቅጥጥሮች</string>
-    <string name="device_settings_end_call_mute_mic_description">ጥሪዎች ሲደረጉ ምሉ ጀን ምን እንዲሰራ እንደሚፍሉጉ ይምረጡ</string>
+    <string name="device_settings_end_call_mute_mic_description">በጥሪ ጊዜ መጫን ምን እንደሚያደርግ ይምረጡ</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ጥሪን ለመጨረስ አንድ ጊዜ ጀን</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ማይክሮፎኑን ለማጥፈት ሁለት ጊዜ ጀን</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ማይክሮፎኑን ለማጥፈት አንድ ጊዜ ጀን</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">ኃይል መሙላት ተጠናቋል</string>
     <string name="reaction_charged_notification_text_full">%1$s ሙሉ በሙሉ ተሞልቷል።</string>
     <string name="reaction_charged_notification_text_partial">%1$s ወደ %2$d%% ተሞልቷል።</string>
+    <string name="reaction_caselow_channel_label">የኬዝ ባትሪ አስታዋሽ</string>
+    <string name="reaction_caselow_notification_title">ኬዝዎን ይሙሉ</string>
+    <string name="reaction_caselow_notification_text">%1$s: የኬዝ ባትሪ %2$d%% ላይ ነው።</string>
     <string name="device_settings_rename_label">ስም ቀይር</string>
     <string name="device_settings_rename_hint">የመሣሪያ ስም</string>
     <string name="device_settings_rename_confirm">ስም ቀይር</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ኣዯካሉ</string>
     <string name="press_controls_title">የጫና ቁጥጥሮች</string>
     <string name="press_controls_nav_description">የጫና ባህሪን ያስተካክሉ እና ጫናወችን ወደ ድርጊቶች ያስሩ</string>
-    <string name="press_controls_description">ጫናወች እንዴት እንደሚታወቁ ያስተካክሉ፣ የጊሪ-ቅሉፍ ባህሪ ይምረጡ፣ እና ጫናወችን ወደ ድርጊቶች ያስሩ። የታሰሩ ድርጊቶች ለዚህ መሳሪያ ብቻ ይተገበራሉ እና ጫናው AirPods ይዖው ከመያዑ ይልቅ አፕ እንዲያዘ ያስችላሉ።</string>
+    <string name="press_controls_description">መጫን እንዴት እንደሚታወቅ ያስተካክሉ፣ የጥሪ አዝራር ባህሪን ይምረጡ እና መጫኖችን ከድርጊቶች ጋር ያገናኙ። የተገናኙ ድርጊቶች ለዚህ መሣሪያ ብቻ ይሠራሉ እና የጆሮ ማዳመጫው በራሱ እንዲያስተናግድ ከመተው ይልቅ መተግበሪያው መጫኑን እንዲጠልፍ ያደርጋሉ።</string>
     <string name="press_controls_single_press">አንድ ጊዜ ጫና</string>
     <string name="press_controls_double_press">ሁለቱ ጊዜ ጫና</string>
     <string name="press_controls_triple_press">ሰሰት ጊዜ ጫና</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">ወደ ኋላ</string>
     <string name="press_action_cycle_anc">የጫጫታ ቁጥጥርን ዙደት</string>
     <string name="press_action_toggle_anc_transparency">ግልጸነት ቀያይር</string>
+    <string name="press_action_voice_assistant">የድምፅ ረዳት</string>
+    <string name="press_action_voice_assistant_unavailable">ምንም የድምፅ ረዳት አልተገኘም</string>
     <string name="press_controls_reset_label">ወደ ነባሪወችት ዳግም አስጀምር</string>
     <string name="press_controls_reset_confirm_message">ሁሉም የጫና ካርታወችን ወደ ነባሪወችት ዳግም ይጀምሩ?</string>
+    <string name="press_controls_voice_assistant_permission_hint">የድምፅ ረዳት በሌሎች መተግበሪያዎች ላይ ለመታየት ፈቃድ ያስፈልገዋል፣ አለበለዚያ AirPods ላይ መጫን አይከፍተውም።</string>
+    <string name="press_controls_voice_assistant_permission_action">ፍቀድ</string>
     <string name="device_settings_noise_control_open_press_controls_action">የጫና ቁጥጥሮችን ክፈት</string>
     <string name="general_navigate_up_action">ወደ ላይ ይሂዱ</string>
     <string name="general_progress_loading">መጫን</string>

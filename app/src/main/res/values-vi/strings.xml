@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Hiển thị một thông báo thứ hai chỉ xuất hiện khi có thiết bị đang kết nối. Khi bật tùy chọn này, bạn có thể ẩn thông báo \"Không có thiết bị\" thường trực: tắt danh mục \"Trạng thái thiết bị\" trong phần cài đặt thông báo của CAPod trên Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Giữ thông báo sau khi ngắt kết nối</string>
     <string name="settings_keep_notification_after_disconnect_description">Tiếp tục hiển thị mức pin đã biết gần nhất ngay cả sau khi AirPods của bạn ngắt kết nối</string>
+    <string name="settings_monitor_statusbar_battery_label">Mức pin trên thanh trạng thái</string>
+    <string name="settings_monitor_statusbar_battery_description">Hiển thị phần trăm pin làm biểu tượng thông báo trên thanh trạng thái. Với tai nghe, mức thấp hơn trong hai bên sẽ được hiển thị, bỏ qua bên đang sạc.</string>
     <string name="settings_autopause_label">Tự động tạm dừng</string>
     <string name="settings_autopause_description">Tạm dừng âm thanh khi tháo thiết bị khỏi tai bạn.</string>
     <string name="settings_autopplay_label">Tự động phát</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Chỉ tai nghe</string>
     <string name="settings_charged_scope_case_label">Chỉ hộp sạc</string>
     <string name="settings_charged_scope_both_label">Tai nghe và hộp sạc</string>
+    <string name="settings_caselow_reminder_label">Nhắc nhở pin hộp sạc</string>
+    <string name="settings_caselow_reminder_description">Nhắc tôi sạc hộp khi tôi cất tai nghe vào lại và pin hộp sạc yếu.</string>
+    <string name="settings_caselow_threshold_label">Mức nhắc nhở</string>
     <string name="device_settings_experimental_title">Tính năng thử nghiệm</string>
     <string name="device_settings_experimental_description">Tính năng này chưa được kiểm tra trên tất cả thiết bị. Nếu có gì đó không hoạt động đúng, vui lòng mở một vấn đề với nhật ký gỡ lỗi.</string>
     <string name="device_settings_experimental_action">Mở Trình theo dõi vấn đề</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Bạn có thể tắt thông báo này trong cài đặt hệ thống.</string>
     <string name="monitor_notification_starting">Khởi động...</string>
     <string name="support_debuglog_label">Nhật ký gỡ lỗi</string>
-    <string name="support_debuglog_desc">Ghi lại mọi thứ ứng dụng đang làm vào một tệp văn bản mà bạn có thể chia sẻ.</string>
+    <string name="support_debuglog_desc">Ghi lại mọi hoạt động của ứng dụng vào một tệp zip mà bạn có thể chia sẻ.</string>
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: chi tiết thiết bị Bluetooth). Chỉ chia sẻ với các bên đáng tin cậy.</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">Tắt tối ưu pin</string>
     <string name="permission_ignore_battery_optimizations_description">Tối ưu pin khiến ứng dụng này không thể nhận dữ liệu Bluetooth ổn định khi chạy nền.</string>
     <string name="permission_system_alert_window_label">Cửa sổ cảnh báo hệ thống</string>
-    <string name="permission_system_alert_window_description">Cho phép CAPod hiển thị đè lên các ứng dụng khác để tính năng Show PopUp hoạt động.</string>
+    <string name="permission_system_alert_window_description">Cho phép CAPod hiển thị trên các ứng dụng khác. Cần thiết cho tính năng \"Hiện PopUp\" và để mở trợ lý giọng nói khi nhấn vào AirPods của bạn.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Khi phát hiện</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Khi hộp mở</string>
     <string name="settings_reaction_autoconnect_inear_label">Trong tai</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">Đủ cho một lần sạc đầy</string>
     <string name="battery_case_charges_state_not_enough_cd">Không đủ cho một lần sạc đầy</string>
     <string name="battery_case_charges_state_uncertain_cd">Có thể không đủ cho một lần sạc đầy</string>
+    <string name="battery_case_charges_short">%1$s lần sạc</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ lần sạc</string>
     <string name="pods_case_status_open_label">Mở</string>
     <string name="pods_case_status_closed_label">Đóng</string>
     <string name="pods_connection_state_disconnected_label">Chưa kết nối với thiết bị</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">Dài hơn</string>
     <string name="device_settings_volume_swipe_length_longest">Dài nhất</string>
     <string name="device_settings_end_call_mute_mic_label">Điều khiển cuộc gọi</string>
-    <string name="device_settings_end_call_mute_mic_description">Chọn chức năng nhấn thân tai nghe trong cuộc gọi</string>
+    <string name="device_settings_end_call_mute_mic_description">Chọn chức năng của thao tác nhấn trong cuộc gọi</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Nhấn một lần để kết thúc cuộc gọi</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Nhấn hai lần để tắt tiếng micro</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Nhấn một lần để tắt tiếng micro</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">Sạc xong</string>
     <string name="reaction_charged_notification_text_full">%1$s đã sạc đầy.</string>
     <string name="reaction_charged_notification_text_partial">%1$s đã được sạc đến %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Nhắc nhở pin hộp sạc</string>
+    <string name="reaction_caselow_notification_title">Hãy sạc hộp của bạn</string>
+    <string name="reaction_caselow_notification_text">%1$s: pin hộp sạc còn %2$d%%.</string>
     <string name="device_settings_rename_label">Đổi tên</string>
     <string name="device_settings_rename_hint">Tên thiết bị</string>
     <string name="device_settings_rename_confirm">Đổi tên</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">Bộ cân bằng âm</string>
     <string name="press_controls_title">Điều khiển nhấn</string>
     <string name="press_controls_nav_description">Tiếnh chỉnh hành vi nhấn và ánh xạ nhấn thành hành động</string>
-    <string name="press_controls_description">Tiếnh chỉnh cách phát hiện nhấn, chọn hành vi nút gọi và ánh xạ nhấn thành hành động. Hành động được ánh xạ chỉ áp dụng cho thiết bị này và cho phép ứng dụng chặn nhấn thay vì để AirPods xử lý theo cách thông thường.</string>
+    <string name="press_controls_description">Tinh chỉnh cách phát hiện thao tác nhấn, chọn hành vi của nút cuộc gọi và gán thao tác nhấn cho các hành động. Các hành động được gán chỉ áp dụng cho thiết bị này và cho phép ứng dụng chặn thao tác nhấn thay vì để tai nghe xử lý theo mặc định.</string>
     <string name="press_controls_single_press">Nhấn một lần</string>
     <string name="press_controls_double_press">Nhấn hai lần</string>
     <string name="press_controls_triple_press">Nhấn ba lần</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">Tua lại</string>
     <string name="press_action_cycle_anc">Chu kỳ kiểm soát tiếng ồn</string>
     <string name="press_action_toggle_anc_transparency">Bật/Tắt trong suốt</string>
+    <string name="press_action_voice_assistant">Trợ lý giọng nói</string>
+    <string name="press_action_voice_assistant_unavailable">Không tìm thấy trợ lý giọng nói</string>
     <string name="press_controls_reset_label">Đặt lại mặc định</string>
     <string name="press_controls_reset_confirm_message">Đặt lại tất cả ánh xạ nhấn về mặc định?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Trợ lý giọng nói cần quyền hiển thị trên các ứng dụng khác, nếu không việc nhấn vào AirPods của bạn sẽ không mở được nó.</string>
+    <string name="press_controls_voice_assistant_permission_action">Chấp thuận</string>
     <string name="device_settings_noise_control_open_press_controls_action">Mở Điều khiển nhấn</string>
     <string name="general_navigate_up_action">Quay lại</string>
     <string name="general_progress_loading">Đang tải</string>

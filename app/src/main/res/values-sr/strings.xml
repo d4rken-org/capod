@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Приказује другу обавијест која се појављује само док је уређај повезан. Када је ово укључено, можете сакрити трајну обавијест „Нема уређаја“: искључите категорију „Статус уређаја“ у поставкама обавијести за CAPod у Android-у.</string>
     <string name="settings_keep_notification_after_disconnect_label">Задржи обавештење након прекида везе</string>
     <string name="settings_keep_notification_after_disconnect_description">Настави да приказује последње познате нивое батерије чак и након што се AirPods искључе</string>
+    <string name="settings_monitor_statusbar_battery_label">Ниво батерије у статусној траци</string>
+    <string name="settings_monitor_statusbar_battery_description">Приказује проценат батерије као иконицу обавештења у статусној траци. За слушалице се приказује нижи од два, осим оне која се тренутно пуни.</string>
     <string name="settings_autopause_label">Аутоматска пауза</string>
     <string name="settings_autopause_description">Паузирајте звук када уклоните уређај из ува.</string>
     <string name="settings_autopplay_label">Аутоматска репродукција</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Само слушалице</string>
     <string name="settings_charged_scope_case_label">Само кућиште</string>
     <string name="settings_charged_scope_both_label">Слушалице и кућиште</string>
+    <string name="settings_caselow_reminder_label">Подсетник за батерију кућишта</string>
+    <string name="settings_caselow_reminder_description">Подсети ме да напуним кућиште када вратим слушалице и када је батерија кућишта слаба.</string>
+    <string name="settings_caselow_threshold_label">Ниво за подсетник</string>
     <string name="device_settings_experimental_title">Експериментална функција</string>
     <string name="device_settings_experimental_description">Ова функција још увек није тестирана на свим уређајима. Ако нешто не ради исправно, молимо отворите пријаву са дневником отклањања грешака.</string>
     <string name="device_settings_experimental_action">Отвори праћач проблема</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Можете онемогућити ово обавештење у системским подешавањима.</string>
     <string name="monitor_notification_starting">Покретање…</string>
     <string name="support_debuglog_label">Дневник отклањања грешака</string>
-    <string name="support_debuglog_desc">Снимите све што апликација ради у текстуалну датотеку коју можете да делите.</string>
+    <string name="support_debuglog_desc">Бележи све што апликација ради у ZIP датотеку коју можеш да поделиш.</string>
     <string name="debug_debuglog_record_action">Сними дневник отклањања грешака</string>
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. детаље о Bluetooth уређају). Делите је само са поузданим странама.</string>
@@ -206,7 +211,7 @@
     <string name="permission_ignore_battery_optimizations_label">Онемогући оптимизацију батерије</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимизација батерије спречава ову апликацију да поуздано прима Bluetooth податке док ради у позадини.</string>
     <string name="permission_system_alert_window_label">Приказ преко других апликација</string>
-    <string name="permission_system_alert_window_description">Дозволите CAPod-у да се приказује преко других апликација да би функција \"Прикажи искачући прозор\" била могућа.</string>
+    <string name="permission_system_alert_window_description">Дозволи CAPod-у да црта преко других апликација. Потребно за функцију „Прикажи искачући прозор“ и за отварање гласовног асистента притиском на AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Када се види</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Футрола је отворена</string>
     <string name="settings_reaction_autoconnect_inear_label">У уху</string>
@@ -231,6 +236,8 @@
     <string name="battery_case_charges_state_enough_cd">Довољно за једно пуно пуњење</string>
     <string name="battery_case_charges_state_not_enough_cd">Није довољно за пуно пуњење</string>
     <string name="battery_case_charges_state_uncertain_cd">Можда није довољно за пуно пуњење</string>
+    <string name="battery_case_charges_short">%1$s пуњења</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ пуњења</string>
     <string name="pods_case_status_open_label">Отворено</string>
     <string name="pods_case_status_closed_label">Затворено</string>
     <string name="pods_connection_state_disconnected_label">Није повезано са уређајем</string>
@@ -456,7 +463,7 @@
     <string name="device_settings_volume_swipe_length_longer">Дуже</string>
     <string name="device_settings_volume_swipe_length_longest">Најдуже</string>
     <string name="device_settings_end_call_mute_mic_label">Контроле позива</string>
-    <string name="device_settings_end_call_mute_mic_description">Изаберите шта притисак дршце ради током позива</string>
+    <string name="device_settings_end_call_mute_mic_description">Изабери шта притисци раде током позива</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Једноструко притисак за завршавање позива</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Двоструко притисак за искључивање микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Једноструко притисак за искључивање микрофона</string>
@@ -496,6 +503,9 @@
     <string name="reaction_charged_notification_title">Пуњење завршено</string>
     <string name="reaction_charged_notification_text_full">%1$s је потпуно напуњен.</string>
     <string name="reaction_charged_notification_text_partial">%1$s је напуњен на %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Подсетник за батерију кућишта</string>
+    <string name="reaction_caselow_notification_title">Напуни кућиште</string>
+    <string name="reaction_caselow_notification_text">%1$s: батерија кућишта је на %2$d%%.</string>
     <string name="device_settings_rename_label">Преименуј</string>
     <string name="device_settings_rename_hint">Назив уређаја</string>
     <string name="device_settings_rename_confirm">Преименуј</string>
@@ -519,7 +529,7 @@
     <string name="device_settings_eq_label">Еквалаизер</string>
     <string name="press_controls_title">Контроле притиска</string>
     <string name="press_controls_nav_description">Подешавање понашања притиска и мапирање притисака на акције</string>
-    <string name="press_controls_description">Подесите начин откривања притисака, изаберите понашање дугмета за позив и мапирајте притиске на акције. Мапиране акције примењују се само на овај уређај и омогућавају апликацији да пресретне притисак уместо да AirPods управља њиме нативно.</string>
+    <string name="press_controls_description">Подеси препознавање притисака, изабери понашање дугмета за позив и повежи притиске с радњама. Повезане радње важе само за овај уређај и омогућавају апликацији да пресретне притисак уместо слушалица.</string>
     <string name="press_controls_single_press">Једноструки притисак</string>
     <string name="press_controls_double_press">Двоструки притисак</string>
     <string name="press_controls_triple_press">Троструки притисак</string>
@@ -541,8 +551,12 @@
     <string name="press_action_rewind">Премотај уназад</string>
     <string name="press_action_cycle_anc">Циклус контроле буке</string>
     <string name="press_action_toggle_anc_transparency">Укључи/искључи прозирност</string>
+    <string name="press_action_voice_assistant">Гласовни асистент</string>
+    <string name="press_action_voice_assistant_unavailable">Гласовни асистент није пронађен</string>
     <string name="press_controls_reset_label">Врати на подразумевано</string>
     <string name="press_controls_reset_confirm_message">Вратити сва мапирања притисака на подразумевано?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Гласовном асистенту је потребна дозвола за приказ преко других апликација, иначе притисак на AirPods неће да га отвори.</string>
+    <string name="press_controls_voice_assistant_permission_action">Дозволи</string>
     <string name="device_settings_noise_control_open_press_controls_action">Отвори контроле притиска</string>
     <string name="general_navigate_up_action">Назад</string>
     <string name="general_progress_loading">Учитавање</string>

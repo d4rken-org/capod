@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Mussa ina segunda notificaziun che cumpara mo cur ch\'in apparat è connectà. Cun questa funcziun activada, pos zuppentar la notificaziun permanenta \"Nagins apparats\": deactivescha la categoria \"Status da l\'apparat\" en las configuraziuns da notificaziuns d\'Android per CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantegnair la notificaziun suenter la deconnexiun</string>
     <string name="settings_keep_notification_after_disconnect_description">Cuntinuar da mussar ils davos nivels da battaria enconuschents er suenter che Voss AirPods sa deconnectan</string>
+    <string name="settings_monitor_statusbar_battery_label">Nivel da batteria en la barra da statut</string>
+    <string name="settings_monitor_statusbar_battery_description">Mussa il percentage da la batteria sco icona da notificaziun en la barra da statut. Per ils auricularis vegn mussà il pli bass dals dus, excluds quels che vegnan chargiai.</string>
     <string name="settings_autopause_label">Pausa automata</string>
     <string name="settings_autopause_description">Interrumper l\'audio cura che l\'apparat vegn allontanà da l\'ureglia.</string>
     <string name="settings_autopplay_label">Play automatic</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Sulettamain Pods</string>
     <string name="settings_charged_scope_case_label">Sulettamain l\'etui</string>
     <string name="settings_charged_scope_both_label">Pods ed etui</string>
+    <string name="settings_caselow_reminder_label">Promemoria da batteria da la chascha</string>
+    <string name="settings_caselow_reminder_description">Dar in promemoria da chargiar la chascha, cura che ti metts ils auricularis anavos e la batteria da la chascha è bassa.</string>
+    <string name="settings_caselow_threshold_label">Nivel dal promemoria</string>
     <string name="device_settings_experimental_title">Funcziun experimentala</string>
     <string name="device_settings_experimental_description">Questa funcziun n\'è anc betg vegnida testada sin tuts apparats. Sch\'insatge na funcziuna betg correctamain, vegnì plais avrir ina dumonda cun in protocol da debug.</string>
     <string name="device_settings_experimental_action">Avrir il tractur da dumondas</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Vus pudais deactivar questa communicaziun en ils parameters dal sistem.</string>
     <string name="monitor_notification_starting">A startar…</string>
     <string name="support_debuglog_label">Protocol da debugging</string>
-    <string name="support_debuglog_desc">Registrar tut quai che l\'app fa en in datotec text che Vus pudais partir.</string>
+    <string name="support_debuglog_desc">Registrar tut che l\'applicaziun fa en ina datoteca zip che ti pos cumpartir.</string>
     <string name="debug_debuglog_record_action">Registrar il protocol da debugging</string>
     <string name="debug_debuglog_stop_action">Finir la registraziun</string>
     <string name="debug_debuglog_sensitive_information_message">Il datotec generà cuntegn infurmaziuns sensiblas (p.ex. detagls da l\'apparat Bluetooth). Partir el be cun terzas persunas fidadas.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Deactivar optimaziuns da battaria</string>
     <string name="permission_ignore_battery_optimizations_description">Optimaziuns da battaria impedeschan questa app da retschaiver datas Bluetooth a moda fidabla cura che l\'app è en il fund davos.</string>
     <string name="permission_system_alert_window_label">Fanestra d\'avis dal sistem</string>
-    <string name="permission_system_alert_window_description">Permetter a CAPod da dessegnar sur autras apps per render pussaivla la funcziun \"Mussar PopUp\".</string>
+    <string name="permission_system_alert_window_description">Permetter a CAPod da sminar sur auters apps. Necessari per la funcziun «Mussar PopUp» e per avrir l\'assistent vocal cun ina pressa sin tes AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cura che vis</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Scatla averta</string>
     <string name="settings_reaction_autoconnect_inear_label">En l\'ureglia</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Avunda per ina chargia entira</string>
     <string name="battery_case_charges_state_not_enough_cd">Betg avunda per ina chargia entira</string>
     <string name="battery_case_charges_state_uncertain_cd">Forsa betg avunda per ina chargia entira</string>
+    <string name="battery_case_charges_short">%1$s cargas</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ cargas</string>
     <string name="pods_case_status_open_label">Avert</string>
     <string name="pods_case_status_closed_label">Serrà</string>
     <string name="pods_connection_state_disconnected_label">Betg connectà cun in apparat</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Pli lung</string>
     <string name="device_settings_volume_swipe_length_longest">Il pli lung</string>
     <string name="device_settings_end_call_mute_mic_label">Controlla da cloms</string>
-    <string name="device_settings_end_call_mute_mic_description">Tscherner tge che il presser la tija fa durant cloms</string>
+    <string name="device_settings_end_call_mute_mic_description">Tscherna tge che pressadas fan durant las telefonadas</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">In presser per terminar il clom</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dupel presser per tasar il microfon</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">In presser per tasar il microfon</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Chargiader terminà</string>
     <string name="reaction_charged_notification_text_full">%1$s è cumplettamain chargiada.</string>
     <string name="reaction_charged_notification_text_partial">%1$s è vegnida chargiada fin %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Promemoria da batteria da la chascha</string>
+    <string name="reaction_caselow_notification_title">Chargia tia chascha</string>
+    <string name="reaction_caselow_notification_text">%1$s: la batteria da la chascha è a %2$d%%.</string>
     <string name="device_settings_rename_label">Renumerar</string>
     <string name="device_settings_rename_hint">Num da l\'apparat</string>
     <string name="device_settings_rename_confirm">Renumerar</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Egalisader</string>
     <string name="press_controls_title">Controlla da pressiun</string>
     <string name="press_controls_nav_description">Regler il cumportament da pressiun e assignar pressiuns ad acziuns</string>
-    <string name="press_controls_description">Regler co che pressiuns vegnan detectadas, tscherner il cumportament dal buttun per cloms e assignar pressiuns ad acziuns. Las acziuns assignadas valan mo per quest apparat e laschan l\'app interceptar la pressiun empau che las AirPods la tratteschan nativamente.</string>
+    <string name="press_controls_description">Regla co che pressadas vegnan recognuschidas, tscherna il cumportament dal buttun per telefonadas e attribuescha pressadas ad acziuns. Las acziuns attribuidas valan mo per quest apparat e lasclan che l\'app interceptia la pressa, invece che ch\'ils auricularis la tractian directamain.</string>
     <string name="press_controls_single_press">Pressiun singula</string>
     <string name="press_controls_double_press">Dubla pressiun</string>
     <string name="press_controls_triple_press">Tripla pressiun</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Rembobinar</string>
     <string name="press_action_cycle_anc">Ciclar la controlla dal rumur</string>
     <string name="press_action_toggle_anc_transparency">Commudader transparenza</string>
+    <string name="press_action_voice_assistant">Assistent vocal</string>
+    <string name="press_action_voice_assistant_unavailable">Nagin assistent vocal chattà</string>
     <string name="press_controls_reset_label">Reinizialisar als valurs standard</string>
     <string name="press_controls_reset_confirm_message">Reinizialisar tut las assignaziuns da pressiun als valurs standard?</string>
+    <string name="press_controls_voice_assistant_permission_hint">L\'assistent vocal dovra la permissiun da sminar sur auters apps; sensa quella na s\'avra el betg cun ina pressa sin tes AirPods.</string>
+    <string name="press_controls_voice_assistant_permission_action">Conceder</string>
     <string name="device_settings_noise_control_open_press_controls_action">Avrir la controlla da pressiun</string>
     <string name="general_navigate_up_action">Navegar en sura</string>
     <string name="general_progress_loading">A chargia</string>

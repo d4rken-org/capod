@@ -6,7 +6,6 @@
     <string name="upgrades_gplay_already_owned_label">Již zakoupeno?</string>
     <string name="upgrades_gplay_already_owned_description">Služba Google Play hlásí, že tento upgrade již vlastníte, ale nepodařilo se ho obnovit. Ujistěte se, že používáte účet Google, se kterým jste nákup provedli. Synchronizace Obchodu Play může nějakou dobu trvat — zkuste restartovat zařízení, vymazat mezipaměť Obchodu Google Play nebo prostě počkat.</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Získat %1$s</string>
     <string name="upgrade_preamble">CAPod vyvíjí jediná osoba. Upgrade odemkne další funkce a pomůže udržet aplikaci naživu.</string>
     <string name="upgrade_screen_subscription_trial_action">Spustit zkušební verzi</string>
@@ -36,12 +35,11 @@
     <string name="upgrade_screen_sub_still_renewing_message">Vaše předplatné je stále nastaveno na obnovování. Nejprve ho zrušte v Google Play a poté přejděte na jednorázový nákup. Právě jste ho zrušili? Dejte Google Play chvilku a zkuste to znovu.</string>
     <string name="upgrade_screen_purchase_check_failed_message">Nepodařilo se ověřit tvé nákupy ve službě Google Play. Aby nedošlo k dvojímu nákupu, zkus to za chvíli znovu.</string>
     <string name="upgrade_screen_pending_card_title">Platba se zpracovává</string>
-    <string name="upgrade_screen_pending_card_body">Google Play stále zpracovává tvou platbu. Verze Pro se odemkne automaticky, jakmile bude platba dokončena. U některých platebních metod to může chvíli trvat. Nemusíš dělat nic dalšího.</string>
-    <string name="upgrade_screen_pending_dialog_message">Google Play našel nákup s čekající platbou a stále ji zpracovává. Verze Pro se odemkne automaticky, jakmile bude platba dokončena.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play stále zpracovává vaši platbu. Verze Pro se odemkne automaticky, jakmile bude platba dokončena. U některých platebních metod to může chvíli trvat. Nemusíte dělat nic dalšího.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play našel nákup s čekající platbou a stále ji zpracovává. Pro se automaticky odemkne, jakmile bude platba dokončena.</string>
     <string name="upgrade_screen_grace_title">Potvrzování vašeho nákupu</string>
     <string name="upgrade_screen_grace_body_short">Google Play zatím nepotvrdil váš nákup. Pro je stále aktivní — není potřeba nic dělat.</string>
     <string name="upgrade_screen_grace_body">Google Play už delší dobu nepotvrdil váš nákup. Pro je stále aktivní. Ujistěte se, že jste online a přihlášeni k účtu Google použitému při nákupu, a poté zkuste nákup obnovit.</string>
-    <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">Možnosti upgradu</string>
     <string name="upgrade_screen_offers_or">nebo</string>
     <string name="upgrade_screen_offers_body">Stejné funkce, jen jiné cenové modely.</string>
@@ -58,7 +56,6 @@
     <string name="upgrade_screen_contact_support_action">Kontaktovat podporu</string>
     <string name="settings_upgrade_status_description">Váš stav upgradu a nákupu.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod se nemůže připojit k Obchodu Google Play. Je Obchod Google Play nainstalován a aktualizován? Jste přihlášeni k účtu Google? Zkuste vymazat mezipaměť Obchodu Google Play a restartovat zařízení.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Nelze otevřít Google Play. Aplikace může chybět, být vypnuta nebo omezena na tomto zařízení.</string>
     <string name="upgrades_gplay_internal_error_title">Chyba Google Play</string>
     <string name="upgrades_gplay_internal_error_description">Došlo k interní chybě Google Play. Zkuste následující kroky:\n\n• Restartujte zařízení\n• Vyčistěte mezipaměť obchodu Google Play\n• Zkuste to znovu později</string>

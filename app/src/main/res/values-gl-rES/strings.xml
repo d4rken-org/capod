@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Mostra unha segunda notificación que só aparece mentres un dispositivo está conectado. Con isto activado, podes ocultar a notificación permanente de \"Sen dispositivos\": desactiva a categoría \"Estado do dispositivo\" na configuración de notificacións de Android para CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Manter notificación tras desconexión</string>
     <string name="settings_keep_notification_after_disconnect_description">Seguir mostrando os últimos niveis de batería coñecidos mesmo despois de que os teus AirPods se desconecten</string>
+    <string name="settings_monitor_statusbar_battery_label">Nivel da batería na barra de estado</string>
+    <string name="settings_monitor_statusbar_battery_description">Mostra a porcentaxe da batería como icona de notificación na barra de estado. Nos auriculares, móstrase o valor máis baixo dos dous, omitindo o que estea cargando.</string>
     <string name="settings_autopause_label">Pausa automática</string>
     <string name="settings_autopause_description">Pausar o son ao quitar o dispositivo da orella.</string>
     <string name="settings_autopplay_label">Reprodución automática</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Só os auriculares</string>
     <string name="settings_charged_scope_case_label">Só o estoxo</string>
     <string name="settings_charged_scope_both_label">Auriculares e estoxo</string>
+    <string name="settings_caselow_reminder_label">Recordatorio da batería do estuche</string>
+    <string name="settings_caselow_reminder_description">Lembrar cargar o estuche cando se colocan os auriculares e a batería do estuche está baixa.</string>
+    <string name="settings_caselow_threshold_label">Nivel do recordatorio</string>
     <string name="device_settings_experimental_title">Función experimental</string>
     <string name="device_settings_experimental_description">Esta función aínda non foi probada en todos os dispositivos. Se algo non funciona correctamente, abre un problema co rexistro de depuración.</string>
     <string name="device_settings_experimental_action">Abrir o rastreador de problemas</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Podes desactivar esta notificación na configuración do sistema.</string>
     <string name="monitor_notification_starting">Iniciando…</string>
     <string name="support_debuglog_label">Rexistro de depuración</string>
-    <string name="support_debuglog_desc">Grava todo o que fai a aplicación nun ficheiro de texto que podes compartir.</string>
+    <string name="support_debuglog_desc">Rexistra todo o que fai a aplicación nun ficheiro zip que se pode compartir.</string>
     <string name="debug_debuglog_record_action">Gravar rexistro de depuración</string>
     <string name="debug_debuglog_stop_action">Deter gravación</string>
     <string name="debug_debuglog_sensitive_information_message">O ficheiro xerado contén información sensible (p. ex., detalles do dispositivo Bluetooth). Compárteo só con partes de confianza.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Desactivar optimizacións de batería</string>
     <string name="permission_ignore_battery_optimizations_description">As optimizacións de batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mentres está en segundo plano.</string>
     <string name="permission_system_alert_window_label">Xanela de alerta do sistema</string>
-    <string name="permission_system_alert_window_description">Permitir que CAPod debuxe sobre outras aplicacións para facer posible a función \"Mostrar PopUp\".</string>
+    <string name="permission_system_alert_window_description">Permitir que CAPod se mostre sobre outras aplicacións. Necesario para a función «Mostrar PopUp» e para abrir o asistente de voz ao premer nos AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cando se ve</string>
     <string name="settings_reaction_autoconnect_caseopen_label">A funda está aberta</string>
     <string name="settings_reaction_autoconnect_inear_label">No oído</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Abondo para unha carga completa</string>
     <string name="battery_case_charges_state_not_enough_cd">Non hai abondo para unha carga completa</string>
     <string name="battery_case_charges_state_uncertain_cd">É posible que non haxa abondo para unha carga completa</string>
+    <string name="battery_case_charges_short">%1$s cargas</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ cargas</string>
     <string name="pods_case_status_open_label">Aberta</string>
     <string name="pods_case_status_closed_label">Pechada</string>
     <string name="pods_connection_state_disconnected_label">Non conectado a un dispositivo</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Máis longo</string>
     <string name="device_settings_volume_swipe_length_longest">O máis longo</string>
     <string name="device_settings_end_call_mute_mic_label">Controis de chamada</string>
-    <string name="device_settings_end_call_mute_mic_description">Escoller o que fai premer o talo durante as chamadas</string>
+    <string name="device_settings_end_call_mute_mic_description">Escoller que fan as pulsacións durante as chamadas</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Prema unha vez para finalizar a chamada</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Prema dúas veces para silenciar o micrófono</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Prema unha vez para silenciar o micrófono</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Carga completa</string>
     <string name="reaction_charged_notification_text_full">%1$s está completamente cargado.</string>
     <string name="reaction_charged_notification_text_partial">%1$s foi cargado ata o %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Recordatorio da batería do estuche</string>
+    <string name="reaction_caselow_notification_title">Cargar o estuche</string>
+    <string name="reaction_caselow_notification_text">%1$s: a batería do estuche está ao %2$d%%.</string>
     <string name="device_settings_rename_label">Renomear</string>
     <string name="device_settings_rename_hint">Nome do dispositivo</string>
     <string name="device_settings_rename_confirm">Renomear</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Ecualizador</string>
     <string name="press_controls_title">Controis de pulsación</string>
     <string name="press_controls_nav_description">Axusta o comportamento das pulsacións e asigna pulsacións a accións</string>
-    <string name="press_controls_description">Axusta como se detectan as pulsacións, escolle o comportamento do botón de chamada e asigna pulsacións a accións. As accións asignadas só se aplican a este dispositivo e permiten que a aplicación intercepte a pulsación en lugar de que os AirPods a xestionen de forma nativa.</string>
+    <string name="press_controls_description">Axustar como se detectan as pulsacións, escoller o comportamento do botón de chamada e asignar pulsacións a accións. As accións asignadas aplícanse só a este dispositivo e permiten que a aplicación intercepte a pulsación en lugar de que os auriculares a xestionen de forma nativa.</string>
     <string name="press_controls_single_press">Pulsación sinxela</string>
     <string name="press_controls_double_press">Pulsación dobre</string>
     <string name="press_controls_triple_press">Pulsación triple</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Retroceder</string>
     <string name="press_action_cycle_anc">Ciclar o control de ruído</string>
     <string name="press_action_toggle_anc_transparency">Activar/desactivar transparencia</string>
+    <string name="press_action_voice_assistant">Asistente de voz</string>
+    <string name="press_action_voice_assistant_unavailable">Non se atopou ningún asistente de voz.</string>
     <string name="press_controls_reset_label">Restablecer os valores predeterminados</string>
     <string name="press_controls_reset_confirm_message">Restablecer todas as asignacións de pulsación aos valores predeterminados?</string>
+    <string name="press_controls_voice_assistant_permission_hint">O asistente de voz necesita permiso para mostrarse sobre outras aplicacións; se non, premer nos AirPods non o abrirá.</string>
+    <string name="press_controls_voice_assistant_permission_action">Conceder</string>
     <string name="device_settings_noise_control_open_press_controls_action">Abrir os controis de pulsación</string>
     <string name="general_navigate_up_action">Subir</string>
     <string name="general_progress_loading">Cargando</string>

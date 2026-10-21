@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Shfaq një njoftim të dytë që shfaqet vetëm kur një pajisje është e lidhur. Kur kjo është aktive, mund të fshehësh njoftimin e përhershëm \"Asnjë pajisje\": çaktivizo kategorinë \"Statusi i pajisjes\" në cilësimet e njoftimeve të Android-it për CAPod.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
     <string name="settings_keep_notification_after_disconnect_description">Vazhdo të shfaqësh nivelet e fundit të njohura të baterisë edhe pasi AirPods tuaja shkëputen</string>
+    <string name="settings_monitor_statusbar_battery_label">Niveli i baterisë në shiritin e statusit</string>
+    <string name="settings_monitor_statusbar_battery_description">Shfaq përqindjen e baterisë si ikonën e njoftimit në shiritin e statusit. Për kufjet, shfaqet më e ulëta nga të dyja, duke anashkaluar atë që po ngarkohet.</string>
     <string name="settings_autopause_label">Pauzë automatike</string>
     <string name="settings_autopause_description">Vendos në pauzë audion kur hiqni pajisjen nga veshi.</string>
     <string name="settings_autopplay_label">Luaj automatikisht</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Vetëm Pods</string>
     <string name="settings_charged_scope_case_label">Vetëm kuti</string>
     <string name="settings_charged_scope_both_label">Pods dhe kuti</string>
+    <string name="settings_caselow_reminder_label">Kujtues i baterisë së kutisë</string>
+    <string name="settings_caselow_reminder_description">Më kujto të ngarkoj kutinë kur i vendos kufjet përsëri dhe bateria e kutisë është e ulët.</string>
+    <string name="settings_caselow_threshold_label">Niveli i kujtesës</string>
     <string name="device_settings_experimental_title">Funksion eksperimental</string>
     <string name="device_settings_experimental_description">Ky funksion nuk është testuar ende në të gjitha pajisjet. Nëse diçka nuk funksionon siç duhet, ju lutemi hapni një problem me një regjistër korrigjimi.</string>
     <string name="device_settings_experimental_action">Hap Gjurmuesin e Problemeve</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Mund ta çaktivizoni këtë njoftim në cilësimet e sistemit.</string>
     <string name="monitor_notification_starting">Po fillon…</string>
     <string name="support_debuglog_label">Regjistri i korrigjimit</string>
-    <string name="support_debuglog_desc">Regjistro gjithçka që aplikacioni po bën në një skedar teksti që mund ta ndani.</string>
+    <string name="support_debuglog_desc">Regjistro gjithçka që bën aplikacioni në një skedar zip që mund ta ndash.</string>
     <string name="debug_debuglog_record_action">Regjistro regjistrin e korrigjimit</string>
     <string name="debug_debuglog_stop_action">Ndalo regjistrimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. detajet e pajisjes Bluetooth). Ndajeni vetëm me palë të besuara.</string>
@@ -104,7 +109,7 @@
     <string name="device_battery_estimate_reset_action">Rivendosni të dhënat e mësuara</string>
     <string name="device_battery_estimate_reset_desc">Filloni përsëri nga jeta nominale e baterisë.</string>
     <string name="device_battery_estimate_reset_confirm_title">Rivendosni të dhënat e mësuara?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod do të harrojë depletimin e matur të kësaj pajisjeje, shpejtësinë e ngarkimit dhe shëndetin e baterisë, dhe do të fillojë përsëri nga jeta nominale e baterisë.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod do të harrojë konsumin e matur të baterisë së kësaj pajisjeje, shpejtësinë e ngarkimit dhe kohën e dëgjimit, dhe do të fillojë nga e para me jetëgjatësinë e baterisë të deklaruar.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
     <string name="help_translate_label">Përkthimi</string>
     <string name="help_translate_description">Ndihmoni në përkthimin e këtij aplikacioni në gjuhën tuaj të preferuar.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Çaktivizo optimizimet e baterisë</string>
     <string name="permission_ignore_battery_optimizations_description">Optimizimet e baterisë e pengojnë këtë aplikacion nga marrja e besueshme e të dhënave Bluetooth ndërsa aplikacioni është në sfond.</string>
     <string name="permission_system_alert_window_label">Dritare Alarmi Sistemi</string>
-    <string name="permission_system_alert_window_description">Lejoni CAPod të vizatojë mbi aplikacionet e tjera për të mundësuar veçorinë \"Shfaq PopUp\".</string>
+    <string name="permission_system_alert_window_description">Lejo CAPod të vizatojë mbi aplikacione të tjera. Nevojitet për veçorinë \"Shfaq PopUp\" dhe për të hapur asistentin zë me një shtypje në AirPods-at e tu.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kur shihet</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kutia është e hapur</string>
     <string name="settings_reaction_autoconnect_inear_label">Në vesh</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Mjaft për një ngarkesë të plotë</string>
     <string name="battery_case_charges_state_not_enough_cd">Nuk mjafton për një ngarkesë të plotë</string>
     <string name="battery_case_charges_state_uncertain_cd">Mund të mos mjaftojë për një ngarkesë të plotë</string>
+    <string name="battery_case_charges_short">%1$s ngarkime</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ngarkime</string>
     <string name="pods_case_status_open_label">E hapur</string>
     <string name="pods_case_status_closed_label">E mbyllur</string>
     <string name="pods_connection_state_disconnected_label">Nuk është e lidhur me një pajisje</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Më e gjatë</string>
     <string name="device_settings_volume_swipe_length_longest">Më e gjata</string>
     <string name="device_settings_end_call_mute_mic_label">Kontrollet e thirrjeve</string>
-    <string name="device_settings_end_call_mute_mic_description">Zgjidhni çfarë bën shtypja e bishtit gjatë thirrjeve</string>
+    <string name="device_settings_end_call_mute_mic_description">Zgjidh çfarë bëjnë shtypjet gjatë telefonatave</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Shtypje e vetme për të mbyllur thirrjen</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Shtypje e dyfishtë për të hështur mikrofonin</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Shtypje e vetme për të hështur mikrofonin</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Karikimi i plotë</string>
     <string name="reaction_charged_notification_text_full">%1$s është karikuar plotësisht.</string>
     <string name="reaction_charged_notification_text_partial">%1$s është karikuar deri në %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Kujtues i baterisë së kutisë</string>
+    <string name="reaction_caselow_notification_title">Ngarko kutinë tënde</string>
+    <string name="reaction_caselow_notification_text">%1$s: bateria e kutisë është në %2$d%%.</string>
     <string name="device_settings_rename_label">Riemrëro</string>
     <string name="device_settings_rename_hint">Emri i pajisjes</string>
     <string name="device_settings_rename_confirm">Riemrëro</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Ekualizues</string>
     <string name="press_controls_title">Kontrollet e Shtypjes</string>
     <string name="press_controls_nav_description">Rregulloni sjelljen e shtypjes dhe hartoni shtypjet në veprime</string>
-    <string name="press_controls_description">Rregulloni si zbulohen shtypjet, zgjidhni sjelljen e butonit të thirrjes dhe hartoni shtypjet në veprime. Veprimet e hartuara vlejnë vetëm për këtë pajisje dhe lejojnë aplikacionin të ndërhyjë në shtypje në vend se AirPods ta trajtojë nativisht.</string>
+    <string name="press_controls_description">Rregullo se si zbulohen shtypjet, zgjidh sjelljen e butonit të telefonatës dhe lidh shtypjet me veprime. Veprimet e lidhura zbatohen vetëm për këtë pajisje dhe e lejojnë aplikacionin të ndërpresë shtypjen në vend që ta trajtojnë kufjet në mënyrë vendase.</string>
     <string name="press_controls_single_press">Shtypje e vetme</string>
     <string name="press_controls_double_press">Shtypje e dyfishtë</string>
     <string name="press_controls_triple_press">Shtypje e trefishtë</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Kthehuni mbrapa</string>
     <string name="press_action_cycle_anc">Ciklo Kontrollin e Zhurmës</string>
     <string name="press_action_toggle_anc_transparency">Ndërro Transparencën</string>
+    <string name="press_action_voice_assistant">Asistenti zë</string>
+    <string name="press_action_voice_assistant_unavailable">Nuk u gjet asistent zanor</string>
     <string name="press_controls_reset_label">Rikthe te parazgjedhjet</string>
     <string name="press_controls_reset_confirm_message">Të rivendosen të gjitha hartat e shtypjes te parazgjedhjet?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Asistenti zë ka nevojë për leje për t\'u shfaqur mbi aplikacione të tjera, përndryshe shtypja e AirPods-ave nuk do ta hapë.</string>
+    <string name="press_controls_voice_assistant_permission_action">Jep leje</string>
     <string name="device_settings_noise_control_open_press_controls_action">Hap Kontrollet e Shtypjes</string>
     <string name="general_navigate_up_action">Navigo lart</string>
     <string name="general_progress_loading">Po ngarkohet</string>

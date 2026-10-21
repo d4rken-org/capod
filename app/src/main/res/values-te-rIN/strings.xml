@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయి ఉన్నప్పుడు మాత్రమే కనిపించే రెండో నోటిఫికేషన్‌ను చూపిస్తుంది. దీన్ని ఆన్ చేస్తే, శాశ్వతంగా కనిపించే \"పరికరాలు లేవు\" నోటిఫికేషన్‌ను దాచవచ్చు: Android నోటిఫికేషన్ సెట్టింగ్‌లలో CAPod కోసం \"పరికర స్థితి\" వర్గాన్ని ఆఫ్ చేయి.</string>
     <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
     <string name="settings_keep_notification_after_disconnect_description">మీ AirPods డిస్‌కనెక్ట్ అయిన తర్వాత కూడా చివరిగా తెలిసిన బ్యాటరీ స్థాయిలను చూపించడం కొనసాగించు</string>
+    <string name="settings_monitor_statusbar_battery_label">స్టేటస్ బార్‌లో బ్యాటరీ స్థాయి</string>
+    <string name="settings_monitor_statusbar_battery_description">స్టేటస్ బార్‌లో నోటిఫికేషన్ ఐకాన్‌గా బ్యాటరీ శాతాన్ని చూపిస్తుంది. ఇయర్‌బడ్‌ల కోసం, ఛార్జ్ అవుతున్న దానిని పక్కన పెట్టి, రెండింటిలో తక్కువది చూపబడుతుంది.</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
     <string name="settings_autopause_description">మీ చెవి నుండి పరికరాన్ని తీసివేసినప్పుడు ఆడియోను పాజ్ చేయండి.</string>
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">పాడ్స్ మాత్రమే</string>
     <string name="settings_charged_scope_case_label">కేస్ మాత్రమే</string>
     <string name="settings_charged_scope_both_label">పాడ్స్ మరియు కేస్</string>
+    <string name="settings_caselow_reminder_label">కేస్ బ్యాటరీ రిమైండర్</string>
+    <string name="settings_caselow_reminder_description">పాడ్‌లను తిరిగి పెట్టినప్పుడు కేస్ బ్యాటరీ తక్కువగా ఉంటే, కేస్‌ను ఛార్జ్ చేయమని నాకు గుర్తు చేయి.</string>
+    <string name="settings_caselow_threshold_label">రిమైండర్ స్థాయి</string>
     <string name="device_settings_experimental_title">ప్రయోగాత్మక ఫీచర్</string>
     <string name="device_settings_experimental_description">ఈ ఫీచర్ ఇంకా అన్ని పరికరాలలో పరీక్షించబడలేదు. ఏదైనా సరిగా పని చేయకపోతే, దయచేసి డీబగ్ లాగ్‌తో ఒక సమస్యను తెరవండి.</string>
     <string name="device_settings_experimental_action">సమస్య ట్రాకర్ తెరవండి</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">సిస్టమ్ సెట్టింగ్‌లలో ఈ నోటిఫికేషన్‌ను నిలిపివేయవచ్చు.</string>
     <string name="monitor_notification_starting">ప్రారంభిస్తోంది…</string>
     <string name="support_debuglog_label">డీబగ్ లాగ్</string>
-    <string name="support_debuglog_desc">యాప్ చేస్తున్న ప్రతిదాన్ని మీరు షేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రికార్డ్ చేయండి.</string>
+    <string name="support_debuglog_desc">యాప్ చేస్తున్న ప్రతిదాన్ని మీరు షేర్ చేయగల జిప్ ఫైల్‌లో రికార్డ్ చేయండి.</string>
     <string name="debug_debuglog_record_action">డీబగ్ లాగ్ రికార్డ్ చేయి</string>
     <string name="debug_debuglog_stop_action">రికార్డింగ్ ఆపు</string>
     <string name="debug_debuglog_sensitive_information_message">ఉత్పత్తి చేయబడిన ఫైల్ సున్నితమైన సమాచారాన్ని కలిగి ఉంది (ఉదా. బ్లూటూత్ పరికర వివరాలు). దీన్ని విశ్వసనీయ పార్టీలతో మాత్రమే పంచుకోండి.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">బ్యాటరీ ఆప్టిమైజేషన్‌లను నిలిపివేయి</string>
     <string name="permission_ignore_battery_optimizations_description">బ్యాటరీ ఆప్టిమైజేషన్‌లు యాప్ నేపథ్యంలో ఉన్నప్పుడు బ్లూటూత్ డేటాను నమ్మకంగా స్వీకరించడాన్ని నిరోధిస్తాయి.</string>
     <string name="permission_system_alert_window_label">సిస్టమ్ అలర్ట్ విండో</string>
-    <string name="permission_system_alert_window_description">\"పాపప్ చూపించు\" ఫీచర్‌ను సాధ్యం చేయడానికి ఇతర యాప్‌ల మీద గీయడానికి CAPodను అనుమతించండి.</string>
+    <string name="permission_system_alert_window_description">ఇతర యాప్‌ల పైన CAPod ను చూపించడానికి అనుమతించండి. \"PopUp చూపు\" ఫీచర్ కోసం, అలాగే మీ AirPods పై ప్రెస్ చేసినప్పుడు వాయిస్ అసిస్టెంట్‌ను తెరవడానికి ఇది అవసరం.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">కనిపించినప్పుడు</string>
     <string name="settings_reaction_autoconnect_caseopen_label">కేస్ తెరిచి ఉంది</string>
     <string name="settings_reaction_autoconnect_inear_label">చెవిలో</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">పూర్తి చార్జ్‌కు సరిపోతుంది</string>
     <string name="battery_case_charges_state_not_enough_cd">పూర్తి చార్జ్‌కు సరిపోదు</string>
     <string name="battery_case_charges_state_uncertain_cd">పూర్తి చార్జ్‌కు సరిపోకపోవచ్చు</string>
+    <string name="battery_case_charges_short">%1$s ఛార్జ్‌లు</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ ఛార్జ్‌లు</string>
     <string name="pods_case_status_open_label">తెరిచి ఉంది</string>
     <string name="pods_case_status_closed_label">మూసివేయబడింది</string>
     <string name="pods_connection_state_disconnected_label">పరికరానికి కనెక్ట్ కాలేదు</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">పొడవుగా</string>
     <string name="device_settings_volume_swipe_length_longest">అత్యంత పొడవుగా</string>
     <string name="device_settings_end_call_mute_mic_label">కాల్ నియంత్రణలు</string>
-    <string name="device_settings_end_call_mute_mic_description">కాల్స్ సమయంలో స్టెమ్ నొక్కడం ఏమి చేస్తుందో ఎంచుకోండి</string>
+    <string name="device_settings_end_call_mute_mic_description">కాల్స్ సమయంలో ప్రెస్‌లు ఏమి చేయాలో ఎంచుకోండి</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">కాల్ ముగించడానికి ఒకసారి నొక్కండి</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">మైక్రోఫోన్ మ్యూట్ చేయడానికి రెండుసార్లు నొక్కండి</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">మైక్రోఫోన్ మ్యూట్ చేయడానికి ఒకసారి నొక్కండి</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">చార్జింగ్ పూర్తయింది</string>
     <string name="reaction_charged_notification_text_full">%1$s పూర్తిగా చార్జ్ అయింది.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% కి చార్జ్ అయింది.</string>
+    <string name="reaction_caselow_channel_label">కేస్ బ్యాటరీ రిమైండర్</string>
+    <string name="reaction_caselow_notification_title">మీ కేస్‌ను ఛార్జ్ చేయండి</string>
+    <string name="reaction_caselow_notification_text">%1$s: కేస్ బ్యాటరీ %2$d%% ఉంది.</string>
     <string name="device_settings_rename_label">పేరు మార్చండి</string>
     <string name="device_settings_rename_hint">పరికర పేరు</string>
     <string name="device_settings_rename_confirm">పేరు మార్చండి</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ఈక్వలైజర్</string>
     <string name="press_controls_title">ప్రెస్ కంట్రోల్‌స్</string>
     <string name="press_controls_nav_description">నొక్కు ప్రవర్తనను సరిచేసి, నొక్కులను చర్యలకు మ్యాప్ చేయండి</string>
-    <string name="press_controls_description">నొక్కులు ఎలా గుర్తించబడతాయన్నది సర్దుచేసి, కాల్-బటన్ ప్రవర్తనను ఎంచుకొండి, మరియు నొక్కులను చర్యలకు మ్యాప్ చేయండి. మ్యాప్ చేసిన చర్యలు ఈ పరికరానికి మాత్రమే వర్తిస్తాయి మరియు AirPods స్వాభావికంగా నిర్వహించుక౏నే బదులు యాప్ నొక్కును వ్యవధికరిస్తాయి.</string>
+    <string name="press_controls_description">ప్రెస్‌లు ఎలా గుర్తించబడతాయో సర్దుబాటు చేయండి, కాల్ బటన్ ప్రవర్తనను ఎంచుకోండి, ప్రెస్‌లను చర్యలకు మ్యాప్ చేయండి. మ్యాప్ చేసిన చర్యలు ఈ పరికరానికి మాత్రమే వర్తిస్తాయి, మరియు హెడ్‌ఫోన్‌లు నేరుగా నిర్వహించే బదులు యాప్ ప్రెస్‌ను అడ్డుకోవడానికి అనుమతిస్తాయి.</string>
     <string name="press_controls_single_press">ఒక్కసారి నొక్కు</string>
     <string name="press_controls_double_press">రెండు సార్లు నొక్కు</string>
     <string name="press_controls_triple_press">మూడు సార్లు నొక్కు</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">రివైండ్</string>
     <string name="press_action_cycle_anc">నాయిస్ కంట్రోల్ సైకల్</string>
     <string name="press_action_toggle_anc_transparency">ట్రాన్స్పరెన్సీ ట౏గల్</string>
+    <string name="press_action_voice_assistant">వాయిస్ అసిస్టెంట్</string>
+    <string name="press_action_voice_assistant_unavailable">వాయిస్ అసిస్టెంట్ కనుగొనబడలేదు</string>
     <string name="press_controls_reset_label">డిఫాల్ట్‌లకు రిసెట్</string>
     <string name="press_controls_reset_confirm_message">అన్ని ప్రెస్ మ్యాపింగ్‌లను డిఫాల్ట్‌లకు రిసెట్ చేయాలా?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ఇతర యాప్‌ల పైన చూపించడానికి వాయిస్ అసిస్టెంట్‌కు అనుమతి కావాలి, లేకపోతే మీ AirPods ను ప్రెస్ చేసినప్పుడు అది తెరవబడదు.</string>
+    <string name="press_controls_voice_assistant_permission_action">అనుమతించు</string>
     <string name="device_settings_noise_control_open_press_controls_action">ప్రెస్ కంట్రోల్‌స్ తెరవండి</string>
     <string name="general_navigate_up_action">పైకి నావిగేట్ చేయండి</string>
     <string name="general_progress_loading">లోడ్ చేస్తుంది</string>

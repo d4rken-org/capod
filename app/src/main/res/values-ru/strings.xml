@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Показывает второе уведомление, которое появляется только когда устройство подключено. Включив эту функцию, Вы сможете скрыть постоянное уведомление «Нет устройств»: отключите категорию «Статус устройства» в настройках уведомлений CAPod в Android.</string>
     <string name="settings_keep_notification_after_disconnect_label">Оставить уведомление после отключения</string>
     <string name="settings_keep_notification_after_disconnect_description">Продолжать показывать последний известный заряд батареи даже после отключения AirPods</string>
+    <string name="settings_monitor_statusbar_battery_label">Уровень заряда в строке состояния</string>
+    <string name="settings_monitor_statusbar_battery_description">Показывает процент заряда в виде значка уведомления в строке состояния. Для наушников показывается меньший из двух значений, без учёта наушника, который заряжается.</string>
     <string name="settings_autopause_label">Автопауза</string>
     <string name="settings_autopause_description">Приостановка аудио при удалении устройства из уха.</string>
     <string name="settings_autopplay_label">Автовоспроизведение</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Только наушники</string>
     <string name="settings_charged_scope_case_label">Только кейс</string>
     <string name="settings_charged_scope_both_label">Наушники и кейс</string>
+    <string name="settings_caselow_reminder_label">Напоминание о заряде футляра</string>
+    <string name="settings_caselow_reminder_description">Напоминать зарядить футляр, когда я кладу наушники обратно и заряд футляра низкий.</string>
+    <string name="settings_caselow_threshold_label">Уровень напоминания</string>
     <string name="device_settings_experimental_title">Экспериментальная функция</string>
     <string name="device_settings_experimental_description">Эта функция ещё не протестирована на всех устройствах. Если что-то работает неправильно, пожалуйста, создайте обращение с журналом отладки.</string>
     <string name="device_settings_experimental_action">Открыть трекер проблем</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Вы можете отключить это уведомление в системных настройках.</string>
     <string name="monitor_notification_starting">Запуск…</string>
     <string name="support_debuglog_label">Журнал отладки</string>
-    <string name="support_debuglog_desc">Запись всего, что делает приложение, в текстовый файл, которым можно поделиться.</string>
+    <string name="support_debuglog_desc">Записывает всё, что делает приложение, в ZIP-файл, которым можно поделиться.</string>
     <string name="debug_debuglog_record_action">Записать журнал отладки</string>
     <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, сведения об устройстве Bluetooth). Передавайте его только доверенным лицам.</string>
@@ -209,7 +214,7 @@ AL_Cool_T</string>
     <string name="permission_ignore_battery_optimizations_label">Отключить оптимизацию батареи</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимизация батареи не позволяет приложению должным образом получать данные Bluetooth, когда приложение работает в фоне.</string>
     <string name="permission_system_alert_window_label">Окно системных предупреждений</string>
-    <string name="permission_system_alert_window_description">Позволить CAPod наложение поверх других приложений для работы функции \"Всплывающие сообщения\".</string>
+    <string name="permission_system_alert_window_description">Разрешить CAPod отображаться поверх других приложений. Нужно для функции «Показать всплывающее окно» и для открытия голосового помощника нажатием на AirPods.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">При обнаружении</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Футляр открыт</string>
     <string name="settings_reaction_autoconnect_inear_label">В ухе</string>
@@ -466,7 +471,7 @@ AL_Cool_T</string>
     <string name="device_settings_volume_swipe_length_longer">Длиннее</string>
     <string name="device_settings_volume_swipe_length_longest">Самое длинное</string>
     <string name="device_settings_end_call_mute_mic_label">Управление звонками</string>
-    <string name="device_settings_end_call_mute_mic_description">Выберите, что происходит при нажатии на шток во время звонков</string>
+    <string name="device_settings_end_call_mute_mic_description">Выберите, что делают нажатия во время звонков</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Одинарное нажатие для завершения звонка</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Двойное нажатие для отключения микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Одинарное нажатие для отключения микрофона</string>
@@ -506,6 +511,9 @@ AL_Cool_T</string>
     <string name="reaction_charged_notification_title">Зарядка завершена</string>
     <string name="reaction_charged_notification_text_full">%1$s полностью заряжен.</string>
     <string name="reaction_charged_notification_text_partial">%1$s заряжен до %2$d%%.</string>
+    <string name="reaction_caselow_channel_label">Напоминание о заряде футляра</string>
+    <string name="reaction_caselow_notification_title">Зарядите футляр</string>
+    <string name="reaction_caselow_notification_text">%1$s: заряд футляра %2$d%%.</string>
     <string name="device_settings_rename_label">Переименовать</string>
     <string name="device_settings_rename_hint">Имя устройства</string>
     <string name="device_settings_rename_confirm">Переименовать</string>
@@ -529,7 +537,7 @@ AL_Cool_T</string>
     <string name="device_settings_eq_label">Эквалайзер</string>
     <string name="press_controls_title">Управление нажатиями</string>
     <string name="press_controls_nav_description">Настройте поведение нажатий и назначьте действия нажатиям</string>
-    <string name="press_controls_description">Настройте обнаружение нажатий, выберите поведение кнопки вызова и назначьте действия нажатиям. Назначенные действия применяются только для этого устройства и позволяют приложению перехватывать нажатие вместо встроенной обработки AirPods.</string>
+    <string name="press_controls_description">Настройте распознавание нажатий, выберите поведение кнопки вызова и назначьте нажатиям действия. Назначенные действия работают только на этом устройстве и позволяют приложению перехватывать нажатие вместо того, чтобы наушники обрабатывали его сами.</string>
     <string name="press_controls_single_press">Одинарное нажатие</string>
     <string name="press_controls_double_press">Двойное нажатие</string>
     <string name="press_controls_triple_press">Тройное нажатие</string>
@@ -551,8 +559,12 @@ AL_Cool_T</string>
     <string name="press_action_rewind">Перемотка назад</string>
     <string name="press_action_cycle_anc">Цикл режимов шумоподавления</string>
     <string name="press_action_toggle_anc_transparency">Переключить прозрачность</string>
+    <string name="press_action_voice_assistant">Голосовой помощник</string>
+    <string name="press_action_voice_assistant_unavailable">Голосовой помощник не найден</string>
     <string name="press_controls_reset_label">Сброс к умолчаниям</string>
     <string name="press_controls_reset_confirm_message">Сбросить все назначения нажатий по умолчанию?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Голосовому помощнику нужно разрешение на отображение поверх других приложений, иначе нажатие на AirPods его не откроет.</string>
+    <string name="press_controls_voice_assistant_permission_action">Предоставить</string>
     <string name="device_settings_noise_control_open_press_controls_action">Открыть управление нажатиями</string>
     <string name="general_navigate_up_action">Перейти вверх</string>
     <string name="general_progress_loading">Загрузка</string>

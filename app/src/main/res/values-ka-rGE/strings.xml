@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">აჩვენებს მეორე შეტყობინებას, რომელიც მხოლოდ მოწყობილობის დაკავშირებისას ჩნდება. ამის ჩართვისას შეგიძლია დამალო მუდმივი „მოწყობილობები არ არის“ შეტყობინება: გამორთე „მოწყობილობის სტატუსი“ კატეგორია CAPod-ის Android-ის შეტყობინებების პარამეტრებში.</string>
     <string name="settings_keep_notification_after_disconnect_label">შეტყობინების შენარჩუნება გათიშვის შემდეგ</string>
     <string name="settings_keep_notification_after_disconnect_description">განაგრძეთ ბოლო ცნობილი ბატარეის დონეების ჩვენება მაშინაც კი, როცა თქვენი AirPods გაითიშება</string>
+    <string name="settings_monitor_statusbar_battery_label">ბატარეის დონე სტატუს ზოლში</string>
+    <string name="settings_monitor_statusbar_battery_description">სტატუს ზოლში შეტყობინების ხატულად ნაჩვენებია ბატარეის პროცენტი. ყურსასმენებისთვის ნაჩვენებია ორიდან დაბალი, გამოტოვებით იმ ერთისა, რომელიც იტენება.</string>
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
     <string name="settings_autopause_description">აუდიოს დაპაუზება მოწყობილობის ყურიდან ამოღებისას.</string>
     <string name="settings_autopplay_label">ავტომატური დაკვრა</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">მხოლოდ ყურსასმენები</string>
     <string name="settings_charged_scope_case_label">მხოლოდ კეისი</string>
     <string name="settings_charged_scope_both_label">ყურსასმენები და კეისი</string>
+    <string name="settings_caselow_reminder_label">ქეისის ბატარეის შეხსენება</string>
+    <string name="settings_caselow_reminder_description">ყურსასმენების ქეისში დაბრუნებისას, თუ ქეისის ბატარეა დაბალია, ქეისის დატენვის შეხსენება.</string>
+    <string name="settings_caselow_threshold_label">შეხსენების დონე</string>
     <string name="device_settings_experimental_title">ექსპერიმენტული ფუნქცია</string>
     <string name="device_settings_experimental_description">ეს ფუნქცია ჯერ ყველა მოწყობილობაზე გამოცდილი არ არის. თუ რამე სწორად არ მუშაობს, გთხოვთ გახსნათ ხარვეზი debug ლოგთან ერთად.</string>
     <string name="device_settings_experimental_action">ხარვეზების ტრეკერის გახსნა</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">ამ შეტყობინების გამორთვა შეგიძლიათ სისტემის პარამეტრებში.</string>
     <string name="monitor_notification_starting">გაშვება მიმდინარეობს…</string>
     <string name="support_debuglog_label">გამართვის ჟურნალი</string>
-    <string name="support_debuglog_desc">ჩაწერეთ ყველაფერი, რასაც აპლიკაცია აკეთებს ტექსტურ ფაილში, რომლის გაზიარებაც შეგიძლიათ.</string>
+    <string name="support_debuglog_desc">აპის ყველა მოქმედების ჩაწერა zip ფაილში, რომლის გაზიარებაც შესაძლებელია.</string>
     <string name="debug_debuglog_record_action">გამართვის ჟურნალის ჩაწერა</string>
     <string name="debug_debuglog_stop_action">ჩაწერის შეწყვეტა</string>
     <string name="debug_debuglog_sensitive_information_message">გენერირებული ფაილი შეიცავს მგრძნობიარე ინფორმაციას (მაგ. Bluetooth მოწყობილობის დეტალები). გააზიარეთ იგი მხოლოდ სანდო მხარეებთან.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">ბატარეის ოპტიმიზაციების გამორთვა</string>
     <string name="permission_ignore_battery_optimizations_description">ბატარეის ოპტიმიზაციები ხელს უშლის ამ აპს ფონურ რეჟიმში Bluetooth მონაცემების საიმედოდ მიღებაში.</string>
     <string name="permission_system_alert_window_label">სისტემური გამაფრთხილებელი ფანჯარა</string>
-    <string name="permission_system_alert_window_description">დაუშვით, რომ CAPod სხვა აპებზე ზემოდან გამოჩნდეს, რათა \"Show PopUp\" ფუნქცია შესაძლებელი გახდეს.</string>
+    <string name="permission_system_alert_window_description">CAPod-ისთვის სხვა აპებზე ზედ ხატვის დაშვება. საჭიროა „ამომხტარი ფანჯრის ჩვენება“ ფუნქციისთვის და ხმოვანი ასისტენტის გასახსნელად AirPods-ზე დაჭერით.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">როცა გამოჩნდება</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ქეისი ღიაა</string>
     <string name="settings_reaction_autoconnect_inear_label">ყურშია</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">საკმარი სრული დატენვისთვის</string>
     <string name="battery_case_charges_state_not_enough_cd">საკმარი არ არის სრული დატენვისთვის</string>
     <string name="battery_case_charges_state_uncertain_cd">შესაძლოა საკმარი არ იყოს სრული დატენვისთვის</string>
+    <string name="battery_case_charges_short">%1$s დატენვა</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ დატენვა</string>
     <string name="pods_case_status_open_label">ღიაა</string>
     <string name="pods_case_status_closed_label">დახურულია</string>
     <string name="pods_connection_state_disconnected_label">მოწყობილობასთან კავშირი არ არის</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">უფრო გრძელი</string>
     <string name="device_settings_volume_swipe_length_longest">ყველაზე გრძელი</string>
     <string name="device_settings_end_call_mute_mic_label">ზარის კონტროლი</string>
-    <string name="device_settings_end_call_mute_mic_description">აირჩიეთ, რას აკეთებს ღეროს დაჭერა ზარების დროს</string>
+    <string name="device_settings_end_call_mute_mic_description">აირჩიე, რას აკეთებს დაჭერები ზარის დროს</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">ერთხელ დაჭერით ზარის დასრულება</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ორჯერ დაჭერით მიკროფონის დადუმება</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">ერთხელ დაჭერით მიკროფონის დადუმება</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">დატენვა დასრულდა</string>
     <string name="reaction_charged_notification_text_full">%1$s სრულად დატენილია.</string>
     <string name="reaction_charged_notification_text_partial">%1$s დაიტენა %2$d%%-მდე.</string>
+    <string name="reaction_caselow_channel_label">ქეისის ბატარეის შეხსენება</string>
+    <string name="reaction_caselow_notification_title">ქეისის დატენვა</string>
+    <string name="reaction_caselow_notification_text">%1$s: ქეისის ბატარეა %2$d%%-ზეა.</string>
     <string name="device_settings_rename_label">გადარქმევა</string>
     <string name="device_settings_rename_hint">მოწყობილობის სახელი</string>
     <string name="device_settings_rename_confirm">გადარქმევა</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">ეკვალაიზერი</string>
     <string name="press_controls_title">დაწყების მართვა</string>
     <string name="press_controls_nav_description">დაარეგულირეთ დაწყების სუნთი და დააკავშირეთ დაწყები მოქმედებსთან</string>
-    <string name="press_controls_description">დაარეგულირეთ დაწყების აღმოჩენა, აირჩიეთ დარღვის ბუტონის სუნთი, და დააკავშირეთ დაწყები მოქმედებსთან. დააკავშირებული მოქმედები ეხმარება მხოლოდ ამ მოწყობილობაზე და აპლიკაციას საშუალებას AirPods-ის ნაცვლიდ დამუშავების ნაცვლად.</string>
+    <string name="press_controls_description">დაჭერების ამოცნობის დარეგულირება, ზარის ღილაკის ქცევის არჩევა და დაჭერების მოქმედებებთან დაკავშირება. დაკავშირებული მოქმედებები მხოლოდ ამ მოწყობილობაზე მოქმედებს და აპს საშუალებას აძლევს, დაჭერა თავად დაამუშაოს ყურსასმენების ნაცვლად.</string>
     <string name="press_controls_single_press">ერთი დაწყევა</string>
     <string name="press_controls_double_press">ორმაგი დაწყევა</string>
     <string name="press_controls_triple_press">სამი დაწყევა</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">უკან</string>
     <string name="press_action_cycle_anc">Noise Control-ის ციკლური</string>
     <string name="press_action_toggle_anc_transparency">Transparency-ის გადართვა</string>
+    <string name="press_action_voice_assistant">ხმოვანი ასისტენტი</string>
+    <string name="press_action_voice_assistant_unavailable">ხმოვანი ასისტენტი ვერ მოიძებნა</string>
     <string name="press_controls_reset_label">ნაგულისამდე აღდგენის ახბა</string>
     <string name="press_controls_reset_confirm_message">დაწყების ყველა ანაბი ნაგულისამდე ახბის ახბა?</string>
+    <string name="press_controls_voice_assistant_permission_hint">ხმოვან ასისტენტს სჭირდება ნებართვა სხვა აპებზე ჩვენებისთვის, წინააღმდეგ შემთხვევაში AirPods-ზე დაჭერა მას ვერ გახსნის.</string>
+    <string name="press_controls_voice_assistant_permission_action">დაშვება</string>
     <string name="device_settings_noise_control_open_press_controls_action">Press Controls-ის გახსნა</string>
     <string name="general_navigate_up_action">ზემოთ გადახვევა</string>
     <string name="general_progress_loading">იტვირთება</string>

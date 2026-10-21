@@ -6,7 +6,6 @@
     <string name="upgrades_gplay_already_owned_label">Ужо купілі?</string>
     <string name="upgrades_gplay_already_owned_description">Google Play паведамляе, што вы ўжо валодаеце гэтым абнаўленнем, але яго не ўдалося аднавіць. Пераканайцеся, што вы выкарыстоўваеце той акаунт Google, з якім рабілі пакупку. Сінхранізацыя Play Store можа заняць час — паспрабуйце перазагрузіць прыладу, ачысціць кэш Google Play або проста пачакаць.</string>
     <string name="upgrade_badge_label">Pro</string>
-    <!-- %1$s is the full localized brand ("CAPod Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Атрымаць %1$s</string>
     <string name="upgrade_preamble">CAPod распрацоўвае адзін чалавек. Абнаўленне да Pro адкрывае дадатковыя функцыі і дапамагае падтрымліваць праграму жывой.</string>
     <string name="upgrade_screen_subscription_trial_action">Пачаць бясплатны пробны перыяд</string>
@@ -34,11 +33,13 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Гэта асобная пакупка — яна не скасоўвае падпіску і не вяртае за яе грошы. Выкарыстоўвайце той жа акаунт Google.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Падпіска ўсё яшчэ актыўная</string>
     <string name="upgrade_screen_sub_still_renewing_message">Ваша падпіска ўсё яшчэ будзе аўтаматычна прадоўжана. Спачатку скасуйце яе ў Google Play, а потым пераключацеся на аднаразовую пакупку. Толькі што скасавалі? Дайце Google Play крыху часу і паспрабуйце зноў.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не ўдалося праверыць твае пакупкі ў Google Play. Каб не купіць двойчы, паспрабуй яшчэ раз крыху пазней.</string>
     <string name="upgrade_screen_pending_card_title">Плата разглядаецца</string>
+    <string name="upgrade_screen_pending_card_body">Google Play яшчэ апрацоўвае тваю аплату. Pro разблакуецца аўтаматычна, як толькі аплата праходзіць. Некаторыя спосабы аплаты могуць апрацоўвацца доўга. Нічога больш рабіць не трэба.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play знайшоў пакупку з аплатай, якая чакае, і яшчэ яе апрацоўвае. Pro разблакуецца аўтаматычна, як толькі аплата праходзіць.</string>
     <string name="upgrade_screen_grace_title">Пацвярджэнне вашай пакупкі</string>
     <string name="upgrade_screen_grace_body_short">Google Play яшчэ не пацвердзіў вашу пакупку. Pro па-ранейшаму актыўны — дзеянні не патрабуюцца.</string>
     <string name="upgrade_screen_grace_body">Google Play ужо некаторы час не пацвярджае вашу пакупку. Pro па-ранейшаму актыўны. Пераканайцеся, што вы падключаны да інтэрнэту і ўвайшлі ў акаунт Google, які выкарыстоўваўся для пакупкі, а потым паспрабуйце аднавіць пакупку.</string>
-    <!-- Offercard layout -->
     <string name="upgrade_screen_offers_title">Варыянты абнаўлення</string>
     <string name="upgrade_screen_offers_or">або</string>
     <string name="upgrade_screen_offers_body">Тыя ж магчымасці, толькі розныя мадэлі цэнаўтварэння.</string>
@@ -55,7 +56,6 @@
     <string name="upgrade_screen_contact_support_action">Звязацца з падтрымкай</string>
     <string name="settings_upgrade_status_description">Ваш статус абнаўлення і пакупкі.</string>
     <string name="upgrades_gplay_unavailable_error_description">CAPod не можа падключыцца да Google Play. Ці ўсталяваны і абноўлены Google Play? Вы ўвайшлі ў свой уліковы запіс Google? Паспрабуйце ачысціць кэш праграмы Google Play і перазагрузіць прыладу.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Не ўдалося адкрыць Google Play. Гэта можа адсутнічаць, быць адключана або абмежавана на гэтым прыладзе.</string>
     <string name="upgrades_gplay_internal_error_title">Памылка Google Play</string>
     <string name="upgrades_gplay_internal_error_description">Адбылася ўнутраная памылка Google Play. Паспрабуйце наступнае:\n\n• Перазагрузіць прыладу\n• Ачысціць кэш Google Play Store\n• Паспрабаваць пазней</string>

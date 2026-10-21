@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">Түзмөк туташканда гана көрүнүүчү экинчи билдирүүнү көрсөтөт. Бул күйгүзүлгөндө туруктуу \"Түзмөктөр жок\" билдирүүсүн жашыра аласыз: Android\'дын CAPod үчүн билдирүү жөндөөлөрүндө \"Түзмөк абалы\" категориясын өчүрүңүз.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ажыратылгандан кийин билдирүүнү сактоо</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ажыратылгандан кийин да акыркы белгилүү батарея деңгээлдерин көрсөтүүнү улантуу</string>
+    <string name="settings_monitor_statusbar_battery_label">Абал тилкесиндеги батарея деңгээли</string>
+    <string name="settings_monitor_statusbar_battery_description">Батареянын пайызы абал тилкесинде эскертме сөлөкөтү катарында көрсөтүлөт. Кулакчындар үчүн эки кулакчындын төмөнкү деңгээли көрсөтүлөт, кубатталып жаткан кулакчын эсепке алынбайт.</string>
     <string name="settings_autopause_label">Авто тыным</string>
     <string name="settings_autopause_description">Түзмөктү кулагыңыздан чыгарганда аудиону тындырыңыз.</string>
     <string name="settings_autopplay_label">Авто ойнотуу</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">Гарнитурлар гана</string>
     <string name="settings_charged_scope_case_label">Кап гана</string>
     <string name="settings_charged_scope_both_label">Гарнитурлар жана кап</string>
+    <string name="settings_caselow_reminder_label">Кутунун батареясы боюнча эскертме</string>
+    <string name="settings_caselow_reminder_description">Кулакчындарды кутуга салганда жана кутунун батареясы азайганда, кутуну кубаттоону эскертүү.</string>
+    <string name="settings_caselow_threshold_label">Эскертме деңгээли</string>
     <string name="device_settings_experimental_title">Эксперименталдык функция</string>
     <string name="device_settings_experimental_description">Бул функция азырынча бардык түзмөктөрдө сыналган жок. Эгер бир нерсе туура иштебесе, отладка журналы менен маселе ачыңыз.</string>
     <string name="device_settings_experimental_action">Маселе трекерин ачуу</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">Бул эскертмени тутум жөндөөлөрүнөн өчүрүүгө болот.</string>
     <string name="monitor_notification_starting">Баштоодо…</string>
     <string name="support_debuglog_label">Мүчүлүштүктөрдү оңдоо журналы</string>
-    <string name="support_debuglog_desc">Колдонмо жасап жаткан бардык нерсени бөлүшө турган текст файлына жазыңыз.</string>
+    <string name="support_debuglog_desc">Колдонмонун бардык иштерин бөлүшүүгө болгон zip файлга жазуу.</string>
     <string name="debug_debuglog_record_action">Мүчүлүштүктөрдү оңдоо журналын жазуу</string>
     <string name="debug_debuglog_stop_action">Жаздырууну токтотуу</string>
     <string name="debug_debuglog_sensitive_information_message">Түзүлгөн файл купуя маалыматты камтыйт (мис., Bluetooth түзмөгүнүн чоо-жайы). Аны ишенимдүү тараптар менен гана бөлүшүңүз.</string>
@@ -204,7 +209,7 @@
     <string name="permission_ignore_battery_optimizations_label">Батарея оптималдаштыруусун өчүрүү</string>
     <string name="permission_ignore_battery_optimizations_description">Батарея оптималдаштыруулары бул колдонмонун фондо Bluetooth маалыматтарын ишенимдүү алуусуна тоскоолдук кылат.</string>
     <string name="permission_system_alert_window_label">Тутум эскертүү терезеси</string>
-    <string name="permission_system_alert_window_description">\"Калкыма терезе көрсөтүү\" функциясын мүмкүн кылуу үчүн CAPod\'го башка колдонмолордун үстүнөн тартууга уруксат бериңиз.</string>
+    <string name="permission_system_alert_window_description">CAPod\'го башка колдонмолордун үстүнөн сүрөттөөгө уруксат берүү. Бул \"Калкыма терезени көрсөтүү\" функциясы үчүн жана AirPods\'тогу басуу менен үн жардамчысын ачуу үчүн керек.</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Көрүнгөндө</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кап ачык</string>
     <string name="settings_reaction_autoconnect_inear_label">Кулакта</string>
@@ -227,6 +232,8 @@
     <string name="battery_case_charges_state_enough_cd">Толук заряддоого жетиштүү</string>
     <string name="battery_case_charges_state_not_enough_cd">Толук заряддоого жетишсиз</string>
     <string name="battery_case_charges_state_uncertain_cd">Толук заряддоого жетпеши мүмкүн</string>
+    <string name="battery_case_charges_short">%1$s заряд</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ заряд</string>
     <string name="pods_case_status_open_label">Ачык</string>
     <string name="pods_case_status_closed_label">Жабык</string>
     <string name="pods_connection_state_disconnected_label">Түзмөккө туташкан эмес</string>
@@ -449,7 +456,7 @@
     <string name="device_settings_volume_swipe_length_longer">Узунураак</string>
     <string name="device_settings_volume_swipe_length_longest">Эң узун</string>
     <string name="device_settings_end_call_mute_mic_label">Чалуу башкаруулары</string>
-    <string name="device_settings_end_call_mute_mic_description">Чалуу учурунда таяныч баскычы эмне кылаарын тандаңыз</string>
+    <string name="device_settings_end_call_mute_mic_description">Чалуу учурунда басуулардын аракетин тандоо</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Чалууну аяктоо үчүн бир жолу басыңыз</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Микрофонду өчүрүү үчүн эки жолу басыңыз</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофонду өчүрүү үчүн бир жолу басыңыз</string>
@@ -489,6 +496,9 @@
     <string name="reaction_charged_notification_title">Заряддоо аяктады</string>
     <string name="reaction_charged_notification_text_full">%1$s толук заряддалды.</string>
     <string name="reaction_charged_notification_text_partial">%1$s %2$d%% заряддалды.</string>
+    <string name="reaction_caselow_channel_label">Кутунун батареясы боюнча эскертме</string>
+    <string name="reaction_caselow_notification_title">Кутуну кубаттоо керек</string>
+    <string name="reaction_caselow_notification_text">%1$s: кутунун батареясы %2$d%%.</string>
     <string name="device_settings_rename_label">Ат өзгөртүү</string>
     <string name="device_settings_rename_hint">Түзмөк аты</string>
     <string name="device_settings_rename_confirm">Ат өзгөртүү</string>
@@ -512,7 +522,7 @@
     <string name="device_settings_eq_label">Эквалайзер</string>
     <string name="press_controls_title">Басуу башкаруу</string>
     <string name="press_controls_nav_description">Басуу жүрүмүн және басууларды акцияларга бәлүү</string>
-    <string name="press_controls_description">Басуулар кандай аныкталарын теңшәңдеңиз, чакыруу түймөчүнүн тандаңыз жана басууларды акцияларга бәлүүңүз. Бәлүнгөн акциялар тек бул түзмөккә тийишет жана колдонмого AirPods иштетинде басууну үзү иштендируүнүн алмаштырат.</string>
+    <string name="press_controls_description">Басууларды аныктоону тууралоо, чалуу баскычынын жүрүм-турумун тандоо жана басууларды аракеттерге байланыштыруу. Байланышкан аракеттер ушул түзмөккө гана колдонулат жана колдонмо басууну кулакчындар өзү иштетпестен, өзү кармап калат.</string>
     <string name="press_controls_single_press">Бир жолу басуу</string>
     <string name="press_controls_double_press">Еки жолу басуу</string>
     <string name="press_controls_triple_press">Үч жолу басуу</string>
@@ -534,8 +544,12 @@
     <string name="press_action_rewind">Кайта чопуу</string>
     <string name="press_action_cycle_anc">Шуум Башкарууну циклдәү</string>
     <string name="press_action_toggle_anc_transparency">Транспаренттүүлүкты ооштоо</string>
+    <string name="press_action_voice_assistant">Үн жардамчысы</string>
+    <string name="press_action_voice_assistant_unavailable">Үн жардамчысы табылган жок</string>
     <string name="press_controls_reset_label">Адаттан калгандайга кайтаруу</string>
     <string name="press_controls_reset_confirm_message">Бардык басуу бәлүмдөрүн адаттан калгандайга кайтаруу?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Үн жардамчысы башка колдонмолордун үстүнөн көрсөтүлүшү үчүн уруксат талап кылат, антпесе AirPods басылганда ал ачылбайт.</string>
+    <string name="press_controls_voice_assistant_permission_action">Уруксат берүү</string>
     <string name="device_settings_noise_control_open_press_controls_action">Басуу Башкарууну ачуу</string>
     <string name="general_navigate_up_action">Жогору өтүү</string>
     <string name="general_progress_loading">Жүктөлүүдө</string>

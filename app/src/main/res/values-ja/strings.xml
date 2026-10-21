@@ -32,6 +32,8 @@
     <string name="settings_monitor_connected_notification_description">デバイスが接続されている間だけ表示される2番目の通知を表示します。この設定をオンにすると、常に表示される「デバイスなし」通知を非表示にできます。Androidの通知設定でCAPodの「デバイスステータス」カテゴリをオフにしてください。</string>
     <string name="settings_keep_notification_after_disconnect_label">切断後も通知を維持</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPodsが切断された後も、最後に確認されたバッテリー残量を表示し続けます</string>
+    <string name="settings_monitor_statusbar_battery_label">ステータスバーのバッテリー残量</string>
+    <string name="settings_monitor_statusbar_battery_description">ステータスバーの通知アイコンに、バッテリー残量をパーセントで表示します。イヤホンの場合は、充電中のものを除いて残量の少ない方を表示します。</string>
     <string name="settings_autopause_label">自動一時停止</string>
     <string name="settings_autopause_description">デバイスを耳から外すとオーディオを一時停止します。</string>
     <string name="settings_autopplay_label">自動再生</string>
@@ -66,6 +68,9 @@
     <string name="settings_charged_scope_pods_label">ポッドのみ</string>
     <string name="settings_charged_scope_case_label">ケースのみ</string>
     <string name="settings_charged_scope_both_label">ポッドとケース</string>
+    <string name="settings_caselow_reminder_label">ケースのバッテリー通知</string>
+    <string name="settings_caselow_reminder_description">イヤホンを戻したときに、ケースのバッテリーが少なければ充電を促します。</string>
+    <string name="settings_caselow_threshold_label">通知するバッテリー残量</string>
     <string name="device_settings_experimental_title">実験的機能</string>
     <string name="device_settings_experimental_description">この機能はまだすべてのデバイスでテストされていません。正しく動作しない場合は、デバッグログを添えてイシューを開いてください。</string>
     <string name="device_settings_experimental_action">イシュートラッカーを開く</string>
@@ -74,7 +79,7 @@
     <string name="monitor_notification_extra_enabled_hint">この通知はシステム設定で無効にできます。</string>
     <string name="monitor_notification_starting">起動中…</string>
     <string name="support_debuglog_label">デバッグログ</string>
-    <string name="support_debuglog_desc">アプリが行っているすべてのことを、共有できるテキストファイルに記録します。</string>
+    <string name="support_debuglog_desc">アプリの動作をすべて記録し、共有できるZIPファイルに保存します。</string>
     <string name="debug_debuglog_record_action">デバッグログを記録</string>
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者とのみ共有してください。</string>
@@ -202,7 +207,7 @@
     <string name="permission_ignore_battery_optimizations_label">バッテリー最適化を無効化</string>
     <string name="permission_ignore_battery_optimizations_description">バッテリー最適化により、アプリがバックグラウンドでBluetoothデータを安定して受信できなくなります。</string>
     <string name="permission_system_alert_window_label">システムアラートウィンドウ</string>
-    <string name="permission_system_alert_window_description">「ポップアップを表示」機能を有効にするため、CAPodが他のアプリの上に表示できるようにします。</string>
+    <string name="permission_system_alert_window_description">CAPodが他のアプリの上に表示できるようにします。「ポップアップを表示」機能に必要で、AirPodsのプレスからボイスアシスタントを開くためにも使用されます。</string>
     <string name="settings_reaction_autoconnect_whenseen_label">検出時</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ケースが開いているとき</string>
     <string name="settings_reaction_autoconnect_inear_label">装着時</string>
@@ -223,6 +228,8 @@
     <string name="battery_case_charges_state_enough_cd">フル充電に足ります</string>
     <string name="battery_case_charges_state_not_enough_cd">フル充電に足りません</string>
     <string name="battery_case_charges_state_uncertain_cd">フル充電に足りないかもしれません</string>
+    <string name="battery_case_charges_short">%1$s 充電</string>
+    <string name="battery_case_charges_short_at_least">%1$s+ 充電</string>
     <string name="pods_case_status_open_label">開いている</string>
     <string name="pods_case_status_closed_label">閉じている</string>
     <string name="pods_connection_state_disconnected_label">デバイスに接続されていません</string>
@@ -442,7 +449,7 @@
     <string name="device_settings_volume_swipe_length_longer">長め</string>
     <string name="device_settings_volume_swipe_length_longest">最も長い</string>
     <string name="device_settings_end_call_mute_mic_label">通話コントロール</string>
-    <string name="device_settings_end_call_mute_mic_description">通話中にステムを押したときの動作を選択</string>
+    <string name="device_settings_end_call_mute_mic_description">通話中にプレスしたときの動作を選択します</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">シングルプレスで通話を終了</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">ダブルプレスでマイクをミュート</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">シングルプレスでマイクをミュート</string>
@@ -482,6 +489,9 @@
     <string name="reaction_charged_notification_title">充電完了</string>
     <string name="reaction_charged_notification_text_full">%1$sは満充電になりました。</string>
     <string name="reaction_charged_notification_text_partial">%1$sが%2$d%%まで充電されました。</string>
+    <string name="reaction_caselow_channel_label">ケースのバッテリー通知</string>
+    <string name="reaction_caselow_notification_title">ケースを充電してください</string>
+    <string name="reaction_caselow_notification_text">%1$s: ケースのバッテリー残量は%2$d%%です。</string>
     <string name="device_settings_rename_label">名前を変更</string>
     <string name="device_settings_rename_hint">デバイス名</string>
     <string name="device_settings_rename_confirm">名前を変更</string>
@@ -505,7 +515,7 @@
     <string name="device_settings_eq_label">イコライザー</string>
     <string name="press_controls_title">プレスコントロール</string>
     <string name="press_controls_nav_description">プレスの挙動を調整し、プレスにアクションを割り当てる</string>
-    <string name="press_controls_description">プレスの検出方法を調整し、通話ボタンの挙動を選び、プレスにアクションを割り当てます。割り当てたアクションはこのデバイスのみに適用され、AirPodsがネイティブに処理する代わりにアプリがプレスを値受け取ります。</string>
+    <string name="press_controls_description">プレスの検出方法を調整し、通話ボタンの動作を選んで、プレスに操作を割り当てます。割り当てた操作はこのデバイスにのみ適用され、イヤホン本来の動作の代わりにアプリがプレスを処理します。</string>
     <string name="press_controls_single_press">シングルプレス</string>
     <string name="press_controls_double_press">ダブルプレス</string>
     <string name="press_controls_triple_press">トリプルプレス</string>
@@ -527,8 +537,12 @@
     <string name="press_action_rewind">巻き戻し</string>
     <string name="press_action_cycle_anc">ノイズコントロールを切り替え</string>
     <string name="press_action_toggle_anc_transparency">トランスペアレンシーを切り替え</string>
+    <string name="press_action_voice_assistant">ボイスアシスタント</string>
+    <string name="press_action_voice_assistant_unavailable">ボイスアシスタントが見つかりません</string>
     <string name="press_controls_reset_label">デフォルトにリセット</string>
     <string name="press_controls_reset_confirm_message">すべてのプレスマッピングをデフォルトにリセットしますか？</string>
+    <string name="press_controls_voice_assistant_permission_hint">ボイスアシスタントを他のアプリの上に表示するには許可が必要です。許可がないと、AirPodsをプレスしてもボイスアシスタントは開きません。</string>
+    <string name="press_controls_voice_assistant_permission_action">許可</string>
     <string name="device_settings_noise_control_open_press_controls_action">プレスコントロールを開く</string>
     <string name="general_navigate_up_action">上へ移動</string>
     <string name="general_progress_loading">読み込み中</string>
