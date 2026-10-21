@@ -240,7 +240,7 @@
     <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
     <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
-    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
+    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps. Needed for the \"Show PopUp\" feature and to open the voice assistant from a press on your AirPods.</string>
 
 
     <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
@@ -612,8 +612,12 @@
     <string name="press_action_rewind">Rewind</string>
     <string name="press_action_cycle_anc">Cycle Noise Control</string>
     <string name="press_action_toggle_anc_transparency">Toggle Transparency</string>
+    <string name="press_action_voice_assistant">Voice Assistant</string>
+    <string name="press_action_voice_assistant_unavailable">No voice assistant found</string>
     <string name="press_controls_reset_label">Reset to defaults</string>
     <string name="press_controls_reset_confirm_message">Reset all press mappings to defaults?</string>
+    <string name="press_controls_voice_assistant_permission_hint">Voice Assistant needs permission to display over other apps, otherwise pressing your AirPods won\'t open it.</string>
+    <string name="press_controls_voice_assistant_permission_action">Grant</string>
     <string name="device_settings_noise_control_open_press_controls_action">Open Press Controls</string>
 
     <string name="general_navigate_up_action">Navigate up</string>

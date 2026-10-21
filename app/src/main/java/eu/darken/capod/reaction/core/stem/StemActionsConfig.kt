@@ -15,4 +15,9 @@ data class StemActionsConfig(
     @SerialName("rightDouble") val rightDouble: StemAction = StemAction.None,
     @SerialName("rightTriple") val rightTriple: StemAction = StemAction.None,
     @SerialName("rightLong") val rightLong: StemAction = StemAction.None,
-) : android.os.Parcelable
+) : android.os.Parcelable {
+    fun uses(action: StemAction): Boolean = listOf(
+        leftSingle, leftDouble, leftTriple, leftLong,
+        rightSingle, rightDouble, rightTriple, rightLong,
+    ).any { it == action }
+}

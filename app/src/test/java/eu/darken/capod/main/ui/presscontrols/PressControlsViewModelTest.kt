@@ -1,7 +1,9 @@
 package eu.darken.capod.main.ui.presscontrols
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -46,6 +48,7 @@ class PressControlsViewModelTest : BaseTest() {
     private lateinit var aapManager: AapConnectionManager
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var profilesRepo: DeviceProfilesRepo
+    private lateinit var permissionTool: PermissionTool
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
@@ -93,6 +96,9 @@ class PressControlsViewModelTest : BaseTest() {
                 }
             }
         }
+        permissionTool = mockk(relaxed = true) {
+            every { missingPermissions } returns MutableStateFlow(emptySet<Permission>())
+        }
     }
 
     @AfterEach
@@ -117,6 +123,7 @@ class PressControlsViewModelTest : BaseTest() {
         aapManager = aapManager,
         upgradeRepo = upgradeRepo,
         profilesRepo = profilesRepo,
+        permissionTool = permissionTool,
     ).also { vm = it }
 
     @Test

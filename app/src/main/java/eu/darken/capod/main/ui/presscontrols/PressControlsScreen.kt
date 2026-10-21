@@ -1,5 +1,7 @@
 package eu.darken.capod.main.ui.presscontrols
 
+import android.content.Intent
+import android.provider.Settings
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -27,15 +29,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.navigation.NavigationEventHandler
+import eu.darken.capod.common.settings.InfoBoxType
+import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
@@ -53,6 +61,15 @@ fun PressControlsScreenHost(
     NavigationEventHandler(vm)
 
     LaunchedEffect(profileId) { vm.initialize(profileId) }
+
+    val context = LocalContext.current
+    var awaitingOverlayPermission by rememberSaveable { mutableStateOf(false) }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        if (awaitingOverlayPermission) {
+            awaitingOverlayPermission = false
+            vm.onOverlayPermissionResult()
+        }
+    }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val sendFailedTemplate = stringResource(R.string.device_settings_send_failed, "%1\$s")
@@ -100,6 +117,15 @@ fun PressControlsScreenHost(
         onPressSpeedChange = { vm.setPressSpeed(it) },
         onPressHoldDurationChange = { vm.setPressHoldDuration(it) },
         onEndCallMuteMicChange = { muteMic, endCall -> vm.setEndCallMuteMic(muteMic, endCall) },
+        onGrantOverlayPermission = {
+            awaitingOverlayPermission = true
+            context.startActivity(
+                Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    "package:${context.packageName}".toUri(),
+                )
+            )
+        },
     )
 }
 
@@ -124,6 +150,7 @@ fun PressControlsScreen(
         AapSetting.EndCallMuteMic.MuteMicMode,
         AapSetting.EndCallMuteMic.EndCallMode,
     ) -> Unit = { _, _ -> },
+    onGrantOverlayPermission: () -> Unit = {},
 ) {
     var showResetDialog by remember { mutableStateOf(false) }
 
@@ -236,6 +263,19 @@ fun PressControlsScreen(
                         onRightTriple = onRightTriple,
                         onRightLong = onRightLong,
                     )
+                }
+                if (state.voiceAssistantNeedsOverlay) {
+                    item("voice_assistant_permission_hint") {
+                        SettingsInfoBox(
+                            text = stringResource(R.string.press_controls_voice_assistant_permission_hint),
+                            type = InfoBoxType.WARNING,
+                            action = {
+                                TextButton(onClick = onGrantOverlayPermission) {
+                                    Text(stringResource(R.string.press_controls_voice_assistant_permission_action))
+                                }
+                            },
+                        )
+                    }
                 }
             }
 

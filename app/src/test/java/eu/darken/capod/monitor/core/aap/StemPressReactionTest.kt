@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core.aap
 
 import android.view.KeyEvent
 import eu.darken.capod.common.MediaControl
+import eu.darken.capod.common.VoiceAssistantLauncher
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
@@ -16,6 +17,7 @@ import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
@@ -52,7 +54,7 @@ class StemPressReactionTest : BaseTest() {
             every { this@mockk.profiles } returns flowOf(profiles)
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
 
         val job = launch { reaction.monitor().collect {} }
 
@@ -79,7 +81,7 @@ class StemPressReactionTest : BaseTest() {
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
 
         val job = launch { reaction.monitor().collect {} }
 
@@ -111,7 +113,7 @@ class StemPressReactionTest : BaseTest() {
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
 
         val job = launch { reaction.monitor().collect {} }
 
@@ -147,7 +149,7 @@ class StemPressReactionTest : BaseTest() {
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
         val job = launch { reaction.monitor().collect {} }
 
         events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
@@ -162,6 +164,34 @@ class StemPressReactionTest : BaseTest() {
         coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD) }
         coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_REWIND) }
         coVerify(exactly = 1) { mediaControl.toggleMuteMusic() }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `VoiceAssistant launches the voice assistant without sending media keys`() = runTest(UnconfinedTestDispatcher()) {
+        val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { stemPressEvents } returns events
+        }
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
+            every { this@mockk.profiles } returns flowOf(
+                listOf<DeviceProfile>(
+                    profile(addressA, StemActionsConfig(rightLong = StemAction.VoiceAssistant))
+                )
+            )
+        }
+        val mediaControl = mockk<MediaControl>(relaxed = true)
+        val voiceAssistantLauncher = mockk<VoiceAssistantLauncher>(relaxed = true)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, voiceAssistantLauncher)
+        val job = launch { reaction.monitor().collect {} }
+
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.LONG, StemPressEvent.Bud.RIGHT))
+        advanceUntilIdle()
+
+        verify(exactly = 1) { voiceAssistantLauncher.launch() }
+        coVerify(exactly = 0) { mediaControl.sendPlayPause() }
+        coVerify(exactly = 0) { mediaControl.sendKey(any()) }
 
         job.cancel()
     }
@@ -196,7 +226,7 @@ class StemPressReactionTest : BaseTest() {
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
         val job = launch { reaction.monitor().collect {} }
 
         events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
@@ -233,7 +263,7 @@ class StemPressReactionTest : BaseTest() {
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
         val job = launch { reaction.monitor().collect {} }
 
         events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
@@ -263,7 +293,7 @@ class StemPressReactionTest : BaseTest() {
             every { this@mockk.profiles } returns flowOf(listOf<DeviceProfile>(noCycleProfile))
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
-        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl, mockk(relaxed = true))
         val job = launch { reaction.monitor().collect {} }
 
         events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
