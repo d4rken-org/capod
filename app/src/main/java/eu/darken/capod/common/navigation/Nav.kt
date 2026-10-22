@@ -27,6 +27,9 @@ object Nav {
 
         @Serializable
         data class PressControls(val profileId: String) : Main
+
+        @Serializable
+        data class Equalizer(val profileId: String) : Main
     }
 
     sealed interface Settings : NavigationDestination {
