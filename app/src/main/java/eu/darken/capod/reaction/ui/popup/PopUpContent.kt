@@ -1,45 +1,53 @@
 package eu.darken.capod.reaction.ui.popup
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import eu.darken.capod.R
+import androidx.compose.ui.unit.sp
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
-import eu.darken.capod.pods.core.apple.ble.getBatteryIcon
 
+/**
+ * iOS-style connection popup: dimmed full-screen backdrop, big product images,
+ * battery gauges underneath. A tap anywhere (backdrop or card) dismisses it.
+ */
 @Composable
 fun PopUpContent(
     device: PodDevice,
@@ -48,56 +56,44 @@ fun PopUpContent(
 ) {
     val context = LocalContext.current
 
-    Box(modifier = modifier.padding(start = 12.dp, top = 12.dp, end = 12.dp, bottom = 16.dp)) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.35f))
+            .pointerInput(Unit) {
+                detectTapGestures { onClose() }
+            },
+        contentAlignment = Alignment.BottomCenter,
+    ) {
         Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(24.dp),
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 24.dp)
+                .widthIn(max = 440.dp)
+                .fillMaxWidth(),
+            shape = RoundedCornerShape(28.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .padding(top = 20.dp, bottom = 16.dp),
+                    .padding(horizontal = 24.dp)
+                    .padding(top = 28.dp, bottom = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                // Header: label + signal indicator (sits right after the text)
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center,
-                ) {
-                    Text(
-                        text = device.getLabel(context),
-                        style = MaterialTheme.typography.titleLarge,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f, fill = false),
-                    )
-                    SignalIndicator(
-                        signalQuality = device.rssiQuality,
-                        isLive = device.isLive,
-                        modifier = Modifier.padding(start = 6.dp),
-                    )
-                }
+                Text(
+                    text = device.getLabel(context),
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
+                )
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
-                // Device-specific content
                 when {
                     device.hasDualPods -> DualPodContent(device)
                     device.model != PodModel.UNKNOWN -> SinglePodContent(device)
-                }
-
-                Spacer(modifier = Modifier.height(20.dp))
-
-                // Close button
-                Button(
-                    onClick = onClose,
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(24.dp),
-                ) {
-                    Text(text = stringResource(R.string.general_close_action))
                 }
             }
         }
@@ -109,103 +105,96 @@ private fun DualPodContent(device: PodDevice) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.Bottom,
     ) {
         // Left pod
-        BatteryColumn(
+        PodVisual(
             iconRes = device.leftPodIcon,
+            imageHeight = 118.dp,
+            label = "L",
             batteryPercent = device.batteryLeft,
             isCharging = device.isLeftPodCharging ?: false,
-            modifier = Modifier.weight(1f),
+        )
+
+        // Right pod
+        PodVisual(
+            iconRes = device.rightPodIcon,
+            imageHeight = 118.dp,
+            label = "R",
+            batteryPercent = device.batteryRight,
+            isCharging = device.isRightPodCharging ?: false,
         )
 
         // Case (only if device has one)
         if (device.hasCase) {
-            BatteryColumn(
+            PodVisual(
                 iconRes = device.caseIcon,
+                imageHeight = 118.dp,
+                label = null,
                 batteryPercent = device.batteryCase,
                 isCharging = device.isCaseCharging ?: false,
-                modifier = Modifier.weight(1f),
             )
         }
-
-        // Right pod
-        BatteryColumn(
-            iconRes = device.rightPodIcon,
-            batteryPercent = device.batteryRight,
-            isCharging = device.isRightPodCharging ?: false,
-            modifier = Modifier.weight(1f),
-        )
     }
 }
 
 @Composable
 private fun SinglePodContent(device: PodDevice) {
-    BatteryColumn(
+    PodVisual(
         iconRes = device.iconRes,
+        imageHeight = 150.dp,
+        label = null,
         batteryPercent = device.batteryHeadset,
         isCharging = device.isHeadsetBeingCharged ?: false,
     )
 }
 
 @Composable
-private fun BatteryColumn(
+private fun PodVisual(
     iconRes: Int,
+    imageHeight: androidx.compose.ui.unit.Dp,
+    label: String?,
     batteryPercent: Float,
-    isCharging: Boolean = false,
-    modifier: Modifier = Modifier,
+    isCharging: Boolean,
 ) {
     val context = LocalContext.current
 
-    Column(
-        modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Image(
             painter = painterResource(iconRes),
             contentDescription = null,
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.height(imageHeight),
             contentScale = ContentScale.Fit,
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(14.dp))
+
+        BatteryGauge(percent = batteryPercent, isCharging = isCharging)
+
+        Spacer(modifier = Modifier.height(6.dp))
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
         ) {
-            if (isCharging) {
-                Icon(
-                    imageVector = Icons.TwoTone.BatteryChargingFull,
-                    contentDescription = null,
-                    modifier = Modifier.size(16.dp),
-                )
+            if (label != null) {
+                Box(
+                    modifier = Modifier
+                        .size(20.dp)
+                        .background(Color(0xFF1C1C1E), CircleShape),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = label,
+                        color = Color.White,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+                Spacer(modifier = Modifier.width(6.dp))
             } else {
-                Icon(
-                    imageVector = getBatteryIcon(batteryPercent),
-                    contentDescription = null,
-                    modifier = Modifier.size(16.dp),
-                )
-            }
-            Spacer(modifier = Modifier.width(2.dp))
-            Text(
-                text = formatBatteryPercent(context, batteryPercent),
-                style = MaterialTheme.typography.bodyMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                textAlign = TextAlign.Center,
-            )
-        }
-    }
-}
-
-@Preview2
-@Composable
-private fun PopUpContentDualPodPreview() = PreviewWrapper {
-    PopUpContent(device = MockPodDataProvider.dualPodMonitoredMixed(), onClose = {})
-}
-
-@Preview2
-@Composable
-private fun PopUpContentSinglePodPreview() = PreviewWrapper {
-    PopUpContent(device = MockPodDataProvider.singlePodMonitored(), onClose = {})
-}
+                // Case: small rounded-square marker instead of a letter chip
+                Box(
+                    modifier = Modifier
+                        .size(width = 18.dp, height = 13.dp)
+                        .border(1.5.dp, Color(0xFF1C1C1E), RoundedCornerSh
