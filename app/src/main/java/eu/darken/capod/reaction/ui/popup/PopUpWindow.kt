@@ -3,7 +3,6 @@ package eu.darken.capod.reaction.ui.popup
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
 import android.graphics.PixelFormat
-import android.view.Gravity
 import android.view.WindowManager
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -35,19 +34,14 @@ class PopUpWindow @Inject constructor(
 ) {
 
     private val windowManager = appContext.getSystemService(WINDOW_SERVICE) as WindowManager
+    // Full-screen overlay so a tap anywhere (card or dimmed background) can dismiss the popup.
     private val layoutParams = WindowManager.LayoutParams(
-        WindowManager.LayoutParams.WRAP_CONTENT,
-        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.MATCH_PARENT,
+        WindowManager.LayoutParams.MATCH_PARENT,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
         PixelFormat.TRANSLUCENT
-    ).apply {
-        gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-        val dm = appContext.resources.displayMetrics
-        val margin = (24 * dm.density).toInt()
-        width = minOf(dm.widthPixels - margin * 2, (400 * dm.density).toInt())
-        y = (8 * dm.density).toInt()
-    }
+    )
 
     private var composeView: ComposeView? = null
     private var lifecycleOwner: OverlayLifecycleOwner? = null
