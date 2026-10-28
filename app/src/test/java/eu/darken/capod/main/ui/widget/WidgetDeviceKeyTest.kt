@@ -2,8 +2,6 @@ package eu.darken.capod.main.ui.widget
 
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.cache.CachedDeviceState
-import eu.darken.capod.monitor.core.cache.CachedDeviceState.CachedBatterySlot
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -132,112 +130,16 @@ class WidgetDeviceKeyTest : BaseTest() {
         ancExpandedModes shouldNotBe ancOn
     }
 
-    @Test
-    fun `live ble device has no last known time`() {
-        val device = dualDevice(cached = dualCache())
-
-        device.widgetLastKnownAt() shouldBe null
-    }
-
-    @Test
-    fun `live aap-only device has no last known time`() {
-        val device = dualDevice(
-            ble = null,
-            aap = AapPodState(connectionState = AapPodState.ConnectionState.READY),
-            cached = dualCache(),
-        )
-
-        device.isBatteryCached shouldBe true
-        device.widgetLastKnownAt() shouldBe null
-    }
-
-    @Test
-    fun `cache-only device uses cached battery time`() {
-        val at = Instant.parse("2026-04-05T10:00:00Z")
-        val device = singleDevice(
-            ble = null,
-            cached = CachedDeviceState(
-                profileId = singleProfile.id,
-                model = singleProfile.model,
-                headset = CachedBatterySlot(percent = 0.6f, updatedAt = at),
-                lastSeenAt = at,
-            ),
-        )
-
-        device.widgetLastKnownAt() shouldBe device.cachedBatteryAt
-        device.widgetLastKnownAt() shouldBe at
-    }
-
-    @Test
-    fun `cache-only dual device uses the oldest slot time`() {
-        val device = dualDevice(
-            ble = null,
-            cached = dualCache(
-                leftAt = Instant.parse("2026-04-05T10:00:00Z"),
-                rightAt = Instant.parse("2026-04-05T11:00:00Z"),
-                caseAt = Instant.parse("2026-04-05T09:00:00Z"),
-            ),
-        )
-
-        device.widgetLastKnownAt() shouldBe Instant.parse("2026-04-05T09:00:00Z")
-    }
-
-    @Test
-    fun `cache-only device without battery slots has no last known time`() {
-        val device = dualDevice(
-            ble = null,
-            cached = CachedDeviceState(
-                profileId = dualProfile.id,
-                model = dualProfile.model,
-                lastSeenAt = Instant.parse("2026-04-05T10:00:00Z"),
-            ),
-        )
-
-        device.widgetLastKnownAt() shouldBe null
-    }
-
-    @Test
-    fun `cached slot time alters key`() {
-        val first = dualDevice(ble = null, cached = dualCache()).toWidgetKey()
-        val same = dualDevice(ble = null, cached = dualCache()).toWidgetKey()
-        val later = dualDevice(
-            ble = null,
-            cached = dualCache(
-                leftAt = Instant.parse("2026-04-05T10:05:00Z"),
-                rightAt = Instant.parse("2026-04-05T10:05:00Z"),
-                caseAt = Instant.parse("2026-04-05T10:05:00Z"),
-            ),
-        ).toWidgetKey()
-
-        same shouldBe first
-        later shouldNotBe first
-    }
-
-    private fun dualCache(
-        leftAt: Instant = Instant.parse("2026-04-05T10:00:00Z"),
-        rightAt: Instant = Instant.parse("2026-04-05T10:00:00Z"),
-        caseAt: Instant = Instant.parse("2026-04-05T10:00:00Z"),
-    ) = CachedDeviceState(
-        profileId = dualProfile.id,
-        model = dualProfile.model,
-        left = CachedBatterySlot(percent = 0.5f, updatedAt = leftAt),
-        right = CachedBatterySlot(percent = 0.6f, updatedAt = rightAt),
-        case = CachedBatterySlot(percent = 0.7f, updatedAt = caseAt),
-        lastSeenAt = maxOf(leftAt, rightAt, caseAt),
-    )
-
     private fun dualDevice(
         label: String? = dualProfile.label,
         ble: BlePodSnapshot? = FakeDualBlePod(profile = dualProfile),
         aap: AapPodState? = null,
         batteryEstimateEnabled: Boolean = true,
-        cached: CachedDeviceState? = null,
     ) = PodDevice(
         profileId = dualProfile.id,
         label = label,
         ble = ble,
         aap = aap,
-        cached = cached,
         profileAddress = dualProfile.address,
         profileModel = dualProfile.model,
         batteryEstimateEnabled = batteryEstimateEnabled,
@@ -247,13 +149,11 @@ class WidgetDeviceKeyTest : BaseTest() {
         label: String? = singleProfile.label,
         ble: BlePodSnapshot? = FakeSingleBlePod(profile = singleProfile),
         aap: AapPodState? = null,
-        cached: CachedDeviceState? = null,
     ) = PodDevice(
         profileId = singleProfile.id,
         label = label,
         ble = ble,
         aap = aap,
-        cached = cached,
         profileAddress = singleProfile.address,
         profileModel = singleProfile.model,
     )

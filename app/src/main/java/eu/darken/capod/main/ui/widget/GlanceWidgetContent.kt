@@ -10,8 +10,6 @@ import androidx.glance.ColorFilter
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
-import androidx.glance.LocalContext
-import androidx.glance.LocalSize
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.cornerRadius
@@ -72,7 +70,7 @@ private fun GlanceDualPod(
                     GlancePodItem(state.caseIcon, state.casePercent, state.caseCharging, false, textStyle, iconTint, iconSize = 40, modifier = GlanceModifier.padding(end = 12.dp))
                     GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint, iconSize = 40, estimate = state.rightEstimate, estimateBelow = true)
                 }
-                GlanceLabelWithLastKnown(state.deviceLabel, state.theme.showDeviceLabel, state.lastKnown, isDualPod = true, state.layout, state.resolvedTextColor)
+                GlanceDeviceLabel(state.deviceLabel, state.theme.showDeviceLabel, state.resolvedTextColor)
             }
         }
 
@@ -82,7 +80,7 @@ private fun GlanceDualPod(
                 GlancePodItem(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textStyle, iconTint, estimate = state.leftEstimate)
                 GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint, estimate = state.rightEstimate)
                 GlancePodItem(state.caseIcon, state.casePercent, state.caseCharging, false, textStyle, iconTint)
-                GlanceLabelWithLastKnown(state.deviceLabel, state.theme.showDeviceLabel, state.lastKnown, isDualPod = true, state.layout, state.resolvedTextColor)
+                GlanceDeviceLabel(state.deviceLabel, state.theme.showDeviceLabel, state.resolvedTextColor)
             }
         }
 
@@ -147,7 +145,7 @@ private fun GlanceSinglePod(
                         )
                     }
                 }
-                GlanceLabelWithLastKnown(state.deviceLabel, state.theme.showDeviceLabel, state.lastKnown, isDualPod = false, state.layout, state.resolvedTextColor)
+                GlanceDeviceLabel(state.deviceLabel, state.theme.showDeviceLabel, state.resolvedTextColor)
             }
         }
 
@@ -342,7 +340,6 @@ private fun GlanceDeviceLabel(
     label: String?,
     visible: Boolean,
     textColor: Int,
-    maxLines: Int = Int.MAX_VALUE,
 ) {
     if (visible && label != null) {
         Text(
@@ -353,81 +350,7 @@ private fun GlanceDeviceLabel(
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
             ),
-            maxLines = maxLines,
         )
-    }
-}
-
-@Composable
-private fun GlanceLabelWithLastKnown(
-    label: String?,
-    showLabel: Boolean,
-    lastKnown: String?,
-    isDualPod: Boolean,
-    layout: BatteryLayout,
-    textColor: Int,
-) {
-    val context = LocalContext.current
-    val shownLabel = label?.takeIf { showLabel }
-    val fontScale = context.resources.configuration.fontScale
-    val placement = lastKnownPlacement(
-        hasLastKnown = lastKnown != null,
-        isDualPod = isDualPod,
-        layout = layout,
-        labelShown = shownLabel != null,
-        heightDp = LocalSize.current.height.value,
-        fontScale = fontScale,
-    )
-    if (lastKnown == null || placement == LastKnownPlacement.NONE) {
-        GlanceDeviceLabel(label, showLabel, textColor)
-        return
-    }
-
-    val lastKnownStyle = TextStyle(
-        color = fixedColor(textColor),
-        fontSize = 12.sp,
-        textAlign = TextAlign.Center,
-    )
-    val lastKnownLine = lastKnownLineText(
-        prefixed = context.getString(R.string.battery_cached_label, lastKnown),
-        bare = lastKnown,
-        widthDp = LocalSize.current.width.value,
-        fontScale = fontScale,
-    )
-    when (placement) {
-        LastKnownPlacement.OWN_LINE -> {
-            GlanceDeviceLabel(label, showLabel, textColor, maxLines = 1)
-            Text(
-                text = lastKnownLine,
-                style = lastKnownStyle,
-                maxLines = 1,
-            )
-        }
-
-        LastKnownPlacement.LABEL_SLOT -> Text(
-            text = lastKnownLine,
-            style = lastKnownStyle,
-            maxLines = 1,
-        )
-
-        LastKnownPlacement.APPEND_TO_LABEL -> if (shownLabel != null) {
-            val labelStyle = lastKnownStyle.copy(fontWeight = FontWeight.Bold)
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = shownLabel,
-                    style = labelStyle,
-                    maxLines = 1,
-                    modifier = GlanceModifier.defaultWeight(),
-                )
-                Text(
-                    text = " · $lastKnown",
-                    style = labelStyle,
-                    maxLines = 1,
-                )
-            }
-        }
-
-        LastKnownPlacement.NONE -> Unit
     }
 }
 
