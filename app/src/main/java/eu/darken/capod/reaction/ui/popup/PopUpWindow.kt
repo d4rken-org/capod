@@ -3,11 +3,13 @@ package eu.darken.capod.reaction.ui.popup
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
 import android.graphics.PixelFormat
+import android.os.Build
 import android.view.Gravity
 import android.view.WindowManager
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.setViewTreeLifecycleOwner
@@ -46,8 +48,16 @@ class PopUpWindow @Inject constructor(
         val dm = appContext.resources.displayMetrics
         val margin = (24 * dm.density).toInt()
         width = minOf(dm.widthPixels - margin * 2, (400 * dm.density).toInt())
-        y = (8 * dm.density).toInt()
+        y = 0
+        title = "CAPod popup"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            fitInsetsTypes = 0
+        }
     }
+
+    // Below API 30 the overlay window can't extend behind the navigation bar, so the shadow
+    // needs its room inside the window.
+    private val extraBottomPadding = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) 0.dp else 16.dp
 
     private var composeView: ComposeView? = null
     private var lifecycleOwner: OverlayLifecycleOwner? = null
@@ -84,7 +94,11 @@ class PopUpWindow @Inject constructor(
                     val currentDevice = state.value
                     if (currentDevice != null) {
                         CapodTheme(state = generalSettings.currentThemeState) {
-                            PopUpContent(device = currentDevice, onClose = { close() })
+                            PopUpOverlay(
+                                device = currentDevice,
+                                onClose = { close() },
+                                extraBottomPadding = extraBottomPadding,
+                            )
                         }
                     }
                 }
