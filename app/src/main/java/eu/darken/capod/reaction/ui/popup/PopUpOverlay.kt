@@ -24,8 +24,10 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.util.VelocityTracker
+import androidx.compose.ui.input.pointer.util.addPointerInputChange
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
@@ -66,14 +68,14 @@ class PopUpOverlayState(atRest: Boolean = false) {
     private var dragStartFraction = 0f
     private var dragFraction = 0f
 
-    /** How far the card was pulled down since [startDrag], as a fraction of [hiddenOffsetPx]. */
+    /** How far the card was pulled down since [beginDrag], as a fraction of [hiddenOffsetPx]. */
     internal val draggedFraction: Float get() = dragFraction - dragStartFraction
 
-    /** Picks the card up where it is, fully opaque even if the enter was still fading it in. */
-    internal suspend fun startDrag() {
+    /** Picks the card up where it is, synchronously, fully opaque even if the enter was still fading it in. */
+    internal fun beginDrag(scope: CoroutineScope) {
         dragStartFraction = hiddenFraction.value
         dragFraction = dragStartFraction
-        alphaAnimatable.snapTo(1f)
+        scope.launch(start = CoroutineStart.UNDISPATCHED) { alphaAnimatable.snapTo(1f) }
     }
 
     /** Moves the card by [deltaPx], positive is down, clamped between rest and hidden. */
@@ -137,6 +139,7 @@ fun PopUpOverlay(
     // Drag writes cancel whatever runs on the same Animatable, so they must never touch a running exit.
     val currentTarget by rememberUpdatedState(target)
     val dragScope = rememberCoroutineScope()
+    val velocityTracker = remember { VelocityTracker() }
     val dismissVelocityPx = with(LocalDensity.current) { PopUpOverlayState.DISMISS_VELOCITY_DP_PER_S * density }
     // Entering needs the measured height, otherwise the slide would start from the rest position.
     val ready = !target.visible || state.isMeasured
@@ -156,14 +159,21 @@ fun PopUpOverlay(
             .onSizeChanged { state.hiddenOffsetPx = it.height.toFloat() }
             // Before the graphicsLayer, so drag deltas aren't measured in the translated card's space.
             .pointerInput(Unit) {
-                val velocityTracker = VelocityTracker()
+                // Initial pass: sees the down, every move (incl. pre-slop) and the up before the drag detector does.
+                awaitPointerEventScope {
+                    while (true) {
+                        val event = awaitPointerEvent(PointerEventPass.Initial)
+                        event.changes.firstOrNull()?.let { velocityTracker.addPointerInputChange(it) }
+                    }
+                }
+            }
+            .pointerInput(Unit) {
                 var dragging = false
                 detectVerticalDragGestures(
                     onDragStart = {
-                        velocityTracker.resetTracking()
                         if (currentTarget.visible && state.isMeasured) {
                             dragging = true
-                            dragScope.launch { state.startDrag() }
+                            state.beginDrag(dragScope)
                         }
                     },
                     onDragEnd = {
@@ -188,7 +198,6 @@ fun PopUpOverlay(
                         dragging = false
                     },
                     onVerticalDrag = { change, dragAmount ->
-                        velocityTracker.addPosition(change.uptimeMillis, change.position)
                         change.consume()
                         if (dragging && currentTarget.visible) state.dragBy(dragAmount, dragScope)
                     },
