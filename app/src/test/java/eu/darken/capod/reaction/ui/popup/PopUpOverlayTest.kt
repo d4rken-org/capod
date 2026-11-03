@@ -263,6 +263,22 @@ class PopUpOverlayTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `cancelled drag past the threshold springs back`() {
+        setContent()
+        enterToRest()
+
+        touch {
+            pressAndMove(state.hiddenOffsetPx * 0.6f, slowDurationMs)
+            cancel()
+        }
+        advance(ENTER_DURATION_MS + 200L)
+
+        closes shouldBe 0
+        shouldBeAtRest()
+        finished shouldBe emptyList()
+    }
+
+    @Test
     fun `short fast downward fling closes`() {
         setContent()
         enterToRest()
