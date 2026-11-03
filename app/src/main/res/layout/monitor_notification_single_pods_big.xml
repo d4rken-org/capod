@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingStart="@dimen/notification_big_content_inset_start"
+    android:paddingEnd="@dimen/notification_big_content_inset_end"
     android:paddingVertical="0dp">
 
     <LinearLayout
