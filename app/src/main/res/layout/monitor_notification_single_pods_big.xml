@@ -4,8 +4,8 @@
     style="@style/Notification.Container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp">
+    android:paddingStart="@dimen/notification_big_content_inset_start"
+    android:paddingVertical="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,23 +66,31 @@
                 android:layout_marginStart="8dp"
                 tools:text="95% · 14h 30m" />
 
-            <ImageView
-                android:id="@+id/headphones_charging"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="2dp"
-                android:tint="@color/notification_icon_tint"
-                android:tintMode="src_in"
-                android:src="@drawable/ic_baseline_power_24" />
+            <LinearLayout
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/headphones_worn"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="2dp"
-                android:tint="@color/notification_icon_tint"
-                android:tintMode="src_in"
-                android:src="@drawable/ic_baseline_hearing_24" />
+                <ImageView
+                    android:id="@+id/headphones_charging"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:tint="@color/notification_icon_tint"
+                    android:tintMode="src_in"
+                    android:src="@drawable/ic_baseline_power_24" />
+
+                <ImageView
+                    android:id="@+id/headphones_worn"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="2dp"
+                    android:tint="@color/notification_icon_tint"
+                    android:tintMode="src_in"
+                    android:src="@drawable/ic_baseline_hearing_24" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

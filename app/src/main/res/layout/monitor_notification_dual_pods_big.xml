@@ -4,8 +4,8 @@
     style="@style/Notification.Container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="8dp">
+    android:paddingStart="@dimen/notification_big_content_inset_start"
+    android:paddingVertical="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"

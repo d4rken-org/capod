@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="notification_height_collapsed">64dp</dimen>
+    <dimen name="notification_big_content_inset_start">36dp</dimen>
 </resources>

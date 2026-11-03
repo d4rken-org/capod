@@ -62,4 +62,5 @@
     <color name="brand_tertiary">#41eb8e</color>
 
     <color name="notification_icon_tint">#757575</color>
+    <color name="notification_battery_fill">@color/brand_primary</color>
 </resources>
