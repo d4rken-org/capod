@@ -5,9 +5,7 @@ import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.draggable
-import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -26,6 +24,8 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.util.VelocityTracker
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
@@ -138,9 +138,6 @@ fun PopUpOverlay(
     val currentTarget by rememberUpdatedState(target)
     val dragScope = rememberCoroutineScope()
     val dismissVelocityPx = with(LocalDensity.current) { PopUpOverlayState.DISMISS_VELOCITY_DP_PER_S * density }
-    val dragState = rememberDraggableState { delta ->
-        if (currentTarget.visible) state.dragBy(delta, dragScope)
-    }
     // Entering needs the measured height, otherwise the slide would start from the rest position.
     val ready = !target.visible || state.isMeasured
 
@@ -158,24 +155,45 @@ fun PopUpOverlay(
         modifier = modifier
             .onSizeChanged { state.hiddenOffsetPx = it.height.toFloat() }
             // Before the graphicsLayer, so drag deltas aren't measured in the translated card's space.
-            .draggable(
-                state = dragState,
-                orientation = Orientation.Vertical,
-                enabled = target.visible && state.isMeasured,
-                onDragStarted = { if (currentTarget.visible) state.startDrag() },
-                onDragStopped = { velocity ->
-                    // If the target turned hidden mid-drag, the exit already animates from here.
-                    if (currentTarget.visible) {
-                        val dragged = state.draggedFraction
-                        if (dragged >= PopUpOverlayState.DISMISS_DRAG_FRACTION || velocity >= dismissVelocityPx) {
-                            log(TAG) { "Swiped down (fraction=$dragged, velocity=$velocity), closing" }
-                            currentOnClose()
-                        } else {
-                            state.animateToRest()
+            .pointerInput(Unit) {
+                val velocityTracker = VelocityTracker()
+                var dragging = false
+                detectVerticalDragGestures(
+                    onDragStart = {
+                        velocityTracker.resetTracking()
+                        if (currentTarget.visible && state.isMeasured) {
+                            dragging = true
+                            dragScope.launch { state.startDrag() }
                         }
-                    }
-                },
-            )
+                    },
+                    onDragEnd = {
+                        // If the target turned hidden mid-drag, the exit already animates from here.
+                        if (dragging && currentTarget.visible) {
+                            val dragged = state.draggedFraction
+                            val velocity = velocityTracker.calculateVelocity().y
+                            if (dragged >= PopUpOverlayState.DISMISS_DRAG_FRACTION || velocity >= dismissVelocityPx) {
+                                log(TAG) { "Swiped down (fraction=$dragged, velocity=$velocity), closing" }
+                                currentOnClose()
+                            } else {
+                                dragScope.launch { state.animateToRest() }
+                            }
+                        }
+                        dragging = false
+                    },
+                    onDragCancel = {
+                        if (dragging && currentTarget.visible) {
+                            log(TAG) { "Drag cancelled, springing back" }
+                            dragScope.launch { state.animateToRest() }
+                        }
+                        dragging = false
+                    },
+                    onVerticalDrag = { change, dragAmount ->
+                        velocityTracker.addPosition(change.uptimeMillis, change.position)
+                        change.consume()
+                        if (dragging && currentTarget.visible) state.dragBy(dragAmount, dragScope)
+                    },
+                )
+            }
             .graphicsLayer {
                 translationY = state.offsetPx
                 alpha = state.alpha
