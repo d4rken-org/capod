@@ -11,6 +11,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="eu.darken.capod.debug.popup.DebugPopUpReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="eu.darken.capod.DEBUG_POPUP_SHOW" />
+                <action android:name="eu.darken.capod.DEBUG_POPUP_HIDE" />
+                <action android:name="eu.darken.capod.DEBUG_POPUP_RESHOW" />
+                <action android:name="eu.darken.capod.DEBUG_POPUP_FLASH" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
