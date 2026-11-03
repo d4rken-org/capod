@@ -14,15 +14,18 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeWithVelocity
 import androidx.compose.ui.unit.dp
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.reaction.ui.popup.PopUpOverlayState.Companion.DISMISS_DRAG_FRACTION
 import eu.darken.capod.reaction.ui.popup.PopUpOverlayState.Companion.DISMISS_VELOCITY_DP_PER_S
 import eu.darken.capod.reaction.ui.popup.PopUpOverlayState.Companion.ENTER_DURATION_MS
 import eu.darken.capod.reaction.ui.popup.PopUpOverlayState.Companion.EXIT_DURATION_MS
+import io.kotest.assertions.withClue
 import io.kotest.matchers.floats.shouldBeGreaterThan
 import io.kotest.matchers.floats.shouldBeLessThan
 import io.kotest.matchers.shouldBe
@@ -264,10 +267,20 @@ class PopUpOverlayTest : BaseComposeRobolectricTest() {
         setContent()
         enterToRest()
 
-        val distance = state.hiddenOffsetPx * 0.15f
+        val endVelocityPxPerS = 2f * DISMISS_VELOCITY_DP_PER_S * composeRule.density.density
+        val durationMillis = 40L
+        val distancePx = 1.1f * endVelocityPxPerS / 1000f * durationMillis / 2f
+        withClue("fling distance must stay below the drag-dismiss fraction") {
+            distancePx / state.hiddenOffsetPx shouldBeLessThan DISMISS_DRAG_FRACTION * 0.9f
+        }
+
         touch {
-            pressAndMove(distance, fastDurationMs(distance), steps = 5)
-            up()
+            swipeWithVelocity(
+                start = center,
+                end = center + Offset(0f, distancePx),
+                endVelocity = endVelocityPxPerS,
+                durationMillis = durationMillis,
+            )
         }
 
         closes shouldBe 1
