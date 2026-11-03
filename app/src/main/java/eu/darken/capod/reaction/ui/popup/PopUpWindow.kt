@@ -1,5 +1,6 @@
 package eu.darken.capod.reaction.ui.popup
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
 import android.graphics.PixelFormat
@@ -7,6 +8,7 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.Gravity
+import android.view.MotionEvent
 import android.view.WindowManager
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -81,7 +83,8 @@ class PopUpWindow @Inject constructor(
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+        // NOT_FOCUSABLE implies NOT_TOUCH_MODAL, which outside touches need to reach the window.
+        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
         PixelFormat.TRANSLUCENT
     ).apply {
         gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
@@ -97,6 +100,8 @@ class PopUpWindow @Inject constructor(
 
     private inner class WindowEffects : PopUpLifecycle.Effects<PodDevice> {
 
+        // The listener only observes outside touches, it never consumes a click.
+        @SuppressLint("ClickableViewAccessibility")
         override fun attach(payload: PodDevice, target: PopUpTarget) {
             val device = mutableStateOf<PodDevice?>(payload)
             deviceState = device
@@ -109,6 +114,14 @@ class PopUpWindow @Inject constructor(
             val view = ComposeView(appContext).apply {
                 setViewTreeLifecycleOwner(owner)
                 setViewTreeSavedStateRegistryOwner(owner)
+                // ACTION_OUTSIDE only reaches the window's root view, not its children.
+                setOnTouchListener { _, event ->
+                    if (event.actionMasked == MotionEvent.ACTION_OUTSIDE) {
+                        log(TAG) { "Touch outside the popup, closing" }
+                        close()
+                    }
+                    false
+                }
                 setContent {
                     val currentDevice = device.value
                     if (currentDevice != null) {
