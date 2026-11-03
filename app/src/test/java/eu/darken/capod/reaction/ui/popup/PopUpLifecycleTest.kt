@@ -11,7 +11,7 @@ class PopUpLifecycleTest : BaseTest() {
         var attached = false
         var attachCount = 0
         var payload: String? = null
-        var target: PopUpTarget? = null
+        var lastTarget: PopUpTarget? = null
         var touchable: Boolean? = null
         var fallbackToken: Long? = null
         var removeCount = 0
@@ -25,7 +25,7 @@ class PopUpLifecycleTest : BaseTest() {
         override fun attach(payload: String, target: PopUpTarget) {
             attachCount++
             this.payload = payload
-            this.target = target
+            lastTarget = target
             if (failAttach) throw IllegalStateException("addView failed")
             attached = true
             // Fresh window params
@@ -37,7 +37,7 @@ class PopUpLifecycleTest : BaseTest() {
         }
 
         override fun setTarget(target: PopUpTarget) {
-            this.target = target
+            lastTarget = target
         }
 
         override fun setTouchable(touchable: Boolean) {
@@ -66,7 +66,7 @@ class PopUpLifecycleTest : BaseTest() {
         override fun release() {
             releaseCount++
             payload = null
-            target = null
+            lastTarget = null
             touchable = null
         }
     }
@@ -82,21 +82,21 @@ class PopUpLifecycleTest : BaseTest() {
         effects.attachCount shouldBe 1
         effects.attached shouldBe true
         effects.payload shouldBe "a"
-        effects.target!!.visible shouldBe true
+        effects.lastTarget!!.visible shouldBe true
         effects.touchable shouldBe true
     }
 
     @Test
     fun `show while shown updates without re-attaching`() {
         lifecycle.show("a")
-        val target = effects.target
+        val target = effects.lastTarget
 
         lifecycle.show("b")
 
         lifecycle.state shouldBe State.SHOWN
         effects.attachCount shouldBe 1
         effects.payload shouldBe "b"
-        effects.target shouldBe target
+        effects.lastTarget shouldBe target
     }
 
     @Test
@@ -106,9 +106,9 @@ class PopUpLifecycleTest : BaseTest() {
         lifecycle.close()
 
         lifecycle.state shouldBe State.EXITING
-        effects.target!!.visible shouldBe false
+        effects.lastTarget!!.visible shouldBe false
         effects.touchable shouldBe false
-        effects.fallbackToken shouldBe effects.target!!.token
+        effects.fallbackToken shouldBe effects.lastTarget!!.token
         effects.removeCount shouldBe 0
         effects.attached shouldBe true
     }
@@ -121,14 +121,14 @@ class PopUpLifecycleTest : BaseTest() {
 
         lifecycle.show("a")
         lifecycle.close()
-        val exitTarget = effects.target
+        val exitTarget = effects.lastTarget
         val fallbackToken = effects.fallbackToken
 
         lifecycle.close()
         lifecycle.close()
 
         lifecycle.state shouldBe State.EXITING
-        effects.target shouldBe exitTarget
+        effects.lastTarget shouldBe exitTarget
         effects.fallbackToken shouldBe fallbackToken
         effects.removeCount shouldBe 0
     }
@@ -137,7 +137,7 @@ class PopUpLifecycleTest : BaseTest() {
     fun `exit completion with the current token removes the window`() {
         lifecycle.show("a")
         lifecycle.close()
-        val token = effects.target!!.token
+        val token = effects.lastTarget!!.token
 
         lifecycle.onExitFinished(token)
 
@@ -152,10 +152,10 @@ class PopUpLifecycleTest : BaseTest() {
     fun `stale exit completion does nothing`() {
         lifecycle.show("a")
         lifecycle.close()
-        val staleToken = effects.target!!.token
+        val staleToken = effects.lastTarget!!.token
         lifecycle.show("b")
         lifecycle.close()
-        val currentToken = effects.target!!.token
+        val currentToken = effects.lastTarget!!.token
 
         lifecycle.onExitFinished(staleToken)
 
@@ -203,14 +203,14 @@ class PopUpLifecycleTest : BaseTest() {
     fun `show during exit cancels the exit without a second window`() {
         lifecycle.show("a")
         lifecycle.close()
-        val exitToken = effects.target!!.token
+        val exitToken = effects.lastTarget!!.token
 
         lifecycle.show("b")
 
         lifecycle.state shouldBe State.SHOWN
         effects.fallbackToken shouldBe null
         effects.touchable shouldBe true
-        effects.target!!.visible shouldBe true
+        effects.lastTarget!!.visible shouldBe true
         effects.payload shouldBe "b"
         effects.attachCount shouldBe 1
 
@@ -225,7 +225,7 @@ class PopUpLifecycleTest : BaseTest() {
         lifecycle.show("a")
         lifecycle.close()
 
-        lifecycle.onExitFinished(effects.target!!.token)
+        lifecycle.onExitFinished(effects.lastTarget!!.token)
 
         lifecycle.state shouldBe State.HIDDEN
         effects.releaseCount shouldBe 1
@@ -237,7 +237,7 @@ class PopUpLifecycleTest : BaseTest() {
         lifecycle.state shouldBe State.SHOWN
         effects.attachCount shouldBe 2
         effects.touchable shouldBe true
-        effects.target!!.visible shouldBe true
+        effects.lastTarget!!.visible shouldBe true
     }
 
     @Test
@@ -248,8 +248,8 @@ class PopUpLifecycleTest : BaseTest() {
         lifecycle.close()
 
         lifecycle.state shouldBe State.EXITING
-        effects.target!!.visible shouldBe false
-        effects.fallbackToken shouldBe effects.target!!.token
+        effects.lastTarget!!.visible shouldBe false
+        effects.fallbackToken shouldBe effects.lastTarget!!.token
 
         lifecycle.onFallback(effects.fallbackToken!!)
         lifecycle.state shouldBe State.HIDDEN
