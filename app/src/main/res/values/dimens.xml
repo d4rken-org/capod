@@ -2,4 +2,5 @@
 <resources>
     <dimen name="notification_height_collapsed">64dp</dimen>
     <dimen name="notification_big_content_inset_start">36dp</dimen>
+    <dimen name="notification_big_content_inset_end">0dp</dimen>
 </resources>
