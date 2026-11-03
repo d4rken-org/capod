@@ -2,7 +2,10 @@ package eu.darken.capod.monitor.ui
 
 import android.app.Application
 import android.app.Notification
+import android.app.NotificationManager
+import android.content.Context
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.PodModel
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.every
@@ -40,6 +43,48 @@ class MonitorNotificationsTest {
         notification.extras.getString(Notification.EXTRA_TEXT).isNullOrBlank() shouldBe false
         notification.smallIcon shouldNotBe null
         notification.contentIntent shouldNotBe null
+    }
+
+    @Test
+    fun `header name prefers the profile label`() {
+        val device = mockk<PodDevice> {
+            every { label } returns "My AirPods"
+            every { getLabel(any()) } returns "AirPods Pro"
+        }
+
+        device.notificationHeaderName(RuntimeEnvironment.getApplication()) shouldBe "My AirPods"
+    }
+
+    @Test
+    fun `header name falls back to the model label`() {
+        val device = mockk<PodDevice> {
+            every { label } returns null
+            every { getLabel(any()) } returns "AirPods Pro"
+        }
+
+        device.notificationHeaderName(RuntimeEnvironment.getApplication()) shouldBe "AirPods Pro"
+    }
+
+    @Test
+    fun `device notification shows the device name only in the private header`() {
+        val context = RuntimeEnvironment.getApplication()
+        val notifications = MonitorNotifications(
+            context,
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager,
+            MonitorNotificationViewFactory(context),
+        )
+        val device = mockk<PodDevice>(relaxed = true) {
+            every { hasDualPods } returns true
+            every { hasCase } returns false
+            every { model } returns PodModel.AIRPODS_PRO
+            every { label } returns "My AirPods"
+            every { getLabel(any()) } returns "AirPods Pro"
+        }
+
+        val notification = notifications.getNotification(device)
+
+        notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT)?.toString() shouldBe "My AirPods"
+        notification.publicVersion.extras.getCharSequence(Notification.EXTRA_SUB_TEXT) shouldBe null
     }
 
     @Test

@@ -135,7 +135,7 @@ class MonitorNotifications @Inject constructor(
             setCustomContentView(notificationViewFactory.createContentView(device))
             setCustomBigContentView(notificationViewFactory.createBigContentView(device, estimate))
             setContentTitle("$batteryText ~ $stateText")
-            setSubText(null)
+            setSubText(device.notificationHeaderName(context))
             val batteryIcon = if (showBatteryInStatusBar) {
                 device.statusBarBatteryPercent()?.let { batteryIcon(it) }
             } else {
@@ -237,6 +237,8 @@ class MonitorNotifications @Inject constructor(
         }
     }
 }
+
+internal fun PodDevice.notificationHeaderName(context: Context): String = label ?: getLabel(context)
 
 /**
  * The icon only has room for one figure, so for earbuds the lower pod wins: it runs out first.
