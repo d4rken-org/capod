@@ -143,10 +143,10 @@ class MonitorNotifications @Inject constructor(
             }
             batteryIcon?.let { setSmallIcon(it) }
             // Shown by lock screens that hide notification content, instead of only the app name.
+            // Plain text only: app containers don't rewrite custom views nested in the
+            // public version, and the system then crashes the app when it can't inflate them.
             setPublicVersion(
                 baseBuilder(channelId).apply {
-                    setStyle(NotificationCompat.DecoratedCustomViewStyle())
-                    setCustomContentView(notificationViewFactory.createContentView(device))
                     setContentTitle("$batteryText ~ $stateText")
                     batteryIcon?.let { setSmallIcon(it) }
                 }.build()
