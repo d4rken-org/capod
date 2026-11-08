@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -27,6 +28,8 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.main.ui.widget.WidgetManager
+import eu.darken.capod.main.ui.widget.widgetRefreshTriggers
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
@@ -36,6 +39,7 @@ import eu.darken.capod.monitor.core.battery.estimateFor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
+import eu.darken.capod.monitor.core.devicesWithProfiles
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -53,6 +57,7 @@ import eu.darken.capod.reaction.core.charged.ChargedReactionNotifications
 import eu.darken.capod.reaction.core.sleep.SleepReaction
 import eu.darken.capod.reaction.ui.popup.PopUpWindow
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
@@ -68,6 +73,7 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -99,6 +105,8 @@ class MonitorService : Service() {
     @Inject lateinit var aapConnectionManager: AapConnectionManager
     @Inject lateinit var monitorModeResolver: MonitorModeResolver
     @Inject lateinit var batteryEstimator: BatteryEstimator
+    @Inject lateinit var widgetManager: WidgetManager
+    @Inject @AppScope lateinit var appScope: CoroutineScope
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
@@ -441,6 +449,19 @@ class MonitorService : Service() {
             .catch { log(TAG, WARN) { "batteryEstimator failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
+        widgetRefreshTriggers(
+            isActive = flowOf(true),
+            devices = deviceMonitor.devicesWithProfiles(),
+            estimates = batteryEstimator.estimates,
+        )
+            .onEach {
+                log(TAG, VERBOSE) { "Devices changed, refreshing widgets." }
+                widgetManager.refreshWidgets()
+            }
+            .setupCommonEventHandlers(TAG) { "widgetRefresh" }
+            .catch { log(TAG, WARN) { "widgetRefresh failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
         log(TAG, VERBOSE) { "Monitor job is active" }
         monitorJob.join()
         log(TAG, VERBOSE) { "Monitor job quit" }
@@ -478,6 +499,12 @@ class MonitorService : Service() {
                 notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID)
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to cancel monitor notification: ${e.message}" }
+            }
+            // Live widget updates end with this session. Re-render once so widgets drop the last live frame.
+            try {
+                appScope.launch { widgetManager.refreshWidgets() }
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to schedule final widget refresh: ${e.message}" }
             }
         } else {
             log(TAG, WARN) { "onDestroy: Skipping notification cleanup, injection was incomplete." }

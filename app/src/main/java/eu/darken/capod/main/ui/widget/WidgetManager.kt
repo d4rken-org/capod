@@ -13,6 +13,17 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.throttleLatest
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.displayKey
+import eu.darken.capod.monitor.core.battery.estimateFor
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -85,4 +96,28 @@ class WidgetManager @Inject constructor(
     companion object {
         val TAG = logTag("Widget", "Manager")
     }
+}
+
+/**
+ * Emits whenever a widget-visible device or estimate value changed, but only while [isActive] is true.
+ *
+ * Collecting [devices] (backed by `DeviceMonitor.devices`) keeps BLE scanning alive, so this must not be
+ * collected unconditionally for the whole process lifetime — that kept the scanner running long after
+ * the monitor service had stopped.
+ */
+internal fun widgetRefreshTriggers(
+    isActive: Flow<Boolean>,
+    devices: Flow<List<PodDevice>>,
+    estimates: Flow<Map<String, BatteryEstimate>>,
+): Flow<Unit> = isActive.flatMapLatest { active ->
+    if (!active) return@flatMapLatest emptyFlow()
+
+    combine(devices, estimates) { devs, ests -> devs to ests }
+        // Estimate display values can change while the device key is stable (e.g. a charge
+        // ETA gets suppressed after a stall) — refresh on those too, but only on visible ones.
+        .distinctUntilChangedBy { (devs, ests) ->
+            devs.map { device -> device.toWidgetKey() to ests.estimateFor(device)?.displayKey(device) }
+        }
+        .throttleLatest(1000)
+        .map { }
 }
