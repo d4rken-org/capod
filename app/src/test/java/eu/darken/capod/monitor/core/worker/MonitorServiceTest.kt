@@ -5,13 +5,17 @@ import android.app.Notification
 import android.app.NotificationManager
 import android.app.Service
 import androidx.core.app.NotificationCompat
+import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.kotest.matchers.types.shouldNotBeSameInstanceAs
+import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.StateFlow
 import org.junit.Test
@@ -186,6 +190,23 @@ class MonitorServiceTest {
         service.onDestroy()
 
         verify { manager.cancel(MonitorNotifications.NOTIFICATION_ID) }
+    }
+
+    /**
+     * Live widget refreshes are tied to the monitor session; without a final refresh the widget keeps
+     * showing the last live frame after monitoring stopped.
+     */
+    @Test
+    fun `onDestroy refreshes widgets once more`() {
+        val service = createService()
+        service.readyForMonitoring()
+        val widgetManager = mockk<WidgetManager>(relaxed = true)
+        service.widgetManager = widgetManager
+        service.appScope = CoroutineScope(Dispatchers.Unconfined)
+
+        service.onDestroy()
+
+        coVerify(exactly = 1) { widgetManager.refreshWidgets() }
     }
 
     /**
