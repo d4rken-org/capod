@@ -88,6 +88,29 @@ class MonitorNotificationsTest {
     }
 
     @Test
+    fun `lock screen version shows the battery as plain text without custom views`() {
+        val context = RuntimeEnvironment.getApplication()
+        val notifications = MonitorNotifications(
+            context,
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager,
+            MonitorNotificationViewFactory(context),
+        )
+        val device = mockk<PodDevice>(relaxed = true) {
+            every { hasDualPods } returns true
+            every { hasCase } returns false
+            every { model } returns PodModel.AIRPODS_PRO
+            every { getLabel(any()) } returns "AirPods Pro"
+        }
+
+        val notification = notifications.getNotification(device)
+
+        notification.contentView shouldNotBe null
+        notification.publicVersion.contentView shouldBe null
+        notification.publicVersion.bigContentView shouldBe null
+        notification.publicVersion.extras.getCharSequence(Notification.EXTRA_TITLE).isNullOrBlank() shouldBe false
+    }
+
+    @Test
     fun `status bar battery of earbuds ignores the headset level`() {
         earbuds(left = 0.8f, right = 0.35f).statusBarBatteryPercent() shouldBe 35
     }
