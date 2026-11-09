@@ -187,4 +187,30 @@ class PodDeviceAncModeTest : BaseTest() {
         )
         device.listeningModeCycle?.modeMask shouldBe 0x0A
     }
+
+    @Test
+    fun `profile-learned AdaptiveAudioNoise level is used when AAP state has none`() {
+        val device = PodDevice(
+            profileId = null,
+            ble = null,
+            aap = AapPodState(settings = emptyMap()),
+            profileModel = PodModel.AIRPODS_PRO,
+            profileLearnedAdaptiveAudioNoiseLevel = 42,
+        )
+        device.adaptiveAudioNoise?.level shouldBe 42
+    }
+
+    @Test
+    fun `live AAP AdaptiveAudioNoise overrides profile fallback`() {
+        val device = PodDevice(
+            profileId = null,
+            ble = null,
+            aap = AapPodState(
+                settings = mapOf(AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 75)),
+            ),
+            profileModel = PodModel.AIRPODS_PRO,
+            profileLearnedAdaptiveAudioNoiseLevel = 42,
+        )
+        device.adaptiveAudioNoise?.level shouldBe 75
+    }
 }
