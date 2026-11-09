@@ -54,6 +54,12 @@ data class AppleDeviceProfile(
      * UI to the default 0x0E (no OFF bit) even if the real cycle on-device includes OFF.
      */
     @SerialName("learnedListeningModeCycleMask") val lastRequestedListeningModeCycleMask: Int? = null,
+    /**
+     * Last-known device-side AdaptiveAudioNoise level (AAP setting 0x2E). Push-only like the
+     * other learned settings above, so without persistence every reconnect resets the UI to
+     * whatever the device happens to push instead of the user's last chosen level.
+     */
+    @SerialName("learnedAdaptiveAudioNoiseLevel") val learnedAdaptiveAudioNoiseLevel: Int? = null,
     @SerialName("stemActions") val stemActions: StemActionsConfig = StemActionsConfig(),
 ) : DeviceProfile, HasReactionConfig {
 
@@ -97,6 +103,7 @@ data class AppleDeviceProfile(
         "batteryEstimateEnabled=$batteryEstimateEnabled, " +
         "learnedAllowOffEnabled=$learnedAllowOffEnabled, " +
         "lastRequestedListeningModeCycleMask=$lastRequestedListeningModeCycleMask, " +
+        "learnedAdaptiveAudioNoiseLevel=$learnedAdaptiveAudioNoiseLevel, " +
         "stemActions=$stemActions" +
         ")"
 }
