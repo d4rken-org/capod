@@ -125,6 +125,14 @@ enum class AapMessageType(val value: Int, val wiresharkName: String) {
     UNKNOWN_0X58(0x0058, "Unknown"),
     DYNAMIC_END_OF_CHARGE(0x0059, "Dynamic End Of Charge"),
     PERSONAL_TRANSLATION(0x0060, "Personal Translation"),
+
+    /**
+     * Three-band equalizer ("custom EQ") introduced with the iOS 26/27-era firmware.
+     * Payload is `05 00` (LE length) + `01` (sub-type) + state + low + mid + high, where
+     * state `1` = device default and `2` = custom, and each band is `0..100` with 50 neutral.
+     * See [AapSetting.CustomEq].
+     */
+    CUSTOM_EQ(0x0063, "Custom EQ"),
     ;
 
     companion object {

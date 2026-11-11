@@ -260,6 +260,22 @@ class AapSettingsCoordinatorTest : BaseTest() {
         }
 
         @Test
+        fun `SetCustomEq writes even when state holds no EQ yet`() {
+            val coord = createCoordinator()
+            val state = stateWithSetting()
+
+            val result = coord.optimisticUpdate(state, AapCommand.SetCustomEq(enabled = true, low = 10, mid = 50, high = 90))
+
+            result.shouldNotBeNull()
+            result.setting<AapSetting.CustomEq>() shouldBe AapSetting.CustomEq(
+                enabled = true,
+                low = 10,
+                mid = 50,
+                high = 90,
+            )
+        }
+
+        @Test
         fun `does not mutate input state`() {
             val coord = createCoordinator()
             val state = stateWithSetting(
@@ -301,6 +317,28 @@ class AapSettingsCoordinatorTest : BaseTest() {
 
             check(matching) shouldBe true
             check(mismatched) shouldBe false
+        }
+
+        @Test
+        fun `verificationFor CustomEq requires all four fields to match`() {
+            val coord = createCoordinator()
+            val target = AapSetting.CustomEq(enabled = true, low = 10, mid = 50, high = 90)
+            val check = coord.verificationFor(
+                AapCommand.SetCustomEq(enabled = true, low = 10, mid = 50, high = 90),
+            )!!
+
+            check(stateWithSetting(AapSetting.CustomEq::class to target)) shouldBe true
+            check(stateWithSetting()) shouldBe false
+
+            val mismatches = listOf(
+                target.copy(enabled = false),
+                target.copy(low = 11),
+                target.copy(mid = 51),
+                target.copy(high = 91),
+            )
+            for (mismatch in mismatches) {
+                check(stateWithSetting(AapSetting.CustomEq::class to mismatch)) shouldBe false
+            }
         }
     }
 }
