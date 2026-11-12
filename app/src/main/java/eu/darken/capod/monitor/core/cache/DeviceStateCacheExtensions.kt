@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core.cache
 
 import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.bleBatteryUnlessOutranked
 import eu.darken.capod.monitor.core.cache.CachedDeviceState.CachedBatterySlot
 import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
@@ -28,10 +29,20 @@ fun PodDevice.toCachedState(
 
     // RAW LIVE EXTRACTION — must NOT use device.batteryLeft etc. (which fall back to cache).
     // Reading the unified getter would re-stamp stale cached readings as fresh live data.
-    val liveLeft = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent ?: BATTERY_UNKNOWN
-    val liveRight = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent ?: BATTERY_UNKNOWN
-    val liveCase = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent ?: BATTERY_UNKNOWN
-    val liveHeadset = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent ?: BATTERY_UNKNOWN
+    // A BLE value outranked by a recent disagreeing AAP slot counts as unknown, so that slot stays
+    // untouched and the precedence window keeps counting from the last real AAP reading.
+    val liveLeft = aap?.batteryLeft
+        ?: bleBatteryUnlessOutranked((ble as? DualBlePodSnapshot)?.batteryLeftPodPercent, ble, existing?.left)
+        ?: BATTERY_UNKNOWN
+    val liveRight = aap?.batteryRight
+        ?: bleBatteryUnlessOutranked((ble as? DualBlePodSnapshot)?.batteryRightPodPercent, ble, existing?.right)
+        ?: BATTERY_UNKNOWN
+    val liveCase = aap?.batteryCase
+        ?: bleBatteryUnlessOutranked((ble as? HasCase)?.batteryCasePercent, ble, existing?.case)
+        ?: BATTERY_UNKNOWN
+    val liveHeadset = aap?.batteryHeadset
+        ?: bleBatteryUnlessOutranked((ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent, ble, existing?.headset)
+        ?: BATTERY_UNKNOWN
     val liveDeviceInfo = aap?.deviceInfo
 
     if (!isKnownBattery(liveLeft) && !isKnownBattery(liveRight) &&
@@ -42,10 +53,10 @@ fun PodDevice.toCachedState(
         profileId = pid,
         model = model,
         address = address,
-        left = mergeBatterySlot(liveLeft, existing?.left, now),
-        right = mergeBatterySlot(liveRight, existing?.right, now),
-        case = mergeBatterySlot(liveCase, existing?.case, now),
-        headset = mergeBatterySlot(liveHeadset, existing?.headset, now),
+        left = mergeBatterySlot(liveLeft, aap?.batteryLeft != null, existing?.left, now),
+        right = mergeBatterySlot(liveRight, aap?.batteryRight != null, existing?.right, now),
+        case = mergeBatterySlot(liveCase, aap?.batteryCase != null, existing?.case, now),
+        headset = mergeBatterySlot(liveHeadset, aap?.batteryHeadset != null, existing?.headset, now),
         isLeftCharging = isLeftPodCharging,
         isRightCharging = isRightPodCharging,
         isCaseCharging = isCaseCharging,
@@ -66,13 +77,15 @@ fun PodDevice.toCachedState(
 
 private fun mergeBatterySlot(
     livePercent: Float,
+    fromAap: Boolean,
     existing: CachedBatterySlot?,
     now: Instant,
 ): CachedBatterySlot? {
     if (!isKnownBattery(livePercent)) return existing
-    val current = existing ?: return CachedBatterySlot(livePercent, now)
+    val current = existing ?: return CachedBatterySlot(livePercent, now, fromAap)
     val isStale = Duration.between(current.updatedAt, now).abs() > Duration.ofMinutes(1)
-    return if (current.percent == livePercent && !isStale) current else CachedBatterySlot(livePercent, now)
+    val isSame = current.percent == livePercent && current.fromAap == fromAap
+    return if (isSame && !isStale) current else CachedBatterySlot(livePercent, now, fromAap)
 }
 
 private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boolean {
@@ -96,6 +109,6 @@ private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boo
 private fun hasSlotChanged(old: CachedBatterySlot?, new: CachedBatterySlot?): Boolean {
     if (old == null && new == null) return false
     if (old == null || new == null) return true
-    if (old.percent != new.percent) return true
+    if (old.percent != new.percent || old.fromAap != new.fromAap) return true
     return Duration.between(old.updatedAt, new.updatedAt).abs() > Duration.ofMinutes(1)
 }

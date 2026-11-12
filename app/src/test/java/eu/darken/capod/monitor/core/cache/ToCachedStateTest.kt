@@ -302,4 +302,54 @@ class ToCachedStateTest : BaseTest() {
         rightEarbudSerial = rightEarbudSerial,
         marketingVersion = marketingVersion,
     )
+
+    @Nested
+    inner class AapOutranksDisagreeingBle {
+
+        private val aapSlot = CachedDeviceState.CachedBatterySlot(0.95f, now.minusSeconds(10 * 60), fromAap = true)
+        private val existing = CachedDeviceState(
+            profileId = "test-profile",
+            model = PodModel.AIRPODS_PRO3,
+            case = aapSlot,
+            lastSeenAt = now.minusSeconds(10 * 60),
+        )
+
+        @Test
+        fun `AAP reading is stored as fromAap`() {
+            val device = liveDevice(caseBattery = 0.1f).copy(
+                aap = AapPodState(
+                    batteries = mapOf(
+                        AapPodState.BatteryType.CASE to AapPodState.Battery(AapPodState.BatteryType.CASE, 0.95f, AapPodState.ChargingState.NOT_CHARGING),
+                    ),
+                ),
+            )
+            val result = device.toCachedState(existing = null, now = now)
+            result.shouldNotBeNull()
+            result.case shouldBe CachedDeviceState.CachedBatterySlot(0.95f, now, fromAap = true)
+            result.left shouldBe CachedDeviceState.CachedBatterySlot(0.8f, now, fromAap = false)
+        }
+
+        @Test
+        fun `disagreeing BLE does not overwrite a fresh AAP slot`() {
+            val result = liveDevice(caseBattery = 0.1f).toCachedState(existing, now)
+            result.shouldNotBeNull()
+            result.case shouldBe aapSlot
+            result.left?.percent shouldBe 0.8f
+        }
+
+        @Test
+        fun `agreeing BLE replaces the AAP slot as before`() {
+            val result = liveDevice(caseBattery = 0.9f).toCachedState(existing, now)
+            result.shouldNotBeNull()
+            result.case shouldBe CachedDeviceState.CachedBatterySlot(0.9f, now, fromAap = false)
+        }
+
+        @Test
+        fun `disagreeing BLE replaces an AAP slot older than the window`() {
+            val old = existing.copy(case = aapSlot.copy(updatedAt = now.minusSeconds(31 * 60)))
+            val result = liveDevice(caseBattery = 0.1f).toCachedState(old, now)
+            result.shouldNotBeNull()
+            result.case shouldBe CachedDeviceState.CachedBatterySlot(0.1f, now, fromAap = false)
+        }
+    }
 }

@@ -1,11 +1,15 @@
 package eu.darken.capod.pods.core.apple.ble.devices.airpods
 
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.devices.BaseBlePodsTest
 import eu.darken.capod.pods.core.apple.ble.devices.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import java.time.Duration
+import java.time.Instant
 
 class AirPodsPro2Test : BaseBlePodsTest() {
 
@@ -78,6 +82,37 @@ class AirPodsPro2Test : BaseBlePodsTest() {
             batteryCasePercent shouldBe null
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+        }
+    }
+
+    /**
+     * Genuine AirPods Pro 2 that kept broadcasting this advert byte-identical for 15+ minutes (lid
+     * cycles, pod removal) with case nibble 1 (10%), while AAP reported the case at 95%. Bytes after
+     * the public prefix are filler; only the public part matters here.
+     */
+    @Test
+    fun `frozen case advert loses to a recent AAP reading`() = runTest {
+        create<AirPodsPro2>("07 19 01 14 20 75 AA 31 33 00 10 0F 26 1A C4 2B FA 2F B9 B6 08 CD 60 CB DF 75 AB") {
+            batteryCasePercent shouldBe 0.1f
+
+            val aapAt = seenLastAt.minus(Duration.ofMinutes(10))
+            fun device(aapSlotAt: Instant) = PodDevice(
+                profileId = "test-profile",
+                ble = this,
+                aap = null,
+                cached = CachedDeviceState(
+                    profileId = "test-profile",
+                    model = PodModel.AIRPODS_PRO2,
+                    case = CachedDeviceState.CachedBatterySlot(0.95f, aapSlotAt, fromAap = true),
+                    lastSeenAt = aapSlotAt,
+                ),
+            )
+
+            device(aapAt).apply {
+                batteryCase shouldBe 0.95f
+                isBatteryCached shouldBe true
+            }
+            device(seenLastAt.minus(Duration.ofMinutes(31))).batteryCase shouldBe 0.1f
         }
     }
 }

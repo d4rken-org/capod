@@ -3,6 +3,7 @@ package eu.darken.capod.monitor.core
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_PERCENT
 import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import io.kotest.matchers.nulls.shouldBeNull
@@ -13,6 +14,7 @@ import io.mockk.mockk
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Duration
 import java.time.Instant
 
 class PodDeviceCacheTest : BaseTest() {
@@ -42,11 +44,13 @@ class PodDeviceCacheTest : BaseTest() {
         leftBattery: Float? = null,
         rightBattery: Float? = null,
         caseBattery: Float? = null,
+        seenAt: Instant = fiveMinAgo,
     ): DualApplePods = mockk(relaxed = true) {
         every { batteryLeftPodPercent } returns leftBattery
         every { batteryRightPodPercent } returns rightBattery
         every { batteryCasePercent } returns caseBattery
         every { model } returns PodModel.AIRPODS_PRO3
+        every { seenLastAt } returns seenAt
     }
 
     @Nested
@@ -240,6 +244,63 @@ class PodDeviceCacheTest : BaseTest() {
             )
             device.cachedBatteryAt.shouldNotBeNull()
             device.cachedBatteryAt shouldBe fiveMinAgo
+        }
+    }
+
+    @Nested
+    inner class AapOutranksDisagreeingBle {
+
+        private val aapAt = Instant.parse("2026-03-31T12:00:00Z")
+
+        private fun device(bleCase: Float, bleSeenAt: Instant, cachedCase: Float = 0.95f, fromAap: Boolean = true) =
+            PodDevice(
+                profileId = "test-profile",
+                ble = mockDualPod(leftBattery = 1.0f, rightBattery = 1.0f, caseBattery = bleCase, seenAt = bleSeenAt),
+                aap = null,
+                cached = cachedState.copy(case = CachedDeviceState.CachedBatterySlot(cachedCase, aapAt, fromAap = fromAap)),
+            )
+
+        @Test
+        fun `frozen BLE case loses to AAP cache within the window`() {
+            val d = device(bleCase = 0.1f, bleSeenAt = aapAt.plus(Duration.ofMinutes(29)))
+            d.batteryCase shouldBe 0.95f
+            d.isBatteryCached shouldBe true
+            d.cachedBatteryAt shouldBe aapAt
+            d.batteryCaseReading shouldBe BatteryReading(0.95f, BATTERY_RESOLUTION_PERCENT)
+        }
+
+        @Test
+        fun `BLE wins again once the AAP reading is older than the window`() {
+            val d = device(bleCase = 0.1f, bleSeenAt = aapAt.plus(Duration.ofMinutes(31)))
+            d.batteryCase shouldBe 0.1f
+            d.isBatteryCached shouldBe false
+        }
+
+        @Test
+        fun `BLE agreeing within one decile wins as before`() {
+            val d = device(bleCase = 0.9f, bleSeenAt = aapAt.plus(Duration.ofMinutes(5)))
+            d.batteryCase shouldBe 0.9f
+            d.isBatteryCached shouldBe false
+            d.cachedBatteryAt.shouldBeNull()
+        }
+
+        @Test
+        fun `BLE disagreeing with a BLE-sourced cache slot wins as before`() {
+            val d = device(bleCase = 0.1f, bleSeenAt = aapAt.plus(Duration.ofMinutes(5)), fromAap = false)
+            d.batteryCase shouldBe 0.1f
+            d.isBatteryCached shouldBe false
+        }
+
+        @Test
+        fun `live AAP still beats everything`() {
+            val d = device(bleCase = 0.1f, bleSeenAt = aapAt).copy(
+                aap = AapPodState(
+                    batteries = mapOf(
+                        AapPodState.BatteryType.CASE to AapPodState.Battery(AapPodState.BatteryType.CASE, 0.5f, AapPodState.ChargingState.NOT_CHARGING),
+                    ),
+                ),
+            )
+            d.batteryCase shouldBe 0.5f
         }
     }
 }

@@ -16,14 +16,14 @@ data class BatteryReading(
 
 /**
  * [PodDevice.batteryCase] resolved through the same precedence, but keeping the resolution of
- * whichever source won. Cache entries store no resolution, so they report the coarsest one.
+ * whichever source won. Cache entries from AAP report percent resolution, others the coarsest one.
  */
 val PodDevice.batteryCaseReading: BatteryReading?
     get() {
         aap?.batteryCase?.let { return BatteryReading(it, BATTERY_RESOLUTION_PERCENT) }
-        (ble as? HasCase)?.let { snapshot ->
-            snapshot.batteryCasePercent?.let { return BatteryReading(it, snapshot.batteryCaseResolution) }
+        bleBatteryCase?.let { return BatteryReading(it, (ble as HasCase).batteryCaseResolution) }
+        cached?.case?.let {
+            return BatteryReading(it.percent, if (it.fromAap) BATTERY_RESOLUTION_PERCENT else BATTERY_RESOLUTION_DECILE)
         }
-        cached?.case?.percent?.let { return BatteryReading(it, BATTERY_RESOLUTION_DECILE) }
         return null
     }
