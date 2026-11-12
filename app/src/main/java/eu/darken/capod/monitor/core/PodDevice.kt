@@ -58,6 +58,11 @@ data class PodDevice(
      * the live AAP state has no ListeningModeCycle setting (device never echoes 0x1A back).
      */
     internal val profileLastRequestedListeningModeCycleMask: Int? = null,
+    /**
+     * Last-known AdaptiveAudioNoise level persisted on the profile. Used as a fallback when
+     * the live AAP state has no AdaptiveAudioNoise setting (device never echoes 0x2E back).
+     */
+    internal val profileLearnedAdaptiveAudioNoiseLevel: Int? = null,
     /** Reaction toggle snapshot from the profile. Defaults to all-off when no profile is matched. */
     val reactions: ReactionConfig = ReactionConfig(),
     /** Whether the dashboard battery time-remaining estimate is enabled for this device (per-profile). */
@@ -363,6 +368,7 @@ data class PodDevice(
 
     val adaptiveAudioNoise: AapSetting.AdaptiveAudioNoise?
         get() = aap?.setting()
+            ?: profileLearnedAdaptiveAudioNoiseLevel?.let { AapSetting.AdaptiveAudioNoise(level = it) }
 
     val pressSpeed: AapSetting.PressSpeed?
         get() = aap?.setting()

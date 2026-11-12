@@ -31,10 +31,12 @@ class AapLearnedSettingsPersisterTest : BaseTest() {
     private fun stateWithSettings(
         allowOffEnabled: Boolean? = null,
         cycleMask: Int? = null,
+        adaptiveNoiseLevel: Int? = null,
     ): AapPodState {
         val settings = buildMap<kotlin.reflect.KClass<out AapSetting>, AapSetting> {
             allowOffEnabled?.let { put(AapSetting.AllowOffOption::class, AapSetting.AllowOffOption(it)) }
             cycleMask?.let { put(AapSetting.ListeningModeCycle::class, AapSetting.ListeningModeCycle(it)) }
+            adaptiveNoiseLevel?.let { put(AapSetting.AdaptiveAudioNoise::class, AapSetting.AdaptiveAudioNoise(it)) }
         }
         return AapPodState(settings = settings)
     }
@@ -96,6 +98,7 @@ class AapLearnedSettingsPersisterTest : BaseTest() {
         val profileWithStored = testProfile.copy(
             learnedAllowOffEnabled = true,
             lastRequestedListeningModeCycleMask = 0x0F,
+            learnedAdaptiveAudioNoiseLevel = 50,
         )
         val profilesRepo = mockk<DeviceProfilesRepo>(relaxUnitFun = true) {
             every { profiles } returns flowOf(listOf<eu.darken.capod.profiles.core.DeviceProfile>(profileWithStored))
@@ -104,10 +107,36 @@ class AapLearnedSettingsPersisterTest : BaseTest() {
 
         val job = launch { persister.monitor().collect {} }
 
-        allStates.value = mapOf(testAddress to stateWithSettings(allowOffEnabled = true, cycleMask = 0x0F))
+        allStates.value = mapOf(
+            testAddress to stateWithSettings(allowOffEnabled = true, cycleMask = 0x0F, adaptiveNoiseLevel = 50),
+        )
         advanceUntilIdle()
 
         coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `persists AdaptiveAudioNoise level to matching profile`() = runTest(UnconfinedTestDispatcher()) {
+        val allStates = MutableStateFlow<Map<String, AapPodState>>(emptyMap())
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { this@mockk.allStates } returns allStates
+        }
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxUnitFun = true) {
+            every { profiles } returns flowOf(listOf<eu.darken.capod.profiles.core.DeviceProfile>(testProfile))
+        }
+        val persister = AapLearnedSettingsPersister(aapManager, profilesRepo)
+
+        val job = launch { persister.monitor().collect {} }
+
+        allStates.value = mapOf(testAddress to stateWithSettings(adaptiveNoiseLevel = 75))
+        advanceUntilIdle()
+
+        val transform = slot<(AppleDeviceProfile) -> AppleDeviceProfile>()
+        coVerify { profilesRepo.updateAppleProfile(eq(testProfile.id), capture(transform)) }
+        val updated = transform.captured(testProfile)
+        assert(updated.learnedAdaptiveAudioNoiseLevel == 75) { "Expected learnedAdaptiveAudioNoiseLevel=75" }
 
         job.cancel()
     }
