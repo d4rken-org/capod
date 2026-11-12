@@ -10,6 +10,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.BATTERY_RESOLUTION_DECILE
 import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
@@ -25,6 +26,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
 import eu.darken.capod.profiles.core.ReactionConfig
 import java.time.Duration
 import java.time.Instant
+import kotlin.math.abs
 
 /**
  * Unified device facade combining BLE scan data and AAP connection data.
@@ -156,33 +158,44 @@ data class PodDevice(
         }
     }
 
-    // Battery — AAP preferred, BLE fallback, then cached. Returns BATTERY_UNKNOWN (-1f)
-    // for unknown to keep the type primitive; this is the boundary that previously emitted
-    // Float? and triggered Android 10 ART JIT crashes via R8-merged unbox call sites.
+    // Battery — AAP preferred, BLE fallback, then cached. A BLE value that disagrees with a recent
+    // cached AAP reading is skipped in favour of the cache, see [bleBatteryUnlessOutranked].
+    // Returns BATTERY_UNKNOWN (-1f) for unknown to keep the type primitive; this is the boundary
+    // that previously emitted Float? and triggered Android 10 ART JIT crashes via R8-merged unbox
+    // call sites.
     val batteryLeft: Float
-        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
-            ?: cached?.left?.percent ?: BATTERY_UNKNOWN
+        get() = aap?.batteryLeft ?: bleBatteryLeft ?: cached?.left?.percent ?: BATTERY_UNKNOWN
 
     val batteryRight: Float
-        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
-            ?: cached?.right?.percent ?: BATTERY_UNKNOWN
+        get() = aap?.batteryRight ?: bleBatteryRight ?: cached?.right?.percent ?: BATTERY_UNKNOWN
 
     val batteryCase: Float
-        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
-            ?: cached?.case?.percent ?: BATTERY_UNKNOWN
+        get() = aap?.batteryCase ?: bleBatteryCase ?: cached?.case?.percent ?: BATTERY_UNKNOWN
 
     val batteryHeadset: Float
-        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
-            ?: cached?.headset?.percent ?: BATTERY_UNKNOWN
+        get() = aap?.batteryHeadset ?: bleBatteryHeadset ?: cached?.headset?.percent ?: BATTERY_UNKNOWN
+
+    // BLE battery per slot, null when absent or outranked by a recent disagreeing AAP reading.
+    internal val bleBatteryLeft: Float?
+        get() = bleBatteryUnlessOutranked((ble as? DualBlePodSnapshot)?.batteryLeftPodPercent, ble, cached?.left)
+
+    internal val bleBatteryRight: Float?
+        get() = bleBatteryUnlessOutranked((ble as? DualBlePodSnapshot)?.batteryRightPodPercent, ble, cached?.right)
+
+    internal val bleBatteryCase: Float?
+        get() = bleBatteryUnlessOutranked((ble as? HasCase)?.batteryCasePercent, ble, cached?.case)
+
+    internal val bleBatteryHeadset: Float?
+        get() = bleBatteryUnlessOutranked((ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent, ble, cached?.headset)
 
     /** True when at least one displayed battery value was filled from cache (not live). */
     val isBatteryCached: Boolean
         get() {
             if (cached == null) return false
-            val usedLeft = aap?.batteryLeft == null && (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent == null && cached.left != null
-            val usedRight = aap?.batteryRight == null && (ble as? DualBlePodSnapshot)?.batteryRightPodPercent == null && cached.right != null
-            val usedCase = aap?.batteryCase == null && (ble as? HasCase)?.batteryCasePercent == null && cached.case != null
-            val usedHeadset = aap?.batteryHeadset == null && (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent == null && cached.headset != null
+            val usedLeft = aap?.batteryLeft == null && bleBatteryLeft == null && cached.left != null
+            val usedRight = aap?.batteryRight == null && bleBatteryRight == null && cached.right != null
+            val usedCase = aap?.batteryCase == null && bleBatteryCase == null && cached.case != null
+            val usedHeadset = aap?.batteryHeadset == null && bleBatteryHeadset == null && cached.headset != null
             return usedLeft || usedRight || usedCase || usedHeadset
         }
 
@@ -191,10 +204,10 @@ data class PodDevice(
         get() {
             if (cached == null) return null
             return listOfNotNull(
-                cached.left?.updatedAt.takeIf { aap?.batteryLeft == null && (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent == null },
-                cached.right?.updatedAt.takeIf { aap?.batteryRight == null && (ble as? DualBlePodSnapshot)?.batteryRightPodPercent == null },
-                cached.case?.updatedAt.takeIf { aap?.batteryCase == null && (ble as? HasCase)?.batteryCasePercent == null },
-                cached.headset?.updatedAt.takeIf { aap?.batteryHeadset == null && (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent == null },
+                cached.left?.updatedAt.takeIf { aap?.batteryLeft == null && bleBatteryLeft == null },
+                cached.right?.updatedAt.takeIf { aap?.batteryRight == null && bleBatteryRight == null },
+                cached.case?.updatedAt.takeIf { aap?.batteryCase == null && bleBatteryCase == null },
+                cached.headset?.updatedAt.takeIf { aap?.batteryHeadset == null && bleBatteryHeadset == null },
             ).minOrNull()
         }
 
@@ -439,3 +452,23 @@ data class ConnectionState(
     val isAapConnected: Boolean,
     val rssiQuality: Float,
 )
+
+/** How long a cached AAP battery reading outranks a disagreeing BLE one, see [bleBatteryUnlessOutranked]. */
+val AAP_BATTERY_PRECEDENCE_WINDOW: Duration = Duration.ofMinutes(30)
+
+/**
+ * Returns [blePercent] unless [slot] holds an AAP reading from within [AAP_BATTERY_PRECEDENCE_WINDOW]
+ * of [ble]'s last sighting that disagrees by more than one BLE decile step — then null, so callers fall through
+ * to that cached AAP value. Some pods broadcast a frozen BLE advert for many minutes (seen: case stuck
+ * at 10% while AAP reported 95%), which is otherwise all a phone without the AAP session gets to see.
+ */
+internal fun bleBatteryUnlessOutranked(
+    blePercent: Float?,
+    ble: BlePodSnapshot?,
+    slot: CachedDeviceState.CachedBatterySlot?,
+): Float? {
+    if (blePercent == null || ble == null || slot == null || !slot.fromAap) return blePercent
+    if (Duration.between(slot.updatedAt, ble.seenLastAt).abs() > AAP_BATTERY_PRECEDENCE_WINDOW) return blePercent
+    val disagrees = abs(blePercent - slot.percent) > BATTERY_RESOLUTION_DECILE + 0.001f
+    return if (disagrees) null else blePercent
+}

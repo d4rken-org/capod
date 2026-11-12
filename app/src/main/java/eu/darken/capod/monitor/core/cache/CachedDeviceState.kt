@@ -56,5 +56,7 @@ data class CachedDeviceState(
         @SerialName("percent") val percent: Float,
         @Serializable(with = InstantEpochMillisSerializer::class)
         @SerialName("updatedAt") val updatedAt: Instant,
+        /** Whether [percent] came from an AAP session (1% steps) rather than a BLE advert (10% steps). */
+        @SerialName("fromAap") val fromAap: Boolean = false,
     )
 }

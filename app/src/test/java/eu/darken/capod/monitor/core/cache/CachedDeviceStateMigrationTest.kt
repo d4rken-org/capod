@@ -89,4 +89,20 @@ class CachedDeviceStateMigrationTest : BaseTest() {
         info.marketingVersion shouldBe "8888"
         info.name shouldBe ""
     }
+
+    @Test
+    fun `battery slot without fromAap key decodes as BLE-sourced`() {
+        val legacy = """
+            {
+                "profileId": "legacy-profile",
+                "model": "airpods.pro2",
+                "case": { "percent": 0.95, "updatedAt": 1767364074000 },
+                "lastSeenAt": 1767364074000
+            }
+        """.trimIndent()
+
+        val state = json.decodeFromString(CachedDeviceState.serializer(), legacy)
+        state.case?.percent shouldBe 0.95f
+        state.case?.fromAap shouldBe false
+    }
 }
