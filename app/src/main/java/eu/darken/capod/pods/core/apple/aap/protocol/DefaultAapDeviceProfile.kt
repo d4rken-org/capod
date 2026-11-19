@@ -99,6 +99,7 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetStemConfig -> buildSettingsMessage(AapControlId.RAW_GESTURES_CONFIG.value, command.claimedPressMask and 0x0F)
         is AapCommand.SetSleepDetection -> buildSettingsMessage(AapControlId.SLEEP_DETECTION.value, encodeAppleBool(command.enabled))
         is AapCommand.SetDynamicEndOfCharge -> buildSettingsMessage(AapControlId.DYNAMIC_END_OF_CHARGE.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetCustomEq -> buildCustomEqMessage(command.enabled, command.low, command.mid, command.high)
         is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
     }
 
@@ -204,6 +205,26 @@ class DefaultAapDeviceProfile(
                 status in ConversationAwarenessEvent.RESUME_STATUSES
             return AapSetting.ConversationalAwarenessState::class to
                 AapSetting.ConversationalAwarenessState(speaking, rawValue = status)
+        }
+
+        // Custom EQ (0x63) — payload is `05 00` length, sub-type `01`, state, then low/mid/high.
+        // The state byte is inverted relative to the Apple-bool convention: 1 = device default
+        // ("Recommended"), 2 = custom. Anything else returns null so an unrecognised shape falls
+        // through to unhandled-message logging instead of being coerced to a bool.
+        if (message.commandType == AapMessageType.CUSTOM_EQ.value) {
+            val p = message.payload
+            if (p.size < 7) return null
+            val enabled = when (p[3].toInt() and 0xFF) {
+                0x01 -> false
+                0x02 -> true
+                else -> return null
+            }
+            return AapSetting.CustomEq::class to AapSetting.CustomEq(
+                enabled = enabled,
+                low = (p[4].toInt() and 0xFF).coerceIn(0, 100),
+                mid = (p[5].toInt() and 0xFF).coerceIn(0, 100),
+                high = (p[6].toInt() and 0xFF).coerceIn(0, 100),
+            )
         }
 
         if (message.commandType != AapMessageType.CONTROL.value) return null
@@ -473,6 +494,25 @@ class DefaultAapDeviceProfile(
             0x00, 0x00,
         )
     }
+
+    /**
+     * Custom EQ write (message type 0x63): `05 00` payload length, sub-type `01`, then
+     * state + the three band values. All four fields travel together — the firmware has no
+     * per-band write.
+     *
+     * The state byte does **not** use the Apple-bool encoding: here `0x01` is off (device
+     * default tuning) and `0x02` is on, the inverse of [encodeAppleBool].
+     */
+    private fun buildCustomEqMessage(enabled: Boolean, low: Int, mid: Int, high: Int): ByteArray = byteArrayOf(
+        0x04, 0x00, 0x04, 0x00,
+        0x63, 0x00,
+        0x05, 0x00,
+        0x01,
+        if (enabled) 0x02 else 0x01,
+        low.coerceIn(0, 100).toByte(),
+        mid.coerceIn(0, 100).toByte(),
+        high.coerceIn(0, 100).toByte(),
+    )
 
     private fun decodeEndCallMuteMic(payload: ByteArray): Pair<KClass<out AapSetting>, AapSetting>? {
         if (payload.size < 4) return null

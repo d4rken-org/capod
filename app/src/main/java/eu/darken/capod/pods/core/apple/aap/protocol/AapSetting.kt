@@ -202,6 +202,20 @@ sealed class AapSetting {
             get() = sets.all { set -> set.all { it == 0f } }
     }
 
+    /**
+     * Three-band equalizer (message type 0x0063) from the iOS 26/27-era firmware.
+     *
+     * [low], [mid] and [high] are `0..100` with **50 = neutral** (no gain change).
+     * [enabled] `false` means the device runs its own default tuning ("Recommended").
+     * Range clamping and wire encoding live in the device profile.
+     */
+    data class CustomEq(
+        val enabled: Boolean,
+        val low: Int,
+        val mid: Int,
+        val high: Int,
+    ) : AapSetting()
+
     /** Per-pod placement reported by the device (command 0x06). */
     data class EarDetection(
         val primaryPod: PodPlacement,
